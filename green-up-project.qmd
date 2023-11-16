@@ -1,28 +1,251 @@
 ---
-title: "Green UP Project"
+title: "Green UP Project - Waste Data"
 author: "Nikola Kovačević"
 date: "15/11/2023"
 format: html
 editor: visual
 ---
 
-## Quarto
+## Short description of the project
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Studying available statistical data in Slovenia for companies producing specific waste types, as well as, companies responsible for the uptake of this waste.
 
-## Running Code
+## Structure
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+The structure of various years seems to be very different in some cases, so the first task would actually be to make sense of all of this and actually see [what's the difference in available data between the various years]{.underline}.\
 
-```{r}
-1 + 1
+In theory, there are datasets for each year: [generated waste]{.underline}, [collected waste]{.underline} and for [how waste is used]{.underline}. Moreover, in some datasets, this is actually broken down by companies.
+
+## Initial questions
+
+We would like to see:
+
+-   who are the companies that produce wood waste
+-   at what location (or municipality) the waste is produced
+-   who are the companies that collect and process this
+-   (potentially) see how actually the waste is processed and used
+
+We would like to filter by actual codes for the waste:
+
+-   03 01 ?? (anything that is in this category, except for 03 01 04\* )
+-   15 01 03 lesena embalaza
+-   15 01 01 papirna embalaza
+-   17 02 01 Les (construction waste)
+-   20 01 38 Les, ki ni naveden pod
+-   20 01 37 Les, ki vsebuje nevarne snovi
+
+```{r setup}
+library(tidyverse)
+library(gt)
+library(gtExtras)
+library(readxl)
+library(ggplot2)
 ```
 
-You can add options to executable code like this
+## Original Emitters
 
-```{r}
-#| echo: false
-2 * 2
+Contains only one sheet.
+
+Columns (translated to English):
+
+-   \[1\] "Year"
+
+-   \[2\] "Report"
+
+-   \[3\] "Statistical region of waste generation"
+
+-   \[4\] "Waste number"
+
+-   \[5\] "Waste name"
+
+-   \[6\] 'Total waste: generated and stored (in kilograms)'
+
+-   \[7\] "Waste in temporary storage on 1.1.2021 (in kilograms)"
+
+-   \[8\] "Waste generated in 2021 (in kilograms)"
+
+-   \[9\] "Waste in temporary storage on 31.12.2021 (in kilograms)"
+
+-   \[10\] "Waste treated by the original generator (in kilograms)"
+
+-   \[11\] "Waste delivered for further management to other persons in the Republic of Slovenia (in kilograms)"
+
+-   \[12\] "Waste sent for treatment to other EU Member States (in kilograms)"
+
+-   \[13\] "Waste sent for treatment to non-EU countries (in kilograms)"
+
+```{r original_emitters}
+
+# generated waste
+
+# Reminder: 
+# Data are based on the ODP-Settlement Reports submitted for 2021. 
+# The quantities of waste generated are not in all cases equal to the quantities of waste sent for further management (storage, collectors, waste treatment operators, export).
+
+# oe2021 original emitters
+# original emitters (ODP-sequestration) - poročil izvirnih povzročiteljev
+oe2021.file_path <- "C:/Users/kovac/Desktop/Green UP Project/green-up-project/2021 data/podatki LP ODP-nastajanje 2021.xlsx"
+
+oe2021 <- read_excel(oe2021.file_path, skip = 7)
+
+suffix <- " (v kilogramih)"
+
+add_suffix_to_columns <- function(df, columns_to_update, suffix) {
+  
+  # add suffix to the column
+  df <- rename_with(df, ~paste0(., suffix), columns_to_update)
+
+  return(df)
+}
+
+# removing unnecessary rows and updating columns names
+  
+oe2021 <- oe2021[-1, , drop = FALSE]
+
+oe2021 <- add_suffix_to_columns(oe2021, colnames(oe2021)[6:13], suffix)
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+## Collectors
+
+Contains 6 sheets (translated to English):
+
+-   Sheet 1: Pre-storage of waste, 2021
+
+    -   \[1\] "Year"\
+        \[2\] "Report"\
+        \[3\] "Statistical region"\
+        \[4\] "Waste number"\
+        \[5\] "Waste name"\
+        \[6\] "Waste grave candles (yes/no)" ?\
+        \[7\] "Pre-stored waste on 1.1.2021"\
+        \[8\] "Pre-stored waste on 31.12.2021"
+
+-   Sheet 2: Waste collected, 2021
+
+    -   \[1\] "Year"\
+        \[2\] "Report"\
+        \[3\] "Statistical region"\
+        \[4\] "Waste number"\
+        \[5\] "Waste name"\
+        \[6\] "Waste grave candles (yes/no)"\
+        \[7\] "Waste collected from original producers without record sheet (left behind) (kg)" \[8\] 'Waste collected from original producers with a record sheet (discarded) (kg)'\
+        \[9\] "Waste collected from other holders by collectors in the RS (kg)"\
+        \[10\] "Waste collected from other holders from treatment operators in RS (kg)"
+
+-   Sheet 3: Municipal waste collected by source of generation, 2021
+
+    -   \[1\] "Year"\
+        \[2\] "Report"\
+        \[3\] "Waste number"\
+        \[4\] "Waste name"\
+        \[5\] "Waste grave candles (yes/no)"\
+        \[6\] "Total municipal waste collected"\
+        \[7\] "Municipal waste collected by source from households (kg)"\
+        \[8\] 'Municipal waste collected by source of generation from activities (kg)'
+
+-   Sheet 4: Municipal waste collected by municipality of origin, 2021
+
+    -   \[1\] "Year"\
+        \[2\] "Report"\
+        \[3\] "Waste number"\
+        \[4\] "Waste name"\
+        \[5\] "Waste grave candles (yes/no)"\
+        \[6\] "Municipal waste by municipality of origin (kg)" \
+        \[7\] "Municipality code"\
+        \[8\] "Name of municipality"
+
+-   Sheet 5: Management of collected waste, 2021
+
+    -   \[1\] "Year"\
+        \[2\] "Report"\
+        \[3\] "Statistical region"\
+        \[4\] "Waste number"\
+        \[5\] "Waste name"\
+        \[6\] "Waste grave candles (yes/no)"\
+        \[7\] "Waste handed over to collectors in the RS (kg)"\
+        \[8\] "Waste delivered to treatment operators in the RS for further management (kg)" \[9\] "Waste sent for further management to other EU Member States (kg)" \
+        \[10\] "Waste sent for further management to non-EU countries (kg)"
+
+-   Sheet 6: Household composting, 2021
+
+    -   \[1\] "Year"\
+        \[2\] "Report"\
+        \[3\] "Municipality code"\
+        \[4\] "Name of municipality"\
+        \[5\] "Number of households per municipality"\
+        \[6\] "Number of households per municipality that home compost"
+
+```{r collectors}
+
+# collected waste
+# skipping header files, fixing column names and removing initial empty rows
+
+# collectors' annual reports (ODP-collection) - poročil zbiralcev odpadkov
+# c2021 - collectors'
+c2021.file_path <- "C:/Users/kovac/Desktop/Green UP Project/green-up-project/2021 data/podatki LP ODP-zbiranje 2021.xlsx"
+c2021.sheets_names <- excel_sheets(c2021.file_path)
+
+# c2021.pre_storage
+c2021.pre_storage <- read_excel(c2021.file_path, sheet = c2021.sheets_names[1], skip = 7)
+
+# c2021.waste_collected
+c2021.waste_collected <- read_excel(c2021.file_path, sheet = c2021.sheets_names[2], skip = 7)
+
+colnames(c2021.waste_collected)[7] <- "Zbrani odpadki, prevzeti od izvirnih povzročiteljev brez evidenčnega lista (prepuščeni) (v kg)"
+colnames(c2021.waste_collected)[8] <- "Zbrani odpadki, prevzeti od izvirnih povzročiteljev z evidenčnim listom (oddani) (v kg)"
+colnames(c2021.waste_collected)[9] <- "Zbrani odpadki prevzeti od drugih imetnikov od zbiralcev v RS (v kg)"
+colnames(c2021.waste_collected)[10] <- "Zbrani odpadki prevzeti od drugih imetnikov od izvajalcev obdelave v RS (v kg)"
+colnames(c2021.waste_collected)
+
+c2021.waste_collected <- c2021.waste_collected[-c(1:2), , drop = FALSE]
+
+# c2021.source_of_generation
+c2021.source_of_generation <- read_excel(c2021.file_path, sheet = c2021.sheets_names[3], skip = 7)
+
+colnames(c2021.source_of_generation)[7] <- "Zbrani komunalni odpadki glede na vir nastanka iz gospodinjstev (v kg)"
+colnames(c2021.source_of_generation)[8] <- "Zbrani komunalni odpadki glede na vir nastanka iz dejavnosti (v kg)"
+
+c2021.source_of_generation <- c2021.source_of_generation[-c(1:2), , drop = FALSE]
+
+# c2021.municipality_of_origin
+c2021.municipality_of_origin <- read_excel(c2021.file_path, sheet = c2021.sheets_names[4], skip = 7)
+ 
+colnames(c2021.municipality_of_origin)[6] <- "Komunalni odpadki po občini izvora (v kg)"
+
+c2021.municipality_of_origin <- c2021.municipality_of_origin[-1, , drop = FALSE]
+
+# c2021.management_collection
+c2021.management_collection <- read_excel(c2021.file_path, sheet = c2021.sheets_names[5], skip = 7)
+colnames(c2021.management_collection)[7] <- "Odpadki oddani v nadaljnje ravnanje zbiralcem v RS (v kg)"
+colnames(c2021.management_collection)[8] <- "Odpadki oddani v nadaljnje ravnanje izvajalcem obdelave v RS (v kg)"
+colnames(c2021.management_collection)[9] <- "Odpadki oddani v nadaljnje ravnanje v druge države članice EU (v kg)"
+colnames(c2021.management_collection)[10] <- "Odpadki oddani v nadaljnje ravnanje v države izvan EU (v kg)"
+
+c2021.management_collection <- c2021.management_collection[-c(1:2), , drop = FALSE]
+
+# c2021.composting
+c2021.composting <- read_excel(c2021.file_path, sheet = c2021.sheets_names[6], skip = 7)
+
+# c2021 <- c2021[-1, , drop = FALSE]
+
+# c2021 <- add_suffix_to_columns(c2021, colnames(c2021)[7:8], suffix)
+```
+
+## Waste Treatment Operators
+
+```{r waste_treatment_operators}
+
+# how waste is used
+
+# reports of waste treatment operators (ODP-Treatment) - poročil izvajalcev obdelave odpadkov
+# wto2021 - waste treatment operators
+wto2021.file_path <- "C:/Users/kovac/Desktop/Green UP Project/green-up-project/2021 data/podatki LP ODP-obdelava 2021.xlsx"
+
+# wto2021 <- read_excel(wto2021.file_path, skip = 7)
+
+
+# wto2021 <- wto2021[-1, , drop = FALSE]
+
+
+# wto2021 <- add_suffix_to_columns(wto2021, colnames(wto2021)[7:8], suffix)
+```
