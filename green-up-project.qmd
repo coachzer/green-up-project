@@ -42,6 +42,8 @@ library(readxl)
 library(ggplot2)
 ```
 
+# Year 2021
+
 ## Original Emitters
 
 Contains only one sheet.
@@ -150,7 +152,7 @@ Contains 6 sheets (translated to English):
         \[3\] "Waste number"\
         \[4\] "Waste name"\
         \[5\] "Waste grave candles (yes/no)"\
-        \[6\] "Municipal waste by municipality of origin (kg)" \
+        \[6\] "Municipal waste by municipality of origin (kg)"\
         \[7\] "Municipality code"\
         \[8\] "Name of municipality"
 
@@ -163,7 +165,7 @@ Contains 6 sheets (translated to English):
         \[5\] "Waste name"\
         \[6\] "Waste grave candles (yes/no)"\
         \[7\] "Waste handed over to collectors in the RS (kg)"\
-        \[8\] "Waste delivered to treatment operators in the RS for further management (kg)" \[9\] "Waste sent for further management to other EU Member States (kg)" \
+        \[8\] "Waste delivered to treatment operators in the RS for further management (kg)" \[9\] "Waste sent for further management to other EU Member States (kg)"\
         \[10\] "Waste sent for further management to non-EU countries (kg)"
 
 -   Sheet 6: Household composting, 2021
@@ -233,6 +235,28 @@ c2021.composting <- read_excel(c2021.file_path, sheet = c2021.sheets_names[6], s
 
 ## Waste Treatment Operators
 
+Contains 9 sheets (translated to English):
+
+-   Sheet 1: Waste storage
+
+-   Sheet 2: Waste received
+
+-   Sheet 3: Treatment of waste received
+
+-   Sheet 4: Management of waste from treatment operations and untreated waste
+
+-   Sheet 4a: Management of treatment products that are no longer waste
+
+-   Sheet 5: Municipal waste received for treatment, separated by municipality of origin
+
+-   Sheet 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
+
+-   Sheet 7: Landfill capacity and status (for inert, hazardous and non-hazardous waste, including municipal waste)
+
+-   Sheet 8: Landfill waste management
+
+-   Sheet 9: Municipal waste disposed by municipality of origin
+
 ```{r waste_treatment_operators}
 
 # how waste is used
@@ -241,7 +265,108 @@ c2021.composting <- read_excel(c2021.file_path, sheet = c2021.sheets_names[6], s
 # wto2021 - waste treatment operators
 wto2021.file_path <- "C:/Users/kovac/Desktop/Green UP Project/green-up-project/2021 data/podatki LP ODP-obdelava 2021.xlsx"
 
-# wto2021 <- read_excel(wto2021.file_path, skip = 7)
+wto2021.sheets_names <- excel_sheets(wto2021.file_path)
+
+# ----------------------
+wto2021.waste_storage <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[1], skip = 7)
+colnames(wto2021.waste_storage)[7] <- "Skladiščeni odpadki na dan 1.1.2021 (v kg)"
+colnames(wto2021.waste_storage)[8] <- "Skladiščeni odpadki na dan 31.12.2021 (v kg)"
+wto2021.waste_storage <- wto2021.waste_storage[-1, , drop = FALSE]
+
+# ----------------------
+wto2021.waste_received <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[2], skip = 7)
+new_column_names_waste_received <- c(
+  "Prevzeti odpadki, lastni odpadki (v kg)",
+  "Prevzeti odpadki, od drugih izvirnih povzročiteljev v RS (v kg)",
+  "Prevzeti odpadki, od zbiralcev odpadkov v RS (v kg)",
+  "Prevzeti odpadki, od izvajalcev obdelave v RS (v kg)",
+  "Prevzeti odpadki, iz drugih držav članic EU (v kg)",
+  "Prevzeti odpadki, iz držav izven EU (v kg)",
+  "Prevzeti odpadki, SKUPAJ (v kg)"
+)
+colnames(wto2021.waste_received)[7:13] <- new_column_names_waste_received
+wto2021.waste_received <- wto2021.waste_received[-c(1:2), , drop = FALSE]
+
+# ----------------------
+wto2021.treatment_waste_received <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[3], skip = 7)
+colnames(wto2021.treatment_waste_received)[7] <- "Odpadki, ki vstopajo v postopek obdelave (v kg)"
+wto2021.treatment_waste_received <- wto2021.treatment_waste_received[-1, , drop = FALSE]
+
+# ----------------------
+wto2021.mng_waste <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[4], skip = 7)
+new_column_names_mng_waste <- c(
+  "Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki številka",
+  "Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki naziv",
+  "Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki številka",
+  "Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki naziv",
+  "Odpadne nagrobne sveče (da/ne)",  
+  "Odpadki, oddani v nadaljnje ravnanje zbiralcu odpadkov v SI (v kg)",
+  "Odpadki, oddani v nadaljnje ravnanje izvajalcu obdelave v SI (v kg)",
+  "Odpadki, oddani v nadaljnje ravnanje v druge države članice EU (v kg)",
+  "Odpadki, oddani v nadaljnje ravnanje v države izven EU (v kg)"
+)
+colnames(wto2021.mng_waste)[4:12] <- new_column_names_mng_waste
+wto2021.mng_waste <- wto2021.mng_waste[-c(1:2), , drop = FALSE]
+
+# ----------------------
+wto2021.mng_not_waste <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[5], skip = 7)
+new_column_names_mng_not_waste <- c(
+  "Leto",
+  "Poročilo",
+  "Odpadki na vhodu v obdelavo številka",
+  "Odpadki na vhodu v obdelavo naziv",
+  "Odpadne nagrobne sveče (da/ne)",  
+  "Predelana snov ali predmet, ki je izgubil status odpadka, na izhodu iz postopka obdelave",
+  "Oddano v skladišče ali drugim osebam v RS (v kg)",
+  "Oddano v druge države članice EU (v kg)",
+  "Oddano v države izven EU (v kg)"
+)
+colnames(wto2021.mng_not_waste) <- new_column_names_mng_not_waste
+wto2021.mng_not_waste <- wto2021.mng_not_waste[-c(1:2), , drop = FALSE]
+
+# ----------------------
+wto2021.municipal_waste_treatment <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[6], skip = 7)
+colnames(wto2021.municipal_waste_treatment)[6] <- "Prevzeti odpadki glede na občino izvora (v kg)"
+wto2021.municipal_waste_treatment <- wto2021.municipal_waste_treatment[-1, , drop = FALSE]
+
+# ----------------------
+wto2021.mass_diff_input_product <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[7], skip = 7)
+colnames(wto2021.mass_diff_input_product)[3:4] <- c("Odpadek na vhodu v postopek obdelave številka", "Odpadek na vhodu v postopek obdelave naziv") 
+colnames(wto2021.mass_diff_input_product)[6] <- "Zmanjšanje ali povečanje mase med postopkom obdelave (v kg)"
+wto2021.mass_diff_input_product <- wto2021.mass_diff_input_product[-c(1:2), , drop = FALSE]
+
+# ----------------------
+wto2021.ladfill_cap_sts <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[8], skip = 7)
+colnames(wto2021.ladfill_cap_sts)[4:10] <- c(
+  "Zapolnjen volumen na odlagalnem polju na začetku leta (v m^3)",
+  "Zapolnjena površina na odlagalnem polju na začetku leta (v m^2)",
+  "Volumen proste kapacitete odlagalnega polja na koncu leta (v m^3)",
+  "Površina proste kapacitete odlagalnega polja na koncu leta (v m^2)",
+  "Celotna zmogljivost odlaganja (v t)",
+  "Preostala zmogljivost na dan 1.1. (v t)",
+  "Preostala zmogljivost na dan 31.12. (v t)"
+)
+wto2021.ladfill_cap_sts <- wto2021.ladfill_cap_sts[-1, , drop = FALSE]
+
+# ----------------------
+wto2021.ladfill_waste_mng <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[9], skip = 7)
+colnames(wto2021.ladfill_waste_mng)[5:13] <- c(
+  "Prevzeti odpadki, vsi odpadki (v kg)",
+  "Prevzeti odpadki, od tega odpadki brez ocene odpadka (v kg)",
+  "Ravnanje z odpadki na odlagališču, Odloženi odpadki (D1), skupaj (v kg)",
+  "Ravnanje z odpadki na odlagališču, Odloženi odpadki (D1), nevarni odpadki (v kg)",
+  "Ravnanje z odpadki na odlagališču, Odloženi odpadki (D1), nenevarni odpadki (v kg)",
+  "Ravnanje z odpadki na odlagališču, Odloženi odpadki (D1), inertni odpadki (v kg)",
+  "Ravnanje z odpadki na odlagališču, Odpadki za gradnjo objektov odlagališča (v kg)",
+  "Ravnanje z odpadki na odlagališču, Odpadki za prekrivanje odlagališča (v kg)",
+  "Ravnanje z odpadki na odlagališču, Zavrnjeni odpadki (v kg)"
+)
+wto2021.ladfill_waste_mng <- wto2021.ladfill_waste_mng[-c(1:3), , drop = FALSE]
+
+# ----------------------
+wto2021.waste_disposed_by_origin <- read_excel(wto2021.file_path, sheet = wto2021.sheets_names[10], skip = 7)
+colnames(wto2021.waste_disposed_by_origin)[5] <- "Odloženi odpadki glede na občino izvora (v kg)"
+wto2021.waste_disposed_by_origin <- wto2021.waste_disposed_by_origin[-1, , drop = FALSE]
 
 
 # wto2021 <- wto2021[-1, , drop = FALSE]
