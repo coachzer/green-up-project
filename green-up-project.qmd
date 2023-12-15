@@ -22,6 +22,7 @@ library(gt)
 library(gtExtras)
 library(readxl)
 library(ggplot2)
+library(purrr)
 ```
 
 # Year 2021
@@ -56,25 +57,41 @@ Columns (translated to English):
 
 # oe2021 original emitters
 # original emitters (ODP-sequestration) - poročil izvirnih povzročiteljev
+
 oe2021.file_path <- "2021 data\\podatki LP ODP-nastajanje 2021.xlsx"
 
-oe2021 <- read_excel(oe2021.file_path, skip = 7)
+header <- read_excel(oe2021.file_path, skip = 7, sheet = 1, col_names = F, n_max = 2)
 
-suffix <- " (v kilogramih)"
+oe2021 <- read_excel(oe2021.file_path, skip = 9, sheet = 1, col_names = F)
 
-add_suffix_to_columns <- function(df, columns_to_update, suffix) {
-  
-  # add suffix to the column
-  df <- rename_with(df, ~paste0(., suffix), columns_to_update)
+# Combine the two header rows into one
+header_row <- header[1, ] # This holds the first part of the header
+sub_header_row <- header[2, ] # This holds the second part of the header
 
-  return(df)
-}
+# Combine the two parts of the header
+new_header <- map2_chr(header_row, 
+                       sub_header_row, 
+                       ~if(!is.na(.y)) paste(.x, .y) else as.character(.x))
 
-# removing unnecessary rows and updating columns names
-  
-oe2021 <- oe2021[-1, , drop = FALSE]
+colnames(oe2021) <- new_header
 
-oe2021 <- add_suffix_to_columns(oe2021, colnames(oe2021)[6:13], suffix)
+
+
+# suffix <- " (v kilogramih)"
+# 
+# add_suffix_to_columns <- function(df, columns_to_update, suffix) {
+#   
+#   # add suffix to the column
+#   df <- rename_with(df, ~paste0(., suffix), columns_to_update)
+# 
+#   return(df)
+# }
+# 
+# # removing unnecessary rows and updating columns names
+#   
+# oe2021 <- oe2021[-1, , drop = FALSE]
+# 
+# oe2021 <- add_suffix_to_columns(oe2021, colnames(oe2021)[6:13], suffix)
 ```
 
 ## Collectors
@@ -460,12 +477,23 @@ We would like to filter by actual codes for the waste:
 -   20 01 38 Les, ki ni naveden pod (wood not specified under)
 -   20 01 37 Les, ki vsebuje nevarne snovi (wood containing hazardous substances)
 
+filtered \<-
+
 ```{r initial_questions}
 
-colnames(oe2021)
+# colnames(oe2021)
 
 filtered <- oe2021 |> 
-  filter(str_detect(`Številka odpadka`, "^03 01 [0-9]{2}$") | `Številka odpadka` %in% c("15 01 03", "15 01 01", "17 02 01", "20 01 38", "20 01 37"))
+  rename(waste_code = `Številka odpadka`) |> 
+  filter(waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE))
+
+filtered[is.na(filtered)] <- 0
   
 # max_value <- max(filtered_oe$`Odpadki skupaj: nastalo in skladiščeno (v kilogramih)`)
 
@@ -490,19 +518,180 @@ filtered <- oe2021 |>
 #   filter(`Številka odpadka` == "20 01 37")
 ```
 
-# Year 2021
-
 # Year 2020
+
+## Data from the 2020 annual reports of the original emitters
+
+```{r waste_generation}
+waste_generation_20.path <- "2020 data\\podatki LP ODP-nastajanje 2020.xlsx"
+
+header <- read_excel(waste_generation_20.path, skip = 7, sheet = 1, col_names = F, n_max = 2)
+
+waste_generation_20.sheet1 <- read_excel(waste_generation_20.path, skip = 9, sheet = 1, col_names = F)
+
+# Combine the two header rows into one
+header_row <- header[1, ] # This holds the first part of the header
+sub_header_row <- header[2, ] # This holds the second part of the header
+
+# Combine the two parts of the header
+new_header <- map2_chr(header_row, 
+                       sub_header_row, 
+                       ~ ifelse(!is.na(.y), paste(.x, .y), as.character(.x)))
+
+colnames(waste_generation_20.sheet1) <- new_header
+
+waste_generation_20.by_codes1 <- waste_generation_20.sheet1 |>
+  rename(waste_code = `Številka odpadka`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+
+waste_generation_20.by_codes1[is.na(waste_generation_20.by_codes1)] <- 0
+```
+
+## Data from 2020 waste collectors' annual reports
+
+```{r waste_collection}
+
+# Function to read and process a sheet
+process_sheet <- function(path, sheet_index, n_max = 2) {
+  # Read the header rows
+  header <- read_excel(path, skip = 7, sheet = sheet_index, col_names = FALSE, n_max = n_max)
+  
+  # Determine the number of header rows
+  num_header_rows <- nrow(header)
+  
+  # Check for valid number of header rows
+  if (num_header_rows == 2) {
+    
+    # Combine the header rows into one
+    combined_header <- map2_chr(header[1, ], 
+                                header[2, ],
+                                ~ ifelse(!is.na(.y), paste(.x, .y), as.character(.x)))
+    
+  } else if (num_header_rows == 3) {
+    
+    # Find indices where NA occurs
+    na_indices <- which(is.na(header[1, ]))
+    
+    # Iterate over each NA index and replace with the last non-NA value
+    for (i in na_indices) {
+      header[1, i] <- tail(header[1, 1:i][!is.na(header[1, 1:i])], 1)
+    }
+
+    combined_header <- map2_chr(header[1, ], 
+                                header[2, ], 
+                                ~ ifelse(!is.na(.y), paste(.x, .y), as.character(.x)))
+    
+    combined_header <- map2_chr(combined_header,
+                                header[3, ], 
+                                ~ ifelse(!is.na(.y), paste(.x, .y), as.character(.x)))
+    
+  
+  } else {
+    
+    stop("Unexpected number of header rows. Only 2 or 3 header rows are supported.")
+    
+  }
+  
+  # Read the sheet data
+  sheet_data <- read_excel(path, skip = 7 + num_header_rows, sheet = sheet_index, col_names = FALSE)
+  
+  # Set the new column names
+  colnames(sheet_data) <- combined_header
+  
+  return(sheet_data)
+}
+
+# Specify the path to the Excel file
+waste_collection_20.path <- "2020 data\\podatki LP ODP-obdelava 2020.xlsx"
+
+# Get the sheet names
+sheet_names <- excel_sheets(waste_collection_20.path)
+
+# Initialize a list to store processed sheets
+processed_sheets <- list()
+
+# Define the sheets where n_max should be 3 (replace with actual sheet indices)
+sheets_with_n_max_3 <- c(2, 4, 5, 9)
+
+# Loop through each sheet
+for (sheet_name in sheet_names) {
+  sheet_index <- match(sheet_name, sheet_names)
+  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
+  processed_sheet <- process_sheet(waste_collection_20.path, sheet_index, n_max)
+  processed_sheets[[sheet_name]] <- processed_sheet
+}
+
+filter_df_by_codes <- function(df) {
+  # Replace NA values with 0 in numeric columns
+  numeric_columns <- sapply(df, is.numeric)
+  df[, numeric_columns][is.na(df[, numeric_columns])] <- 0
+  
+  # Check if the column "Številka odpadka" exists
+  if ("Številka odpadka" %in% colnames(df)) {
+    df <- df |> 
+      rename(waste_code = `Številka odpadka`) |> 
+      filter(waste_code %in% 
+               c("15 01 03", "15 01 01", "17 02 01", "20 01 38", "20 01 37") |
+               grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+               !grepl("03 01 04", waste_code, perl = TRUE)
+      )
+  }
+  
+  return(df)
+}
+
+# Applying the function to each data frame in processed_sheets
+processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+processed_sheets[[1]]
+
+```
+
+## Data from annual reports of waste treatment operators
+
+```{r waste_recovery}
+
+# Specify the path to the Excel file
+waste_recovery_20.path <- "2020 data\\podatki LP ODP-zbiranje 2020.xlsx"
+
+# Get the sheet names
+sheet_names <- excel_sheets(waste_recovery_20.path)
+
+# Initialize a list to store processed sheets
+processed_sheets <- list()
+
+# Define the sheets where n_max should be 3 (replace with actual sheet indices)
+sheets_with_n_max_3 <- c(2, 3, 5)
+
+# Loop through each sheet
+for (sheet_name in sheet_names) {
+  sheet_index <- match(sheet_name, sheet_names)
+  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
+  processed_sheet <- process_sheet(waste_recovery_20.path, sheet_index, n_max)
+  processed_sheets[[sheet_name]] <- processed_sheet
+}
+
+# Applying the function to each data frame in processed_sheets
+processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+# processed_sheets[[1]]
+```
 
 # Year 2019
 
 ## Data from the 2019 annual reports of the original emitters
 
-```{r}
+```{r waste_generation}
 waste_generation_19.path <- "2019 data\\podatki LP ODP-nastajanje 2019.xlsx"
-```
 
-```{r}
 header <- read_excel(waste_generation_19.path, skip = 7, sheet = 1, col_names = F, n_max = 2)
 
 waste_generation_19.sheet1 <- read_excel(waste_generation_19.path, skip = 9, sheet = 1, col_names = F)
@@ -533,11 +722,9 @@ waste_generation_19.by_codes1 <- waste_generation_19.sheet1 |>
 
 ## Data from the 2019 annual reports on waste collection from manufacturing and service activities
 
-```{r}
+```{r waste_collection}
 waste_collection_19.path <- "2019 data\\ODP_Z_2019_objava_21122020.xlsx"
-```
 
-```{r}
 waste_collection_19.sheet1 <- read_excel(waste_collection_19.path, skip = 2, sheet = 1)
 
 waste_collection_19.by_codes1 <- waste_collection_19.sheet1 |>
@@ -558,7 +745,7 @@ waste_collection_19.by_codes1[is.na(waste_collection_19.by_codes1)] <- 0
 
 ## Data from the 2019 annual waste recovery/disposal reports
 
-```{r}
+```{r waste_recovery}
 waste_recovery_19.path <- "2019 data\\ODP_P_2019_objava_21122020.xlsx"
 ```
 
