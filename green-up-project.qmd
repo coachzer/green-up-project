@@ -651,8 +651,8 @@ waste_collection_18.by_codes3 <- waste_collection_18.by_codes3 |>
   group_by(`NAZIV IN NASLOV`, `ŠT. ODPADKA`) |> 
   summarise(Count = n())
 
-codes_occurrence <- waste_collection_18.by_codes3 %>%
-  group_by(`ŠT. ODPADKA`) %>%
+codes_occurrence <- waste_collection_18.by_codes3 |>
+  group_by(`ŠT. ODPADKA`) |>
   summarise(Count = n())
 
 codes_occurrence[1, 2]
@@ -729,8 +729,8 @@ waste_collection_18.by_codes5 |>
   labs(title = "MANAGEMENT WASTE STORAGE by Region", x = "Region", y = NULL) +
   theme_minimal()  # Adjust the theme as needed
 
-codes_occurrence.by_codes5 <- waste_collection_18.by_codes5 %>%
-  group_by(`ŠT. ODPADKA`) %>%
+codes_occurrence.by_codes5 <- waste_collection_18.by_codes5 |>
+  group_by(`ŠT. ODPADKA`) |>
   summarise(Count = n())
 
 codes_occurrence.by_codes5 |> 
@@ -740,4 +740,95 @@ codes_occurrence.by_codes5 |>
   coord_polar("y", start = 0) +  # Convert to a pie chart
   labs(title = "Number of Regions per Waste Type", fill = "Waste Type") +
   theme_void()  # Remove unnecessary elements
+```
+
+## Data from the 2018 annual waste recovery/disposal reports received
+
+```{r waste_recovery_disposal}
+waste_recovery_18.path <- "2018 data\\ODP_Z_2018_objava21122020.xlsx"
+```
+
+```{r waste_recovery_disposal_storage}
+waste_recovery_18.sheet1 <- read_excel(waste_recovery_18.path, skip = 2, sheet = 1)
+
+waste_recovery_18.by_codes1 <- waste_recovery_18.sheet1 |> 
+  filter(
+    `ŠT. ODPADKA` %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+```
+
+```{r waste_recovery/disposal_collected}
+waste_recovery_18.sheet2 <- read_excel(waste_recovery_18.path, skip = 2, sheet = 2)
+
+waste_recovery_18.by_codes2 <- waste_recovery_18.sheet2 |> 
+  filter(
+    `ŠT. ODPADKA` %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+```
+
+```{r treatment_of_waste}
+waste_recovery_18.sheet3 <- read_excel(waste_recovery_18.path, skip = 2, sheet = 3)
+
+waste_recovery_18.by_codes3 <- waste_recovery_18.sheet3 |> 
+  filter(
+    `ŠT. ODPADKA` %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+```
+
+```{r waste_generated}
+# WASTE GENERATED IN THE TREATMENT PROCESS AND 
+# UNTREATED WASTE DELIVERED TO OTHERS IN 2018
+waste_recovery_18.sheet4 <- read_excel(waste_recovery_18.path, skip = 2, sheet = 4)
+
+waste_recovery_18.by_codes4 <- waste_recovery_18.sheet4 |> 
+  filter(
+    `ŠT. ODPADKA` %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+```
+
+```{r municipal_waste_received}
+# MUNICIPAL WASTE RECEIVED FOR TREATMENT, 
+# SEPARATED BY MUNICIPALITY OF ORIGIN IN 2018
+```
+
+```{r difference_waste_input_treatment_process}
+# MASS DIFFERENCE BETWEEN WASTE INPUT AND 
+# TREATMENT PRODUCT VOLUMES DUE TO LOSSES 
+# DURING THE TREATMENT PROCESS IN 2018
+```
+
+```{r landfill_capacity}
+# LANDFILL CAPACITY AND STATUS IN 2018
+```
+
+```{r landfill_quantities_management}
+# TOTAL QUANTITIES AND MANAGEMENT OF WASTE IN LANDFILL IN 2018
+```
+
+```{r municipal_waste_disposed}
+# MUNICIPAL WASTE DISPOSED BY MUNICIPALITY IN 2018
 ```
