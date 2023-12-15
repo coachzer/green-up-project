@@ -490,6 +490,230 @@ filtered <- oe2021 |>
 #   filter(`Številka odpadka` == "20 01 37")
 ```
 
+# Year 2021
+
+# Year 2020
+
+# Year 2019
+
+## Data from the 2019 annual reports of the original emitters
+
+```{r}
+waste_generation_19.path <- "2019 data\\podatki LP ODP-nastajanje 2019.xlsx"
+```
+
+```{r}
+header <- read_excel(waste_generation_19.path, skip = 7, sheet = 1, col_names = F, n_max = 2)
+
+waste_generation_19.sheet1 <- read_excel(waste_generation_19.path, skip = 9, sheet = 1, col_names = F)
+
+# Combine the two header rows into one
+header_row <- header[1, ] # This holds the first part of the header
+sub_header_row <- header[2, ] # This holds the second part of the header
+
+# Combine the two parts of the header
+new_header <- map2_chr(header_row, 
+                       sub_header_row, 
+                       ~if(!is.na(.y)) paste(.x, .y) else as.character(.x))
+
+colnames(waste_generation_19.sheet1) <- new_header
+
+waste_generation_19.by_codes1 <- waste_generation_19.sheet1 |>
+  rename(waste_code = `Številka odpadka`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+```
+
+## Data from the 2019 annual reports on waste collection from manufacturing and service activities
+
+```{r}
+waste_collection_19.path <- "2019 data\\ODP_Z_2019_objava_21122020.xlsx"
+```
+
+```{r}
+waste_collection_19.sheet1 <- read_excel(waste_collection_19.path, skip = 2, sheet = 1)
+
+waste_collection_19.by_codes1 <- waste_collection_19.sheet1 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+
+# change all NA to zero
+waste_collection_19.by_codes1[is.na(waste_collection_19.by_codes1)] <- 0
+```
+
+## Data from the 2019 annual waste recovery/disposal reports
+
+```{r}
+waste_recovery_19.path <- "2019 data\\ODP_P_2019_objava_21122020.xlsx"
+```
+
+```{r waste_storage}
+# WASTE STORAGE IN 2019
+
+waste_recovery_19.sheet1 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 1)
+
+waste_recovery_19.by_codes1 <- waste_recovery_19.sheet1 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+
+# change all NA to zero
+waste_recovery_19.by_codes1[is.na(waste_recovery_19.by_codes1)] <- 0
+```
+
+```{r waste_collected}
+# WASTE COLLECTED IN 2019
+
+waste_recovery_19.sheet2 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 2)
+
+waste_recovery_19.by_codes2 <- waste_recovery_19.sheet2 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+
+# change all NA to zero
+waste_recovery_19.by_codes2[is.na(waste_recovery_19.by_codes2)] <- 0
+```
+
+```{r treatment_waste_received}
+# TREATMENT OF WASTE RECEIVED IN 2019
+
+waste_recovery_19.sheet3 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 3)
+
+waste_recovery_19.by_codes3 <- waste_recovery_19.sheet3 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+
+# change all NA to zero
+waste_recovery_19.by_codes3[is.na(waste_recovery_19.by_codes3)] <- 0
+```
+
+```{r treatment_process_waste}
+# WASTE GENERATED IN THE TREATMENT PROCESS AND 
+# UNTREATED WASTE DELIVERED TO OTHERS IN 2019
+
+waste_recovery_19.sheet4 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 4)
+
+waste_recovery_19.by_codes4 <- waste_recovery_19.sheet4 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+```
+
+```{r municipal_waste_treatment}
+# MUNICIPAL WASTE RECEIVED FOR TREATMENT, 
+# SEPARATED BY MUNICIPALITY OF ORIGIN IN 2019
+
+waste_recovery_19.sheet5 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 5)
+
+waste_recovery_19.by_codes5 <- waste_recovery_19.sheet5 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+```
+
+```{r difference_waste_input_treatment_process}
+# THE DIFFERENCE IN MASS BETWEEN THE WASTE INPUT AND 
+# THE TREATMENT PRODUCT VOLUMES DUE TO LOSSES DURING 
+# THE TREATMENT PROCESS IN 2019
+
+waste_recovery_19.sheet6 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 6)
+
+waste_recovery_19.by_codes6 <- waste_recovery_19.sheet6 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+```
+
+```{r landfill_capacity}
+# LANDFILL CAPACITY AND STATUS IN 2019
+waste_recovery_19.sheet7 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 7)
+
+# no codes to filter by
+```
+
+```{r waste_volumes_management_landfill}
+# TOTAL WASTE VOLUMES AND MANAGEMENT IN LANDFILL IN 2019
+waste_recovery_19.sheet8 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 8)
+
+waste_recovery_19.by_codes8 <- waste_recovery_19.sheet8 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+```
+
+```{r municipal_waste_disposed}
+# MUNICIPAL WASTE DISPOSED OF BY MUNICIPALITY IN 2019
+waste_recovery_19.sheet9 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 9)
+
+# no code to filter by for wood
+```
+
 # Year 2018
 
 ## Data from the 2018 annual reports received on waste generation in manufacturing and service activities
@@ -745,7 +969,7 @@ codes_occurrence.by_codes5 |>
 ## Data from the 2018 annual waste recovery/disposal reports received
 
 ```{r waste_recovery_disposal}
-waste_recovery_18.path <- "2018 data\\ODP_Z_2018_objava21122020.xlsx"
+waste_recovery_18.path <- "2018 data\\ODP_P_2018_objava21122020.xlsx"
 ```
 
 ```{r waste_recovery_disposal_storage}
@@ -813,22 +1037,73 @@ waste_recovery_18.by_codes4 <- waste_recovery_18.sheet4 |>
 ```{r municipal_waste_received}
 # MUNICIPAL WASTE RECEIVED FOR TREATMENT, 
 # SEPARATED BY MUNICIPALITY OF ORIGIN IN 2018
+waste_recovery_18.sheet5 <- read_excel(waste_recovery_18.path, skip = 2, sheet = 5)
+
+waste_recovery_18.by_codes5 <- waste_recovery_18.sheet5 |> 
+  filter(
+    `ŠT. ODPADKA` %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
 ```
 
 ```{r difference_waste_input_treatment_process}
 # MASS DIFFERENCE BETWEEN WASTE INPUT AND 
 # TREATMENT PRODUCT VOLUMES DUE TO LOSSES 
 # DURING THE TREATMENT PROCESS IN 2018
+
+waste_recovery_18.sheet6 <- read_excel(waste_recovery_18.path, skip = 2, sheet = 6)
+
+waste_recovery_18.by_codes6 <- waste_recovery_18.sheet6 |> 
+  filter(
+    `ŠT. ODPADKA` %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
 ```
 
 ```{r landfill_capacity}
 # LANDFILL CAPACITY AND STATUS IN 2018
+
+waste_recovery_18.sheet7 <- read_excel(waste_recovery_18.path, skip = 2, sheet = 7)
+
+# cannot filter by codes
+# should try by company names? 
 ```
 
 ```{r landfill_quantities_management}
 # TOTAL QUANTITIES AND MANAGEMENT OF WASTE IN LANDFILL IN 2018
+
+waste_recovery_18.sheet8 <- read_excel(waste_recovery_18.path, skip = 2, sheet = 8)
+
+waste_recovery_18.by_codes8 <- waste_recovery_18.sheet8 |> 
+  filter(
+    `ŠT. ODPADKA` %in% c("15 01 03", 
+                         "15 01 01", 
+                         "17 02 01", 
+                         "20 01 38", 
+                         "20 01 37")  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
 ```
 
 ```{r municipal_waste_disposed}
 # MUNICIPAL WASTE DISPOSED BY MUNICIPALITY IN 2018
+
+waste_recovery_18.sheet9 <- read_excel(waste_recovery_18.path, skip = 2, sheet = 9)
+
+# no code to filter by for wood
 ```
+
+# Year 2017
+
+# Year 2016
