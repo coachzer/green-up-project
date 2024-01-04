@@ -14,7 +14,7 @@ Studying available statistical data in Slovenia for companies producing specific
 
 The structure of various years seems to be very different in some cases, so the first task would actually be to make sense of all of this and actually see [what's the difference in available data between the various years]{.underline}.\
 
-In theory, there are datasets for each year: [generated waste]{.underline}, [collected waste]{.underline} and for [how waste is used]{.underline}. Moreover, in some datasets, this is actually broken down by companies.
+There are datasets for each year: [generated waste]{.underline}, [collected waste]{.underline} and for [how waste is used]{.underline}. Moreover, in some datasets, this is actually broken down by companies in other its by regions (of Slovenia).
 
 ## Setup
 
@@ -32,6 +32,51 @@ codes <- c("15 01 03", "15 01 01", "17 02 01", "20 01 38", "20 01 37")
 
 columns_to_rename <- c("Številka odpadka", "Odpadki na vhodu v obdelavo številka", "Odpadek na vhodu v postopek obdelave številka")
 
+# List of municipalities for each region
+POMURSKA <- c("APAČE", "BELTINCI", "CANKOVA", "ČRENŠOVCI", "DOBROVNIK", "DOBRONAK", "GORNJA RADGONA", "GORNJI PETROVCI", "GRAD", "HODOŠ","KOBILJE", "KRIŽEVCI", "KUZMA", "LENDAVA", "LJUTOMER", "MORAVSKE TOPLICE", "MURSKA SOBOTA", "ODRANCI", "PUCONCI", "RADENCI", "RAZKRIŽJE", "ROGAŠOVCI", "SVETI JURIJ OB ŠČAVNICI", "ŠALOVCI", "TIŠINA", "TURNIŠČE", "VELIKA POLANA", "VERŽEJ")
+
+PODRAVSKA  <- c(
+  "BENEDIKT", "CERKVENJAK", "CIRKULANE", "DESTRNIK", "DORNAVA", "DUPLEK", "GORIŠNICA", "HAJDINA", "HOČE - SLIVNICA",
+  "JURŠINCI", "KIDRIČEVO", "KUNGOTA", "LENART", "LOVRENC NA POHORJU", "MAJŠPERK", "MAKOLE", "MARIBOR", "MARKOVCI",
+  "MIKLAVŽ NA DRAVSKEM POLJU", "OPLOTNICA", "ORMOŽ", "PESNICA", "PODLEHNIK", "POLJČANE", "PTUJ", "RAČE - FRAM", "RUŠE",
+  "SELNICA OB DRAVI", "SLOVENSKA BISTRICA", "SREDIŠČE OB DRAVI", "STARŠE", "SVETA ANA", "SVETA TROJICA V SLOV. GORICAH",
+  "SVETI ANDRAŽ V SLOV. GORICAH", "SVETI JURIJ V SLOV. GORICAH", "SVETI TOMAŽ", "ŠENTILJ", "TRNOVSKA VAS", "VIDEM", "ZAVRČ", "ŽETALE"
+)
+
+KOROŠKA <- c(
+  "ČRNA NA KOROŠKEM", "DRAVOGRAD", "MEŽICA", "MISLINJA", "MUTA", "PODVELKA", "PREVALJE", "RADLJE OB DRAVI", "RAVNE NA KOROŠKEM",
+  "RIBNICA NA POHORJU", "SLOVENJ GRADEC", "VUZENICA"
+)
+
+SAVINJSKA <- c(
+  "BRASLOVČE", "CELJE", "DOBJE", "DOBRNA", "GORNJI GRAD", "KOZJE", "LAŠKO", "LJUBNO", "LUČE", "MOZIRJE", "NAZARJE",
+  "PODČETRTEK", "POLZELA", "PREBOLD", "REČICA OB SAVINJI", "ROGAŠKA SLATINA", "ROGATEC", "SLOVENSKE KONJICE", "SOLČAVA", "ŠENTJUR",
+  "ŠMARJE PRI JELŠAH", "ŠMARTNO OB PAKI", "ŠOŠTANJ", "ŠTORE", "TABOR", "VELENJE", "VITANJE", "VOJNIK", "VRANSKO", "ZREČE", "ŽALEC"
+)
+
+ZASAVSKA = c("HRASTNIK", "LITIJA", "TRBOVLJE", "ZAGORJE OB SAVI")
+
+POSAVSKA = c("BISTRICA OB SOTLI", "BREŽICE", "KOSTANJEVICA NA KRKI", "KRŠKO", "RADEČE", "SEVNICA")
+
+JUGOVZHODNA.SLOVENIJA <- c(
+  "ČRNOMELJ", "DOLENJSKE TOPLICE", "KOČEVJE", "KOSTEL", "LOŠKI POTOK", "METLIKA", "MIRNA", "MIRNA PEČ", "MOKRONOG - TREBELNO",
+  "NOVO MESTO", "OSILNICA", "RIBNICA", "SEMIČ", "SODRAŽICA", "STRAŽA", "ŠENTJERNEJ", "ŠENTRUPERT", "ŠKOCJAN", "ŠMARJEŠKE TOPLICE",
+  "TREBNJE", "ŽUŽEMBERK"
+)
+
+OSREDNJESLOVENSKA <- c(
+  "BOROVNICA", "BREZOVICA", "DOREPOLJE", "DOBROVA - POLHOV GRADEC", "DOL PRI LJUBLJANI", "DOMŽALE", "GROSUPLJE", "HORJUL",
+  "IG", "IVANČNA GORICA", "KAMNIK", "KOMENDA", "LJUBLJANA", "LOG - DRAGOMER", "LOGATEC", "LUKOVICA", "MEDVODE", "MENGEŠ",
+  "MORAVČE", "ŠKOFLJICA", "ŠMARTNO PRI LITIJI", "TRZIN", "VELIKE LAŠČE", "VODICE", "VRHNIKA"
+)
+
+GORENJSKA = c("BLED", "BOHINJ", "CERKLJE NA GORENJSKEM", "GORENJA VAS-POLJANE", "GORJE", "JESENICE", "JEZERSKO", "KRANJ", "KRANJSKA GORA", "NAKLO", "PREDDVOR", "RADOVLJICA", "ŠENČUR", "ŠKOFJA LOKA", "TRŽIČ", "ŽELEZNIKI", "ŽIRI", "ŽIROVNICA")
+
+PRIMORSKONOTRANJSKA = c("BLOKE", "CERKNICA", "ILIRSKA BISTRICA", "LOŠKA DOLINA", "PIVKA", "POSTOJNA")
+
+GORIŠKA = c("AJDOVŠČINA", "BOVEC", "BRDA", "CERKNO", "IDRIJA", "KANAL", "KOBARID", "MIREN–KOSTANJEVICA", "NOVA GORICA", "RENČE-VOGRSKO", "ŠEMPETER–VRTOJBA", "TOLMIN", "VIPAVA")
+
+OBALNOKRAŠKA = c("ANKARAN", "DIVAČA", "HRPELJE–KOZINA", "IZOLA", "KOMEN", "KOPER", "PIRAN", "SEŽANA")
 ```
 
 ## Functions
@@ -191,22 +236,22 @@ We would like to filter by actual codes for the waste:
 
 ### Update 18/12/2023
 
--   compare by years \
-    imporant info \
+-   compare by years\
+    imporant info\
     by company/region
 
 -   at least get some companies for the map
 
--   stick for 12 regions for now \
+-   stick for 12 regions for now\
     get a center point per region
 
--   one producer and handler \
-    try to connect the points between those two \
+-   one producer and handler\
+    try to connect the points between those two\
     where to ship, where to store
 
--   how much was recycled \
-    flow/material balance checks out in the end \
-    startyear - generated + stored = should equal to 0 \
+-   how much was recycled\
+    flow/material balance checks out in the end\
+    startyear - generated + stored = should equal to 0\
     see for regions to municipalities
 
 # Year 2022
@@ -299,50 +344,13 @@ for (sheet_name in sheet_names) {
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
-generation.22 <- processed_sheets[[1]]
+generation.21 <- processed_sheets[[1]]
 
-# oe2021.file_path <- "2021 data\\podatki LP ODP-nastajanje 2021.xlsx"
-# 
-# header <- read_excel(oe2021.file_path, skip = 7, sheet = 1, col_names = F, n_max = 2)
-# 
-# oe2021 <- read_excel(oe2021.file_path, skip = 9, sheet = 1, col_names = F)
+generation.21 <- generation.21 |> 
+  rename(region = `Statistična regija kraja nastanka odpadkov`)
 
-# # Combine the two header rows into one
-# header_row <- header[1, ] # This holds the first part of the header
-# sub_header_row <- header[2, ] # This holds the second part of the header
-# 
-# # Combine the two parts of the header
-# new_header <- map2_chr(header_row, 
-#                        sub_header_row, 
-#                        ~if(!is.na(.y)) paste(.x, .y) else as.character(.x))
-# 
-# colnames(oe2021) <- new_header
-# 
-# oe2021 <- oe2021 |>
-#   rename(waste_code = `Številka odpadka`) |> 
-#   filter(
-#     waste_code %in% c("15 01 03", "15 01 01", "17 02 01", "20 01 38", "20 01 37")  |
-#       grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
-#       !grepl("03 01 04", waste_code, perl = TRUE)
-#     )
+generation.21 |> filter(region == "GORENJSKA")
 
-
-
-# suffix <- " (v kilogramih)"
-# 
-# add_suffix_to_columns <- function(df, columns_to_update, suffix) {
-#   
-#   # add suffix to the column
-#   df <- rename_with(df, ~paste0(., suffix), columns_to_update)
-# 
-#   return(df)
-# }
-# 
-# # removing unnecessary rows and updating columns names
-#   
-# oe2021 <- oe2021[-1, , drop = FALSE]
-# 
-# oe2021 <- add_suffix_to_columns(oe2021, colnames(oe2021)[6:13], suffix)
 ```
 
 ## Collectors
@@ -403,7 +411,8 @@ Contains 6 sheets (translated to English):
         \[5\] "Waste name"\
         \[6\] "Waste grave candles (yes/no)"\
         \[7\] "Waste handed over to collectors in the RS (kg)"\
-        \[8\] "Waste delivered to treatment operators in the RS for further management (kg)" \[9\] "Waste sent for further management to other EU Member States (kg)"\
+        \[8\] "Waste delivered to treatment operators in the RS for further management (kg)" \
+        \[9\] "Waste sent for further management to other EU Member States (kg)"\
         \[10\] "Waste sent for further management to non-EU countries (kg)"
 
 -   Sheet 6: Household composting, 2021
@@ -444,8 +453,68 @@ for (sheet_name in sheet_names) {
   processed_sheets[[sheet_name]] <- processed_sheet
 }
 
-# Applying the function to each data frame in processed_sheets
+# Applying the function to each data frame in processed_sheets to filter by codes
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+find_municipality_with_most_waste <- function(region_municipalities, waste_df) {
+  # Filter data for the specified region
+  region_data <- waste_df[waste_df$`Naziv občine` %in% region_municipalities, ]
+
+  if (nrow(region_data) == 0) {
+    print("No data available for the specified region.")
+    return(NULL)
+  }
+
+  # Find the municipality with the most waste in the specified region
+  municipality_with_most_waste <- aggregate(`Komunalni odpadki po občini izvora kg` ~ `Naziv občine`, data = region_data, FUN = sum)
+  municipality_with_most_waste <- municipality_with_most_waste[which.max(municipality_with_most_waste$`Komunalni odpadki po občini izvora kg`), ]
+
+  # Print the result
+  print(municipality_with_most_waste)
+}
+
+list_of_waste_by_municipality <- function(region_municipalities, waste_df) {
+  # Filter data for the specified region
+  region_data <- waste_df[waste_df$`Naziv občine` %in% region_municipalities, ]
+
+  if (nrow(region_data) == 0) {
+    print("No data available for the specified region.")
+    return(NULL)
+  }
+  
+  # Calculate total waste for each municipality in the specified region
+  total_waste_by_municipality <- aggregate(`Komunalni odpadki po občini izvora kg` ~ `Naziv občine`, data = region_data, FUN = sum)
+  # Sort municipalities by waste amount in descending order
+  sorted_municipalities <- total_waste_by_municipality[order(-total_waste_by_municipality$`Komunalni odpadki po občini izvora kg`), ]
+
+  # Print the result
+  print(sorted_municipalities)
+}
+
+# Sheet 1: Pre-storage of waste, 2021
+processed_sheets[[1]]
+
+# Sheet 2: Waste collected, 2021
+processed_sheets[[2]]
+
+# Sheet 3: Municipal waste collected by source of generation, 2021
+processed_sheets[[3]]
+
+# Sheet 4: Municipal waste collected by municipality of origin, 2021
+wc_by_origin <- processed_sheets[[4]]
+
+# ------------------
+# can create center points per municipalities with this
+# use the one with the most waste
+list_of_waste_by_municipality(OBALNOKRAŠKA, wc_by_origin)
+find_municipality_with_most_waste(OBALNOKRAŠKA, wc_by_origin)
+# ------------------
+
+# Sheet 5: Management of collected waste, 2021
+processed_sheets[[5]]
+
+# Sheet 6: Household composting, 2021
+processed_sheets[[6]]
 ```
 
 ## Waste Treatment Operators
@@ -508,11 +577,12 @@ Contains 9 sheets (translated to English):
 
     -   \[1\] "Year"\
         \[2\] "Report"\
-        \[3\] "Waste at treatment input number"\
-        \[4\] "Waste incoming to treatment name"\
-        \[5\] "Waste grave candles (yes/no)"\
-        \[6\] 'Treated substance or article that has lost its status as waste at the exit of the treatment process' \[7\] 'Treated substance or article that has lost its status as waste at the exit of the treatment process \[7\] 'Delivered to warehouses or other persons in the RS (kg)'\
-        \[8\] "Shipped to other EU Member States (kg)"
+        \[3\] "Waste to incoming treatment number"\
+        \[4\] "Waste to incoming treatment name"\
+        \[5\] "Treated substance or object that has lost its waste status at the exit of the treatment operation"\
+        \[6\] "Delivered to storage or to other persons in the RS in kg"\
+        \[7\] "Shipped to other EU Member States in kg"\
+        \[8\] "Shipped to non-EU countries in kg"
 
 -   Sheet 5: Municipal waste received for treatment, separated by municipality of origin
 
@@ -541,7 +611,9 @@ Contains 9 sheets (translated to English):
         \[3\] "Landfill site"\
         \[4\] "Volume filled in the disposal field at the beginning of the year (in m\^3)"\
         \[5\] "Filled area on the disposal site at the beginning of the year (in m\^2)"\
-        \[6\] "Volume of free capacity of the disposal site at the end of the year (in m\^3)" \[7\] "Area of free capacity of the disposal site at the end of the year (in m\^2)" \[8\] "Total disposal capacity (t)"\
+        \[6\] "Volume of free capacity of the disposal site at the end of the year (in m\^3)" \
+        \[7\] "Area of free capacity of the disposal site at the end of the year (in m\^2)" \
+        \[8\] "Total disposal capacity (t)"\
         \[9\] "Remaining capacity on 1.1. (in t)"\
         \[10\] 'Remaining capacity on 31.12. (in t)'\
         \[11\] "Date of commencement of disposal"\
@@ -607,7 +679,35 @@ for (sheet_name in sheet_names) {
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
-obdelava_1.21 <- processed_sheets[[1]]
+# Sheet 1: Waste storage
+processed_sheets[[1]]
+
+# Sheet 2: Waste received
+processed_sheets[[2]]
+
+# Sheet 3: Treatment of waste received
+processed_sheets[[3]]
+
+# Sheet 4: Management of waste from treatment operations and untreated waste
+processed_sheets[[4]]
+
+# Sheet 4a: Management of treatment products that are no longer waste
+processed_sheets[[5]]
+
+# Sheet 5: Municipal waste received for treatment, separated by municipality of origin
+processed_sheets[[6]]
+
+# Sheet 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
+processed_sheets[[7]]
+
+# Sheet 7: Landfill capacity and status (for inert, hazardous and non-hazardous waste, including municipal waste)
+processed_sheets[[8]]
+
+# Sheet 8: Landfill waste management
+processed_sheets[[9]]
+
+# Sheet 9: Municipal waste disposed by municipality of origin
+processed_sheets[[10]]
 ```
 
 # Year 2020
@@ -674,7 +774,7 @@ storing.20 <- processed_sheets[[1]]
 
 ## Data from annual reports of waste treatment operators
 
-```{r waste_recovery}
+```{r waste_collection_2020}
 
 # Specify the path to the Excel file
 waste_recovery_20.path <- "2020 data\\podatki LP ODP-zbiranje 2020.xlsx"
@@ -698,6 +798,9 @@ for (sheet_name in sheet_names) {
 
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+list_of_waste_by_municipality(OBALNOKRAŠKA, processed_sheets[[4]])
+find_municipality_with_most_waste(OBALNOKRAŠKA, processed_sheets[[4]])
 
 treatment.20 <- processed_sheets[[1]]
 
@@ -737,7 +840,7 @@ processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 ## Data from the 2019 annual reports on waste collection from manufacturing and service activities
 
-```{r waste_collection}
+```{r waste_collection_2019}
 waste_collection_19.path <- "2019 data\\ODP_Z_2019_objava_21122020.xlsx"
 
 waste_collection_19.sheet1 <- read_excel(waste_collection_19.path, skip = 2, sheet = 1)
@@ -752,6 +855,9 @@ waste_collection_19.by_codes1 <- waste_collection_19.sheet1 |>
 
 # change all NA to zero
 waste_collection_19.by_codes1[is.na(waste_collection_19.by_codes1)] <- 0
+
+waste_collection_19.by_codes1 |> 
+  filter(`STATISTIČNA REGIJA` == "OBALNO-KRAŠKA") 
 ```
 
 ## Data from the 2019 annual waste recovery/disposal reports
@@ -890,6 +996,7 @@ waste_recovery_19.sheet9 <- read_excel(waste_recovery_19.path, skip = 2, sheet =
 
 ```{r waste_generation}
 waste_generation_18.path <- "2018 data\\ODP_2018_objava21122020.xlsx"
+region <- "ST. REGIJA                                           (1-POMURSKA,  2-PODRAVSKA,                                3-KOROŠKA,  4-SAVINJSKA,  5-ZASAVSKA,        6 -POSAVSKA,  7-JUGOVZHODNA SLOVENIJA,  8-OSREDNJESLOVENSKA, 9-GORENJSKA,      10-PRIMORSKO-NOTRANJSKA,  11-GORIŠKA,  12-OBALNO-KRAŠKA)"
 ```
 
 ```{r TABLE_1_WASTE_GENERATED}
@@ -902,7 +1009,7 @@ filtered_by_codes.sheet1 <- data18.sheet1 |>
   filter(`ŠT. ODPADKA` %in% codes  | grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) & !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE))
 
 filtered_by_codes.sheet1 <- filtered_by_codes.sheet1 |> 
-  rename(Region = `ST. REGIJA                                           (1-POMURSKA,  2-PODRAVSKA,                                3-KOROŠKA,  4-SAVINJSKA,  5-ZASAVSKA,        6 -POSAVSKA,  7-JUGOVZHODNA SLOVENIJA,  8-OSREDNJESLOVENSKA, 9-GORENJSKA,      10-PRIMORSKO-NOTRANJSKA,  11-GORIŠKA,  12-OBALNO-KRAŠKA)`)
+  rename(Region = region)
 
 # Create a bar chart
 filtered_by_codes.sheet1 |> 
