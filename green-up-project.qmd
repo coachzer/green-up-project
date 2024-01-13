@@ -164,6 +164,9 @@ process_sheet <- function(path, sheet_index, n_max = 2, skip = 7) {
   return(sheet_data)
 }
 
+# ------------------------------------------------------------
+
+# Function to filter bz waste codes
 filter_df_by_codes <- function(df) {
   # Replace NA values with 0 in numeric columns
   numeric_columns <- sapply(df, is.numeric)
@@ -217,6 +220,50 @@ filter_df_by_codes <- function(df) {
   # }
   
   return(df)
+}
+
+# ------------------------------------------------------------
+
+# Function to find municipality with most waste in a region
+find_municipality_with_most_waste <- function(region_municipalities, waste_df) {
+  # Filter data for the specified region
+  region_data <- waste_df[waste_df$`Naziv občine` %in% region_municipalities, ]
+
+  if (nrow(region_data) == 0) {
+    print("No data available for the specified region.")
+    return(NULL)
+  }
+
+  # `Komunalni odpadki po občini izvora kg`
+  # `Komunalni odpadki in odpadek 16 01 03 po občini izvora kg`
+  
+  # Find the municipality with the most waste in the specified region
+  municipality_with_most_waste <- aggregate(`waste_by_municipality` ~ `Naziv občine`, data = region_data, FUN = sum)
+  municipality_with_most_waste <- municipality_with_most_waste[which.max(municipality_with_most_waste$`waste_by_municipality`), ]
+
+  # Print the result
+  print(municipality_with_most_waste)
+}
+
+# ------------------------------------------------------------
+
+# Function to find the list of municipalities sorted by waste amount in a region
+list_of_waste_by_municipality <- function(region_municipalities, waste_df) {
+  # Filter data for the specified region
+  region_data <- waste_df[waste_df$`Naziv občine` %in% region_municipalities, ]
+
+  if (nrow(region_data) == 0) {
+    print("No data available for the specified region.")
+    return(NULL)
+  }
+  
+  # Calculate total waste for each municipality in the specified region
+  total_waste_by_municipality <- aggregate(`waste_by_municipality` ~ `Naziv občine`, data = region_data, FUN = sum)
+  # Sort municipalities by waste amount in descending order
+  sorted_municipalities <- total_waste_by_municipality[order(-total_waste_by_municipality$`waste_by_municipality`), ]
+
+  # Print the result
+  print(sorted_municipalities)
 }
 ```
 
@@ -356,6 +403,24 @@ collected.22 <- processed_sheets[[2]]
 collected_mun.22 <- processed_sheets[[3]]
 
 collected_org_mun.22 <- processed_sheets[[4]]
+
+collected_org_mun.22 <- collected_org_mun.22 |> 
+  rename(waste_by_municipality = `Komunalni odpadki in odpadek 16 01 03 po občini izvora kg`)
+
+find_municipality_with_most_waste(GORENJSKA, collected_org_mun.22)
+
+find_municipality_with_most_waste(GORENJSKA, collected_org_mun.22)
+find_municipality_with_most_waste(POMURSKA, collected_org_mun.22)
+find_municipality_with_most_waste(KOROŠKA, collected_org_mun.22)
+find_municipality_with_most_waste(OBALNOKRAŠKA, collected_org_mun.22)
+find_municipality_with_most_waste(SAVINJSKA, collected_org_mun.22)
+find_municipality_with_most_waste(JUGOVZHODNA.SLOVENIJA, collected_org_mun.22)
+find_municipality_with_most_waste(OSREDNJESLOVENSKA, collected_org_mun.22)
+find_municipality_with_most_waste(GORIŠKA, collected_org_mun.22)
+find_municipality_with_most_waste(PODRAVSKA, collected_org_mun.22)
+find_municipality_with_most_waste(POSAVSKA, collected_org_mun.22)
+find_municipality_with_most_waste(PRIMORSKONOTRANJSKA, collected_org_mun.22)
+find_municipality_with_most_waste(ZASAVSKA, collected_org_mun.22)
 
 management.22 <- processed_sheets[[5]]
 
@@ -604,41 +669,6 @@ for (sheet_name in sheet_names) {
 # Applying the function to each data frame in processed_sheets to filter by codes
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
-find_municipality_with_most_waste <- function(region_municipalities, waste_df) {
-  # Filter data for the specified region
-  region_data <- waste_df[waste_df$`Naziv občine` %in% region_municipalities, ]
-
-  if (nrow(region_data) == 0) {
-    print("No data available for the specified region.")
-    return(NULL)
-  }
-
-  # Find the municipality with the most waste in the specified region
-  municipality_with_most_waste <- aggregate(`Komunalni odpadki po občini izvora kg` ~ `Naziv občine`, data = region_data, FUN = sum)
-  municipality_with_most_waste <- municipality_with_most_waste[which.max(municipality_with_most_waste$`Komunalni odpadki po občini izvora kg`), ]
-
-  # Print the result
-  print(municipality_with_most_waste)
-}
-
-list_of_waste_by_municipality <- function(region_municipalities, waste_df) {
-  # Filter data for the specified region
-  region_data <- waste_df[waste_df$`Naziv občine` %in% region_municipalities, ]
-
-  if (nrow(region_data) == 0) {
-    print("No data available for the specified region.")
-    return(NULL)
-  }
-  
-  # Calculate total waste for each municipality in the specified region
-  total_waste_by_municipality <- aggregate(`Komunalni odpadki po občini izvora kg` ~ `Naziv občine`, data = region_data, FUN = sum)
-  # Sort municipalities by waste amount in descending order
-  sorted_municipalities <- total_waste_by_municipality[order(-total_waste_by_municipality$`Komunalni odpadki po občini izvora kg`), ]
-
-  # Print the result
-  print(sorted_municipalities)
-}
-
 # Sheet 1: Pre-storage of waste, 2021
 processed_sheets[[1]]
 
@@ -650,12 +680,31 @@ processed_sheets[[3]]
 
 # Sheet 4: Municipal waste collected by municipality of origin, 2021
 wc_by_origin <- processed_sheets[[4]]
+wc_by_origin <- wc_by_origin |> 
+  rename(waste_by_municipality = `Komunalni odpadki po občini izvora kg`)
 
 # ------------------
 # can create center points per municipalities with this
 # use the one with the most waste
-list_of_waste_by_municipality(OBALNOKRAŠKA, wc_by_origin)
+list_of_waste_by_municipality(GORENJSKA, wc_by_origin)
+find_municipality_with_most_waste(GORENJSKA, wc_by_origin)
+
+# go through all the regions (GORENJSKA, POMURKSA, etc.) and find municipality with most waste
+find_municipality_with_most_waste(GORENJSKA, wc_by_origin)
+find_municipality_with_most_waste(POMURSKA, wc_by_origin)
+find_municipality_with_most_waste(KOROŠKA, wc_by_origin)
 find_municipality_with_most_waste(OBALNOKRAŠKA, wc_by_origin)
+find_municipality_with_most_waste(SAVINJSKA, wc_by_origin)
+find_municipality_with_most_waste(JUGOVZHODNA.SLOVENIJA, wc_by_origin)
+find_municipality_with_most_waste(OSREDNJESLOVENSKA, wc_by_origin)
+find_municipality_with_most_waste(GORIŠKA, wc_by_origin)
+find_municipality_with_most_waste(PODRAVSKA, wc_by_origin)
+find_municipality_with_most_waste(POSAVSKA, wc_by_origin)
+find_municipality_with_most_waste(PRIMORSKONOTRANJSKA, wc_by_origin)
+find_municipality_with_most_waste(ZASAVSKA, wc_by_origin)
+
+
+
 # ------------------
 
 # Sheet 5: Management of collected waste, 2021
@@ -843,7 +892,26 @@ processed_sheets[[4]]
 processed_sheets[[5]]
 
 # Sheet 5: Municipal waste received for treatment, separated by municipality of origin
-processed_sheets[[6]]
+waste_treatment.21 <- processed_sheets[[6]]
+
+waste_treatment.21 <- waste_treatment.21 |> 
+  rename(waste_by_municipality = `Prevzeti odpadki glede na občino izvora (kg)`)
+
+# go through all the regions (GORENJSKA, POMURKSA, etc.) and find municipality with most waste
+find_municipality_with_most_waste(GORENJSKA, waste_treatment.21)
+find_municipality_with_most_waste(POMURSKA, waste_treatment.21)
+find_municipality_with_most_waste(KOROŠKA, waste_treatment.21)
+find_municipality_with_most_waste(OBALNOKRAŠKA, waste_treatment.21)
+find_municipality_with_most_waste(SAVINJSKA, waste_treatment.21)
+find_municipality_with_most_waste(JUGOVZHODNA.SLOVENIJA, waste_treatment.21)
+find_municipality_with_most_waste(OSREDNJESLOVENSKA, waste_treatment.21)
+find_municipality_with_most_waste(GORIŠKA, waste_treatment.21)
+find_municipality_with_most_waste(PODRAVSKA, waste_treatment.21)
+find_municipality_with_most_waste(POSAVSKA, waste_treatment.21)
+find_municipality_with_most_waste(PRIMORSKONOTRANJSKA, waste_treatment.21)
+find_municipality_with_most_waste(ZASAVSKA, waste_treatment.21)
+
+
 
 # Sheet 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
 processed_sheets[[7]]
@@ -949,6 +1017,22 @@ processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 list_of_waste_by_municipality(OBALNOKRAŠKA, processed_sheets[[4]])
 find_municipality_with_most_waste(OBALNOKRAŠKA, processed_sheets[[4]])
+
+processed_sheets[[4]] <- processed_sheets[[4]] |> 
+  rename(waste_by_municipality = `Komunalni odpadki po občini izvora kg`)
+
+find_municipality_with_most_waste(GORENJSKA, processed_sheets[[4]])
+find_municipality_with_most_waste(POMURSKA, processed_sheets[[4]])
+find_municipality_with_most_waste(KOROŠKA, processed_sheets[[4]])
+find_municipality_with_most_waste(OBALNOKRAŠKA, processed_sheets[[4]])
+find_municipality_with_most_waste(SAVINJSKA, processed_sheets[[4]])
+find_municipality_with_most_waste(JUGOVZHODNA.SLOVENIJA, processed_sheets[[4]])
+find_municipality_with_most_waste(OSREDNJESLOVENSKA, processed_sheets[[4]])
+find_municipality_with_most_waste(GORIŠKA, processed_sheets[[4]])
+find_municipality_with_most_waste(PODRAVSKA, processed_sheets[[4]])
+find_municipality_with_most_waste(POSAVSKA, processed_sheets[[4]])
+find_municipality_with_most_waste(PRIMORSKONOTRANJSKA, processed_sheets[[4]])
+find_municipality_with_most_waste(ZASAVSKA, processed_sheets[[4]])
 
 treatment.20 <- processed_sheets[[1]]
 
