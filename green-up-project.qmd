@@ -3,7 +3,7 @@ title: "Green UP Project - Waste Data"
 author: "Nikola Kovačević"
 date: "15/11/2023"
 format: html
-editor: visual
+editor: source
 ---
 
 ## Short description of the project
@@ -84,9 +84,9 @@ OBALNOKRAŠKA = c("ANKARAN", "DIVAČA", "HRPELJE–KOZINA", "IZOLA", "KOMEN", "K
 ```{r functions}
 
 # Function to read and process a sheet
-process_sheet <- function(path, sheet_index, n_max = 2) {
+process_sheet <- function(path, sheet_index, n_max = 2, skip = 7) {
   # Read the header rows
-  header <- read_excel(path, skip = 7, sheet = sheet_index, col_names = FALSE, n_max = n_max)
+  header <- read_excel(path, skip = skip, sheet = sheet_index, col_names = FALSE, n_max = n_max)
   
   # Determine the number of header rows
   num_header_rows <- nrow(header)
@@ -139,14 +139,24 @@ process_sheet <- function(path, sheet_index, n_max = 2) {
     combined_header <- map2_chr(combined_header,
                                 header[4, ], 
                                 ~ ifelse(!is.na(.y), paste(.x, .y), as.character(.x)))
-  }else {
-    
-    stop("Unexpected number of header rows. Only 2, 3 or 4 header rows are supported.")
+  } else {
+    # Read the sheet data
+  sheet_data <- read_excel(path, skip = 7 + num_header_rows, sheet = sheet_index, col_names = FALSE)
+  
+  # set column names without using combined_header
+  colnames(sheet_data) <- header[1, ]
+  
+  # Set the new column names
+  #colnames(sheet_data) <- combined_header
+  
+  return(sheet_data)
+    stop("Unexpected number of header rows. Only 1, 2, 3 or 4 header rows are supported.")
     
   }
   
   # Read the sheet data
   sheet_data <- read_excel(path, skip = 7 + num_header_rows, sheet = sheet_index, col_names = FALSE)
+  
   
   # Set the new column names
   colnames(sheet_data) <- combined_header
@@ -234,7 +244,7 @@ We would like to filter by actual codes for the waste:
 -   20 01 38 Les, ki ni naveden pod (wood not specified under)
 -   20 01 37 Les, ki vsebuje nevarne snovi (wood containing hazardous substances)
 
-### Update 18/12/2023
+## Update 18/12/2023
 
 -   compare by years\
     imporant info\
@@ -256,7 +266,7 @@ We would like to filter by actual codes for the waste:
 
 # Year 2022
 
-## Data from the 2022 annual reports of the original emitters
+## 2022 - Data from the annual reports of the original generators
 
 ```{r waste_generation}
 
@@ -285,11 +295,149 @@ for (sheet_name in sheet_names) {
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 generation.22 <- processed_sheets[[1]]
+
+# filter by region, region names should be in allcaps
+generation.22 <- generation.22 |> 
+  rename(region = `Statistična regija kraja nastanka odpadkov`)
+
+generation.22
+  
+# filter(region %in% c("GORENJSKA", "GORIŠKA", "JUGOVZHODNA SLOVENIJA", "KOROŠKA", "NOTRANJSKO-KRAŠKA", "OBALNO-KRAŠKA", "OSREDNJESLOVENSKA", "PODRAVSKA", "POMURSKA", "POSAVSKA", "PRIMORSKO-NOTRANJSKA", "SAVINJSKA", "ZASAVSKA"))
+```
+
+## 2022 - Data on waste collected and its subsequent management from waste collectors' reports
+
+```{r waste_collection}
+
+# Specify the path to the Excel file
+waste_collection_22.path <- "2022 data\\podatki LP ODP-zbiranje 2022.xlsx"
+
+# Get the sheet names
+sheet_names <- excel_sheets(waste_collection_22.path)
+
+# Initialize a list to store processed sheets
+processed_sheets <- list()
+
+# Define the sheets where n_max should be 3 (replace with actual sheet indices)
+# if needed
+sheets_with_n_max_3 <- c(2, 3, 5)
+
+# header is 8 in this case
+skip <- 8
+
+processed_sheets <- lapply(sheet_names, function(sheet_name) {
+  sheet_index <- match(sheet_name, sheet_names)
+  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
+  
+  if (sheet_index == 1) {
+    processed_sheet <- process_sheet(waste_collection_22.path, sheet_index, n_max, skip)
+  } else if (sheet_index == 6) {
+    processed_sheet <- process_sheet(waste_collection_22.path, sheet_index, 1)
+  } else {
+    processed_sheet <- process_sheet(waste_collection_22.path, sheet_index, n_max)
+  }
+
+  # for the first 5 sheets deselect the last column
+  # this is done to skip the candles on graves
+  processed_sheets[[sheet_name]] <- if (sheet_index <= 5) {
+    processed_sheet[, -ncol(processed_sheet)]
+  } else {
+    processed_sheet
+  }
+})
+
+# Applying the function to each data frame in processed_sheets
+processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+pre_collection.22 <- processed_sheets[[1]] |> select(-last_col())
+
+collected.22 <- processed_sheets[[2]]
+
+collected_mun.22 <- processed_sheets[[3]]
+
+collected_org_mun.22 <- processed_sheets[[4]]
+
+management.22 <- processed_sheets[[5]]
+
+composting.22 <- processed_sheets[[6]]
+
+waste_oils.22 <- processed_sheets[[7]]
+
+
+```
+
+## 2022 - Data from waste treatment operators' reports
+
+```{r waste_treatment}
+
+# Specify the path to the Excel file
+waste_treatment_22.path <- "2022 data\\podatki LP ODP-obdelava 2022.xlsx"
+
+# Get the sheet names
+sheet_names <- excel_sheets(waste_treatment_22.path)
+
+# Initialize a list to store processed sheets
+processed_sheets <- list()
+
+# Define the sheets where n_max should be 3 (replace with actual sheet indices)
+# if needed
+sheets_with_n_max_3 <- c(2, 4, 5, 7)
+
+sheets_with_n_max_4 <- 9
+
+processed_sheets <- lapply(sheet_names, function(sheet_name) {
+  sheet_index <- match(sheet_name, sheet_names)
+  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else if (sheet_index == sheets_with_n_max_4) 4 else 2
+  
+  processed_sheet <- process_sheet(waste_treatment_22.path, sheet_index, n_max)
+
+  processed_sheets[[sheet_name]] <- processed_sheet
+  
+})
+
+processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+# treatment in previous years, as of 1.1.2022
+treatment.22 <- processed_sheets[[1]]
+
+# Waste received,
+waste_received.22 <- processed_sheets[[2]]
+
+# Treatment of waste received
+waste_treated.22 <- processed_sheets[[3]]
+
+# Management of waste from the treatment process and untreated waste
+management.22 <- processed_sheets[[4]]
+
+# Management of treatment products that are no longer waste
+management_no_waste.22 <- processed_sheets[[5]]
+
+# Mechanical-biological treatment of mixed municipal waste, separated by municipality of origin
+mech_bio_treatment.22 <- processed_sheets[[6]]
+
+# Mass difference between waste input and treatment product volumes
+mass_difference.22 <- processed_sheets[[7]]
+
+# Landfill capacity and status
+landfill_capacity.22 <- processed_sheets[[8]]
+
+# Waste management in landfill
+landfill_management.22 <- processed_sheets[[9]]
+
+# Disposed waste resulting from municipal waste treatment (from mechanical-biological treatment of mixed municipal waste and from treatment operations of separated fractions of municipal waste), by municipality of origin
+disposed_waste.22 <- processed_sheets[[10]]
+
+# Production of compost or digestate
+compost_digestate.22 <- processed_sheets[[11]]
+
+# Production of compost or digestate, that are waste
+compost_digestate_waste.22 <- processed_sheets[[12]]
+
 ```
 
 # Year 2021
 
-## Original Emitters
+## 2021 - Original Generators
 
 Contains only one sheet.
 
@@ -353,7 +501,7 @@ generation.21 |> filter(region == "GORENJSKA")
 
 ```
 
-## Collectors
+## 2021 - Collectors
 
 Contains 6 sheets (translated to English):
 
@@ -411,7 +559,7 @@ Contains 6 sheets (translated to English):
         \[5\] "Waste name"\
         \[6\] "Waste grave candles (yes/no)"\
         \[7\] "Waste handed over to collectors in the RS (kg)"\
-        \[8\] "Waste delivered to treatment operators in the RS for further management (kg)" \
+        \[8\] "Waste delivered to treatment operators in the RS for further management (kg)"\
         \[9\] "Waste sent for further management to other EU Member States (kg)"\
         \[10\] "Waste sent for further management to non-EU countries (kg)"
 
@@ -517,7 +665,7 @@ processed_sheets[[5]]
 processed_sheets[[6]]
 ```
 
-## Waste Treatment Operators
+## 2021 - Waste Treatment Operators
 
 Contains 9 sheets (translated to English):
 
@@ -611,8 +759,8 @@ Contains 9 sheets (translated to English):
         \[3\] "Landfill site"\
         \[4\] "Volume filled in the disposal field at the beginning of the year (in m\^3)"\
         \[5\] "Filled area on the disposal site at the beginning of the year (in m\^2)"\
-        \[6\] "Volume of free capacity of the disposal site at the end of the year (in m\^3)" \
-        \[7\] "Area of free capacity of the disposal site at the end of the year (in m\^2)" \
+        \[6\] "Volume of free capacity of the disposal site at the end of the year (in m\^3)"\
+        \[7\] "Area of free capacity of the disposal site at the end of the year (in m\^2)"\
         \[8\] "Total disposal capacity (t)"\
         \[9\] "Remaining capacity on 1.1. (in t)"\
         \[10\] 'Remaining capacity on 31.12. (in t)'\
@@ -712,7 +860,7 @@ processed_sheets[[10]]
 
 # Year 2020
 
-## Data from the 2020 annual reports of the original emitters
+## 2020 - Data from the annual reports of the original emitters
 
 ```{r waste_generation}
 
@@ -741,7 +889,7 @@ for (sheet_name in sheet_names) {
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 ```
 
-## Data from 2020 waste collectors' annual reports
+## 2020 - Data from waste collectors' annual reports
 
 ```{r waste_collection}
 
@@ -772,7 +920,7 @@ storing.20 <- processed_sheets[[1]]
 
 ```
 
-## Data from annual reports of waste treatment operators
+## 2020 - Data from annual reports of waste treatment operators
 
 ```{r waste_collection_2020}
 
@@ -809,7 +957,7 @@ treatment.20 <- processed_sheets[[1]]
 
 # Year 2019
 
-## Data from the 2019 annual reports of the original emitters
+## 2019 - Data from the annual reports of the original emitters
 
 ```{r waste_generation}
 
@@ -838,7 +986,7 @@ for (sheet_name in sheet_names) {
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 ```
 
-## Data from the 2019 annual reports on waste collection from manufacturing and service activities
+## 2019 - Data from the annual reports on waste collection from manufacturing and service activities
 
 ```{r waste_collection_2019}
 waste_collection_19.path <- "2019 data\\ODP_Z_2019_objava_21122020.xlsx"
@@ -860,7 +1008,7 @@ waste_collection_19.by_codes1 |>
   filter(`STATISTIČNA REGIJA` == "OBALNO-KRAŠKA") 
 ```
 
-## Data from the 2019 annual waste recovery/disposal reports
+## 2019 - Data from the annual waste recovery/disposal reports
 
 ```{r waste_recovery}
 waste_recovery_19.path <- "2019 data\\ODP_P_2019_objava_21122020.xlsx"
@@ -1077,19 +1225,6 @@ filtered_by_codes.sheet2 |>
 
 ```{r waste_collection}
 waste_collection_18.path <- "2018 data\\ODP_Z_2018_objava21122020.xlsx"
-
-# c("1" = "POMURSKA", 
-#   "2" = "PODRAVSKA",
-#   "3" = "KOROŠKA", 
-#   "4" = "SAVINJSKA",
-#   "5" = "ZASAVSKA", 
-#   "6" = "POSAVSKA", 
-#   "7" = "JUGOVZHODNA",
-#   "8" = "OSREDNJESLOVENSKA",
-#   "9" = "GORENJSKA",
-#   "10" = "PRIMORSKO-NOTRANJSKA",
-#   "11" = "GORIŠKA", 
-#   "12" = "OBALNO-KRAŠKA")
 ```
 
 ```{r waste_storage}
