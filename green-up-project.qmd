@@ -25,6 +25,7 @@ library(gtExtras)
 library(readxl)
 library(ggplot2)
 library(purrr)
+library(openxlsx)
 
 codes <- c("15 01 03", "15 01 01", "17 02 01", "20 01 38", "20 01 37")
 
@@ -54,29 +55,56 @@ SAVINJSKA <- c(
   "ŠMARJE PRI JELŠAH", "ŠMARTNO OB PAKI", "ŠOŠTANJ", "ŠTORE", "TABOR", "VELENJE", "VITANJE", "VOJNIK", "VRANSKO", "ZREČE", "ŽALEC"
 )
 
-ZASAVSKA = c("HRASTNIK", "LITIJA", "TRBOVLJE", "ZAGORJE OB SAVI")
+ZASAVSKA <- c("HRASTNIK", "LITIJA", "TRBOVLJE", "ZAGORJE OB SAVI")
 
-POSAVSKA = c("BISTRICA OB SOTLI", "BREŽICE", "KOSTANJEVICA NA KRKI", "KRŠKO", "RADEČE", "SEVNICA")
+POSAVSKA <- c("BISTRICA OB SOTLI", "BREŽICE", "KOSTANJEVICA NA KRKI", "KRŠKO", "RADEČE", "SEVNICA")
 
 JUGOVZHODNA.SLOVENIJA <- c(
-  "ČRNOMELJ", "DOLENJSKE TOPLICE", "KOČEVJE", "KOSTEL", "LOŠKI POTOK", "METLIKA", "MIRNA", "MIRNA PEČ", "MOKRONOG - TREBELNO",
+  "ČRNOMELJ", "DOLENJSKE TOPLICE", "KOČEVJE", "KOSTEL", "LOŠKI POTOK", "METLIKA", "MIRNA", "MIRNA PEČ", "MOKRONOG-TREBELNO",
   "NOVO MESTO", "OSILNICA", "RIBNICA", "SEMIČ", "SODRAŽICA", "STRAŽA", "ŠENTJERNEJ", "ŠENTRUPERT", "ŠKOCJAN", "ŠMARJEŠKE TOPLICE",
   "TREBNJE", "ŽUŽEMBERK"
 )
 
 OSREDNJESLOVENSKA <- c(
-  "BOROVNICA", "BREZOVICA", "DOREPOLJE", "DOBROVA - POLHOV GRADEC", "DOL PRI LJUBLJANI", "DOMŽALE", "GROSUPLJE", "HORJUL",
+  "BOROVNICA", "BREZOVICA", "DOREPOLJE", "DOBROVA-POLHOV GRADEC", "DOL PRI LJUBLJANI", "DOMŽALE", "GROSUPLJE", "HORJUL",
   "IG", "IVANČNA GORICA", "KAMNIK", "KOMENDA", "LJUBLJANA", "LOG - DRAGOMER", "LOGATEC", "LUKOVICA", "MEDVODE", "MENGEŠ",
   "MORAVČE", "ŠKOFLJICA", "ŠMARTNO PRI LITIJI", "TRZIN", "VELIKE LAŠČE", "VODICE", "VRHNIKA"
 )
 
-GORENJSKA = c("BLED", "BOHINJ", "CERKLJE NA GORENJSKEM", "GORENJA VAS-POLJANE", "GORJE", "JESENICE", "JEZERSKO", "KRANJ", "KRANJSKA GORA", "NAKLO", "PREDDVOR", "RADOVLJICA", "ŠENČUR", "ŠKOFJA LOKA", "TRŽIČ", "ŽELEZNIKI", "ŽIRI", "ŽIROVNICA")
+GORENJSKA <- c("BLED", "BOHINJ", "CERKLJE NA GORENJSKEM", "GORENJA VAS-POLJANE", "GORJE", "JESENICE", "JEZERSKO", "KRANJ", "KRANJSKA GORA", "NAKLO", "PREDDVOR", "RADOVLJICA", "ŠENČUR", "ŠKOFJA LOKA", "TRŽIČ", "ŽELEZNIKI", "ŽIRI", "ŽIROVNICA")
 
-PRIMORSKONOTRANJSKA = c("BLOKE", "CERKNICA", "ILIRSKA BISTRICA", "LOŠKA DOLINA", "PIVKA", "POSTOJNA")
+PRIMORSKONOTRANJSKA <- c("BLOKE", "CERKNICA", "ILIRSKA BISTRICA", "LOŠKA DOLINA", "PIVKA", "POSTOJNA")
 
-GORIŠKA = c("AJDOVŠČINA", "BOVEC", "BRDA", "CERKNO", "IDRIJA", "KANAL", "KOBARID", "MIREN–KOSTANJEVICA", "NOVA GORICA", "RENČE-VOGRSKO", "ŠEMPETER–VRTOJBA", "TOLMIN", "VIPAVA")
+GORIŠKA <- c("AJDOVŠČINA", "BOVEC", "BRDA", "CERKNO", "IDRIJA", "KANAL", "KOBARID", "MIREN–KOSTANJEVICA", "NOVA GORICA", "RENČE-VOGRSKO", "ŠEMPETER–VRTOJBA", "TOLMIN", "VIPAVA")
 
-OBALNOKRAŠKA = c("ANKARAN", "DIVAČA", "HRPELJE–KOZINA", "IZOLA", "KOMEN", "KOPER", "PIRAN", "SEŽANA")
+OBALNOKRAŠKA <- c("ANKARAN", "DIVAČA", "HRPELJE–KOZINA", "IZOLA", "KOMEN", "KOPER", "PIRAN", "SEŽANA")
+
+NEOPREDELJENO <- "NEOPREDELJENO"
+
+# check if the 2022 directory exiss, if not create it
+if (!dir.exists("2022 data\\2022 filtered")) {
+  dir.create("2022 data\\2022 filtered")
+}
+
+# check if the 2021 directory exiss, if not create it
+if (!dir.exists("2021 data\\2021 filtered")) {
+  dir.create("2021 data\\2021 filtered")
+}
+
+# check if the 2020 directory exiss, if not create it
+if (!dir.exists("2020 data\\2020 filtered")) {
+  dir.create("2020 data\\2020 filtered")
+}
+
+# check if the 2019 directory exiss, if not create it
+if (!dir.exists("2019 data\\2019 filtered")) {
+  dir.create("2019 data\\2019 filtered")
+}
+
+# check if the 2018 directory exiss, if not create it
+if (!dir.exists("2018 data\\2018 filtered")) {
+  dir.create("2018 data\\2018 filtered")
+}
 ```
 
 ## Functions
@@ -291,7 +319,7 @@ We would like to filter by actual codes for the waste:
 -   20 01 38 Les, ki ni naveden pod (wood not specified under)
 -   20 01 37 Les, ki vsebuje nevarne snovi (wood containing hazardous substances)
 
-## Update 18/12/2023
+## Update 1 - 18/12/2023
 
 -   compare by years\
     imporant info\
@@ -310,6 +338,30 @@ We would like to filter by actual codes for the waste:
     flow/material balance checks out in the end\
     startyear - generated + stored = should equal to 0\
     see for regions to municipalities
+
+## Update 2 - 17/01/2024
+
+-   filtered csv/excels -\> summary
+
+
+## Update 3 - 23/02/2024
+
+- sum up sheets 
+- sum up per region
+- compare the regions in different sheets
+- see what is the difference in numbers, how big the discrepancy is
+
+### AnyLogic
+
+- rate of generation, colecting, processing
+- where to store, storage space, cost of storage per unit, revenue
+- how much is stored
+- waste streams
+- how much is recycled
+
+
+- take the regions, one point for collection and processing, determine this point
+- hover over the point, info to show: generated, collected, processed
 
 # Year 2022
 
@@ -347,7 +399,8 @@ generation.22 <- processed_sheets[[1]]
 generation.22 <- generation.22 |> 
   rename(region = `Statistična regija kraja nastanka odpadkov`)
 
-generation.22
+generation.22 |> 
+  filter(region == "GORENJSKA")
   
 # filter(region %in% c("GORENJSKA", "GORIŠKA", "JUGOVZHODNA SLOVENIJA", "KOROŠKA", "NOTRANJSKO-KRAŠKA", "OBALNO-KRAŠKA", "OSREDNJESLOVENSKA", "PODRAVSKA", "POMURSKA", "POSAVSKA", "PRIMORSKO-NOTRANJSKA", "SAVINJSKA", "ZASAVSKA"))
 ```
@@ -408,6 +461,7 @@ collected_org_mun.22 <- collected_org_mun.22 |>
   rename(waste_by_municipality = `Komunalni odpadki in odpadek 16 01 03 po občini izvora kg`)
 
 find_municipality_with_most_waste(GORENJSKA, collected_org_mun.22)
+list_of_waste_by_municipality(GORENJSKA, collected_org_mun.22)
 
 find_municipality_with_most_waste(GORENJSKA, collected_org_mun.22)
 find_municipality_with_most_waste(POMURSKA, collected_org_mun.22)
@@ -559,11 +613,45 @@ processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 generation.21 <- processed_sheets[[1]]
 
-generation.21 <- generation.21 |> 
-  rename(region = `Statistična regija kraja nastanka odpadkov`)
+# Original Slovenian column names and their English translations
+original_colnames <- colnames(generation.21)
+english_colnames <- c("Year", "Report", "Statistical Region of Waste Origin", 
+                      "Waste Code", "Name of Waste", "Total Waste: Generated and Stored",
+                      "Temporarily Stored Waste on 1.1.2021", "Waste Generated in 2021",
+                      "Temporarily Stored Waste on 31.12.2021",
+                      "Waste Treated by the Original Producer",
+                      "Waste Transferred for Further Treatment in the Republic of Slovenia",
+                      "Waste Sent for Treatment in Other EU Countries",
+                      "Waste Sent for Treatment Outside the EU")
 
-generation.21 |> filter(region == "GORENJSKA")
+# Rename the columns
+colnames(generation.21) <- english_colnames
 
+generation.21 |> filter(`Statistical Region of Waste Origin` == "GORENJSKA")
+
+# translate the Name of Waste column to english
+# possible cases are Les, ki ni naveden v 20 01 37
+# Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04
+# Odpadki, ki niso navedeni drugje
+# Papirna in kartonska embalaža ter embalaža iz lepenke
+# Lesena embalaža
+generation.21 <- generation.21 |> mutate(`Name of Waste` = case_when(
+  `Name of Waste` == "Les, ki ni naveden v 20 01 37" ~ "Wood, not specified in 20 01 37",
+  `Name of Waste` == "Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04" ~ "Sawdust, chips, cuttings, wood, particle board and veneer, not specified in 03 01 04",
+  `Name of Waste` == "Odpadki, ki niso navedeni drugje" ~ "Waste not specified elsewhere",
+  `Name of Waste` == "Papirna in kartonska embalaža ter embalaža iz lepenke" ~ "Paper and cardboard packaging and cardboard packaging",
+  `Name of Waste` == "Lesena embalaža" ~ "Wooden packaging",
+  `Name of Waste` == "Les" ~ "Wood",
+  `Name of Waste` == "Odpadna lubje in pluta" ~ "Waste bark and cork",
+))
+
+
+
+# create a csv
+write_excel_csv(generation.21, "2021 data\\2021 filtered\\generation_21.csv")
+
+# create a .xlsx
+write.xlsx(generation.21, "2021 data\\2021 filtered\\generation_21.xlsx")
 ```
 
 ## 2021 - Collectors
@@ -658,11 +746,17 @@ processed_sheets <- list()
 # if needed
 sheets_with_n_max_3 <- c(2, 3, 5)
 
+skip <- 7
+
 # Loop through each sheet
 for (sheet_name in sheet_names) {
   sheet_index <- match(sheet_name, sheet_names)
   n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
-  processed_sheet <- process_sheet(waste_collectors_21.path, sheet_index, n_max)
+  if (sheet_index == 6) {
+    processed_sheet <- process_sheet(waste_collectors_21.path, sheet_index, 1)
+  } else {
+    processed_sheet <- process_sheet(waste_collectors_21.path, sheet_index, n_max)
+  }
   processed_sheets[[sheet_name]] <- processed_sheet
 }
 
@@ -670,10 +764,43 @@ for (sheet_name in sheet_names) {
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 # Sheet 1: Pre-storage of waste, 2021
-processed_sheets[[1]]
+processed_sheets[[1]] 
+
+list_of_waste_pre_stored <- function(region, df) {
+  df |> 
+    filter(`Statistična regija` == region) |> 
+    select(7:8) |> 
+    summarise(across(everything(), sum, na.rm = TRUE)) |> 
+    pivot_longer(everything(), names_to = "waste_type", values_to = "waste_pre_stored") |> 
+    summarise(total_waste = sum(waste_pre_stored, na.rm = TRUE))
+}
+
+waste_pre_stored.gorenjska <- list_of_waste_pre_stored("GORENJSKA", processed_sheets[[1]])$total_waste
 
 # Sheet 2: Waste collected, 2021
-processed_sheets[[2]]
+processed_sheets[[2]] 
+
+# define a function for the previous code
+list_of_waste_collected <- function(region, df) {
+  df |> 
+    filter(`Statistična regija` == region) |> 
+    select(7:10) |> 
+    summarise(across(everything(), sum, na.rm = TRUE)) |> 
+    pivot_longer(everything(), names_to = "waste_type", values_to = "waste_collected") |> 
+    summarise(total_waste = sum(waste_collected, na.rm = TRUE))
+}
+
+waste_collected.gorenjska <- list_of_waste_collected("GORENJSKA", processed_sheets[[2]])$total_waste
+
+list_of_waste_collected("POMURSKA", processed_sheets[[2]])
+list_of_waste_collected("KOROŠKA", processed_sheets[[2]])
+list_of_waste_collected("OBALNO-KRAŠKA", processed_sheets[[2]])
+list_of_waste_collected("PODRAVSKA", processed_sheets[[2]])
+list_of_waste_collected("SAVINJSKA", processed_sheets[[2]])
+list_of_waste_collected("ZASAVSKA", processed_sheets[[2]])
+list_of_waste_collected("JUGOVZHODNA SLOVENIJA", processed_sheets[[2]])
+list_of_waste_collected("OSREDNJESLOVENSKA", processed_sheets[[2]])
+list_of_waste_collected("PRIMORSKO-NOTRANJSKA", processed_sheets[[2]])
 
 # Sheet 3: Municipal waste collected by source of generation, 2021
 processed_sheets[[3]]
@@ -687,6 +814,18 @@ wc_by_origin <- wc_by_origin |>
 # can create center points per municipalities with this
 # use the one with the most waste
 list_of_waste_by_municipality(GORENJSKA, wc_by_origin)
+
+# each municipality should have its own region assign to it via a new column
+
+# sum up the waste_by_municipality column
+municipal_waste_collected.gorenjska <- list_of_waste_by_municipality(GORENJSKA, wc_by_origin) |> 
+  select(waste_by_municipality) |>
+  summarise(total_waste = sum(waste_by_municipality, na.rm = TRUE))
+
+municipal_waste_collected.gorenjska <- municipal_waste_collected.gorenjska$total_waste
+
+# sum up per sheet
+
 find_municipality_with_most_waste(GORENJSKA, wc_by_origin)
 
 # go through all the regions (GORENJSKA, POMURKSA, etc.) and find municipality with most waste
@@ -703,15 +842,52 @@ find_municipality_with_most_waste(POSAVSKA, wc_by_origin)
 find_municipality_with_most_waste(PRIMORSKONOTRANJSKA, wc_by_origin)
 find_municipality_with_most_waste(ZASAVSKA, wc_by_origin)
 
-
-
-# ------------------
-
 # Sheet 5: Management of collected waste, 2021
-processed_sheets[[5]]
+processed_sheets[[5]] 
+
+list_of_waste_managed <- function(region, df) {
+  df |> 
+    filter(`Statistična regija` == region) |> 
+    select(7:10) |> 
+    summarise(across(everything(), sum, na.rm = TRUE)) |> 
+    pivot_longer(everything(), names_to = "waste_type", values_to = "waste_managed") |> 
+    summarise(total_waste = sum(waste_managed, na.rm = TRUE))
+}
+
+waste_managed.gorenjska <- list_of_waste_managed("GORENJSKA", processed_sheets[[5]])$total_waste
+
+# create a table with all sums per region, municipal_waste_collected, waste_managed, waste_collected, waste_pre_stored
+table <- tibble(
+  type = c("waste_pre_stored", "waste_collected", "waste_managed", "municipal_waste_collected"),
+  GORENJSKA = c(waste_pre_stored.gorenjska, waste_collected.gorenjska, waste_managed.gorenjska, municipal_waste_collected.gorenjska)
+)
+
+table
 
 # Sheet 6: Household composting, 2021
-processed_sheets[[6]]
+processed_sheets[[6]] 
+
+# household composting is based on municipalties, not regions
+# we need to filter by municipality name
+# check if the name of the municipality is stored in one of the regions
+processed_sheets[[6]] |> filter(`Naziv občine` %in% GORENJSKA)
+
+# configure sheet names
+sheet_names <- c(
+  "Waste storage",
+  "Waste received",
+  "Waste - source of generation",
+  "Waste - municipality of origin",
+  "Municipal waste management",
+  "Household composting"
+)
+
+# add the new names
+names(processed_sheets) <- sheet_names
+
+# export to .xlsx
+# write.xlsx(processed_sheets, "2021 data\\2021 filtered\\collection_21.xlsx")
+
 ```
 
 ## 2021 - Waste Treatment Operators
@@ -876,17 +1052,36 @@ for (sheet_name in sheet_names) {
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
+# define new sheet names
+new_sheet_names <- c(
+  "Waste storage", 
+  "Waste received", 
+  "Treatment of waste received", 
+  "Management of waste from treatment operations and untreated waste", 
+  "Management of treatment products that are no longer waste", 
+  "Municipal waste received for treatment, separated by municipality of origin", 
+  "Mass difference between waste input and treatment product volumes due to mass change during the treatment process", 
+  "Landfill capacity and status (for inert, hazardous and non-hazardous waste, including municipal waste)", 
+  "Landfill waste management", 
+  "Municipal waste disposed by municipality of origin")
+
+# add new sheeet names
+# names(processed_sheets) <- new_sheet_names
+
+# using openxlsx, export the list of sheets processed_sheets to one individual csv
+write.xlsx(processed_sheets, "2021 data\\2021 filtered\\treatment_21.xlsx")
+
 # Sheet 1: Waste storage
-processed_sheets[[1]]
+processed_sheets[[1]] |> filter(`Statistična regija` == "GORENJSKA")
 
 # Sheet 2: Waste received
-processed_sheets[[2]]
+processed_sheets[[2]] |> filter(`Statistična regija` == "GORENJSKA")
 
 # Sheet 3: Treatment of waste received
-processed_sheets[[3]]
+processed_sheets[[3]] |> filter(`Statistična regija` == "GORENJSKA")
 
 # Sheet 4: Management of waste from treatment operations and untreated waste
-processed_sheets[[4]]
+processed_sheets[[4]] |> filter(`Statistična regija` == "GORENJSKA")
 
 # Sheet 4a: Management of treatment products that are no longer waste
 processed_sheets[[5]]
@@ -1224,7 +1419,7 @@ waste_recovery_19.sheet9 <- read_excel(waste_recovery_19.path, skip = 2, sheet =
 
 # Year 2018
 
-## Data from the 2018 annual reports received on waste generation in manufacturing and service activities
+## 2018 - Data from the annual reports received on waste generation in manufacturing and service activities
 
 ```{r waste_generation}
 waste_generation_18.path <- "2018 data\\ODP_2018_objava21122020.xlsx"
@@ -1305,7 +1500,7 @@ filtered_by_codes.sheet2 |>
 # descriptive statisc for all
 ```
 
-## Data from the 2018 annual reports received on waste collection from manufacturing and service activities
+## 2018 - Data from the annual reports received on waste collection from manufacturing and service activities
 
 ```{r waste_collection}
 waste_collection_18.path <- "2018 data\\ODP_Z_2018_objava21122020.xlsx"
@@ -1442,7 +1637,7 @@ codes_occurrence.by_codes5 |>
   theme_void()  # Remove unnecessary elements
 ```
 
-## Data from the 2018 annual waste recovery/disposal reports received
+## 2018 - Data from the annual waste recovery/disposal reports received
 
 ```{r waste_recovery_disposal}
 waste_recovery_18.path <- "2018 data\\ODP_P_2018_objava21122020.xlsx"
