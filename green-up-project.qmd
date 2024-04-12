@@ -268,6 +268,9 @@ find_municipality_with_most_waste <- function(region_municipalities, waste_df) {
   # Find the municipality with the most waste in the specified region
   municipality_with_most_waste <- aggregate(`waste_by_municipality` ~ `Naziv občine`, data = region_data, FUN = sum)
   municipality_with_most_waste <- municipality_with_most_waste[which.max(municipality_with_most_waste$`waste_by_municipality`), ]
+  
+  # add a column with the region name, use the name of the variable
+  municipality_with_most_waste$region <- deparse(substitute(region_municipalities))
 
   # Print the result
   print(municipality_with_most_waste)
@@ -343,25 +346,28 @@ We would like to filter by actual codes for the waste:
 
 -   filtered csv/excels -\> summary
 
-
 ## Update 3 - 23/02/2024
 
-- sum up sheets 
-- sum up per region
-- compare the regions in different sheets
-- see what is the difference in numbers, how big the discrepancy is
+-   sum up sheets
+-   sum up per region
+-   compare the regions in different sheets
+-   see what is the difference in numbers, how big the discrepancy is
 
 ### AnyLogic
 
-- rate of generation, colecting, processing
-- where to store, storage space, cost of storage per unit, revenue
-- how much is stored
-- waste streams
-- how much is recycled
+-   rate of generation, colecting, processing
 
+-   where to store, storage space, cost of storage per unit, revenue
 
-- take the regions, one point for collection and processing, determine this point
-- hover over the point, info to show: generated, collected, processed
+-   how much is stored
+
+-   waste streams
+
+-   how much is recycled
+
+-   take the regions, one point for collection and processing, determine this point
+
+-   hover over the point, info to show: generated, collected, processed
 
 # Year 2022
 
@@ -775,8 +781,6 @@ list_of_waste_pre_stored <- function(region, df) {
     summarise(total_waste = sum(waste_pre_stored, na.rm = TRUE))
 }
 
-waste_pre_stored.gorenjska <- list_of_waste_pre_stored("GORENJSKA", processed_sheets[[1]])$total_waste
-
 # Sheet 2: Waste collected, 2021
 processed_sheets[[2]] 
 
@@ -789,8 +793,6 @@ list_of_waste_collected <- function(region, df) {
     pivot_longer(everything(), names_to = "waste_type", values_to = "waste_collected") |> 
     summarise(total_waste = sum(waste_collected, na.rm = TRUE))
 }
-
-waste_collected.gorenjska <- list_of_waste_collected("GORENJSKA", processed_sheets[[2]])$total_waste
 
 list_of_waste_collected("POMURSKA", processed_sheets[[2]])
 list_of_waste_collected("KOROŠKA", processed_sheets[[2]])
@@ -823,7 +825,6 @@ municipal_waste_collected.gorenjska <- list_of_waste_by_municipality(GORENJSKA, 
   summarise(total_waste = sum(waste_by_municipality, na.rm = TRUE))
 
 municipal_waste_collected.gorenjska <- municipal_waste_collected.gorenjska$total_waste
-
 # sum up per sheet
 
 find_municipality_with_most_waste(GORENJSKA, wc_by_origin)
@@ -854,6 +855,16 @@ list_of_waste_managed <- function(region, df) {
     summarise(total_waste = sum(waste_managed, na.rm = TRUE))
 }
 
+# define variables for the table
+waste_pre_stored.gorenjska <- list_of_waste_pre_stored("GORENJSKA", processed_sheets[[1]])$total_waste
+waste_collected.gorenjska <- list_of_waste_collected("GORENJSKA", processed_sheets[[2]])$total_waste
+
+municipal_waste_collected.gorenjska <- list_of_waste_by_municipality(GORENJSKA, wc_by_origin) |> 
+  select(waste_by_municipality) |>
+  summarise(total_waste = sum(waste_by_municipality, na.rm = TRUE))
+
+municipal_waste_collected.gorenjska <- municipal_waste_collected.gorenjska$total_waste
+
 waste_managed.gorenjska <- list_of_waste_managed("GORENJSKA", processed_sheets[[5]])$total_waste
 
 # create a table with all sums per region, municipal_waste_collected, waste_managed, waste_collected, waste_pre_stored
@@ -863,6 +874,42 @@ table <- tibble(
 )
 
 table
+
+# create a function to easily creates tables for other regions
+create_table <- function(region, municipality_region, df = processed_sheets) {
+  waste_pre_stored <- list_of_waste_pre_stored(region, df[[1]])$total_waste
+  waste_collected <- list_of_waste_collected(region, df[[2]])$total_waste
+  
+  collection_by_origin <- df[[4]] |> 
+    rename(waste_by_municipality = `Komunalni odpadki po občini izvora kg`)
+  
+  municipal_waste_collected <- list_of_waste_by_municipality(municipality_region, collection_by_origin) |> 
+    select(waste_by_municipality) |>
+    summarise(total_waste = sum(waste_by_municipality, na.rm = TRUE))
+  municipal_waste_collected <- municipal_waste_collected$total_waste
+  waste_managed <- list_of_waste_managed(region, df[[5]])$total_waste
+  
+  table <- tibble(
+    type = c("waste_pre_stored", "waste_collected", "waste_managed", "municipal_waste_collected"),
+    !!region := c(waste_pre_stored, waste_collected, waste_managed, municipal_waste_collected)
+  )
+  
+  return(table)
+}
+
+create_table("GORENJSKA", GORENJSKA, processed_sheets)
+create_table("POMURSKA", POMURSKA, processed_sheets)
+create_table("KOROŠKA", KOROŠKA, processed_sheets)
+create_table("OBALNO-KRAŠKA", OBALNOKRAŠKA, processed_sheets)
+create_table("SAVINJSKA", SAVINJSKA, processed_sheets)
+create_table("JUGOVZHODNA SLOVENIJA", JUGOVZHODNA.SLOVENIJA, processed_sheets)
+create_table("OSREDNJESLOVENSKA", OSREDNJESLOVENSKA, processed_sheets)
+create_table("GORIŠKA", GORIŠKA, processed_sheets)
+create_table("PODRAVSKA", PODRAVSKA, processed_sheets)
+create_table("POSAVSKA", POSAVSKA, processed_sheets)
+create_table("PRIMORSKO-NOTRANJSKA", PRIMORSKONOTRANJSKA, processed_sheets)
+create_table("ZASAVSKA", ZASAVSKA, processed_sheets)
+
 
 # Sheet 6: Household composting, 2021
 processed_sheets[[6]] 
