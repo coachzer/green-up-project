@@ -11,6 +11,19 @@ editor: visual
 library(simmer)
 library(simmer.plot)
 library(simmer.bricks)
+library(parallel)
+
+# Define regions with capacities
+regions <- data.frame(
+  name = c("Pomurska", "Podravska", "Koroška", "Savinjska", 
+           "Zasavska", "Posavska", "Jugovzhodna Slovenija", 
+           "Osrednjeslovenska", "Gorenjska", "Primorsko-notranjska", 
+           "Goriška", "Obalno-kraška"),
+  waste_generation_rate = c(1.2, 1.5, 0.8, 1.3, 0.7, 0.9, 1.1, 1.6, 1.4, 1, 1.3, 1.2),
+  waste_collection_rate = c(1.1, 1.3, 0.9, 1.2, 0.8, 1.0, 1.0, 1.5, 1.3, 0.9, 1.2, 1.1),
+  waste_handling_rate = c(1.0, 1.2, 0.8, 1.1, 0.7, 0.9, 1.0, 1.4, 1.2, 0.8, 1.1, 1.0),
+  storage_capacity = rep(10, 12)  # Not directly used in simulation; example capacities
+)
 ```
 
 # Define resources (assuming central facility)
@@ -54,134 +67,26 @@ regions <- c("Pomurska", "Podravska", "Koroška", "Savinjska", "Zasavska", "Posa
 
 # Adding generators for each region
 for(region in regions) {
-  env |>
+  env <- env |>
     add_generator(paste(region, "generator"), generate_wood_waste(region), function() rexp(1, 0.1)) |>
     add_generator(paste(region, "transport"), transport_to_facility, function() rexp(1, 0.1)) |>
     add_generator("Handling facility", handle_wood_waste, function() rexp(1, 0.2))
 }
 
 # Run the simulation
-env |> run(until = 10) |> now()  # Run for 100 time units as a demonstration
+env |> run(until = 100) |> now()  # Run for 100 time units as a demonstration
 
+# monitoring
+env |> get_mon_arrivals() |> head()
+
+# amount of generated
+env |> get_mon_resources() |> head()
 ```
 
 # Test Framework 2
 
 ```{r}
-
 env <- simmer("SloveniaWoodWasteManagement")
-
-# Define regions with storage capacities
-regions <- data.frame(
-  name = c("Pomurska", "Podravska", "Koroška", "Savinjska", 
-           "Zasavska", "Posavska", "Jugovzhodna Slovenija", 
-           "Osrednjeslovenska", "Gorenjska", "Primorsko-notranjska", 
-           "Goriška", "Obalno-kraška"),
-  waste_generation_rate = c(1.2, 1.5, 0.8, 1.3, 0.7, 0.9, 1.1, 1.6, 1.4, 1, 1.3, 1.2),
-  storage_capacity = rep(10, 12)  # Example capacities for simplicity
-)
-
-# Function to create an initialization trajectory for setting up storage attributes
-init_storage_for_region <- function(region_name) {
-  trajectory("initialize storage") |>
-    set_global(paste("current_storage_", region_name, sep = ""), 0) |>
-    set_global(paste("total_capacity_", region_name, sep = ""), 10) |>
-    log_(function() {
-      paste("Initialized current storage for", 
-            region_name, 
-            ":", 
-            get_global(env, paste("current_storage_", region_name)))
-    }) |>
-    log_(function() {
-      paste("Initialized total capacity for", 
-            region_name, 
-            ":", 
-            get_global(env, paste("total_capacity_", region_name)))
-    })
-}
-  
-waste_handling_trajectory <- function(region_name, initial_capacity) {
-  trajectory(region_name) |>
-    timeout(function() runif(1, 0.5, 1.5)) |>  # Simulate waste generation time
-    set_attribute("waste_amount", function() runif(1, 0.1, 0.5)) |>  # Set waste amount generated
-    
-    # Check if adding this waste exceeds current storage capacity
-    branch(
-      function() {
-        # Get current storage and capacity from global attributes
-        current_storage <- get_global(env, paste("current_storage_", region_name))
-        total_capacity <- get_global(env, paste("total_capacity_", region_name))
-        waste_amount <- get_global(env, "waste_amount")
-        
-        # Print the values to debug
-        print(paste("Current storage for", region_name, ":", current_storage))
-        print(paste("Total capacity for", region_name, ":", total_capacity))
-        print(paste("Waste amount:", waste_amount))
-        
-        new_storage_level <- current_storage + waste_amount
-        # If new storage level exceeds capacity, write ifelse condition
-        ifelse(new_storage_level > total_capacity, TRUE, FALSE)
-      },
-      c(TRUE, FALSE),  # Branch based on the result of the function above
-      # Sub-trajectory for when capacity is exceeded
-      trajectory() |>
-        set_global(paste("total_capacity_", region_name), function() {
-          # Increase total capacity by a predefined amount, e.g., adding 10 units
-          total_capacity + 10
-        }) |>
-        set_global(paste("current_storage_", region_name), function() {
-          # Reset current storage to reflect just the overflow amount
-          new_storage_level - total_capacity
-        }),
-      # If not exceeding capacity, simply update current storage
-      trajectory() |>
-        set_global(paste("current_storage_", region_name), function() {
-          current_storage + waste_amount
-        })
-    )
-}
-
-
-# Create an initialization entity for each region to set up its storage attributes
-for (region_name in regions$name) {
-  env <- env |> add_generator(
-    paste("init_", region_name, sep = ""),
-    init_storage_for_region(region_name),
-    at(0)  # Start at time 0
-  )
-}
-
-
-# Add waste handling generators for each region
-for (i in 1:nrow(regions)) {
-  region <- regions[i, ]
-  env <- env |> add_generator(
-    paste(region$name, "Waste Generator"),
-    waste_handling_trajectory(region$name, region$storage_capacity), 
-    function() rexp(1, rate = region$waste_generation_rate)
-  )
-}
-
-# Run the simulation
-env |> run(until = 100)
-```
-
-# Test Framework 3
-
-```{r}
-env <- simmer("SloveniaWoodWasteManagement")
-
-# Define regions with storage capacities
-regions <- data.frame(
-  name = c("Pomurska", "Podravska", "Koroška", "Savinjska", 
-           "Zasavska", "Posavska", "Jugovzhodna Slovenija", 
-           "Osrednjeslovenska", "Gorenjska", "Primorsko-notranjska", 
-           "Goriška", "Obalno-kraška"),
-  waste_generation_rate = c(1.2, 1.5, 0.8, 1.3, 0.7, 0.9, 1.1, 1.6, 1.4, 1, 1.3, 1.2),
-  waste_collection_rate = c(1.1, 1.3, 0.9, 1.2, 0.8, 1.0, 1.0, 1.5, 1.3, 0.9, 1.2, 1.1),  # Example rates for simplicity
-  waste_handling_rate = c(1.0, 1.2, 0.8, 1.1, 0.7, 0.9, 1.0, 1.4, 1.2, 0.8, 1.1, 1.0),  # Example rates for simplicity
-  storage_capacity = rep(10, 12)  # Example capacities for simplicity
-)
 
 # Create a resource for each region with its storage capacity
 for (region_name in regions$name) {
@@ -268,7 +173,7 @@ sum(results[results$region == "Primorsko-notranjska" & results$event == "generat
 
 ```
 
-# Test Framework 4
+# Test Framework 3
 
 ## TO FIX COLLECTION AND HANDLING 
 
@@ -308,7 +213,7 @@ results <- data.frame(
 waste_trajectory <- function(region_name, waste_collection_rate, waste_handling_rate) {
   trajectory(region_name) %>%
     # Generate waste
-    timeout(function() runif(1, 0.5, 1.5)) %>%
+    timeout(function() rnorm(1, 15)) %>%
     # Seize waste amount from the resource
     seize(region_name, amount = function() {
       waste_amount <- runif(1, 0.1, 0.5)
@@ -325,7 +230,7 @@ waste_trajectory <- function(region_name, waste_collection_rate, waste_handling_
     # Wait for some time before starting the collection
     # timeout(function() runif(1, 1, 2)) %>%
     # Simulate waste collection time
-    timeout(function() rexp(1, rate = waste_collection_rate)) %>%
+    timeout(function() rnorm(1, 20)) %>%
     # Seize a vehicle
     seize(paste(region_name, "Vehicles"), amount = 1) %>%
     # Release the seized amount and log the waste collection
@@ -346,7 +251,7 @@ waste_trajectory <- function(region_name, waste_collection_rate, waste_handling_
     # Wait for some time before starting the handling
     # timeout(function() runif(1, 2, 3)) %>%
     # Simulate waste handling time
-    timeout(function() rexp(1, rate = waste_handling_rate)) %>%
+    timeout(function() rnorm(1, 5)) %>%
     # Release the remaining seized amount and log the waste handling
     release(region_name, amount = function() {
       waste_amount <- get_seized(env, region_name)
@@ -378,6 +283,69 @@ env |> run(until = 500)
 
 get_mon_arrivals(env)
 get_mon_resources(env)
+```
+# Test Framework 4 - small working version
+```{r}
+
+# env <- simmer("SloveniaWoodWasteManagement")
+
+some_waste <- trajectory("some waste's path") |> 
+  ## add a generation activity
+  seize("generator", amount = 1) |>
+  timeout(function() rnorm(1, 15)) |>
+  release("generator", amount = 1) |>
+  ## add a collection activity
+  seize("collector", amount = 1) |>
+  timeout(function() rnorm(1, 20)) |>
+  release("collector", amount = 1) |>
+  ## add a handling activity
+  seize("handler", amount = 1) |>
+  timeout(function() rnorm(1, 5)) |>
+  release("handler", amount = 1)
+
+env |> 
+  add_resource("generator", capacity = 10) |> 
+  add_resource("collector", capacity = 5) |> 
+  add_resource("handler", capacity = 2) |> 
+  add_generator("some waste", some_waste, function() rexp(1, rate = 1)) 
+
+env |> 
+  run(100) |> 
+  now()
+
+env |> peek(3)
+
+env |> 
+  stepn() |> 
+  print() |> 
+  stepn(5)
+
+
+envs <- mclapply(1:100, function(i) {
+  simmer("SuperDuperSim") %>%
+    add_resource("generator", 1) %>%
+    add_resource("collector", 2) %>%
+    add_resource("handler", 1) %>%
+    add_generator("some waste", some_waste, function() rnorm(1, 10, 2)) %>%
+    run(80) %>%
+    wrap()
+})
+
+resources <- get_mon_resources(envs)
+plot(resources, metric = "utilization")
+
+plot(resources, metric = "usage", c("generator", "collector"), items = "server")
+
+arrivals <- get_mon_arrivals(envs)
+plot(arrivals, metric = "flow_time")
+
+plot(arrivals, metric = "activity_time")
+
+plot(arrivals, metric = "waiting_time")
+
+get_palette <- scales::brewer_pal(type = "qual", palette = 1)
+plot(some_waste, fill = get_palette)
+
 ```
 # Plot 
 
