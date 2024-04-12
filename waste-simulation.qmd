@@ -270,6 +270,8 @@ sum(results[results$region == "Primorsko-notranjska" & results$event == "generat
 
 # Test Framework 4
 
+## TO FIX COLLECTION AND HANDLING 
+
 ```{r}
 
 env <- simmer("SloveniaWoodWasteManagement")
