@@ -211,9 +211,9 @@ results <- data.frame(
 
 # Define the waste trajectory
 waste_trajectory <- function(region_name, waste_collection_rate, waste_handling_rate) {
-  trajectory(region_name) %>%
+  trajectory(region_name) |>
     # Generate waste
-    timeout(function() rnorm(1, 15)) %>%
+    timeout(function() rnorm(1, 15)) |>
     # Seize waste amount from the resource
     seize(region_name, amount = function() {
       waste_amount <- runif(1, 0.1, 0.5)
@@ -226,13 +226,13 @@ waste_trajectory <- function(region_name, waste_collection_rate, waste_handling_
         stringsAsFactors = FALSE
       ))
       waste_amount
-    }) %>%
+    }) |>
     # Wait for some time before starting the collection
-    # timeout(function() runif(1, 1, 2)) %>%
+    # timeout(function() runif(1, 1, 2)) |>
     # Simulate waste collection time
-    timeout(function() rnorm(1, 20)) %>%
+    timeout(function() rnorm(1, 20)) |>
     # Seize a vehicle
-    seize(paste(region_name, "Vehicles"), amount = 1) %>%
+    seize(paste(region_name, "Vehicles"), amount = 1) |>
     # Release the seized amount and log the waste collection
     release(region_name, amount = function() {
       seized_amount <- get_seized(env, region_name)
@@ -245,13 +245,13 @@ waste_trajectory <- function(region_name, waste_collection_rate, waste_handling_
         stringsAsFactors = FALSE
       ))
       seized_amount
-    }) %>%
+    }) |>
     # Release the vehicle
-    release(paste(region_name, "Vehicles"), amount = 1) %>%
+    release(paste(region_name, "Vehicles"), amount = 1) |>
     # Wait for some time before starting the handling
-    # timeout(function() runif(1, 2, 3)) %>%
+    # timeout(function() runif(1, 2, 3)) |>
     # Simulate waste handling time
-    timeout(function() rnorm(1, 5)) %>%
+    timeout(function() rnorm(1, 5)) |>
     # Release the remaining seized amount and log the waste handling
     release(region_name, amount = function() {
       waste_amount <- get_seized(env, region_name)
@@ -292,11 +292,11 @@ get_mon_resources(env)
 some_waste <- trajectory("some waste's path") |> 
   ## add a generation activity
   seize("generator", amount = 1) |>
-  timeout(function() rnorm(1, 15)) |>
+  timeout(function() rnorm(1, 25)) |>
   release("generator", amount = 1) |>
   ## add a collection activity
   seize("collector", amount = 1) |>
-  timeout(function() rnorm(1, 20)) |>
+  timeout(function() rnorm(1, 15)) |>
   release("collector", amount = 1) |>
   ## add a handling activity
   seize("handler", amount = 1) |>
@@ -322,12 +322,12 @@ env |>
 
 
 envs <- mclapply(1:100, function(i) {
-  simmer("SuperDuperSim") %>%
-    add_resource("generator", 1) %>%
-    add_resource("collector", 2) %>%
-    add_resource("handler", 1) %>%
-    add_generator("some waste", some_waste, function() rnorm(1, 10, 2)) %>%
-    run(80) %>%
+  simmer("SuperDuperSim") |>
+    add_resource("generator", 1) |>
+    add_resource("collector", 2) |>
+    add_resource("handler", 1) |>
+    add_generator("some waste", some_waste, function() rnorm(1, 10, 2)) |>
+    run(80) |>
     wrap()
 })
 
@@ -347,25 +347,69 @@ get_palette <- scales::brewer_pal(type = "qual", palette = 1)
 plot(some_waste, fill = get_palette)
 
 ```
-# Plot 
+# Test Framework 5
 
 ```{r}
 
-arrivals <- get_mon_arrivals(env)
-plot(arrivals, metric = "flow_time")
+# Initialize the simulation environment
+env <- simmer("Enhanced Waste Management")
 
-library(ggplot2)
+# Define regions and their waste generation characteristics
+regions <- data.frame(
+  name = c("Region1", "Region2"),
+  waste_type = c("Organic", "Plastic"),
+  gen_rate = c(1, 0.8),  # Waste generation rates
+  col_rate = c(0.9, 0.7), # Collection rates
+  han_rate = c(0.5, 0.3)  # Handling rates
+)
 
-# Convert the event column to a factor
-results$event <- as.factor(results$event)
+# Create an empty dataframe to store results
+results <- data.frame(time = numeric(), region = character(), type = character(), event = character(), stringsAsFactors = FALSE)
 
-# Create a plot
-ggplot(results, aes(x = time, y = amount, color = event)) +
-  geom_line() +
-  labs(title = "Waste Management Simulation",
-       x = "Time",
-       y = "Amount",
-       color = "Event") +
-  theme_minimal()
+# Initialize resources
+env |>
+  add_resource("generator", capacity = 10) |>
+  add_resource("collector", capacity = 5) |>
+  add_resource("handler", capacity = 2)
+
+# Define the trajectory function
+waste_trajectory <- function(region, waste_type, gen_rate, col_rate, han_rate) {
+  trajectory(paste("manage", waste_type, "in", region)) |>
+    seize("generator", 1) |>
+    timeout(function() rnorm(1, mean = 15)) |>
+    release("generator", 1) |>
+    log_("generated") |>
+    seize("collector", 1) |>
+    timeout(function() rnorm(1, mean = 20)) |>
+    release("collector", 1) |>
+    log_("collected") |>
+    seize("handler", 1) |>
+    timeout(function() rnorm(1, mean = 5)) |>
+    release("handler", 1) |>
+    log_("handled")
+    
+}
+
+# Add generators for each region and waste type
+for (i in seq_along(regions$name)) {
+  region <- regions$name[i]
+  waste_type <- regions$waste_type[i]
+  gen_rate <- regions$gen_rate[i]
+  col_rate <- regions$col_rate[i]
+  han_rate <- regions$han_rate[i]
+
+  env |>
+    add_generator(paste(region, waste_type, "waste generator"),
+                  waste_trajectory(region, waste_type, gen_rate, col_rate, han_rate),
+                  function() rexp(1, rate = gen_rate))
+}
+
+# Run the simulation
+env |> 
+  run(100) |> 
+  now()
+
+# Output the results
+#print(results)
 
 ```
