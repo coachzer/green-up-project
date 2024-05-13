@@ -12,6 +12,8 @@ library(simmer)
 library(simmer.plot)
 library(simmer.bricks)
 library(parallel)
+library(dplyr)
+library(ggplot2)
 
 # Define regions with capacities
 regions <- data.frame(
@@ -175,7 +177,7 @@ sum(results[results$region == "Primorsko-notranjska" & results$event == "generat
 
 # Test Framework 3
 
-## TO FIX COLLECTION AND HANDLING 
+## TO FIX COLLECTION AND HANDLING
 
 ```{r}
 
@@ -284,10 +286,12 @@ env |> run(until = 500)
 get_mon_arrivals(env)
 get_mon_resources(env)
 ```
+
 # Test Framework 4 - small working version
+
 ```{r}
 
-# env <- simmer("SloveniaWoodWasteManagement")
+env <- simmer("SloveniaWoodWasteManagement")
 
 some_waste <- trajectory("some waste's path") |> 
   ## add a generation activity
@@ -311,7 +315,7 @@ env |>
 
 env |> 
   run(100) |> 
-  now()
+  get_mon_arrivals()
 
 env |> peek(3)
 
@@ -347,6 +351,68 @@ get_palette <- scales::brewer_pal(type = "qual", palette = 1)
 plot(some_waste, fill = get_palette)
 
 ```
+
+## Test Framework 4a
+
+```{r}
+
+# Create the main simulation environment
+env <- simmer("SloveniaWoodWasteManagement")
+
+# Define trajectories with attribute modifications
+generation <- trajectory("generation") |>
+  seize("generator", amount = 1) |>
+  timeout(function() rnorm(1, 25)) |>
+  set_attribute("generated", function() rnorm(1, 25)) |>
+  release("generator", amount = 1)
+
+collection <- trajectory("collection") |>
+  seize("collector", amount = 1) |>
+  timeout(function() rnorm(1, 15)) |>
+  set_attribute("collected", function() rnorm(1, 15)) |>
+  release("collector", amount = 1)
+
+handling <- trajectory("handling") |>
+  seize("handler", amount = 1) |>
+  timeout(function() rnorm(1, 5)) |>
+  set_attribute("handled", function() rnorm(1, 5)) |>
+  release("handler", amount = 1)
+
+# Main trajectory combining all activities
+main_trajectory <- trajectory("main trajectory") |>
+  join(generation) |>
+  join(collection) |>
+  join(handling)
+
+# Add resources and generator
+env |>
+  add_resource("generator", capacity = 10) |>
+  add_resource("collector", capacity = 5) |>
+  add_resource("handler", capacity = 2) |>
+  add_generator("some waste", main_trajectory, function() rexp(1, rate = 1))
+
+# Run the simulation
+env |>
+  run(100) |> 
+  get_mon_attributes()
+
+  # Extract the monitored data
+attributes <- get_mon_attributes(env)
+waste_flow <- attributes |>
+  filter(name == "some waste") |>
+  group_by(replication) |>
+  summarize(
+    total_generated = max(generated, na.rm = TRUE),
+    total_collected = max(collected, na.rm = TRUE),
+    total_handled = max(handled, na.rm = TRUE)
+  )
+
+# Display the dataframe
+print(waste_flow)
+
+
+```
+
 # Test Framework 5
 
 ```{r}
@@ -411,5 +477,78 @@ env |>
 
 # Output the results
 #print(results)
+
+```
+
+# Test Framework 6
+
+```{r}
+
+# Define the trajectory for waste flow
+waste_trajectory <- trajectory("waste management process") |>
+  log_("starting...") |> 
+  # Waste generation stage
+  seize("generator", 1) |>
+  set_attribute("amount_generated", function() rnorm(1, mean = 10, sd = 1)) |>
+  # log_("generating...") |>
+  timeout(function() rnorm(1, mean = 3, sd = 1)) |>
+  release("generator", 1) |>
+  # log_("generated.") |>
+  # Waste collection stage
+  seize("collector", 1) |>
+  set_attribute("amount_collected", function() rnorm(1, mean = 7, sd = 1.5)) |>
+  # log_("collecting...") |>
+  timeout(function() rnorm(1, mean = 10, sd = 2)) |>
+  release("collector", 1) |>
+  # log_("collected.") |>
+  # Waste handling stage
+  seize("handling facility", 1) |>
+  set_attribute("amount_handled", function() rnorm(1, mean = 5, sd = 1)) |>
+  # log_("handling...") |>
+  timeout(function() rnorm(1, mean = 7, sd = 1.5)) |>
+  release("handling facility", 1) |> 
+  # log_("handled.") |>
+  # log_(function() paste0("Current simulation time: ", now(env))) |> 
+  log_(function() paste0("Generated: ", get_attribute(env, "amount_generated"))) |> 
+  log_(function() paste0("Collected: ", get_attribute(env, "amount_collected"))) |>
+  log_(function() paste0("Handled: ", get_attribute(env, "amount_handled"))) |>
+  log_("completed.")
+
+# Set up the simulation environment
+env <- simmer("Waste Management Simulation")
+
+# Add resources with their capacities-
+env |>
+  add_resource("generator", capacity = 1, mon = T) |>
+  add_resource("collector", capacity = 2, mon = T) |>
+  add_resource("handling facility", capacity = 3, mon = T)
+
+# Add a generator for waste generation
+# Assuming waste is generated every day of the year
+env |>
+  add_generator("waste", waste_trajectory, function() rexp(1, 1/24)) # exponential distribution with mean inter-arrival time of 24 hours
+
+# Run the simulation for a year (365 days)
+# Convert days to hours since our time unit in this example is hours
+env |>
+  run(until = 365 * 24) |> 
+  now()
+
+get_palette <- scales::brewer_pal(type = "qual", palette = 1)
+plot(waste_trajectory, fill = get_palette)
+
+resources <- get_mon_resources(env)
+plot(resources, metric = "utilization")
+
+plot(resources, metric = "usage", c("generator", "collector", "handling facility"), items = "server")
+
+plot(get_mon_resources(env), metric = "usage", "generator", items = "server", steps = TRUE)
+plot(get_mon_resources(env), metric = "usage", "collector", items = "server", steps = TRUE)
+plot(get_mon_resources(env), metric = "usage", "handling facility", items = "server", steps = TRUE)
+
+arrivals <- get_mon_arrivals(env)
+plot(arrivals, metric = "flow_time")
+plot(arrivals, metric = "activity_time")
+plot(arrivals, metric = "waiting_time")
 
 ```
