@@ -552,3 +552,74 @@ plot(arrivals, metric = "activity_time")
 plot(arrivals, metric = "waiting_time")
 
 ```
+
+# Test Framework 7
+
+```{r}
+
+# Initialize the simulation environment
+env <- simmer("Waste Flow Simulation")
+
+# Define global attributes for tracking total waste
+env %>%
+  add_global("total_waste_generated", 0) %>%
+  add_global("total_waste_collected", 0) %>%
+  add_global("total_waste_handled", 0)
+
+# Define resources
+env <- env %>%
+  add_resource("storage", capacity = Inf) %>%
+  add_resource("collection_truck", capacity = 1) %>%
+  add_resource("waste_processor", capacity = 1)
+
+# Define the trajectory for generating waste
+generate_waste <- trajectory("Generate Waste") %>%
+  seize("storage", 1) %>%
+  set_global("total_waste_generated", function() get_global(env, "total_waste_generated") + runif(1, 10, 50)) %>%
+  log_(function() paste("Waste generated:", get_global(env, "total_waste_generated"), "kg")) %>%
+  timeout(function() rexp(1, rate = 0.5)) %>%
+  release("storage", 1)
+
+# Define the trajectory for collecting waste from storage
+collect_waste <- trajectory("Collect Waste") %>%
+  seize("collection_truck") %>%
+  seize("storage", 1) %>%
+  set_global("total_waste_collected", function() get_global(env, "total_waste_collected") + runif(1, 5, 25)) %>%
+  log_(function() paste("Waste collected:", get_global(env, "total_waste_collected"), "kg")) %>%
+  timeout(function() rexp(1, rate = 1)) %>%
+  release("storage", 1) %>%
+  release("collection_truck")
+
+# Define the trajectory for handling waste
+handle_waste <- trajectory("Handle Waste") %>%
+  seize("collection_truck") %>%
+  seize("waste_processor") %>%
+  set_global("total_waste_handled", function() get_global(env, "total_waste_handled") + runif(1, 2, 15)) %>%
+  log_(function() paste("Waste handled:", get_global(env, "total_waste_handled"), "kg")) %>%
+  timeout(function() rexp(1, rate = 0.7)) %>%
+  release("waste_processor") %>%
+  release("collection_truck")
+
+# Add generators for the trajectories
+env <- env %>%
+  add_generator("waste_gen", generate_waste, function() rexp(1, rate = 0.5)) %>%
+  add_generator("waste_collector", collect_waste, function() rexp(1, rate = 1.5)) %>%
+  add_generator("waste_handler", handle_waste, function() rexp(1, rate = 1))
+
+# Run the simulation
+env %>%
+  run(until = 100) %>%
+  invisible()
+
+# Display results
+get_mon_arrivals(env)
+get_mon_resources(env)
+
+# Print final amounts of waste generated, collected, and handled
+# As the variables are global now we can access them directly
+cat("Total waste generated (kg):", get_global(env, "total_waste_generated"), "\n")
+cat("Total waste collected (kg):", get_global(env, "total_waste_collected"), "\n")
+cat("Total waste handled (kg):", get_global(env, "total_waste_handled"), "\n")
+
+
+```
