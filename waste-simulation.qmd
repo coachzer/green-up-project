@@ -480,7 +480,7 @@ env |>
 
 ```
 
-# Test Framework 6
+# Test Framework 6 - WORKS
 
 ```{r}
 
@@ -553,7 +553,7 @@ plot(arrivals, metric = "waiting_time")
 
 ```
 
-# Test Framework 7
+# Test Framework 7 - WORKS
 
 ```{r}
 
@@ -561,55 +561,54 @@ plot(arrivals, metric = "waiting_time")
 env <- simmer("Waste Flow Simulation")
 
 # Define global attributes for tracking total waste
-env %>%
-  add_global("total_waste_generated", 0) %>%
-  add_global("total_waste_collected", 0) %>%
+env |>
+  add_global("total_waste_generated", 0) |>
+  add_global("total_waste_collected", 0) |>
   add_global("total_waste_handled", 0)
 
 # Define resources
-env <- env %>%
-  add_resource("storage", capacity = Inf) %>%
-  add_resource("collection_truck", capacity = 1) %>%
+env <- env |>
+  add_resource("storage", capacity = Inf) |>
+  add_resource("collection_truck", capacity = 1) |>
   add_resource("waste_processor", capacity = 1)
 
 # Define the trajectory for generating waste
-generate_waste <- trajectory("Generate Waste") %>%
-  seize("storage", 1) %>%
-  set_global("total_waste_generated", function() get_global(env, "total_waste_generated") + runif(1, 10, 50)) %>%
-  log_(function() paste("Waste generated:", get_global(env, "total_waste_generated"), "kg")) %>%
-  timeout(function() rexp(1, rate = 0.5)) %>%
+generate_waste <- trajectory("Generate Waste") |>
+  seize("storage", 1) |>
+  set_global("total_waste_generated", function() get_global(env, "total_waste_generated") + runif(1, 10, 50)) |>
+  log_(function() paste("Waste generated:", get_global(env, "total_waste_generated"), "kg")) |>
+  timeout(function() rexp(1, rate = 0.5)) |>
   release("storage", 1)
 
 # Define the trajectory for collecting waste from storage
-collect_waste <- trajectory("Collect Waste") %>%
-  seize("collection_truck") %>%
-  seize("storage", 1) %>%
-  set_global("total_waste_collected", function() get_global(env, "total_waste_collected") + runif(1, 5, 25)) %>%
-  log_(function() paste("Waste collected:", get_global(env, "total_waste_collected"), "kg")) %>%
-  timeout(function() rexp(1, rate = 1)) %>%
-  release("storage", 1) %>%
+collect_waste <- trajectory("Collect Waste") |>
+  seize("collection_truck") |>
+  seize("storage", 1) |>
+  set_global("total_waste_collected", function() get_global(env, "total_waste_collected") + runif(1, 5, 25)) |>
+  log_(function() paste("Waste collected:", get_global(env, "total_waste_collected"), "kg")) |>
+  timeout(function() rexp(1, rate = 1)) |>
+  release("storage", 1) |>
   release("collection_truck")
 
 # Define the trajectory for handling waste
-handle_waste <- trajectory("Handle Waste") %>%
-  seize("collection_truck") %>%
-  seize("waste_processor") %>%
-  set_global("total_waste_handled", function() get_global(env, "total_waste_handled") + runif(1, 2, 15)) %>%
-  log_(function() paste("Waste handled:", get_global(env, "total_waste_handled"), "kg")) %>%
-  timeout(function() rexp(1, rate = 0.7)) %>%
-  release("waste_processor") %>%
+handle_waste <- trajectory("Handle Waste") |>
+  seize("collection_truck") |>
+  seize("waste_processor") |>
+  set_global("total_waste_handled", function() get_global(env, "total_waste_handled") + runif(1, 2, 15)) |>
+  log_(function() paste("Waste handled:", get_global(env, "total_waste_handled"), "kg")) |>
+  timeout(function() rexp(1, rate = 0.7)) |>
+  release("waste_processor") |>
   release("collection_truck")
 
 # Add generators for the trajectories
-env <- env %>%
-  add_generator("waste_gen", generate_waste, function() rexp(1, rate = 0.5)) %>%
-  add_generator("waste_collector", collect_waste, function() rexp(1, rate = 1.5)) %>%
+env <- env |>
+  add_generator("waste_gen", generate_waste, function() rexp(1, rate = 0.5)) |>
+  add_generator("waste_collector", collect_waste, function() rexp(1, rate = 1.5)) |>
   add_generator("waste_handler", handle_waste, function() rexp(1, rate = 1))
 
 # Run the simulation
-env %>%
-  run(until = 100) %>%
-  invisible()
+env |>
+  run(until = 100)
 
 # Display results
 get_mon_arrivals(env)
@@ -620,6 +619,297 @@ get_mon_resources(env)
 cat("Total waste generated (kg):", get_global(env, "total_waste_generated"), "\n")
 cat("Total waste collected (kg):", get_global(env, "total_waste_collected"), "\n")
 cat("Total waste handled (kg):", get_global(env, "total_waste_handled"), "\n")
+
+
+```
+
+# Test Framework 8 - WORKS
+
+Waste collecting happens at the first location (Loc1)
+Waste handling happens at the second location (Loc2)
+
+We determine this location based on the number of people living in each region.
+
+```{r}
+
+# Initialize the simulation environment
+env <- simmer("Waste Flow Simulation")
+
+# Define regions
+regions <- c("North", "South", "East", "West")
+
+# Initialize global attributes for each region
+for (region in regions) {
+  env <- env |>
+    add_global(paste0("total_waste_generated_", region), 0) |>
+    add_global(paste0("total_waste_collected_", region), 0) |>
+    add_global(paste0("total_waste_handled_", region), 0) |>
+    add_global(paste0("total_waste_stored_", region), 0) |>
+    add_global(paste0("total_waste_recycled_", region), 0)
+}
+
+# Define resources and their capacities
+storage_capacity <- 10000  # Example storage capacity for each region
+storage_cost_per_unit <- 0.5  # Example cost per unit of storage
+
+env <- env |>
+  add_resource("storage", capacity = storage_capacity * length(regions)) |>
+  add_resource("collection_truck", capacity = length(regions)) |>
+  add_resource("waste_processor", capacity = length(regions))
+
+# Function to create trajectories for each region
+create_trajectories <- function(region) {
+  # Generate Waste Trajectory
+  generate_waste <- trajectory(paste("Generate Waste -", region)) |>
+    seize("storage", 1) |>
+    set_global(paste0("total_waste_generated_", region), function() get_global(env, paste0("total_waste_generated_", region)) + runif(1, 10, 50)) |>
+    set_global(paste0("total_waste_stored_", region), function() get_global(env, paste0("total_waste_stored_", region)) + runif(1, 10, 50)) |>
+    log_(function() paste("Waste generated in", region, ":", get_global(env, paste0("total_waste_generated_", region)), "kg")) |>
+    timeout(function() rexp(1, rate = 0.5)) |>
+    release("storage", 1)
+
+  # Collect Waste Trajectory (Loc1)
+  collect_waste <- trajectory(paste("Collect Waste -", region)) |>
+    seize("collection_truck") |>
+    seize("storage", 1) |>
+    set_global(paste0("total_waste_collected_", region), function() get_global(env, paste0("total_waste_collected_", region)) + runif(1, 5, 25)) |>
+    set_global(paste0("total_waste_stored_", region), function() get_global(env, paste0("total_waste_stored_", region)) - runif(1, 5, 25)) |>
+    log_(function() paste("Waste collected in", region, ":", get_global(env, paste0("total_waste_collected_", region)), "kg")) |>
+    timeout(function() rexp(1, rate = 1.5)) |>
+    release("storage", 1) |>
+    release("collection_truck")
+
+  # Handle Waste Trajectory (Loc2)
+  handle_waste <- trajectory(paste("Handle Waste -", region)) |>
+    seize("collection_truck") |>
+    seize("waste_processor") |>
+    set_global(paste0("total_waste_handled_", region), function() get_global(env, paste0("total_waste_handled_", region)) + runif(1, 2, 15)) |>
+    set_global(paste0("total_waste_recycled_", region), function() get_global(env, paste0("total_waste_recycled_", region)) + runif(1, 1, 7)) |>
+    log_(function() paste("Waste handled in", region, ":", get_global(env, paste0("total_waste_handled_", region)), "kg")) |>
+    log_(function() paste("Waste recycled in", region, ":", get_global(env, paste0("total_waste_recycled_", region)), "kg")) |>
+    timeout(function() rexp(1, rate = 0.7)) |>
+    release("waste_processor") |>
+    release("collection_truck")
+
+  return(list(generate_waste = generate_waste, collect_waste = collect_waste, handle_waste = handle_waste))
+}
+
+# Add trajectories and generators for each region
+for (region in regions) {
+  trajs <- create_trajectories(region)
+  env <- env |>
+    add_generator(paste0("waste_gen_", region), trajs$generate_waste, function() rexp(1, rate = 0.5)) |>
+    add_generator(paste0("waste_collector_", region), trajs$collect_waste, function() rexp(1, rate = 1.5)) |>
+    add_generator(paste0("waste_handler_", region), trajs$handle_waste, function() rexp(1, rate = 1))
+}
+
+# Run the simulation
+env |>
+  run(until = 100) 
+
+# Display results
+get_mon_arrivals(env)
+get_mon_resources(env)
+
+# Print the rates of generation, collection, and processing
+cat("Rates of waste generation, collection, and processing:\n")
+cat("Generation rate: 0.5 per time unit\n")
+cat("Collection rate: 1.5 per time unit\n")
+cat("Processing rate: 1 per time unit\n\n")
+
+# Print final amounts of waste generated, collected, handled, stored, and recycled per region
+for (region in regions) {
+  cat("Region:", region, "\n")
+  cat("  Total waste generated (kg):", get_global(env, paste0("total_waste_generated_", region)), "\n")
+  cat("  Total waste collected (kg):", get_global(env, paste0("total_waste_collected_", region)), "\n")
+  cat("  Total waste handled (kg):", get_global(env, paste0("total_waste_handled_", region)), "\n")
+  cat("  Total waste stored (kg):", get_global(env, paste0("total_waste_stored_", region)), "\n")
+  cat("  Total waste recycled (kg):", get_global(env, paste0("total_waste_recycled_", region)), "\n")
+  cat("\n")
+}
+
+# Print storage details
+cat("Storage Details:\n")
+cat("Storage capacity per region:", storage_capacity, "kg\n")
+cat("Cost per unit of storage:", storage_cost_per_unit, "\n")
+cat("Total storage cost for all regions (current stored waste):\n")
+
+total_storage_cost <- 0
+for (region in regions) {
+  total_storage_cost <- total_storage_cost + get_global(env, paste0("total_waste_stored_", region)) * storage_cost_per_unit
+}
+cat("Total storage cost:", total_storage_cost, "\n")
+
+```
+
+# Test Framework 9 - WORKS
+
+testing out when the storage is being overflowed/being over the capacity/trying to store more than the capacity
+
+trying to increase the storage size during the simulation
+
+
+```{r}
+
+# Initialize the simulation environment
+env <- simmer("Waste Flow Simulation")
+
+# Define regions
+regions <- c("North", "South", "East", "West")
+
+# Initialize global attributes for each region
+for (region in regions) {
+  env <- env |>
+    add_global(paste0("total_waste_generated_", region), 0) |>
+    add_global(paste0("total_waste_collected_", region), 0) |>
+    add_global(paste0("total_waste_handled_", region), 0) |>
+    add_global(paste0("total_waste_stored_", region), 0) |>
+    add_global(paste0("total_waste_recycled_", region), 0) |>
+    add_global(paste0("overflow_penalty_", region), 0) # Penalty for overflow
+}
+
+# Define resources and their capacities
+storage_capacity <- 500  # Example storage capacity for each region
+storage_cost_per_unit <- 0.5  # Example cost per unit of storage
+overflow_penalty_per_unit <- 2  # Penalty cost per unit of overflow
+
+env <- env |>
+  add_resource("storage", capacity = storage_capacity * length(regions)) |>
+  add_resource("collection_truck", capacity = length(regions)) |>
+  add_resource("waste_processor", capacity = length(regions))
+
+# Function to handle storage overflow
+handle_overflow <- function(region, waste_amount) {
+  current_storage <- get_global(env, paste0("total_waste_stored_", region))
+  new_storage <- current_storage + waste_amount
+  overflow_penalty <- 0
+  if (new_storage > storage_capacity) {
+    overflow_amount <- new_storage - storage_capacity
+    overflow_penalty <- overflow_amount * overflow_penalty_per_unit
+    new_storage <- storage_capacity
+  }
+  list(new_storage = new_storage, overflow_penalty = overflow_penalty)
+}
+
+# Function to create trajectories for each region
+create_trajectories <- function(region) {
+  # Generate Waste Trajectory
+  generate_waste <- trajectory(paste("Generate Waste -", region)) |>
+    seize("storage", 1) |>
+    set_attribute("waste_amount", function() runif(1, 10, 50)) |>
+    set_global(paste0("total_waste_generated_", region), function() {
+      get_global(env, paste0("total_waste_generated_", region)) + get_attribute(env, "waste_amount")
+    }) |>
+    set_global(paste0("overflow_penalty_", region), function() {
+      waste_amount <- get_attribute(env, "waste_amount")
+      result <- handle_overflow(region, waste_amount)
+      get_global(env, paste0("overflow_penalty_", region)) + result$overflow_penalty
+    }) |>
+    set_global(paste0("total_waste_stored_", region), function() {
+      waste_amount <- get_attribute(env, "waste_amount")
+      result <- handle_overflow(region, waste_amount)
+      result$new_storage
+    }) |>
+    log_(function() paste("Waste generated in", region, ":", get_global(env, paste0("total_waste_generated_", region)), "kg")) |>
+    timeout(function() rexp(1, rate = 0.5)) |>
+    release("storage", 1)
+
+  # Collect Waste Trajectory (Loc1)
+  collect_waste <- trajectory(paste("Collect Waste -", region)) |>
+    seize("collection_truck") |>
+    seize("storage", 1) |>
+    set_attribute("waste_amount", function() runif(1, 5, 25)) |>
+    set_global(paste0("total_waste_collected_", region), function() {
+      get_global(env, paste0("total_waste_collected_", region)) + get_attribute(env, "waste_amount")
+    }) |>
+    set_global(paste0("total_waste_stored_", region), function() {
+      current_storage <- get_global(env, paste0("total_waste_stored_", region))
+      waste_amount <- get_attribute(env, "waste_amount")
+      max(current_storage - waste_amount, 0)
+    }) |>
+    log_(function() paste("Waste collected in", region, ":", get_global(env, paste0("total_waste_collected_", region)), "kg")) |>
+    timeout(function() rexp(1, rate = 1.5)) |>
+    release("storage", 1) |>
+    release("collection_truck")
+
+  # Handle Waste Trajectory (Loc2)
+  handle_waste <- trajectory(paste("Handle Waste -", region)) |>
+    seize("collection_truck") |>
+    seize("waste_processor") |>
+    set_attribute("waste_amount", function() runif(1, 2, 15)) |>
+    set_global(paste0("total_waste_handled_", region), function() {
+      get_global(env, paste0("total_waste_handled_", region)) + get_attribute(env, "waste_amount")
+    }) |>
+    set_global(paste0("total_waste_recycled_", region), function() {
+      recycled_amount <- runif(1, 1, 7)
+      get_global(env, paste0("total_waste_recycled_", region)) + recycled_amount
+    }) |>
+    log_(function() paste("Waste handled in", region, ":", get_global(env, paste0("total_waste_handled_", region)), "kg")) |>
+    log_(function() paste("Waste recycled in", region, ":", get_global(env, paste0("total_waste_recycled_", region)), "kg")) |>
+    timeout(function() rexp(1, rate = 0.7)) |>
+    release("waste_processor") |>
+    release("collection_truck")
+
+  return(list(generate_waste = generate_waste, collect_waste = collect_waste, handle_waste = handle_waste))
+}
+
+# Add trajectories and generators for each region
+trajectories <- list()
+for (region in regions) {
+  trajs <- create_trajectories(region)
+  trajectories[[region]] <- trajs
+  env <- env |>
+    add_generator(paste0("waste_gen_", region), trajs$generate_waste, function() rexp(1, rate = 0.5)) |>
+    add_generator(paste0("waste_collector_", region), trajs$collect_waste, function() rexp(1, rate = 1.5)) |>
+    add_generator(paste0("waste_handler_", region), trajs$handle_waste, function() rexp(1, rate = 1))
+}
+
+# Run the simulation
+env <- env |>
+  run(until = 100)
+
+# Display results
+arrivals <- get_mon_arrivals(env)
+resources <- get_mon_resources(env)
+
+# Print the rates of generation, collection, and processing
+cat("Rates of waste generation, collection, and processing:\n")
+cat("Generation rate: 0.5 per time unit\n")
+cat("Collection rate: 1.5 per time unit\n")
+cat("Processing rate: 1 per time unit\n\n")
+
+# Print final amounts of waste generated, collected, handled, stored, and recycled per region
+for (region in regions) {
+  cat("Region:", region, "\n")
+  cat("  Total waste generated (kg):", get_global(env, paste0("total_waste_generated_", region)), "\n")
+  cat("  Total waste collected (kg):", get_global(env, paste0("total_waste_collected_", region)), "\n")
+  cat("  Total waste handled (kg):", get_global(env, paste0("total_waste_handled_", region)), "\n")
+  cat("  Total waste stored (kg):", get_global(env, paste0("total_waste_stored_", region)), "\n")
+  cat("  Total waste recycled (kg):", get_global(env, paste0("total_waste_recycled_", region)), "\n")
+  cat("  Overflow penalty:", get_global(env, paste0("overflow_penalty_", region)), "\n")
+  cat("\n")
+}
+
+# Print storage details
+cat("Storage Details:\n")
+cat("Storage capacity per region:", storage_capacity, "kg\n")
+cat("Cost per unit of storage:", storage_cost_per_unit, "\n")
+cat("Total storage cost for all regions (current stored waste):\n")
+
+total_storage_cost <- 0
+for (region in regions) {
+  total_storage_cost <- total_storage_cost + get_global(env, paste0("total_waste_stored_", region)) * storage_cost_per_unit
+}
+cat("Total storage cost:", total_storage_cost, "\n")
+
+# Plotting
+get_palette <- scales::brewer_pal(type = "qual", palette = 1)
+for (region in regions) {
+  plot(trajectories[[region]]$generate_waste, fill = get_palette)
+  plot(trajectories[[region]]$collect_waste, fill = get_palette)
+  plot(trajectories[[region]]$handle_waste, fill = get_palette)
+}
+
 
 
 ```

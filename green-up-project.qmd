@@ -355,7 +355,7 @@ We would like to filter by actual codes for the waste:
 
 ### AnyLogic
 
--   rate of generation, colecting, processing
+-   rate of generation, collecting, processing
 
 -   where to store, storage space, cost of storage per unit, revenue
 
