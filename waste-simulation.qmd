@@ -15,6 +15,7 @@ library(parallel)
 library(dplyr)
 library(ggplot2)
 library(paletteer)
+library(lpSolve)
 
 # Function to check if a global variable exists
 exists_global <- function(name) {
@@ -2209,6 +2210,302 @@ ggplot(waste_data, aes(x = Region, y = Value, fill = Metric)) +
 
 ```
 
-# Test Framework 14 - 
+# Test Framework 14 - WORKS
 
-dynamic allocation of storage points
+allocation of storage points, balancing of storage space completed
+
+```{r}
+
+# Initialize the simulation environment
+env <- simmer("Wood Waste Flow Simulation")
+
+# Define regions
+regions <- c("North", "South", "East", "West")
+
+# Define wood waste types
+wood_waste_types <- c("Construction", "Demolition", "Packaging")
+
+# Cost parameters
+storage_cost_per_unit <- 0.5  # Cost per unit of storage
+collection_cost_per_unit <- 1  # Cost per unit of collection
+processing_cost_per_unit <- 2  # Cost per unit of processing
+transportation_cost_per_unit <- 0.3  # Cost per unit of transportation
+overflow_penalty_per_unit <- 2  # Penalty cost per unit of overflow
+recycling_revenue_per_unit <- 3  # Revenue per unit of recycling
+avoided_disposal_cost_per_unit <- 1  # Avoided disposal cost per unit of recycling
+
+# Initialize global attributes for each region and wood waste type
+for (region in regions) {
+  for (waste_type in wood_waste_types) {
+    env <- env |>
+      add_global(paste0("total_waste_generated_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_waste_collected_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_waste_handled_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_waste_stored_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_waste_recycled_", region, "_", waste_type), 0) |>
+      add_global(paste0("overflow_penalty_", region, "_", waste_type), 0) |>
+      add_global(paste0("waste_to_collect_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_storage_cost_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_collection_cost_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_processing_cost_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_transportation_cost_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_recycling_revenue_", region, "_", waste_type), 0) |>
+      add_global(paste0("total_avoided_disposal_cost_", region, "_", waste_type), 0)
+  }
+}
+
+# Define resources and their capacities
+storage_capacity <- 500  # Example storage capacity for each region
+
+env <- env |>
+  add_resource("storage", capacity = storage_capacity * length(regions) * length(wood_waste_types)) |>
+  add_resource("collection_truck", capacity = length(regions)) |>
+  add_resource("waste_processor", capacity = length(regions))
+
+# Function to handle storage overflow
+handle_overflow <- function(region, waste_type, waste_amount) {
+  current_storage <- get_global(env, paste0("total_waste_stored_", region, "_", waste_type))
+  new_storage <- current_storage + waste_amount
+  overflow_penalty <- 0
+  if (!is.na(new_storage) && new_storage > storage_capacity) {
+    overflow_amount <- new_storage - storage_capacity
+    overflow_penalty <- overflow_amount * overflow_penalty_per_unit
+    new_storage <- storage_capacity
+  } else {
+    overflow_penalty <- 0
+  }
+  list(new_storage = new_storage, overflow_penalty = overflow_penalty)
+}
+
+# Function to create trajectories for each region
+create_trajectories <- function(region, waste_type) {
+  # Generate Waste Trajectory
+  generate_waste <- trajectory(paste("Generate Waste -", region, "-", waste_type)) |>
+    seize("storage", 1) |>
+    set_attribute("waste_amount", function() runif(1, 10, 30)) |>
+    set_global(paste0("total_waste_generated_", region, "_", waste_type), function() {
+      waste_generated <- get_attribute(env, "waste_amount")
+      get_global(env, paste0("total_waste_generated_", region, "_", waste_type)) + waste_generated
+    }) |>
+    set_global(paste0("waste_to_collect_", region, "_", waste_type), function() {
+      waste_generated <- get_attribute(env, "waste_amount")
+      get_global(env, paste0("waste_to_collect_", region, "_", waste_type)) + waste_generated
+    }) |>
+    set_global(paste0("overflow_penalty_", region, "_", waste_type), function() {
+      waste_amount <- get_attribute(env, "waste_amount")
+      result <- handle_overflow(region, waste_type, waste_amount)
+      get_global(env, paste0("overflow_penalty_", region, "_", waste_type)) + result$overflow_penalty
+    }) |>
+    set_global(paste0("total_waste_stored_", region, "_", waste_type), function() {
+      waste_amount <- get_attribute(env, "waste_amount")
+      result <- handle_overflow(region, waste_type, waste_amount)
+      result$new_storage
+    }) |>
+    set_global(paste0("total_storage_cost_", region, "_", waste_type), function() {
+      waste_amount <- get_attribute(env, "waste_amount")
+      get_global(env, paste0("total_storage_cost_", region, "_", waste_type)) + waste_amount * storage_cost_per_unit
+    }) |>
+    log_(function() paste("Waste generated in", region, "(", waste_type, "):", get_global(env, paste0("total_waste_generated_", region, "_", waste_type)), "kg")) |>
+    timeout(function() rexp(1, rate = 0.5)) |>
+    release("storage", 1)
+
+  # Collect Waste Trajectory (Loc1)
+  collect_waste <- trajectory(paste("Collect Waste -", region, "-", waste_type)) |>
+    seize("collection_truck") |>
+    seize("storage", 1) |>
+    set_attribute("waste_amount", function() {
+      waste_to_collect <- get_global(env, paste0("waste_to_collect_", region, "_", waste_type))
+      if (!is.na(waste_to_collect) && waste_to_collect > 5) {
+        amount <- runif(1, 5, min(25, waste_to_collect))
+        if (is.na(amount)) {
+          amount <- 0
+        }
+        amount
+      } else if (!is.na(waste_to_collect) && waste_to_collect > 0) {
+        waste_to_collect  # Collect the remaining waste if it's less than 5
+      } else {
+        0
+      }
+    }) |>
+    set_global(paste0("waste_to_collect_", region, "_", waste_type), function() {
+      waste_to_collect <- get_global(env, paste0("waste_to_collect_", region, "_", waste_type))
+      waste_amount <- get_attribute(env, "waste_amount")
+      waste_to_collect - waste_amount
+    }) |>
+    set_global(paste0("total_waste_collected_", region, "_", waste_type), function() {
+      get_global(env, paste0("total_waste_collected_", region, "_", waste_type)) + get_attribute(env, "waste_amount")
+    }) |>
+    set_global(paste0("total_collection_cost_", region, "_", waste_type), function() {
+      waste_amount <- get_attribute(env, "waste_amount")
+      get_global(env, paste0("total_collection_cost_", region, "_", waste_type)) + waste_amount * collection_cost_per_unit
+    }) |>
+    set_global(paste0("total_transportation_cost_", region, "_", waste_type), function() {
+      waste_amount <- get_attribute(env, "waste_amount")
+      get_global(env, paste0("total_transportation_cost_", region, "_", waste_type)) + waste_amount * transportation_cost_per_unit
+    }) |>
+    set_global(paste0("total_waste_stored_", region, "_", waste_type), function() {
+      current_storage <- get_global(env, paste0("total_waste_stored_", region, "_", waste_type))
+      waste_amount <- get_attribute(env, "waste_amount")
+      max(current_storage - waste_amount, 0)
+    }) |>
+    log_(function() paste("Waste collected in", region, "(", waste_type, "):", get_global(env, paste0("total_waste_collected_", region, "_", waste_type)), "kg")) |>
+    timeout(function() rexp(1, rate = 1.5)) |>
+    release("storage", 1) |>
+    release("collection_truck")
+
+  # Handle Waste Trajectory (Loc2)
+  handle_waste <- trajectory(paste("Handle Waste -", region, "-", waste_type)) |>
+    seize("collection_truck") |>
+    seize("waste_processor") |>
+    set_attribute("waste_amount", function() runif(1, 2, 15)) |>
+    set_global(paste0("total_waste_handled_", region, "_", waste_type), function() {
+      get_global(env, paste0("total_waste_handled_", region, "_", waste_type)) + get_attribute(env, "waste_amount")
+    }) |>
+    set_global(paste0("total_processing_cost_", region, "_", waste_type), function() {
+      waste_amount <- get_attribute(env, "waste_amount")
+      get_global(env, paste0("total_processing_cost_", region, "_", waste_type)) + waste_amount * processing_cost_per_unit
+    }) |>
+    set_global(paste0("total_waste_recycled_", region, "_", waste_type), function() {
+      recycled_amount <- runif(1, 1, 7)
+      get_global(env, paste0("total_waste_recycled_", region, "_", waste_type)) + recycled_amount
+    }) |>
+    set_global(paste0("total_recycling_revenue_", region, "_", waste_type), function() {
+      recycled_amount <- get_attribute(env, "waste_amount")
+      get_global(env, paste0("total_recycling_revenue_", region, "_", waste_type)) + recycled_amount * recycling_revenue_per_unit
+    }) |>
+    set_global(paste0("total_avoided_disposal_cost_", region, "_", waste_type), function() {
+      recycled_amount <- get_attribute(env, "waste_amount")
+      get_global(env, paste0("total_avoided_disposal_cost_", region, "_", waste_type)) + recycled_amount * avoided_disposal_cost_per_unit
+    }) |>
+    log_(function() paste("Waste handled in", region, "(", waste_type, "):", get_global(env, paste0("total_waste_handled_", region, "_", waste_type)), "kg")) |>
+    timeout(function() rexp(1, rate = 0.7)) |>
+    release("waste_processor") |>
+    release("collection_truck") |>
+    log_(function() paste("Waste recycled in", region, "(", waste_type, "):", get_global(env, paste0("total_waste_recycled_", region, "_", waste_type)), "kg")) |>
+    timeout(function() rexp(1, rate = 0.3))  # Added delay for recycling process
+
+  return(list(generate_waste = generate_waste, collect_waste = collect_waste, handle_waste = handle_waste))
+}
+
+# Add trajectories and generators for each region and wood waste type
+trajectories <- list()
+for (region in regions) {
+  for (waste_type in wood_waste_types) {
+    trajs <- create_trajectories(region, waste_type)
+    trajectories[[paste(region, waste_type, sep = "_")]] <- trajs
+    env <- env |>
+      add_generator(paste0("waste_gen_", region, "_", waste_type), trajs$generate_waste, function() rexp(1, rate = 0.5)) |>
+      add_generator(paste0("waste_collector_", region, "_", waste_type), trajs$collect_waste, function() rexp(1, rate = 1.5), mon = 10) |>
+      add_generator(paste0("waste_handler_", region, "_", waste_type), trajs$handle_waste, function() rexp(1, rate = 1), mon = 20)
+  }
+}
+
+# Function to balance storage across regions
+balance_storage_across_regions <- function(env) {
+  for (waste_type in wood_waste_types) {
+    total_storages <- sapply(regions, function(region) get_global(env, paste0("total_waste_stored_", region, "_", waste_type)))
+    total_storage <- sum(total_storages)
+    avg_storage <- total_storage / length(regions)
+    
+    cat("Initial storage for waste type:", waste_type, "\n")
+    for (region in regions) {
+      initial_storage <- get_global(env, paste0("total_waste_stored_", region, "_", waste_type))
+      cat("  Region:", region, "Initial storage (kg):", initial_storage, "\n")
+    }
+    
+    for (region in regions) {
+      current_storage <- get_global(env, paste0("total_waste_stored_", region, "_", waste_type))
+      transfer_amount <- avg_storage - current_storage
+      
+      if (transfer_amount > 0) {
+        for (source_region in regions) {
+          if (source_region != region) {
+            source_storage <- get_global(env, paste0("total_waste_stored_", source_region, "_", waste_type))
+            if (source_storage > avg_storage) {
+              actual_transfer_amount <- min(transfer_amount, source_storage - avg_storage)
+              if (actual_transfer_amount > 0) {
+                current_storage <- current_storage + actual_transfer_amount
+                source_storage <- source_storage - actual_transfer_amount
+                transfer_amount <- transfer_amount - actual_transfer_amount
+                if (transfer_amount <= 0) break
+              }
+            }
+          }
+        }
+      } else if (transfer_amount < 0) {
+        for (target_region in regions) {
+          if (target_region != region) {
+            target_storage <- get_global(env, paste0("total_waste_stored_", target_region, "_", waste_type))
+            if (target_storage < avg_storage) {
+              actual_transfer_amount <- min(-transfer_amount, avg_storage - target_storage)
+              if (actual_transfer_amount > 0) {
+                current_storage <- current_storage - actual_transfer_amount
+                target_storage <- target_storage + actual_transfer_amount
+                transfer_amount <- transfer_amount + actual_transfer_amount
+                if (transfer_amount >= 0) break
+              }
+            }
+          }
+        }
+      }
+      
+      # Print final storage amounts for verification
+      cat("Final storage in region", region, "for waste type", waste_type, ":", current_storage, "kg\n")
+    }
+  }
+}
+
+# Run the simulation
+env <- env |>
+  run(until = 100)
+
+# Balance storage across regions before the simulation ends
+balance_storage_across_regions(env)
+
+# Display results
+arrivals <- get_mon_arrivals(env)
+resources <- get_mon_resources(env)
+
+# Print the rates of generation, collection, and processing
+cat("Rates of waste generation, collection, and processing:\n")
+cat("Generation rate: 0.5 per time unit\n")
+cat("Collection rate: 1.5 per time unit\n")
+cat("Processing rate: 1 per time unit\n\n")
+
+# Print final amounts of waste generated, collected, handled, stored, and recycled per region and wood waste type
+for (region in regions) {
+  for (waste_type in wood_waste_types) {
+    cat("Region:", region, "Waste Type:", waste_type, "\n")
+    cat("  Total waste generated (kg):", get_global(env, paste0("total_waste_generated_", region, "_", waste_type)), "\n")
+    cat("  Total waste collected (kg):", get_global(env, paste0("total_waste_collected_", region, "_", waste_type)), "\n")
+    cat("  Total waste handled (kg):", get_global(env, paste0("total_waste_handled_", region, "_", waste_type)), "\n")
+    cat("  Total waste stored (kg):", get_global(env, paste0("total_waste_stored_", region, "_", waste_type)), "\n")
+    cat("  Total waste recycled (kg):", get_global(env, paste0("total_waste_recycled_", region, "_", waste_type)), "\n")
+    cat("  Overflow penalty:", get_global(env, paste0("overflow_penalty_", region, "_", waste_type)), "\n")
+    cat("  Total storage cost:", get_global(env, paste0("total_storage_cost_", region, "_", waste_type)), "\n")
+    cat("  Total collection cost:", get_global(env, paste0("total_collection_cost_", region, "_", waste_type)), "\n")
+    cat("  Total processing cost:", get_global(env, paste0("total_processing_cost_", region, "_", waste_type)), "\n")
+    cat("  Total transportation cost:", get_global(env, paste0("total_transportation_cost_", region, "_", waste_type)), "\n")
+    cat("  Total recycling revenue:", get_global(env, paste0("total_recycling_revenue_", region, "_", waste_type)), "\n")
+    cat("  Total avoided disposal cost:", get_global(env, paste0("total_avoided_disposal_cost_", region, "_", waste_type)), "\n")
+    cat("\n")
+  }
+}
+
+# Print storage details
+cat("Storage Details:\n")
+cat("Storage capacity per region and waste type:", storage_capacity, "kg\n")
+cat("Cost per unit of storage:", storage_cost_per_unit, "\n")
+cat("Total storage cost for all regions and waste types (current stored waste):\n")
+
+total_storage_cost <- 0
+for (region in regions) {
+  for (waste_type in wood_waste_types) {
+    total_storage_cost <- total_storage_cost + get_global(env, paste0("total_waste_stored_", region, "_", waste_type)) * storage_cost_per_unit
+  }
+}
+cat("Total storage cost:", total_storage_cost, "\n")
+
+resources
+
+```
