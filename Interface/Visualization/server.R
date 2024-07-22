@@ -7,61 +7,87 @@ library(plotly)
 
 shinyServer(function(input, output, session) {
   
-  # Define a function to load scenario parameters
-  load_scenario_parameters <- function(scenario) {
-    params <- list(
-      regions = c("North", "South", "East", "West"),
-      wood_waste_types = c("Construction", "Demolition", "Packaging"),
-      storage_cost_per_unit = 0.5,
-      collection_cost_per_unit = 1,
-      processing_cost_per_unit = 2,
-      transportation_cost_per_unit = 0.3,
-      overflow_penalty_per_unit = 2,
-      recycling_revenue_per_unit = 3,
-      avoided_disposal_cost_per_unit = 1,
-      storage_capacity = 500
-    )
-    
+  default_values <- list(
+    generation_rate_increase = 1,
+    collection_rate_increase = 1,
+    handling_rate_increase = 1,
+    recycling_rate_increase = 1,
+    storage_cost_per_unit = 0.5,
+    collection_cost_per_unit = 1,
+    processing_cost_per_unit = 2,
+    transportation_cost_per_unit = 0.3,
+    overflow_penalty_per_unit = 2,
+    recycling_revenue_per_unit = 3,
+    avoided_disposal_cost_per_unit = 1,
+    storage_capacity = 500
+  )
+  
+  load_scenario_parameters <- function(scenario, user_params) {
+    params <- user_params
     if (scenario == "increased_waste_generation") {
-      params$generation_rate_increase = 2
+      params$generation_rate_increase <- 2
     } else if (scenario == "improved_collection_efficiency") {
-      params$collection_rate_increase = 1.5
+      params$collection_rate_increase <- 1.5
+    } else if (scenario == "improved_handling_efficiency") {
+      params$handling_rate_increase <- 1.5
     } else if (scenario == "enhanced_recycling_programs") {
-      params$recycling_revenue_per_unit = 5
-      params$avoided_disposal_cost_per_unit = 2
+      params$recycling_rate_increase <- 2
+      params$recycling_revenue_per_unit <- 5
+      params$avoided_disposal_cost_per_unit <- 2
     } else if (scenario == "storage_capacity_expansion") {
-      params$storage_capacity = 1000
+      params$storage_capacity <- 1000
     } else if (scenario == "penalties_for_overflow") {
-      params$overflow_penalty_per_unit = 5
+      params$overflow_penalty_per_unit <- 5
     } else if (scenario == "different_transportation_costs") {
-      params$transportation_cost_per_unit = 0.5
+      params$transportation_cost_per_unit <- 0.5
     } else if (scenario == "seasonal_variations") {
-      params$seasonal_variations = TRUE
+      params$seasonal_variations <- TRUE
     }
-    
     return(params)
   }
   
   load_parameters <- reactive({
     list(
-      regions = unlist(strsplit(input$regions, ",")),
-      wood_waste_types = unlist(strsplit(input$wood_waste_types, ",")),
-      storage_cost_per_unit = input$storage_cost_per_unit,
-      collection_cost_per_unit = input$collection_cost_per_unit,
-      processing_cost_per_unit = input$processing_cost_per_unit,
-      transportation_cost_per_unit = input$transportation_cost_per_unit,
-      overflow_penalty_per_unit = input$overflow_penalty_per_unit,
-      recycling_revenue_per_unit = input$recycling_revenue_per_unit,
-      avoided_disposal_cost_per_unit = input$avoided_disposal_cost_per_unit,
-      storage_capacity = input$storage_capacity
+      regions = unlist(strsplit(as.character(input$regions), ",")),
+      wood_waste_types = unlist(strsplit(as.character(input$wood_waste_types), ",")),
+      generation_rate_increase = as.numeric(input$generation_rate_increase),
+      collection_rate_increase = as.numeric(input$collection_rate_increase),
+      handling_rate_increase = as.numeric(input$handling_rate_increase),
+      recycling_rate_increase = as.numeric(input$recycling_rate_increase),
+      storage_cost_per_unit = as.numeric(input$storage_cost_per_unit),
+      collection_cost_per_unit = as.numeric(input$collection_cost_per_unit),
+      processing_cost_per_unit = as.numeric(input$processing_cost_per_unit),
+      transportation_cost_per_unit = as.numeric(input$transportation_cost_per_unit),
+      overflow_penalty_per_unit = as.numeric(input$overflow_penalty_per_unit),
+      recycling_revenue_per_unit = as.numeric(input$recycling_revenue_per_unit),
+      avoided_disposal_cost_per_unit = as.numeric(input$avoided_disposal_cost_per_unit),
+      storage_capacity = as.numeric(input$storage_capacity)
     )
   })
   
-  # Update UI based on selected scenario
+  # Add feedback for negative inputs
+  observe({
+    for (input_name in c("generation_rate_increase", "collection_rate_increase", "handling_rate_increase", 
+                         "recycling_rate_increase", "storage_cost_per_unit", "collection_cost_per_unit", 
+                         "processing_cost_per_unit", "transportation_cost_per_unit", 
+                         "overflow_penalty_per_unit", "recycling_revenue_per_unit", 
+                         "avoided_disposal_cost_per_unit", "storage_capacity")) {
+      if (input[[input_name]] < 0) {
+        showFeedbackDanger(inputId = input_name, text = "Value cannot be negative")
+      } else {
+        hideFeedback(inputId = input_name)
+      }
+    }
+  })
+  
   observe({
     scenario <- input$scenario
-    params <- load_scenario_parameters(scenario)
-    
+    user_params <- load_parameters()
+    params <- load_scenario_parameters(scenario, user_params)
+    updateNumericInput(session, "generation_rate_increase", value = params$generation_rate_increase)
+    updateNumericInput(session, "collection_rate_increase", value = params$collection_rate_increase)
+    updateNumericInput(session, "handling_rate_increase", value = params$handling_rate_increase)
+    updateNumericInput(session, "recycling_rate_increase", value = params$recycling_rate_increase)
     updateNumericInput(session, "storage_cost_per_unit", value = params$storage_cost_per_unit)
     updateNumericInput(session, "collection_cost_per_unit", value = params$collection_cost_per_unit)
     updateNumericInput(session, "processing_cost_per_unit", value = params$processing_cost_per_unit)
@@ -72,10 +98,29 @@ shinyServer(function(input, output, session) {
     updateNumericInput(session, "storage_capacity", value = params$storage_capacity)
   })
   
+  observeEvent(input$reset_parameters, {
+    updateNumericInput(session, "generation_rate_increase", value = default_values$generation_rate_increase)
+    updateNumericInput(session, "collection_rate_increase", value = default_values$collection_rate_increase)
+    updateNumericInput(session, "handling_rate_increase", value = default_values$handling_rate_increase)
+    updateNumericInput(session, "recycling_rate_increase", value = default_values$recycling_rate_increase)
+    updateNumericInput(session, "storage_cost_per_unit", value = default_values$storage_cost_per_unit)
+    updateNumericInput(session, "collection_cost_per_unit", value = default_values$collection_cost_per_unit)
+    updateNumericInput(session, "processing_cost_per_unit", value = default_values$processing_cost_per_unit)
+    updateNumericInput(session, "transportation_cost_per_unit", value = default_values$transportation_cost_per_unit)
+    updateNumericInput(session, "overflow_penalty_per_unit", value = default_values$overflow_penalty_per_unit)
+    updateNumericInput(session, "recycling_revenue_per_unit", value = default_values$recycling_revenue_per_unit)
+    updateNumericInput(session, "avoided_disposal_cost_per_unit", value = default_values$avoided_disposal_cost_per_unit)
+    updateNumericInput(session, "storage_capacity", value = default_values$storage_capacity)
+  })
+  
   output$dynamic_ui <- renderUI({
     fluidRow(
       textInput("regions", "Regions (comma-separated):", "North,South,East,West"),
       textInput("wood_waste_types", "Wood Waste Types (comma-separated):", "Construction,Demolition,Packaging"),
+      numericInput("generation_rate_increase", "Adjust Generation Multiplier:", 1),
+      numericInput("collection_rate_increase", "Adjust Collection Multiplier:", 1),
+      numericInput("handling_rate_increase", "Adjust Handling Multiplier:", 1),
+      numericInput("recycling_rate_increase", "Adjust Recycling Multiplier:", 1),
       numericInput("storage_cost_per_unit", "Storage Cost per Unit:", 0.5),
       numericInput("collection_cost_per_unit", "Collection Cost per Unit:", 1),
       numericInput("processing_cost_per_unit", "Processing Cost per Unit:", 2),
@@ -87,7 +132,6 @@ shinyServer(function(input, output, session) {
     )
   })
   
-  # Initialize a data frame to store the simulation results
   results <- reactiveVal(data.frame(
     Time = numeric(),
     Region = character(),
@@ -137,9 +181,9 @@ shinyServer(function(input, output, session) {
         waste_amount <- get_attribute(env, "waste_amount")
         get_global(env, paste0("total_storage_cost_", region, "_", waste_type)) + waste_amount * params$storage_cost_per_unit
       }) |>
+      set_attribute("log_event", function() log_event(env, region, waste_type, "Generation")) |> 
       timeout(function() rexp(1, rate = 0.5)) |>
-      release("storage", 1) |>
-      set_attribute("log_event", function() log_event(env, region, waste_type, "Generation"))
+      release("storage", 1) 
     
     collect_waste <- trajectory(paste("Collect Waste -", region, "-", waste_type)) |>
       timeout(10) |>
@@ -180,10 +224,11 @@ shinyServer(function(input, output, session) {
         waste_amount <- get_attribute(env, "waste_amount")
         max(current_storage - waste_amount, 0)
       }) |>
+      set_attribute("log_event", function() log_event(env, region, waste_type, "Collection")) |> 
       timeout(function() rexp(1, rate = 1.5)) |>
       release("storage", 1) |>
-      release("collection_truck") |>
-      set_attribute("log_event", function() log_event(env, region, waste_type, "Collection"))
+      release("collection_truck")
+    
     
     handle_waste <- trajectory(paste("Handle Waste -", region, "-", waste_type)) |>
       timeout(20) |>
@@ -196,9 +241,18 @@ shinyServer(function(input, output, session) {
       set_global(paste0("total_processing_cost_", region, "_", waste_type), function() {
         waste_amount <- get_attribute(env, "waste_amount")
         get_global(env, paste0("total_processing_cost_", region, "_", waste_type)) + waste_amount * params$processing_cost_per_unit
-      }) |>
+      })  |>
+      set_attribute("log_event", function() log_event(env, region, waste_type, "Handling")) |>
+      timeout(function() rexp(1, rate = 0.7)) |>
+      release("waste_processor") |>
+      release("collection_truck") 
+    
+    recycle_waste <- trajectory(paste("Recycle Waste -", region, "-", waste_type)) |>
+      timeout(10) |>
+      seize("recycling_facility") |>
+      set_attribute("waste_amount", function() runif(1, 1, 7)) |>
       set_global(paste0("total_waste_recycled_", region, "_", waste_type), function() {
-        recycled_amount <- runif(1, 1, 7)
+        recycled_amount <- get_attribute(env, "waste_amount")
         get_global(env, paste0("total_waste_recycled_", region, "_", waste_type)) + recycled_amount
       }) |>
       set_global(paste0("total_recycling_revenue_", region, "_", waste_type), function() {
@@ -208,14 +262,12 @@ shinyServer(function(input, output, session) {
       set_global(paste0("total_avoided_disposal_cost_", region, "_", waste_type), function() {
         recycled_amount <- get_attribute(env, "waste_amount")
         get_global(env, paste0("total_avoided_disposal_cost_", region, "_", waste_type)) + recycled_amount * params$avoided_disposal_cost_per_unit
-      }) |>
-      timeout(function() rexp(1, rate = 0.7)) |>
-      release("waste_processor") |>
-      release("collection_truck") |>
-      set_attribute("log_event", function() log_event(env, region, waste_type, "Handling")) |>
-      set_attribute("log_event", function() log_event(env, region, waste_type, "Recycling"))
+      }) |> 
+      set_attribute("log_event", function() log_event(env, region, waste_type, "Recycling")) |> 
+      timeout(function() rexp(1, rate = 0.3)) |>
+      release("recycling_facility")
     
-    list(generate_waste = generate_waste, collect_waste = collect_waste, handle_waste = handle_waste)
+    list(generate_waste = generate_waste, collect_waste = collect_waste, handle_waste = handle_waste, recycle_waste = recycle_waste)
   }
   
   handle_overflow <- function(env, region, waste_type, waste_amount) {
@@ -285,9 +337,30 @@ shinyServer(function(input, output, session) {
     }
   }
   
+  generate_distance_matrix <- function(regions) {
+    n <- length(regions)
+    matrix <- matrix(runif(n * n, min = 1, max = 100), nrow = n, ncol = n)
+    diag(matrix) <- 0
+    colnames(matrix) <- regions
+    rownames(matrix) <- regions
+    return(matrix)
+  }
+  
+  observeEvent(input$generate_matrix, {
+    regions <- unlist(strsplit(input$regions, ","))
+    if (length(regions) != input$num_regions) {
+      showFeedbackDanger("regions", "Number of regions does not match the input number of regions.")
+    } else {
+      hideFeedback("regions")
+      distance_matrix <- generate_distance_matrix(regions)
+      output$distance_matrix <- renderTable({
+        distance_matrix
+      }, rownames = TRUE, colnames = TRUE)
+    }
+  })
+  
   observeEvent(input$run_simulation, {
     withProgress(message = 'Running simulation...', value = 0, {
-      # Reset results before running the simulation
       results(data.frame(
         Time = numeric(),
         Region = character(),
@@ -298,7 +371,8 @@ shinyServer(function(input, output, session) {
       ))
       
       scenario <- input$scenario
-      params <- load_scenario_parameters(scenario)
+      user_params <- load_parameters()
+      params <- load_scenario_parameters(scenario, user_params)
       
       env <- simmer("Wood Waste Flow Simulation")
       
@@ -324,7 +398,9 @@ shinyServer(function(input, output, session) {
       env <- env |>
         add_resource("storage", capacity = params$storage_capacity * length(params$regions) * length(params$wood_waste_types)) |>
         add_resource("collection_truck", capacity = length(params$regions)) |>
-        add_resource("waste_processor", capacity = length(params$regions))
+        add_resource("waste_processor", capacity = length(params$regions)) |>
+        add_resource("recycling_facility", capacity = length(params$regions))
+      
       
       trajectories <- list()
       for (region in params$regions) {
@@ -332,14 +408,15 @@ shinyServer(function(input, output, session) {
           trajs <- create_trajectories(env, params, region, waste_type)
           trajectories[[paste(region, waste_type, sep = "_")]] <- trajs
           env <- env |>
-            add_generator(paste0("waste_gen_", region, "_", waste_type), trajs$generate_waste, function() rexp(1, rate = 0.5 / ifelse(is.null(params$generation_rate_increase), 1, params$generation_rate_increase))) |>
-            add_generator(paste0("waste_collector_", region, "_", waste_type), trajs$collect_waste, function() rexp(1, rate = 1.5 / ifelse(is.null(params$collection_rate_increase), 1, params$collection_rate_increase))) |>
-            add_generator(paste0("waste_handler_", region, "_", waste_type), trajs$handle_waste, function() rexp(1, rate = 1))
+            add_generator(paste0("waste_gen_", region, "_", waste_type), trajs$generate_waste, function() rexp(1, rate = 0.5 * ifelse(is.null(params$generation_rate_increase), 1, params$generation_rate_increase))) |>
+            add_generator(paste0("waste_collector_", region, "_", waste_type), trajs$collect_waste, function() rexp(1, rate = 1.5 * ifelse(is.null(params$collection_rate_increase), 1, params$collection_rate_increase))) |>
+            add_generator(paste0("waste_handler_", region, "_", waste_type), trajs$handle_waste, function() rexp(1, rate = 1 * ifelse(is.null(params$handling_rate_increase), 1, params$handling_rate_increase))) |>
+            add_generator(paste0("waste_recycler_", region, "_", waste_type), trajs$recycle_waste, function() rexp(1, rate = 1 * ifelse(is.null(params$recycling_rate_increase), 1, params$recycling_rate_increase)))
         }
       }
       
       incProgress(0.5)
-      env %>% run(until = 100)
+      env |> run(until = 100)
       incProgress(0.9)
       
       balance_storage_across_regions(env, params)
@@ -374,13 +451,12 @@ shinyServer(function(input, output, session) {
         cat("Total storage cost:", total_storage_cost, "\n")
       })
       
-      # Add cumulative totals for each event
       output$cumulative_totals <- renderPrint({
         data <- results()
-        total_generation <- sum(data %>% filter(Event == "Generation") %>% pull(Amount))
-        total_collection <- sum(data %>% filter(Event == "Collection") %>% pull(Amount))
-        total_handling <- sum(data %>% filter(Event == "Handling") %>% pull(Amount))
-        total_recycling <- sum(data %>% filter(Event == "Recycling") %>% pull(Amount))
+        total_generation <- sum(data |> filter(Event == "Generation") |> pull(Amount))
+        total_collection <- sum(data |> filter(Event == "Collection") |> pull(Amount))
+        total_handling <- sum(data |> filter(Event == "Handling") |> pull(Amount))
+        total_recycling <- sum(data |> filter(Event == "Recycling") |> pull(Amount))
         
         cat("Cumulative Totals:\n")
         cat("  Total waste generated (kg):", total_generation, "\n")
@@ -391,53 +467,63 @@ shinyServer(function(input, output, session) {
       
       generate_plot_data <- function(event_type) {
         data <- results()
-        data <- data %>% filter(Event == event_type) %>%
-          arrange(Time) %>%
-          group_by(Region, WasteType) %>%
+        data <- data |> filter(Event == event_type) |>
+          arrange(Time) |>
+          group_by(Region, WasteType) |>
           mutate(CumulativeAmount = cumsum(Amount))
         data
       }
       
+      get_plot_parameters <- function(plot_type) {
+        y_label <- ifelse(plot_type == "cumulative", "Cumulative Amount", "Amount")
+        y_column <- ifelse(plot_type == "cumulative", "CumulativeAmount", "Amount")
+        list(y_label = y_label, y_column = y_column)
+      }
+      
       output$generation_plot <- renderPlotly({
         plot_data <- generate_plot_data("Generation")
-        p <- ggplot(plot_data, aes(x = Time, y = if(input$plot_type == "cumulative") CumulativeAmount else Amount, color = interaction(Region, WasteType))) +
+        plot_params <- get_plot_parameters(input$plot_type)
+        p <- ggplot(plot_data, aes(x = Time, y = !!sym(plot_params$y_column), color = interaction(Region, WasteType))) +
           geom_line() +
           labs(title = "Waste Generation Over Time",
                x = "Time",
-               y = if(input$plot_type == "cumulative") "Cumulative Amount of Waste Generated" else "Amount of Waste Generated") +
+               y = plot_params$y_label) +
           theme_minimal()
         ggplotly(p)
       })
       
       output$collection_plot <- renderPlotly({
         plot_data <- generate_plot_data("Collection")
-        p <- ggplot(plot_data, aes(x = Time, y = if(input$plot_type == "cumulative") CumulativeAmount else Amount, color = interaction(Region, WasteType))) +
+        plot_params <- get_plot_parameters(input$plot_type)
+        p <- ggplot(plot_data, aes(x = Time, y = !!sym(plot_params$y_column), color = interaction(Region, WasteType))) +
           geom_line() +
           labs(title = "Waste Collection Over Time",
                x = "Time",
-               y = if(input$plot_type == "cumulative") "Cumulative Amount of Waste Collected" else "Amount of Waste Collected") +
+               y = plot_params$y_label) +
           theme_minimal()
         ggplotly(p)
       })
       
       output$handling_plot <- renderPlotly({
         plot_data <- generate_plot_data("Handling")
-        p <- ggplot(plot_data, aes(x = Time, y = if(input$plot_type == "cumulative") CumulativeAmount else Amount, color = interaction(Region, WasteType))) +
+        plot_params <- get_plot_parameters(input$plot_type)
+        p <- ggplot(plot_data, aes(x = Time, y = !!sym(plot_params$y_column), color = interaction(Region, WasteType))) +
           geom_line() +
           labs(title = "Waste Handling Over Time",
                x = "Time",
-               y = if(input$plot_type == "cumulative") "Cumulative Amount of Waste Handled" else "Amount of Waste Handled") +
+               y = plot_params$y_label) +
           theme_minimal()
         ggplotly(p)
       })
       
       output$recycling_plot <- renderPlotly({
         plot_data <- generate_plot_data("Recycling")
-        p <- ggplot(plot_data, aes(x = Time, y = if(input$plot_type == "cumulative") CumulativeAmount else Amount, color = interaction(Region, WasteType))) +
+        plot_params <- get_plot_parameters(input$plot_type)
+        p <- ggplot(plot_data, aes(x = Time, y = !!sym(plot_params$y_column), color = interaction(Region, WasteType))) +
           geom_line() +
           labs(title = "Waste Recycling Over Time",
                x = "Time",
-               y = if(input$plot_type == "cumulative") "Cumulative Amount of Waste Recycled" else "Amount of Waste Recycled") +
+               y = plot_params$y_label) +
           theme_minimal()
         ggplotly(p)
       })
