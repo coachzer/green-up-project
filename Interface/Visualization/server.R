@@ -4,9 +4,23 @@ library(dplyr)
 library(ggplot2)
 library(DT)
 library(plotly)
+library(shinyjs)
+library(shinydashboard)
+library(shinyBS)
+library(reshape2)
+library(igraph)
 
 shinyServer(function(input, output, session) {
   
+  # Lists ----------
+  
+  seasons <- list(
+    winter = 0.8,
+    spring = 1.0,
+    summer = 1.2,
+    fall = 1.0
+  )
+    
   default_values <- list(
     generation_rate_increase = 1,
     collection_rate_increase = 1,
@@ -17,10 +31,13 @@ shinyServer(function(input, output, session) {
     processing_cost_per_unit = 2,
     transportation_cost_per_unit = 0.3,
     overflow_penalty_per_unit = 2,
-    recycling_revenue_per_unit = 3,
+    recycling_revenue_per_unit = 2,
     avoided_disposal_cost_per_unit = 1,
-    storage_capacity = 500
+    storage_capacity = 500,
+    runtime = 100
   )
+  
+  # Load scenario parameters -----------------------------------------------------------
   
   load_scenario_parameters <- function(scenario, user_params) {
     params <- user_params
@@ -41,11 +58,17 @@ shinyServer(function(input, output, session) {
     } else if (scenario == "different_transportation_costs") {
       params$transportation_cost_per_unit <- 0.5
     } else if (scenario == "seasonal_variations") {
-      params$seasonal_variations <- TRUE
+        if (input$season == "Year-long") {
+          params$seasonal_variations <- TRUE
+        } else {
+          params$seasonal_multiplier <- seasons[[tolower(input$season)]]
+        }
     }
     return(params)
   }
   
+  # Load parameters -----------------------------------------------------------
+   
   load_parameters <- reactive({
     list(
       regions = unlist(strsplit(as.character(input$regions), ",")),
@@ -65,73 +88,7 @@ shinyServer(function(input, output, session) {
     )
   })
   
-  # Add feedback for negative inputs
-  observe({
-    for (input_name in c("generation_rate_increase", "collection_rate_increase", "handling_rate_increase", 
-                         "recycling_rate_increase", "storage_cost_per_unit", "collection_cost_per_unit", 
-                         "processing_cost_per_unit", "transportation_cost_per_unit", 
-                         "overflow_penalty_per_unit", "recycling_revenue_per_unit", 
-                         "avoided_disposal_cost_per_unit", "storage_capacity")) {
-      if (input[[input_name]] < 0) {
-        showFeedbackDanger(inputId = input_name, text = "Value cannot be negative")
-      } else {
-        hideFeedback(inputId = input_name)
-      }
-    }
-  })
-  
-  observe({
-    scenario <- input$scenario
-    user_params <- load_parameters()
-    params <- load_scenario_parameters(scenario, user_params)
-    updateNumericInput(session, "generation_rate_increase", value = params$generation_rate_increase)
-    updateNumericInput(session, "collection_rate_increase", value = params$collection_rate_increase)
-    updateNumericInput(session, "handling_rate_increase", value = params$handling_rate_increase)
-    updateNumericInput(session, "recycling_rate_increase", value = params$recycling_rate_increase)
-    updateNumericInput(session, "storage_cost_per_unit", value = params$storage_cost_per_unit)
-    updateNumericInput(session, "collection_cost_per_unit", value = params$collection_cost_per_unit)
-    updateNumericInput(session, "processing_cost_per_unit", value = params$processing_cost_per_unit)
-    updateNumericInput(session, "transportation_cost_per_unit", value = params$transportation_cost_per_unit)
-    updateNumericInput(session, "overflow_penalty_per_unit", value = params$overflow_penalty_per_unit)
-    updateNumericInput(session, "recycling_revenue_per_unit", value = params$recycling_revenue_per_unit)
-    updateNumericInput(session, "avoided_disposal_cost_per_unit", value = params$avoided_disposal_cost_per_unit)
-    updateNumericInput(session, "storage_capacity", value = params$storage_capacity)
-  })
-  
-  observeEvent(input$reset_parameters, {
-    updateNumericInput(session, "generation_rate_increase", value = default_values$generation_rate_increase)
-    updateNumericInput(session, "collection_rate_increase", value = default_values$collection_rate_increase)
-    updateNumericInput(session, "handling_rate_increase", value = default_values$handling_rate_increase)
-    updateNumericInput(session, "recycling_rate_increase", value = default_values$recycling_rate_increase)
-    updateNumericInput(session, "storage_cost_per_unit", value = default_values$storage_cost_per_unit)
-    updateNumericInput(session, "collection_cost_per_unit", value = default_values$collection_cost_per_unit)
-    updateNumericInput(session, "processing_cost_per_unit", value = default_values$processing_cost_per_unit)
-    updateNumericInput(session, "transportation_cost_per_unit", value = default_values$transportation_cost_per_unit)
-    updateNumericInput(session, "overflow_penalty_per_unit", value = default_values$overflow_penalty_per_unit)
-    updateNumericInput(session, "recycling_revenue_per_unit", value = default_values$recycling_revenue_per_unit)
-    updateNumericInput(session, "avoided_disposal_cost_per_unit", value = default_values$avoided_disposal_cost_per_unit)
-    updateNumericInput(session, "storage_capacity", value = default_values$storage_capacity)
-  })
-  
-  output$dynamic_ui <- renderUI({
-    fluidRow(
-      textInput("regions", "Regions (comma-separated):", "North,South,East,West"),
-      textInput("wood_waste_types", "Wood Waste Types (comma-separated):", "Construction,Demolition,Packaging"),
-      numericInput("generation_rate_increase", "Adjust Generation Multiplier:", 1),
-      numericInput("collection_rate_increase", "Adjust Collection Multiplier:", 1),
-      numericInput("handling_rate_increase", "Adjust Handling Multiplier:", 1),
-      numericInput("recycling_rate_increase", "Adjust Recycling Multiplier:", 1),
-      numericInput("storage_cost_per_unit", "Storage Cost per Unit:", 0.5),
-      numericInput("collection_cost_per_unit", "Collection Cost per Unit:", 1),
-      numericInput("processing_cost_per_unit", "Processing Cost per Unit:", 2),
-      numericInput("transportation_cost_per_unit", "Transportation Cost per Unit:", 0.3),
-      numericInput("overflow_penalty_per_unit", "Overflow Penalty per Unit:", 2),
-      numericInput("recycling_revenue_per_unit", "Recycling Revenue per Unit:", 3),
-      numericInput("avoided_disposal_cost_per_unit", "Avoided Disposal Cost per Unit:", 1),
-      numericInput("storage_capacity", "Storage Capacity per Region:", 500)
-    )
-  })
-  
+  # Define reactive values for event and cost data -----------
   results <- reactiveVal(data.frame(
     Time = numeric(),
     Region = character(),
@@ -141,10 +98,24 @@ shinyServer(function(input, output, session) {
     stringsAsFactors = FALSE
   ))
   
+  costs <- reactiveVal(data.frame(
+    Time = numeric(),
+    Region = character(),
+    WasteType = character(),
+    CollectionCost = numeric(),
+    ProcessingCost = numeric(),
+    TransportationCost = numeric(),
+    RecyclingRevenue = numeric(),
+    stringsAsFactors = FALSE
+  ))
+   
+  # Logging events and costs -----------------------------------------------------------
   log_event <- function(env, region, waste_type, event) {
     time <- now(env)
     amount <- get_attribute(env, "waste_amount")
-    new_entry <- data.frame(
+    
+    # Event data
+    event_data <- data.frame(
       Time = time,
       Region = region,
       WasteType = waste_type,
@@ -152,13 +123,40 @@ shinyServer(function(input, output, session) {
       Amount = amount,
       stringsAsFactors = FALSE
     )
-    results(rbind(results(), new_entry))
+    
+    # Cost data
+    cost_data <- data.frame(
+      Time = time,
+      Region = region,
+      WasteType = waste_type,
+      CollectionCost = get_global(env, paste0("total_collection_cost_", region, "_", waste_type)),
+      ProcessingCost = get_global(env, paste0("total_processing_cost_", region, "_", waste_type)),
+      TransportationCost = get_global(env, paste0("total_transportation_cost_", region, "_", waste_type)),
+      RecyclingRevenue = get_global(env, paste0("total_recycling_revenue_", region, "_", waste_type)),
+      stringsAsFactors = FALSE
+    )
+    
+    # Append data to results and costs
+    results(rbind(results(), event_data))
+    costs(rbind(costs(), cost_data))
   }
   
   create_trajectories <- function(env, params, region, waste_type) {
     generate_waste <- trajectory(paste("Generate Waste -", region, "-", waste_type)) |>
       seize("storage", 1) |>
-      set_attribute("waste_amount", function() runif(1, 10, 30)) |>
+      set_attribute("waste_amount", function() {
+        base_amount <- runif(1, 10, 30)
+        if (input$scenario == "seasonal_variations") {
+          if (params$seasonal_variations) {
+            multiplier <- seasons[[sample(names(seasons), 1)]]
+          } else {
+            multiplier <- params$seasonal_multiplier
+          }
+          base_amount * multiplier
+        } else {
+          base_amount
+        }
+      }) |>
       set_global(paste0("total_waste_generated_", region, "_", waste_type), function() {
         waste_generated <- get_attribute(env, "waste_amount")
         get_global(env, paste0("total_waste_generated_", region, "_", waste_type)) + waste_generated
@@ -178,9 +176,15 @@ shinyServer(function(input, output, session) {
         result$new_storage
       }) |>
       set_global(paste0("total_storage_cost_", region, "_", waste_type), function() {
+        # Get the current amount of waste
         waste_amount <- get_attribute(env, "waste_amount")
-        get_global(env, paste0("total_storage_cost_", region, "_", waste_type)) + waste_amount * params$storage_cost_per_unit
-      }) |>
+        
+        # Calculate the current cost
+        current_storage_cost <- waste_amount * params$storage_cost_per_unit
+        
+        # Update the global total cost
+        get_global(env, paste0("total_storage_cost_", region, "_", waste_type)) + current_storage_cost
+      }) |> 
       set_attribute("log_event", function() log_event(env, region, waste_type, "Generation")) |> 
       timeout(function() rexp(1, rate = 0.5)) |>
       release("storage", 1) 
@@ -213,11 +217,13 @@ shinyServer(function(input, output, session) {
       }) |>
       set_global(paste0("total_collection_cost_", region, "_", waste_type), function() {
         waste_amount <- get_attribute(env, "waste_amount")
-        get_global(env, paste0("total_collection_cost_", region, "_", waste_type)) + waste_amount * params$collection_cost_per_unit
+        current_collection_cost <- waste_amount * params$collection_cost_per_unit
+        get_global(env, paste0("total_collection_cost_", region, "_", waste_type)) + current_collection_cost
       }) |>
       set_global(paste0("total_transportation_cost_", region, "_", waste_type), function() {
         waste_amount <- get_attribute(env, "waste_amount")
-        get_global(env, paste0("total_transportation_cost_", region, "_", waste_type)) + waste_amount * params$transportation_cost_per_unit
+        current_transportation_cost <- waste_amount * params$transportation_cost_per_unit
+        get_global(env, paste0("total_transportation_cost_", region, "_", waste_type)) + current_transportation_cost
       }) |>
       set_global(paste0("total_waste_stored_", region, "_", waste_type), function() {
         current_storage <- get_global(env, paste0("total_waste_stored_", region, "_", waste_type))
@@ -240,7 +246,8 @@ shinyServer(function(input, output, session) {
       }) |>
       set_global(paste0("total_processing_cost_", region, "_", waste_type), function() {
         waste_amount <- get_attribute(env, "waste_amount")
-        get_global(env, paste0("total_processing_cost_", region, "_", waste_type)) + waste_amount * params$processing_cost_per_unit
+        current_processing_cost <- waste_amount * params$processing_cost_per_unit
+        get_global(env, paste0("total_processing_cost_", region, "_", waste_type)) + current_processing_cost
       })  |>
       set_attribute("log_event", function() log_event(env, region, waste_type, "Handling")) |>
       timeout(function() rexp(1, rate = 0.7)) |>
@@ -248,7 +255,7 @@ shinyServer(function(input, output, session) {
       release("collection_truck") 
     
     recycle_waste <- trajectory(paste("Recycle Waste -", region, "-", waste_type)) |>
-      timeout(10) |>
+      timeout(20) |>
       seize("recycling_facility") |>
       set_attribute("waste_amount", function() runif(1, 1, 7)) |>
       set_global(paste0("total_waste_recycled_", region, "_", waste_type), function() {
@@ -257,11 +264,13 @@ shinyServer(function(input, output, session) {
       }) |>
       set_global(paste0("total_recycling_revenue_", region, "_", waste_type), function() {
         recycled_amount <- get_attribute(env, "waste_amount")
-        get_global(env, paste0("total_recycling_revenue_", region, "_", waste_type)) + recycled_amount * params$recycling_revenue_per_unit
+        current_revenue <- recycled_amount * params$recycling_revenue_per_unit
+        get_global(env, paste0("total_recycling_revenue_", region, "_", waste_type)) + current_revenue
       }) |>
       set_global(paste0("total_avoided_disposal_cost_", region, "_", waste_type), function() {
         recycled_amount <- get_attribute(env, "waste_amount")
-        get_global(env, paste0("total_avoided_disposal_cost_", region, "_", waste_type)) + recycled_amount * params$avoided_disposal_cost_per_unit
+        current_avoided_disposal_cost <- recycled_amount * params$avoided_disposal_cost_per_unit
+        get_global(env, paste0("total_avoided_disposal_cost_", region, "_", waste_type)) + current_avoided_disposal_cost
       }) |> 
       set_attribute("log_event", function() log_event(env, region, waste_type, "Recycling")) |> 
       timeout(function() rexp(1, rate = 0.3)) |>
@@ -284,7 +293,10 @@ shinyServer(function(input, output, session) {
     list(new_storage = new_storage, overflow_penalty = overflow_penalty)
   }
   
-  balance_storage_across_regions <- function(env, params) {
+  balance_storage_across_regions <- function(env, params, distance_matrix) {
+    transportation_costs <- matrix(0, nrow = length(params$regions), ncol = length(params$wood_waste_types),
+                                   dimnames = list(params$regions, params$wood_waste_types))
+    
     for (waste_type in params$wood_waste_types) {
       total_storages <- sapply(params$regions, function(region) get_global(env, paste0("total_waste_stored_", region, "_", waste_type)))
       total_storage <- sum(total_storages)
@@ -307,9 +319,16 @@ shinyServer(function(input, output, session) {
               if (source_storage > avg_storage) {
                 actual_transfer_amount <- min(transfer_amount, source_storage - avg_storage)
                 if (actual_transfer_amount > 0) {
+                  distance <- distance_matrix[source_region, region]
+                  transport_cost <- actual_transfer_amount * params$transportation_cost_per_unit * distance
+                  
                   current_storage <- current_storage + actual_transfer_amount
                   source_storage <- source_storage - actual_transfer_amount
                   transfer_amount <- transfer_amount - actual_transfer_amount
+                  
+                  transportation_costs[source_region, waste_type] <- transportation_costs[source_region, waste_type] + transport_cost
+                  transportation_costs[region, waste_type] <- transportation_costs[region, waste_type] + transport_cost
+                  
                   if (transfer_amount <= 0) break
                 }
               }
@@ -322,9 +341,16 @@ shinyServer(function(input, output, session) {
               if (target_storage < avg_storage) {
                 actual_transfer_amount <- min(-transfer_amount, avg_storage - target_storage)
                 if (actual_transfer_amount > 0) {
+                  distance <- distance_matrix[region, target_region]
+                  transport_cost <- actual_transfer_amount * params$transportation_cost_per_unit * distance
+                  
                   current_storage <- current_storage - actual_transfer_amount
                   target_storage <- target_storage + actual_transfer_amount
                   transfer_amount <- transfer_amount + actual_transfer_amount
+                  
+                  transportation_costs[region, waste_type] <- transportation_costs[region, waste_type] + transport_cost
+                  transportation_costs[target_region, waste_type] <- transportation_costs[target_region, waste_type] + transport_cost
+                  
                   if (transfer_amount >= 0) break
                 }
               }
@@ -335,6 +361,8 @@ shinyServer(function(input, output, session) {
         cat("Final storage in region", region, "for waste type", waste_type, ":", current_storage, "kg\n")
       }
     }
+    
+    return(transportation_costs)
   }
   
   generate_distance_matrix <- function(regions) {
@@ -346,6 +374,77 @@ shinyServer(function(input, output, session) {
     return(matrix)
   }
   
+  # Add feedback for negative inputs -----------------------------------------------------------
+  observe({
+    for (input_name in c("generation_rate_increase", "collection_rate_increase", "handling_rate_increase", 
+                         "recycling_rate_increase", "storage_cost_per_unit", "collection_cost_per_unit", 
+                         "processing_cost_per_unit", "transportation_cost_per_unit", 
+                         "overflow_penalty_per_unit", "recycling_revenue_per_unit", 
+                         "avoided_disposal_cost_per_unit", "storage_capacity")) {
+      if (input[[input_name]] < 0) {
+        showFeedbackDanger(inputId = input_name, text = "Value cannot be negative")
+      } else {
+        hideFeedback(inputId = input_name)
+      }
+    }
+  })
+  
+  # Inputs for scenario selection -----------------------------------------------------------
+  observe({
+    scenario <- input$scenario
+    user_params <- load_parameters()
+    params <- load_scenario_parameters(scenario, user_params)
+    updateNumericInput(session, "generation_rate_increase", value = params$generation_rate_increase)
+    updateNumericInput(session, "collection_rate_increase", value = params$collection_rate_increase)
+    updateNumericInput(session, "handling_rate_increase", value = params$handling_rate_increase)
+    updateNumericInput(session, "recycling_rate_increase", value = params$recycling_rate_increase)
+    updateNumericInput(session, "storage_cost_per_unit", value = params$storage_cost_per_unit)
+    updateNumericInput(session, "collection_cost_per_unit", value = params$collection_cost_per_unit)
+    updateNumericInput(session, "processing_cost_per_unit", value = params$processing_cost_per_unit)
+    updateNumericInput(session, "transportation_cost_per_unit", value = params$transportation_cost_per_unit)
+    updateNumericInput(session, "overflow_penalty_per_unit", value = params$overflow_penalty_per_unit)
+    updateNumericInput(session, "recycling_revenue_per_unit", value = params$recycling_revenue_per_unit)
+    updateNumericInput(session, "avoided_disposal_cost_per_unit", value = params$avoided_disposal_cost_per_unit)
+    updateNumericInput(session, "storage_capacity", value = params$storage_capacity)
+  })
+  
+  # Reset parameters -----------------------------------------------------------
+  observeEvent(input$reset_parameters, {
+    updateNumericInput(session, "generation_rate_increase", value = default_values$generation_rate_increase)
+    updateNumericInput(session, "collection_rate_increase", value = default_values$collection_rate_increase)
+    updateNumericInput(session, "handling_rate_increase", value = default_values$handling_rate_increase)
+    updateNumericInput(session, "recycling_rate_increase", value = default_values$recycling_rate_increase)
+    updateNumericInput(session, "storage_cost_per_unit", value = default_values$storage_cost_per_unit)
+    updateNumericInput(session, "collection_cost_per_unit", value = default_values$collection_cost_per_unit)
+    updateNumericInput(session, "processing_cost_per_unit", value = default_values$processing_cost_per_unit)
+    updateNumericInput(session, "transportation_cost_per_unit", value = default_values$transportation_cost_per_unit)
+    updateNumericInput(session, "overflow_penalty_per_unit", value = default_values$overflow_penalty_per_unit)
+    updateNumericInput(session, "recycling_revenue_per_unit", value = default_values$recycling_revenue_per_unit)
+    updateNumericInput(session, "avoided_disposal_cost_per_unit", value = default_values$avoided_disposal_cost_per_unit)
+    updateNumericInput(session, "storage_capacity", value = default_values$storage_capacity)
+  })
+  
+  # Dynamic UI for parameters -----------------------------------------------------------
+  output$dynamic_ui <- renderUI({
+    fluidRow(
+      textInput("regions", "Regions (comma-separated):", "North,South,East,West"),
+      textInput("wood_waste_types", "Wood Waste Types (comma-separated):", "Construction,Demolition,Packaging"),
+      numericInput("generation_rate_increase", "Adjust Generation Multiplier:", 1),
+      numericInput("collection_rate_increase", "Adjust Collection Multiplier:", 1),
+      numericInput("handling_rate_increase", "Adjust Handling Multiplier:", 1),
+      numericInput("recycling_rate_increase", "Adjust Recycling Multiplier:", 1),
+      numericInput("storage_cost_per_unit", "Storage Cost per Unit:", 0.5),
+      numericInput("collection_cost_per_unit", "Collection Cost per Unit:", 1),
+      numericInput("processing_cost_per_unit", "Processing Cost per Unit:", 2),
+      numericInput("transportation_cost_per_unit", "Transportation Cost per Unit:", 0.3),
+      numericInput("overflow_penalty_per_unit", "Overflow Penalty per Unit:", 2),
+      numericInput("recycling_revenue_per_unit", "Recycling Revenue per Unit:", 2),
+      numericInput("avoided_disposal_cost_per_unit", "Avoided Disposal Cost per Unit:", 1),
+      numericInput("storage_capacity", "Storage Capacity per Region:", 500)
+    )
+  })
+  
+  # Generate distance matrix -----------------------------------------------------------
   observeEvent(input$generate_matrix, {
     regions <- unlist(strsplit(input$regions, ","))
     if (length(regions) != input$num_regions) {
@@ -357,18 +456,19 @@ shinyServer(function(input, output, session) {
         distance_matrix
       }, rownames = TRUE, colnames = TRUE)
     }
+    
+    updateTabItems(session, "tabs", "distance_matrix")
   })
   
+  # Run simulation -----------------------------------------------------------
   observeEvent(input$run_simulation, {
+    
+    # Clear previous results and costs
+    results(data.frame(Time = numeric(), Region = character(), WasteType = character(), Event = character(), Amount = numeric(), stringsAsFactors = FALSE))
+    costs(data.frame(Time = numeric(), Region = character(), WasteType = character(), CollectionCost = numeric(), ProcessingCost = numeric(), TransportationCost = numeric(), RecyclingRevenue = numeric(), stringsAsFactors = FALSE))
+    
+    
     withProgress(message = 'Running simulation...', value = 0, {
-      results(data.frame(
-        Time = numeric(),
-        Region = character(),
-        WasteType = character(),
-        Event = character(),
-        Amount = numeric(),
-        stringsAsFactors = FALSE
-      ))
       
       scenario <- input$scenario
       user_params <- load_parameters()
@@ -417,57 +517,94 @@ shinyServer(function(input, output, session) {
       
       incProgress(0.5)
       env |> run(until = 100)
-      incProgress(0.9)
+      # env |> run(until = 365) # Imitating a year-long simulation
+      incProgress(0.8)
       
-      balance_storage_across_regions(env, params)
+      distance_matrix <- generate_distance_matrix(params$regions)
+      incProgress(0.9)
+      transportation_costs <- balance_storage_across_regions(env, params, distance_matrix)
       incProgress(1)
       
-      output$simulation_output <- renderPrint({
+      updateTabItems(session, "tabs", "outputs")
+      
+      # Simulation Output -----------------------------------------------------------
+      
+      generate_waste_type_table <- function(region, waste_type, env, params) {
+        data.frame(
+          Metric = c("Total waste generated (kg)", "Total waste collected (kg)", "Total waste handled (kg)",
+                     "Total waste stored (kg)", "Total waste recycled (kg)", "Overflow penalty",
+                     "Total storage cost", "Total collection cost", "Total processing cost",
+                     "Total transportation cost", "Transportation cost after balancing", "Total recycling revenue", "Total avoided disposal cost"),
+          Value = c(get_global(env, paste0("total_waste_generated_", region, "_", waste_type)),
+                    get_global(env, paste0("total_waste_collected_", region, "_", waste_type)),
+                    get_global(env, paste0("total_waste_handled_", region, "_", waste_type)),
+                    get_global(env, paste0("total_waste_stored_", region, "_", waste_type)),
+                    get_global(env, paste0("total_waste_recycled_", region, "_", waste_type)),
+                    get_global(env, paste0("overflow_penalty_", region, "_", waste_type)),
+                    get_global(env, paste0("total_storage_cost_", region, "_", waste_type)),
+                    get_global(env, paste0("total_collection_cost_", region, "_", waste_type)),
+                    get_global(env, paste0("total_processing_cost_", region, "_", waste_type)),
+                    get_global(env, paste0("total_transportation_cost_", region, "_", waste_type)),
+                    transportation_costs[region, waste_type],
+                    get_global(env, paste0("total_recycling_revenue_", region, "_", waste_type)),
+                    get_global(env, paste0("total_avoided_disposal_cost_", region, "_", waste_type)))
+        )
+      }
+      
+      # Generate the simulation output tables
+      generate_simulation_output <- function(params, env) {
+        simulation_data <- data.frame(
+          Region = character(),
+          WasteType = character(),
+          Metric = character(),
+          Value = numeric(),
+          stringsAsFactors = FALSE
+        )
+        
         for (region in params$regions) {
           for (waste_type in params$wood_waste_types) {
-            cat("Region:", region, "Waste Type:", waste_type, "\n")
-            cat("  Total waste generated (kg):", get_global(env, paste0("total_waste_generated_", region, "_", waste_type)), "\n")
-            cat("  Total waste collected (kg):", get_global(env, paste0("total_waste_collected_", region, "_", waste_type)), "\n")
-            cat("  Total waste handled (kg):", get_global(env, paste0("total_waste_handled_", region, "_", waste_type)), "\n")
-            cat("  Total waste stored (kg):", get_global(env, paste0("total_waste_stored_", region, "_", waste_type)), "\n")
-            cat("  Total waste recycled (kg):", get_global(env, paste0("total_waste_recycled_", region, "_", waste_type)), "\n")
-            cat("  Overflow penalty:", get_global(env, paste0("overflow_penalty_", region, "_", waste_type)), "\n")
-            cat("  Total storage cost:", get_global(env, paste0("total_storage_cost_", region, "_", waste_type)), "\n")
-            cat("  Total collection cost:", get_global(env, paste0("total_collection_cost_", region, "_", waste_type)), "\n")
-            cat("  Total processing cost:", get_global(env, paste0("total_processing_cost_", region, "_", waste_type)), "\n")
-            cat("  Total transportation cost:", get_global(env, paste0("total_transportation_cost_", region, "_", waste_type)), "\n")
-            cat("  Total recycling revenue:", get_global(env, paste0("total_recycling_revenue_", region, "_", waste_type)), "\n")
-            cat("  Total avoided disposal cost:", get_global(env, paste0("total_avoided_disposal_cost_", region, "_", waste_type)), "\n")
-            cat("\n")
+            waste_data <- generate_waste_type_table(region, waste_type, env, params)
+            waste_data <- cbind(Region = region, WasteType = waste_type, waste_data)
+            simulation_data <- rbind(simulation_data, waste_data)
           }
         }
         
-        total_storage_cost <- 0
-        for (region in params$regions) {
-          for (waste_type in params$wood_waste_types) {
-            total_storage_cost <- total_storage_cost + get_global(env, paste0("total_waste_stored_", region, "_", waste_type)) * params$storage_cost_per_unit
-          }
-        }
-        cat("Total storage cost:", total_storage_cost, "\n")
+        datatable(simulation_data, options = list(pageLength = 13, autoWidth = TRUE))
+      }
+      
+      output$simulation_output <- renderDT({
+        generate_simulation_output(params, env)
       })
       
-      output$cumulative_totals <- renderPrint({
+      # Cumulative Totals -----------------------------------------------------------
+      
+      output$cumulative_totals <- renderDT({
         data <- results()
         total_generation <- sum(data |> filter(Event == "Generation") |> pull(Amount))
         total_collection <- sum(data |> filter(Event == "Collection") |> pull(Amount))
         total_handling <- sum(data |> filter(Event == "Handling") |> pull(Amount))
         total_recycling <- sum(data |> filter(Event == "Recycling") |> pull(Amount))
         
-        cat("Cumulative Totals:\n")
-        cat("  Total waste generated (kg):", total_generation, "\n")
-        cat("  Total waste collected (kg):", total_collection, "\n")
-        cat("  Total waste handled (kg):", total_handling, "\n")
-        cat("  Total waste recycled (kg):", total_recycling, "\n")
+        cumulative_data <- data.frame(
+          Metric = c("Total waste generated (kg)", 
+                     "Total waste collected (kg)", 
+                     "Total waste handled (kg)", 
+                     "Total waste recycled (kg)"),
+          Value = c(total_generation, 
+                    total_collection, 
+                    total_handling, 
+                    total_recycling)
+        )
+        
+        datatable(cumulative_data, options = list(pageLength = 10))
       })
+      
+      # Data Plots -----------------------------------------------------------
       
       generate_plot_data <- function(event_type) {
         data <- results()
-        data <- data |> filter(Event == event_type) |>
+        data <- data |> 
+          filter(Event == event_type) |>
           arrange(Time) |>
           group_by(Region, WasteType) |>
           mutate(CumulativeAmount = cumsum(Amount))
@@ -488,7 +625,7 @@ shinyServer(function(input, output, session) {
           labs(title = "Waste Generation Over Time",
                x = "Time",
                y = plot_params$y_label) +
-          theme_minimal()
+          theme_bw()
         ggplotly(p)
       })
       
@@ -500,7 +637,7 @@ shinyServer(function(input, output, session) {
           labs(title = "Waste Collection Over Time",
                x = "Time",
                y = plot_params$y_label) +
-          theme_minimal()
+          theme_bw()
         ggplotly(p)
       })
       
@@ -512,7 +649,7 @@ shinyServer(function(input, output, session) {
           labs(title = "Waste Handling Over Time",
                x = "Time",
                y = plot_params$y_label) +
-          theme_minimal()
+          theme_bw()
         ggplotly(p)
       })
       
@@ -524,13 +661,144 @@ shinyServer(function(input, output, session) {
           labs(title = "Waste Recycling Over Time",
                x = "Time",
                y = plot_params$y_label) +
-          theme_minimal()
+          theme_bw()
         ggplotly(p)
       })
+      
+      # Results Table -----------------------------------------------------------
       
       output$results_table <- renderDT({
         datatable(results(), options = list(pageLength = 10, autoWidth = TRUE))
       })
+      
+      # Cost Plots -----------------------------------------------------------
+      
+      generate_cost_plot_data <- function(cost_type) {
+        data <- costs()
+        data <- data |>
+          select(Time, Region, WasteType, !!sym(cost_type)) |>
+          arrange(Time)
+        return(data)
+      }
+      
+      output$collection_cost_plot <- renderPlotly({
+        plot_data <- generate_cost_plot_data("CollectionCost")
+        p <- ggplot(plot_data, aes(x = Time, y = !!sym("CollectionCost"), color = interaction(Region, WasteType))) +
+          geom_line() +
+          labs(title = "Collection Cost Over Time",
+               x = "Time",
+               y = "Collection Cost") +
+          theme_bw()
+        ggplotly(p)
+      })
+      
+      output$processing_cost_plot <- renderPlotly({
+        plot_data <- generate_cost_plot_data("ProcessingCost")
+        p <- ggplot(plot_data, aes(x = Time, y = !!sym("ProcessingCost"), color = interaction(Region, WasteType))) +
+          geom_line() +
+          labs(title = "Processing Cost Over Time",
+               x = "Time",
+               y = "Processing Cost") +
+          theme_bw()
+        ggplotly(p)
+      })
+      
+      output$transportation_cost_plot <- renderPlotly({
+        plot_data <- generate_cost_plot_data("TransportationCost")
+        p <- ggplot(plot_data, aes(x = Time, y = !!sym("TransportationCost"), color = interaction(Region, WasteType))) +
+          geom_line() +
+          labs(title = "Transportation Cost Over Time",
+               x = "Time",
+               y = "Transportation Cost") +
+          theme_bw()
+        ggplotly(p)
+      })
+      
+      output$recycling_revenue_plot <- renderPlotly({
+        plot_data <- generate_cost_plot_data("RecyclingRevenue")
+        p <- ggplot(plot_data, aes(x = Time, y = !!sym("RecyclingRevenue"), color = interaction(Region, WasteType))) +
+          geom_line() +
+          labs(title = "Recycling Revenue Over Time",
+               x = "Time",
+               y = "Recycling Revenue") +
+          theme_bw()
+        ggplotly(p)
+      })
+      
+      # Costs Table -----------------------------------------------------------
+      
+      output$costs_table <- renderDT({
+        datatable(costs(), options = list(pageLength = 10, autoWidth = TRUE))
+      })
+      
+      # Distance Matrix -----------------------------------------------------------
+      
+      output$distance_matrix <- renderTable({
+        distance_matrix
+      }, rownames = TRUE, colnames = TRUE)
+      
+      output$distance_matrix_plot <- renderPlotly({
+        regions <- unlist(strsplit(input$regions, ","))
+        melted_matrix <- melt(distance_matrix)
+        colnames(melted_matrix) <- c("Region1", "Region2", "Distance")
+        
+        plot_ly(
+          data = melted_matrix,
+          x = ~Region2,
+          y = ~Region1,
+          z = ~Distance,
+          type = "heatmap",
+          colorscale = "Reds",
+          colorbar = list(title = "Distance")
+        ) %>%
+          layout(
+            xaxis = list(title = "Region", side = "top"),  # Flip the order of regions on the x-axis
+            yaxis = list(title = "Region", autorange = "reversed")  # Flip the order of regions on the y-axis
+          )
+        
+      })
+      
+      # Force Directed Plot -----
+      
+      output$force_directed_plot <- renderPlotly({
+        regions <- unlist(strsplit(input$regions, ","))
+        distance_matrix
+        colnames(distance_matrix) <- regions
+        rownames(distance_matrix) <- regions
+        
+        # Create an igraph object from the distance matrix
+        graph <- graph_from_adjacency_matrix(as.matrix(distance_matrix), mode = "undirected", weighted = TRUE, diag = FALSE)
+        
+        # Get the layout for the graph
+        layout <- layout_with_fr(graph)
+        
+        # Create a data frame for the nodes
+        nodes <- data.frame(
+          id = V(graph)$name,
+          x = layout[, 1],
+          y = layout[, 2]
+        )
+        
+        # Create a data frame for the edges
+        edges <- as.data.frame(as_edgelist(graph))
+        colnames(edges) <- c("from", "to")
+        edges$weight <- E(graph)$weight
+        
+        # Plot the graph with plotly
+        plot_ly() %>%
+          add_markers(data = nodes, x = ~x, y = ~y, text = ~id, mode = 'markers+text', textposition = 'top center', hoverinfo = 'text') %>%
+          add_segments(data = edges, x = ~nodes$x[match(edges$from, nodes$id)], 
+                       xend = ~nodes$x[match(edges$to, nodes$id)], 
+                       y = ~nodes$y[match(edges$from, nodes$id)], 
+                       yend = ~nodes$y[match(edges$to, nodes$id)], 
+                       line = list(color = 'black', width = ~weight/5)) %>%
+          layout(title = "Force-Directed Layout of Regions",
+                 xaxis = list(title = "", showgrid = FALSE, zeroline = FALSE),
+                 yaxis = list(title = "", showgrid = FALSE, zeroline = FALSE))
+      })
+      
+      })
     })
-  })
-})
+  
+  }
+)
