@@ -7,10 +7,12 @@ library(bslib)
 library(igraph)
 
 # Helper function to create a row with two numeric inputs
-create_numeric_input_row <- function(input_id1, label1, value1, min1, input_id2, label2, value2, min2, max = 2.0, step1 = 0.1, step2 = 0.1) {
+create_numeric_input_row <- function(input_id1, label1, value1, min1, max1 = 2.0, 
+                                     input_id2, label2, value2, min2, max2 = 2.0, 
+                                     step1 = 0.1, step2 = 0.1) {
   fluidRow(
-    column(6, numericInput(input_id1, label1, value1, min = min1, max = max, step = step1)),
-    column(6, numericInput(input_id2, label2, value2, min = min2, max = max, step = step2))
+    column(6, numericInput(input_id1, label1, value1, min = min1, max = max1, step = step1)),
+    column(6, numericInput(input_id2, label2, value2, min = min2, max = max2, step = step2))
   )
 }
 
@@ -21,9 +23,9 @@ shinyUI(dashboardPage(
       id = "tabs",
       menuItem("Simulation", tabName = "simulation", icon = icon("play")),
       menuItem("Outputs", tabName = "outputs", icon = icon("file-alt")),
-      menuItem("Plots", tabName = "plots", icon = icon("chart-line")),
-      menuItem("Costs", tabName = "costs", icon = icon("dollar-sign")),
-      menuItem("Tables", tabName = "tables", icon = icon("table")),
+      menuItem("Plots of Data", tabName = "plots", icon = icon("chart-line")),
+      menuItem("Tables of Data", tabName = "tables", icon = icon("table")),
+      menuItem("Costs of Management", tabName = "costs", icon = icon("dollar-sign")),
       menuItem("Distance Matrix", tabName = "distance_matrix", icon = icon("th"))
     )
   ),
@@ -48,7 +50,9 @@ shinyUI(dashboardPage(
                       condition = "input.scenario == 'seasonal_variations'",
                       selectInput("season", "Select Season:",
                                   choices = c("Winter", "Spring", "Summer", "Fall", "Year-long"),
-                                  selected = "Spring")
+                                  selected = "Spring"),
+                      textOutput("seasonal_multiplier_display"),
+                      hr()
                     ),
                     textInput("regions", "Regions (comma-separated):", "North,South,East,West"),
                     # numericInput("num_regions", "Number of Regions:", min = 2, value = 4),
@@ -61,18 +65,18 @@ shinyUI(dashboardPage(
                                                       "Recycling" = "recycling"),
                                        selected = c("generation", "collection", "handling", "recycling"))),
                 box(width = 6,
-                      create_numeric_input_row("generation_rate_increase", "Adjust Generation Multiplier:", 1.0, 0,
-                                               "collection_rate_increase", "Adjust Collection Multiplier:", 1.0, 0),
-                      create_numeric_input_row("handling_rate_increase", "Adjust Handling Multiplier:", 1.0, 0,
-                                               "recycling_rate_increase", "Adjust Recycling Multiplier:", 1.0, 0),
-                      create_numeric_input_row("storage_cost_per_unit", "Storage Cost per Unit:", 0.5, 0,
-                                               "collection_cost_per_unit", "Collection Cost per Unit:", 1.0, 0),
-                      create_numeric_input_row("processing_cost_per_unit", "Processing Cost per Unit:", 2, 0,
-                                               "transportation_cost_per_unit", "Transportation Cost per Unit:", 0.3, 0),
-                      create_numeric_input_row("overflow_penalty_per_unit", "Overflow Penalty per Unit:", 2.0, 0,
-                                               "recycling_revenue_per_unit", "Recycling Revenue per Unit:", 2.0, 0),
-                      create_numeric_input_row("avoided_disposal_cost_per_unit", "Avoided Disposal Cost per Unit:", 1.0, 0,
-                                               "storage_capacity", "Storage Capacity per Region:", value2 = 500, min2 = 0, max = 2000, step2 = 10),
+                      create_numeric_input_row(input_id1 = "generation_rate_increase", label1 = "Generation Rate Multiplier:", value1 = 1.0, min1 = 0,
+                                               input_id2 = "collection_rate_increase", label2 = "Collection Rate Multiplier:", value2 = 1.0, min2 = 0),
+                      create_numeric_input_row(input_id1 = "handling_rate_increase", label1 = "Handling Rate Multiplier:", value1 = 1.0, min1 = 0,
+                                               input_id2 = "recycling_rate_increase", label2 = "Recycling Rate Multiplier:", value2 = 1.0, min2 = 0),
+                      create_numeric_input_row(input_id1 = "storage_cost_per_unit", label1 = "Storage Cost per Unit:", value1 = 0.5, min1 = 0,
+                                               input_id2 = "collection_cost_per_unit", label2 = "Collection Cost per Unit:", value2 = 1.0, min2 = 0),
+                      create_numeric_input_row(input_id1 = "processing_cost_per_unit", label1 = "Processing Cost per Unit:", value1 = 2.0, min1 = 0,
+                                               input_id2 = "transportation_cost_per_unit", label2 = "Transportation Cost per Unit:", value2 = 0.3, min2 = 0),
+                      create_numeric_input_row(input_id1 = "overflow_penalty_per_unit", label1 = "Overflow Penalty per Unit:", value1 = 2.0, min1 = 0, max1 = 5,
+                                               input_id2 = "recycling_revenue_per_unit", label2 = "Recycling Revenue per Unit:", value2 = 2.0, min2 = 0, max2 = 5),
+                      create_numeric_input_row(input_id1 = "avoided_disposal_cost_per_unit", label1 = "Avoided Disposal Cost per Unit:", value1 = 1.0, min1 = 0,
+                                               input_id2 = "storage_capacity", label2 = "Storage Capacity per Region:", value2 = 500, min2 = 0, max2 = 2000, step2 = 10),
                     fluidRow(
                       column(6, actionButton("reset_parameters", "Reset Parameters", class = "btn btn-danger", width = "100%")),
                       column(6, actionButton("run_simulation", "Run Simulation", class = "btn btn-primary", width = "100%"))
@@ -84,9 +88,12 @@ shinyUI(dashboardPage(
       tabItem(tabName = "outputs",
               fluidRow(
                 box(width = 12, title = "Simulation Outputs", solidHeader = TRUE, status = "primary",
+                    selectInput("selected_region", "Select Region:", choices = NULL, multiple = TRUE),
+                    selectInput("selected_waste_type", "Select Waste Type:", choices = NULL, multiple = TRUE),
+                    selectInput("selected_metric", "Select Metric:", choices = NULL, multiple = TRUE),
                     DTOutput("simulation_output")
                 ),
-                box(width = 12, title = "Cumulative Totals", solidHeader = TRUE, status = "primary",
+                box(width = 6, title = "Cumulative Totals", solidHeader = TRUE, status = "primary",
                     DTOutput("cumulative_totals")
                 )
               )
@@ -105,17 +112,6 @@ shinyUI(dashboardPage(
                 )
               )
       ),
-      # Costs -----
-      tabItem(tabName = "costs",
-              fluidRow(
-                box(width = 12, title = "Costs Over Time", solidHeader = TRUE, status = "primary",
-                    plotlyOutput("collection_cost_plot"),
-                    plotlyOutput("processing_cost_plot"),
-                    plotlyOutput("transportation_cost_plot"),
-                    plotlyOutput("recycling_revenue_plot")
-                )
-              )
-      ),
       # Tables -----
       tabItem(tabName = "tables",
               fluidRow(
@@ -124,6 +120,17 @@ shinyUI(dashboardPage(
                 ),
                 box(width = 12, title = "Costs Table", solidHeader = TRUE, status = "primary",
                     DTOutput("costs_table")
+                )
+              )
+      ),
+      # Costs -----
+      tabItem(tabName = "costs",
+              fluidRow(
+                box(width = 12, title = "Costs Over Time", solidHeader = TRUE, status = "primary",
+                    plotlyOutput("collection_cost_plot"),
+                    plotlyOutput("processing_cost_plot"),
+                    plotlyOutput("transportation_cost_plot"),
+                    plotlyOutput("recycling_revenue_plot")
                 )
               )
       ),
