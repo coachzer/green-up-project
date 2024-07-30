@@ -3,16 +3,22 @@ library(plotly)
 library(DT)
 library(shinyFeedback)
 library(shinydashboard)
+library(shinyjs)
+library(shinyBS)
 library(bslib)
 library(igraph)
 
 # Helper function to create a row with two numeric inputs
-create_numeric_input_row <- function(input_id1, label1, value1, min1, max1 = 2.0, 
-                                     input_id2, label2, value2, min2, max2 = 2.0, 
+create_numeric_input_row <- function(input_id1, label1, value1, min1, max1 = 2.0, tooltip1 = NULL,
+                                     input_id2, label2, value2, min2, max2 = 2.0, tooltip2 = NULL, 
                                      step1 = 0.1, step2 = 0.1) {
   fluidRow(
-    column(6, numericInput(input_id1, label1, value1, min = min1, max = max1, step = step1)),
-    column(6, numericInput(input_id2, label2, value2, min = min2, max = max2, step = step2))
+    column(6,
+           numericInput(input_id1, label1, value1, min = min1, max = max1, step = step1)),
+           bsTooltip(input_id1, tooltip1),
+    column(6,
+           numericInput(input_id2, label2, value2, min = min2, max = max2, step = step2)),
+           bsTooltip(input_id2, tooltip2)
   )
 }
 
@@ -31,12 +37,15 @@ shinyUI(dashboardPage(
   ),
   dashboardBody(
     useShinyFeedback(),
+    useShinyjs(),
     tabItems(
       # Simulation -----
       tabItem(tabName = "simulation",
+              h1("Define your own Wood Waste Management Simulation"),
               fluidRow(
+                # Left column -----
                 box(width = 6,
-                    selectInput("scenario", "Scenario:",
+                    selectInput("scenario", "Scenario/Presets:",
                                 choices = list("Default" = "default",
                                                "Increased Waste Generation" = "increased_waste_generation",
                                                "Improved Collection Efficiency" = "improved_collection_efficiency",
@@ -46,6 +55,7 @@ shinyUI(dashboardPage(
                                                "Penalties for Overflow" = "penalties_for_overflow",
                                                "Different Transportation Costs" = "different_transportation_costs",
                                                "Seasonal Variations" = "seasonal_variations")),
+                    bsTooltip("scenario", "Select a scenario or preset to automatically set the input parameters.", placement = "top"),
                     conditionalPanel(
                       condition = "input.scenario == 'seasonal_variations'",
                       selectInput("season", "Select Season:",
@@ -55,28 +65,34 @@ shinyUI(dashboardPage(
                       hr()
                     ),
                     textInput("regions", "Regions (comma-separated):", "North,South,East,West"),
+                    bsTooltip("regions", "Enter the names of the regions in the simulation, separated by commas."),
                     # numericInput("num_regions", "Number of Regions:", min = 2, value = 4),
                     textInput("wood_waste_types", "Wood Waste Types (comma-separated):", "Construction,Demolition,Packaging"),
+                    bsTooltip("wood_waste_types", "Enter the names of the wood waste types in the simulation, separated by commas."),
+                    numericInput("runtime", "Simulation Runtime (time units):", value = 50, min = 50, max = 365, step = 5, width = "50%"),
+                    bsTooltip("runtime", "Enter the number of time units to run the simulation for."),
                     # actionButton("generate_matrix", "Generate Distance Matrix", class = "btn btn-secondary")),
                     checkboxGroupInput("selected_plots", "Select Plots to Display:", 
                                        choices = list("Generation" = "generation", 
                                                       "Collection" = "collection", 
                                                       "Handling" = "handling", 
                                                       "Recycling" = "recycling"),
-                                       selected = c("generation", "collection", "handling", "recycling"))),
+                                       selected = c("generation", "collection", "handling", "recycling"))
+                    ),
+                # Right column -----
                 box(width = 6,
-                      create_numeric_input_row(input_id1 = "generation_rate_increase", label1 = "Generation Rate Multiplier:", value1 = 1.0, min1 = 0,
-                                               input_id2 = "collection_rate_increase", label2 = "Collection Rate Multiplier:", value2 = 1.0, min2 = 0),
-                      create_numeric_input_row(input_id1 = "handling_rate_increase", label1 = "Handling Rate Multiplier:", value1 = 1.0, min1 = 0,
-                                               input_id2 = "recycling_rate_increase", label2 = "Recycling Rate Multiplier:", value2 = 1.0, min2 = 0),
-                      create_numeric_input_row(input_id1 = "storage_cost_per_unit", label1 = "Storage Cost per Unit:", value1 = 0.5, min1 = 0,
-                                               input_id2 = "collection_cost_per_unit", label2 = "Collection Cost per Unit:", value2 = 1.0, min2 = 0),
-                      create_numeric_input_row(input_id1 = "processing_cost_per_unit", label1 = "Processing Cost per Unit:", value1 = 2.0, min1 = 0,
-                                               input_id2 = "transportation_cost_per_unit", label2 = "Transportation Cost per Unit:", value2 = 0.3, min2 = 0),
-                      create_numeric_input_row(input_id1 = "overflow_penalty_per_unit", label1 = "Overflow Penalty per Unit:", value1 = 2.0, min1 = 0, max1 = 5,
-                                               input_id2 = "recycling_revenue_per_unit", label2 = "Recycling Revenue per Unit:", value2 = 2.0, min2 = 0, max2 = 5),
-                      create_numeric_input_row(input_id1 = "avoided_disposal_cost_per_unit", label1 = "Avoided Disposal Cost per Unit:", value1 = 1.0, min1 = 0,
-                                               input_id2 = "storage_capacity", label2 = "Storage Capacity per Region:", value2 = 500, min2 = 0, max2 = 2000, step2 = 10),
+                      create_numeric_input_row(input_id1 = "generation_rate_increase", label1 = "Generation Rate Multiplier:", value1 = 1.0, min1 = 0, tooltip1 = "Multiplier for the generation rate of wood waste in each region.",
+                                               input_id2 = "collection_rate_increase", label2 = "Collection Rate Multiplier:", value2 = 1.0, min2 = 0, tooltip2 = "Multiplier for the collection rate of wood waste in each region."),
+                      create_numeric_input_row(input_id1 = "handling_rate_increase", label1 = "Handling Rate Multiplier:", value1 = 1.0, min1 = 0, tooltip1 = "Multiplier for the handling rate of wood waste in each region.",
+                                               input_id2 = "recycling_rate_increase", label2 = "Recycling Rate Multiplier:", value2 = 1.0, min2 = 0, tooltip2 = "Multiplier for the recycling rate of wood waste in each region."),
+                      create_numeric_input_row(input_id1 = "storage_cost_per_unit", label1 = "Storage Cost per Unit:", value1 = 0.5, min1 = 0, tooltip1 = "Cost of storing wood waste in each region.",
+                                               input_id2 = "collection_cost_per_unit", label2 = "Collection Cost per Unit:", value2 = 1.0, min2 = 0, tooltip2 = "Cost of collecting wood waste in each region."),
+                      create_numeric_input_row(input_id1 = "processing_cost_per_unit", label1 = "Processing Cost per Unit:", value1 = 2.0, min1 = 0, tooltip1 = "Cost of processing wood waste in each region.",
+                                               input_id2 = "transportation_cost_per_unit", label2 = "Transportation Cost per Unit:", value2 = 0.3, min2 = 0, tooltip2 = "Cost of transporting wood waste between regions."),
+                      create_numeric_input_row(input_id1 = "overflow_penalty_per_unit", label1 = "Overflow Penalty per Unit:", value1 = 2.0, min1 = 0, max1 = 5, tooltip1 = "Penalty for overflowing wood waste in each region.",
+                                               input_id2 = "recycling_revenue_per_unit", label2 = "Recycling Revenue per Unit:", value2 = 2.0, min2 = 0, max2 = 5, tooltip2 = "Revenue from recycling wood waste in each region."),
+                      create_numeric_input_row(input_id1 = "avoided_disposal_cost_per_unit", label1 = "Avoided Disposal Cost per Unit:", value1 = 1.0, min1 = 0, tooltip1 = "Cost savings from avoiding disposal of wood waste in each region.",
+                                               input_id2 = "storage_capacity", label2 = "Storage Capacity per Region:", value2 = 500, min2 = 0, max2 = 2000, step2 = 10, tooltip2 = "Maximum amount of wood waste that can be stored in each region."),
                     fluidRow(
                       column(6, actionButton("reset_parameters", "Reset Parameters", class = "btn btn-danger", width = "100%")),
                       column(6, actionButton("run_simulation", "Run Simulation", class = "btn btn-primary", width = "100%"))
