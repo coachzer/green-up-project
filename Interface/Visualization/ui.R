@@ -45,6 +45,7 @@ shinyUI(dashboardPage(
               fluidRow(
                 # Left column -----
                 box(width = 6,
+                    h3("Scenarios lock one or more of the parameters based on the selected scenario."),
                     selectInput("scenario", "Scenario/Presets:",
                                 choices = list("Default" = "default",
                                                "Increased Waste Generation" = "increased_waste_generation",
@@ -114,13 +115,22 @@ shinyUI(dashboardPage(
                 )
               )
       ),
-      # Plots -----
+      # Plots of Data -----
       tabItem(tabName = "plots",
               fluidRow(
-                box(width = 12, title = "Plots", solidHeader = TRUE, status = "primary",
-                    radioButtons("plot_type", "Plot Type:",
+                box(width = 12, title = "Filter By", solidHeader = TRUE, status = "primary",
+                    column(3, 
+                           numericInput("time_start", "Start Time:", value = 0, min = 0)),
+                    column(3,
+                           numericInput("time_end", "Time End:", value = 100, min = 0, max = 365)),
+                    column(6,
+                           radioButtons("plot_type", "Plot Type:",
                                  choices = list("Cumulative" = "cumulative", "Non-Cumulative" = "non_cumulative"),
-                                 selected = "cumulative"),
+                                 selected = "cumulative")),
+                    selectInput("regions_selected", "Select Regions:", choices = NULL, selected = NULL, multiple = TRUE),
+                    selectInput("waste_types_selected", "Select Waste Types:", choices = NULL, selected = NULL, multiple = TRUE)
+                ),
+                box(width = 12, title = "Plots", solidHeader = TRUE, status = "primary",
                     plotlyOutput("generation_plot"),
                     plotlyOutput("collection_plot"),
                     plotlyOutput("handling_plot"),
@@ -128,11 +138,13 @@ shinyUI(dashboardPage(
                 )
               )
       ),
-      # Tables -----
+      # Tables of Data -----
       tabItem(tabName = "tables",
               fluidRow(
                 box(width = 12, title = "Results Table", solidHeader = TRUE, status = "primary",
-                    DTOutput("results_table")
+                    DTOutput("results_table"),
+                    column(6, downloadButton("download_data", "Download Data", width = "100%")),
+                    #column(6, downloadButton("download_report", "Download Report", width = "100%"))
                 ),
                 box(width = 12, title = "Costs Table", solidHeader = TRUE, status = "primary",
                     DTOutput("costs_table")

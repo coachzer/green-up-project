@@ -75,7 +75,7 @@ shinyServer(function(input, output, session) {
     # Collect waste if more than 80% of storage capacity is reached
     collection_threshold = 0.8, 
     # Adjust collection frequency based on waste accumulation
-    adaptive_collection_rate = TRUE,
+    adaptive_collection_rate = FALSE,
     # Maximum amount to collect in one go
     max_collection_amount = 25 
   )
@@ -87,33 +87,26 @@ shinyServer(function(input, output, session) {
     changes <- list()
     
     if (scenario == "increased_waste_generation") {
-      params <- default_values
       params$generation_rate_increase <- 2
       changes <- c(changes, "Generation rate increase set to 2")
     } else if (scenario == "improved_collection_efficiency") {
-      params <- default_values
       params$collection_rate_increase <- 1.5
       changes <- c(changes, "Collection rate increase set to 1.5")
     } else if (scenario == "improved_handling_efficiency") {
-      params <- default_values
       params$handling_rate_increase <- 1.5
       changes <- c(changes, "Handling rate increase set to 1.5")
     } else if (scenario == "enhanced_recycling_programs") {
-      params <- default_values
       params$recycling_rate_increase <- 2
       params$recycling_revenue_per_unit <- 5
       params$avoided_disposal_cost_per_unit <- 2
       changes <- c(changes, "Recycling rate increase set to 2", "Recycling revenue per unit set to 5", "Avoided disposal cost per unit set to 2")
     } else if (scenario == "storage_capacity_expansion") {
-      params <- default_values
       params$storage_capacity <- 1000
       changes <- c(changes, "Storage capacity set to 1000")
     } else if (scenario == "penalties_for_overflow") {
-      params <- default_values
       params$overflow_penalty_per_unit <- 5
       changes <- c(changes, "Overflow penalty per unit set to 5")
     } else if (scenario == "different_transportation_costs") {
-      params <- default_values
       params$transportation_cost_per_unit <- 0.5
       changes <- c(changes, "Transportation cost per unit set to 0.5")
     } else if (scenario == "seasonal_variations") {
@@ -154,7 +147,8 @@ shinyServer(function(input, output, session) {
         overflow_penalty_per_unit = as.numeric(input$overflow_penalty_per_unit),
         recycling_revenue_per_unit = as.numeric(input$recycling_revenue_per_unit),
         avoided_disposal_cost_per_unit = as.numeric(input$avoided_disposal_cost_per_unit),
-        storage_capacity = as.numeric(input$storage_capacity)
+        storage_capacity = as.numeric(input$storage_capacity),
+        runtime = as.numeric(input$runtime)
       )
     })
   
@@ -166,6 +160,7 @@ shinyServer(function(input, output, session) {
       WasteType = character(),
       Event = character(),
       Amount = numeric(),
+      Scenario = character(),
       stringsAsFactors = FALSE
     ))
     
@@ -177,11 +172,12 @@ shinyServer(function(input, output, session) {
       ProcessingCost = numeric(),
       TransportationCost = numeric(),
       RecyclingRevenue = numeric(),
+      Scenario = character(),
       stringsAsFactors = FALSE
     ))
    
   # Logging events and costs -----
-  log_event <- function(env, region, waste_type, event) {
+  log_event <- function(env, region, waste_type, event, scenario = input$scenario) {
     time <- now(env)
     amount <- get_attribute(env, "waste_amount")
     
@@ -192,6 +188,7 @@ shinyServer(function(input, output, session) {
       WasteType = waste_type,
       Event = event,
       Amount = amount,
+      Scenario = scenario,
       stringsAsFactors = FALSE
     )
     
@@ -204,6 +201,7 @@ shinyServer(function(input, output, session) {
       ProcessingCost = get_global(env, paste0("total_processing_cost_", region, "_", waste_type)),
       TransportationCost = get_global(env, paste0("total_transportation_cost_", region, "_", waste_type)),
       RecyclingRevenue = get_global(env, paste0("total_recycling_revenue_", region, "_", waste_type)),
+      Scenario = scenario,
       stringsAsFactors = FALSE
     )
     
@@ -415,7 +413,7 @@ shinyServer(function(input, output, session) {
         get_global(env, paste0("total_avoided_disposal_cost_", region, "_", waste_type)) + current_avoided_disposal_cost
       }) |> 
       set_attribute("log_event", function() log_event(env, region, waste_type, "Recycling")) |> 
-      timeout(function() rexp(1, rate = 1)) |>
+      timeout(function() rexp(1, rate = 0.5)) |>
       release("recycling_facility")
     
     list(generate_waste = generate_waste, collect_waste = collect_waste, handle_waste = handle_waste, recycle_waste = recycle_waste)
@@ -452,7 +450,12 @@ shinyServer(function(input, output, session) {
     current_storage <- get_global(env, paste0("total_waste_stored_", region, "_", waste_type))
     new_storage <- current_storage + waste_amount
     overflow_penalty <- 0
-    if (!is.na(new_storage) && new_storage >= input$storage_capacity) {
+    
+    if (is.na(new_storage)) {
+      overflow_penalty <- 0
+    }
+    
+    if (new_storage >= input$storage_capacity) {
       overflow_amount <- new_storage - input$storage_capacity
       overflow_penalty <- overflow_amount * input$overflow_penalty_per_unit
       new_storage <- input$storage_capacity
@@ -552,7 +555,7 @@ shinyServer(function(input, output, session) {
     hideFeedback(input_id)
     
     # Debug print
-    print(paste("Validating", input_id, "- Input value:", input_value, "Max value:", max_value))
+    # print(paste("Validating", input_id, "- Input value:", input_value, "Max value:", max_value))
     
     if (is.na(input_value) | is.null(input_value) | input_value == "" | input_value == " ") {
       showFeedbackDanger(inputId = input_id, text = "Input cannot be empty.")
@@ -585,18 +588,16 @@ shinyServer(function(input, output, session) {
       input_name <- names(max_values)[i]
       update_feedback(input[[input_name]], max_values[[input_name]], input_name)
     })
-    validation_status(status)
+    # validation_status(status)
   })
   
   # Set up observers for each input
-  lapply(seq_along(max_values), function(i) {
-    input_name <- names(max_values)[i]
-    observeEvent(input[[input_name]], {
-      status <- validation_status()
-      status[i] <- update_feedback(input[[input_name]], max_values[[input_name]], input_name)
-      validation_status(status)
-    }, ignoreNULL = FALSE)
-  })
+  # lapply(seq_along(max_values), function(i) {
+  #  input_name <- names(max_values)[i]
+  #  observeEvent(input[[input_name]], {
+  #    update_feedback(input[[input_name]], max_values[[input_name]], input_name)
+  #  }, ignoreNULL = FALSE)
+  #})
   
   # Disable run button if any input is invalid
   observe({
@@ -609,9 +610,8 @@ shinyServer(function(input, output, session) {
   
   # Inputs for scenario selection -----
   observe({
-    scenario <- input$scenario
     user_params <- load_parameters()
-    params_loaded <- load_scenario_parameters(scenario, user_params)
+    params_loaded <- load_scenario_parameters(input$scenario, user_params)
     params <- params_loaded$params
   
     output$seasonal_multiplier_display <- renderText({
@@ -684,15 +684,14 @@ shinyServer(function(input, output, session) {
   observeEvent(input$run_simulation, {
     
     # Clear previous results and costs
-    results(data.frame(Time = numeric(), Region = character(), WasteType = character(), Event = character(), Amount = numeric(), stringsAsFactors = FALSE))
-    costs(data.frame(Time = numeric(), Region = character(), WasteType = character(), CollectionCost = numeric(), ProcessingCost = numeric(), TransportationCost = numeric(), RecyclingRevenue = numeric(), stringsAsFactors = FALSE))
+    results(data.frame(Time = numeric(), Region = character(), WasteType = character(), Event = character(), Amount = numeric(), Scenario = character(), stringsAsFactors = FALSE))
+    costs(data.frame(Time = numeric(), Region = character(), WasteType = character(), CollectionCost = numeric(), ProcessingCost = numeric(), TransportationCost = numeric(), RecyclingRevenue = numeric(), Scenario = character(), stringsAsFactors = FALSE))
     
     
     withProgress(message = 'Running simulation...', value = 0, {
       
-      scenario <- input$scenario
       user_params <- load_parameters()
-      result <- load_scenario_parameters(scenario, user_params)
+      result <- load_scenario_parameters(input$scenario, user_params)
       params <- result$params
       
       env <- simmer("Wood Waste Flow Simulation")
@@ -847,7 +846,11 @@ shinyServer(function(input, output, session) {
       generate_plot_data <- function(event_type) {
         data <- results()
         data <- data |> 
-          filter(Event == event_type) |>
+          filter(Event == event_type,
+                 Region %in% input$regions_selected,
+                 WasteType %in% input$waste_types_selected,
+                 Scenario %in% input$scenario,
+                 Time >= input$time_start, Time <= input$time_end) |>
           arrange(Time) |>
           group_by(Region, WasteType) |>
           mutate(CumulativeAmount = cumsum(Amount))
@@ -859,6 +862,26 @@ shinyServer(function(input, output, session) {
         y_column <- ifelse(plot_type == "cumulative", "CumulativeAmount", "Amount")
         list(y_label = y_label, y_column = y_column)
       }
+      
+      # Observer to update select inputs based on the results
+      
+      observeEvent(results(), {
+        updateSelectInput(session, "regions_selected", 
+                          choices = unique(results()$Region), 
+                          selected = unique(results()$Region))
+        
+        updateSelectInput(session, "waste_types_selected", 
+                          choices = unique(results()$WasteType), 
+                          selected = unique(results()$WasteType))
+        
+        updateNumericInput(session, "time_start", 
+                           value = min(results()$Time), 
+                           min = min(results()$Time))
+        
+        updateNumericInput(session, "time_end", 
+                           value = max(results()$Time), 
+                           min = min(results()$Time))
+      })
       
       output$generation_plot <- renderPlotly({
         plot_data <- generate_plot_data("Generation")
@@ -1039,6 +1062,27 @@ shinyServer(function(input, output, session) {
                  xaxis = list(title = "", showgrid = FALSE, zeroline = FALSE),
                  yaxis = list(title = "", showgrid = FALSE, zeroline = FALSE))
       })
+      
+      
+      # Export Data -----
+      
+      output$download_data <- downloadHandler(
+        filename = function() { "simulation_data.csv" },
+        content = function(file) {
+          write.csv(results(), file)
+        }
+      )
+      
+      # Generate Reports -----
+      
+      output$download_report <- downloadHandler(
+        filename = function() { "simulation_report.html" },
+        content = function(file) {
+          # Generate report content
+          report_content <- rmarkdown::render("report_template.Rmd", params = list(data = results()))
+          file.copy(report_content, file)
+        }
+      )
       
       })
     })
