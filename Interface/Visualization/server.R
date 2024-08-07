@@ -1073,7 +1073,7 @@ shinyServer(function(input, output, session) {
         }
       )
       
-      # Generate Reports -----
+      # Generate Reports ----- WIP
       
       output$download_report <- downloadHandler(
         filename = function() { "simulation_report.html" },

@@ -1,0 +1,187 @@
+---
+title: "Analysis"
+author: "Nikola Kovačević"
+date: "07/08/2024"
+format: html
+editor: source
+---
+
+# Introduction
+
+Conducting further analysis on the cleaned up data from the green-up-project.qmd file.
+
+# Setup
+
+```{r setup, message = FALSE, warning = FALSE}
+
+# Load required libraries
+library(tidyverse)
+library(scales)
+library(viridis)
+library(ggplot2)
+library(plotly)
+
+```
+
+# Functions
+
+```{r functions}
+
+# Function to assign clear names to waste types
+clear_waste_name <- function(name) {
+  case_when(
+    name == "Sawdust, chips, cuttings, wood, particle board and veneer, not specified in 03 01 04" ~ "Sawdust and Wood Cuttings",
+    name == "Paper and cardboard packaging and cardboard packaging" ~ "Paper and Cardboard Packaging",
+    name == "Wooden packaging" ~ "Wooden Packaging",
+    name == "Wood" ~ "Construction Wood",
+    name == "Wood, not specified in 20 01 37" ~ "Other Wood Waste",
+    name == "Waste bark and cork" ~ "Bark and Cork",
+    name == "Waste not specified elsewhere" ~ "Unspecified Wood Waste",
+    TRUE ~ name
+  )
+}
+
+```
+
+# Year 2022
+
+## Generation
+
+## Collection
+
+## Treatment
+
+# Year 2021
+
+## Generation
+
+```{r generation_analysis}
+
+# Read the CSV data
+g.2021.data <- read_csv("2021 data/2021 filtered/generation_21.csv")
+
+# Data preprocessing
+wood_waste <- g.2021.data %>%
+  filter(grepl("Wood|wood|Sawdust|bark|cork", `Name of Waste`)) %>%
+  mutate(Region = `Statistical Region of Waste Origin`,
+         Waste_Type = clear_waste_name(`Name of Waste`),
+         Total_Waste = `Total Waste: Generated and Stored` / 1000, # Convert to tons
+         Generated_Waste = `Waste Generated in 2021` / 1000) # Convert to tons
+
+# Calculate generation rate per waste type per region
+generation_rate <- wood_waste %>%
+  group_by(Region, Waste_Type) %>%
+  summarise(Generation_Rate = sum(Generated_Waste)) %>%
+  ungroup()
+
+# Create a heatmap of generation rates
+heatmap_plot <- plot_ly(
+  generation_rate,
+  x = ~Waste_Type,
+  y = ~Region,
+  z = ~Generation_Rate,
+  type = "heatmap",
+  colorscale = "Viridis"
+) %>%
+  layout(
+    title = "Wood Waste Generation Rate by Type and Region",
+    xaxis = list(title = "Waste Type"),
+    yaxis = list(title = "")
+  )
+
+heatmap_plot
+
+# Calculate total generation rate per region
+total_generation_rate <- generation_rate %>%
+  group_by(Region) %>%
+  summarise(Total_Generation_Rate = sum(Generation_Rate)) %>%
+  arrange(desc(Total_Generation_Rate))
+
+# Create a bar plot of total generation rates per region
+bar_plot <- plot_ly(
+  total_generation_rate,
+  x = ~reorder(Region, Total_Generation_Rate),
+  y = ~Total_Generation_Rate,
+  type = "bar",
+  text = ~round(Total_Generation_Rate, 1),
+  textposition = "outside",
+  marker = list(color = "steelblue")
+) %>%
+  layout(
+    title = "Total Wood Waste Generation Rate by Region",
+    xaxis = list(title = "Region"),
+    yaxis = list(title = "Total Generation Rate (tons/year)"),
+    barmode = "stack"
+  )
+
+bar_plot
+
+# Calculate percentage composition of waste types for each region
+waste_composition <- generation_rate %>%
+  group_by(Region) %>%
+  mutate(Percentage = Generation_Rate / sum(Generation_Rate) * 100) %>%
+  ungroup()
+
+# Create a stacked bar plot of waste type composition for each region
+stacked_bar_plot <- plot_ly(
+  waste_composition,
+  x = ~reorder(Region, -Percentage),
+  y = ~Percentage,
+  color = ~Waste_Type,
+  type = "bar"
+) %>%
+  layout(
+    title = "Wood Waste Type Composition by Region",
+    xaxis = list(title = "Region"),
+    yaxis = list(title = "Percentage"),
+    barmode = "stack"
+  )
+
+stacked_bar_plot
+
+
+```
+
+## Collection
+
+## Treatment
+
+# Year 2020
+
+## Generation
+
+## Collection
+
+## Treatment
+
+# Year 2019
+
+## Generation
+
+## Collection
+
+## Treatment
+
+# Year 2018
+
+## Generation
+
+## Collection
+
+## Treatment
+
+# Year 2017
+
+## Generation
+
+## Collection
+
+## Treatment
+
+# Year 2016
+
+## Generation
+
+## Collection
+
+## Treatment
