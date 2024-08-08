@@ -440,7 +440,7 @@ We would like to filter by actual codes for the waste:
 
 ## 2022 - Data from the annual reports of the original generators
 
-```{r waste_generation}
+```{r waste_generation_2022}
 
 # Specify the path to the Excel file
 waste_generation_22.path <- "2022 data\\podatki LP ODP-nastajanje 2022.xlsx"
@@ -494,7 +494,7 @@ write.csv(generation.22, "2022 data\\2022 filtered\\generation\\generation_22.cs
 
 ## 2022 - Data on waste collected and its subsequent management from waste collectors' reports
 
-```{r waste_collection}
+```{r waste_collection_2022}
 
 # Specify the path to the Excel file
 waste_collection_22.path <- "2022 data\\podatki LP ODP-zbiranje 2022.xlsx"
@@ -670,7 +670,7 @@ for (sheet_name in sheet_names) {
 
 ## 2022 - Data from waste treatment operators' reports
 
-```{r waste_treatment}
+```{r waste_treatment_2022}
 
 # Specify the path to the Excel file
 waste_treatment_22.path <- "2022 data\\podatki LP ODP-obdelava 2022.xlsx"
@@ -1049,7 +1049,7 @@ Columns (translated to English):
     \[12\] "Waste sent for treatment to other EU Member States (in kilograms)"\
     \[13\] "Waste sent for treatment to non-EU countries (in kilograms)"
 
-```{r original_emitters}
+```{r waste_generation_2021}
 
 # generated waste
 
@@ -1212,7 +1212,7 @@ Contains 6 sheets (translated to English):
         \[5\] "Number of households per municipality"\
         \[6\] "Number of households per municipality that home compost"
 
-```{r collectors}
+```{r waste_collection_2021}
 
 # collected waste
 # skipping header files, fixing column names and removing initial empty rows
@@ -1624,7 +1624,7 @@ Contains 9 sheets (translated to English):
         \[5\] "Waste disposed of by municipality of origin (kg)" \[6\] "Municipality code"\
         \[7\] "Name of municipality"
 
-```{r waste_treatment_operators}
+```{r waste_treatment_2021}
 
 # how waste is used
 
@@ -1947,7 +1947,7 @@ for (sheet_name in sheet_names) {
 
 ## 2020 - Data from the annual reports of the original emitters
 
-```{r waste_generation}
+```{r waste_generation_2020}
 
 # Specify the path to the Excel file
 waste_generation_20.path <- "2020 data\\podatki LP ODP-nastajanje 2020.xlsx"
@@ -1972,48 +1972,47 @@ for (sheet_name in sheet_names) {
 
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+generation.20 <- processed_sheets[[1]]
+
+## Rename
+colnames(generation.20)
+
+generation.20 <- generation.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija kraja nastanka odpadkov`,
+    waste_code = `waste_code`,
+    type_of_waste = `Naziv odpadka`,
+    total_waste_generated = `Odpadki skupaj: nastalo in skladiščeno kg`,
+    temporary_stored_start_year = `Začasno skladiščeni odpadki na dan 1.1.2020 kg`,
+    waste_generated_2020 = `Odpadki nastali v letu 2020 kg`,
+    temporary_stored_end_year = `Začasno skladiščeni odpadki na dan 31.12.2020 kg`,
+    waste_treated_by_producer = `Odpadki, ki jih je izvirni povzročitelj obdelal sam kg`,
+    waste_handed_to_others_RS = `Odpadki oddani v nadaljnje ravnanje drugim osebam v RS kg`,
+    waste_sent_to_EU = `Odpadki poslani v obdelavo v druge države članice EU kg`,
+    waste_sent_to_non_EU = `Odpadki poslani v obdelavo v države izven EU kg`
+  )
+
+generation.20 <- rename_waste_names(generation.20)
+
+processed_sheets[[1]] <- generation.20
+
+# to csv
+write_excel_csv(processed_sheets[[1]], "2020 data\\2020 filtered\\generation\\generation_20.csv")
+
 ```
 
 ## 2020 - Data from waste collectors' annual reports
 
-```{r waste_collection}
-
-# Specify the path to the Excel file
-waste_collection_20.path <- "2020 data\\podatki LP ODP-obdelava 2020.xlsx"
-
-# Get the sheet names
-sheet_names <- excel_sheets(waste_collection_20.path)
-
-# Initialize a list to store processed sheets
-processed_sheets <- list()
-
-# Define the sheets where n_max should be 3 (replace with actual sheet indices)
-sheets_with_n_max_3 <- c(2, 4, 5, 9)
-
-# Loop through each sheet
-for (sheet_name in sheet_names) {
-  sheet_index <- match(sheet_name, sheet_names)
-  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
-  processed_sheet <- process_sheet(waste_collection_20.path, sheet_index, n_max)
-  processed_sheets[[sheet_name]] <- processed_sheet
-}
-
-# Applying the function to each data frame in processed_sheets
-processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
-
-storing.20 <- processed_sheets[[1]]
-
-```
-
-## 2020 - Data from annual reports of waste treatment operators
-
 ```{r waste_collection_2020}
 
 # Specify the path to the Excel file
-waste_recovery_20.path <- "2020 data\\podatki LP ODP-zbiranje 2020.xlsx"
+collection_20.path <- "2020 data\\podatki LP ODP-zbiranje 2020.xlsx"
 
 # Get the sheet names
-sheet_names <- excel_sheets(waste_recovery_20.path)
+sheet_names <- excel_sheets(collection_20.path)
 
 # Initialize a list to store processed sheets
 processed_sheets <- list()
@@ -2025,32 +2024,436 @@ sheets_with_n_max_3 <- c(2, 3, 5)
 for (sheet_name in sheet_names) {
   sheet_index <- match(sheet_name, sheet_names)
   n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
-  processed_sheet <- process_sheet(waste_recovery_20.path, sheet_index, n_max)
+  processed_sheet <- process_sheet(collection_20.path, sheet_index, n_max)
   processed_sheets[[sheet_name]] <- processed_sheet
 }
 
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
-list_of_waste_by_municipality(OBALNOKRAŠKA, processed_sheets[[4]])
-find_municipality_with_most_waste(OBALNOKRAŠKA, processed_sheets[[4]])
+# Table 1: Preliminary storage of waste in 2020
+waste_storage.20 <- processed_sheets[[1]]
 
-find_municipality_with_most_waste(GORENJSKA, processed_sheets[[4]])
-find_municipality_with_most_waste(POMURSKA, processed_sheets[[4]])
-find_municipality_with_most_waste(KOROŠKA, processed_sheets[[4]])
-find_municipality_with_most_waste(OBALNOKRAŠKA, processed_sheets[[4]])
-find_municipality_with_most_waste(SAVINJSKA, processed_sheets[[4]])
-find_municipality_with_most_waste(JUGOVZHODNA.SLOVENIJA, processed_sheets[[4]])
-find_municipality_with_most_waste(OSREDNJESLOVENSKA, processed_sheets[[4]])
-find_municipality_with_most_waste(GORIŠKA, processed_sheets[[4]])
-find_municipality_with_most_waste(PODRAVSKA, processed_sheets[[4]])
-find_municipality_with_most_waste(POSAVSKA, processed_sheets[[4]])
-find_municipality_with_most_waste(PRIMORSKONOTRANJSKA, processed_sheets[[4]])
-find_municipality_with_most_waste(ZASAVSKA, processed_sheets[[4]])
+## Rename
+colnames(waste_storage.20)
 
-treatment.20 <- processed_sheets[[1]]
+waste_storage.20 <- waste_storage.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    waste_code = `waste_code`,
+    type_of_waste = `Naziv odpadka`,
+    waste_stored_start_year = `Predhodno skladiščeni odpadki na dan 1.1.2020 kg`,
+    waste_stored_end_year = `Predhodno skladiščeni odpadki na dan 31.12.2020 kg`
+  )
 
-# processed_sheets[[1]]
+waste_storage.20 <- rename_waste_names(waste_storage.20)
+
+
+processed_sheets[[1]] <- waste_storage.20
+
+# Table 2: Collected waste in 2020
+collected_waste.20 <- processed_sheets[[2]]
+
+## Rename
+colnames(collected_waste.20)
+
+collected_waste.20 <- collected_waste.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    waste_code = `waste_code`,
+    type_of_waste = `Naziv odpadka`,
+    waste_received_from_producers_no_list = `Zbrani odpadki, prevzeti od izvirnih povzročiteljev brez evidenčnega lista (prepuščeni) kg`,
+    waste_received_from_producers_with_list = `Zbrani odpadki, prevzeti od izvirnih povzročiteljev z evidenčnim listom (oddani) kg`,
+    waste_received_from_collectors_RS = `Zbrani odpadki prevzeti od drugih imetnikov od zbiralcev v RS kg`,
+    waste_received_from_processors_RS = `Zbrani odpadki prevzeti od drugih imetnikov od izvajalcev obdelave v RS kg`
+  )
+
+collected_waste.20 <- rename_waste_names(collected_waste.20)
+
+processed_sheets[[2]] <- collected_waste.20
+
+# Table 3: Collected municipal waste in 2020 by source of origin
+municipal_waste.20 <- processed_sheets[[3]]
+
+## Rename
+colnames(municipal_waste.20)
+
+municipal_waste.20 <- municipal_waste.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    waste_code = `waste_code`,
+    type_of_waste = `Naziv odpadka`,
+    total_municipal_waste_collected = `Zbrani komunalni odpadki skupaj kg`,
+    municipal_waste_collected_from_households = `Zbrani komunalni odpadki glede na vir nastanka iz gospodinjstev kg`,
+    municipal_waste_collected_from_activities = `Zbrani komunalni odpadki glede na vir nastanka iz dejavnosti kg`
+  )
+
+municipal_waste.20 <- rename_waste_names(municipal_waste.20)
+
+processed_sheets[[3]] <- municipal_waste.20
+
+# Table 4: Collected municipal waste in 2020 by municipality of origin
+municipal_waste_origin.20 <- processed_sheets[[4]]
+
+## Rename
+colnames(municipal_waste_origin.20)
+
+municipal_waste_origin.20 <- municipal_waste_origin.20 |> 
+  select(-Poročilo, -`Šifra občine 1`) |> 
+  rename(
+    year = `Leto`,
+    waste_code = `waste_code`,
+    type_of_waste = `Naziv odpadka`,
+    municipal_waste_collected_by_municipality = `Komunalni odpadki po občini izvora kg`,
+    name_of_municipality = `Naziv občine`
+  )
+
+municipal_waste_origin.20 <- rename_waste_names(municipal_waste_origin.20)
+
+municipal_waste_origin.20 <- municipal_waste_origin.20 |> 
+  left_join(municipality_region_mapping, by = "name_of_municipality")
+
+processed_sheets[[4]] <- municipal_waste_origin.20
+
+# Table 5: Management of collected waste in 2020
+management_collected_waste.20 <- processed_sheets[[5]]
+
+## Rename
+colnames(management_collected_waste.20)
+
+management_collected_waste.20 <- management_collected_waste.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    waste_code = `waste_code`,
+    type_of_waste = `Naziv odpadka`,
+    waste_handed_to_collectors_RS = `Odpadki oddani v nadaljnje ravnanje zbiralcem v RS kg`,
+    waste_delivered_to_operators_RS = `Odpadki oddani v nadaljnje ravnanje izvajalcem obdelave v RS kg`,
+    waste_sent_to_EU = `Odpadki oddani v nadaljnje ravnanje v druge države članice EU kg`,
+    waste_sent_to_non_EU = `Odpadki oddani v nadaljnje ravnanje v države izven EU kg`
+  )
+
+management_collected_waste.20 <- rename_waste_names(management_collected_waste.20)
+
+processed_sheets[[5]] <- management_collected_waste.20
+
+# Table 6: Home composting in 2020
+home_composting.20 <- processed_sheets[[6]]
+
+## Rename
+colnames(home_composting.20)
+
+home_composting.20 <- home_composting.20 |> 
+  select(-`Poročilo ODP-zbiranje`, -`Šifra občine 1 1`) |> 
+  rename(
+    year = `Leto 2020`,
+    name_of_municipality = `Naziv občine AJDOVŠČINA`,
+    total_households = `Število gospodinjstev na občino 2 7035`,
+    households_composting = `Število gospodinjstev na občino, ki hišno kompostirajo 1740`
+  )
+
+home_composting.20 <- home_composting.20 |> 
+  left_join(municipality_region_mapping, by = "name_of_municipality")
+
+processed_sheets[[6]] <- home_composting.20
+
+sheet_names <- c(
+  "Waste storage", 
+  "Waste received", 
+  "Municipal waste received for treatment, separated by municipality of origin", 
+  "Management of collected waste", 
+  "Home composting"
+)
+
+names(processed_sheets) <- sheet_names
+
+for (sheet_name in sheet_names) {
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2020 data\\2020 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_20.csv"))
+}
+
+```
+
+## 2020 - Data from annual reports of waste treatment operators
+
+```{r waste_treatment_2020}
+
+# Specify the path to the Excel file
+treatment_20.path <- "2020 data\\podatki LP ODP-obdelava 2020.xlsx"
+
+# Get the sheet names
+sheet_names <- excel_sheets(treatment_20.path)
+
+# Initialize a list to store processed sheets
+processed_sheets <- list()
+
+# Define the sheets where n_max should be 3 (replace with actual sheet indices)
+sheets_with_n_max_3 <- c(2, 4, 5, 9)
+
+# Loop through each sheet
+for (sheet_name in sheet_names) {
+  sheet_index <- match(sheet_name, sheet_names)
+  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
+  processed_sheet <- process_sheet(treatment_20.path, sheet_index, n_max)
+  processed_sheets[[sheet_name]] <- processed_sheet
+}
+
+# Applying the function to each data frame in processed_sheets
+processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+# Table 1: Waste storage in 2020
+waste_storage.20 <- processed_sheets[[1]]
+
+## Rename
+colnames(waste_storage.20)
+
+waste_storage.20 <- waste_storage.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    type_of_waste = `Naziv odpadka`,
+    waste_stored_start_year = `Skladiščeni odpadki na dan 1.1.2020 kg`,
+    waste_stored_end_year = `Skladiščeni odpadki na dan 31.12.2020 kg`
+  )
+
+waste_storage.20 <- rename_waste_names(waste_storage.20)
+
+processed_sheets[[1]] <- waste_storage.20
+
+# Table 2: Waste received in 2020
+waste_received.20 <- processed_sheets[[2]]
+
+## Rename
+colnames(waste_received.20)
+
+waste_received.20 <- waste_received.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    type_of_waste = `Naziv odpadka`,
+    waste_received_own_waste = `Prevzeti odpadki lastni odpadki kg`,
+    waste_received_from_producers_RS = `Prevzeti odpadki od drugih izvirnih povzročiteljev v RS kg`,
+    waste_received_from_collectors_RS = `Prevzeti odpadki od zbiralcev odpadkov v RS kg`,
+    waste_received_from_processors_RS = `Prevzeti odpadki od izvajalcev obdelave v RS kg`,
+    waste_received_from_EU = `Prevzeti odpadki iz drugih držav članic EU kg`,
+    waste_received_from_non_EU = `Prevzeti odpadki iz držav izven EU kg`,
+    total_waste_received = `Prevzeti odpadki SKUPAJ kg`,
+    treatment_operation = `Postopek obdelave (R, D)`
+  )
+
+waste_received.20 <- rename_waste_names(waste_received.20)
+
+# Table 3: Treatment of waste received in 2020
+treating_waste.20 <- processed_sheets[[3]]
+
+## Rename
+colnames(treating_waste.20) 
+
+treating_waste.20 <- treating_waste.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    type_of_waste = `Naziv odpadka`,
+    waste_entering_treatment_process = `Odpadki, ki vstopajo v postopek obdelave (kg)`,
+    treatment_process = `Postopek obdelave (R, D)`
+  )
+
+treating_waste.20 <- rename_waste_names(treating_waste.20)
+
+processed_sheets[[3]] <- treating_waste.20
+
+# Table 4: Waste at the exit of the treatment process and untreated waste delivered for further management in 2020
+management_waste.20 <- processed_sheets[[4]]
+
+## Rename
+colnames(management_waste.20)
+
+management_waste.20 <- management_waste.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    input_waste_name = `Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki naziv`,
+    output_waste_name = `Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki naziv`,
+    waste_handed_to_collectors_RS = `Odpadki, oddani v nadaljnje ravnanje zbiralcu odpadkov v SI kg`,
+    waste_delivered_to_operators_RS = `Odpadki, oddani v nadaljnje ravnanje izvajalcu obdelave v SI kg`,
+    waste_sent_to_EU = `Odpadki, oddani v nadaljnje ravnanje v druge države članice EU kg`,
+    waste_sent_to_non_EU = `Odpadki, oddani v nadaljnje ravnanje v države izven EU kg`
+  )
+
+management_waste.20 <- rename_waste_names(management_waste.20, "input_waste_name")
+
+management_waste.20 <- rename_waste_names(management_waste.20, "output_waste_name")
+
+processed_sheets[[4]] <- management_waste.20
+
+# Table 4a: Recovered substances or objects that lost their waste status and were delivered for further use in 2020
+management_waste.20a <- processed_sheets[[5]]
+
+## Rename
+colnames(management_waste.20a)
+
+management_waste.20a <- management_waste.20a |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    input_waste_name = `Odpadki na vhodu v obdelavo naziv`,
+    output_waste_name = `Predelana snov ali predmet, ki je izgubil status odpadka, na izhodu iz postopka obdelave`,
+    delivered_to_storage_or_other_persons_RS = `Oddano v skladišče ali drugim osebam v RS kg`,
+    shipped_to_EU = `Oddano v druge države članice EU kg`,
+    shipped_to_non_EU = `Oddano v države izven EU kg`
+  )
+
+management_waste.20a <- rename_waste_names(management_waste.20a, "input_waste_name")
+
+management_waste.20a$output_waste_name <- case_when(
+  management_waste.20a$output_waste_name == "les" ~ "wood",
+  management_waste.20a$output_waste_name == "drugo" ~ "other"
+)
+
+processed_sheets[[5]] <- management_waste.20a
+
+# Table 5: Municipal waste received for treatment, separated by municipality of origin in 2020
+waste_treatment.20 <- processed_sheets[[6]]
+
+## Rename
+colnames(waste_treatment.20)
+
+waste_treatment.20 <- waste_treatment.20 |> 
+  select(-Poročilo, -`Šifra občine 1`) |> 
+  rename(
+    year = `Leto`,
+    waste_code = `waste_code`,
+    type_of_waste = `Naziv odpadka`,
+    waste_collected_by_municipality = `Prevzeti odpadki glede na občino izvora (kg)`,
+    name_of_municipality = `Naziv občine`
+  )
+
+waste_treatment.20 <- rename_waste_names(waste_treatment.20)
+
+waste_treatment.20 <- waste_treatment.20 |> 
+  left_join(municipality_region_mapping, by = "name_of_municipality")
+
+processed_sheets[[6]] <- waste_treatment.20
+
+# Table 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
+mass_difference.20 <- processed_sheets[[7]]
+
+## Rename
+colnames(mass_difference.20)
+
+mass_difference.20 <- mass_difference.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    input_waste_name = `NA naziv`,
+    mass_change = `Zmanjšanje ali povečanje mase med postopkom obdelave`
+  )
+
+mass_difference.20 <- rename_waste_names(mass_difference.20, "input_waste_name")
+
+processed_sheets[[7]] <- mass_difference.20
+
+# Table 7: Capacity and status of landfills (for inert, hazardous, and non-hazardous waste, including municipal waste) in 2021
+landfill_capacity.20 <- processed_sheets[[8]]
+
+## Rename
+colnames(landfill_capacity.20)
+
+landfill_capacity.20 <- landfill_capacity.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    landfill_site = `Odlagališče`,
+    volume_filled_start_year = `Zapolnjen volumen na odlagalnem polju na začetku leta m3`,
+    area_filled_start_year = `Zapolnjena površina na odlagalnem polju na začetku leta m2`,
+    volume_free_end_year = `Volumen proste kapacitete odlagalnega polja na koncu leta m3`,
+    area_free_end_year = `Površina proste kapacitete odlagalnega polja na koncu leta m2`,
+    total_disposal_capacity = `Celotna zmogljivost odlaganja t`,
+    remaining_capacity_start_year = `Preostala zmogljivost na dan 1.1. t`,
+    remaining_capacity_end_year = `Preostala zmogljivost na dan 31.12. t`,
+    start_date_disposal = `Datum začetka odlaganja`,
+    end_date_disposal = `Datum konca odlaganja`
+  )
+
+landfill_capacity.20 <- landfill_capacity.20 |>
+  mutate(landfill_site = case_when(
+    landfill_site == "Odlagališče 1" ~ "Landfill 1",
+    landfill_site == "Odlagališče 2" ~ "Landfill 2",
+    landfill_site == "Odlagališče 3" ~ "Landfill 3",
+    landfill_site == "Odlagališče 4a" ~ "Landfill 4a",
+    landfill_site == "Odlagališče 4b" ~ "Landfill 4b",
+    landfill_site == "Odlagališče 5a" ~ "Landfill 5a",
+    landfill_site == "Odlagališče 5b" ~ "Landfill 5b",
+    landfill_site == "Odlagališče 6" ~ "Landfill 6",
+    landfill_site == "Odlagališče 7" ~ "Landfill 7",
+    landfill_site == "Odlagališče 8" ~ "Landfill 8",
+    landfill_site == "Odlagališče 9" ~ "Landfill 9",
+    landfill_site == "Odlagališče 10" ~ "Landfill 10",
+    landfill_site == "Odlagališče 11" ~ "Landfill 11",
+    landfill_site == "Odlagališče 12" ~ "Landfill 12",
+    landfill_site == "Odlagališče 13" ~ "Landfill 13",
+    landfill_site == "Odlagališče 14" ~ "Landfill 14",
+    landfill_site == "Odlagališče 15" ~ "Landfill 15",
+    landfill_site == "Odlagališče 16" ~ "Landfill 16"
+  ))
+
+processed_sheets[[8]] <- landfill_capacity.20
+
+# Table 8: Waste management at landfills in 2020
+landfill_waste.20 <- processed_sheets[[9]]
+
+## Rename
+colnames(landfill_waste.20)
+
+landfill_waste.20 <- landfill_waste.20 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    type_of_waste = `Naziv odpadka`,
+    total_waste_received = `Prevzeti odpadki vsi odpadki`,
+    waste_without_assessment = `Prevzeti odpadki od tega odpadki brez ocene odpadka`,
+    disposed_waste_total = `Ravnanje z odpadki na odlagališču Odloženi odpadki (D1) skupaj`,
+    disposed_waste_hazardous = `Ravnanje z odpadki na odlagališču nevarni odpadki`,
+    disposed_waste_non_hazardous = `Ravnanje z odpadki na odlagališču nenevarni odpadki`,
+    disposed_waste_inert = `Ravnanje z odpadki na odlagališču inertni odpadki`,
+    disposed_waste_for_construction = `Ravnanje z odpadki na odlagališču Odpadki za gradnjo objektov odlagališča`,
+    disposed_waste_for_covering = `Ravnanje z odpadki na odlagališču Odpadki za prekrivanje odlagališča`
+  )
+
+landfill_waste.20 <- rename_waste_names(landfill_waste.20)
+
+## Drop columns containing NA values
+landfill_waste.20 <- select_if(landfill_waste.20, ~!all(is.na(.)))
+
+# Table 9: Municipal waste disposed of by municipality of origin in 2020 - EXCLUDED
+municipal_waste_disposed.20 <- processed_sheets[[10]]
+
+sheet_names <- c(
+  "Waste storage", 
+  "Waste received", 
+  "Treatment of waste received", 
+  "Management of waste from treatment operations and untreated waste", 
+  "Management of treatment products that are no longer waste", 
+  "Municipal waste received for treatment, separated by municipality of origin", 
+  "Mass difference between waste input and treatment product volumes due to mass change during the treatment process", 
+  "Landfill capacity and status (for inert, hazardous and non-hazardous waste, including municipal waste)", 
+  "Landfill waste management"
+)
+
+names(processed_sheets) <- sheet_names
+
+for (sheet_name in sheet_names) {
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2020 data\\2020 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_20.csv"))
+}
+
 ```
 
 # Year 2019
@@ -2082,6 +2485,35 @@ for (sheet_name in sheet_names) {
 
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+generation.19 <- processed_sheets[[1]]
+
+## Rename
+colnames(generation.19)
+
+generation.19 <- generation.19 |> 
+  select(-Poročilo) |> 
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija kraja nastanka odpadkov`,
+    waste_code = `waste_code`,
+    type_of_waste = `Naziv odpadka`,
+    total_waste_generated = `Odpadki skupaj: nastalo in skladiščeno kg`,
+    temporary_stored_start_year = `Začasno skladiščeni odpadki na dan 1.1.2019 kg`,
+    waste_generated_2019 = `Odpadki nastali v letu 2019 kg`,
+    temporary_stored_end_year = `Začasno skladiščeni odpadki na dan 31.12.2019 kg`,
+    waste_treated_by_producer = `Odpadki, ki jih je izvirni povzročitelj obdelal sam kg`,
+    waste_handed_to_others_RS = `Odpadki oddani v nadaljnje ravnanje drugim osebam v RS kg`,
+    waste_sent_to_EU = `Odpadki poslani v obdelavo v druge države članice EU kg`,
+    waste_sent_to_non_EU = `Odpadki poslani v obdelavo v države izven EU kg`
+  )
+
+generation.19 <- rename_waste_names(generation.19)
+
+processed_sheets[[1]] <- generation.19
+
+# to csv
+write_excel_csv(processed_sheets[[1]], "2019 data\\2019 filtered\\generation\\generation_19.csv")
 ```
 
 ## 2019 - Data from the annual reports on waste collection from manufacturing and service activities
