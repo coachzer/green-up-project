@@ -1,0 +1,42 @@
+﻿"year","statistical_region","treatment_input_waste_received_code","input_waste_name","treatment_outlet_delivered_waste_code","output_waste_name","waste_handed_to_collectors_RS","waste_delivered_to_operators_RS","waste_sent_to_EU","waste_sent_to_non_EU"
+2021,"GORENJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",0,0,276647,0
+2021,"GORENJSKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",0,3101363,0,0
+2021,"GORENJSKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",0,1700780,4558987,0
+2021,"GORENJSKA","17 02 01","Wood","17 02 01","Wood",0,10920,671570,0
+2021,"GORENJSKA","20 01 38","Wood, not specified in 20 01 37","15 01 03","Wooden packaging",0,56420,0,0
+2021,"GORENJSKA","20 01 38","Wood, not specified in 20 01 37","20 01 38","Wood, not specified in 20 01 37",0,606870,2574740,0
+2021,"GORIŠKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",45650,1029126,0,0
+2021,"GORIŠKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",0,353110,12180,0
+2021,"JUGOVZHODNA SLOVENIJA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",4677460,0,0,0
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",0,598046,2078505,0
+2021,"JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",93131,993030,0,0
+2021,"JUGOVZHODNA SLOVENIJA","17 02 01","Wood","17 02 01","Wood",0,145940,0,0
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Wood, not specified in 20 01 37","20 01 38","Wood, not specified in 20 01 37",0,41450,0,0
+2021,"KOROŠKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",22700,42654,990152,0
+2021,"KOROŠKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",0,225680,0,0
+2021,"KOROŠKA","20 01 38","Wood, not specified in 20 01 37","15 01 03","Wooden packaging",0,7800,0,0
+2021,"OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",0,208551,69920,0
+2021,"OBALNO-KRAŠKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",0,703407,0,0
+2021,"OBALNO-KRAŠKA","17 02 01","Wood","15 01 03","Wooden packaging",0,74620,0,0
+2021,"OBALNO-KRAŠKA","17 02 01","Wood","17 02 01","Wood",0,120580,0,0
+2021,"OBALNO-KRAŠKA","20 01 38","Wood, not specified in 20 01 37","15 01 03","Wooden packaging",0,65333,0,0
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",0,3276380,23558325,0
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",0,3455305,127180,0
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden packaging","17 02 01","Wood",0,456620,0,0
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden packaging","20 01 38","Wood, not specified in 20 01 37",0,187090,0,0
+2021,"OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37","20 01 38","Wood, not specified in 20 01 37",0,3746570,0,0
+2021,"PODRAVSKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",0,731826,913680,0
+2021,"PODRAVSKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",0,2702120,0,0
+2021,"PODRAVSKA","20 01 38","Wood, not specified in 20 01 37","15 01 03","Wooden packaging",0,54760,0,0
+2021,"PODRAVSKA","20 01 38","Wood, not specified in 20 01 37","20 01 38","Wood, not specified in 20 01 37",0,2557390,0,0
+2021,"POMURSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",751440,0,0,0
+2021,"POMURSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04","20 01 38","Wood, not specified in 20 01 37",0,1393940,0,0
+2021,"POMURSKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",27501,514102,1286980,0
+2021,"POMURSKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",0,61220,0,0
+2021,"POMURSKA","20 01 38","Wood, not specified in 20 01 37","20 01 38","Wood, not specified in 20 01 37",0,1377797,0,0
+2021,"POSAVSKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",0,61540,1344980,0
+2021,"POSAVSKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",0,209120,0,0
+2021,"PRIMORSKO-NOTRANJSKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",0,180820,0,0
+2021,"PRIMORSKO-NOTRANJSKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",0,60380,0,0
+2021,"SAVINJSKA","15 01 01","Paper/Cardboard Packaging","15 01 01","Paper/Cardboard Packaging",12960,3860,10854804,0
+2021,"SAVINJSKA","15 01 03","Wooden packaging","15 01 03","Wooden packaging",65160,4445540,0,0
