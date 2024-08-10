@@ -2625,9 +2625,9 @@ waste_collected.19 <- waste_collected.19 |>
   )
 
 # If the company is from the same region and waste type is the same, combine the rows
-waste_collected.19 <- waste_collected.19 |>
-  group_by(statistical_region, waste_code, name_of_company, gathered_from, type_of_waste) |>
-  summarise(waste_received = sum(waste_received))
+# waste_collected.19 <- waste_collected.19 |>
+#   group_by(statistical_region, waste_code, name_of_company, # gathered_from, type_of_waste) |>
+#  summarise(waste_received = sum(waste_received))
 
 
 waste_collection_19.sheet2 <- waste_collected.19
