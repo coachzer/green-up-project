@@ -485,6 +485,10 @@ generation.22 <- generation.22 |> select(-report)
 # Rename the waste names
 generation.22 <- rename_waste_names(generation.22)
 
+# show codes and their respective waste names
+generation.22 |> 
+  distinct(waste_code, type_of_waste)
+
 generation.22 |> 
   filter(statistical_region == "GORENJSKA")
 
@@ -2534,8 +2538,268 @@ waste_collection_19.by_codes1 <- waste_collection_19.sheet1 |>
 # change all NA to zero
 waste_collection_19.by_codes1[is.na(waste_collection_19.by_codes1)] <- 0
 
-waste_collection_19.by_codes1 |> 
-  filter(`STATISTIČNA REGIJA` == "OBALNO-KRAŠKA") 
+# Table 1: Waste storage in 2019
+waste_storage.19 <- waste_collection_19.by_codes1
+
+## Rename
+colnames(waste_storage.19)
+
+waste_storage.19 <- waste_storage.19 |> 
+  select(-`PRIDOBLJENI PODATKI                 ( 1-poročilo oddano,                    2-podatki ARSO)`, -SKD, -`MATIČNA ŠTEVILKA`) |> 
+  rename(
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `waste_code`,
+    name_of_company = `NAZIV`,
+    waste_stored_start_year = `SKLADIŠČENA KOLIČINA ODPADKOV NA DAN 1.1.2019 (kg)`,
+    waste_stored_end_year = `SKLADIŠČENA KOLIČINA ODPADKOV NA DAN 31.12.2019 (kg)`
+  )
+
+# add type_of_waste column based on the waste_code
+waste_storage.19 <- waste_storage.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_collection_19.sheet1 <- waste_storage.19
+
+# Table 2: Waste collected in 2019
+waste_collection_19.sheet2 <- read_excel(waste_collection_19.path, skip = 2, sheet = 2)
+
+waste_collection_19.by_codes2 <- waste_collection_19.sheet2 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% codes  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+
+waste_collected.19 <- waste_collection_19.by_codes2
+
+## Rename
+colnames(waste_collected.19)
+
+waste_collected.19 <- waste_collected.19 |> 
+  select(-`PRIDOBLJENI PODATKI                 ( 1-poročilo oddano,                    2-podatki ARSO)`, -SKD, -`MATIČNA ŠTEVILKA`) |> 
+  rename(
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `waste_code`,
+    name_of_company = `NAZIV`,
+    waste_received = `KOLIČINA ZBRANIH ODPADKOV (kg)`,
+    gathered_from = `ZBRANO OD`
+  )
+
+waste_collected.19$gathered_from |> unique()
+
+## Rename gathered_from                                 
+
+waste_collected.19 <- waste_collected.19 |> 
+  mutate(
+    gathered_from = case_when(
+      gathered_from == "1-izvirni povzrocitelj: prepušceno (brez evidencnega lista)" ~ "received from producers without a list",
+      gathered_from == "2-izvirni povzrocitelj: oddano (z evidencnim listom)" ~ "received from producers with a list",
+      gathered_from == "3-drug zbiralec" ~ "received from other collectors",
+      gathered_from == "4-izvajalec obdelave" ~ "received from processing operators"
+    )
+  )
+
+# add type_of_waste column based on the waste_code
+waste_collected.19 <- waste_collected.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+# If the company is from the same region and waste type is the same, combine the rows
+waste_collected.19 <- waste_collected.19 |>
+  group_by(statistical_region, waste_code, name_of_company, gathered_from, type_of_waste) |>
+  summarise(waste_received = sum(waste_received))
+
+
+waste_collection_19.sheet2 <- waste_collected.19
+
+# Table 3: Waste collected in 2019 by municipality of origin
+waste_collection_19.sheet3 <- read_excel(waste_collection_19.path, skip = 2, sheet = 3)
+
+waste_collection_19.by_codes3 <- waste_collection_19.sheet3 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% codes  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+
+waste_collected_municipality.19 <- waste_collection_19.by_codes3
+
+## Rename
+colnames(waste_collected_municipality.19)
+
+waste_collected_municipality.19 <- waste_collected_municipality.19 |> 
+  select(-`MATIČNA ŠTEVILKA`, -SKD) |> 
+  rename(
+    waste_code = `waste_code`,
+    name_of_company = `NAZIV IN NASLOV`,
+    total_waste_collected = `KOLIČINA SKUPAJ (kg)`,
+    municipal_waste_collected = `KOLIČINA IZ GOSPODINJSTEV (kg)`,
+    waste_collected_from_activities = `KOLIČINA IZ DEJAVNOSTI (kg)`
+  )
+
+# if waste_from_collected_activities is NA, set it to zero
+waste_collected_municipality.19$waste_collected_from_activities[is.na(waste_collected_municipality.19$waste_collected_from_activities)] <- 0
+
+# add type_of_waste column based on the waste_code
+waste_collected_municipality.19 <- waste_collected_municipality.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_collection_19.sheet3 <- waste_collected_municipality.19
+
+# Table 4: Collected Municipal Waste in 2019, Separated by Municipality of Origin
+municipal_waste_origin_19.sheet4 <- read_excel(waste_collection_19.path, skip = 2, sheet = 4)
+
+municipal_waste_origin_19.by_codes4 <- municipal_waste_origin_19.sheet4 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% codes  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+
+municipal_waste_origin_19 <- municipal_waste_origin_19.by_codes4
+
+## Rename
+colnames(municipal_waste_origin_19)
+
+municipal_waste_origin_19 <- municipal_waste_origin_19 |> 
+  select(-`MATIČNA ŠTEVILKA`, -SKD) |> 
+  rename(
+    waste_code = `waste_code`,
+    name_of_company = `NAZIV`,
+    total_waste_collected = `SKUPNA KOLIČINA (kg)`,
+    name_of_municipality = `NAZIV OBČINE`
+  )
+
+# add type_of_waste column based on the waste_code
+municipal_waste_origin_19 <- municipal_waste_origin_19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+# based on name_of_municipality, add the region
+municipal_waste_origin_19 <- municipal_waste_origin_19 |>
+  left_join(municipality_region_mapping, by = "name_of_municipality")
+
+municipal_waste_origin_19.sheet4 <- municipal_waste_origin_19
+
+# Table 5: Handling of Collected Waste in 2019
+waste_handling_19.sheet5 <- read_excel(waste_collection_19.path, skip = 2, sheet = 5)
+
+waste_handling_19.by_codes5 <- waste_handling_19.sheet5 |>
+  rename(waste_code = `ŠT. ODPADKA`) |> 
+  filter(
+    waste_code %in% codes  |
+      grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
+      !grepl("03 01 04", waste_code, perl = TRUE)
+    )
+
+waste_handling_19 <- waste_handling_19.by_codes5
+
+## Rename
+colnames(waste_handling_19)
+
+waste_handling_19 <- waste_handling_19 |> 
+  select(-`MATIČNA ŠTEVILKA`, -SKD, -`PRIDOBLJENI PODATKI                 ( 1-poročilo oddano,                    2-podatki ARSO)`) |> 
+  rename(
+    name_of_company = `NAZIV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `waste_code`,
+    total_waste_delivered = `ODDANA KOLIČINA ODPADKOV (kg)`,
+    delivered_to = `ODDANO KOMU`,
+    treatment_process = `POSTOPEK OBDELAVE, ČE SO BILI ODPADKI POSLANI V OBDELAVO V TUJINO(R in D postopki, D_00, R_00-drugi postopki obdelave in PU-ponovna uporaba)`
+  )
+
+# add type_of_waste column based on the waste_code
+waste_handling_19 <- waste_handling_19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+# Rename delivered_to
+waste_handling_19 <- waste_handling_19 |> 
+  mutate(
+    delivered_to = case_when(
+      delivered_to == "2-izvajalec obdelave v RS" ~ "processing operator in RS",
+      delivered_to == "1-drug zbiralec v RS" ~ "other collector in RS",
+      delivered_to == "3-druga država članica EU" ~ "other EU country"
+    )
+  )
+
+waste_handling_19 <- waste_handling_19 |> select(-treatment_process)
+
+waste_handling_19.sheet5 <- waste_handling_19
+
+# sheet names
+sheet_names <- c(
+  "Waste storage", 
+  "Waste collected", 
+  "Waste collected by municipality of origin", 
+  "Municipal waste collected by municipality of origin", 
+  "Waste handling"
+)
+
+# combine sheets into one list
+waste_collection.19 <- list(
+  waste_storage.19,
+  waste_collected.19,
+  waste_collected_municipality.19,
+  municipal_waste_origin_19,
+  waste_handling_19
+)
+
+names(waste_collection.19) <- sheet_names
+
+# write to csv
+for (sheet_name in sheet_names) {
+  write_excel_csv(waste_collection.19[[sheet_name]], paste0("2019 data\\2019 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_19.csv"))
+}
 ```
 
 ## 2019 - Data from the annual waste recovery/disposal reports
@@ -2559,6 +2823,37 @@ waste_recovery_19.by_codes1 <- waste_recovery_19.sheet1 |>
 
 # change all NA to zero
 waste_recovery_19.by_codes1[is.na(waste_recovery_19.by_codes1)] <- 0
+
+waste_storage.19 <- waste_recovery_19.by_codes1
+
+## Rename
+colnames(waste_storage.19)
+
+waste_storage.19 <- waste_storage.19 |> 
+  select(-`PRIDOBLJENI PODATKI                 ( 1-poročilo oddano,                    2-podatki ARSO)`, -SKD, -`MATIČNA ŠTEVILKA`) |> 
+  rename(
+    name_of_company = `NAZIV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `waste_code`,
+    waste_stored_start_year = `SKLADIŠČENA KOLIČINA NA DAN 1.1.2019 (kg)`,
+    waste_stored_end_year = `SKLADIŠČENA KOLIČINA NA DAN 31.12.2019 (kg)`
+  )
+
+# add type_of_waste column based on the waste_code
+waste_storage.19 <- waste_storage.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_recovery_19.sheet1 <- waste_storage.19
 ```
 
 ```{r waste_collected}
@@ -2576,6 +2871,52 @@ waste_recovery_19.by_codes2 <- waste_recovery_19.sheet2 |>
 
 # change all NA to zero
 waste_recovery_19.by_codes2[is.na(waste_recovery_19.by_codes2)] <- 0
+
+waste_collected.19 <- waste_recovery_19.by_codes2
+
+## Rename
+colnames(waste_collected.19)
+
+waste_collected.19 <- waste_collected.19 |> 
+  select(-`PRIDOBLJENI PODATKI                 ( 1-poročilo oddano,                    2-podatki ARSO)`, -SKD, -`MATIČNA ŠTEVILKA`) |> 
+  rename(
+    name_of_company = `NAZIV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `waste_code`,
+    total_waste_received = `PREVZETA KOLIČINA ODPADKA (kg)`,
+    received_from = `PREVZETO OD`
+  )
+
+## Rename received_from
+waste_collected.19 <- waste_collected.19 |> 
+  mutate(
+    received_from = case_when(
+      received_from == "1-lastni odpadki" ~ "own waste",
+      received_from == "2-drug izvirni povzrocitelj v RS" ~ "other producer in RS",
+      received_from == "3-(drug) zbiralec v RS" ~ "other collector in RS",
+      received_from == "4-drug izvajalec obdelave v RS" ~ "other processing operator in RS",
+      received_from == "5-druga država članica EU" ~ "other EU country",
+      received_from == "6-tretja država (izven EU)" ~ "other country outside EU"
+    )
+  )
+
+waste_collected.19 <- waste_collected.19 |> select(-`POSTOPEK OBDELAVE (R in D postopki. D_00, R_00-drugi postopki obdelave in PU-ponovna uporaba)`)
+
+# add type_of_waste column based on the waste_code
+waste_collected.19 <- waste_collected.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_recovery_19.sheet2 <- waste_collected.19
 ```
 
 ```{r treatment_waste_received}
@@ -2593,6 +2934,38 @@ waste_recovery_19.by_codes3 <- waste_recovery_19.sheet3 |>
 
 # change all NA to zero
 waste_recovery_19.by_codes3[is.na(waste_recovery_19.by_codes3)] <- 0
+
+waste_treatment.19 <- waste_recovery_19.by_codes3
+
+## Rename
+colnames(waste_treatment.19)
+
+waste_treatment.19 <- waste_treatment.19 |> 
+  select(-`PRIDOBLJENI PODATKI                 ( 1-poročilo oddano,                    2-podatki ARSO)`, -`MATIČNA ŠTEVILKA`) |> 
+  rename(
+    name_of_company = `NAZIV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `waste_code`,
+    total_waste_for_processing = `KOLIČINA ODPADKOV, DANIH V OBDELAVO (kg)`,
+    treatment_process = `POSTOPEK OBDELAVE (R in D postopki obdelave, PU-ponovna uporaba, BO-brez obdelave)`,
+    treatment_after_8 = `OBDELAVA PO 8.ČLENU UREDBE O ODPADKIH`
+  )
+
+# add type_of_waste column based on the waste_code
+waste_treatment.19 <- waste_treatment.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_recovery_19.by_codes3 <- waste_treatment.19
 ```
 
 ```{r treatment_process_waste}
@@ -2608,6 +2981,52 @@ waste_recovery_19.by_codes4 <- waste_recovery_19.sheet4 |>
       grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
       !grepl("03 01 04", waste_code, perl = TRUE)
     )
+
+waste_treatment_process.19 <- waste_recovery_19.by_codes4
+
+## Rename
+colnames(waste_treatment_process.19)
+
+waste_treatment_process.19 <- waste_treatment_process.19 |> 
+  select(-`PRIDOBLJENI PODATKI                 ( 1-poročilo oddano,                    2-podatki ARSO)`, -`MATIČNA ŠTEVILKA`, -SKD) |> 
+  rename(
+    name_of_company = `NAZIV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `waste_code`,
+    waste_recovered_and_given_away
+ = `PO OBDELAVI NASTALI ODPADKI IN ODPADKI ODDANI DRUGIM BREZ OBDELAVE  (kg)`,
+    delivered_to = `ODDANO KOMU`,
+    treatment_process = `POSTOPEK OBDELAVE, ČE SO ODPADKI POSLANI V OBDELAVO V TUJINO`
+  )
+
+# add type_of_waste column based on the waste_code
+waste_treatment_process.19 <- waste_treatment_process.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+# Rename delivered_to
+waste_treatment_process.19 <- waste_treatment_process.19 |> 
+  mutate(
+    delivered_to = case_when(
+      delivered_to == "2.drug izvajalec obdelave v RS" ~ "processing operator in RS",
+      delivered_to == "1-drug zbiralec v RS" ~ "other collector in RS",
+      delivered_to == "3-druga država clanica EU" ~ "other EU country",
+      delivered_to == "4-tretja država (izven EU)" ~ "other country outside EU"
+    )
+  )
+
+waste_treatment_process.19 <- waste_treatment_process.19 |> select(-treatment_process)
+
+waste_recovery_19.sheet4 <- waste_treatment_process.19
 ```
 
 ```{r municipal_waste_treatment}
@@ -2623,6 +3042,39 @@ waste_recovery_19.by_codes5 <- waste_recovery_19.sheet5 |>
       grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
       !grepl("03 01 04", waste_code, perl = TRUE)
     )
+
+municipal_waste_treatment.19 <- waste_recovery_19.by_codes5
+
+## Rename
+colnames(municipal_waste_treatment.19)
+
+municipal_waste_treatment.19 <- municipal_waste_treatment.19 |> 
+  select(-`MATIČNA ŠTEVILKA`, -SKD) |> 
+  rename(
+    waste_code = `waste_code`,
+    name_of_company = `NAZIV`,
+    total_waste_received = `SKUPNA KOLIČINA v kg`,
+    name_of_municipality = `NAZIV OBČINE`
+  )
+
+# add type_of_waste column based on the waste_code
+municipal_waste_treatment.19 <- municipal_waste_treatment.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+municipal_waste_treatment.19 <- municipal_waste_treatment.19 |> 
+  left_join(municipality_region_mapping, by = "name_of_municipality")
+
+waste_recovery_19.sheet5 <- municipal_waste_treatment.19
 ```
 
 ```{r difference_waste_input_treatment_process}
@@ -2639,10 +3091,40 @@ waste_recovery_19.by_codes6 <- waste_recovery_19.sheet6 |>
       grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
       !grepl("03 01 04", waste_code, perl = TRUE)
     )
+
+waste_difference.19 <- waste_recovery_19.by_codes6
+
+## Rename
+colnames(waste_difference.19)
+
+waste_difference.19 <- waste_difference.19 |> 
+  select(-`MATIČNA ŠTEVILKA`, -SKD) |> 
+  rename(
+    name_of_company = `NAZIV`,
+    waste_code = `waste_code`,
+    lost_mass = `IZGUBLJENA KOLIČINA (kg)`
+  )
+
+# add type_of_waste column based on the waste_code
+waste_difference.19 <- waste_difference.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_recovery_19.sheet6 <- waste_difference.19
+
 ```
 
-```{r landfill_capacity}
-# LANDFILL CAPACITY AND STATUS IN 2019
+```{r landfill_capacity_EXCLUDED}
+# LANDFILL CAPACITY AND STATUS IN 2019 - EXCLUDED
 waste_recovery_19.sheet7 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 7)
 
 # no codes to filter by
@@ -2659,13 +3141,88 @@ waste_recovery_19.by_codes8 <- waste_recovery_19.sheet8 |>
       grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
       !grepl("03 01 04", waste_code, perl = TRUE)
     )
+
+waste_volumes_landfill.19 <- waste_recovery_19.by_codes8
+
+## Rename
+colnames(waste_volumes_landfill.19)
+
+waste_volumes_landfill.19 <- waste_volumes_landfill.19 |> 
+  select(-`MATIČNA ŠTEVILKA`, -SKD) |> 
+  rename(
+    name_of_company = `NAZIV`,
+    landfill = `ODLAGALIŠČE`,
+    waste_code = `waste_code`,
+    inert_waste_received = `KOLIČINA PREJETIH INERTNIH ODPADKOV V ODLAGANJE Z OCENO (kg)`,
+    non_hazardous_waste_received = `KOLIČINA PREJETIH NENEVARNIH ODPADKOV V ODLAGANJE Z OCENO (kg)`,
+    hazardous_waste_received = `KOLIČINA PREJETIH NEVARNIH ODPADKOV V ODLAGANJE Z OCENO (kg)`,
+    waste_received_without_estimate = `KOLIČINA PREJETIH ODPADKOV V ODLAGANJE BREZ OCENE (kg)`,
+    waste_received_from_eu = `KOLIČINA PREJETIH ODPADKOV V ODLAGANJE IZ EU (kg)`,
+    waste_received_from_third_countries = `KOLIČINA PREJETIH ODPADKOV V ODLAGANJE IZ TRETJIH DRŽAV (kg)`,
+    disposed = `ODLOŽENO (kg)`,
+    for_landfill_construction = `ZA GRADNJO OBJEKTOV ODLAGALIŠČA (kg)`,
+    for_daily_covering = `ZA DNEVNO PREKRIVANJE (kg)`,
+    stored_in_landfill = `SKLADIŠČENO NA ODLAGALIŠČU (kg)`,
+    rejected = `ZAVRNJENO (kg)`
+  )
+
+# add type_of_waste column based on the waste_code
+waste_volumes_landfill.19 <- waste_volumes_landfill.19 |>
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+# If NA values in column, put 0
+waste_volumes_landfill.19[is.na(waste_volumes_landfill.19)] <- 0
+
+waste_recovery_19.sheet8 <- waste_volumes_landfill.19
 ```
 
-```{r municipal_waste_disposed}
-# MUNICIPAL WASTE DISPOSED OF BY MUNICIPALITY IN 2019
+```{r municipal_waste_disposed_EXCLUDED}
+# MUNICIPAL WASTE DISPOSED OF BY MUNICIPALITY IN 2019 - EXCLUDED
 waste_recovery_19.sheet9 <- read_excel(waste_recovery_19.path, skip = 2, sheet = 9)
 
 # no code to filter by for wood
+```
+
+```{r treatment_to_CSV}
+
+# sheet names
+sheet_names <- c(
+  "Waste Storage", 
+  "Waste Collected", 
+  "Treatment of Waste Received", 
+  "Waste Generated in Treatment Process", 
+  "Municipal Waste Received for Treatment", 
+  "Difference in Mass between Waste Input and Treatment Process", 
+  "Total Waste Volumes and Management in Landfill"
+)
+
+# List
+waste_recovery.19 <- list(
+  waste_recovery_19.sheet1,
+  waste_recovery_19.sheet2,
+  waste_recovery_19.sheet3,
+  waste_recovery_19.sheet4,
+  waste_recovery_19.sheet5,
+  waste_recovery_19.sheet6,
+  waste_recovery_19.sheet8
+)
+
+names(waste_recovery.19) <- sheet_names
+
+for (sheet_name in sheet_names) {
+  write_excel_csv(waste_recovery.19[[sheet_name]], paste0("2019 data\\2019 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_19.csv"))
+}
+
 ```
 
 # Year 2018
@@ -2999,5 +3556,4 @@ waste_recovery_18.sheet9 <- read_excel(waste_recovery_18.path, skip = 2, sheet =
 ```
 
 # Year 2017
-
 # Year 2016
