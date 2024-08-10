@@ -63,6 +63,20 @@ The analysis will focus on the following waste codes:
 4. **Analysis of Waste Processing**
    - Study the methods and processes used by companies to handle and utilize the waste.
 
+## Project Files
+
+### green-up-project.qmd
+
+This file focuses on cleaning the raw data obtained from the SURS website. It includes steps for data wrangling and preprocessing to ensure that the data is in a consistent and analyzable format.
+
+### analysis.qmd
+
+This file conducts further analysis on the cleaned data from the `green-up-project.qmd` file. It includes various statistical and graphical analyses to extract insights and trends from the data.
+
+### Interface/Visualization (ui.R and server.R)
+
+These files are part of a Shiny app designed for Wood Waste Management Simulation. The app provides an interactive interface for visualizing and simulating wood waste management scenarios, helping stakeholders to make informed decisions.
+
 ## Tools and Technologies
 
 - **R and RStudio**: For data analysis and visualization.
@@ -81,10 +95,9 @@ The analysis will focus on the following waste codes:
 
 This project aims to provide a comprehensive understanding of waste production and management in Slovenia, focusing on specific waste types and how they are handled by various companies and regions over the years. The insights gained from this analysis will help in identifying trends, inefficiencies, and potential areas for improvement in waste management practices.
 
-## Contact
+## Contact Information
 
 For any queries or further information, please contact:
 
-- **Name**: [Your Name]
-- **Email**: [Your Email]
-- **Institution/Organization**: [Your Institution/Organization]
+- **Name**: [Nikola Kovačević]
+- **Email**: [89232043@student.upr.si]
