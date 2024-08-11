@@ -10,6 +10,22 @@ editor: source
 
 Conducting further analysis on the cleaned up data from the green-up-project.qmd file.
 
+## Regions
+
+current focus
+
+## Companies
+
+- after 2019 not included in the SURS data
+
+per region, per company
+number of companies
+type of waste per companies, how many different types
+node = a company in a region, point on a map
+cant just focus on headquarters (HQ) of the node
+try to figure out connection between operator, collector and storage
+descriptive statistics for all years
+
 # Setup
 
 ```{r setup, message = FALSE, warning = FALSE}
@@ -20,6 +36,7 @@ library(scales)
 library(viridis)
 library(ggplot2)
 library(plotly)
+library(htmlwidgets)
 
 ```
 
@@ -30,10 +47,11 @@ library(plotly)
 # Function to assign clear names to waste types
 clear_waste_name <- function(name) {
   case_when(
-    name == "Sawdust, chips, cuttings, wood, particle board and veneer, not specified in 03 01 04" ~ "Sawdust and Wood Cuttings",
+    # Sawdust, chips, cuttings, wood, particle board and veneer, not specified in 03 01 04
+    name == "Sawdust/Chips/Wood, not specified in 03 01 04" ~ "Sawdust and Wood Cuttings",
     name == "Paper and cardboard packaging and cardboard packaging" ~ "Paper and Cardboard Packaging",
     name == "Wooden packaging" ~ "Wooden Packaging",
-    name == "Wood" ~ "Construction Wood",
+    name == "Wood" ~ "Wood",
     name == "Wood, not specified in 20 01 37" ~ "Other Wood Waste",
     name == "Waste bark and cork" ~ "Bark and Cork",
     name == "Waste not specified elsewhere" ~ "Unspecified Wood Waste",
@@ -43,145 +61,156 @@ clear_waste_name <- function(name) {
 
 ```
 
-# Year 2022
 
-## Generation
+# Generation Combined Data
 
-## Collection
+```{r combined_data}
 
-## Treatment
+g.2022.data <- read_csv("2022 data/2022 filtered/generation/generation_22.csv")
+g.2021.data <- read_csv("2021 data/2021 filtered/generation/generation_21.csv")
+g.2020.data <- read_csv("2020 data/2020 filtered/generation/generation_20.csv")
+g.2019.data <- read_csv("2019 data/2019 filtered/generation/generation_19.csv")
+g.2018.data.1 <- read_csv("2018 data/2018 filtered/generation/waste_generation_18.csv")
+g.2018.data.2 <- read_csv("2018 data/2018 filtered/generation/waste_management_18.csv")
 
-# Year 2021
+colnames(g.2018.data.2)
 
-## Generation
+g.2018.data.1 <- g.2018.data.1 |> 
+  group_by(statistical_region, name_of_company, type_of_waste, waste_stored_start_year, waste_stored_end_year) |>
+  summarize(waste_generated = sum(waste_generated, na.rm = TRUE)) |>
+  ungroup() |> 
+  # order columns
+  select(statistical_region, name_of_company, type_of_waste, waste_stored_start_year, waste_generated, waste_stored_end_year)
 
-```{r generation_analysis}
+# Combine rows with the same region, company, waste type and processing type
+g.2018.data.2 <- g.2018.data.2 |>
+  group_by(statistical_region, name_of_company, delivered_to, type_of_waste) |>
+  summarize(total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE)) |>
+  ungroup() 
 
-# Read the CSV data
-g.2021.data <- read_csv("2021 data/2021 filtered/generation_21.csv")
+# combine g.2018.data.1 and g.2018.data.2 based on the region and company
+g.2018.data <- g.2018.data.1 |>
+  left_join(g.2018.data.2, by = c("statistical_region" = "statistical_region", "name_of_company" = "name_of_company", "type_of_waste" = "type_of_waste"))
 
-# Data preprocessing
-wood_waste <- g.2021.data %>%
-  filter(grepl("Wood|wood|Sawdust|bark|cork", `Name of Waste`)) %>%
-  mutate(Region = `Statistical Region of Waste Origin`,
-         Waste_Type = clear_waste_name(`Name of Waste`),
-         Total_Waste = `Total Waste: Generated and Stored` / 1000, # Convert to tons
-         Generated_Waste = `Waste Generated in 2021` / 1000) # Convert to tons
+# add year column to 2018 data
+g.2018.data <- g.2018.data |>
+  mutate(year = 2018)
 
-# Calculate generation rate per waste type per region
-generation_rate <- wood_waste %>%
-  group_by(Region, Waste_Type) %>%
-  summarise(Generation_Rate = sum(Generated_Waste)) %>%
+g.2018.data$delivered_to |> unique()
+
+# instead of having the column delivered_to, we need to create separate columns for each type of waste transfer
+g.2018.data <- g.2018.data |>
+  mutate(waste_handed_to_others_RS = ifelse(delivered_to == "processing operator in RS", total_waste_given_away, 0),
+         waste_sent_to_EU = ifelse(delivered_to == "other EU country", total_waste_given_away, 0),
+         waste_treated_by_producer = ifelse(delivered_to == "processed the waste themselves", total_waste_given_away, 0)) |>
+  select(-delivered_to, -total_waste_given_away)
+
+# create a total waste stored column for 2018 data
+g.2018.data <- g.2018.data |>
+  mutate(total_waste_stored = waste_stored_start_year + waste_generated) |> 
+  select(year, statistical_region, name_of_company, type_of_waste, total_waste_stored, waste_stored_start_year, waste_generated, waste_stored_end_year, waste_treated_by_producer, waste_handed_to_others_RS, waste_sent_to_EU)
+
+names(g.2020.data) <- colnames(g.2022.data)
+names(g.2019.data) <- colnames(g.2022.data)
+
+combined_data <- bind_rows(g.2019.data, g.2020.data, g.2021.data, g.2022.data)
+
+combined_data <- combined_data |> select(-waste_code, -waste_sent_for_treatment_outside_EU)
+
+g.2018.data <- g.2018.data |> select(-name_of_company)
+
+names(g.2018.data) <- colnames(combined_data)
+
+combined_data <- bind_rows(combined_data, g.2018.data)
+
+# apply clear_waste_name
+combined_data <- combined_data |>
+  mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+# Summarize total waste generation by year
+total_waste_by_year <- combined_data |>
+  group_by(year) |>
+  summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE) / 1000)
+
+# Plot total waste generation by year
+t <- ggplot(total_waste_by_year, aes(x = year, y = total_generated_waste)) +
+  geom_line(group = 1) +
+  geom_point() +
+  labs(
+    title = "Total Wood Waste Generation by Year",
+    x = "Year",
+    y = "Total Generated Waste (tons)"
+  ) +
+  theme_minimal()
+
+t
+
+waste_by_region_year <- combined_data |>
+  group_by(statistical_region, year) |>
+  summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE) / 1000) |>
   ungroup()
 
-# Create a heatmap of generation rates
-heatmap_plot <- plot_ly(
-  generation_rate,
-  x = ~Waste_Type,
-  y = ~Region,
-  z = ~Generation_Rate,
-  type = "heatmap",
-  colorscale = "Viridis"
-) %>%
-  layout(
-    title = "Wood Waste Generation Rate by Type and Region",
-    xaxis = list(title = "Waste Type"),
-    yaxis = list(title = "")
-  )
+# Plot total waste generation by region and year
+t2 <- ggplot(waste_by_region_year, aes(x = year, y = total_generated_waste, color = statistical_region)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Total Wood Waste Generation by Region and Year",
+    x = "Year",
+    y = "Total Generated Waste (tons)"
+  ) +
+  theme_minimal()
 
-heatmap_plot
+t2
 
-# Calculate total generation rate per region
-total_generation_rate <- generation_rate %>%
-  group_by(Region) %>%
-  summarise(Total_Generation_Rate = sum(Generation_Rate)) %>%
-  arrange(desc(Total_Generation_Rate))
+ggplotly(t2, width = 800, height = 500)
 
-# Create a bar plot of total generation rates per region
-bar_plot <- plot_ly(
-  total_generation_rate,
-  x = ~reorder(Region, Total_Generation_Rate),
-  y = ~Total_Generation_Rate,
-  type = "bar",
-  text = ~round(Total_Generation_Rate, 1),
-  textposition = "outside",
-  marker = list(color = "steelblue")
-) %>%
-  layout(
-    title = "Total Wood Waste Generation Rate by Region",
-    xaxis = list(title = "Region"),
-    yaxis = list(title = "Total Generation Rate (tons/year)"),
-    barmode = "stack"
-  )
-
-bar_plot
-
-# Calculate percentage composition of waste types for each region
-waste_composition <- generation_rate %>%
-  group_by(Region) %>%
-  mutate(Percentage = Generation_Rate / sum(Generation_Rate) * 100) %>%
+waste_by_type_year <- combined_data |>
+  group_by(type_of_waste, year) |>
+  summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE) / 1000) |>
   ungroup()
 
-# Create a stacked bar plot of waste type composition for each region
-stacked_bar_plot <- plot_ly(
-  waste_composition,
-  x = ~reorder(Region, -Percentage),
-  y = ~Percentage,
-  color = ~Waste_Type,
-  type = "bar"
-) %>%
-  layout(
-    title = "Wood Waste Type Composition by Region",
-    xaxis = list(title = "Region"),
-    yaxis = list(title = "Percentage"),
-    barmode = "stack"
-  )
+# Plot total waste generation by type and year
+t3 <- ggplot(waste_by_type_year, aes(x = year, y = total_generated_waste, color = type_of_waste)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Total Wood Waste Generation by Type and Year",
+    x = "Year",
+    y = "Total Generated Waste (tons)"
+  ) +
+  theme_minimal()
 
-stacked_bar_plot
+ggplotly(t3, width = 800, height = 500)
 
+# waste transferred for treatment
+waste_transferred <- combined_data |>
+  group_by(year) |>
+  summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE) / 1000)
+
+# Plot total waste transferred for treatment by year
+t4 <- ggplot(waste_transferred, aes(x = year, y = total_sent)) +
+  geom_line(group = 1) +
+  geom_point() +
+  labs(
+    title = "Total Wood Waste Transferred for Treatment by Year",
+    x = "Year",
+    y = "Total Waste Transferred (tons)"
+  ) +
+  theme_minimal()
+
+t4
+```
+
+# Collection Combined Data
+
+```{r collection_combined_data}
 
 ```
 
-## Collection
+# Treatment Combined Data
 
-## Treatment
 
-# Year 2020
+```{r treatment_combined_data}
 
-## Generation
-
-## Collection
-
-## Treatment
-
-# Year 2019
-
-## Generation
-
-## Collection
-
-## Treatment
-
-# Year 2018
-
-## Generation
-
-## Collection
-
-## Treatment
-
-# Year 2017
-
-## Generation
-
-## Collection
-
-## Treatment
-
-# Year 2016
-
-## Generation
-
-## Collection
-
-## Treatment
+```
