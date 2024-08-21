@@ -62,7 +62,56 @@ clear_waste_name <- function(name) {
 ```
 
 
-# Generation Combined Data
+# Generation Data Analysis Process
+## Data Loading and Preparation
+
+Data from 2018 to 2022 was loaded from separate CSV files for each year.
+The 2018 data required special handling due to its different structure:
+
+Two separate files were used: waste_generation_18.csv and waste_management_18.csv.
+These files were joined based on common columns (region, company, and waste type).
+
+
+## Data Standardization
+
+Column names were standardized across all years to ensure consistency.
+A 'year' column was added to the 2018 data to match the structure of other years.
+
+## Data Transformation
+
+### For 2018 data:
+
+The 'delivered_to' column was transformed into separate columns for different types of waste transfer.
+A 'total_waste_stored' column was created by summing 'waste_stored_start_year' and 'waste_generated'.
+
+
+### For all years:
+
+The 'clear_waste_name' function was applied to standardize waste type names.
+
+
+## Data Combination
+
+Data from 2019 to 2022 was combined using bind_rows().
+The processed 2018 data was then appended to this combined dataset.
+
+## Analysis and Visualization
+
+Total waste generation by year was calculated and visualized.
+Waste generation was analyzed by region and year.
+Waste generation was analyzed by waste type and year.
+Waste transferred for treatment and waste stored at the end of the year were analyzed separately.
+
+## Key Data Transformations
+
+Grouping: Data was frequently grouped by year, region, or waste type to allow for aggregate analysis.
+Summarization: Within groups, waste quantities were summed to get total amounts.
+Unit Conversion: Waste amounts were often divided by 1000 to convert from kilograms to tons.
+
+## Visualization Techniques
+
+Line plots were used to show trends over time.
+Interactive plots were created using ggplotly() for more detailed exploration.
 
 ```{r combined_data}
 
@@ -200,15 +249,32 @@ t4 <- ggplot(waste_transferred, aes(x = year, y = total_sent)) +
   theme_minimal()
 
 t4
+
+# Plot waste stored at the end of the year
+waste_stored_at_the_end_year <- combined_data |>
+  group_by(year) |>
+  summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE) / 1000) 
+
+t5 <- ggplot(waste_stored_at_the_end_year, aes(x = year, y = total_stored)) +
+  geom_line(group = 1) +
+  geom_point() +
+  labs(
+    title = "Total Wood Waste Stored at the End of the Year",
+    x = "Year",
+    y = "Total Waste Stored (tons)"
+  ) +
+  theme_minimal()
+
+t5
 ```
 
-# Collection Combined Data
+# Collection Data Analysis Process
 
 ```{r collection_combined_data}
 
 ```
 
-# Treatment Combined Data
+# Treatment Data Analysis Process
 
 
 ```{r treatment_combined_data}
