@@ -1055,7 +1055,7 @@ for (sheet_name in sheet_names) {
 
 # Year 2021
 
-## 2021 - Original Generators
+## 2021 - Data from the annual reports of the original generators
 
 Contains only one sheet.
 
@@ -1166,7 +1166,7 @@ write_excel_csv(generation.21, "2021 data\\2021 filtered\\generation\\generation
 # write.xlsx(generation.21, "2021 data\\2021 filtered\\generation_21.xlsx")
 ```
 
-## 2021 - Collectors
+## 2021 - Data on waste collected and its subsequent management from waste collectors' reports
 
 Contains 6 sheets (translated to English):
 
@@ -1288,6 +1288,8 @@ processed_sheets[[1]]  <- processed_sheets[[1]] |>
          previous_stored_start_year = `Predhodno skladiščeni odpadki na dan 1.1.2021 kg`,
          previous_stored_end_year = `Predhodno skladiščeni odpadki na dan 31.12.2021 kg`)
 
+processed_sheets[[1]] <- rename_waste_names(processed_sheets[[1]])
+
 list_of_waste_pre_stored <- function(region, df) {
   df |> 
     filter(statistical_region == region) |> 
@@ -1310,6 +1312,8 @@ processed_sheets[[2]] <- processed_sheets[[2]] |>
          waste_from_producers_with_record = `Zbrani odpadki, prevzeti od izvirnih povzročiteljev z evidenčnim listom (oddani) kg`,
          waste_from_collectors_RS = `Zbrani odpadki prevzeti od drugih imetnikov od zbiralcev v RS kg`,
          waste_from_processors_RS = `Zbrani odpadki prevzeti od drugih imetnikov od izvajalcev obdelave v RS kg`)
+
+processed_sheets[[2]] <- rename_waste_names(processed_sheets[[2]])
 
 # define a function for the previous code
 list_of_waste_collected <- function(region, df) {
@@ -1343,6 +1347,8 @@ processed_sheets[[3]] <- processed_sheets[[3]] |>
          municipal_waste_from_households = `Zbrani komunalni odpadki glede na vir nastanka iz gospodinjstev kg`,
          municipal_waste_from_activities = `Zbrani komunalni odpadki glede na vir nastanka iz dejavnosti kg`)
 
+processed_sheets[[3]] <- rename_waste_names(processed_sheets[[3]])
+
 # Sheet 4: Municipal waste collected by municipality of origin, 2021
 wc_by_origin <- processed_sheets[[4]]
 wc_by_origin <- wc_by_origin |> 
@@ -1351,6 +1357,8 @@ wc_by_origin <- wc_by_origin |>
          name_of_municipality = `Naziv občine`,
          type_of_waste = `Naziv odpadka`,
          year = `Leto`)
+
+wc_by_origin <- rename_waste_names(wc_by_origin)
 
 ## Rename the columns of the fourth sheet
 processed_sheets[[4]] <- wc_by_origin
@@ -1409,6 +1417,8 @@ processed_sheets[[5]] <- processed_sheets[[5]] |>
          waste_delivered_to_operators_RS = `Odpadki oddani v nadaljnje ravnanje izvajalcem obdelave v RS kg`,
          waste_sent_to_EU = `Odpadki oddani v nadaljnje ravnanje v druge države članice EU kg`,
          waste_sent_to_non_EU = `Odpadki oddani v nadaljnje ravnanje v države izven EU kg`)
+
+processed_sheets[[5]] <- rename_waste_names(processed_sheets[[5]])
 
 list_of_waste_managed <- function(region, df) {
   df |> 
@@ -1523,7 +1533,7 @@ for (sheet_name in sheet_names) {
 
 ```
 
-## 2021 - Waste Treatment Operators
+## 2021 - Data from waste treatment operators' reports
 
 Contains 9 sheets (translated to English):
 
@@ -2651,6 +2661,28 @@ waste_collected.19 <- waste_collected.19 |>
 #   group_by(statistical_region, waste_code, name_of_company, # gathered_from, type_of_waste) |>
 #  summarise(waste_received = sum(waste_received))
 
+# define columns based on gathered_form
+waste_collected.19 <- waste_collected.19 |> 
+  mutate(
+    waste_from_producers_no_record = case_when(
+      gathered_from == "received from producers without a list" ~ waste_received,
+      TRUE ~ 0
+    ),
+    waste_from_producers_with_record = case_when(
+      gathered_from == "received from producers with a list" ~ waste_received,
+      TRUE ~ 0
+    ),
+    waste_from_collectors_RS = case_when(
+      gathered_from == "received from other collectors" ~ waste_received,
+      TRUE ~ 0
+    ),
+    waste_from_processors_RS = case_when(
+      gathered_from == "received from processing operators" ~ waste_received,
+      TRUE ~ 0
+    )
+  )
+
+
 
 waste_collection_19.sheet2 <- waste_collected.19
 
@@ -2791,6 +2823,24 @@ waste_handling_19 <- waste_handling_19 |>
       delivered_to == "1-drug zbiralec v RS" ~ "other collector in RS",
       delivered_to == "2-izvajalec obdelave v RS" ~ "processing operator in RS",
       delivered_to == "3-druga država članica EU" ~ "other EU country"
+    )
+  )
+
+
+# define columns per delivered_to types
+waste_handling_19 <- waste_handling_19 |>
+  mutate(
+    waste_delivered_to_other_collector_RS = case_when(
+      delivered_to == "other collector in RS" ~ total_waste_delivered,
+      TRUE ~ 0
+    ),
+    waste_delivered_to_processing_operator_RS = case_when(
+      delivered_to == "processing operator in RS" ~ total_waste_delivered,
+      TRUE ~ 0
+    ),
+    waste_delivered_to_other_EU_country = case_when(
+      delivered_to == "other EU country" ~ total_waste_delivered,
+      TRUE ~ 0
     )
   )
 
@@ -3446,14 +3496,37 @@ colSums(is.na(waste_collection_18.by_codes2))
 ## Distinct collected_from
 waste_collection_18.by_codes2 |> distinct(collected_from)
 
+# ASSUMING THIS IS THE SAME AS IN 2019
+
 ## Rename collected_from
 waste_collection_18.by_codes2 <- waste_collection_18.by_codes2 |> 
   mutate(
     collected_from = case_when(
-      collected_from == "1-izvirni povzročitelj:prepuščeno" ~ "other producer: handed over",
-      collected_from == "2-izvirni povzročitelj:oddano" ~ "other producer: given",
-      collected_from == "3-drug zbiralec" ~ "other collector",
-      collected_from == "4-izvajalec obdelave" ~ "processing operator"
+      collected_from == "1-izvirni povzročitelj:prepuščeno" ~ "received from producers without a list",
+      collected_from == "2-izvirni povzročitelj:oddano" ~ "received from producers with a list",
+      collected_from == "3-drug zbiralec" ~ "received from other collectors",
+      collected_from == "4-izvajalec obdelave" ~ "received from processing operators"
+    )
+  )
+
+# define separate columns based on collected_from 
+waste_collection_18.by_codes2 <- waste_collection_18.by_codes2 |> 
+  mutate(
+    waste_from_producers_no_record = case_when(
+      collected_from == "received from producers without a list" ~ total_waste_collected,
+      TRUE ~ 0
+    ),
+    waste_from_producers_with_record = case_when(
+      collected_from == "received from producers with a list" ~ total_waste_collected,
+      TRUE ~ 0
+    ),
+    waste_from_collectors_RS = case_when(
+      collected_from == "received from other collectors" ~ total_waste_collected,
+      TRUE ~ 0
+    ),
+    waste_from_processors_RS = case_when(
+      collected_from == "received from processing operators" ~ total_waste_collected,
+      TRUE ~ 0
     )
   )
 
@@ -3565,6 +3638,23 @@ waste_collection_18.by_codes5 <- waste_collection_18.by_codes5 |>
       delivered_to == "1-drug zbiralec v RS" ~ "other collector in RS",
       delivered_to == "2-drug izvajalec obdelave v RS" ~ "processing operator in RS",
       delivered_to == "3-druga država članica EU" ~ "other EU country"
+    )
+  )
+
+# define separate columns based on delivered_to
+waste_collection_18.by_codes5 <- waste_collection_18.by_codes5 |> 
+  mutate(
+    delivered_to_collector = case_when(
+      delivered_to == "other collector in RS" ~ total_waste_given_away,
+      TRUE ~ 0
+    ),
+    delivered_to_processing_operator = case_when(
+      delivered_to == "processing operator in RS" ~ total_waste_given_away,
+      TRUE ~ 0
+    ),
+    delivered_to_other_eu_country = case_when(
+      delivered_to == "other EU country" ~ total_waste_given_away,
+      TRUE ~ 0
     )
   )
 
@@ -3741,6 +3831,27 @@ waste_recovery_18.by_codes4 <- waste_recovery_18.by_codes4 |>
       delivered_to == "2-drug izvajalec obdelave v RS" ~ "other processing operator in RS",
       delivered_to == "3-druga država članica EU" ~ "other EU country",
       delivered_to == "4-tretja država (izven EU)" ~ "other country (outside EU)"
+    )
+  )
+
+# define columns based on delivered_to
+waste_recovery_18.by_codes4 <- waste_recovery_18.by_codes4 |> 
+  mutate(
+    delivered_to_collector_RS = case_when(
+      delivered_to == "other collector in RS" ~ total_waste_generated,
+      TRUE ~ 0
+    ),
+    delivered_to_processing_operator_RS = case_when(
+      delivered_to == "other processing operator in RS" ~ total_waste_generated,
+      TRUE ~ 0
+    ),
+    delivered_to_other_EU_country = case_when(
+      delivered_to == "other EU country" ~ total_waste_generated,
+      TRUE ~ 0
+    ),
+    delivered_to_other_country_outside_EU = case_when(
+      delivered_to == "other country (outside EU)" ~ total_waste_generated,
+      TRUE ~ 0
     )
   )
 
