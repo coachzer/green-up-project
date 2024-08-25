@@ -29,46 +29,343 @@ descriptive statistics for all years
 # Setup
 
 ```{r setup, message = FALSE, warning = FALSE}
-
 # Load required libraries
 library(tidyverse)
 library(scales)
 library(viridis)
 library(ggplot2)
+library(gganimate)
+library(ggridges)
 library(plotly)
 library(htmlwidgets)
 library(reshape2)
 
+# List of municipalities for each region
+POMURSKA <- c(
+    "APAČE",
+    "BELTINCI",
+    "CANKOVA",
+    "ČRENŠOVCI",
+    "DOBROVNIK",
+    "DOBRONAK",
+    "GORNJA RADGONA",
+    "GORNJI PETROVCI",
+    "GRAD",
+    "HODOŠ",
+    "KOBILJE",
+    "KRIŽEVCI",
+    "KUZMA",
+    "LENDAVA",
+    "LENDAVA - LENDVA",
+    "LJUTOMER",
+    "MORAVSKE TOPLICE",
+    "MURSKA SOBOTA",
+    "ODRANCI",
+    "PUCONCI",
+    "RADENCI",
+    "RAZKRIŽJE",
+    "ROGAŠOVCI",
+    "SVETI JURIJ OB ŠČAVNICI",
+    "ŠALOVCI",
+    "TIŠINA",
+    "TURNIŠČE",
+    "VELIKA POLANA",
+    "VERŽEJ"
+)
+
+PODRAVSKA <- c(
+    "BENEDIKT",
+    "CERKVENJAK",
+    "CIRKULANE",
+    "DESTRNIK",
+    "DORNAVA",
+    "DUPLEK",
+    "GORIŠNICA",
+    "HAJDINA",
+    "HOČE-SLIVNICA",
+    "JURŠINCI",
+    "KIDRIČEVO",
+    "KUNGOTA",
+    "LENART",
+    "LOVRENC NA POHORJU",
+    "MAJŠPERK",
+    "MAKOLE",
+    "MARIBOR",
+    "MARKOVCI",
+    "MIKLAVŽ NA DRAVSKEM POLJU",
+    "OPLOTNICA",
+    "ORMOŽ",
+    "PESNICA",
+    "PODLEHNIK",
+    "POLJČANE",
+    "PTUJ",
+    "RAČE-FRAM",
+    "RUŠE",
+    "SELNICA OB DRAVI",
+    "SLOVENSKA BISTRICA",
+    "SREDIŠČE OB DRAVI",
+    "STARŠE",
+    "SVETA ANA",
+    "SVETA TROJICA V SLOV. GORICAH",
+    "SVETA TROJICA V SLOVENSKIH GORICAH",
+    "SV. TROJICA V SLOV. GORICAH",
+    "SVETI ANDRAŽ V SLOV. GORICAH",
+    "SVETI JURIJ V SLOV. GORICAH",
+    "SVETI JURIJ V SLOVENSKIH GORICAH",
+    "SVETI TOMAŽ",
+    "ŠENTILJ",
+    "TRNOVSKA VAS",
+    "VIDEM",
+    "ZAVRČ",
+    "ŽETALE"
+)
+
+KOROŠKA <- c(
+    "ČRNA NA KOROŠKEM",
+    "DRAVOGRAD",
+    "MEŽICA",
+    "MISLINJA",
+    "MUTA",
+    "PODVELKA",
+    "PREVALJE",
+    "RADLJE OB DRAVI",
+    "PROŠKEM",
+    "RAVNE NA KOROŠKEM",
+    "RIBNICA NA POHORJU",
+    "SLOVENJ GRADEC",
+    "VUZENICA"
+)
+
+SAVINJSKA <- c(
+    "BRASLOVČE",
+    "CELJE",
+    "DOBJE",
+    "DOBRNA",
+    "GORNJI GRAD",
+    "KOZJE",
+    "LAŠKO",
+    "LJUBNO",
+    "LUČE",
+    "MOZIRJE",
+    "NAZARJE",
+    "PODČETRTEK",
+    "POLZELA",
+    "PREBOLD",
+    "REČICA OB SAVINJI",
+    "ROGAŠKA SLATINA",
+    "ROGATEC",
+    "SLOVENSKE KONJICE",
+    "SOLČAVA",
+    "ŠENTJUR",
+    "ŠMARJE PRI JELŠAH",
+    "ŠMARTNO OB PAKI",
+    "ŠOŠTANJ",
+    "ŠTORE",
+    "TABOR",
+    "VELENJE",
+    "VITANJE",
+    "VOJNIK",
+    "VRANSKO",
+    "ZREČE",
+    "ŽALEC"
+)
+
+ZASAVSKA <- c("HRASTNIK", "LITIJA", "TRBOVLJE", "ZAGORJE OB SAVI")
+
+POSAVSKA <- c(
+    "BISTRICA OB SOTLI",
+    "BREŽICE",
+    "KOSTANJEVICA NA KRKI",
+    "KRŠKO",
+    "RADEČE",
+    "SEVNICA"
+)
+
+JUGOVZHODNA.SLOVENIJA <- c(
+    "ČRNOMELJ",
+    "DOLENJSKE TOPLICE",
+    "KOČEVJE",
+    "KOSTEL",
+    "LOŠKI POTOK",
+    "METLIKA",
+    "MIRNA",
+    "MIRNA PEČ",
+    "MOKRONOG-TREBELNO",
+    "NOVO MESTO",
+    "OSILNICA",
+    "RIBNICA",
+    "SEMIČ",
+    "SODRAŽICA",
+    "STRAŽA",
+    "ŠENTJERNEJ",
+    "ŠENTRUPERT",
+    "ŠKOCJAN",
+    "ŠMARJEŠKE TOPLICE",
+    "TREBNJE",
+    "ŽUŽEMBERK"
+)
+
+OSREDNJESLOVENSKA <- c(
+    "BOROVNICA",
+    "BREZOVICA",
+    "DOBREPOLJE",
+    "DOBROVA-POLHOV GRADEC",
+    "DOL PRI LJUBLJANI",
+    "DOMŽALE",
+    "GROSUPLJE",
+    "HORJUL",
+    "IG",
+    "IVANČNA GORICA",
+    "KAMNIK",
+    "KOMENDA",
+    "LJUBLJANA",
+    "LOG-DRAGOMER",
+    "LOGATEC",
+    "LUKOVICA",
+    "MEDVODE",
+    "MENGEŠ",
+    "MORAVČE",
+    "ŠKOFLJICA",
+    "ŠMARTNO PRI LITIJI",
+    "TRZIN",
+    "VELIKE LAŠČE",
+    "VODICE",
+    "VRHNIKA"
+)
+
+GORENJSKA <- c(
+    "BLED",
+    "BOHINJ",
+    "BOHINJSKA BISTRICA",
+    "CERKLJE NA GORENJSKEM",
+    "GORENJA VAS-POLJANE",
+    "GORENJA VAS",
+    "GORJE",
+    "JESENICE",
+    "JEZERSKO",
+    "KRANJ",
+    "KRANJSKA GORA",
+    "NAKLO",
+    "PREDDVOR",
+    "RADOVLJICA",
+    "ŠENČUR",
+    "ŠKOFJA LOKA",
+    "TRŽIČ",
+    "ŽELEZNIKI",
+    "ŽIRI",
+    "ŽIROVNICA",
+    "GOZD MARTULJEK"
+)
+
+PRIMORSKONOTRANJSKA <- c(
+    "BLOKE",
+    "CERKNICA",
+    "ILIRSKA BISTRICA",
+    "LOŠKA DOLINA",
+    "PIVKA",
+    "POSTOJNA",
+    "NOVA VAS"
+)
+
+GORIŠKA <- c(
+    "AJDOVŠČINA",
+    "BOVEC",
+    "BRDA",
+    "CERKNO",
+    "IDRIJA",
+    "KANAL",
+    "KOBARID",
+    "MIREN-KOSTANJEVICA",
+    "NOVA GORICA",
+    "RENČE-VOGRSKO",
+    "ŠEMPETER-VRTOJBA",
+    "TOLMIN",
+    "VIPAVA"
+)
+
+OBALNOKRAŠKA <- c(
+    "ANKARAN",
+    "DIVAČA",
+    "HRPELJE-KOZINA",
+    "IZOLA",
+    "IZOLA - ISOLA",
+    "KOMEN",
+    "KOPER",
+    "KOPER - CAPODISTRIA",
+    "PIRAN",
+    "PIRAN - PIRANO",
+    "SEŽANA"
+)
+
+NEOPREDELJENO <- "NEOPREDELJENO"
+
+UNDEFINED <- "UNDEFINED"
+
+# Create a data frame with all municipality-region mappings
+municipality_region_mapping <- data.frame(
+    name_of_municipality = c(
+        POMURSKA,
+        PODRAVSKA,
+        KOROŠKA,
+        SAVINJSKA,
+        ZASAVSKA,
+        POSAVSKA,
+        JUGOVZHODNA.SLOVENIJA,
+        OSREDNJESLOVENSKA,
+        GORENJSKA,
+        PRIMORSKONOTRANJSKA,
+        GORIŠKA,
+        OBALNOKRAŠKA,
+        NEOPREDELJENO,
+        UNDEFINED
+    ),
+    statistical_region = c(
+        rep("POMURSKA", length(POMURSKA)),
+        rep("PODRAVSKA", length(PODRAVSKA)),
+        rep("KOROŠKA", length(KOROŠKA)),
+        rep("SAVINJSKA", length(SAVINJSKA)),
+        rep("ZASAVSKA", length(ZASAVSKA)),
+        rep("POSAVSKA", length(POSAVSKA)),
+        rep("JUGOVZHODNA SLOVENIJA", length(JUGOVZHODNA.SLOVENIJA)),
+        rep("OSREDNJESLOVENSKA", length(OSREDNJESLOVENSKA)),
+        rep("GORENJSKA", length(GORENJSKA)),
+        rep("PRIMORSKONOTRANJSKA", length(PRIMORSKONOTRANJSKA)),
+        rep("GORIŠKA", length(GORIŠKA)),
+        rep("OBALNOKRAŠKA", length(OBALNOKRAŠKA)),
+        rep("NEOPREDELJENO", 1),
+        rep("UNDEFINED", 1)
+    )
+)
 ```
 
 # Functions
 
 ```{r functions}
-
 # Function to assign clear names to waste types
 clear_waste_name <- function(name) {
-  case_when(
-    # Sawdust, chips, cuttings, wood, particle board and veneer, not specified in 03 01 04
-    name == "Sawdust/Chips/Wood, not specified in 03 01 04" ~ "Sawdust and Wood Cuttings",
-    name == "Paper and cardboard packaging and cardboard packaging" ~ "Paper and Cardboard Packaging",
-    name == "Wooden packaging" ~ "Wooden Packaging",
-    name == "Wood" ~ "Wood",
-    name == "Wood, not specified in 20 01 37" ~ "Other Wood Waste",
-    name == "Waste bark and cork" ~ "Bark and Cork",
-    name == "Waste not specified elsewhere" ~ "Unspecified Wood Waste",
-    TRUE ~ name
-  )
+    case_when(
+        # Sawdust, chips, cuttings, wood, particle board and veneer, not specified in 03 01 04
+        name == "Sawdust/Chips/Wood, not specified in 03 01 04" ~ "Sawdust and Wood Cuttings",
+        name == "Paper and cardboard packaging and cardboard packaging" ~ "Paper and Cardboard Packaging",
+        name == "Wooden packaging" ~ "Wooden Packaging",
+        name == "Wood" ~ "Wood",
+        name == "Wood, not specified in 20 01 37" ~ "Other Wood Waste",
+        name == "Waste bark and cork" ~ "Bark and Cork",
+        name == "Waste not specified elsewhere" ~ "Unspecified Wood Waste",
+        TRUE ~ name
+    )
 }
 
 # summarize waste stored at the start and at the end of the year per region and waste type, define a function, keep the year column
 summarize_waste_storage <- function(data) {
-  data |> 
-    group_by(statistical_region, type_of_waste) |> 
-    summarize(total_stored_start = sum(waste_stored_start_year, na.rm = TRUE) / 1000,
-              total_stored_end = sum(waste_stored_end_year, na.rm = TRUE) / 1000) |> 
-    ungroup()
+    data |>
+        group_by(statistical_region, type_of_waste) |>
+        summarize(
+            total_stored_start = sum(waste_stored_start_year, na.rm = TRUE) / 1000,
+            total_stored_end = sum(waste_stored_end_year, na.rm = TRUE) / 1000
+        ) |>
+        ungroup()
 }
-
 ```
 
 
@@ -78,7 +375,7 @@ summarize_waste_storage <- function(data) {
 Data from 2018 to 2022 was loaded from separate CSV files for each year.
 The 2018 data required special handling due to its different structure:
 
-Two separate files were used: waste_generation_18.csv and waste_management_18.csv.
+Two separate files were used: generation/waste_generation_18.csv and generation/waste_management_18.csv.
 These files were joined based on common columns (region, company, and waste type).
 
 
@@ -123,10 +420,9 @@ Unit Conversion: Waste amounts were often divided by 1000 to convert from kilogr
 Line plots were used to show trends over time.
 Interactive plots were created using ggplotly() for more detailed exploration.
 
-### Code
+## Code
 
 ```{r generation_combined_data}
-
 g.2022.data <- read_csv("2022 data/2022 filtered/generation/generation_22.csv")
 g.2021.data <- read_csv("2021 data/2021 filtered/generation/generation_21.csv")
 g.2020.data <- read_csv("2020 data/2020 filtered/generation/generation_20.csv")
@@ -136,43 +432,87 @@ g.2018.data.2 <- read_csv("2018 data/2018 filtered/generation/waste_management_1
 
 colnames(g.2018.data.2)
 
-g.2018.data.1 <- g.2018.data.1 |> 
-  group_by(statistical_region, name_of_company, type_of_waste, waste_stored_start_year, waste_stored_end_year) |>
-  summarize(waste_generated = sum(waste_generated, na.rm = TRUE)) |>
-  ungroup() |> 
-  # order columns
-  select(statistical_region, name_of_company, type_of_waste, waste_stored_start_year, waste_generated, waste_stored_end_year)
+g.2018.data.1 <- g.2018.data.1 |>
+    group_by(
+        statistical_region,
+        name_of_company,
+        type_of_waste,
+        waste_stored_start_year,
+        waste_stored_end_year
+    ) |>
+    summarize(waste_generated = sum(waste_generated, na.rm = TRUE)) |>
+    ungroup() |>
+    # order columns
+    select(
+        statistical_region,
+        name_of_company,
+        type_of_waste,
+        waste_stored_start_year,
+        waste_generated,
+        waste_stored_end_year
+    )
 
 # Combine rows with the same region, company, waste type and processing type
 g.2018.data.2 <- g.2018.data.2 |>
-  group_by(statistical_region, name_of_company, delivered_to, type_of_waste) |>
-  summarize(total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE)) |>
-  ungroup() 
+    group_by(statistical_region,
+             name_of_company,
+             delivered_to,
+             type_of_waste) |>
+    summarize(total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE)) |>
+    ungroup()
 
 # combine g.2018.data.1 and g.2018.data.2 based on the region and company
 g.2018.data <- g.2018.data.1 |>
-  left_join(g.2018.data.2, by = c("statistical_region" = "statistical_region", "name_of_company" = "name_of_company", "type_of_waste" = "type_of_waste"))
+    left_join(
+        g.2018.data.2,
+        by = c(
+            "statistical_region" = "statistical_region",
+            "name_of_company" = "name_of_company",
+            "type_of_waste" = "type_of_waste"
+        )
+    )
 
 # add year column to 2018 data
 g.2018.data <- g.2018.data |>
-  mutate(year = 2018)
+    mutate(year = 2018)
 
 g.2018.data$delivered_to |> unique()
 
 # instead of having the column delivered_to, we need to create separate columns for each type of waste transfer
 g.2018.data <- g.2018.data |>
-  mutate(
-    waste_handed_to_others_RS = ifelse(delivered_to == "processing operator in RS", total_waste_given_away, 0),
-    waste_sent_to_EU = 
-      ifelse(delivered_to == "other EU country", total_waste_given_away, 0),
-    waste_treated_by_producer = 
-      ifelse(delivered_to == "processed the waste themselves", total_waste_given_away, 0)) |>
-  select(-delivered_to, -total_waste_given_away)
+    mutate(
+        waste_handed_to_others_RS = ifelse(
+            delivered_to == "processing operator in RS",
+            total_waste_given_away,
+            0
+        ),
+        waste_sent_to_EU =
+            ifelse(delivered_to == "other EU country", total_waste_given_away, 0),
+        waste_treated_by_producer =
+            ifelse(
+                delivered_to == "processed the waste themselves",
+                total_waste_given_away,
+                0
+            )
+    ) |>
+    select(-delivered_to, -total_waste_given_away)
 
 # create a total waste stored column for 2018 data
 g.2018.data <- g.2018.data |>
-  mutate(total_waste_stored = waste_stored_start_year + waste_generated) |> 
-  select(year, statistical_region, name_of_company, type_of_waste, total_waste_stored, waste_stored_start_year, waste_generated, waste_stored_end_year, waste_treated_by_producer, waste_handed_to_others_RS, waste_sent_to_EU)
+    mutate(total_waste_stored = waste_stored_start_year + waste_generated) |>
+    select(
+        year,
+        statistical_region,
+        name_of_company,
+        type_of_waste,
+        total_waste_stored,
+        waste_stored_start_year,
+        waste_generated,
+        waste_stored_end_year,
+        waste_treated_by_producer,
+        waste_handed_to_others_RS,
+        waste_sent_to_EU
+    )
 
 names(g.2020.data) <- colnames(g.2022.data)
 names(g.2019.data) <- colnames(g.2022.data)
@@ -189,105 +529,89 @@ combined_data <- bind_rows(combined_data, g.2018.data)
 
 # apply clear_waste_name
 combined_data <- combined_data |>
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 # Summarize total waste generation by year
 total_waste_by_year <- combined_data |>
-  group_by(year) |>
-  summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE) / 1000)
+    group_by(year) |>
+    summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE) / 1000)
 
 # Plot total waste generation by year
 t <- ggplot(total_waste_by_year, aes(x = year, y = total_generated_waste)) +
-  geom_line(group = 1) +
-  geom_point() +
-  labs(
-    title = "Total Wood Waste Generation by Year",
-    x = "Year",
-    y = "Total Generated Waste (tons)"
-  ) +
-  theme_minimal()
+    geom_line(group = 1) +
+    geom_point() +
+    labs(title = "Total Wood Waste Generation by Year", x = "Year", y = "Total Generated Waste (tons)") +
+    theme_minimal()
 
 t
 
 waste_by_region_year <- combined_data |>
-  group_by(statistical_region, year) |>
-  summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE) / 1000) |>
-  ungroup()
+    group_by(statistical_region, year) |>
+    summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE) / 1000) |>
+    ungroup()
 
 # Plot total waste generation by region and year
-t2 <- ggplot(waste_by_region_year, aes(x = year, y = total_generated_waste, color = statistical_region)) +
-  geom_line() +
-  geom_point() +
-  labs(
-    title = "Total Wood Waste Generation by Region and Year",
-    x = "Year",
-    y = "Total Generated Waste (tons)"
-  ) +
-  theme_minimal()
+t2 <- ggplot(
+    waste_by_region_year,
+    aes(x = year, y = total_generated_waste, color = statistical_region)
+) +
+    geom_line() +
+    geom_point() +
+    labs(title = "Total Wood Waste Generation by Region and Year", x = "Year", y = "Total Generated Waste (tons)") +
+    theme_minimal()
 
 t2
 
 ggplotly(t2, width = 800, height = 500)
 
 waste_by_type_year <- combined_data |>
-  group_by(type_of_waste, year) |>
-  summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE) / 1000) |>
-  ungroup()
+    group_by(type_of_waste, year) |>
+    summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE) / 1000) |>
+    ungroup()
 
 # Plot total waste generation by type and year
-t3 <- ggplot(waste_by_type_year, aes(x = year, y = total_generated_waste, color = type_of_waste)) +
-  geom_line() +
-  geom_point() +
-  labs(
-    title = "Total Wood Waste Generation by Type and Year",
-    x = "Year",
-    y = "Total Generated Waste (tons)"
-  ) +
-  theme_minimal()
+t3 <- ggplot(waste_by_type_year,
+             aes(x = year, y = total_generated_waste, color = type_of_waste)) +
+    geom_line() +
+    geom_point() +
+    labs(title = "Total Wood Waste Generation by Type and Year", x = "Year", y = "Total Generated Waste (tons)") +
+    theme_minimal()
 
 ggplotly(t3, width = 800, height = 500)
 
 # waste transferred for treatment
 waste_transferred <- combined_data |>
-  group_by(year) |>
-  summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE) / 1000)
+    group_by(year) |>
+    summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE) / 1000)
 
 # Plot total waste transferred for treatment by year
 t4 <- ggplot(waste_transferred, aes(x = year, y = total_sent)) +
-  geom_line(group = 1) +
-  geom_point() +
-  labs(
-    title = "Total Wood Waste Transferred for Treatment by Year",
-    x = "Year",
-    y = "Total Waste Transferred (tons)"
-  ) +
-  theme_minimal()
+    geom_line(group = 1) +
+    geom_point() +
+    labs(title = "Total Wood Waste Transferred for Treatment by Year", x = "Year", y = "Total Waste Transferred (tons)") +
+    theme_minimal()
 
 t4
 
 # Plot waste stored at the end of the year
 waste_stored_at_the_end_year <- combined_data |>
-  group_by(year) |>
-  summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE) / 1000) 
+    group_by(year) |>
+    summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE) / 1000)
 
 t5 <- ggplot(waste_stored_at_the_end_year, aes(x = year, y = total_stored)) +
-  geom_line(group = 1) +
-  geom_point() +
-  labs(
-    title = "Total Wood Waste Stored at the End of the Year",
-    x = "Year",
-    y = "Total Waste Stored (tons)"
-  ) +
-  theme_minimal()
+    geom_line(group = 1) +
+    geom_point() +
+    labs(title = "Total Wood Waste Stored at the End of the Year", x = "Year", y = "Total Waste Stored (tons)") +
+    theme_minimal()
 
 t5
 ```
 
 # Collection Data Analysis Process
 
-### Code
+## Code
 
-#### Waste Storage
+### Waste Storage
 
 ```{r collection_combined_data_waste_storage}
 waste.storage.2022.data <- read_csv("2022 data/2022 filtered/collection/waste_storage_22.csv")
@@ -297,32 +621,34 @@ waste.storage.2019.data <- read_csv("2019 data/2019 filtered/collection/waste_st
 waste.storage.2018.data <- read_csv("2018 data/2018 filtered/collection/waste_storage_18.csv")
 
 waste.storage.2019.data <- waste.storage.2019.data |>
-  dplyr::select(name_of_company, statistical_region, waste_code, type_of_waste, waste_stored_start_year, waste_stored_end_year)
+    dplyr::select(name_of_company, statistical_region, waste_code, type_of_waste, waste_stored_start_year, waste_stored_end_year)
 
-waste.storage.2018.data <- waste.storage.2018.data |> 
-  select(statistical_region, name_of_company, type_of_waste, waste_stored_start_year, waste_stored_end_year) |> 
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+waste.storage.2018.data <- waste.storage.2018.data |>
+    select(statistical_region, name_of_company, type_of_waste, waste_stored_start_year, waste_stored_end_year) |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
 
-waste.storage.2019.data <- waste.storage.2019.data |> 
-  select(statistical_region, name_of_company, type_of_waste, waste_stored_start_year, waste_stored_end_year) |> 
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+waste.storage.2019.data <- waste.storage.2019.data |>
+    select(statistical_region, name_of_company, type_of_waste, waste_stored_start_year, waste_stored_end_year) |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 waste.storage.2020.data <- waste.storage.2020.data |>
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
 
-waste.storage.2021.data <- waste.storage.2021.data |> 
-  select(year, statistical_region, type_of_waste, previous_stored_start_year, previous_stored_end_year) |>
-  rename(
-    waste_stored_start_year = previous_stored_start_year,  
-    waste_stored_end_year = previous_stored_end_year) |> 
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+waste.storage.2021.data <- waste.storage.2021.data |>
+    select(year, statistical_region, type_of_waste, previous_stored_start_year, previous_stored_end_year) |>
+    rename(
+        waste_stored_start_year = previous_stored_start_year,
+        waste_stored_end_year = previous_stored_end_year
+    ) |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 waste.storage.2022.data <- waste.storage.2022.data |>
-  select(year, statistical_region, type_of_waste, previous_stored_start_year, previous_stored_end_year) |>
-  rename(
-    waste_stored_start_year = previous_stored_start_year,  
-    waste_stored_end_year = previous_stored_end_year) |>
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+    select(year, statistical_region, type_of_waste, previous_stored_start_year, previous_stored_end_year) |>
+    rename(
+        waste_stored_start_year = previous_stored_start_year,
+        waste_stored_end_year = previous_stored_end_year
+    ) |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 waste.storage.2018.data <- summarize_waste_storage(waste.storage.2018.data)
 waste.storage.2019.data <- summarize_waste_storage(waste.storage.2019.data)
@@ -339,43 +665,51 @@ waste.storage.2022.data$year <- 2022
 combined_storage_data <- bind_rows(waste.storage.2018.data, waste.storage.2019.data, waste.storage.2020.data, waste.storage.2021.data, waste.storage.2022.data)
 
 # Reshape data for plotting
-df_long <- melt(combined_storage_data, id.vars = c("statistical_region", "type_of_waste", "year"),
-                          measure.vars = c("total_stored_start", "total_stored_end"),
-                          variable.name = "storage_time", value.name = "total_storage")
+df_long <- melt(combined_storage_data,
+                id.vars = c("statistical_region", "type_of_waste", "year"),
+                measure.vars = c("total_stored_start", "total_stored_end"),
+                variable.name = "storage_time", value.name = "total_storage"
+)
 
 # Grouped bar plot
 t6 <- ggplot(df_long, aes(x = statistical_region, y = total_storage, fill = storage_time)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Waste Storage at Start and End of the Year",
-       x = "Statistical Region", y = "Total Stored Waste") +
-  scale_fill_manual(values = c("total_stored_start" = "blue", "total_stored_end" = "red"),
-                    labels = c("Start of Year", "End of Year")) +
-  coord_flip() +
-  theme_minimal()
+    geom_bar(stat = "identity", position = "dodge") +
+    labs(
+        title = "Waste Storage at Start and End of the Year",
+        x = "Statistical Region", y = "Total Stored Waste"
+    ) +
+    scale_fill_manual(
+        values = c("total_stored_start" = "blue", "total_stored_end" = "red"),
+        labels = c("Start of Year", "End of Year")
+    ) +
+    coord_flip() +
+    theme_minimal()
 
 ggplotly(t6, width = 800, height = 500)
 
 yearly_data <- combined_storage_data |>
-  group_by(year) |>
-  summarize(total_start = sum(total_stored_start, na.rm = TRUE),
-            total_end = sum(total_stored_end, na.rm = TRUE))
+    group_by(year) |>
+    summarize(
+        total_start = sum(total_stored_start, na.rm = TRUE),
+        total_end = sum(total_stored_end, na.rm = TRUE)
+    )
 
 t7 <- ggplot(yearly_data, aes(x = year)) +
-  geom_line(aes(y = total_start, color = "Start of Year")) +
-  geom_line(aes(y = total_end, color = "End of Year")) +
-  labs(title = "Total Stored Waste Over Time",
-       y = "Total Stored Waste",
-       color = "Time of Year") +
-  theme_minimal()
+    geom_line(aes(y = total_start, color = "Start of Year")) +
+    geom_line(aes(y = total_end, color = "End of Year")) +
+    labs(
+        title = "Total Stored Waste Over Time",
+        y = "Total Stored Waste",
+        color = "Time of Year"
+    ) +
+    theme_minimal()
 
 ggplotly(t7, width = 800, height = 500)
-
 ```
 
-#### Waste Received
+### Waste Received
 
 ```{r collection_combined_data_waste_received}
-
 waste.received.2018.data <- read_csv("2018 data/2018 filtered/collection/waste_collected_18.csv")
 waste.received.2019.data <- read_csv("2019 data/2019 filtered/collection/waste_collected_19.csv")
 waste.received.2020.data <- read_csv("2020 data/2020 filtered/collection/waste_received_20.csv")
@@ -386,129 +720,763 @@ colnames(waste.received.2020.data) <- names(waste.received.2022.data)
 
 # 2018 Data ----
 
-waste.received.2018.data <- waste.received.2018.data |> 
-  group_by(statistical_region, type_of_waste, collected_from) |>
-  summarize(
-    total_waste_received = sum(total_waste_collected, na.rm = TRUE) / 1000,
-    waste_from_producers_no_record = sum(waste_from_producers_no_record, na.rm = TRUE) / 1000,
-    waste_from_producers_with_record = sum(waste_from_producers_with_record, na.rm = TRUE) / 1000,
-    waste_from_collectors_RS = sum(waste_from_collectors_RS, na.rm = TRUE) / 1000,
-    waste_from_processors_RS = sum(waste_from_processors_RS, na.rm = TRUE) / 1000) |>
-  ungroup() |> 
-  mutate(year = 2018) |> 
-  select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
+waste.received.2018.data <- waste.received.2018.data |>
+    group_by(statistical_region, type_of_waste, collected_from) |>
+    summarize(
+        total_waste_received = sum(total_waste_collected, na.rm = TRUE) / 1000,
+        waste_from_producers_no_record = sum(waste_from_producers_no_record, na.rm = TRUE) / 1000,
+        waste_from_producers_with_record = sum(waste_from_producers_with_record, na.rm = TRUE) / 1000,
+        waste_from_collectors_RS = sum(waste_from_collectors_RS, na.rm = TRUE) / 1000,
+        waste_from_processors_RS = sum(waste_from_processors_RS, na.rm = TRUE) / 1000
+    ) |>
+    ungroup() |>
+    mutate(year = 2018) |>
+    select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
 
-waste.received.2018.data <- waste.received.2018.data |> 
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+waste.received.2018.data <- waste.received.2018.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 # 2019 Data ----
 
-waste.received.2019.data <- waste.received.2019.data |> 
-  group_by(statistical_region, type_of_waste, gathered_from) |>
-  summarize(
-    total_waste_received = sum(waste_received, na.rm = TRUE) / 1000,
-    waste_from_producers_no_record = sum(waste_from_producers_no_record, na.rm = TRUE) / 1000,
-    waste_from_producers_with_record = sum(waste_from_producers_with_record, na.rm = TRUE) / 1000,
-    waste_from_collectors_RS = sum(waste_from_collectors_RS, na.rm = TRUE) / 1000,
-    waste_from_processors_RS = sum(waste_from_processors_RS, na.rm = TRUE) / 1000) |>
-  ungroup() |>
-  mutate(year = 2019) |> 
-  select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
+waste.received.2019.data <- waste.received.2019.data |>
+    group_by(statistical_region, type_of_waste, gathered_from) |>
+    summarize(
+        total_waste_received = sum(waste_received, na.rm = TRUE) / 1000,
+        waste_from_producers_no_record = sum(waste_from_producers_no_record, na.rm = TRUE) / 1000,
+        waste_from_producers_with_record = sum(waste_from_producers_with_record, na.rm = TRUE) / 1000,
+        waste_from_collectors_RS = sum(waste_from_collectors_RS, na.rm = TRUE) / 1000,
+        waste_from_processors_RS = sum(waste_from_processors_RS, na.rm = TRUE) / 1000
+    ) |>
+    ungroup() |>
+    mutate(year = 2019) |>
+    select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
 
-waste.received.2019.data <- waste.received.2019.data |> 
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+waste.received.2019.data <- waste.received.2019.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
 
-# 2020 Data ----   
+# 2020 Data ----
 
-waste.received.2020.data <- waste.received.2020.data |> 
-  mutate(type_of_waste = clear_waste_name(type_of_waste),
-         total_waste_received = (waste_from_producers_no_record + 
-                                   waste_from_producers_with_record + 
-                                   waste_from_collectors_RS + 
-                                   waste_from_processors_RS) / 1000,
-         waste_from_producers_no_record = waste_from_producers_no_record / 1000,
-         waste_from_producers_with_record = waste_from_producers_with_record / 1000,
-         waste_from_collectors_RS = waste_from_collectors_RS / 1000,
-         waste_from_processors_RS = waste_from_processors_RS / 1000) |> 
-  select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
+waste.received.2020.data <- waste.received.2020.data |>
+    mutate(
+        type_of_waste = clear_waste_name(type_of_waste),
+        total_waste_received = (waste_from_producers_no_record +
+                                    waste_from_producers_with_record +
+                                    waste_from_collectors_RS +
+                                    waste_from_processors_RS) / 1000,
+        waste_from_producers_no_record = waste_from_producers_no_record / 1000,
+        waste_from_producers_with_record = waste_from_producers_with_record / 1000,
+        waste_from_collectors_RS = waste_from_collectors_RS / 1000,
+        waste_from_processors_RS = waste_from_processors_RS / 1000
+    ) |>
+    select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
 
 # 2021 Data ----
 
-waste.received.2021.data <- waste.received.2021.data |> 
-  mutate(type_of_waste = clear_waste_name(type_of_waste),
-         total_waste_received = (waste_from_producers_no_record + 
-                                   waste_from_producers_with_record + 
-                                   waste_from_collectors_RS + 
-                                   waste_from_processors_RS) / 1000,
-         waste_from_producers_no_record = waste_from_producers_no_record / 1000,
-         waste_from_producers_with_record = waste_from_producers_with_record / 1000,
-         waste_from_collectors_RS = waste_from_collectors_RS / 1000,
-         waste_from_processors_RS = waste_from_processors_RS / 1000) |> 
-  select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
+waste.received.2021.data <- waste.received.2021.data |>
+    mutate(
+        type_of_waste = clear_waste_name(type_of_waste),
+        total_waste_received = (waste_from_producers_no_record +
+                                    waste_from_producers_with_record +
+                                    waste_from_collectors_RS +
+                                    waste_from_processors_RS) / 1000,
+        waste_from_producers_no_record = waste_from_producers_no_record / 1000,
+        waste_from_producers_with_record = waste_from_producers_with_record / 1000,
+        waste_from_collectors_RS = waste_from_collectors_RS / 1000,
+        waste_from_processors_RS = waste_from_processors_RS / 1000
+    ) |>
+    select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
 
 # 2022 Data ----
 
-waste.received.2022.data <- waste.received.2022.data |> 
-  mutate(type_of_waste = clear_waste_name(type_of_waste),
-         total_waste_received = (waste_from_producers_no_record + 
-                                   waste_from_producers_with_record + 
-                                   waste_from_collectors_RS + 
-                                   waste_from_processors_RS) / 1000,
-         waste_from_producers_no_record = waste_from_producers_no_record / 1000,
-         waste_from_producers_with_record = waste_from_producers_with_record / 1000,
-         waste_from_collectors_RS = waste_from_collectors_RS / 1000,
-         waste_from_processors_RS = waste_from_processors_RS / 1000) |> 
-  select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
+waste.received.2022.data <- waste.received.2022.data |>
+    mutate(
+        type_of_waste = clear_waste_name(type_of_waste),
+        total_waste_received = (waste_from_producers_no_record +
+                                    waste_from_producers_with_record +
+                                    waste_from_collectors_RS +
+                                    waste_from_processors_RS) / 1000,
+        waste_from_producers_no_record = waste_from_producers_no_record / 1000,
+        waste_from_producers_with_record = waste_from_producers_with_record / 1000,
+        waste_from_collectors_RS = waste_from_collectors_RS / 1000,
+        waste_from_processors_RS = waste_from_processors_RS / 1000
+    ) |>
+    select(year, statistical_region, type_of_waste, total_waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
 
 # Combine data
 combined_received_data <- bind_rows(waste.received.2018.data, waste.received.2019.data, waste.received.2020.data, waste.received.2021.data, waste.received.2022.data)
 
 # Reshape data for plotting
-df_long_received <- melt(combined_received_data, id.vars = c("statistical_region", "type_of_waste", "year"),
-                          measure.vars = c("total_waste_received", "waste_from_producers_no_record", "waste_from_producers_with_record", "waste_from_collectors_RS", "waste_from_processors_RS"),
-                          variable.name = "source", value.name = "total_received")
+df_long_received <- melt(combined_received_data,
+                         id.vars = c("statistical_region", "type_of_waste", "year"),
+                         measure.vars = c("total_waste_received", "waste_from_producers_no_record", "waste_from_producers_with_record", "waste_from_collectors_RS", "waste_from_processors_RS"),
+                         variable.name = "source", value.name = "total_received"
+)
 
 # Grouped bar plot
 t8 <- ggplot(df_long_received, aes(x = statistical_region, y = total_received, fill = source)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Waste Received by Source",
-       x = "Statistical Region", y = "Total Received Waste") +
-  scale_fill_manual(values = c("total_waste_received" = "blue", "waste_from_producers_no_record" = "red", "waste_from_producers_with_record" = "green", "waste_from_collectors_RS" = "purple", "waste_from_processors_RS" = "orange"),
-                    labels = c("Total Received", "From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")) +
-  coord_flip() +
-  theme_minimal()
+    geom_bar(stat = "identity", position = "dodge") +
+    labs(
+        title = "Waste Received by Source",
+        x = "Statistical Region", y = "Total Received Waste"
+    ) +
+    scale_fill_manual(
+        values = c("total_waste_received" = "blue", "waste_from_producers_no_record" = "red", "waste_from_producers_with_record" = "green", "waste_from_collectors_RS" = "purple", "waste_from_processors_RS" = "orange"),
+        labels = c("Total Received", "From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")
+    ) +
+    coord_flip() +
+    theme_minimal()
 
 ggplotly(t8, width = 800, height = 500)
 
 # Year plot
 yearly_data_received <- combined_received_data |>
-  group_by(year) |>
-  summarize(total_received = sum(total_waste_received, na.rm = TRUE),
-            from_producers_no_record = sum(waste_from_producers_no_record, na.rm = TRUE),
-            from_producers_with_record = sum(waste_from_producers_with_record, na.rm = TRUE),
-            from_collectors_RS = sum(waste_from_collectors_RS, na.rm = TRUE),
-            from_processors_RS = sum(waste_from_processors_RS, na.rm = TRUE))
+    group_by(year) |>
+    summarize(
+        total_received = sum(total_waste_received, na.rm = TRUE),
+        from_producers_no_record = sum(waste_from_producers_no_record, na.rm = TRUE),
+        from_producers_with_record = sum(waste_from_producers_with_record, na.rm = TRUE),
+        from_collectors_RS = sum(waste_from_collectors_RS, na.rm = TRUE),
+        from_processors_RS = sum(waste_from_processors_RS, na.rm = TRUE)
+    )
 
 # Line and point
 t9 <- ggplot(yearly_data_received, aes(x = year)) +
-  geom_line(aes(y = total_received, color = "Total Received")) +
-  geom_line(aes(y = from_producers_no_record, color = "From Producers (No Record)")) +
-  geom_line(aes(y = from_producers_with_record, color = "From Producers (With Record)")) +
-  geom_line(aes(y = from_collectors_RS, color = "From Collectors (RS)")) +
-  geom_line(aes(y = from_processors_RS, color = "From Processors (RS)")) +
-  labs(title = "Total Waste Received by Source Over Time",
-       y = "Total Waste Received",
-       color = "Source") +
-  theme_minimal()
+    geom_line(aes(y = total_received, color = "Total Received")) +
+    geom_line(aes(y = from_producers_no_record, color = "From Producers (No Record)")) +
+    geom_line(aes(y = from_producers_with_record, color = "From Producers (With Record)")) +
+    geom_line(aes(y = from_collectors_RS, color = "From Collectors (RS)")) +
+    geom_line(aes(y = from_processors_RS, color = "From Processors (RS)")) +
+    labs(
+        title = "Total Waste Received by Source Over Time",
+        y = "Total Waste Received",
+        color = "Source"
+    ) +
+    theme_minimal()
 
 ggplotly(t9, width = 800, height = 500)
+```
+
+### Municipal Waste Collected
+
+Here we have a problem because we are creating location data about companies based on the 2018 data, but even though 2018 data has address data inside the name_of_company column, it does not mean for certain that the address is the same as the address of the company in 2019. 
+
+Therefore, we will be assuming that the address is the same for the company in 2019 as it was in 2018.
+
+```{r collection_combined_data_municipal_waste_collected}
+waste.management.2018.data <- read_csv("2018 data/2018 filtered/collection/municipal_waste_collected_18.csv")
+waste.management.2019.data <- read_csv("2019 data/2019 filtered/collection/waste_collected_by_municipality_of_origin_19.csv")
+waste.management.2020.data <- read_csv("2020 data/2020 filtered/collection/management_of_collected_waste_20.csv")
+waste.management.2021.data <- read_csv("2021 data/2021 filtered/collection/waste_municipality_of_origin_21.csv")
+waste.management.2022.data <- read_csv("2022 data/2022 filtered/collection/waste_municipality_of_origin_22.csv")
+
+waste.management.2018.data <- waste.management.2018.data |>
+    select(-waste_code)
+
+waste.management.2019.data <- waste.management.2019.data |>
+    select(-waste_code)
+
+waste.management.2020.data <- waste.management.2020.data |>
+    select(-waste_code)
+
+waste.management.2021.data <- waste.management.2021.data |>
+    select(-waste_code)
+
+waste.management.2022.data <- waste.management.2022.data |>
+    select(-waste_code)
+
+
+waste.management.2019.data <- waste.management.2019.data |>
+    select(name_of_company, type_of_waste, total_waste_collected, municipal_waste_collected, waste_collected_from_activities)
+
+colnames(waste.management.2018.data) <- colnames(waste.management.2019.data)
+
+waste.management.2018.data <- waste.management.2018.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.management.2019.data <- waste.management.2019.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.management.2020.data <- waste.management.2020.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.management.2021.data <- waste.management.2021.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.management.2022.data <- waste.management.2022.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+# define municipality of origin
+waste.management.2018.data <- waste.management.2018.data |>
+    separate(name_of_company, into = c("company_name", "full_address"), sep = "; ", extra = "merge") |>
+    mutate(address = full_address) |>
+    mutate(name_of_municipality = str_extract(full_address, "\\d+\\s(.+)$") |>
+               str_replace("^\\d+\\s", "")) |>
+    select(-full_address)
+
+# now based on name_of_company of 2018, add the new columns to 2019 data based on 2018 data
+waste.management.2019.data <- waste.management.2019.data |>
+    left_join(waste.management.2018.data |> select(company_name, address, name_of_municipality), by = c("name_of_company" = "company_name"))
+
+waste.management.2019.data <- waste.management.2019.data |> distinct()
+
+# if NA, then undefined
+waste.management.2019.data <- waste.management.2019.data |>
+    mutate(
+        name_of_municipality = ifelse(is.na(name_of_municipality), "UNDEFINED", name_of_municipality),
+        address = ifelse(is.na(address), "UNDEFINED", address)
+    )
+
+# add column for statistical regions based on name_of_municipality
+waste.management.2018.data <- waste.management.2018.data |>
+    left_join(municipality_region_mapping, by = "name_of_municipality")
+
+
+# add column for statistical regions based on name_of_municipality
+waste.management.2019.data <- waste.management.2019.data |>
+    left_join(municipality_region_mapping, by = "name_of_municipality")
+
+
+waste.management.2018.data <- waste.management.2018.data |>
+    mutate(
+        name_of_municipality = ifelse(name_of_municipality == "IZOLA - ISOLA", "IZOLA", name_of_municipality),
+        name_of_municipality = ifelse(name_of_municipality == "KOPER - CAPODISTRIA", "KOPER", name_of_municipality),
+        name_of_municipality = ifelse(name_of_municipality == "PIRAN - PIRANO", "PIRAN", name_of_municipality),
+        name_of_municipality = ifelse(name_of_municipality == "LENDAVA - LENDVA", "LENDAVA", name_of_municipality)
+    )
+
+waste.management.2019.data <- waste.management.2019.data |>
+    mutate(
+        name_of_municipality = ifelse(name_of_municipality == "IZOLA - ISOLA", "IZOLA", name_of_municipality),
+        name_of_municipality = ifelse(name_of_municipality == "KOPER - CAPODISTRIA", "KOPER", name_of_municipality),
+        name_of_municipality = ifelse(name_of_municipality == "PIRAN - PIRANO", "PIRAN", name_of_municipality),
+        name_of_municipality = ifelse(name_of_municipality == "LENDAVA - LENDVA", "LENDAVA", name_of_municipality)
+    )
+
+# change the address, name_of municipality and statistical region for KOMUNALA RADGONA, javno podjetje d.o.o.
+waste.management.2019.data <- waste.management.2019.data |>
+    mutate(
+        address = ifelse(name_of_company == "KOMUNALA RADGONA, javno podjetje d.o.o.", "PARTIZANSKA CESTA 13, 9250 GORNJA RADGONA", address),
+        name_of_municipality = ifelse(name_of_company == "KOMUNALA RADGONA, javno podjetje d.o.o.", "GORNJA RADGONA", name_of_municipality),
+        statistical_region = ifelse(name_of_company == "KOMUNALA RADGONA, javno podjetje d.o.o.", "POMURSKA", statistical_region)
+    )
+
+# change the address, name_of municipality and statistical region for JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.
+waste.management.2019.data <- waste.management.2019.data |>
+    mutate(
+        address = ifelse(name_of_company == "JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.", "VODOVODNA CESTA 90, 1001 LJUBLJANA", address),
+        name_of_municipality = ifelse(name_of_company == "JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.", "LJUBLJANA", name_of_municipality),
+        statistical_region = ifelse(name_of_company == "JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.", "OSREDNJESLOVENSKA", statistical_region)
+    )
+
+# remove company data as it is not needed for now
+waste.management.2018.data <- waste.management.2018.data |> select(-company_name, -address)
+waste.management.2019.data <- waste.management.2019.data |> select(-name_of_company, -address)
+
+# add year columns to 2018 and 2019
+waste.management.2018.data$year <- 2018
+waste.management.2019.data$year <- 2019
+
+# focus only on total waste collected for all years
+waste.management.2018.data <- waste.management.2018.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(total_waste_collected, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+waste.management.2019.data <- waste.management.2019.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(total_waste_collected, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+waste.management.2020.data <- waste.management.2020.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(municipal_waste_collected_by_municipality, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+waste.management.2021.data <- waste.management.2021.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(waste_by_municipality, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+waste.management.2022.data <- waste.management.2022.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(waste_by_municipality, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+combined_municipal_data <- bind_rows(waste.management.2018.data, waste.management.2019.data, waste.management.2020.data, waste.management.2021.data, waste.management.2022.data)
+
+# Reshape data for plotting
+df_long_municipal <- melt(
+    combined_municipal_data,
+    id.vars = c(
+        "year",
+        "statistical_region",
+        "name_of_municipality",
+        "type_of_waste"
+    ),
+    measure.vars = c("total_waste_collected"),
+    variable.name = "source",
+    value.name = "total_collected"
+)
+
+
+
+t10 <- ggplot(df_long_municipal, aes(x = year, y = total_collected, color = name_of_municipality, group = type_of_waste)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~statistical_region, scales = "free_y") +
+  labs(title = "Total Waste Collected by Municipality and Region (2018-2022)",
+       x = "Year",
+       y = "Total Waste Collected",
+       color = "Municipality") +
+  theme_minimal()
+
+ggplotly(t10, width = 800, height = 500)
+
+# Calculate total waste for each municipality
+top_municipalities <- df_long_municipal |>
+  group_by(name_of_municipality) |>
+  summarise(total_waste = sum(total_collected, na.rm = TRUE)) |>
+  top_n(5, total_waste) |>
+  pull(name_of_municipality)
+
+# Filter the original dataset
+df_top_municipal <- df_long_municipal |>
+  filter(name_of_municipality %in% top_municipalities)
+
+# Plot
+t11 <- ggplot(df_top_municipal, aes(x = year, y = total_collected, color = name_of_municipality, group = name_of_municipality)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Total Waste Collected by Top 5 Municipalities (2018-2022)",
+       x = "Year",
+       y = "Total Waste Collected (in tons)",
+       color = "Municipality") +
+  facet_wrap(~type_of_waste) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+ggplotly(t11, width = 1000, height = 500)
+
+```
+
+### Municipal waste collected by municipality of origin
+
+```{r collection_combined_data_municipal_waste_collected_by_municipality}
+
+waste.collected.2018.data <- read_csv("2018 data/2018 filtered/collection/municipal_waste_collected_separated_by_municipality_of_origin_18.csv")
+waste.collected.2019.data <- read_csv("2019 data/2019 filtered/collection/municipal_waste_collected_by_municipality_of_origin_19.csv")
+waste.collected.2020.data <- read_csv("2020 data/2020 filtered/collection/management_of_collected_waste_20.csv")
+waste.collected.2021.data <- read_csv("2021 data/2021 filtered/collection/waste_municipality_of_origin_21.csv")
+waste.collected.2022.data <- read_csv("2022 data/2022 filtered/collection/waste_municipality_of_origin_22.csv")
+
+# for each year, we need to filter out waste_code
+waste.collected.2018.data <- waste.collected.2018.data |>
+    select(-waste_code)
+
+waste.collected.2019.data <- waste.collected.2019.data |>
+    select(-waste_code)
+
+waste.collected.2020.data <- waste.collected.2020.data |>
+    select(-waste_code)
+
+waste.collected.2021.data <- waste.collected.2021.data |>
+    select(-waste_code)
+
+waste.collected.2022.data <- waste.collected.2022.data |>
+    select(-waste_code)
+
+# add years for 2018 and 2019
+waste.collected.2018.data$year <- 2018
+
+waste.collected.2019.data$year <- 2019
+
+# summarize by year, statistical region, name of municipality and type of waste
+waste.collected.2018.data <- waste.collected.2018.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(total_waste_collected, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+waste.collected.2019.data <- waste.collected.2019.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(total_waste_collected, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+waste.collected.2020.data <- waste.collected.2020.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(municipal_waste_collected_by_municipality, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+waste.collected.2021.data <- waste.collected.2021.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(waste_by_municipality, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+waste.collected.2022.data <- waste.collected.2022.data |>
+    group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+    summarize(total_waste_collected = sum(waste_by_municipality, na.rm = TRUE) / 1000) |>
+    ungroup()
+
+# clear_waste_name
+waste.collected.2018.data <- waste.collected.2018.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.collected.2019.data <- waste.collected.2019.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.collected.2020.data <- waste.collected.2020.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.collected.2021.data <- waste.collected.2021.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.collected.2022.data <- waste.collected.2022.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+# combine data
+combined_collected_data <- bind_rows(waste.collected.2018.data, waste.collected.2019.data, waste.collected.2020.data, waste.collected.2021.data, waste.collected.2022.data)
+
+# Reshape data for plotting
+df_long_collected <- melt(
+    combined_collected_data,
+    id.vars = c(
+        "year",
+        "statistical_region",
+        "name_of_municipality",
+        "type_of_waste"
+    ),
+    measure.vars = c("total_waste_collected"),
+    variable.name = "source",
+    value.name = "total_collected"
+)
+
+# stacked bar plot
+t12 <- ggplot(df_long_collected, aes(x = year, y = total_collected, fill = name_of_municipality)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Waste Collected by Municipality of Origin",
+       x = "Year",
+       y = "Total Waste Collected (in tons)",
+       fill = "Municipality") +
+  theme_minimal()
+
+ggplotly(t12, width = 800, height = 500)
+```
+
+### Municipal waste management
+
+```{r collection_combined_data_municipal_waste_management}
+
+waste.management.2018.data <- read_csv("2018 data/2018 filtered/collection/waste_management_18.csv")
+waste.management.2019.data <- read_csv("2019 data/2019 filtered/collection/waste_handling_19.csv")
+waste.management.2020.data <- read_csv("2020 data/2020 filtered/collection/home_composting_20.csv")
+waste.management.2021.data <- read_csv("2021 data/2021 filtered/collection/municipal_waste_management_21.csv")
+waste.management.2022.data <- read_csv("2022 data/2022 filtered/collection/municipal_waste_management_22.csv")
+
+waste.management.2018.data <- waste.management.2018.data |>
+    select(-waste_code)
+
+waste.management.2019.data <- waste.management.2019.data |>
+    select(-waste_code)
+
+waste.management.2020.data <- waste.management.2020.data |>
+    select(-waste_code)
+
+waste.management.2021.data <- waste.management.2021.data |>
+    select(-waste_code)
+
+waste.management.2022.data <- waste.management.2022.data |>
+    select(-waste_code)
+
+# add delivered_to column for 2020 data
+waste.management.2020.data <- waste.management.2020.data |>
+    mutate(delivered_to = "collector")
+
+# define delivered_to based on where the waste was delivered
+waste.management.2020.data <- waste.management.2020.data |>
+    mutate(
+        delivered_to = case_when(
+            waste_handed_to_collectors_RS > 0 ~ "other collector in RS",
+            waste_delivered_to_operators_RS > 0 ~ "processing operator in RS",
+            waste_sent_to_EU > 0 ~ "other EU country",
+            waste_sent_to_non_EU > 0 ~ "non EU country"
+        )
+    )
+
+waste.management.2021.data <- waste.management.2021.data |>
+    mutate(delivered_to = "collector")
+
+# define delivered_to based on where the waste was delivered
+waste.management.2021.data <- waste.management.2021.data |>
+    mutate(
+        delivered_to = case_when(
+            waste_handed_to_collectors_RS > 0 ~ "other collector in RS",
+            waste_delivered_to_operators_RS > 0 ~ "processing operator in RS",
+            waste_sent_to_EU > 0 ~ "other EU country",
+            waste_sent_to_non_EU > 0 ~ "non EU country"
+        )
+    )
+
+waste.management.2022.data <- waste.management.2022.data |>
+    mutate(delivered_to = "collector")
+
+# define delivered_to based on where the waste was delivered
+waste.management.2022.data <- waste.management.2022.data |>
+    mutate(
+        delivered_to = case_when(
+            waste_handed_to_collectors_RS > 0 ~ "other collector in RS",
+            waste_delivered_to_operators_RS > 0 ~ "processing operator in RS",
+            waste_sent_to_EU > 0 ~ "other EU country",
+            waste_sent_to_non_EU > 0 ~ "non EU country"
+        )
+    )
+
+waste.management.2018.data <- waste.management.2018.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.management.2018.data <- waste.management.2018.data |>
+    group_by(statistical_region, type_of_waste) |>
+    summarize(
+        total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE) / 1000,
+        delivered_to_collector = sum(delivered_to_collector, na.rm = TRUE) / 1000,
+        delivered_to_processing_operator = sum(delivered_to_processing_operator, na.rm = TRUE) / 1000,
+        delivered_to_other_eu_country = sum(delivered_to_other_eu_country, na.rm = TRUE) / 1000
+    ) |>
+    ungroup() |>
+    mutate(year = 2018) |>
+    select(year, statistical_region, type_of_waste, total_waste_given_away, delivered_to_collector, delivered_to_processing_operator, delivered_to_other_eu_country)
+
+waste.management.2019.data <- waste.management.2019.data |>
+    group_by(statistical_region, type_of_waste) |>
+    summarize(
+        total_waste_given_away = sum(total_waste_delivered, na.rm = TRUE) / 1000,
+        delivered_to_collector = sum(waste_delivered_to_other_collector_RS, na.rm = TRUE) / 1000,
+        delivered_to_processing_operator = sum(waste_delivered_to_processing_operator_RS, na.rm = TRUE) / 1000,
+        delivered_to_other_eu_country = sum(waste_delivered_to_other_EU_country, na.rm = TRUE) / 1000
+    ) |>
+    ungroup() |>
+    mutate(year = 2019) |>
+    select(year, statistical_region, type_of_waste, total_waste_given_away, delivered_to_collector, delivered_to_processing_operator, delivered_to_other_eu_country)
+
+waste.management.2019.data <- waste.management.2019.data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+colnames(waste.management.2020.data) 
+
+waste.management.2020.data <- waste.management.2020.data |>
+    select(year, statistical_region, type_of_waste, waste_handed_to_collectors_RS, waste_delivered_to_operators_RS, waste_sent_to_EU, waste_sent_to_non_EU) |>
+    rename(
+        delivered_to_collector = waste_handed_to_collectors_RS,
+        delivered_to_processing_operator = waste_delivered_to_operators_RS,
+        delivered_to_other_eu_country = waste_sent_to_EU,
+        delivered_to_other_non_eu_country = waste_sent_to_non_EU
+    ) |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.management.2020.data <- waste.management.2020.data |> 
+    mutate(total_waste_given_away = delivered_to_collector + delivered_to_processing_operator + delivered_to_other_eu_country + delivered_to_other_non_eu_country)
+
+waste.management.2020.data <- waste.management.2020.data |>
+    group_by(year, statistical_region, type_of_waste) |>
+    summarize(
+        total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE) / 1000,
+        delivered_to_collector = sum(delivered_to_collector, na.rm = TRUE) / 1000,
+        delivered_to_processing_operator = sum(delivered_to_processing_operator, na.rm = TRUE) / 1000,
+        delivered_to_other_eu_country = sum(delivered_to_other_eu_country, na.rm = TRUE) / 1000,
+        delivered_to_other_non_eu_country = sum(delivered_to_other_non_eu_country, na.rm = TRUE) / 1000
+    ) |>
+    ungroup() |> 
+    select(year, statistical_region, type_of_waste, total_waste_given_away, delivered_to_collector, delivered_to_processing_operator, delivered_to_other_eu_country, delivered_to_other_non_eu_country)
+
+waste.management.2021.data <- waste.management.2021.data |>
+    select(year, statistical_region, type_of_waste, waste_handed_to_collectors_RS, waste_delivered_to_operators_RS, waste_sent_to_EU, waste_sent_to_non_EU) |>
+    rename(
+        delivered_to_collector = waste_handed_to_collectors_RS,
+        delivered_to_processing_operator = waste_delivered_to_operators_RS,
+        delivered_to_other_eu_country = waste_sent_to_EU,
+        delivered_to_other_non_eu_country = waste_sent_to_non_EU
+    ) |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.management.2021.data <- waste.management.2021.data |>
+    mutate(total_waste_given_away = delivered_to_collector + delivered_to_processing_operator + delivered_to_other_eu_country + delivered_to_other_non_eu_country)
+
+waste.management.2021.data <- waste.management.2021.data |>
+    group_by(year, statistical_region, type_of_waste) |>
+    summarize(
+        total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE) / 1000,
+        delivered_to_collector = sum(delivered_to_collector, na.rm = TRUE) / 1000,
+        delivered_to_processing_operator = sum(delivered_to_processing_operator, na.rm = TRUE) / 1000,
+        delivered_to_other_eu_country = sum(delivered_to_other_eu_country, na.rm = TRUE) / 1000,
+        delivered_to_other_non_eu_country = sum(delivered_to_other_non_eu_country, na.rm = TRUE) / 1000
+    ) |>
+    ungroup() |> 
+    select(year, statistical_region, type_of_waste, total_waste_given_away, delivered_to_collector, delivered_to_processing_operator, delivered_to_other_eu_country, delivered_to_other_non_eu_country)
+
+waste.management.2022.data <- waste.management.2022.data |>
+    select(year, statistical_region, type_of_waste, waste_handed_to_collectors_RS, waste_delivered_to_operators_RS, waste_sent_to_EU, waste_sent_to_non_EU) |>
+    rename(
+        delivered_to_collector = waste_handed_to_collectors_RS,
+        delivered_to_processing_operator = waste_delivered_to_operators_RS,
+        delivered_to_other_eu_country = waste_sent_to_EU,
+        delivered_to_other_non_eu_country = waste_sent_to_non_EU
+    ) |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+waste.management.2022.data <- waste.management.2022.data |>
+    mutate(total_waste_given_away = delivered_to_collector + delivered_to_processing_operator + delivered_to_other_eu_country + delivered_to_other_non_eu_country)
+
+waste.management.2022.data <- waste.management.2022.data |>
+    group_by(year, statistical_region, type_of_waste) |>
+    summarize(
+        total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE) / 1000,
+        delivered_to_collector = sum(delivered_to_collector, na.rm = TRUE) / 1000,
+        delivered_to_processing_operator = sum(delivered_to_processing_operator, na.rm = TRUE) / 1000,
+        delivered_to_other_eu_country = sum(delivered_to_other_eu_country, na.rm = TRUE) / 1000,
+        delivered_to_other_non_eu_country = sum(delivered_to_other_non_eu_country, na.rm = TRUE) / 1000
+    ) |>
+    ungroup() |> 
+    select(year, statistical_region, type_of_waste, total_waste_given_away, delivered_to_collector, delivered_to_processing_operator, delivered_to_other_eu_country, delivered_to_other_non_eu_country)
+
+combined_management_data <- bind_rows(waste.management.2018.data, waste.management.2019.data, waste.management.2020.data, waste.management.2021.data, waste.management.2022.data)
+
+# as we have no data for delivered_to_other_non_eu_country, we can remove it
+combined_management_data <- combined_management_data |> select(-delivered_to_other_non_eu_country)
+
+colnames(combined_management_data)
+
+# Reshape data for plotting
+df_long_management <- melt(
+    combined_management_data,
+    id.vars = c(
+        "statistical_region",
+        "type_of_waste",
+        "year"
+    ),
+    measure.vars = c(
+        "delivered_to_collector",
+        "delivered_to_processing_operator",
+        "delivered_to_other_eu_country"
+    ),
+    variable.name = "source",
+    value.name = "total_given_away"
+)
+
+# stacked bar plot
+t13 <- ggplot(df_long_management, aes(x = statistical_region, y = total_given_away, fill = source)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Waste Management by Source",
+       x = "Statistical Region",
+       y = "Total Waste Given Away",
+       fill = "Source") +
+    coord_flip() +
+  theme_minimal()
+
+ggplotly(t13, width = 1000, height = 500)
+
+
+# define a bubble plot to see the data through the years
+t14 <- ggplot(combined_management_data, aes(x = year, y = total_waste_given_away, size = total_waste_given_away, color = type_of_waste, group = statistical_region)) +
+  geom_point() +
+  labs(title = "Total Waste Given Away by Year",
+       x = "Year",
+       y = "Total Waste Given Away",
+       color = "Type of Waste") +
+  theme_minimal()
+
+ggplotly(t14, width = 800, height = 500)
+
+
+df_aggregated <- df_long_management |>
+  group_by(statistical_region, type_of_waste, year) |>
+  summarise(total_amount = sum(total_given_away, na.rm = TRUE))
+
+t15 <- ggplot(df_aggregated, aes(x = statistical_region, y = total_amount, fill = type_of_waste)) +
+  geom_bar(stat = "identity", position = "stack") +
+  facet_wrap(~ year) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Total Waste by Region and Type",
+       x = "Statistical Region",
+       y = "Total Amount",
+       fill = "Type of Waste")
+
+ggplotly(t15, width = 1000, height = 800)
+
+df_time_trend <- df_long_management |>
+  group_by(statistical_region, year) |>
+  summarise(total_amount = sum(total_given_away, na.rm = TRUE))
+
+t16 <- ggplot(df_time_trend, aes(x = year, y = total_amount, color = statistical_region, group = statistical_region)) +
+  geom_line() +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Waste Management Trend Over Time by Region",
+       x = "Year",
+       y = "Total Amount",
+       color = "Statistical Region") +
+  theme(legend.position = "bottom")
+
+ggplotly(t16, width = 800, height = 800)
+
+df_time_trend_by_type <- df_long_management |>
+  group_by(statistical_region, year, type_of_waste) |> 
+  summarise(total_amount = sum(total_given_away, na.rm = TRUE))
+
+t17 <- ggplot(df_time_trend_by_type, aes(x = year, y = total_amount, fill = type_of_waste)) +
+  geom_area() +
+  facet_wrap(~statistical_region, scales = "free_y") +
+  scale_fill_brewer(palette = "Set1") +
+  theme_minimal() +
+  labs(title = "Waste Composition Over Time by Region",
+       x = "Year",
+       y = "Total Amount",
+       fill = "Type of Waste") +
+  theme(legend.position = "bottom")
+
+ggplotly(t17, width = 1000, height = 800)
+
+t18 <- ggplot(df_time_trend, aes(x = year, y = statistical_region, fill = total_amount)) +
+  geom_tile() +
+  scale_fill_viridis_c() +
+  theme_minimal() +
+  labs(title = "Waste Management Heatmap",
+       x = "Year",
+       y = "Statistical Region",
+       fill = "Total Amount")
+
+ggplotly(t18, width = 800, height = 800)
+
+df_sparklines <- df_time_trend |>
+  group_by(statistical_region) |>
+  mutate(normalized_amount = (total_amount - min(total_amount)) / 
+           (max(total_amount) - min(total_amount))) |>
+  ungroup()
+
+t19 <- ggplot(df_sparklines, aes(x = year, y = normalized_amount, group = statistical_region)) +
+  geom_line() +
+  facet_wrap(~ statistical_region, ncol = 4) +
+  theme_minimal() +
+  theme(axis.text.y = element_blank(),
+        axis.title = element_blank(),
+        panel.grid = element_blank()) +
+  labs(title = "Waste Management Trends by Region (Normalized)")
+
+ggplotly(t19, width = 1000, height = 800)
+
+
+```
+
+### Household composting
+
+```{r collection_combined_data_household_composting}
+
+# household composting only exists from 2020 
+household.composting.2020.data <- read_csv("2020 data/2020 filtered/collection/home_composting_20.csv")
+household.composting.2021.data <- read_csv("2021 data/2021 filtered/collection/household_composting_21.csv")
 
 ```
 
 # Treatment Data Analysis Process
 
-### Code 
+## Code 
 
 ```{r treatment_combined_data}
-
 ```
