@@ -3351,6 +3351,15 @@ data18.sheet1[is.na(data18.sheet1)] <- 0
 
 data18.sheet1 <- data18.sheet1 |> select(-`PRIDOBLJENI PODATKI                 ( 1-poročilo oddano,                    2-podatki ARSO)`)
 
+data18.sheet1 <- data18.sheet1 |> 
+  group_by(statistical_region, type_of_waste) |> 
+  summarise(
+    waste_stored_start_year = sum(waste_stored_start_year) / 1000,
+    waste_generated = sum(waste_generated) / 1000,
+    waste_stored_end_year = sum(waste_stored_end_year) / 1000
+  ) |> 
+  ungroup()
+
 ```
 
 ```{r table_2_waste_management_2018}
@@ -3404,6 +3413,13 @@ data18.sheet2 <- data18.sheet2 |> select(-treatment_process)
 
 ## sum NA per column
 colSums(is.na(data18.sheet2))
+
+data18.sheet2 <- data18.sheet2 |>
+  group_by(statistical_region, type_of_waste, delivered_to) |> 
+  summarise(
+    total_waste_given_away = sum(total_waste_given_away) / 1000
+  ) |> 
+  ungroup()
 
 ```
 
@@ -5051,16 +5067,538 @@ for (sheet_name in sheet_names) {
 
 ```
 
-```
 
 ## 2016 - Data from the annual reports received on waste collection from manufacturing and service activities
 
 ```{r waste_collection_2016}
+
+waste_collection_16.path <- "2016 data\\2016_collection.xls"
+
+```
+
+```{r waste_storage}
+
+waste_collection_16.sheet1 <- read_excel(waste_collection_16.path, skip = 1, sheet = 1)
+
+waste_collection_16.by_codes1 <- waste_collection_16.sheet1 |> 
+  filter(
+    `ŠT. ODPADKA` %in% codes  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+
+waste_collection_16.by_codes1 <- waste_collection_16.by_codes1 |>
+  select(-`MATIČNA ŠTEVILKA`, -SKD)
+
+## Rename
+colnames(waste_collection_16.by_codes1)
+
+waste_collection_16.by_codes1 <- waste_collection_16.by_codes1 |> 
+  rename(
+    name_of_company = `NAZIV IN NASLOV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `ŠT. ODPADKA`,
+    waste_stored_start_year = `SKLADIŠČENA KOLIČINA ODPADKOV NA DAN 1.1.2016 (kg)`,
+    waste_stored_end_year = `SKLADIŠČENA KOLIČINA ODPADKOV NA DAN 31.12.2016 (kg)`
+  )
+
+## Add type_of_waste
+waste_collection_16.by_codes1 <- waste_collection_16.by_codes1 |> 
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_collection_16.by_codes1 <- waste_collection_16.by_codes1 |>
+  select(-waste_code)
+
+## if statistical region is NA, excluded it from the data
+waste_collection_16.by_codes1 <- waste_collection_16.by_codes1 |>
+  filter(!is.na(statistical_region))
+
+## if NA
+waste_collection_16.by_codes1[is.na(waste_collection_16.by_codes1)] <- 0
+
+waste_collection_16.by_codes1 <- waste_collection_16.by_codes1 |> 
+  group_by(statistical_region, type_of_waste) |>
+  summarise(
+    waste_stored_start_year = sum(waste_stored_start_year) / 1000,
+    waste_stored_end_year = sum(waste_stored_end_year) / 1000
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2016)
+
+
+waste_collection_16.by_codes1 <- waste_collection_16.by_codes1 |> 
+  select(year, statistical_region, type_of_waste, waste_stored_start_year, waste_stored_end_year)
+
+```
+
+```{r waste_collected}
+
+waste_collection_16.sheet2 <- read_excel(waste_collection_16.path, skip = 1, sheet = 2)
+
+waste_collection_16.by_codes2 <- waste_collection_16.sheet2 |> 
+  filter(
+    `ŠT. ODPADKA` %in% codes  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+
+waste_collection_16.by_codes2 <- waste_collection_16.by_codes2 |>
+  select(-`MATIČNA ŠTEVILKA`, -SKD)
+
+## Rename
+colnames(waste_collection_16.by_codes2)
+
+waste_collection_16.by_codes2 <- waste_collection_16.by_codes2 |> 
+  rename(
+    name_of_company = `NAZIV IN NASLOV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `ŠT. ODPADKA`,
+    total_waste_collected = `KOLIČINA ZBRANIH ODPADKOV (kg)`,
+    collected_from = `ZBRANO OD`
+  )
+
+## Add type_of_waste
+waste_collection_16.by_codes2 <- waste_collection_16.by_codes2 |> 
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_collection_16.by_codes2 <- waste_collection_16.by_codes2 |>
+  select(-waste_code)
+
+## get distinct collected_from
+waste_collection_16.by_codes2 |> distinct(collected_from)
+
+## Rename collected_from
+waste_collection_16.by_codes2 <- waste_collection_16.by_codes2 |> 
+  mutate(
+    collected_from = case_when(
+      collected_from == "izvirnega povzročitelja: prepuščeno" ~ "received from producers without a list",
+      collected_from == "izvirnega povzročitelja: oddano" ~ "received from producers with a list",
+      collected_from == "drugega zbiralca" ~ "received from other collectors",
+      collected_from == "izvajalca obdelave" ~ "received from processing operators"
+    )
+  )
+
+waste_collection_16.by_codes2 <- waste_collection_16.by_codes2 |>
+  group_by(statistical_region, type_of_waste, collected_from) |>
+  summarise(
+    total_waste_collected = sum(total_waste_collected) / 1000 # for tons
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2016)
+
+waste_collection_16.by_codes2 <- waste_collection_16.by_codes2 |> 
+  select(year, statistical_region, type_of_waste, total_waste_collected, collected_from)
+
+```
+
+```{r management_waste_collected}
+
+waste_collection_16.sheet3 <- read_excel(waste_collection_16.path, skip = 1, sheet = 3)
+
+waste_collection_16.by_codes3 <- waste_collection_16.sheet3 |> 
+  filter(
+    `ŠT. ODPADKA` %in% codes  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+
+waste_collection_16.by_codes3 <- waste_collection_16.by_codes3 |>
+  select(-`MATIČNA ŠTEVILKA`, -SKD)
+
+## Rename
+colnames(waste_collection_16.by_codes3)
+
+waste_collection_16.by_codes3 <- waste_collection_16.by_codes3 |> 
+  rename(
+    name_of_company = `NAZIV IN NASLOV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `ŠT. ODPADKA`,
+    total_waste_given_away = `ODDANA KOLIČINA ODPADKOV (kg)`,
+    given_to = `ODDANO KOMU`,
+    treatment_process = `POSTOPEK OBDELAVE, ČE SO BILI ODPADKI POSLANI V OBDELAVO V TUJINO (R00 in D00-drugi postopki obdelave, PU-ponovna uporaba)`
+  )
+
+## Add type_of_waste
+waste_collection_16.by_codes3 <- waste_collection_16.by_codes3 |> 
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_collection_16.by_codes3 <- waste_collection_16.by_codes3 |>
+  select(-waste_code)
+
+## get distinct given_to
+waste_collection_16.by_codes3 |> distinct(given_to)
+## Rename given_to
+waste_collection_16.by_codes3 <- waste_collection_16.by_codes3 |> 
+  mutate(
+    given_to = case_when(
+      given_to == "izvajalec obdelave v RS" ~ "processing operator in RS",
+      given_to == "drug zbiralec v RS" ~ "other collector in RS",
+      given_to == "druga država članica EU" ~ "other EU country"
+    )
+  )
+
+waste_collection_16.by_codes3 <- waste_collection_16.by_codes3 |>
+  group_by(statistical_region, type_of_waste, given_to) |>
+  summarise(
+    total_waste_given_away = sum(total_waste_given_away) / 1000 # for tons
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2016)
+
+waste_collection_16.by_codes3 <- waste_collection_16.by_codes3 |>
+  select(year, statistical_region, type_of_waste, total_waste_given_away, given_to)
+
+```
+
+```{r waste_collection_to_CSV_2016}
+
+# sheet names
+sheet_names <- c(
+  "Waste Storage", 
+  "Waste Collected", 
+  "Management of Waste Collected"
+)
+
+# List
+waste_collection.16 <- list(
+  waste_collection_16.by_codes1,
+  waste_collection_16.by_codes2,
+  waste_collection_16.by_codes3
+)
+
+names(waste_collection.16) <- sheet_names
+
+for (sheet_name in sheet_names) {
+  write_excel_csv(waste_collection.16[[sheet_name]], paste0("2016 data\\2016 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_16.csv"))
+}
 
 ```
 
 ## 2016 - Data from the annual waste recovery/disposal reports received
 
 ```{r waste_recovery_disposal_2016}
+
+waste_recovery_disposal_16.path <- "2016 data\\2016_recovery_disposal.xls"
+
+```
+
+```{r waste_storage}
+
+waste_recovery_disposal_16.sheet1 <- read_excel(waste_recovery_disposal_16.path, skip = 1, sheet = 1)
+
+waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.sheet1 |> 
+  filter(
+    `ŠT. ODPADKA` %in% codes  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+
+waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.by_codes1 |>
+  select(-`MATIČNA ŠTEVILKA`, -SKD)
+
+## Rename
+colnames(waste_recovery_disposal_16.by_codes1)
+
+waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.by_codes1 |> 
+  rename(
+    name_of_company = `NAZIV IN NASLOV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `ŠT. ODPADKA`,
+    waste_stored_start_year = `SKLADIŠČENA KOLIČINA NA DAN 1.1.2016 (kg)`,
+    waste_stored_end_year = `SKLADIŠČENA KOLIČINA NA DAN 31.12.2016 (kg)`
+  )
+
+## Add type_of_waste
+waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.by_codes1 |> 
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.by_codes1 |>
+  select(-waste_code)
+
+## if statistical region is NA, excluded it from the data
+waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.by_codes1 |>
+  filter(!is.na(statistical_region))
+
+## if NA
+waste_recovery_disposal_16.by_codes1[is.na(waste_recovery_disposal_16.by_codes1)] <- 0
+
+waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.by_codes1 |> 
+  group_by(statistical_region, type_of_waste) |>
+  summarise(
+    waste_stored_start_year = sum(waste_stored_start_year) / 1000,
+    waste_stored_end_year = sum(waste_stored_end_year) / 1000
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2016)
+
+waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.by_codes1 |>
+  select(year, statistical_region, type_of_waste, waste_stored_start_year, waste_stored_end_year)
+
+```
+
+```{r waste_collected}
+
+waste_recovery_disposal_16.sheet2 <- read_excel(waste_recovery_disposal_16.path, skip = 1, sheet = 2)
+
+waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.sheet2 |> 
+  filter(
+    `ŠT. ODPADKA` %in% codes  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+
+waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.by_codes2 |>
+  select(-`MATIČNA ŠTEVILKA`, -SKD)
+
+## Rename
+colnames(waste_recovery_disposal_16.by_codes2)
+
+waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.by_codes2 |> 
+  rename(
+    name_of_company = `NAZIV IN NASLOV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `ŠT. ODPADKA`,
+    total_waste_collected = `PREVZETA KOLIČINA ODPADKA (kg)`,
+    collected_from = `PREVZETO OD`,
+    treatment_process = `POSTOPEK OBDELAVE (R00 in D00-drugi postopki obdelave, PU-ponovna uporaba, BO-brez obdelave)`
+  )
+
+## Add type_of_waste
+waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.by_codes2 |> 
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.by_codes2 |>
+  select(-waste_code)
+
+## get distinct collected_from
+waste_recovery_disposal_16.by_codes2 |> distinct(collected_from)
+## Rename collected_from
+waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.by_codes2 |> 
+  mutate(
+    collected_from = case_when(
+      collected_from == "zbiralec v RS" ~ "collector in RS",
+      collected_from == "drug izvirni povzročitelj v RS" ~ "other original producer in RS",
+      collected_from == "drug izvajalec obdelave v RS" ~ "other processing operator in RS",
+      collected_from == "druga država članica EU" ~ "other EU country",
+      collected_from == "lastni odpadki" ~ "own waste",
+      collected_from == "tretja država izven EU" ~ "other country (outside EU)"
+    )
+  )
+
+waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.by_codes2 |>
+  group_by(statistical_region, type_of_waste, collected_from) |>
+  summarise(
+    total_waste_collected = sum(total_waste_collected) / 1000 # for tons
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2016)
+
+waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.by_codes2 |>
+  select(year, statistical_region, type_of_waste, total_waste_collected, collected_from)
+
+
+```
+
+```{r treatment_waste_collected}
+
+waste_recovery_disposal_16.sheet3 <- read_excel(waste_recovery_disposal_16.path, skip = 1, sheet = 3)
+
+waste_recovery_disposal_16.by_codes3 <- waste_recovery_disposal_16.sheet3 |> 
+  filter(
+    `ŠT. ODPADKA` %in% codes  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+
+waste_recovery_disposal_16.by_codes3 <- waste_recovery_disposal_16.by_codes3 |>
+  select(-`MATIČNA ŠTEVILKA`, -SKD)
+
+## Rename
+colnames(waste_recovery_disposal_16.by_codes3)
+
+waste_recovery_disposal_16.by_codes3 <- waste_recovery_disposal_16.by_codes3 |> 
+  rename(
+    name_of_company = `NAZIV IN NASLOV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `ŠT. ODPADKA`,
+    total_waste_given_away = `KOLIČINA ODPADKOV, DANIH V OBDELAVO (kg)`,
+    treatment_process = `POSTOPEK OBDELAVE (R00 in D00-drugi postopki obdelave, PU-ponovna uporaba, BO-brez obdelave)`,
+    treatment_according_to_8th_article = `OBDELAVA PO 8.ČLENU UREDBE O ODPADKIH`
+  )
+
+## Add type_of_waste
+waste_recovery_disposal_16.by_codes3 <- waste_recovery_disposal_16.by_codes3 |> 
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_recovery_disposal_16.by_codes3 <- waste_recovery_disposal_16.by_codes3 |>
+  select(-waste_code)
+
+waste_recovery_disposal_16.by_codes3 <- waste_recovery_disposal_16.by_codes3 |>
+  group_by(statistical_region, type_of_waste, treatment_process) |>
+  summarise(
+    total_waste_given_away = sum(total_waste_given_away) / 1000 # for tons
+  ) |>
+  ungroup() |>
+  mutate(year = 2016)
+
+waste_recovery_disposal_16.by_codes3 <- waste_recovery_disposal_16.by_codes3 |>
+  select(year, statistical_region, type_of_waste, total_waste_given_away, treatment_process)
+
+
+```
+
+```{r waste_recovery_disposal_generated_untreated_2016}
+
+waste_recovery_disposal_16.sheet4 <- read_excel(waste_recovery_disposal_16.path, skip = 1, sheet = 4)
+
+waste_recovery_disposal_16.by_codes4 <- waste_recovery_disposal_16.sheet4 |> 
+  filter(
+    `ŠT. ODPADKA` %in% codes  |
+      grepl("^03 01 [0-9]", `ŠT. ODPADKA`, perl = TRUE) &
+      !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
+    )
+
+waste_recovery_disposal_16.by_codes4 <- waste_recovery_disposal_16.by_codes4 |>
+  select(-`MATIČNA ŠTEVILKA`, -SKD)
+
+## Rename
+colnames(waste_recovery_disposal_16.by_codes4)
+
+waste_recovery_disposal_16.by_codes4 <- waste_recovery_disposal_16.by_codes4 |> 
+  rename(
+    name_of_company = `NAZIV IN NASLOV`,
+    statistical_region = `STATISTIČNA REGIJA`,
+    waste_code = `ŠT. ODPADKA`,
+    total_waste_generated_untreated = `PO OBDELAVI NASTALI ODPADKI IN ODPADKI ODDANI DRUGIM BREZ OBDELAVE  (kg)`,
+    given_to = `ODDANO KOMU`,
+    treatment_process = `POSTOPEK OBDELAVE, ČE SO ODPADKI POSLANI V OBDELAVO V TUJINO`
+  )
+
+## Add type_of_waste
+waste_recovery_disposal_16.by_codes4 <- waste_recovery_disposal_16.by_codes4 |> 
+  mutate(
+    type_of_waste = case_when(
+      waste_code == "03 01 01" ~ "Waste Bark and Cork",
+      waste_code == "03 01 05" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      waste_code == "15 01 01" ~ "Paper/Cardboard Packaging",
+      waste_code == "15 01 03" ~ "Wooden packaging",
+      waste_code == "17 02 01" ~ "Wood",
+      waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
+      waste_code == "03 01 99" ~ "Miscellaneous Waste"
+    )
+  )
+
+waste_recovery_disposal_16.by_codes4 <- waste_recovery_disposal_16.by_codes4 |>
+  select(-waste_code)
+
+## get distinct given_to
+waste_recovery_disposal_16.by_codes4 |> distinct(given_to)
+## Rename given_to
+waste_recovery_disposal_16.by_codes4 <- waste_recovery_disposal_16.by_codes4 |> 
+  mutate(
+    given_to = case_when(
+      given_to == "drug izvajalec obdelave v RS" ~ "processing operator in RS",
+      given_to == "drug zbiralec v RS" ~ "other collector in RS",
+      given_to == "druga država članica EU" ~ "other EU country",
+      given_to == "tretja država (izven EU)" ~ "other country (outside EU)"
+    )
+  )
+
+waste_recovery_disposal_16.by_codes4 <- waste_recovery_disposal_16.by_codes4 |>
+  group_by(statistical_region, type_of_waste, given_to) |>
+  summarise(
+    total_waste_generated_untreated = sum(total_waste_generated_untreated) / 1000 # for tons
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2016)
+
+waste_recovery_disposal_16.by_codes4 <- waste_recovery_disposal_16.by_codes4 |>
+  select(year, statistical_region, type_of_waste, total_waste_generated_untreated, given_to)
+
+```
+
+```{r waste_recovery_disposal_to_CSV_2016}
+
+# sheet names
+sheet_names <- c(
+  "Waste Storage", 
+  "Waste Collected", 
+  "Treatment of Waste",
+  "Waste Generated and Untreated"
+)
+
+# List
+waste_recovery_disposal.16 <- list(
+  waste_recovery_disposal_16.by_codes1,
+  waste_recovery_disposal_16.by_codes2,
+  waste_recovery_disposal_16.by_codes3,
+  waste_recovery_disposal_16.by_codes4
+)
+
+names(waste_recovery_disposal.16) <- sheet_names
+
+for (sheet_name in sheet_names) {
+  write_excel_csv(waste_recovery_disposal.16[[sheet_name]], paste0("2016 data\\2016 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_16.csv"))
+}
 
 ```
