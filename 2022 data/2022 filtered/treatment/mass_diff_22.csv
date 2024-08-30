@@ -1,8 +1,8 @@
-﻿"year","waste_code","type_of_waste","treatment_operation","reduction_or_increase_of_mass_during_treatment"
-2022,"15 01 01","Paper/Cardboard Packaging","R_03",-36898
-2022,"15 01 01","Paper/Cardboard Packaging","R_12, R_13",58352
-2022,"15 01 03","Wooden packaging","R_12, R_13",132
-2022,"17 02 01","Wood","R_12",0
-2022,"20 01 38","Wood, not specified in 20 01 37","R_03",-494740
-2022,"20 01 38","Wood, not specified in 20 01 37","R_0302",18670
-2022,"20 01 38","Wood, not specified in 20 01 37","R_12, R_13",880146
+﻿"year","type_of_waste","treatment_operation","reduction_or_increase_of_mass_during_treatment"
+2022,"Paper/Cardboard Packaging","R_03",-36.898
+2022,"Paper/Cardboard Packaging","R_12, R_13",58.352
+2022,"Wooden packaging","R_12, R_13",0.132
+2022,"Wood","R_12",0
+2022,"Wood, not specified in 20 01 37","R_03",-494.74
+2022,"Wood, not specified in 20 01 37","R_0302",18.67
+2022,"Wood, not specified in 20 01 37","R_12, R_13",880.146

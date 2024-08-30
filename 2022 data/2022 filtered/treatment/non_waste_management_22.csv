@@ -1,19 +1,19 @@
-﻿"year","waste_code","type_of_waste","treatment_operation","non_waste_substances","storage_operator_end_year","delivered_company_and_person_RS_kg","delivered_to_EU","delivered_to_non_EU"
-2022,"03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04","R_03","wood",0,62160,0,0
-2022,"03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04","R_03","other",0,110025,0,0
-2022,"03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04","R_0302","compost (product)",24900,0,0,0
-2022,"15 01 01","Paper/Cardboard Packaging","R_03","textiles and leather",0,0,96293,0
-2022,"15 01 01","Paper/Cardboard Packaging","R_03","paper and cardboard",0,0,4509451,0
-2022,"15 01 03","Wooden packaging","PU","wood",0,656580,0,0
-2022,"15 01 03","Wooden packaging","PU","other",0,316810,0,0
-2022,"15 01 03","Wooden packaging","R_01","other",0,85685,0,0
-2022,"15 01 03","Wooden packaging","R_03","wood",0,7742050,0,0
-2022,"15 01 03","Wooden packaging","R_0302","compost (product)",192740,0,0,0
-2022,"15 01 03","Wooden packaging","R_12","wood",0,0,4925839,0
-2022,"17 02 01","Wood","R_03","wood",0,642873,0,0
-2022,"17 02 01","Wood","R_05","wood",0,1205000,0,0
-2022,"17 02 01","Wood","R_12","building filler",0,14500,0,0
-2022,"17 02 01","Wood","R_12","wood",0,680945,0,0
-2022,"20 01 38","Wood, not specified in 20 01 37","PU","wood",300175,0,0,0
-2022,"20 01 38","Wood, not specified in 20 01 37","R_03","wood",0,1357360,0,0
-2022,"20 01 38","Wood, not specified in 20 01 37","R_0302","compost (product)",0,3550120,0,0
+﻿"year","type_of_waste","treatment_operation","non_waste_substances","storage_operator_end_year","delivered_company_and_person_RS_kg","delivered_to_EU","delivered_to_non_EU"
+2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_03","wood",0,62.16,0,0
+2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_03","other",0,110.025,0,0
+2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_0302","compost (product)",24.9,0,0,0
+2022,"Paper/Cardboard Packaging","R_03","textiles and leather",0,0,96.293,0
+2022,"Paper/Cardboard Packaging","R_03","paper and cardboard",0,0,4509.451,0
+2022,"Wooden packaging","PU","wood",0,656.58,0,0
+2022,"Wooden packaging","PU","other",0,316.81,0,0
+2022,"Wooden packaging","R_01","other",0,85.685,0,0
+2022,"Wooden packaging","R_03","wood",0,7742.05,0,0
+2022,"Wooden packaging","R_0302","compost (product)",192.74,0,0,0
+2022,"Wooden packaging","R_12","wood",0,0,4925.839,0
+2022,"Wood","R_03","wood",0,642.873,0,0
+2022,"Wood","R_05","wood",0,1205,0,0
+2022,"Wood","R_12","building filler",0,14.5,0,0
+2022,"Wood","R_12","wood",0,680.945,0,0
+2022,"Wood, not specified in 20 01 37","PU","wood",300.175,0,0,0
+2022,"Wood, not specified in 20 01 37","R_03","wood",0,1357.36,0,0
+2022,"Wood, not specified in 20 01 37","R_0302","compost (product)",0,3550.12,0,0
