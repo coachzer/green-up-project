@@ -1,2 +1,2 @@
-﻿"year","waste_code","type_of_waste","total_waste_received","waste_without_assessment","disposed_waste_total","disposed_waste_hazardous","disposed_waste_non_hazardous","disposed_waste_inert","disposed_waste_for_construction","disposed_waste_for_covering"
-2021,"17 02 01","Wood",36620,0,36620,0,36620,0,0,0
+﻿"year","type_of_waste","total_waste_received","waste_without_assessment","disposed_waste_total","disposed_waste_hazardous","disposed_waste_non_hazardous","disposed_waste_inert","disposed_waste_for_construction","disposed_waste_for_covering"
+2021,"Wood",36.62,0,36.62,0,36.62,0,0,0

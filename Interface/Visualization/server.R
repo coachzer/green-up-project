@@ -13,6 +13,18 @@ library(reshape2)
 library(igraph)
 
 shinyServer(function(input, output, session) {
+  
+  # Hidden UI elements -----
+  observeEvent(input$sidebarItemExpanded, {
+    if(input$sidebarItemExpanded == "ANALYSIS"){
+      updateTabItems(session, "tabs", selected = "hiddenAnalysis")
+    }
+    
+    if(input$sidebarItemExpanded == "SIMULATION"){
+      updateTabItems(session, "tabs", selected = "hiddenSimulation")
+    }
+  })
+  
   # Selected choices for filtering tables -----
   selected_choices <- c(
     "Total waste generated (kg)",

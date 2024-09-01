@@ -1805,6 +1805,13 @@ waste_storage.21 <- waste_storage.21 |>
 
 waste_storage.21 <- rename_waste_names(waste_storage.21)
 
+waste_storage.21 <- waste_storage.21 |> 
+  select(-waste_code) |>
+  mutate(
+    waste_stored_start_year = waste_stored_start_year / 1000,
+    waste_stored_end_year = waste_stored_end_year / 1000
+  )
+
 # if NA, then "Not Specified" for the scheduled_for_treatment_end_year column
 waste_storage.21$scheduled_for_treatment_end_year[is.na(waste_storage.21$scheduled_for_treatment_end_year)] <- "Not Specified"
 
@@ -1835,6 +1842,18 @@ waste_received.21 <- waste_received.21 |>
 
 waste_received.21 <- rename_waste_names(waste_received.21)
 
+waste_received.21 <- waste_received.21 |> 
+  select(-waste_code) |> 
+  mutate(
+    waste_received_own_waste = waste_received_own_waste / 1000,
+    waste_received_from_producers_RS = waste_received_from_producers_RS / 1000,
+    waste_received_from_collectors_RS = waste_received_from_collectors_RS / 1000,
+    waste_received_from_processors_RS = waste_received_from_processors_RS / 1000,
+    waste_received_from_EU = waste_received_from_EU / 1000,
+    waste_received_from_non_EU = waste_received_from_non_EU / 1000,
+    total_waste_received = total_waste_received / 1000
+  )
+
 processed_sheets[[2]] <- waste_received.21
 
 # Sheet 3: Treatment of waste received
@@ -1854,6 +1873,12 @@ treating_waste.21 <- treating_waste.21 |>
   )
 
 treating_waste.21 <- rename_waste_names(treating_waste.21)
+
+treating_waste.21 <- treating_waste.21 |> 
+  select(-waste_code) |>
+  mutate(
+    waste_entering_treatment_process = waste_entering_treatment_process / 1000
+  )
 
 processed_sheets[[3]] <- treating_waste.21
 
@@ -1879,6 +1904,15 @@ management_waste.21 <- management_waste.21 |>
 management_waste.21 <- rename_waste_names(management_waste.21, "input_waste_name")
 
 management_waste.21 <- rename_waste_names(management_waste.21, "output_waste_name")
+
+management_waste.21 <- management_waste.21 |> 
+  select(-treatment_input_waste_received_code, -treatment_outlet_delivered_waste_code) |>
+  mutate(
+    waste_handed_to_collectors_RS = waste_handed_to_collectors_RS / 1000,
+    waste_delivered_to_operators_RS = waste_delivered_to_operators_RS / 1000,
+    waste_sent_to_EU = waste_sent_to_EU / 1000,
+    waste_sent_to_non_EU = waste_sent_to_non_EU / 1000
+  )
 
 processed_sheets[[4]] <- management_waste.21
 
@@ -1910,6 +1944,14 @@ management_waste.21a$output_waste_name <- case_when(
   management_waste.21a$output_waste_name == "kovine železo in jeklo" ~ "iron and steel metals"
 )
 
+management_waste.21a <- management_waste.21a |> 
+  select(-waste_code) |>
+  mutate(
+    delivered_to_storage_or_other_persons_RS = delivered_to_storage_or_other_persons_RS / 1000,
+    shipped_to_EU = shipped_to_EU / 1000,
+    shipped_to_non_EU = shipped_to_non_EU / 1000
+  )
+
 processed_sheets[[5]] <- management_waste.21a
 
 # Sheet 5: Municipal waste received for treatment, separated by municipality of origin
@@ -1934,6 +1976,12 @@ waste_treatment.21 <- rename_waste_names(waste_treatment.21)
 waste_treatment.21 <- waste_treatment.21 |> 
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
+waste_treatment.21 <- waste_treatment.21 |>
+  select(-name_of_municipality) |>
+  mutate(
+    waste_collected_by_municipality = waste_collected_by_municipality / 1000
+  )
+
 processed_sheets[[6]] <- waste_treatment.21
 
 # Sheet 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
@@ -1951,6 +1999,12 @@ mass_difference.21 <- mass_difference.21 |>
   )
 
 mass_difference.21 <- rename_waste_names(mass_difference.21, "input_waste_name")
+
+mass_difference.21 <- mass_difference.21 |> 
+  select(-waste_code) |>
+  mutate(
+    mass_change = mass_change / 1000
+  )
 
 processed_sheets[[7]] <- mass_difference.21
 
@@ -2022,13 +2076,24 @@ landfill_waste.21 <- landfill_waste.21 |>
 
 landfill_waste.21 <- rename_waste_names(landfill_waste.21)
 
+landfill_waste.21 <- landfill_waste.21 |> 
+  select(-waste_code) |>
+  mutate(
+    total_waste_received = total_waste_received / 1000,
+    waste_without_assessment = waste_without_assessment / 1000,
+    disposed_waste_total = disposed_waste_total / 1000,
+    disposed_waste_hazardous = disposed_waste_hazardous / 1000,
+    disposed_waste_non_hazardous = disposed_waste_non_hazardous / 1000,
+    disposed_waste_inert = disposed_waste_inert / 1000,
+    disposed_waste_for_construction = disposed_waste_for_construction / 1000,
+    disposed_waste_for_covering = disposed_waste_for_covering / 1000
+  )
+
 processed_sheets[[9]] <- landfill_waste.21
 
 # Sheet 9: Municipal waste disposed by municipality of origin - EXCLUDED
 municipal_waste_disposed.21 <- processed_sheets[[10]]
 
-## Rename
-colnmaes(municiapl_waste_disposed.21)
 
 sheet_names <- c(
   "Waste storage", 
@@ -2176,6 +2241,12 @@ waste_storage.20 <- waste_storage.20 |>
 
 waste_storage.20 <- rename_waste_names(waste_storage.20)
 
+waste_storage.20 <- waste_storage.20 |> 
+  select(-waste_code) |>
+  mutate(
+    waste_stored_start_year = waste_stored_start_year / 1000,
+    waste_stored_end_year = waste_stored_end_year / 1000
+  )
 
 processed_sheets[[1]] <- waste_storage.20
 
@@ -2200,6 +2271,15 @@ collected_waste.20 <- collected_waste.20 |>
 
 collected_waste.20 <- rename_waste_names(collected_waste.20)
 
+collected_waste.20 <- collected_waste.20 |> 
+  select(-waste_code) |>
+  mutate(
+    waste_received_from_producers_no_list = waste_received_from_producers_no_list / 1000,
+    waste_received_from_producers_with_list = waste_received_from_producers_with_list / 1000,
+    waste_received_from_collectors_RS = waste_received_from_collectors_RS / 1000,
+    waste_received_from_processors_RS = waste_received_from_processors_RS / 1000
+  )
+
 processed_sheets[[2]] <- collected_waste.20
 
 # Table 3: Collected municipal waste in 2020 by source of origin
@@ -2220,6 +2300,14 @@ municipal_waste.20 <- municipal_waste.20 |>
   )
 
 municipal_waste.20 <- rename_waste_names(municipal_waste.20)
+
+municipal_waste.20 <- municipal_waste.20 |> 
+  select(-waste_code) |>
+  mutate(
+    total_municipal_waste_collected = total_municipal_waste_collected / 1000,
+    municipal_waste_collected_from_households = municipal_waste_collected_from_households / 1000,
+    municipal_waste_collected_from_activities = municipal_waste_collected_from_activities / 1000
+  )
 
 processed_sheets[[3]] <- municipal_waste.20
 
@@ -2244,6 +2332,12 @@ municipal_waste_origin.20 <- rename_waste_names(municipal_waste_origin.20)
 municipal_waste_origin.20 <- municipal_waste_origin.20 |> 
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
+municipal_waste_origin.20 <- municipal_waste_origin.20 |>
+  select(-waste_code) |>
+  mutate(
+    municipal_waste_collected_by_municipality = municipal_waste_collected_by_municipality / 1000
+  )
+
 processed_sheets[[4]] <- municipal_waste_origin.20
 
 # Table 5: Management of collected waste in 2020
@@ -2266,6 +2360,15 @@ management_collected_waste.20 <- management_collected_waste.20 |>
   )
 
 management_collected_waste.20 <- rename_waste_names(management_collected_waste.20)
+
+management_collected_waste.20 <- management_collected_waste.20 |> 
+  select(-waste_code) |>
+  mutate(
+    waste_handed_to_collectors_RS = waste_handed_to_collectors_RS / 1000,
+    waste_delivered_to_operators_RS = waste_delivered_to_operators_RS / 1000,
+    waste_sent_to_EU = waste_sent_to_EU / 1000,
+    waste_sent_to_non_EU = waste_sent_to_non_EU / 1000
+  )
 
 processed_sheets[[5]] <- management_collected_waste.20
 
@@ -2352,6 +2455,13 @@ waste_storage.20 <- waste_storage.20 |>
 
 waste_storage.20 <- rename_waste_names(waste_storage.20)
 
+waste_storage.20 <- waste_storage.20 |> 
+  select(-waste_code) |>
+  mutate(
+    waste_stored_start_year = waste_stored_start_year / 1000,
+    waste_stored_end_year = waste_stored_end_year / 1000
+  )
+
 processed_sheets[[1]] <- waste_storage.20
 
 # Table 2: Waste received in 2020
@@ -2378,6 +2488,18 @@ waste_received.20 <- waste_received.20 |>
 
 waste_received.20 <- rename_waste_names(waste_received.20)
 
+waste_received.20 <- waste_received.20 |> 
+  select(-waste_code) |>
+  mutate(
+    waste_received_own_waste = waste_received_own_waste / 1000,
+    waste_received_from_producers_RS = waste_received_from_producers_RS / 1000,
+    waste_received_from_collectors_RS = waste_received_from_collectors_RS / 1000,
+    waste_received_from_processors_RS = waste_received_from_processors_RS / 1000,
+    waste_received_from_EU = waste_received_from_EU / 1000,
+    waste_received_from_non_EU = waste_received_from_non_EU / 1000,
+    total_waste_received = total_waste_received / 1000
+  )
+
 # Table 3: Treatment of waste received in 2020
 treating_waste.20 <- processed_sheets[[3]]
 
@@ -2395,6 +2517,12 @@ treating_waste.20 <- treating_waste.20 |>
   )
 
 treating_waste.20 <- rename_waste_names(treating_waste.20)
+
+treating_waste.20 <- treating_waste.20 |> 
+  select(-waste_code) |>
+  mutate(
+    waste_entering_treatment_process = waste_entering_treatment_process / 1000
+  )
 
 processed_sheets[[3]] <- treating_waste.20
 
@@ -2419,6 +2547,15 @@ management_waste.20 <- management_waste.20 |>
 management_waste.20 <- rename_waste_names(management_waste.20, "input_waste_name")
 
 management_waste.20 <- rename_waste_names(management_waste.20, "output_waste_name")
+
+management_waste.20 <- management_waste.20 |> 
+  select(-treatment_input_waste_received_code, -treatment_outlet_delivered_waste_code) |>
+  mutate(
+    waste_handed_to_collectors_RS = waste_handed_to_collectors_RS / 1000,
+    waste_delivered_to_operators_RS = waste_delivered_to_operators_RS / 1000,
+    waste_sent_to_EU = waste_sent_to_EU / 1000,
+    waste_sent_to_non_EU = waste_sent_to_non_EU / 1000
+  )
 
 processed_sheets[[4]] <- management_waste.20
 
@@ -2446,6 +2583,13 @@ management_waste.20a$output_waste_name <- case_when(
   management_waste.20a$output_waste_name == "drugo" ~ "other"
 )
 
+management_waste.20a <- management_waste.20a |> 
+  mutate(
+    delivered_to_storage_or_other_persons_RS = delivered_to_storage_or_other_persons_RS / 1000,
+    shipped_to_EU = shipped_to_EU / 1000,
+    shipped_to_non_EU = shipped_to_non_EU / 1000
+  )
+
 processed_sheets[[5]] <- management_waste.20a
 
 # Table 5: Municipal waste received for treatment, separated by municipality of origin in 2020
@@ -2469,6 +2613,12 @@ waste_treatment.20 <- rename_waste_names(waste_treatment.20)
 waste_treatment.20 <- waste_treatment.20 |> 
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
+waste_treatment.20 <- waste_treatment.20 |>
+  select(-waste_code) |>
+  mutate(
+    waste_collected_by_municipality = waste_collected_by_municipality / 1000
+  )
+
 processed_sheets[[6]] <- waste_treatment.20
 
 # Table 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
@@ -2486,6 +2636,11 @@ mass_difference.20 <- mass_difference.20 |>
   )
 
 mass_difference.20 <- rename_waste_names(mass_difference.20, "input_waste_name")
+
+mass_difference.20 <- mass_difference.20 |> 
+  mutate(
+    mass_change = as.numeric(mass_change) / 1000
+  )
 
 processed_sheets[[7]] <- mass_difference.20
 
@@ -2560,6 +2715,13 @@ landfill_waste.20 <- rename_waste_names(landfill_waste.20)
 
 ## Drop columns containing NA values
 landfill_waste.20 <- select_if(landfill_waste.20, ~!all(is.na(.)))
+
+landfill_waste.20 <- landfill_waste.20 |> 
+  mutate(
+    total_waste_received = as.numeric(total_waste_received) / 1000,
+    disposed_waste_total = as.numeric(disposed_waste_total) / 1000,
+    disposed_waste_non_hazardous = as.numeric(disposed_waste_non_hazardous) / 1000
+  )
 
 # Table 9: Municipal waste disposed of by municipality of origin in 2020 - EXCLUDED
 municipal_waste_disposed.20 <- processed_sheets[[10]]
@@ -2865,6 +3027,13 @@ waste_collected_municipality.19 <- waste_collected_municipality.19 |>
     )
   )
 
+waste_collected_municipality.19 <- waste_collected_municipality.19 |>
+  mutate(
+    total_waste_collected = total_waste_collected / 1000,
+    municipal_waste_collected = municipal_waste_collected / 1000,
+    waste_collected_from_activities = waste_collected_from_activities / 1000
+  )
+
 waste_collection_19.sheet3 <- waste_collected_municipality.19
 
 # Table 4: Collected Municipal Waste in 2019, Separated by Municipality of Origin
@@ -2989,6 +3158,17 @@ waste_handling_19 <- waste_handling_19 |>
 
 waste_handling_19 <- waste_handling_19 |> select(-treatment_process)
 
+waste_handling_19 <- waste_handling_19 |> 
+  group_by(statistical_region, type_of_waste) |>
+  summarise(
+    total_waste_delivered = sum(total_waste_delivered) / 1000,
+    waste_delivered_to_other_collector_RS = sum(waste_delivered_to_other_collector_RS) / 1000,
+    waste_delivered_to_processing_operator_RS = sum(waste_delivered_to_processing_operator_RS) / 1000,
+    waste_delivered_to_other_EU_country = sum(waste_delivered_to_other_EU_country) / 1000
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2019)
+
 waste_handling_19.sheet5 <- waste_handling_19
 
 # sheet names
@@ -3070,6 +3250,13 @@ waste_storage.19 <- waste_storage.19 |>
     )
   )
 
+waste_storage.19 <- waste_storage.19 |>
+  group_by(statistical_region, type_of_waste) |>
+  summarise(waste_stored_start_year = sum(waste_stored_start_year) / 1000, 
+            waste_stored_end_year = sum(waste_stored_end_year) / 1000) |> 
+  ungroup() |> 
+  mutate(year = 2019)
+
 waste_recovery_19.sheet1 <- waste_storage.19
 ```
 
@@ -3133,7 +3320,45 @@ waste_collected.19 <- waste_collected.19 |>
     )
   )
 
-waste_recovery_19.sheet2 <- waste_collected.19
+# create from received_from
+waste_collected.19 <- waste_collected.19 |> 
+  mutate(
+    waste_received_from_producer = case_when(
+      received_from == "own waste" ~ total_waste_received,
+      TRUE ~ 0
+    ),
+    waste_received_from_collector = case_when(
+      received_from == "other collector in RS" ~ total_waste_received,
+      TRUE ~ 0
+    ),
+    waste_received_from_processing_operator = case_when(
+      received_from == "other processing operator in RS" ~ total_waste_received,
+      TRUE ~ 0
+    ),
+    waste_received_from_other_EU_country = case_when(
+      received_from == "other EU country" ~ total_waste_received,
+      TRUE ~ 0
+    ),
+    waste_received_from_other_country_outside_EU = case_when(
+      received_from == "other country outside EU" ~ total_waste_received,
+      TRUE ~ 0
+    )
+  )
+
+waste_collected.19 <- waste_collected.19 |>
+  group_by(statistical_region, type_of_waste) |>
+  summarise(
+    total_waste_received = sum(total_waste_received) / 1000,
+    waste_received_from_producer = sum(waste_received_from_producer) / 1000,
+    waste_received_from_collector = sum(waste_received_from_collector) / 1000,
+    waste_received_from_processing_operator = sum(waste_received_from_processing_operator) / 1000,
+    waste_received_from_other_EU_country = sum(waste_received_from_other_EU_country) / 1000,
+    waste_received_from_other_country_outside_EU = sum(waste_received_from_other_country_outside_EU) / 1000
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2019)
+
+waste_recovery_19.sheet2 <- waste_collected.19 |> select(year, statistical_region, type_of_waste, total_waste_received, waste_received_from_producer, waste_received_from_collector, waste_received_from_processing_operator, waste_received_from_other_EU_country, waste_received_from_other_country_outside_EU)
 ```
 
 ```{r treatment_waste_received}
@@ -3182,7 +3407,24 @@ waste_treatment.19 <- waste_treatment.19 |>
     )
   )
 
-waste_recovery_19.by_codes3 <- waste_treatment.19
+# treatment_after_8 if "DA" then "YES", if "NE" then "NO"
+waste_treatment.19 <- waste_treatment.19 |> 
+  mutate(
+    treatment_after_8 = case_when(
+      treatment_after_8 == "DA" ~ "YES",
+      treatment_after_8 == "NE" ~ "NO"
+    )
+  )
+
+waste_treatment.19 <- waste_treatment.19 |>
+  group_by(statistical_region, type_of_waste, treatment_process, treatment_after_8) |>
+  summarise(
+    total_waste_for_processing = sum(total_waste_for_processing) / 1000
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2019)
+
+waste_recovery_19.by_codes3 <- waste_treatment.19 |> select(year, statistical_region, type_of_waste, treatment_process, treatment_after_8, total_waste_for_processing)
 ```
 
 ```{r treatment_process_waste}
@@ -3243,7 +3485,40 @@ waste_treatment_process.19 <- waste_treatment_process.19 |>
 
 waste_treatment_process.19 <- waste_treatment_process.19 |> select(-treatment_process)
 
-waste_recovery_19.sheet4 <- waste_treatment_process.19
+# create from delivered_to
+waste_treatment_process.19 <- waste_treatment_process.19 |>
+  mutate(
+    waste_recovered_and_given_away_to_collector_RS = case_when(
+      delivered_to == "other collector in RS" ~ waste_recovered_and_given_away,
+      TRUE ~ 0
+    ),
+    waste_recovered_and_given_away_to_processing_operator_RS = case_when(
+      delivered_to == "processing operator in RS" ~ waste_recovered_and_given_away,
+      TRUE ~ 0
+    ),
+    waste_recovered_and_given_away_to_other_EU_country = case_when(
+      delivered_to == "other EU country" ~ waste_recovered_and_given_away,
+      TRUE ~ 0
+    ),
+    waste_recovered_and_given_away_to_other_country_outside_EU = case_when(
+      delivered_to == "other country outside EU" ~ waste_recovered_and_given_away,
+      TRUE ~ 0
+    )
+  )
+
+waste_treatment_process.19 <- waste_treatment_process.19 |>
+  group_by(statistical_region, type_of_waste) |>
+  summarise(
+    waste_recovered_and_given_away = sum(waste_recovered_and_given_away) / 1000,
+    waste_recovered_and_given_away_to_collector_RS = sum(waste_recovered_and_given_away_to_collector_RS) / 1000,
+    waste_recovered_and_given_away_to_processing_operator_RS = sum(waste_recovered_and_given_away_to_processing_operator_RS) / 1000,
+    waste_recovered_and_given_away_to_other_EU_country = sum(waste_recovered_and_given_away_to_other_EU_country) / 1000,
+    waste_recovered_and_given_away_to_other_country_outside_EU = sum(waste_recovered_and_given_away_to_other_country_outside_EU) / 1000
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2019)
+
+waste_recovery_19.sheet4 <- waste_treatment_process.19 |> select(year, statistical_region, type_of_waste, waste_recovered_and_given_away, waste_recovered_and_given_away_to_collector_RS, waste_recovered_and_given_away_to_processing_operator_RS, waste_recovered_and_given_away_to_other_EU_country, waste_recovered_and_given_away_to_other_country_outside_EU)
 ```
 
 ```{r municipal_waste_treatment}

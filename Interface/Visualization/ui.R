@@ -53,32 +53,104 @@ create_numeric_input_row <- function(input_id1,
 
 shinyUI(dashboardPage(
   dashboardHeader(title = "Wood Waste Management Simulation"),
-  dashboardSidebar(
-    sidebarMenu(
-      id = "tabs",
-      menuItem("Simulation", tabName = "simulation", icon = icon("play")),
-      menuItem("Outputs", tabName = "outputs", icon = icon("file-alt")),
+  dashboardSidebar(sidebarMenu(
+    id = "tabs",
+    hidden(
       menuItem(
+        "hiddenAnalysis",
+        tabName = "hiddenAnalysis",
+        icon = icon("chart-simple")
+      )
+    ),
+    hidden(
+      menuItem(
+        "hiddenSimulation",
+        tabName = "hiddenSimulation",
+        icon = icon("play")
+      )
+    ),
+    menuItem(
+      "Analysis",
+      id = "analysisID",
+      tabName = "analysis",
+      expandedName = "ANALYSIS",
+      icon = icon("chart-simple"),
+      menuSubItem(
+        "Generation",
+        tabName = "generation",
+        icon = icon("trash-arrow-up")
+      ),
+      menuSubItem(
+        "Collection",
+        tabName = "collection",
+        icon = icon("truck-arrow-right")
+      ),
+      menuSubItem(
+        "Treatment",
+        tabName = "treatment",
+        icon = icon("hand-holding-heart")
+      )
+    ),
+    menuItem(
+      "Simulation",
+      id = "simulationID",
+      expandedName = "SIMULATION",
+      tabName = "simulation",
+      icon = icon("play"),
+      menuSubItem(
+        "Define Simulation",
+        tabName = "define_simulation",
+        icon = icon("pen-to-square")
+      ),
+      menuSubItem("Outputs", tabName = "outputs", icon = icon("file-alt")),
+      menuSubItem(
         "Plots of Data",
         tabName = "plots",
         icon = icon("chart-line")
       ),
-      menuItem("Tables of Data", tabName = "tables", icon = icon("table")),
-      menuItem(
+      menuSubItem("Tables of Data", tabName = "tables", icon = icon("table")),
+      menuSubItem(
         "Costs of Management",
         tabName = "costs",
         icon = icon("dollar-sign")
       ),
-      menuItem("Distance Matrix", tabName = "distance_matrix", icon = icon("th"))
+      menuSubItem("Distance Matrix", tabName = "distance_matrix", icon = icon("th"))
     )
-  ),
+  )), 
   dashboardBody(
     useShinyFeedback(),
     useShinyjs(),
     tabItems(
+      # Analysis -----
+      tabItem(
+        tabName = "hiddenAnalysis",
+        h2("Analysis of Wood Waste Management")
+      ),
+      # Generation ----
+      tabItem(
+        tabName = "generation",
+        h2("Generation of Wood Waste")
+      ),
+      # Collection ----
+      tabItem(
+        tabName = "collection",
+        h2("Collection of Wood Waste")
+        # plotlyOutput("collection_analysis")
+      ),
+      # Treatment ----
+      tabItem(
+        tabName = "treatment",
+        h2("Treatment of Wood Waste")
+        # plotlyOutput("treatment_analysis")
+      ),
       # Simulation -----
       tabItem(
-        tabName = "simulation",
+        tabName = "hiddenSimulation",
+        h2("Description of the Wood Waste Management Simulation")
+      ),
+      # Define Simulation -----
+      tabItem(
+        tabName = "define_simulation",
         h1("Define your own Wood Waste Management Simulation"),
         fluidRow(
           # Left column -----
