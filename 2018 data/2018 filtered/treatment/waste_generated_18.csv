@@ -1,211 +1,38 @@
-﻿"name_of_company","statistical_region","waste_code","type_of_waste","total_waste_generated","delivered_to","delivered_to_collector_RS","delivered_to_processing_operator_RS","delivered_to_other_EU_country","delivered_to_other_country_outside_EU"
-"AURENIS, podjetje za proizvodnjo, reciklažo in storitve d.o.o.; POLJUBINJ 112, 5220 TOLMIN","GORIŠKA","15 01 03","Wooden packaging",65120,"other collector in RS",65120,0,0,0
-"BLOK reciklaža odpadne elektronike in zbiranje odpadnih barvnih kovin d.o.o.; IOC ZAPOLJE II 7, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",17160,"other processing operator in RS",0,17160,0,0
-"BLOK reciklaža odpadne elektronike in zbiranje odpadnih barvnih kovin d.o.o.; IOC ZAPOLJE II 7, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",14124,"other collector in RS",14124,0,0,0
-"BLOK reciklaža odpadne elektronike in zbiranje odpadnih barvnih kovin d.o.o.; IOC ZAPOLJE II 7, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",4820,"other processing operator in RS",0,4820,0,0
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","ZASAVSKA","20 01 38","Wood, not specified in 20 01 37",23640,"other collector in RS",23640,0,0,0
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","ZASAVSKA","20 01 38","Wood, not specified in 20 01 37",121680,"other processing operator in RS",0,121680,0,0
-"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje; KETTEJEV DREVORED 3, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",9990,"other collector in RS",9990,0,0,0
-"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje; KETTEJEV DREVORED 3, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",54740,"other collector in RS",54740,0,0,0
-"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje; KETTEJEV DREVORED 3, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","20 01 38","Wood, not specified in 20 01 37",2830,"other collector in RS",2830,0,0,0
-"CREMA PLUS storitve in trgovina d.o.o.; TOVARNIŠKA CESTA 51, 2342 RUŠE","PODRAVSKA","15 01 03","Wooden packaging",600,"other processing operator in RS",0,600,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",380816,"other processing operator in RS",0,380816,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",22660,"other processing operator in RS",0,22660,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",137160,"other processing operator in RS",0,137160,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",514472,"other processing operator in RS",0,514472,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",4302481,"other collector in RS",4302481,0,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 01","Paper/Cardboard Packaging",1860288,"other processing operator in RS",0,1860288,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 01","Paper/Cardboard Packaging",583970,"other EU country",0,0,583970,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging",47310,"other EU country",0,0,47310,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",6680,"other processing operator in RS",0,6680,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 01","Paper/Cardboard Packaging",6580,"other processing operator in RS",0,6580,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 01","Paper/Cardboard Packaging",387108,"other EU country",0,0,387108,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",89980,"other EU country",0,0,89980,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 01","Paper/Cardboard Packaging",666540,"other EU country",0,0,666540,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",42880,"other processing operator in RS",0,42880,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 01","Paper/Cardboard Packaging",45024,"other EU country",0,0,45024,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",106512,"other processing operator in RS",0,106512,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORIŠKA","15 01 01","Paper/Cardboard Packaging",325201,"other EU country",0,0,325201,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 01","Paper/Cardboard Packaging",51193,"other EU country",0,0,51193,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 01","Paper/Cardboard Packaging",2987633,"other EU country",0,0,2987633,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",11779203,"other EU country",0,0,11779203,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",13552651,"other EU country",0,0,13552651,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",27960,"other processing operator in RS",0,27960,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",4823211,"other processing operator in RS",0,4823211,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORIŠKA","15 01 01","Paper/Cardboard Packaging",418405,"other processing operator in RS",0,418405,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 01","Paper/Cardboard Packaging",65185,"other processing operator in RS",0,65185,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",3165250,"other EU country",0,0,3165250,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging",2991500,"other EU country",0,0,2991500,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",15580,"other processing operator in RS",0,15580,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","15 01 03","Wooden packaging",189340,"other processing operator in RS",0,189340,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",379160,"other processing operator in RS",0,379160,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 03","Wooden packaging",764860,"other processing operator in RS",0,764860,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORIŠKA","15 01 03","Wooden packaging",62770,"other collector in RS",62770,0,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 03","Wooden packaging",53560,"other processing operator in RS",0,53560,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","PODRAVSKA","15 01 03","Wooden packaging",32360,"other processing operator in RS",0,32360,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",942740,"other processing operator in RS",0,942740,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","15 01 03","Wooden packaging",581740,"other processing operator in RS",0,581740,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","PODRAVSKA","15 01 03","Wooden packaging",180400,"other processing operator in RS",0,180400,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",242530,"other collector in RS",242530,0,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",606500,"other processing operator in RS",0,606500,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",286161,"other processing operator in RS",0,286161,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","15 01 03","Wooden packaging",367560,"other collector in RS",367560,0,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",9150,"other processing operator in RS",0,9150,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORIŠKA","15 01 03","Wooden packaging",99899,"other processing operator in RS",0,99899,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","15 01 03","Wooden packaging",40190,"other processing operator in RS",0,40190,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","15 01 03","Wooden packaging",23860,"other processing operator in RS",0,23860,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 03","Wooden packaging",251630,"other collector in RS",251630,0,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",17040,"other processing operator in RS",0,17040,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",63960,"other processing operator in RS",0,63960,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 03","Wooden packaging",13760,"other processing operator in RS",0,13760,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","15 01 03","Wooden packaging",555980,"other processing operator in RS",0,555980,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",345660,"other processing operator in RS",0,345660,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 03","Wooden packaging",24600,"other processing operator in RS",0,24600,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORIŠKA","15 01 03","Wooden packaging",7350,"other EU country",0,0,7350,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","17 02 01","Wood",75800,"other processing operator in RS",0,75800,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","17 02 01","Wood",21830,"other processing operator in RS",0,21830,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","17 02 01","Wood",142916,"other processing operator in RS",0,142916,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","20 01 38","Wood, not specified in 20 01 37",225387,"other processing operator in RS",0,225387,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",132940,"other processing operator in RS",0,132940,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","20 01 38","Wood, not specified in 20 01 37",414830,"other processing operator in RS",0,414830,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","20 01 38","Wood, not specified in 20 01 37",5770,"other processing operator in RS",0,5770,0,0
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","20 01 38","Wood, not specified in 20 01 37",1741040,"other processing operator in RS",0,1741040,0,0
-"EKO PLASTKOM, trgovina, zbiranje in predelava sekundarnih surovin, d.o.o.; RAJŠPOVA ULICA 26, 2250 PTUJ","POMURSKA","15 01 03","Wooden packaging",6117,"other processing operator in RS",0,6117,0,0
-"EKO PLASTKOM, trgovina, zbiranje in predelava sekundarnih surovin, d.o.o.; RAJŠPOVA ULICA 26, 2250 PTUJ","POMURSKA","17 02 01","Wood",35000,"other processing operator in RS",0,35000,0,0
-"EKOL, zbiranje in predelava sekundarnih surovin, d.o.o.; LAZE 18A, 4000 KRANJ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",17,"other processing operator in RS",0,17,0,0
-"ELEMENT 29, storitve, d.o.o.; PLANJAVA 3, 1236 TRZIN","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",1760,"other collector in RS",1760,0,0,0
-"ELEMENT 29, storitve, d.o.o.; PLANJAVA 3, 1236 TRZIN","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",42700,"other collector in RS",42700,0,0,0
-"ELEMENT 29, storitve, d.o.o.; PLANJAVA 3, 1236 TRZIN","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",2920,"other processing operator in RS",0,2920,0,0
-"FMG VZDRŽEVANJE, poslovne storitve in trgovina d.o.o.; STEGNE 21, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",49040,"other processing operator in RS",0,49040,0,0
-"FMG VZDRŽEVANJE, poslovne storitve in trgovina d.o.o.; STEGNE 21, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",219820,"other EU country",0,0,219820,0
-"FMG VZDRŽEVANJE, poslovne storitve in trgovina d.o.o.; STEGNE 21, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",27280,"other collector in RS",27280,0,0,0
-"GOR, gospodarjenje z odpadki in reciklaža d.o.o.; MEŠKOVA ULICA 9, 3000 CELJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",9520,"other processing operator in RS",0,9520,0,0
-"GOR, gospodarjenje z odpadki in reciklaža d.o.o.; MEŠKOVA ULICA 9, 3000 CELJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",105860,"other processing operator in RS",0,105860,0,0
-"GOR, gospodarjenje z odpadki in reciklaža d.o.o.; MEŠKOVA ULICA 9, 3000 CELJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",16660,"other processing operator in RS",0,16660,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging",746449,"other processing operator in RS",0,746449,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 03","Wooden packaging",686330,"other EU country",0,0,686330,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 03","Wooden packaging",27240,"other collector in RS",27240,0,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 03","Wooden packaging",190430,"other processing operator in RS",0,190430,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 03","Wooden packaging",16500,"other EU country",0,0,16500,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",24600,"other EU country",0,0,24600,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",422750,"other EU country",0,0,422750,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",83580,"other processing operator in RS",0,83580,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",680360,"other EU country",0,0,680360,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",45720,"other collector in RS",45720,0,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",39960,"other processing operator in RS",0,39960,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 03","Wooden packaging",33420,"other processing operator in RS",0,33420,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 03","Wooden packaging",128780,"other collector in RS",128780,0,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 03","Wooden packaging",542425,"other processing operator in RS",0,542425,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRŠKO; CESTA 4. JULIJA 134A, 8270 KRŠKO","POSAVSKA","15 01 01","Paper/Cardboard Packaging",1216840,"other EU country",0,0,1216840,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRŠKO; CESTA 4. JULIJA 134A, 8270 KRŠKO","POSAVSKA","15 01 03","Wooden packaging",48680,"other collector in RS",48680,0,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRŠKO; CESTA 4. JULIJA 134A, 8270 KRŠKO","POSAVSKA","15 01 03","Wooden packaging",32020,"other processing operator in RS",0,32020,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",22880,"other country (outside EU)",0,0,0,22880
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",15960,"other processing operator in RS",0,15960,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",13512040,"other EU country",0,0,13512040,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",512020,"other collector in RS",512020,0,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",151260,"other processing operator in RS",0,151260,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",91100,"other EU country",0,0,91100,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",25150,"other processing operator in RS",0,25150,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",176120,"other processing operator in RS",0,176120,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",22860,"other EU country",0,0,22860,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",567880,"other processing operator in RS",0,567880,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",373032,"other processing operator in RS",0,373032,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",683560,"other collector in RS",683560,0,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",220935,"other processing operator in RS",0,220935,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota NOVA GORICA; PANOVŠKA CESTA 3, 5000 NOVA GORICA","GORIŠKA","15 01 03","Wooden packaging",435500,"other EU country",0,0,435500,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota NOVA GORICA; PANOVŠKA CESTA 3, 5000 NOVA GORICA","GORIŠKA","15 01 03","Wooden packaging",62000,"other EU country",0,0,62000,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota PTUJ; PUHOVA ULICA 15, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",191570,"other EU country",0,0,191570,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota PTUJ; PUHOVA ULICA 15, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",24220,"other country (outside EU)",0,0,0,24220
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota PTUJ; PUHOVA ULICA 15, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",2224488,"other EU country",0,0,2224488,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota PTUJ; PUHOVA ULICA 15, 2250 PTUJ","PODRAVSKA","15 01 03","Wooden packaging",37380,"other processing operator in RS",0,37380,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota PTUJ; PUHOVA ULICA 15, 2250 PTUJ","PODRAVSKA","20 01 38","Wood, not specified in 20 01 37",40540,"other processing operator in RS",0,40540,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota RAVNE; DOBJA VAS 188, 2390 RAVNE NA KOROŠKEM","KOROŠKA","15 01 03","Wooden packaging",95920,"other processing operator in RS",0,95920,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota RAVNE; DOBJA VAS 188, 2390 RAVNE NA KOROŠKEM","KOROŠKA","15 01 03","Wooden packaging",16480,"other processing operator in RS",0,16480,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota SLOVENJ GRADEC; PAMEČE 163, 2380 SLOVENJ GRADEC","KOROŠKA","15 01 01","Paper/Cardboard Packaging",237010,"other EU country",0,0,237010,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota TREBNJE; DOLENJA NEMŠKA VAS 28, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",1127500,"other EU country",0,0,1127500,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",3246545,"other EU country",0,0,3246545,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",1298520,"other processing operator in RS",0,1298520,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",210350,"other EU country",0,0,210350,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 03","Wooden packaging",382612,"other processing operator in RS",0,382612,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 03","Wooden packaging",1470870,"other processing operator in RS",0,1470870,0,0
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 03","Wooden packaging",98280,"other processing operator in RS",0,98280,0,0
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",18000,"other collector in RS",18000,0,0,0
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",136220,"other processing operator in RS",0,136220,0,0
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",90560,"other processing operator in RS",0,90560,0,0
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",9740,"other processing operator in RS",0,9740,0,0
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",119780,"other collector in RS",119780,0,0,0
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",20800,"other collector in RS",20800,0,0,0
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","20 01 38","Wood, not specified in 20 01 37",1098483,"other processing operator in RS",0,1098483,0,0
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.; CESTA NA KRKO 7, 1290 GROSUPLJE","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",66290,"other processing operator in RS",0,66290,0,0
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","15 01 01","Paper/Cardboard Packaging",34580,"other collector in RS",34580,0,0,0
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","15 01 01","Paper/Cardboard Packaging",126920,"other processing operator in RS",0,126920,0,0
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","15 01 01","Paper/Cardboard Packaging",122665,"other processing operator in RS",0,122665,0,0
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","15 01 01","Paper/Cardboard Packaging",61300,"other processing operator in RS",0,61300,0,0
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","15 01 01","Paper/Cardboard Packaging",44580,"other processing operator in RS",0,44580,0,0
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","20 01 38","Wood, not specified in 20 01 37",1008980,"other processing operator in RS",0,1008980,0,0
-"JEKO, javno komunalno podjetje, d.o.o., Jesenice; CESTA MARŠALA TITA 51, 4270 JESENICE","GORENJSKA","20 01 38","Wood, not specified in 20 01 37",373200,"other collector in RS",373200,0,0,0
-"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",15020,"other processing operator in RS",0,15020,0,0
-"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",1540,"other processing operator in RS",0,1540,0,0
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","15 01 01","Paper/Cardboard Packaging",250620,"other collector in RS",250620,0,0,0
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","15 01 01","Paper/Cardboard Packaging",314100,"other collector in RS",314100,0,0,0
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","15 01 01","Paper/Cardboard Packaging",25760,"other collector in RS",25760,0,0,0
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","20 01 38","Wood, not specified in 20 01 37",518520,"other processing operator in RS",0,518520,0,0
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","20 01 38","Wood, not specified in 20 01 37",369660,"other processing operator in RS",0,369660,0,0
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",325601,"other collector in RS",325601,0,0,0
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",710000,"other processing operator in RS",0,710000,0,0
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",40240,"other EU country",0,0,40240,0
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",2920,"other collector in RS",2920,0,0,0
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",13400,"other collector in RS",13400,0,0,0
-"KOMUNALA TREBNJE d.o.o.; GOLIEV TRG 9, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","20 01 38","Wood, not specified in 20 01 37",106320,"other collector in RS",106320,0,0,0
-"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina; GORIŠKA CESTA 23B, 5270 AJDOVŠČINA","GORIŠKA","20 01 38","Wood, not specified in 20 01 37",107620,"other processing operator in RS",0,107620,0,0
-"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","15 01 01","Paper/Cardboard Packaging",335360,"other processing operator in RS",0,335360,0,0
-"KOTO proizvodno in trgovsko podjetje, d.o.o., Ljubljana; AGROKOMBINATSKA CESTA 80, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",18339,"other processing operator in RS",0,18339,0,0
-"KOTO proizvodno in trgovsko podjetje, d.o.o., Ljubljana; AGROKOMBINATSKA CESTA 80, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",2970,"other processing operator in RS",0,2970,0,0
-"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka; VELIKA PRISTAVA 23, 6257 PIVKA","PRIMORSKO-NOTRANJSKA","15 01 01","Paper/Cardboard Packaging",4980,"other processing operator in RS",0,4980,0,0
-"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka; VELIKA PRISTAVA 23, 6257 PIVKA","PRIMORSKO-NOTRANJSKA","15 01 01","Paper/Cardboard Packaging",100360,"other processing operator in RS",0,100360,0,0
-"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka; VELIKA PRISTAVA 23, 6257 PIVKA","PRIMORSKO-NOTRANJSKA","15 01 01","Paper/Cardboard Packaging",45200,"other EU country",0,0,45200,0
-"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka; VELIKA PRISTAVA 23, 6257 PIVKA","PRIMORSKO-NOTRANJSKA","15 01 01","Paper/Cardboard Packaging",93552,"other EU country",0,0,93552,0
-"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",213170,"other collector in RS",213170,0,0,0
-"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",101560,"other collector in RS",101560,0,0,0
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.; KOROŠKA CESTA 46, 3320 VELENJE","SAVINJSKA","17 02 01","Wood",26300,"other collector in RS",26300,0,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",768851,"other processing operator in RS",0,768851,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",20731,"other processing operator in RS",0,20731,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",88171,"other collector in RS",88171,0,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",2585210,"other EU country",0,0,2585210,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",3083268,"other processing operator in RS",0,3083268,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",149957,"other processing operator in RS",0,149957,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",22764,"other processing operator in RS",0,22764,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",811539,"other processing operator in RS",0,811539,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",77111,"other collector in RS",77111,0,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",265750,"other EU country",0,0,265750,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",23900,"other EU country",0,0,23900,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",146460,"other processing operator in RS",0,146460,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",45330,"other processing operator in RS",0,45330,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",594170,"other processing operator in RS",0,594170,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 03","Wooden packaging",25840,"other processing operator in RS",0,25840,0,0
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",201810,"other processing operator in RS",0,201810,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",216180,"other collector in RS",216180,0,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",24420,"other processing operator in RS",0,24420,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",22624,"other processing operator in RS",0,22624,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",2800,"other collector in RS",2800,0,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",549911,"other processing operator in RS",0,549911,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",323462,"other EU country",0,0,323462,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",146297,"other processing operator in RS",0,146297,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",1089749,"other collector in RS",1089749,0,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",63860,"other processing operator in RS",0,63860,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",200,"other collector in RS",200,0,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",23556,"other processing operator in RS",0,23556,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",632611,"other processing operator in RS",0,632611,0,0
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",247650,"other collector in RS",247650,0,0,0
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",40940,"other processing operator in RS",0,40940,0,0
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",39887,"other processing operator in RS",0,39887,0,0
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",56640,"other collector in RS",56640,0,0,0
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",400,"other collector in RS",400,0,0,0
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",3000,"other processing operator in RS",0,3000,0,0
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",3392000,"other processing operator in RS",0,3392000,0,0
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",71500,"other processing operator in RS",0,71500,0,0
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",2693360,"other collector in RS",2693360,0,0,0
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",13420,"other processing operator in RS",0,13420,0,0
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",381140,"other processing operator in RS",0,381140,0,0
-"TERMIT, rudarsko podjetje za pridobivanje kremenovih peskov d.d.; DRTIJA 51, 1251 MORAVČE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",1854,"other collector in RS",1854,0,0,0
-"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.; CESTA V PROD 84, 1000 LJUBLJANA","OSREDNJESLOVENSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",19700,"other processing operator in RS",0,19700,0,0
+﻿"year","statistical_region","type_of_waste","total_waste_generated","delivered_to_collector_RS","delivered_to_processing_operator_RS","delivered_to_other_EU_country","delivered_to_other_country_outside_EU"
+2018,"GORENJSKA","Paper/Cardboard Packaging",4801.473,45.72,1990.425,2765.328,0
+2018,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",380.816,0,380.816,0,0
+2018,"GORENJSKA","Wood, not specified in 20 01 37",788.03,373.2,414.83,0,0
+2018,"GORENJSKA","Wooden packaging",1745.715,380.41,1365.305,0,0
+2018,"GORIŠKA","Paper/Cardboard Packaging",743.606,0,418.405,325.201,0
+2018,"GORIŠKA","Wood, not specified in 20 01 37",107.62,0,107.62,0,0
+2018,"GORIŠKA","Wooden packaging",732.639,127.89,99.899,504.85,0
+2018,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",6796.14,9.99,5634.75,1151.4,0
+2018,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04",4302.481,4302.481,0,0,0
+2018,"JUGOVZHODNA SLOVENIJA","Wood",164.746,0,164.746,0,0
+2018,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",334.537,109.15,225.387,0,0
+2018,"JUGOVZHODNA SLOVENIJA","Wooden packaging",712.751,54.74,658.011,0,0
+2018,"KOROŠKA","Paper/Cardboard Packaging",827.49,590.48,0,237.01,0
+2018,"KOROŠKA","Wood, not specified in 20 01 37",888.18,0,888.18,0,0
+2018,"KOROŠKA","Wooden packaging",112.4,0,112.4,0,0
+2018,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",3785.259,0,746.449,3038.81,0
+2018,"OBALNO-KRAŠKA","Wood",75.8,0,75.8,0,0
+2018,"OBALNO-KRAŠKA","Wooden packaging",1328.25,394.8,230.62,702.83,0
+2018,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",36646.386,1943.454,4719.231,29960.821,22.88
+2018,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",19.7,0,19.7,0,0
+2018,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",6865.61,2808.32,4057.29,0,0
+2018,"OSREDNJESLOVENSKA","Wooden packaging",5719.071,1461.664,4194.307,63.1,0
+2018,"PODRAVSKA","Paper/Cardboard Packaging",9233.342,542.842,2495.76,6170.52,24.22
+2018,"PODRAVSKA","Wood, not specified in 20 01 37",1139.023,0,1139.023,0,0
+2018,"PODRAVSKA","Wooden packaging",276.58,0,276.58,0,0
+2018,"POMURSKA","Paper/Cardboard Packaging",3539.08,34.58,420.65,3083.85,0
+2018,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04",674.292,0,674.292,0,0
+2018,"POMURSKA","Wood",35,0,35,0,0
+2018,"POMURSKA","Wood, not specified in 20 01 37",2755.79,0,2755.79,0,0
+2018,"POMURSKA","Wooden packaging",73.437,0,73.437,0,0
+2018,"POSAVSKA","Paper/Cardboard Packaging",1552.2,0,335.36,1216.84,0
+2018,"POSAVSKA","Wooden packaging",80.7,48.68,32.02,0,0
+2018,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",244.092,0,105.34,138.752,0
+2018,"SAVINJSKA","Paper/Cardboard Packaging",16765.465,57.04,1382.347,15326.078,0
+2018,"SAVINJSKA","Wood",26.3,26.3,0,0,0
+2018,"SAVINJSKA","Wooden packaging",3302.682,0,3302.682,0,0
+2018,"ZASAVSKA","Wood, not specified in 20 01 37",145.32,23.64,121.68,0,0

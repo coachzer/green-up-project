@@ -1,7 +1,7 @@
-﻿"name_of_company","waste_code","lost_mass","type_of_waste"
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","20 01 38",10660,"Wood, not specified in 20 01 37"
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","15 01 01",18359,"Paper/Cardboard Packaging"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.","15 01 01",5860,"Paper/Cardboard Packaging"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 01 38",7000,"Wood, not specified in 20 01 37"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","03 01 05",3294,"Sawdust/Chips/Wood, not specified in 03 01 04"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01",138913,"Paper/Cardboard Packaging"
+﻿"name_of_company","waste_code","lost_mass","type_of_waste","year"
+"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","20 01 38",10.66,"Wood, not specified in 20 01 37",2019
+"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","15 01 01",18.359,"Paper/Cardboard Packaging",2019
+"KOCEROD, družba za ravnanje z odpadki d.o.o.","15 01 01",5.86,"Paper/Cardboard Packaging",2019
+"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 01 38",7,"Wood, not specified in 20 01 37",2019
+"SIMBIO, družba za ravnanje z odpadki d.o.o.","03 01 05",3.294,"Sawdust/Chips/Wood, not specified in 03 01 04",2019
+"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01",138.913,"Paper/Cardboard Packaging",2019

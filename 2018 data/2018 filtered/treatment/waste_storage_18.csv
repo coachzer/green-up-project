@@ -1,21 +1,16 @@
-﻿"name_of_company","statistical_region","waste_code","type_of_waste","waste_stored_start_year","waste_stored_end_year"
-"AURENIS, podjetje za proizvodnjo, reciklažo in storitve d.o.o.; POLJUBINJ 112, 5220 TOLMIN","GORIŠKA","15 01 03","Wooden packaging",6500,0
-"BLOK reciklaža odpadne elektronike in zbiranje odpadnih barvnih kovin d.o.o.; IOC ZAPOLJE II 7, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",540,210
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","ZASAVSKA","15 01 01","Paper/Cardboard Packaging",17660,23640
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","ZASAVSKA","20 01 38","Wood, not specified in 20 01 37",680246,1434055
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging",43274,51973
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 01","Paper/Cardboard Packaging",90071,71713
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",278728,185599
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 01","Paper/Cardboard Packaging",44632,61438
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",3500,6829
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","15 01 03","Wooden packaging",35884,16704
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","20 01 38","Wood, not specified in 20 01 37",380816,280
-"ELEMENT 29, storitve, d.o.o.; PLANJAVA 3, 1236 TRZIN","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",0,4005
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",0,64085
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","15 01 01","Paper/Cardboard Packaging",22175,46292
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","20 01 38","Wood, not specified in 20 01 37",26040,0
-"JE-EMB, proizvodnja in prodaja lesene embalaže, d.o.o.; IOC ZAPOLJE III 10, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",12500,7000
-"LEPENKA TRGOVINA, prodaja in proizvodnja d.o.o.; SLAP 8, 4290 TRŽIČ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",36685,55228
-"ROKS recikliranje in predelava organskih odpadkov d.o.o.; KAMNOGORIŠKA CESTA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",2899798,1822638
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",6000,6000
-"VIPAP VIDEM KRŠKO proizvodnja papirja in vlaknin d.d.; TOVARNIŠKA ULICA 18, 8270 KRŠKO","POSAVSKA","15 01 03","Wooden packaging",106000,117000
+﻿"year","statistical_region","type_of_waste","waste_stored_start_year","waste_stored_end_year"
+2018,"GORENJSKA","Paper/Cardboard Packaging",126.756,126.941
+2018,"GORENJSKA","Wood, not specified in 20 01 37",380.816,0.28
+2018,"GORIŠKA","Wooden packaging",6.5,0
+2018,"JUGOVZHODNA SLOVENIJA","Wooden packaging",3.5,6.829
+2018,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",43.274,51.973
+2018,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",285.268,191.809
+2018,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",2899.798,1822.638
+2018,"OSREDNJESLOVENSKA","Wooden packaging",12.5,7
+2018,"PODRAVSKA","Paper/Cardboard Packaging",0,68.09
+2018,"POMURSKA","Paper/Cardboard Packaging",66.807,107.73
+2018,"POMURSKA","Wood, not specified in 20 01 37",26.04,0
+2018,"POSAVSKA","Wooden packaging",106,117
+2018,"SAVINJSKA","Wooden packaging",35.884,16.704
+2018,"ZASAVSKA","Paper/Cardboard Packaging",17.66,23.64
+2018,"ZASAVSKA","Wood, not specified in 20 01 37",680.246,1434.055

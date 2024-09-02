@@ -1,6 +1,6 @@
-﻿"name_of_company","waste_code","type_of_waste","lost_mass"
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","20 01 38","Wood, not specified in 20 01 37",88925
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","15 01 01","Paper/Cardboard Packaging",12692
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","15 01 01","Paper/Cardboard Packaging",13000
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","20 01 38","Wood, not specified in 20 01 37",7000
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","15 01 01","Paper/Cardboard Packaging",2508
+﻿"year","name_of_company","type_of_waste","lost_mass"
+2018,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","Wood, not specified in 20 01 37",88.925
+2018,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","Paper/Cardboard Packaging",12.692
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","Paper/Cardboard Packaging",13
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","Wood, not specified in 20 01 37",7
+2018,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","Paper/Cardboard Packaging",2.508

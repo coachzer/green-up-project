@@ -1,185 +1,52 @@
-﻿"name_of_company","statistical_region","waste_code","type_of_waste","total_waste_given_away"
-"Albaugh tovarna kemičnih izdelkov d.o.o.; GRAJSKI TRG 21, 2327 RAČE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",1790
-"Albaugh tovarna kemičnih izdelkov d.o.o.; GRAJSKI TRG 21, 2327 RAČE","PODRAVSKA","15 01 03","Wooden packaging",7080
-"AVTOPREVOZNIŠTVO JANEZ LAVRIČ S.P.; VELIKI JELNIK 6, 1223 BLAGOVICA","OSREDNJESLOVENSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",94300
-"AVTOPREVOZNIŠTVO JANEZ LAVRIČ S.P.; VELIKI JELNIK 6, 1223 BLAGOVICA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",405000
-"AVTOPREVOZNIŠTVO JANEZ LAVRIČ S.P.; VELIKI JELNIK 6, 1223 BLAGOVICA","OSREDNJESLOVENSKA","17 02 01","Wood",403950
-"BARKO, trgovanje z odpadnimi surovinami, d.o.o.; IOC ZAPOLJE I 35, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",2160
-"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.; JEZERSKA CESTA 108C, 4000 KRANJ","GORENJSKA","03 01 01","Bark and Cork Waste",27000
-"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.; JEZERSKA CESTA 108C, 4000 KRANJ","GORENJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",500
-"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.; JEZERSKA CESTA 108C, 4000 KRANJ","GORENJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",334250
-"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.; JEZERSKA CESTA 108C, 4000 KRANJ","GORENJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",18000
-"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.; JEZERSKA CESTA 108C, 4000 KRANJ","GORENJSKA","15 01 03","Wooden packaging",2028205
-"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.; JEZERSKA CESTA 108C, 4000 KRANJ","GORENJSKA","20 01 38","Wood, not specified in 20 01 37",1608310
-"BLOK reciklaža odpadne elektronike in zbiranje odpadnih barvnih kovin d.o.o.; IOC ZAPOLJE II 7, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",1850
-"BREST-POHIŠTVO d.o.o. Cerknica, podjetje za proizvodnjo in promet pohištva ter opreme; CESTA 4. MAJA 18, 1380 CERKNICA","PRIMORSKO-NOTRANJSKA","15 01 03","Wooden packaging",607500
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","ZASAVSKA","15 01 01","Paper/Cardboard Packaging",860
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","ZASAVSKA","20 01 38","Wood, not specified in 20 01 37",137540
-"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje; KETTEJEV DREVORED 3, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","20 01 38","Wood, not specified in 20 01 37",1510
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",124
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",2664294
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",152897
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",1664558
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",47140
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","03 01 99","Miscellaneous Waste",53040
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORIŠKA","15 01 01","Paper/Cardboard Packaging",799634
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",11796999
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",13615594
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 01","Paper/Cardboard Packaging",3165841
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging",2603450
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",1830451
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 01","Paper/Cardboard Packaging",3486128
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",5281246
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORIŠKA","15 01 03","Wooden packaging",171188
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",2009988
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","PODRAVSKA","15 01 03","Wooden packaging",147375
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","15 01 03","Wooden packaging",1181074
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","15 01 03","Wooden packaging",1158486
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 03","Wooden packaging",315734
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",2433107
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",213310
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","15 01 03","Wooden packaging",378948
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","17 02 01","Wood",102918
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","17 02 01","Wood",164746
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","17 02 01","Wood",30190
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","17 02 01","Wood",22822
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","17 02 01","Wood",20000
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","20 01 38","Wood, not specified in 20 01 37",227127
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","GORENJSKA","20 01 38","Wood, not specified in 20 01 37",163706
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","20 01 38","Wood, not specified in 20 01 37",35878
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OBALNO-KRAŠKA","20 01 38","Wood, not specified in 20 01 37",78140
-"DINOS, družba za pripravo sekundarnih surovin, d.o.o.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",7160
-"ECO SM, PREDELAVA IN STORITVE, D.O.O.; SAVSKA CESTA 21, 4264 BOHINJSKA BISTRICA","GORENJSKA","17 02 01","Wood",52200
-"EKO - TCE Tehnološki center za aplikativno ekologijo d.o.o.; CELJSKA CESTA 14, 3212 VOJNIK","SAVINJSKA","15 01 03","Wooden packaging",120
-"ELEMENT 29, storitve, d.o.o.; PLANJAVA 3, 1236 TRZIN","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",1760
-"ENERGOLES BOHOR, proizvodnja, trgovina in storitve, d.o.o.; LESNA ULICA 2, 3230 ŠENTJUR","SAVINJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",106850
-"ENERGOLES BOHOR, proizvodnja, trgovina in storitve, d.o.o.; LESNA ULICA 2, 3230 ŠENTJUR","SAVINJSKA","15 01 03","Wooden packaging",801840
-"ENERGOLES BOHOR, proizvodnja, trgovina in storitve, d.o.o.; LESNA ULICA 2, 3230 ŠENTJUR","SAVINJSKA","20 01 38","Wood, not specified in 20 01 37",2137400
-"FMG VZDRŽEVANJE, poslovne storitve in trgovina d.o.o.; STEGNE 21, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",710000
-"FMG VZDRŽEVANJE, poslovne storitve in trgovina d.o.o.; STEGNE 21, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",27280
-"GOR, gospodarjenje z odpadki in reciklaža d.o.o.; MEŠKOVA ULICA 9, 3000 CELJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",9380
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging",31880
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging",5400
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging",1489879
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 03","Wooden packaging",376656
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","17 02 01","Wood",34209
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KOPER; ULICA 15.MAJA 11, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","20 01 38","Wood, not specified in 20 01 37",513250
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",2373788
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",680
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 03","Wooden packaging",666096
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","15 01 03","Wooden packaging",4560
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","17 02 01","Wood",2120
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRANJ; ULICA MIRKA VADNOVA 4, 4000 KRANJ","GORENJSKA","20 01 38","Wood, not specified in 20 01 37",65880
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRŠKO; CESTA 4. JULIJA 134A, 8270 KRŠKO","POSAVSKA","15 01 01","Paper/Cardboard Packaging",763238
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRŠKO; CESTA 4. JULIJA 134A, 8270 KRŠKO","POSAVSKA","15 01 03","Wooden packaging",78990
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota KRŠKO; CESTA 4. JULIJA 134A, 8270 KRŠKO","POSAVSKA","17 02 01","Wood",260
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",144380
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",1015000
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",5420
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",7591530
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",1808082
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","17 02 01","Wood",103570
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota LJUBLJANA I; CESTA DVEH CESARJEV 370, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",40470
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota NOVA GORICA; PANOVŠKA CESTA 3, 5000 NOVA GORICA","GORIŠKA","15 01 01","Paper/Cardboard Packaging",1404442
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota NOVA GORICA; PANOVŠKA CESTA 3, 5000 NOVA GORICA","GORIŠKA","15 01 03","Wooden packaging",448320
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota NOVA GORICA; PANOVŠKA CESTA 3, 5000 NOVA GORICA","GORIŠKA","17 02 01","Wood",58000
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota NOVA GORICA; PANOVŠKA CESTA 3, 5000 NOVA GORICA","GORIŠKA","20 01 38","Wood, not specified in 20 01 37",14850
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ODKUPNA ENOTA ORMOŽ; HARDEK 21B, 2270 ORMOŽ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",101243
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota PTUJ; PUHOVA ULICA 15, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",1610874
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota PTUJ; PUHOVA ULICA 15, 2250 PTUJ","PODRAVSKA","15 01 03","Wooden packaging",141720
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota PTUJ; PUHOVA ULICA 15, 2250 PTUJ","PODRAVSKA","17 02 01","Wood",1920
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota PTUJ; PUHOVA ULICA 15, 2250 PTUJ","PODRAVSKA","20 01 38","Wood, not specified in 20 01 37",24880
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota RAVNE; DOBJA VAS 188, 2390 RAVNE NA KOROŠKEM","KOROŠKA","15 01 01","Paper/Cardboard Packaging",432225
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota RAVNE; DOBJA VAS 188, 2390 RAVNE NA KOROŠKEM","KOROŠKA","15 01 03","Wooden packaging",94280
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota SLOVENJ GRADEC; PAMEČE 163, 2380 SLOVENJ GRADEC","KOROŠKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",28900
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota SLOVENJ GRADEC; PAMEČE 163, 2380 SLOVENJ GRADEC","KOROŠKA","15 01 01","Paper/Cardboard Packaging",1630
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota SLOVENJ GRADEC; PAMEČE 163, 2380 SLOVENJ GRADEC","KOROŠKA","15 01 01","Paper/Cardboard Packaging",4330
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota SLOVENJ GRADEC; PAMEČE 163, 2380 SLOVENJ GRADEC","KOROŠKA","15 01 01","Paper/Cardboard Packaging",608090
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota SLOVENJ GRADEC; PAMEČE 163, 2380 SLOVENJ GRADEC","KOROŠKA","15 01 03","Wooden packaging",28580
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota TREBNJE; DOLENJA NEMŠKA VAS 28, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",972744
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota TREBNJE; DOLENJA NEMŠKA VAS 28, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",12240
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota TREBNJE; DOLENJA NEMŠKA VAS 28, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",791958
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota TREBNJE; DOLENJA NEMŠKA VAS 28, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","17 02 01","Wood",23720
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota TREBNJE; DOLENJA NEMŠKA VAS 28, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","20 01 38","Wood, not specified in 20 01 37",33762
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",43240
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","03 01 99","Miscellaneous Waste",1802770
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",400
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",9550
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",4207630
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",1108620
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","15 01 03","Wooden packaging",2391224
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","17 02 01","Wood",34740
-"Gorenje Surovina družba za predelavo odpadkov d.o.o., Poslovna enota ŽALEC; ULICA SAVINJSKE ČETE 18, 3310 ŽALEC","SAVINJSKA","20 01 38","Wood, not specified in 20 01 37",6360
-"HAFNER BOŠTJANČIČ, gradbeno podjetje, d.o.o.; SREDNJE BITNJE 127, 4209 ŽABNICA","OSREDNJESLOVENSKA","17 02 01","Wood",8000
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",737381
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","20 01 38","Wood, not specified in 20 01 37",1098483
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","15 01 01","Paper/Cardboard Packaging",462028
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","20 01 38","Wood, not specified in 20 01 37",589340
-"JE-EMB, proizvodnja in prodaja lesene embalaže, d.o.o.; IOC ZAPOLJE III 10, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",456667
-"JE-EMB, proizvodnja in prodaja lesene embalaže, d.o.o.; IOC ZAPOLJE III 10, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",254250
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","15 01 01","Paper/Cardboard Packaging",99920
-"KOGAL proizvodnja, trgovina, storitve, posredništvo, kmetijstvo, promet, gradbeništvo, nepremičnine d.o.o.; SLOVENSKA ULICA 43, 2212 ŠENTILJ V SLOV. GORICAH","PODRAVSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",429180
-"KOGAL proizvodnja, trgovina, storitve, posredništvo, kmetijstvo, promet, gradbeništvo, nepremičnine d.o.o.; SLOVENSKA ULICA 43, 2212 ŠENTILJ V SLOV. GORICAH","PODRAVSKA","15 01 03","Wooden packaging",1140
-"KOGAL proizvodnja, trgovina, storitve, posredništvo, kmetijstvo, promet, gradbeništvo, nepremičnine d.o.o.; SLOVENSKA ULICA 43, 2212 ŠENTILJ V SLOV. GORICAH","PODRAVSKA","20 01 38","Wood, not specified in 20 01 37",1494967
-"KOLIČEVO KARTON Proizvodnja kartona, d.o.o.; PAPIRNIŠKA CESTA 1, 1230 DOMŽALE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",6407533
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",16190
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",7089316
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",1035601
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",4844
-"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",13400
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.; ULICA POHORSKEGA BATALJONA 12, 2310 SLOVENSKA BISTRICA","PODRAVSKA","17 02 01","Wood",2800
-"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","15 01 01","Paper/Cardboard Packaging",1011832
-"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","15 01 03","Wooden packaging",3640
-"LEPENKA TRGOVINA, prodaja in proizvodnja d.o.o.; SLAP 8, 4290 TRŽIČ","GORENJSKA","15 01 01","Paper/Cardboard Packaging",179317
-"LESNA GALANTERIJA MARKO KRAMPELJ S.P.; PRAZNIKI 1, 1311 TURJAK","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",17040
-"MIZARSTVO KOVAČ podjetje za obdelavo lesa in trgovino, d.o.o. Ljubija 55 Mozirje; LJUBIJA 55, 3330 MOZIRJE","SAVINJSKA","15 01 03","Wooden packaging",382612
-"NG NIZKE GRADNJE KLADNIK, gradbene in druge storitve, d.o.o.; DROFENIKOVA ULICA 16, 3230 ŠENTJUR","SAVINJSKA","17 02 01","Wood",138000
-"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka; VELIKA PRISTAVA 23, 6257 PIVKA","PRIMORSKO-NOTRANJSKA","15 01 01","Paper/Cardboard Packaging",261393
-"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka; VELIKA PRISTAVA 23, 6257 PIVKA","PRIMORSKO-NOTRANJSKA","15 01 03","Wooden packaging",9208
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","20 01 38","Wood, not specified in 20 01 37",70000
-"OMAPLAST reciklaža plastike d.o.o.; KOSOVELOVA CESTA 3, 1290 GROSUPLJE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",990
-"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",171710
-"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",4673530
-"ROKS recikliranje in predelava organskih odpadkov d.o.o.; KAMNOGORIŠKA CESTA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",16740
-"ROKS recikliranje in predelava organskih odpadkov d.o.o.; KAMNOGORIŠKA CESTA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",187800
-"ROKS recikliranje in predelava organskih odpadkov d.o.o.; KAMNOGORIŠKA CESTA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","17 02 01","Wood",119000
-"ROKS recikliranje in predelava organskih odpadkov d.o.o.; KAMNOGORIŠKA CESTA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",3457720
-"ROKS recikliranje in predelava organskih odpadkov d.o.o.; KAMNOGORIŠKA CESTA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",2203320
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",23553
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",739755
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",1509844
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",10070602
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",60700
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",193961
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 03","Wooden packaging",163380
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","JUGOVZHODNA SLOVENIJA","20 01 38","Wood, not specified in 20 01 37",37560
-"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","20 01 38","Wood, not specified in 20 01 37",4875
-"SALONIT ANHOVO Gradbeni materiali, d.d.; ANHOVO 1, 5210 DESKLE","GORIŠKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",19700
-"SALONIT ANHOVO Gradbeni materiali, d.d.; ANHOVO 1, 5210 DESKLE","GORIŠKA","15 01 01","Paper/Cardboard Packaging",21600
-"SALONIT ANHOVO Gradbeni materiali, d.d.; ANHOVO 1, 5210 DESKLE","GORIŠKA","15 01 03","Wooden packaging",75250
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",163980
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper/Cardboard Packaging",1960833
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",1011839
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",248910
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",394630
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","15 01 01","Paper/Cardboard Packaging",343888
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","17 02 01","Wood",15140
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","17 02 01","Wood",13380
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","20 01 38","Wood, not specified in 20 01 37",673469
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","17 02 01","Wood",61300
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",5863360
-"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.; CESTA V PROD 84, 1000 LJUBLJANA","OSREDNJESLOVENSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",279280
-"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.; CESTA V PROD 84, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",2021864
-"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.; CESTA V PROD 84, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden packaging",3369544
-"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.; CESTA V PROD 84, 1000 LJUBLJANA","OSREDNJESLOVENSKA","17 02 01","Wood",1654756
-"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.; CESTA V PROD 84, 1000 LJUBLJANA","OSREDNJESLOVENSKA","17 02 01","Wood",9800
-"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.; CESTA V PROD 84, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",17270
-"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.; CESTA V PROD 84, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",16134006
-"TOPLARNA ŽELEZNIKI, proizvodnja in distribucija toplotne energije, d.o.o.; ČEŠNJICA 54, 4228 ŽELEZNIKI","GORENJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",1488547
-"TOPLARNA ŽELEZNIKI, proizvodnja in distribucija toplotne energije, d.o.o.; ČEŠNJICA 54, 4228 ŽELEZNIKI","GORENJSKA","15 01 03","Wooden packaging",1978640
-"TOPLARNA ŽELEZNIKI, proizvodnja in distribucija toplotne energije, d.o.o.; ČEŠNJICA 54, 4228 ŽELEZNIKI","GORENJSKA","17 02 01","Wood",510210
-"VAČO varovanje okolja d.o.o.; ZDOLSKA CESTA 11, 8270 KRŠKO","OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",58774
-"VAČO varovanje okolja d.o.o.; ZDOLSKA CESTA 11, 8270 KRŠKO","ZASAVSKA","15 01 01","Paper/Cardboard Packaging",4767
-"VAČO varovanje okolja d.o.o.; ZDOLSKA CESTA 11, 8270 KRŠKO","ZASAVSKA","15 01 01","Paper/Cardboard Packaging",348
-"VIPAP VIDEM KRŠKO proizvodnja papirja in vlaknin d.d.; TOVARNIŠKA ULICA 18, 8270 KRŠKO","POSAVSKA","15 01 01","Paper/Cardboard Packaging",631952
-"VIPAP VIDEM KRŠKO proizvodnja papirja in vlaknin d.d.; TOVARNIŠKA ULICA 18, 8270 KRŠKO","POSAVSKA","15 01 03","Wooden packaging",170000
+﻿"year","statistical_region","type_of_waste","total_waste_given_away"
+2018,"GORENJSKA","Bark and Cork Waste",27
+2018,"GORENJSKA","Paper/Cardboard Packaging",6039.913
+2018,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1888.437
+2018,"GORENJSKA","Wood",594.72
+2018,"GORENJSKA","Wood, not specified in 20 01 37",1837.896
+2018,"GORENJSKA","Wooden packaging",5858.575
+2018,"GORIŠKA","Paper/Cardboard Packaging",2225.676
+2018,"GORIŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",19.7
+2018,"GORIŠKA","Wood",58
+2018,"GORIŠKA","Wood, not specified in 20 01 37",14.85
+2018,"GORIŠKA","Wooden packaging",694.758
+2018,"JUGOVZHODNA SLOVENIJA","Miscellaneous Waste",53.04
+2018,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",7005.985
+2018,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04",2664.294
+2018,"JUGOVZHODNA SLOVENIJA","Wood",188.466
+2018,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",299.959
+2018,"JUGOVZHODNA SLOVENIJA","Wooden packaging",3285.765
+2018,"KOROŠKA","Paper/Cardboard Packaging",1146.195
+2018,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",28.9
+2018,"KOROŠKA","Wooden packaging",122.86
+2018,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",4130.609
+2018,"OBALNO-KRAŠKA","Wood",137.127
+2018,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37",591.39
+2018,"OBALNO-KRAŠKA","Wooden packaging",755.604
+2018,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",48626.359
+2018,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",714.994
+2018,"OSREDNJESLOVENSKA","Wood",2380.376
+2018,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",32804.866
+2018,"OSREDNJESLOVENSKA","Wooden packaging",11391.24
+2018,"PODRAVSKA","Paper/Cardboard Packaging",7775.969
+2018,"PODRAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",429.18
+2018,"PODRAVSKA","Wood",4.72
+2018,"PODRAVSKA","Wood, not specified in 20 01 37",2623.205
+2018,"PODRAVSKA","Wooden packaging",460.695
+2018,"POMURSKA","Paper/Cardboard Packaging",3627.869
+2018,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1664.558
+2018,"POMURSKA","Wood, not specified in 20 01 37",589.34
+2018,"POMURSKA","Wooden packaging",315.734
+2018,"POSAVSKA","Paper/Cardboard Packaging",2407.022
+2018,"POSAVSKA","Wood",0.26
+2018,"POSAVSKA","Wooden packaging",252.63
+2018,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",261.393
+2018,"PRIMORSKO-NOTRANJSKA","Wooden packaging",616.708
+2018,"SAVINJSKA","Miscellaneous Waste",1802.77
+2018,"SAVINJSKA","Paper/Cardboard Packaging",17467.087
+2018,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",302.987
+2018,"SAVINJSKA","Wood",224.082
+2018,"SAVINJSKA","Wood, not specified in 20 01 37",2923.107
+2018,"SAVINJSKA","Wooden packaging",4734.282
+2018,"ZASAVSKA","Paper/Cardboard Packaging",5.975
+2018,"ZASAVSKA","Wood, not specified in 20 01 37",137.54

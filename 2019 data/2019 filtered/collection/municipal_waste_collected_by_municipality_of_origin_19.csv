@@ -1,452 +1,414 @@
-﻿"name_of_company","waste_code","name_of_municipality","total_waste_collected","type_of_waste","statistical_region"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","CIRKULANE",12080,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","DESTRNIK",22458,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","DUPLEK",63316,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","KIDRIČEVO",63209,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","MAJŠPERK",29938,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","PODLEHNIK",10182,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","SVETI ANDRAŽ V SLOV. GORICAH",8778,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","TRNOVSKA VAS",8407,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","VIDEM",31244,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","ZAVRČ",6901,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","15 01 01","ŽETALE",7295,"Paper/Cardboard Packaging","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","20 01 38","DUPLEK",80751,"Wood, not specified in 20 01 37","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","20 01 38","KIDRIČEVO",135100,"Wood, not specified in 20 01 37","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","20 01 38","MAJŠPERK",41950,"Wood, not specified in 20 01 37","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","20 01 38","MARIBOR",35655,"Wood, not specified in 20 01 37","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","20 01 38","TRNOVSKA VAS",27881,"Wood, not specified in 20 01 37","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","20 01 38","VIDEM",37982,"Wood, not specified in 20 01 37","PODRAVSKA"
-"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.","20 01 38","ŽETALE",23370,"Wood, not specified in 20 01 37","PODRAVSKA"
-"EKO-PARK d.o.o. Lendava, javno podjetje OKO-PARK Kft. Lendva, kozhasznu vallalat","15 01 01","LENDAVA",89849,"Paper/Cardboard Packaging","POMURSKA"
-"INFRASTRUKTURA BLED d.o.o.","15 01 01","BLED",115639,"Paper/Cardboard Packaging","GORENJSKA"
-"INFRASTRUKTURA BLED d.o.o.","15 01 01","GORJE",12308,"Paper/Cardboard Packaging","GORENJSKA"
-"INFRASTRUKTURA BLED d.o.o.","20 01 38","BLED",464512,"Wood, not specified in 20 01 37","GORENJSKA"
-"INFRASTRUKTURA BLED d.o.o.","20 01 38","GORJE",76068,"Wood, not specified in 20 01 37","GORENJSKA"
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.","15 01 01","DORNAVA",20166,"Paper/Cardboard Packaging","PODRAVSKA"
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.","15 01 01","PTUJ",253599,"Paper/Cardboard Packaging","PODRAVSKA"
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.","20 01 38","DORNAVA",33956,"Wood, not specified in 20 01 37","PODRAVSKA"
-"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.","20 01 38","PTUJ",1120890,"Wood, not specified in 20 01 37","PODRAVSKA"
-"JAVNO KOMUNALNO PODJETJE DRAVOGRAD d.o.o.","15 01 01","DRAVOGRAD",119630,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","15 01 01","DOBREPOLJE",5906,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","15 01 01","GROSUPLJE",188970,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","15 01 01","IVANČNA GORICA",100390,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","15 01 03","DOBREPOLJE",1198,"Wooden packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","15 01 03","GROSUPLJE",38349,"Wooden packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","15 01 03","IVANČNA GORICA",20373,"Wooden packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","20 01 38","DOBREPOLJE",14613,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","20 01 38","GROSUPLJE",410350,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","20 01 38","IVANČNA GORICA",183867,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA KOČEVJE d.o.o.","15 01 01","KOČEVJE",184500,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA KOČEVJE d.o.o.","15 01 01","KOSTEL",11760,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA KOČEVJE d.o.o.","20 01 38","KOČEVJE",503150,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA KOČEVJE d.o.o.","20 01 38","KOSTEL",29860,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.","15 01 01","LOŠKI POTOK",14145,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.","15 01 01","RIBNICA",60541,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.","15 01 01","SODRAŽICA",14279,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.","20 01 38","LOŠKI POTOK",46634,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.","20 01 38","RIBNICA",199591,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.","20 01 38","SODRAŽICA",47075,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"JAVNO KOMUNALNO PODJETJE LOG d.o.o.","15 01 01","ČRNA NA KOROŠKEM",6310,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO KOMUNALNO PODJETJE LOG d.o.o.","15 01 01","MEŽICA",6849,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO KOMUNALNO PODJETJE LOG d.o.o.","15 01 01","PREVALJE",12513,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO KOMUNALNO PODJETJE LOG d.o.o.","15 01 01","RAVNE NA KOROŠKEM",22010,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","15 01 01","DOMŽALE",364220,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","15 01 01","LUKOVICA",48562,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","15 01 01","MENGEŠ",72843,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","15 01 01","MORAVČE",48562,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","15 01 01","TRZIN",72843,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","20 01 38","DOMŽALE",836499,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","20 01 38","LUKOVICA",111533,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","20 01 38","MENGEŠ",167299,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","20 01 38","MORAVČE",111533,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.","20 01 38","TRZIN",167299,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO KOMUNALNO PODJETJE RADLJE OB DRAVI d.o.o.","15 01 01","MUTA",6265,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO KOMUNALNO PODJETJE RADLJE OB DRAVI d.o.o.","15 01 01","PODVELKA",6873,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO KOMUNALNO PODJETJE RADLJE OB DRAVI d.o.o.","15 01 01","RADLJE OB DRAVI",25807,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO KOMUNALNO PODJETJE RADLJE OB DRAVI d.o.o.","15 01 01","RIBNICA NA POHORJU",1449,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO KOMUNALNO PODJETJE RADLJE OB DRAVI d.o.o.","15 01 01","VUZENICA",6358,"Paper/Cardboard Packaging","KOROŠKA"
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","15 01 01","PUCONCI",31320,"Paper/Cardboard Packaging","POMURSKA"
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","20 01 38","GORNJI PETROVCI",460,"Wood, not specified in 20 01 37","POMURSKA"
-"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","20 01 38","PUCONCI",5300,"Wood, not specified in 20 01 37","POMURSKA"
-"Javno podjetje Komunala Brežice d.o.o.","15 01 01","BREŽICE",201980,"Paper/Cardboard Packaging","POSAVSKA"
-"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica","15 01 01","CERKNICA",57204,"Paper/Cardboard Packaging","PRIMORSKONOTRANJSKA"
-"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica","15 01 01","LOŠKA DOLINA",19068,"Paper/Cardboard Packaging","PRIMORSKONOTRANJSKA"
-"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica","15 01 03","CERKNICA",41490,"Wooden packaging","PRIMORSKONOTRANJSKA"
-"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica","15 01 03","LOŠKA DOLINA",13830,"Wooden packaging","PRIMORSKONOTRANJSKA"
-"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica","20 01 38","CERKNICA",325860,"Wood, not specified in 20 01 37","PRIMORSKONOTRANJSKA"
-"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica","20 01 38","LOŠKA DOLINA",108620,"Wood, not specified in 20 01 37","PRIMORSKONOTRANJSKA"
-"JAVNO PODJETJE KOMUNALA ČRNOMELJ d.o.o.","15 01 01","ČRNOMELJ",137734,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"JAVNO PODJETJE KOMUNALA ČRNOMELJ d.o.o.","15 01 01","SEMIČ",44986,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"JAVNO PODJETJE KOMUNALA, d.o.o. Mozirje","15 01 01","MOZIRJE",32015,"Paper/Cardboard Packaging","SAVINJSKA"
-"JAVNO PODJETJE KOMUNALA, d.o.o. Mozirje","15 01 01","REČICA OB SAVINJI",18009,"Paper/Cardboard Packaging","SAVINJSKA"
-"JAVNO PODJETJE KOMUNALA d.o.o. Sevnica","15 01 01","SEVNICA",117650,"Paper/Cardboard Packaging","POSAVSKA"
-"JAVNO PODJETJE KOMUNALA d.o.o. Sevnica","15 01 03","SEVNICA",5760,"Wooden packaging","POSAVSKA"
-"JAVNO PODJETJE KOMUNALA d.o.o. Sevnica","20 01 38","SEVNICA",244120,"Wood, not specified in 20 01 37","POSAVSKA"
-"Javno podjetje KOMUNALA Idrija d.o.o.","15 01 01","CERKNO",75638,"Paper/Cardboard Packaging","GORIŠKA"
-"Javno podjetje KOMUNALA Idrija d.o.o.","15 01 01","IDRIJA",228682,"Paper/Cardboard Packaging","GORIŠKA"
-"Javno podjetje KOMUNALA Idrija d.o.o.","20 01 38","CERKNO",117477,"Wood, not specified in 20 01 37","GORIŠKA"
-"Javno podjetje KOMUNALA Idrija d.o.o.","20 01 38","IDRIJA",379233,"Wood, not specified in 20 01 37","GORIŠKA"
-"JAVNO PODJETJE KOMUNALA ILIRSKA BISTRICA, d.o.o.","15 01 01","ILIRSKA BISTRICA",160904,"Paper/Cardboard Packaging","PRIMORSKONOTRANJSKA"
-"JAVNO PODJETJE KOMUNALA ILIRSKA BISTRICA, d.o.o.","20 01 38","ILIRSKA BISTRICA",205680,"Wood, not specified in 20 01 37","PRIMORSKONOTRANJSKA"
-"JAVNO PODJETJE KOMUNALA Izola, d.o.o. Azienda pubblica KOMUNALA Isola, S.r.l.","15 01 01","IZOLA",256102,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"JAVNO PODJETJE KOMUNALA Izola, d.o.o. Azienda pubblica KOMUNALA Isola, S.r.l.","15 01 03","IZOLA",11000,"Wooden packaging","OBALNOKRAŠKA"
-"JAVNO PODJETJE KOMUNALA Izola, d.o.o. Azienda pubblica KOMUNALA Isola, S.r.l.","20 01 38","IZOLA",754880,"Wood, not specified in 20 01 37","OBALNOKRAŠKA"
-"JAVNO PODJETJE KOMUNALA LAŠKO d.o.o.","15 01 01","LAŠKO",162553,"Paper/Cardboard Packaging","SAVINJSKA"
-"JAVNO PODJETJE KOMUNALA LAŠKO d.o.o.","20 01 38","LAŠKO",27060,"Wood, not specified in 20 01 37","SAVINJSKA"
-"JAVNO PODJETJE KOMUNALA RADEČE d.o.o.","15 01 01","RADEČE",28600,"Paper/Cardboard Packaging","POSAVSKA"
-"JAVNO PODJETJE KOMUNALA RADEČE d.o.o.","20 01 38","RADEČE",67300,"Wood, not specified in 20 01 37","POSAVSKA"
-"JAVNO PODJETJE KOMUNALA SLOVENJ GRADEC d.o.o.","15 01 01","MISLINJA",36452,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO PODJETJE KOMUNALA SLOVENJ GRADEC d.o.o.","15 01 01","SLOVENJ GRADEC",145808,"Paper/Cardboard Packaging","KOROŠKA"
-"JAVNO PODJETJE KOMUNALA TRBOVLJE d.o.o.","15 01 01","TRBOVLJE",113770,"Paper/Cardboard Packaging","ZASAVSKA"
-"JAVNO PODJETJE KOMUNALA TRBOVLJE d.o.o.","15 01 03","TRBOVLJE",1100,"Wooden packaging","ZASAVSKA"
-"JAVNO PODJETJE KOMUNALA TRBOVLJE d.o.o.","20 01 38","TRBOVLJE",500100,"Wood, not specified in 20 01 37","ZASAVSKA"
-"JAVNO PODJETJE KOMUNALA ZAGORJE, d.o.o.","15 01 01","ZAGORJE OB SAVI",133970,"Paper/Cardboard Packaging","ZASAVSKA"
-"JAVNO PODJETJE KOMUNALA ZAGORJE, d.o.o.","20 01 38","ZAGORJE OB SAVI",386000,"Wood, not specified in 20 01 37","ZASAVSKA"
-"Javno podjetje Komunalno podjetje Logatec, d.o.o.","15 01 01","LOGATEC",134500,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"Javno podjetje Komunalno podjetje Logatec, d.o.o.","20 01 38","LOGATEC",322670,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.","15 01 01","BOROVNICA",29580,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.","15 01 01","LOG-DRAGOMER",23010,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.","15 01 01","VRHNIKA",111729,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.","20 01 38","BOROVNICA",107541,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.","20 01 38","LOG-DRAGOMER",83643,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.","20 01 38","VRHNIKA",406266,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE KOMUNALNO STANOVANJSKO PODJETJE Litija, d.o.o.","15 01 01","LITIJA",122848,"Paper/Cardboard Packaging","ZASAVSKA"
-"JAVNO PODJETJE KOMUNALNO STANOVANJSKO PODJETJE Litija, d.o.o.","15 01 01","ŠMARTNO PRI LITIJI",43160,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE KOMUNALNO STANOVANJSKO PODJETJE Litija, d.o.o.","20 01 38","LITIJA",208495,"Wood, not specified in 20 01 37","ZASAVSKA"
-"JAVNO PODJETJE KOMUNALNO STANOVANJSKO PODJETJE Litija, d.o.o.","20 01 38","ŠMARTNO PRI LITIJI",73255,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"Javno podjetje OKOLJE Piran, d.o.o.","15 01 01","PIRAN",586066,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"Javno podjetje OKOLJE Piran, d.o.o.","20 01 38","PIRAN",591470,"Wood, not specified in 20 01 37","OBALNOKRAŠKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","BREZOVICA",50513,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","CERKLJE NA GORENJSKEM",23928,"Paper/Cardboard Packaging","GORENJSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","DOBROVA-POLHOV GRADEC",15334,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","DOL PRI LJUBLJANI",13034,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","HORJUL",7092,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","IG",29511,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","LJUBLJANA",1825214,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","MEDVODE",41668,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","ŠKOFLJICA",25268,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","VELIKE LAŠČE",9900,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 01","VODICE",10739,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","15 01 03","LJUBLJANA",141540,"Wooden packaging","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","20 01 38","BREZOVICA",81820,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","20 01 38","CERKLJE NA GORENJSKEM",121080,"Wood, not specified in 20 01 37","GORENJSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","20 01 38","IG",62400,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","20 01 38","LJUBLJANA",4343870,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","20 01 38","MEDVODE",153020,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","20 01 38","ŠKOFLJICA",83460,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","20 01 38","VELIKE LAŠČE",48100,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","20 01 38","VODICE",64320,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"Javno podjetje–Azienda pubblica MARJETICA KOPER, d.o.o.-s.r.l.","15 01 01","ANKARAN",50037,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"Javno podjetje–Azienda pubblica MARJETICA KOPER, d.o.o.-s.r.l.","15 01 01","KOPER",339795,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"Javno podjetje–Azienda pubblica MARJETICA KOPER, d.o.o.-s.r.l.","20 01 38","ANKARAN",120209,"Wood, not specified in 20 01 37","OBALNOKRAŠKA"
-"Javno podjetje–Azienda pubblica MARJETICA KOPER, d.o.o.-s.r.l.","20 01 38","KOPER",1883271,"Wood, not specified in 20 01 37","OBALNOKRAŠKA"
-"JEKO, javno komunalno podjetje, d.o.o., Jesenice","15 01 01","JESENICE",85690,"Paper/Cardboard Packaging","GORENJSKA"
-"JEKO, javno komunalno podjetje, d.o.o., Jesenice","15 01 01","ŽIROVNICA",28560,"Paper/Cardboard Packaging","GORENJSKA"
-"JEKO, javno komunalno podjetje, d.o.o., Jesenice","15 01 03","JESENICE",20000,"Wooden packaging","GORENJSKA"
-"JEKO, javno komunalno podjetje, d.o.o., Jesenice","15 01 03","ŽIROVNICA",3320,"Wooden packaging","GORENJSKA"
-"JEKO, javno komunalno podjetje, d.o.o., Jesenice","20 01 38","JESENICE",356000,"Wood, not specified in 20 01 37","GORENJSKA"
-"JEKO, javno komunalno podjetje, d.o.o., Jesenice","20 01 38","ŽIROVNICA",118610,"Wood, not specified in 20 01 37","GORENJSKA"
-"JKP, JAVNO KOMUNALNO PODJETJE d.o.o. SLOVENSKE KONJICE","15 01 01","SLOVENSKE KONJICE",136160,"Paper/Cardboard Packaging","SAVINJSKA"
-"JKP, JAVNO KOMUNALNO PODJETJE d.o.o. SLOVENSKE KONJICE","20 01 38","SLOVENSKE KONJICE",204440,"Wood, not specified in 20 01 37","SAVINJSKA"
-"KOMUNALA, javno podjetje, Kranjska Gora, d.o.o.","15 01 01","KRANJSKA GORA",121205,"Paper/Cardboard Packaging","GORENJSKA"
-"KOMUNALA, javno podjetje, Kranjska Gora, d.o.o.","15 01 03","KRANJSKA GORA",84190,"Wooden packaging","GORENJSKA"
-"KOMUNALA, javno podjetje, Kranjska Gora, d.o.o.","20 01 38","KRANJSKA GORA",9340,"Wood, not specified in 20 01 37","GORENJSKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 01","BRDA",18348,"Paper/Cardboard Packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 01","KANAL",6437,"Paper/Cardboard Packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 01","MIREN-KOSTANJEVICA",15321,"Paper/Cardboard Packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 01","NOVA GORICA",190490,"Paper/Cardboard Packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 01","RENČE-VOGRSKO",17905,"Paper/Cardboard Packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 01","ŠEMPETER-VRTOJBA",107572,"Paper/Cardboard Packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 03","MIREN-KOSTANJEVICA",160,"Wooden packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 03","NOVA GORICA",8568,"Wooden packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 03","RENČE-VOGRSKO",1500,"Wooden packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","15 01 03","ŠEMPETER-VRTOJBA",7100,"Wooden packaging","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","20 01 38","BRDA",244701,"Wood, not specified in 20 01 37","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","20 01 38","KANAL",197073,"Wood, not specified in 20 01 37","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","20 01 38","MIREN-KOSTANJEVICA",198637,"Wood, not specified in 20 01 37","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","20 01 38","NOVA GORICA",528781,"Wood, not specified in 20 01 37","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","20 01 38","RENČE-VOGRSKO",103962,"Wood, not specified in 20 01 37","GORIŠKA"
-"KOMUNALA Komunalno podjetje Nova Gorica d.d.","20 01 38","ŠEMPETER-VRTOJBA",162646,"Wood, not specified in 20 01 37","GORIŠKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","15 01 01","JEZERSKO",7761,"Paper/Cardboard Packaging","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","15 01 01","KRANJ",612699,"Paper/Cardboard Packaging","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","15 01 01","NAKLO",18224,"Paper/Cardboard Packaging","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","15 01 01","ŠENČUR",44670,"Paper/Cardboard Packaging","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","15 01 03","KRANJ",26214,"Wooden packaging","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","15 01 03","NAKLO",750,"Wooden packaging","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","15 01 03","ŠENČUR",3265,"Wooden packaging","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","20 01 38","JEZERSKO",28190,"Wood, not specified in 20 01 37","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","20 01 38","KRANJ",997430,"Wood, not specified in 20 01 37","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","20 01 38","NAKLO",63520,"Wood, not specified in 20 01 37","GORENJSKA"
-"KOMUNALA KRANJ, javno podjetje, d.o.o.","20 01 38","ŠENČUR",144050,"Wood, not specified in 20 01 37","GORENJSKA"
-"KOMUNALA METLIKA javno podjetje d.o.o.","15 01 01","METLIKA",145260,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA METLIKA javno podjetje d.o.o.","20 01 38","METLIKA",303680,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","15 01 01","DOLENJSKE TOPLICE",44351,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","15 01 01","MIRNA PEČ",38303,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","15 01 01","NOVO MESTO",317553,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","15 01 01","STRAŽA",47160,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","15 01 01","ŠENTJERNEJ",98097,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","15 01 01","ŠKOCJAN",41387,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","15 01 01","ŠMARJEŠKE TOPLICE",43642,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","15 01 01","ŽUŽEMBERK",59824,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","15 01 03","NOVO MESTO",61580,"Wooden packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","20 01 38","DOLENJSKE TOPLICE",68373,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","20 01 38","MIRNA PEČ",58280,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","20 01 38","NOVO MESTO",726241,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","20 01 38","STRAŽA",76662,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","20 01 38","ŠENTJERNEJ",139626,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","20 01 38","ŠKOCJAN",64443,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","20 01 38","ŠMARJEŠKE TOPLICE",66197,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA NOVO MESTO d.o.o., javno podjetje","20 01 38","ŽUŽEMBERK",83638,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA RADGONA, javno podjetje d.o.o.","15 01 01","GORNJA RADGONA",52870,"Paper/Cardboard Packaging","POMURSKA"
-"KOMUNALA RADGONA, javno podjetje d.o.o.","20 01 38","GORNJA RADGONA",75380,"Wood, not specified in 20 01 37","POMURSKA"
-"KOMUNALA RADOVLJICA, javno podjetje za komunalno dejavnost, d.o.o.","15 01 01","RADOVLJICA",160210,"Paper/Cardboard Packaging","GORENJSKA"
-"KOMUNALA RADOVLJICA, javno podjetje za komunalno dejavnost, d.o.o.","20 01 38","RADOVLJICA",569030,"Wood, not specified in 20 01 37","GORENJSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","15 01 01","MAKOLE",28669,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","15 01 01","OPLOTNICA",43004,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","15 01 01","POLJČANE",50171,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","15 01 01","RAČE-FRAM",57338,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","15 01 01","SLOVENSKA BISTRICA",179183,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","20 01 38","MAKOLE",48066,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","20 01 38","OPLOTNICA",72098,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","20 01 38","POLJČANE",84115,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","20 01 38","RAČE-FRAM",96131,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","20 01 38","SLOVENSKA BISTRICA",300410,"Wood, not specified in 20 01 37","PODRAVSKA"
-"Komunala Tolmin, javno podjetje, d.o.o.","15 01 01","BOVEC",82258,"Paper/Cardboard Packaging","GORIŠKA"
-"Komunala Tolmin, javno podjetje, d.o.o.","15 01 01","KOBARID",72767,"Paper/Cardboard Packaging","GORIŠKA"
-"Komunala Tolmin, javno podjetje, d.o.o.","15 01 01","TOLMIN",161353,"Paper/Cardboard Packaging","GORIŠKA"
-"Komunala Tolmin, javno podjetje, d.o.o.","20 01 38","BOVEC",136037,"Wood, not specified in 20 01 37","GORIŠKA"
-"Komunala Tolmin, javno podjetje, d.o.o.","20 01 38","KOBARID",120341,"Wood, not specified in 20 01 37","GORIŠKA"
-"Komunala Tolmin, javno podjetje, d.o.o.","20 01 38","TOLMIN",266842,"Wood, not specified in 20 01 37","GORIŠKA"
-"KOMUNALA TREBNJE d.o.o.","15 01 01","MIRNA",15440,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA TREBNJE d.o.o.","15 01 01","MOKRONOG-TREBELNO",18921,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA TREBNJE d.o.o.","15 01 01","ŠENTRUPERT",15680,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA TREBNJE d.o.o.","15 01 01","TREBNJE",64079,"Paper/Cardboard Packaging","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA TREBNJE d.o.o.","20 01 38","MIRNA",52272,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA TREBNJE d.o.o.","20 01 38","MOKRONOG-TREBELNO",64055,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA TREBNJE d.o.o.","20 01 38","ŠENTRUPERT",53083,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA TREBNJE d.o.o.","20 01 38","TREBNJE",216930,"Wood, not specified in 20 01 37","JUGOVZHODNA SLOVENIJA"
-"KOMUNALA TRŽIČ d.o.o.","15 01 01","TRŽIČ",121780,"Paper/Cardboard Packaging","GORENJSKA"
-"KOMUNALA TRŽIČ d.o.o.","20 01 38","TRŽIČ",225900,"Wood, not specified in 20 01 37","GORENJSKA"
-"KOMUNALNO PODJETJE ORMOŽ d.o.o.","15 01 01","ORMOŽ",89231,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALNO PODJETJE ORMOŽ d.o.o.","15 01 01","SREDIŠČE OB DRAVI",17846,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALNO PODJETJE ORMOŽ d.o.o.","15 01 01","SVETI TOMAŽ",11897,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALNO PODJETJE ORMOŽ d.o.o.","20 01 38","ORMOŽ",3700,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALNO PODJETJE ORMOŽ d.o.o.","20 01 38","SREDIŠČE OB DRAVI",2460,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALNO PODJETJE PTUJ D.D.","15 01 01","GORIŠNICA",27012,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALNO PODJETJE PTUJ D.D.","15 01 01","HAJDINA",32280,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALNO PODJETJE PTUJ D.D.","15 01 01","JURŠINCI",17196,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALNO PODJETJE PTUJ D.D.","15 01 01","MARKOVCI",25637,"Paper/Cardboard Packaging","PODRAVSKA"
-"KOMUNALNO PODJETJE PTUJ D.D.","20 01 38","GORIŠNICA",65458,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALNO PODJETJE PTUJ D.D.","20 01 38","HAJDINA",56015,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALNO PODJETJE PTUJ D.D.","20 01 38","JURŠINCI",28265,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALNO PODJETJE PTUJ D.D.","20 01 38","MARKOVCI",69502,"Wood, not specified in 20 01 37","PODRAVSKA"
-"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","15 01 01","AJDOVŠČINA",181957,"Paper/Cardboard Packaging","GORIŠKA"
-"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","15 01 01","VIPAVA",59348,"Paper/Cardboard Packaging","GORIŠKA"
-"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","20 01 38","AJDOVŠČINA",101327,"Wood, not specified in 20 01 37","GORIŠKA"
-"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","20 01 38","VIPAVA",22743,"Wood, not specified in 20 01 37","GORIŠKA"
-"KOMUNALNO STANOVANJSKO PODJETJE d.d.","15 01 01","DIVAČA",33496,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"KOMUNALNO STANOVANJSKO PODJETJE d.d.","15 01 01","HRPELJE-KOZINA",52515,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"KOMUNALNO STANOVANJSKO PODJETJE d.d.","15 01 01","KOMEN",25172,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"KOMUNALNO STANOVANJSKO PODJETJE d.d.","15 01 01","SEŽANA",146809,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"KOMUNALNO STANOVANJSKO PODJETJE d.d.","20 01 38","DIVAČA",38015,"Wood, not specified in 20 01 37","OBALNOKRAŠKA"
-"KOMUNALNO STANOVANJSKO PODJETJE d.d.","20 01 38","HRPELJE-KOZINA",59600,"Wood, not specified in 20 01 37","OBALNOKRAŠKA"
-"KOMUNALNO STANOVANJSKO PODJETJE d.d.","20 01 38","KOMEN",28567,"Wood, not specified in 20 01 37","OBALNOKRAŠKA"
-"KOMUNALNO STANOVANJSKO PODJETJE d.d.","20 01 38","SEŽANA",150898,"Wood, not specified in 20 01 37","OBALNOKRAŠKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","15 01 01","APAČE",77060,"Paper/Cardboard Packaging","POMURSKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","15 01 01","KRIŽEVCI",10260,"Paper/Cardboard Packaging","POMURSKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","15 01 01","LJUTOMER",34120,"Paper/Cardboard Packaging","POMURSKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","15 01 01","RAZKRIŽJE",4810,"Paper/Cardboard Packaging","POMURSKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","15 01 01","VERŽEJ",5150,"Paper/Cardboard Packaging","POMURSKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","20 01 38","APAČE",160,"Wood, not specified in 20 01 37","POMURSKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","20 01 38","KRIŽEVCI",14160,"Wood, not specified in 20 01 37","POMURSKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","20 01 38","LJUTOMER",80260,"Wood, not specified in 20 01 37","POMURSKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","20 01 38","RAZKRIŽJE",6130,"Wood, not specified in 20 01 37","POMURSKA"
-"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.","20 01 38","VERŽEJ",7180,"Wood, not specified in 20 01 37","POMURSKA"
-"Kostak, komunalno in gradbeno podjetje, d.d.","15 01 01","KOSTANJEVICA NA KRKI",39060,"Paper/Cardboard Packaging","POSAVSKA"
-"Kostak, komunalno in gradbeno podjetje, d.d.","15 01 01","KRŠKO",571040,"Paper/Cardboard Packaging","POSAVSKA"
-"Kostak, komunalno in gradbeno podjetje, d.d.","20 01 38","KRŠKO",906103,"Wood, not specified in 20 01 37","POSAVSKA"
-"KSP HRASTNIK Komunalno - stanovanjsko podjetje, d.d.","15 01 01","HRASTNIK",71890,"Paper/Cardboard Packaging","ZASAVSKA"
-"LOŠKA KOMUNALA, oskrba z vodo in plinom, d.d., Škofja Loka","15 01 01","ŠKOFJA LOKA",306136,"Paper/Cardboard Packaging","GORENJSKA"
-"LOŠKA KOMUNALA, oskrba z vodo in plinom, d.d., Škofja Loka","15 01 01","ŽELEZNIKI",53284,"Paper/Cardboard Packaging","GORENJSKA"
-"LOŠKA KOMUNALA, oskrba z vodo in plinom, d.d., Škofja Loka","15 01 03","ŠKOFJA LOKA",281910,"Wooden packaging","GORENJSKA"
-"NATURA VePo družba za komunalne storitve d.o.o.","20 01 38","VELIKA POLANA",4280,"Wood, not specified in 20 01 37","POMURSKA"
-"OBČINA BLOKE","15 01 01","BLOKE",8423,"Paper/Cardboard Packaging","PRIMORSKONOTRANJSKA"
-"OBČINA BOHINJ","15 01 01","BOHINJ",50000,"Paper/Cardboard Packaging","GORENJSKA"
-"OBČINA GORENJA VAS-POLJANE","15 01 01","GORENJA VAS-POLJANE",32814,"Paper/Cardboard Packaging","GORENJSKA"
-"OBČINA GORENJA VAS-POLJANE","20 01 38","GORENJA VAS-POLJANE",78580,"Wood, not specified in 20 01 37","GORENJSKA"
-"OBČINA ŽIRI","15 01 01","ŽIRI",29394,"Paper/Cardboard Packaging","GORENJSKA"
-"OBČINA ŽIRI","20 01 38","ŽIRI",101660,"Wood, not specified in 20 01 37","GORENJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 01","BISTRICA OB SOTLI",6046,"Paper/Cardboard Packaging","POSAVSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 01","KOZJE",14772,"Paper/Cardboard Packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 01","PODČETRTEK",15883,"Paper/Cardboard Packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 01","ROGAŠKA SLATINA",52601,"Paper/Cardboard Packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 01","ROGATEC",10981,"Paper/Cardboard Packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 01","ŠMARJE PRI JELŠAH",63125,"Paper/Cardboard Packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 03","BISTRICA OB SOTLI",5,"Wooden packaging","POSAVSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 03","KOZJE",13,"Wooden packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 03","PODČETRTEK",14,"Wooden packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 03","ROGAŠKA SLATINA",45,"Wooden packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 03","ROGATEC",9,"Wooden packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","15 01 03","ŠMARJE PRI JELŠAH",54,"Wooden packaging","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 01 38","BISTRICA OB SOTLI",2266,"Wood, not specified in 20 01 37","POSAVSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 01 38","KOZJE",5535,"Wood, not specified in 20 01 37","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 01 38","PODČETRTEK",5952,"Wood, not specified in 20 01 37","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 01 38","ROGAŠKA SLATINA",19710,"Wood, not specified in 20 01 37","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 01 38","ROGATEC",4115,"Wood, not specified in 20 01 37","SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 01 38","ŠMARJE PRI JELŠAH",23652,"Wood, not specified in 20 01 37","SAVINJSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","15 01 01","KAMNIK",209500,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","15 01 01","KOMENDA",82920,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","15 01 01","PIVKA",184640,"Paper/Cardboard Packaging","PRIMORSKONOTRANJSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","15 01 01","POSTOJNA",288240,"Paper/Cardboard Packaging","PRIMORSKONOTRANJSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","15 01 03","KOMENDA",73960,"Wooden packaging","OSREDNJESLOVENSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","15 01 03","PIVKA",4060,"Wooden packaging","PRIMORSKONOTRANJSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","15 01 03","POSTOJNA",2570,"Wooden packaging","PRIMORSKONOTRANJSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","20 01 38","KAMNIK",101480,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","20 01 38","KOMENDA",27820,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","20 01 38","PIVKA",109300,"Wood, not specified in 20 01 37","PRIMORSKONOTRANJSKA"
-"PUBLIKUS gospodarjenje z odpadki d.o.o.","20 01 38","POSTOJNA",168160,"Wood, not specified in 20 01 37","PRIMORSKONOTRANJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","15 01 01","GORNJI GRAD",7986,"Paper/Cardboard Packaging","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","15 01 01","LJUBNO",3256,"Paper/Cardboard Packaging","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","15 01 01","LUČE",1850,"Paper/Cardboard Packaging","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","15 01 01","NAZARJE",9087,"Paper/Cardboard Packaging","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","15 01 01","SOLČAVA",927,"Paper/Cardboard Packaging","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","15 01 01","ŠMARTNO OB PAKI",21960,"Paper/Cardboard Packaging","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","15 01 01","ŠOŠTANJ",46937,"Paper/Cardboard Packaging","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","15 01 01","VELENJE",214497,"Paper/Cardboard Packaging","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","20 01 38","GORNJI GRAD",34913,"Wood, not specified in 20 01 37","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","20 01 38","LJUBNO",17130,"Wood, not specified in 20 01 37","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","20 01 38","LUČE",8841,"Wood, not specified in 20 01 37","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","20 01 38","NAZARJE",28066,"Wood, not specified in 20 01 37","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","20 01 38","SOLČAVA",4060,"Wood, not specified in 20 01 37","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","20 01 38","ŠMARTNO OB PAKI",68142,"Wood, not specified in 20 01 37","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","20 01 38","ŠOŠTANJ",174829,"Wood, not specified in 20 01 37","SAVINJSKA"
-"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.","20 01 38","VELENJE",886841,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","BELTINCI",6965,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","CANKOVA",635,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","ČRENŠOVCI",4571,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","ČRENŠOVCI",144,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","DOBROVNIK",996,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","GORNJI PETROVCI",2720,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","GRAD",440,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","HODOŠ",777,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","KOBILJE",293,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","KUZMA",4380,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","LENDAVA",2560,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","LJUTOMER",900,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","MORAVSKE TOPLICE",8765,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","MURSKA SOBOTA",440,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","MURSKA SOBOTA",232490,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","NOVA GORICA",180,"Paper/Cardboard Packaging","GORIŠKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","ODRANCI",6683,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","PUCONCI",4645,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","ROGAŠOVCI",3560,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","ŠALOVCI",1684,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","TIŠINA",520,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","15 01 01","TURNIŠČE",4456,"Paper/Cardboard Packaging","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","BELTINCI",98580,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","CANKOVA",17356,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","ČRENŠOVCI",39220,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","DOBROVNIK",18980,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","GORNJI PETROVCI",3723,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","GRAD",17780,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","HODOŠ",2044,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","KOBILJE",5400,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","KUZMA",1004,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","MORAVSKE TOPLICE",16500,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","MURSKA SOBOTA",257580,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","ODRANCI",17900,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","ROGAŠOVCI",12260,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","ŠALOVCI",8953,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","TIŠINA",32400,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.","20 01 38","TURNIŠČE",23780,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 01","KOPER",61987,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 01","KRANJ",22125,"Paper/Cardboard Packaging","GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 01","LJUBLJANA",452939,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 01","SEŽANA",8000,"Paper/Cardboard Packaging","OBALNOKRAŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","CELJE",38060,"Wooden packaging","SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","GORNJA RADGONA",2860,"Wooden packaging","POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","HOČE-SLIVNICA",18814,"Wooden packaging","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","IDRIJA",103500,"Wooden packaging","GORIŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","LENART",16320,"Wooden packaging","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","LJUBLJANA",460226,"Wooden packaging","OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","MARIBOR",2220,"Wooden packaging","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","PTUJ",2760,"Wooden packaging","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","RADENCI",44880,"Wooden packaging","POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","RUŠE",80,"Wooden packaging","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","ŠENTILJ",44660,"Wooden packaging","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","VELENJE",125100,"Wooden packaging","SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","15 01 03","VRHNIKA",720,"Wooden packaging","OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","BENEDIKT",3817,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","CERKVENJAK",40,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","HOČE-SLIVNICA",13886,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","LENART",132396,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","LJUBLJANA",8460,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","LOGATEC",46500,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","MARIBOR",460,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","PTUJ",35655,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","RADENCI",167411,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","SV. TROJICA V SLOV. GORICAH",949,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","SVETI JURIJ OB ŠČAVNICI",1207,"Wood, not specified in 20 01 37","POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","ŠENTILJ",208383,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","20 01 38","ZREČE",145584,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","BRASLOVČE",23927,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","CELJE",282017,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","DOBJE",6777,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","DOBRNA",8770,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","POLZELA",12515,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","PREBOLD",33316,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","ŠENTJUR",82139,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","ŠTORE",12252,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","TABOR",4246,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","VOJNIK",40336,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","VRANSKO",12910,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","ŽALEC",107704,"Paper/Cardboard Packaging","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","BRASLOVČE",46801,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","CELJE",306455,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","DOBJE",5526,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","DOBRNA",21386,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","POLZELA",25341,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","PREBOLD",56464,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","ŠENTJUR",109861,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","ŠTORE",27338,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","TABOR",14064,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","VOJNIK",84456,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","VRANSKO",22211,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 38","ŽALEC",239054,"Wood, not specified in 20 01 37","SAVINJSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","15 01 01","KUNGOTA",21991,"Paper/Cardboard Packaging","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","15 01 01","LOVRENC NA POHORJU",14790,"Paper/Cardboard Packaging","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","15 01 01","MARIBOR",500972,"Paper/Cardboard Packaging","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","15 01 01","MIKLAVŽ NA DRAVSKEM POLJU",27920,"Paper/Cardboard Packaging","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","15 01 01","PESNICA",24749,"Paper/Cardboard Packaging","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","15 01 01","RUŠE",25010,"Paper/Cardboard Packaging","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","15 01 01","SELNICA OB DRAVI",15656,"Paper/Cardboard Packaging","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","15 01 01","STARŠE",18580,"Paper/Cardboard Packaging","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","15 01 03","MARIBOR",16240,"Wooden packaging","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","20 01 38","KUNGOTA",68660,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","20 01 38","LOVRENC NA POHORJU",103740,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","20 01 38","MARIBOR",4195600,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","20 01 38","MIKLAVŽ NA DRAVSKEM POLJU",124520,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","20 01 38","PESNICA",181460,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","20 01 38","RUŠE",329183,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","20 01 38","SELNICA OB DRAVI",184137,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","20 01 38","STARŠE",198980,"Wood, not specified in 20 01 37","PODRAVSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","BREZOVICA",12762,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","CERKLJE NA GORENJSKEM",4275,"Paper/Cardboard Packaging","GORENJSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","DOBROVA-POLHOV GRADEC",4075,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","DOL PRI LJUBLJANI",3464,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","HORJUL",1885,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","IG",7110,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","LJUBLJANA",466958,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","MEDVODE",10505,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","ŠKOFLJICA",6406,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","VELIKE LAŠČE",2572,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 01","VODICE",2635,"Paper/Cardboard Packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","15 01 03","LJUBLJANA",66180,"Wooden packaging","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","20 01 38","BREZOVICA",28540,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","20 01 38","CERKLJE NA GORENJSKEM",46340,"Wood, not specified in 20 01 37","GORENJSKA"
-"SNAGA Javno podjetje d.o.o.","20 01 38","IG",20680,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","20 01 38","LJUBLJANA",1451860,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","20 01 38","MEDVODE",49200,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","20 01 38","ŠKOFLJICA",23880,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","20 01 38","VELIKE LAŠČE",14500,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.","20 01 38","VODICE",18520,"Wood, not specified in 20 01 37","OSREDNJESLOVENSKA"
+﻿"year","statistical_region","name_of_municipality","type_of_waste","total_waste_collected"
+2019,"GORENJSKA","BLED","Paper/Cardboard Packaging",115.639
+2019,"GORENJSKA","BLED","Wood, not specified in 20 01 37",464.512
+2019,"GORENJSKA","BOHINJ","Paper/Cardboard Packaging",50
+2019,"GORENJSKA","CERKLJE NA GORENJSKEM","Paper/Cardboard Packaging",28.203
+2019,"GORENJSKA","CERKLJE NA GORENJSKEM","Wood, not specified in 20 01 37",167.42
+2019,"GORENJSKA","GORENJA VAS-POLJANE","Paper/Cardboard Packaging",32.814
+2019,"GORENJSKA","GORENJA VAS-POLJANE","Wood, not specified in 20 01 37",78.58
+2019,"GORENJSKA","GORJE","Paper/Cardboard Packaging",12.308
+2019,"GORENJSKA","GORJE","Wood, not specified in 20 01 37",76.068
+2019,"GORENJSKA","JESENICE","Paper/Cardboard Packaging",85.69
+2019,"GORENJSKA","JESENICE","Wood, not specified in 20 01 37",356
+2019,"GORENJSKA","JESENICE","Wooden packaging",20
+2019,"GORENJSKA","JEZERSKO","Paper/Cardboard Packaging",7.761
+2019,"GORENJSKA","JEZERSKO","Wood, not specified in 20 01 37",28.19
+2019,"GORENJSKA","KRANJ","Paper/Cardboard Packaging",634.824
+2019,"GORENJSKA","KRANJ","Wood, not specified in 20 01 37",997.43
+2019,"GORENJSKA","KRANJ","Wooden packaging",26.214
+2019,"GORENJSKA","KRANJSKA GORA","Paper/Cardboard Packaging",121.205
+2019,"GORENJSKA","KRANJSKA GORA","Wood, not specified in 20 01 37",9.34
+2019,"GORENJSKA","KRANJSKA GORA","Wooden packaging",84.19
+2019,"GORENJSKA","NAKLO","Paper/Cardboard Packaging",18.224
+2019,"GORENJSKA","NAKLO","Wood, not specified in 20 01 37",63.52
+2019,"GORENJSKA","NAKLO","Wooden packaging",0.75
+2019,"GORENJSKA","RADOVLJICA","Paper/Cardboard Packaging",160.21
+2019,"GORENJSKA","RADOVLJICA","Wood, not specified in 20 01 37",569.03
+2019,"GORENJSKA","TRŽIČ","Paper/Cardboard Packaging",121.78
+2019,"GORENJSKA","TRŽIČ","Wood, not specified in 20 01 37",225.9
+2019,"GORENJSKA","ŠENČUR","Paper/Cardboard Packaging",44.67
+2019,"GORENJSKA","ŠENČUR","Wood, not specified in 20 01 37",144.05
+2019,"GORENJSKA","ŠENČUR","Wooden packaging",3.265
+2019,"GORENJSKA","ŠKOFJA LOKA","Paper/Cardboard Packaging",306.136
+2019,"GORENJSKA","ŠKOFJA LOKA","Wooden packaging",281.91
+2019,"GORENJSKA","ŽELEZNIKI","Paper/Cardboard Packaging",53.284
+2019,"GORENJSKA","ŽIRI","Paper/Cardboard Packaging",29.394
+2019,"GORENJSKA","ŽIRI","Wood, not specified in 20 01 37",101.66
+2019,"GORENJSKA","ŽIROVNICA","Paper/Cardboard Packaging",28.56
+2019,"GORENJSKA","ŽIROVNICA","Wood, not specified in 20 01 37",118.61
+2019,"GORENJSKA","ŽIROVNICA","Wooden packaging",3.32
+2019,"GORIŠKA","AJDOVŠČINA","Paper/Cardboard Packaging",181.957
+2019,"GORIŠKA","AJDOVŠČINA","Wood, not specified in 20 01 37",101.327
+2019,"GORIŠKA","BOVEC","Paper/Cardboard Packaging",82.258
+2019,"GORIŠKA","BOVEC","Wood, not specified in 20 01 37",136.037
+2019,"GORIŠKA","BRDA","Paper/Cardboard Packaging",18.348
+2019,"GORIŠKA","BRDA","Wood, not specified in 20 01 37",244.701
+2019,"GORIŠKA","CERKNO","Paper/Cardboard Packaging",75.638
+2019,"GORIŠKA","CERKNO","Wood, not specified in 20 01 37",117.477
+2019,"GORIŠKA","IDRIJA","Paper/Cardboard Packaging",228.682
+2019,"GORIŠKA","IDRIJA","Wood, not specified in 20 01 37",379.233
+2019,"GORIŠKA","IDRIJA","Wooden packaging",103.5
+2019,"GORIŠKA","KANAL","Paper/Cardboard Packaging",6.437
+2019,"GORIŠKA","KANAL","Wood, not specified in 20 01 37",197.073
+2019,"GORIŠKA","KOBARID","Paper/Cardboard Packaging",72.767
+2019,"GORIŠKA","KOBARID","Wood, not specified in 20 01 37",120.341
+2019,"GORIŠKA","MIREN-KOSTANJEVICA","Paper/Cardboard Packaging",15.321
+2019,"GORIŠKA","MIREN-KOSTANJEVICA","Wood, not specified in 20 01 37",198.637
+2019,"GORIŠKA","MIREN-KOSTANJEVICA","Wooden packaging",0.16
+2019,"GORIŠKA","NOVA GORICA","Paper/Cardboard Packaging",190.67
+2019,"GORIŠKA","NOVA GORICA","Wood, not specified in 20 01 37",528.781
+2019,"GORIŠKA","NOVA GORICA","Wooden packaging",8.568
+2019,"GORIŠKA","RENČE-VOGRSKO","Paper/Cardboard Packaging",17.905
+2019,"GORIŠKA","RENČE-VOGRSKO","Wood, not specified in 20 01 37",103.962
+2019,"GORIŠKA","RENČE-VOGRSKO","Wooden packaging",1.5
+2019,"GORIŠKA","TOLMIN","Paper/Cardboard Packaging",161.353
+2019,"GORIŠKA","TOLMIN","Wood, not specified in 20 01 37",266.842
+2019,"GORIŠKA","VIPAVA","Paper/Cardboard Packaging",59.348
+2019,"GORIŠKA","VIPAVA","Wood, not specified in 20 01 37",22.743
+2019,"GORIŠKA","ŠEMPETER-VRTOJBA","Paper/Cardboard Packaging",107.572
+2019,"GORIŠKA","ŠEMPETER-VRTOJBA","Wood, not specified in 20 01 37",162.646
+2019,"GORIŠKA","ŠEMPETER-VRTOJBA","Wooden packaging",7.1
+2019,"JUGOVZHODNA SLOVENIJA","DOLENJSKE TOPLICE","Paper/Cardboard Packaging",44.351
+2019,"JUGOVZHODNA SLOVENIJA","DOLENJSKE TOPLICE","Wood, not specified in 20 01 37",68.373
+2019,"JUGOVZHODNA SLOVENIJA","KOSTEL","Paper/Cardboard Packaging",11.76
+2019,"JUGOVZHODNA SLOVENIJA","KOSTEL","Wood, not specified in 20 01 37",29.86
+2019,"JUGOVZHODNA SLOVENIJA","KOČEVJE","Paper/Cardboard Packaging",184.5
+2019,"JUGOVZHODNA SLOVENIJA","KOČEVJE","Wood, not specified in 20 01 37",503.15
+2019,"JUGOVZHODNA SLOVENIJA","LOŠKI POTOK","Paper/Cardboard Packaging",14.145
+2019,"JUGOVZHODNA SLOVENIJA","LOŠKI POTOK","Wood, not specified in 20 01 37",46.634
+2019,"JUGOVZHODNA SLOVENIJA","METLIKA","Paper/Cardboard Packaging",145.26
+2019,"JUGOVZHODNA SLOVENIJA","METLIKA","Wood, not specified in 20 01 37",303.68
+2019,"JUGOVZHODNA SLOVENIJA","MIRNA","Paper/Cardboard Packaging",15.44
+2019,"JUGOVZHODNA SLOVENIJA","MIRNA","Wood, not specified in 20 01 37",52.272
+2019,"JUGOVZHODNA SLOVENIJA","MIRNA PEČ","Paper/Cardboard Packaging",38.303
+2019,"JUGOVZHODNA SLOVENIJA","MIRNA PEČ","Wood, not specified in 20 01 37",58.28
+2019,"JUGOVZHODNA SLOVENIJA","MOKRONOG-TREBELNO","Paper/Cardboard Packaging",18.921
+2019,"JUGOVZHODNA SLOVENIJA","MOKRONOG-TREBELNO","Wood, not specified in 20 01 37",64.055
+2019,"JUGOVZHODNA SLOVENIJA","NOVO MESTO","Paper/Cardboard Packaging",317.553
+2019,"JUGOVZHODNA SLOVENIJA","NOVO MESTO","Wood, not specified in 20 01 37",726.241
+2019,"JUGOVZHODNA SLOVENIJA","NOVO MESTO","Wooden packaging",61.58
+2019,"JUGOVZHODNA SLOVENIJA","RIBNICA","Paper/Cardboard Packaging",60.541
+2019,"JUGOVZHODNA SLOVENIJA","RIBNICA","Wood, not specified in 20 01 37",199.591
+2019,"JUGOVZHODNA SLOVENIJA","SEMIČ","Paper/Cardboard Packaging",44.986
+2019,"JUGOVZHODNA SLOVENIJA","SODRAŽICA","Paper/Cardboard Packaging",14.279
+2019,"JUGOVZHODNA SLOVENIJA","SODRAŽICA","Wood, not specified in 20 01 37",47.075
+2019,"JUGOVZHODNA SLOVENIJA","STRAŽA","Paper/Cardboard Packaging",47.16
+2019,"JUGOVZHODNA SLOVENIJA","STRAŽA","Wood, not specified in 20 01 37",76.662
+2019,"JUGOVZHODNA SLOVENIJA","TREBNJE","Paper/Cardboard Packaging",64.079
+2019,"JUGOVZHODNA SLOVENIJA","TREBNJE","Wood, not specified in 20 01 37",216.93
+2019,"JUGOVZHODNA SLOVENIJA","ČRNOMELJ","Paper/Cardboard Packaging",137.734
+2019,"JUGOVZHODNA SLOVENIJA","ŠENTJERNEJ","Paper/Cardboard Packaging",98.097
+2019,"JUGOVZHODNA SLOVENIJA","ŠENTJERNEJ","Wood, not specified in 20 01 37",139.626
+2019,"JUGOVZHODNA SLOVENIJA","ŠENTRUPERT","Paper/Cardboard Packaging",15.68
+2019,"JUGOVZHODNA SLOVENIJA","ŠENTRUPERT","Wood, not specified in 20 01 37",53.083
+2019,"JUGOVZHODNA SLOVENIJA","ŠKOCJAN","Paper/Cardboard Packaging",41.387
+2019,"JUGOVZHODNA SLOVENIJA","ŠKOCJAN","Wood, not specified in 20 01 37",64.443
+2019,"JUGOVZHODNA SLOVENIJA","ŠMARJEŠKE TOPLICE","Paper/Cardboard Packaging",43.642
+2019,"JUGOVZHODNA SLOVENIJA","ŠMARJEŠKE TOPLICE","Wood, not specified in 20 01 37",66.197
+2019,"JUGOVZHODNA SLOVENIJA","ŽUŽEMBERK","Paper/Cardboard Packaging",59.824
+2019,"JUGOVZHODNA SLOVENIJA","ŽUŽEMBERK","Wood, not specified in 20 01 37",83.638
+2019,"KOROŠKA","DRAVOGRAD","Paper/Cardboard Packaging",119.63
+2019,"KOROŠKA","MEŽICA","Paper/Cardboard Packaging",6.849
+2019,"KOROŠKA","MISLINJA","Paper/Cardboard Packaging",36.452
+2019,"KOROŠKA","MUTA","Paper/Cardboard Packaging",6.265
+2019,"KOROŠKA","PODVELKA","Paper/Cardboard Packaging",6.873
+2019,"KOROŠKA","PREVALJE","Paper/Cardboard Packaging",12.513
+2019,"KOROŠKA","RADLJE OB DRAVI","Paper/Cardboard Packaging",25.807
+2019,"KOROŠKA","RAVNE NA KOROŠKEM","Paper/Cardboard Packaging",22.01
+2019,"KOROŠKA","RIBNICA NA POHORJU","Paper/Cardboard Packaging",1.449
+2019,"KOROŠKA","SLOVENJ GRADEC","Paper/Cardboard Packaging",145.808
+2019,"KOROŠKA","VUZENICA","Paper/Cardboard Packaging",6.358
+2019,"KOROŠKA","ČRNA NA KOROŠKEM","Paper/Cardboard Packaging",6.31
+2019,"OBALNOKRAŠKA","ANKARAN","Paper/Cardboard Packaging",50.037
+2019,"OBALNOKRAŠKA","ANKARAN","Wood, not specified in 20 01 37",120.209
+2019,"OBALNOKRAŠKA","DIVAČA","Paper/Cardboard Packaging",33.496
+2019,"OBALNOKRAŠKA","DIVAČA","Wood, not specified in 20 01 37",38.015
+2019,"OBALNOKRAŠKA","HRPELJE-KOZINA","Paper/Cardboard Packaging",52.515
+2019,"OBALNOKRAŠKA","HRPELJE-KOZINA","Wood, not specified in 20 01 37",59.6
+2019,"OBALNOKRAŠKA","IZOLA","Paper/Cardboard Packaging",256.102
+2019,"OBALNOKRAŠKA","IZOLA","Wood, not specified in 20 01 37",754.88
+2019,"OBALNOKRAŠKA","IZOLA","Wooden packaging",11
+2019,"OBALNOKRAŠKA","KOMEN","Paper/Cardboard Packaging",25.172
+2019,"OBALNOKRAŠKA","KOMEN","Wood, not specified in 20 01 37",28.567
+2019,"OBALNOKRAŠKA","KOPER","Paper/Cardboard Packaging",401.782
+2019,"OBALNOKRAŠKA","KOPER","Wood, not specified in 20 01 37",1883.271
+2019,"OBALNOKRAŠKA","PIRAN","Paper/Cardboard Packaging",586.066
+2019,"OBALNOKRAŠKA","PIRAN","Wood, not specified in 20 01 37",591.47
+2019,"OBALNOKRAŠKA","SEŽANA","Paper/Cardboard Packaging",154.809
+2019,"OBALNOKRAŠKA","SEŽANA","Wood, not specified in 20 01 37",150.898
+2019,"OSREDNJESLOVENSKA","BOROVNICA","Paper/Cardboard Packaging",29.58
+2019,"OSREDNJESLOVENSKA","BOROVNICA","Wood, not specified in 20 01 37",107.541
+2019,"OSREDNJESLOVENSKA","BREZOVICA","Paper/Cardboard Packaging",63.275
+2019,"OSREDNJESLOVENSKA","BREZOVICA","Wood, not specified in 20 01 37",110.36
+2019,"OSREDNJESLOVENSKA","DOBREPOLJE","Paper/Cardboard Packaging",5.906
+2019,"OSREDNJESLOVENSKA","DOBREPOLJE","Wood, not specified in 20 01 37",14.613
+2019,"OSREDNJESLOVENSKA","DOBREPOLJE","Wooden packaging",1.198
+2019,"OSREDNJESLOVENSKA","DOBROVA-POLHOV GRADEC","Paper/Cardboard Packaging",19.409
+2019,"OSREDNJESLOVENSKA","DOL PRI LJUBLJANI","Paper/Cardboard Packaging",16.498
+2019,"OSREDNJESLOVENSKA","DOMŽALE","Paper/Cardboard Packaging",364.22
+2019,"OSREDNJESLOVENSKA","DOMŽALE","Wood, not specified in 20 01 37",836.499
+2019,"OSREDNJESLOVENSKA","GROSUPLJE","Paper/Cardboard Packaging",188.97
+2019,"OSREDNJESLOVENSKA","GROSUPLJE","Wood, not specified in 20 01 37",410.35
+2019,"OSREDNJESLOVENSKA","GROSUPLJE","Wooden packaging",38.349
+2019,"OSREDNJESLOVENSKA","HORJUL","Paper/Cardboard Packaging",8.977
+2019,"OSREDNJESLOVENSKA","IG","Paper/Cardboard Packaging",36.621
+2019,"OSREDNJESLOVENSKA","IG","Wood, not specified in 20 01 37",83.08
+2019,"OSREDNJESLOVENSKA","IVANČNA GORICA","Paper/Cardboard Packaging",100.39
+2019,"OSREDNJESLOVENSKA","IVANČNA GORICA","Wood, not specified in 20 01 37",183.867
+2019,"OSREDNJESLOVENSKA","IVANČNA GORICA","Wooden packaging",20.373
+2019,"OSREDNJESLOVENSKA","KAMNIK","Paper/Cardboard Packaging",209.5
+2019,"OSREDNJESLOVENSKA","KAMNIK","Wood, not specified in 20 01 37",101.48
+2019,"OSREDNJESLOVENSKA","KOMENDA","Paper/Cardboard Packaging",82.92
+2019,"OSREDNJESLOVENSKA","KOMENDA","Wood, not specified in 20 01 37",27.82
+2019,"OSREDNJESLOVENSKA","KOMENDA","Wooden packaging",73.96
+2019,"OSREDNJESLOVENSKA","LJUBLJANA","Paper/Cardboard Packaging",2745.111
+2019,"OSREDNJESLOVENSKA","LJUBLJANA","Wood, not specified in 20 01 37",5804.19
+2019,"OSREDNJESLOVENSKA","LJUBLJANA","Wooden packaging",667.946
+2019,"OSREDNJESLOVENSKA","LOG-DRAGOMER","Paper/Cardboard Packaging",23.01
+2019,"OSREDNJESLOVENSKA","LOG-DRAGOMER","Wood, not specified in 20 01 37",83.643
+2019,"OSREDNJESLOVENSKA","LOGATEC","Paper/Cardboard Packaging",134.5
+2019,"OSREDNJESLOVENSKA","LOGATEC","Wood, not specified in 20 01 37",369.17
+2019,"OSREDNJESLOVENSKA","LUKOVICA","Paper/Cardboard Packaging",48.562
+2019,"OSREDNJESLOVENSKA","LUKOVICA","Wood, not specified in 20 01 37",111.533
+2019,"OSREDNJESLOVENSKA","MEDVODE","Paper/Cardboard Packaging",52.173
+2019,"OSREDNJESLOVENSKA","MEDVODE","Wood, not specified in 20 01 37",202.22
+2019,"OSREDNJESLOVENSKA","MENGEŠ","Paper/Cardboard Packaging",72.843
+2019,"OSREDNJESLOVENSKA","MENGEŠ","Wood, not specified in 20 01 37",167.299
+2019,"OSREDNJESLOVENSKA","MORAVČE","Paper/Cardboard Packaging",48.562
+2019,"OSREDNJESLOVENSKA","MORAVČE","Wood, not specified in 20 01 37",111.533
+2019,"OSREDNJESLOVENSKA","TRZIN","Paper/Cardboard Packaging",72.843
+2019,"OSREDNJESLOVENSKA","TRZIN","Wood, not specified in 20 01 37",167.299
+2019,"OSREDNJESLOVENSKA","VELIKE LAŠČE","Paper/Cardboard Packaging",12.472
+2019,"OSREDNJESLOVENSKA","VELIKE LAŠČE","Wood, not specified in 20 01 37",62.6
+2019,"OSREDNJESLOVENSKA","VODICE","Paper/Cardboard Packaging",13.374
+2019,"OSREDNJESLOVENSKA","VODICE","Wood, not specified in 20 01 37",82.84
+2019,"OSREDNJESLOVENSKA","VRHNIKA","Paper/Cardboard Packaging",111.729
+2019,"OSREDNJESLOVENSKA","VRHNIKA","Wood, not specified in 20 01 37",406.266
+2019,"OSREDNJESLOVENSKA","VRHNIKA","Wooden packaging",0.72
+2019,"OSREDNJESLOVENSKA","ŠKOFLJICA","Paper/Cardboard Packaging",31.674
+2019,"OSREDNJESLOVENSKA","ŠKOFLJICA","Wood, not specified in 20 01 37",107.34
+2019,"OSREDNJESLOVENSKA","ŠMARTNO PRI LITIJI","Paper/Cardboard Packaging",43.16
+2019,"OSREDNJESLOVENSKA","ŠMARTNO PRI LITIJI","Wood, not specified in 20 01 37",73.255
+2019,"PODRAVSKA","BENEDIKT","Wood, not specified in 20 01 37",3.817
+2019,"PODRAVSKA","CERKVENJAK","Wood, not specified in 20 01 37",0.04
+2019,"PODRAVSKA","CIRKULANE","Paper/Cardboard Packaging",12.08
+2019,"PODRAVSKA","DESTRNIK","Paper/Cardboard Packaging",22.458
+2019,"PODRAVSKA","DORNAVA","Paper/Cardboard Packaging",20.166
+2019,"PODRAVSKA","DORNAVA","Wood, not specified in 20 01 37",33.956
+2019,"PODRAVSKA","DUPLEK","Paper/Cardboard Packaging",63.316
+2019,"PODRAVSKA","DUPLEK","Wood, not specified in 20 01 37",80.751
+2019,"PODRAVSKA","GORIŠNICA","Paper/Cardboard Packaging",27.012
+2019,"PODRAVSKA","GORIŠNICA","Wood, not specified in 20 01 37",65.458
+2019,"PODRAVSKA","HAJDINA","Paper/Cardboard Packaging",32.28
+2019,"PODRAVSKA","HAJDINA","Wood, not specified in 20 01 37",56.015
+2019,"PODRAVSKA","HOČE-SLIVNICA","Wood, not specified in 20 01 37",13.886
+2019,"PODRAVSKA","HOČE-SLIVNICA","Wooden packaging",18.814
+2019,"PODRAVSKA","JURŠINCI","Paper/Cardboard Packaging",17.196
+2019,"PODRAVSKA","JURŠINCI","Wood, not specified in 20 01 37",28.265
+2019,"PODRAVSKA","KIDRIČEVO","Paper/Cardboard Packaging",63.209
+2019,"PODRAVSKA","KIDRIČEVO","Wood, not specified in 20 01 37",135.1
+2019,"PODRAVSKA","KUNGOTA","Paper/Cardboard Packaging",21.991
+2019,"PODRAVSKA","KUNGOTA","Wood, not specified in 20 01 37",68.66
+2019,"PODRAVSKA","LENART","Wood, not specified in 20 01 37",132.396
+2019,"PODRAVSKA","LENART","Wooden packaging",16.32
+2019,"PODRAVSKA","LOVRENC NA POHORJU","Paper/Cardboard Packaging",14.79
+2019,"PODRAVSKA","LOVRENC NA POHORJU","Wood, not specified in 20 01 37",103.74
+2019,"PODRAVSKA","MAJŠPERK","Paper/Cardboard Packaging",29.938
+2019,"PODRAVSKA","MAJŠPERK","Wood, not specified in 20 01 37",41.95
+2019,"PODRAVSKA","MAKOLE","Paper/Cardboard Packaging",28.669
+2019,"PODRAVSKA","MAKOLE","Wood, not specified in 20 01 37",48.066
+2019,"PODRAVSKA","MARIBOR","Paper/Cardboard Packaging",500.972
+2019,"PODRAVSKA","MARIBOR","Wood, not specified in 20 01 37",4231.715
+2019,"PODRAVSKA","MARIBOR","Wooden packaging",18.46
+2019,"PODRAVSKA","MARKOVCI","Paper/Cardboard Packaging",25.637
+2019,"PODRAVSKA","MARKOVCI","Wood, not specified in 20 01 37",69.502
+2019,"PODRAVSKA","MIKLAVŽ NA DRAVSKEM POLJU","Paper/Cardboard Packaging",27.92
+2019,"PODRAVSKA","MIKLAVŽ NA DRAVSKEM POLJU","Wood, not specified in 20 01 37",124.52
+2019,"PODRAVSKA","OPLOTNICA","Paper/Cardboard Packaging",43.004
+2019,"PODRAVSKA","OPLOTNICA","Wood, not specified in 20 01 37",72.098
+2019,"PODRAVSKA","ORMOŽ","Paper/Cardboard Packaging",89.231
+2019,"PODRAVSKA","ORMOŽ","Wood, not specified in 20 01 37",3.7
+2019,"PODRAVSKA","PESNICA","Paper/Cardboard Packaging",24.749
+2019,"PODRAVSKA","PESNICA","Wood, not specified in 20 01 37",181.46
+2019,"PODRAVSKA","PODLEHNIK","Paper/Cardboard Packaging",10.182
+2019,"PODRAVSKA","POLJČANE","Paper/Cardboard Packaging",50.171
+2019,"PODRAVSKA","POLJČANE","Wood, not specified in 20 01 37",84.115
+2019,"PODRAVSKA","PTUJ","Paper/Cardboard Packaging",253.599
+2019,"PODRAVSKA","PTUJ","Wood, not specified in 20 01 37",1156.545
+2019,"PODRAVSKA","PTUJ","Wooden packaging",2.76
+2019,"PODRAVSKA","RAČE-FRAM","Paper/Cardboard Packaging",57.338
+2019,"PODRAVSKA","RAČE-FRAM","Wood, not specified in 20 01 37",96.131
+2019,"PODRAVSKA","RUŠE","Paper/Cardboard Packaging",25.01
+2019,"PODRAVSKA","RUŠE","Wood, not specified in 20 01 37",329.183
+2019,"PODRAVSKA","RUŠE","Wooden packaging",0.08
+2019,"PODRAVSKA","SELNICA OB DRAVI","Paper/Cardboard Packaging",15.656
+2019,"PODRAVSKA","SELNICA OB DRAVI","Wood, not specified in 20 01 37",184.137
+2019,"PODRAVSKA","SLOVENSKA BISTRICA","Paper/Cardboard Packaging",179.183
+2019,"PODRAVSKA","SLOVENSKA BISTRICA","Wood, not specified in 20 01 37",300.41
+2019,"PODRAVSKA","SREDIŠČE OB DRAVI","Paper/Cardboard Packaging",17.846
+2019,"PODRAVSKA","SREDIŠČE OB DRAVI","Wood, not specified in 20 01 37",2.46
+2019,"PODRAVSKA","STARŠE","Paper/Cardboard Packaging",18.58
+2019,"PODRAVSKA","STARŠE","Wood, not specified in 20 01 37",198.98
+2019,"PODRAVSKA","SV. TROJICA V SLOV. GORICAH","Wood, not specified in 20 01 37",0.949
+2019,"PODRAVSKA","SVETI ANDRAŽ V SLOV. GORICAH","Paper/Cardboard Packaging",8.778
+2019,"PODRAVSKA","SVETI TOMAŽ","Paper/Cardboard Packaging",11.897
+2019,"PODRAVSKA","TRNOVSKA VAS","Paper/Cardboard Packaging",8.407
+2019,"PODRAVSKA","TRNOVSKA VAS","Wood, not specified in 20 01 37",27.881
+2019,"PODRAVSKA","VIDEM","Paper/Cardboard Packaging",31.244
+2019,"PODRAVSKA","VIDEM","Wood, not specified in 20 01 37",37.982
+2019,"PODRAVSKA","ZAVRČ","Paper/Cardboard Packaging",6.901
+2019,"PODRAVSKA","ŠENTILJ","Wood, not specified in 20 01 37",208.383
+2019,"PODRAVSKA","ŠENTILJ","Wooden packaging",44.66
+2019,"PODRAVSKA","ŽETALE","Paper/Cardboard Packaging",7.295
+2019,"PODRAVSKA","ŽETALE","Wood, not specified in 20 01 37",23.37
+2019,"POMURSKA","APAČE","Paper/Cardboard Packaging",77.06
+2019,"POMURSKA","APAČE","Wood, not specified in 20 01 37",0.16
+2019,"POMURSKA","BELTINCI","Paper/Cardboard Packaging",6.965
+2019,"POMURSKA","BELTINCI","Wood, not specified in 20 01 37",98.58
+2019,"POMURSKA","CANKOVA","Paper/Cardboard Packaging",0.635
+2019,"POMURSKA","CANKOVA","Wood, not specified in 20 01 37",17.356
+2019,"POMURSKA","DOBROVNIK","Paper/Cardboard Packaging",0.996
+2019,"POMURSKA","DOBROVNIK","Wood, not specified in 20 01 37",18.98
+2019,"POMURSKA","GORNJA RADGONA","Paper/Cardboard Packaging",52.87
+2019,"POMURSKA","GORNJA RADGONA","Wood, not specified in 20 01 37",75.38
+2019,"POMURSKA","GORNJA RADGONA","Wooden packaging",2.86
+2019,"POMURSKA","GORNJI PETROVCI","Paper/Cardboard Packaging",2.72
+2019,"POMURSKA","GORNJI PETROVCI","Wood, not specified in 20 01 37",4.183
+2019,"POMURSKA","GRAD","Paper/Cardboard Packaging",0.44
+2019,"POMURSKA","GRAD","Wood, not specified in 20 01 37",17.78
+2019,"POMURSKA","HODOŠ","Paper/Cardboard Packaging",0.777
+2019,"POMURSKA","HODOŠ","Wood, not specified in 20 01 37",2.044
+2019,"POMURSKA","KOBILJE","Paper/Cardboard Packaging",0.293
+2019,"POMURSKA","KOBILJE","Wood, not specified in 20 01 37",5.4
+2019,"POMURSKA","KRIŽEVCI","Paper/Cardboard Packaging",10.26
+2019,"POMURSKA","KRIŽEVCI","Wood, not specified in 20 01 37",14.16
+2019,"POMURSKA","KUZMA","Paper/Cardboard Packaging",4.38
+2019,"POMURSKA","KUZMA","Wood, not specified in 20 01 37",1.004
+2019,"POMURSKA","LENDAVA","Paper/Cardboard Packaging",92.409
+2019,"POMURSKA","LJUTOMER","Paper/Cardboard Packaging",35.02
+2019,"POMURSKA","LJUTOMER","Wood, not specified in 20 01 37",80.26
+2019,"POMURSKA","MORAVSKE TOPLICE","Paper/Cardboard Packaging",8.765
+2019,"POMURSKA","MORAVSKE TOPLICE","Wood, not specified in 20 01 37",16.5
+2019,"POMURSKA","MURSKA SOBOTA","Paper/Cardboard Packaging",232.93
+2019,"POMURSKA","MURSKA SOBOTA","Wood, not specified in 20 01 37",257.58
+2019,"POMURSKA","ODRANCI","Paper/Cardboard Packaging",6.683
+2019,"POMURSKA","ODRANCI","Wood, not specified in 20 01 37",17.9
+2019,"POMURSKA","PUCONCI","Paper/Cardboard Packaging",35.965
+2019,"POMURSKA","PUCONCI","Wood, not specified in 20 01 37",5.3
+2019,"POMURSKA","RADENCI","Wood, not specified in 20 01 37",167.411
+2019,"POMURSKA","RADENCI","Wooden packaging",44.88
+2019,"POMURSKA","RAZKRIŽJE","Paper/Cardboard Packaging",4.81
+2019,"POMURSKA","RAZKRIŽJE","Wood, not specified in 20 01 37",6.13
+2019,"POMURSKA","ROGAŠOVCI","Paper/Cardboard Packaging",3.56
+2019,"POMURSKA","ROGAŠOVCI","Wood, not specified in 20 01 37",12.26
+2019,"POMURSKA","SVETI JURIJ OB ŠČAVNICI","Wood, not specified in 20 01 37",1.207
+2019,"POMURSKA","TIŠINA","Paper/Cardboard Packaging",0.52
+2019,"POMURSKA","TIŠINA","Wood, not specified in 20 01 37",32.4
+2019,"POMURSKA","TURNIŠČE","Paper/Cardboard Packaging",4.456
+2019,"POMURSKA","TURNIŠČE","Wood, not specified in 20 01 37",23.78
+2019,"POMURSKA","VELIKA POLANA","Wood, not specified in 20 01 37",4.28
+2019,"POMURSKA","VERŽEJ","Paper/Cardboard Packaging",5.15
+2019,"POMURSKA","VERŽEJ","Wood, not specified in 20 01 37",7.18
+2019,"POMURSKA","ČRENŠOVCI","Paper/Cardboard Packaging",4.715
+2019,"POMURSKA","ČRENŠOVCI","Wood, not specified in 20 01 37",39.22
+2019,"POMURSKA","ŠALOVCI","Paper/Cardboard Packaging",1.684
+2019,"POMURSKA","ŠALOVCI","Wood, not specified in 20 01 37",8.953
+2019,"POSAVSKA","BISTRICA OB SOTLI","Paper/Cardboard Packaging",6.046
+2019,"POSAVSKA","BISTRICA OB SOTLI","Wood, not specified in 20 01 37",2.266
+2019,"POSAVSKA","BISTRICA OB SOTLI","Wooden packaging",0.005
+2019,"POSAVSKA","BREŽICE","Paper/Cardboard Packaging",201.98
+2019,"POSAVSKA","KOSTANJEVICA NA KRKI","Paper/Cardboard Packaging",39.06
+2019,"POSAVSKA","KRŠKO","Paper/Cardboard Packaging",571.04
+2019,"POSAVSKA","KRŠKO","Wood, not specified in 20 01 37",906.103
+2019,"POSAVSKA","RADEČE","Paper/Cardboard Packaging",28.6
+2019,"POSAVSKA","RADEČE","Wood, not specified in 20 01 37",67.3
+2019,"POSAVSKA","SEVNICA","Paper/Cardboard Packaging",117.65
+2019,"POSAVSKA","SEVNICA","Wood, not specified in 20 01 37",244.12
+2019,"POSAVSKA","SEVNICA","Wooden packaging",5.76
+2019,"PRIMORSKONOTRANJSKA","BLOKE","Paper/Cardboard Packaging",8.423
+2019,"PRIMORSKONOTRANJSKA","CERKNICA","Paper/Cardboard Packaging",57.204
+2019,"PRIMORSKONOTRANJSKA","CERKNICA","Wood, not specified in 20 01 37",325.86
+2019,"PRIMORSKONOTRANJSKA","CERKNICA","Wooden packaging",41.49
+2019,"PRIMORSKONOTRANJSKA","ILIRSKA BISTRICA","Paper/Cardboard Packaging",160.904
+2019,"PRIMORSKONOTRANJSKA","ILIRSKA BISTRICA","Wood, not specified in 20 01 37",205.68
+2019,"PRIMORSKONOTRANJSKA","LOŠKA DOLINA","Paper/Cardboard Packaging",19.068
+2019,"PRIMORSKONOTRANJSKA","LOŠKA DOLINA","Wood, not specified in 20 01 37",108.62
+2019,"PRIMORSKONOTRANJSKA","LOŠKA DOLINA","Wooden packaging",13.83
+2019,"PRIMORSKONOTRANJSKA","PIVKA","Paper/Cardboard Packaging",184.64
+2019,"PRIMORSKONOTRANJSKA","PIVKA","Wood, not specified in 20 01 37",109.3
+2019,"PRIMORSKONOTRANJSKA","PIVKA","Wooden packaging",4.06
+2019,"PRIMORSKONOTRANJSKA","POSTOJNA","Paper/Cardboard Packaging",288.24
+2019,"PRIMORSKONOTRANJSKA","POSTOJNA","Wood, not specified in 20 01 37",168.16
+2019,"PRIMORSKONOTRANJSKA","POSTOJNA","Wooden packaging",2.57
+2019,"SAVINJSKA","BRASLOVČE","Paper/Cardboard Packaging",23.927
+2019,"SAVINJSKA","BRASLOVČE","Wood, not specified in 20 01 37",46.801
+2019,"SAVINJSKA","CELJE","Paper/Cardboard Packaging",282.017
+2019,"SAVINJSKA","CELJE","Wood, not specified in 20 01 37",306.455
+2019,"SAVINJSKA","CELJE","Wooden packaging",38.06
+2019,"SAVINJSKA","DOBJE","Paper/Cardboard Packaging",6.777
+2019,"SAVINJSKA","DOBJE","Wood, not specified in 20 01 37",5.526
+2019,"SAVINJSKA","DOBRNA","Paper/Cardboard Packaging",8.77
+2019,"SAVINJSKA","DOBRNA","Wood, not specified in 20 01 37",21.386
+2019,"SAVINJSKA","GORNJI GRAD","Paper/Cardboard Packaging",7.986
+2019,"SAVINJSKA","GORNJI GRAD","Wood, not specified in 20 01 37",34.913
+2019,"SAVINJSKA","KOZJE","Paper/Cardboard Packaging",14.772
+2019,"SAVINJSKA","KOZJE","Wood, not specified in 20 01 37",5.535
+2019,"SAVINJSKA","KOZJE","Wooden packaging",0.013
+2019,"SAVINJSKA","LAŠKO","Paper/Cardboard Packaging",162.553
+2019,"SAVINJSKA","LAŠKO","Wood, not specified in 20 01 37",27.06
+2019,"SAVINJSKA","LJUBNO","Paper/Cardboard Packaging",3.256
+2019,"SAVINJSKA","LJUBNO","Wood, not specified in 20 01 37",17.13
+2019,"SAVINJSKA","LUČE","Paper/Cardboard Packaging",1.85
+2019,"SAVINJSKA","LUČE","Wood, not specified in 20 01 37",8.841
+2019,"SAVINJSKA","MOZIRJE","Paper/Cardboard Packaging",32.015
+2019,"SAVINJSKA","NAZARJE","Paper/Cardboard Packaging",9.087
+2019,"SAVINJSKA","NAZARJE","Wood, not specified in 20 01 37",28.066
+2019,"SAVINJSKA","PODČETRTEK","Paper/Cardboard Packaging",15.883
+2019,"SAVINJSKA","PODČETRTEK","Wood, not specified in 20 01 37",5.952
+2019,"SAVINJSKA","PODČETRTEK","Wooden packaging",0.014
+2019,"SAVINJSKA","POLZELA","Paper/Cardboard Packaging",12.515
+2019,"SAVINJSKA","POLZELA","Wood, not specified in 20 01 37",25.341
+2019,"SAVINJSKA","PREBOLD","Paper/Cardboard Packaging",33.316
+2019,"SAVINJSKA","PREBOLD","Wood, not specified in 20 01 37",56.464
+2019,"SAVINJSKA","REČICA OB SAVINJI","Paper/Cardboard Packaging",18.009
+2019,"SAVINJSKA","ROGATEC","Paper/Cardboard Packaging",10.981
+2019,"SAVINJSKA","ROGATEC","Wood, not specified in 20 01 37",4.115
+2019,"SAVINJSKA","ROGATEC","Wooden packaging",0.009
+2019,"SAVINJSKA","ROGAŠKA SLATINA","Paper/Cardboard Packaging",52.601
+2019,"SAVINJSKA","ROGAŠKA SLATINA","Wood, not specified in 20 01 37",19.71
+2019,"SAVINJSKA","ROGAŠKA SLATINA","Wooden packaging",0.045
+2019,"SAVINJSKA","SLOVENSKE KONJICE","Paper/Cardboard Packaging",136.16
+2019,"SAVINJSKA","SLOVENSKE KONJICE","Wood, not specified in 20 01 37",204.44
+2019,"SAVINJSKA","SOLČAVA","Paper/Cardboard Packaging",0.927
+2019,"SAVINJSKA","SOLČAVA","Wood, not specified in 20 01 37",4.06
+2019,"SAVINJSKA","TABOR","Paper/Cardboard Packaging",4.246
+2019,"SAVINJSKA","TABOR","Wood, not specified in 20 01 37",14.064
+2019,"SAVINJSKA","VELENJE","Paper/Cardboard Packaging",214.497
+2019,"SAVINJSKA","VELENJE","Wood, not specified in 20 01 37",886.841
+2019,"SAVINJSKA","VELENJE","Wooden packaging",125.1
+2019,"SAVINJSKA","VOJNIK","Paper/Cardboard Packaging",40.336
+2019,"SAVINJSKA","VOJNIK","Wood, not specified in 20 01 37",84.456
+2019,"SAVINJSKA","VRANSKO","Paper/Cardboard Packaging",12.91
+2019,"SAVINJSKA","VRANSKO","Wood, not specified in 20 01 37",22.211
+2019,"SAVINJSKA","ZREČE","Wood, not specified in 20 01 37",145.584
+2019,"SAVINJSKA","ŠENTJUR","Paper/Cardboard Packaging",82.139
+2019,"SAVINJSKA","ŠENTJUR","Wood, not specified in 20 01 37",109.861
+2019,"SAVINJSKA","ŠMARJE PRI JELŠAH","Paper/Cardboard Packaging",63.125
+2019,"SAVINJSKA","ŠMARJE PRI JELŠAH","Wood, not specified in 20 01 37",23.652
+2019,"SAVINJSKA","ŠMARJE PRI JELŠAH","Wooden packaging",0.054
+2019,"SAVINJSKA","ŠMARTNO OB PAKI","Paper/Cardboard Packaging",21.96
+2019,"SAVINJSKA","ŠMARTNO OB PAKI","Wood, not specified in 20 01 37",68.142
+2019,"SAVINJSKA","ŠOŠTANJ","Paper/Cardboard Packaging",46.937
+2019,"SAVINJSKA","ŠOŠTANJ","Wood, not specified in 20 01 37",174.829
+2019,"SAVINJSKA","ŠTORE","Paper/Cardboard Packaging",12.252
+2019,"SAVINJSKA","ŠTORE","Wood, not specified in 20 01 37",27.338
+2019,"SAVINJSKA","ŽALEC","Paper/Cardboard Packaging",107.704
+2019,"SAVINJSKA","ŽALEC","Wood, not specified in 20 01 37",239.054
+2019,"ZASAVSKA","HRASTNIK","Paper/Cardboard Packaging",71.89
+2019,"ZASAVSKA","LITIJA","Paper/Cardboard Packaging",122.848
+2019,"ZASAVSKA","LITIJA","Wood, not specified in 20 01 37",208.495
+2019,"ZASAVSKA","TRBOVLJE","Paper/Cardboard Packaging",113.77
+2019,"ZASAVSKA","TRBOVLJE","Wood, not specified in 20 01 37",500.1
+2019,"ZASAVSKA","TRBOVLJE","Wooden packaging",1.1
+2019,"ZASAVSKA","ZAGORJE OB SAVI","Paper/Cardboard Packaging",133.97
+2019,"ZASAVSKA","ZAGORJE OB SAVI","Wood, not specified in 20 01 37",386

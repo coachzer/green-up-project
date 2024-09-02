@@ -3566,6 +3566,14 @@ municipal_waste_treatment.19 <- municipal_waste_treatment.19 |>
 municipal_waste_treatment.19 <- municipal_waste_treatment.19 |> 
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
+municipal_waste_treatment.19 <- municipal_waste_treatment.19 |> 
+  mutate(year = 2019)
+
+municipal_waste_treatment.19 <- municipal_waste_treatment.19 |>
+  group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+  summarise(total_waste_received = sum(total_waste_received) / 1000) |>
+  ungroup()
+
 waste_recovery_19.sheet5 <- municipal_waste_treatment.19
 ```
 
@@ -3609,6 +3617,14 @@ waste_difference.19 <- waste_difference.19 |>
       waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
       waste_code == "03 01 99" ~ "Miscellaneous Waste"
     )
+  )
+
+waste_difference.19 <- waste_difference.19 |>
+  mutate(year = 2019)
+
+waste_difference.19 <- waste_difference.19 |>
+  mutate(
+    lost_mass = lost_mass / 1000
   )
 
 waste_recovery_19.sheet6 <- waste_difference.19
@@ -3673,9 +3689,21 @@ waste_volumes_landfill.19 <- waste_volumes_landfill.19 |>
   )
 
 # If NA values in column, put 0
-waste_volumes_landfill.19[is.na(waste_volumes_landfill.19)] <- 0
+# waste_volumes_landfill.19[is.na(waste_volumes_landfill.19)] <- 0
 
-waste_recovery_19.sheet8 <- waste_volumes_landfill.19
+## Drop columns containing NA values
+waste_volumes_landfill.19 <- select_if(waste_volumes_landfill.19, ~!all(is.na(.)))
+
+waste_volumes_landfill.19 <- waste_volumes_landfill.19 |>
+  group_by(landfill, type_of_waste) |>
+  summarise(
+    non_hazardous_waste_received = sum(non_hazardous_waste_received) / 1000,
+    disposed = sum(disposed) / 1000
+  ) |> 
+  ungroup() |> 
+  mutate(year = 2019)
+
+waste_recovery_19.sheet8 <- waste_volumes_landfill.19 |> select(year, landfill, type_of_waste, non_hazardous_waste_received, disposed)
 ```
 
 ```{r municipal_waste_disposed_EXCLUDED}
@@ -3902,6 +3930,18 @@ waste_collection_18.by_codes1[is.na(waste_collection_18.by_codes1)] <- 0
 ## Rename type_of_waste
 waste_collection_18.by_codes1 <- rename_waste_names(waste_collection_18.by_codes1)
 
+waste_collection_18.by_codes1 <- waste_collection_18.by_codes1 |> 
+  mutate(year = 2018)
+
+waste_collection_18.by_codes1 <- waste_collection_18.by_codes1 |> 
+  group_by(year, statistical_region, type_of_waste) |> 
+  summarise(
+    waste_stored_start_year = sum(waste_stored_start_year) / 1000,
+    waste_stored_end_year = sum(waste_stored_end_year) / 1000
+  ) |> 
+  ungroup() 
+
+
 ```
 
 ```{r waste_collected}
@@ -3971,6 +4011,20 @@ waste_collection_18.by_codes2 <- waste_collection_18.by_codes2 |>
 ## Rename type_of_waste
 waste_collection_18.by_codes2 <- rename_waste_names(waste_collection_18.by_codes2)
 
+waste_collection_18.by_codes2 <- waste_collection_18.by_codes2 |>
+  mutate(year = 2018)
+
+waste_collection_18.by_codes2 <- waste_collection_18.by_codes2 |> 
+  group_by(year, statistical_region, type_of_waste) |> 
+  summarise(
+    waste_from_producers_no_record = sum(waste_from_producers_no_record) / 1000,
+    waste_from_producers_with_record = sum(waste_from_producers_with_record) / 1000,
+    waste_from_collectors_RS = sum(waste_from_collectors_RS) / 1000,
+    waste_from_processors_RS = sum(waste_from_processors_RS) / 1000
+  ) |> 
+  ungroup() 
+
+
 ```
 
 ```{r municipal_waste_collected}
@@ -4002,6 +4056,18 @@ waste_collection_18.by_codes3 <- rename_waste_names(waste_collection_18.by_codes
 
 ## If NA
 waste_collection_18.by_codes3[is.na(waste_collection_18.by_codes3)] <- 0
+
+waste_collection_18.by_codes3 <- waste_collection_18.by_codes3 |> 
+  mutate(year = 2018)
+
+waste_collection_18.by_codes3 <- waste_collection_18.by_codes3 |>
+  group_by(year, name_of_company, type_of_waste) |>
+  summarise(
+    total_waste_collected = sum(total_waste_collected) / 1000,
+    collected_from_households = sum(collected_from_households) / 1000,
+    collected_from_activities = sum(collected_from_activities) / 1000
+  ) |>
+  ungroup()
 
 ```
 
@@ -4036,6 +4102,17 @@ waste_collection_18.by_codes4 <- waste_collection_18.by_codes4 |>
 
 ## sum NA per column
 colSums(is.na(waste_collection_18.by_codes4))
+
+waste_collection_18.by_codes4 <- waste_collection_18.by_codes4 |> 
+  mutate(year = 2018)
+
+waste_collection_18.by_codes4 <- waste_collection_18.by_codes4 |>
+  group_by(year, name_of_company, statistical_region, name_of_municipality, type_of_waste) |>
+  summarise(
+    total_waste_collected = sum(total_waste_collected) / 1000
+  ) |>
+  ungroup()
+
 
 ```
 
@@ -4097,6 +4174,20 @@ waste_collection_18.by_codes5 <- waste_collection_18.by_codes5 |>
   )
 
 waste_collection_18.by_codes5 <- waste_collection_18.by_codes5 |> select(-treatment_process)
+
+waste_collection_18.by_codes5 <- waste_collection_18.by_codes5 |> 
+  mutate(year = 2018)
+
+waste_collection_18.by_codes5 <- waste_collection_18.by_codes5 |>
+  group_by(year, statistical_region, type_of_waste) |>
+  summarise(
+    total_waste_given_away = sum(total_waste_given_away) / 1000,
+    delivered_to_collector = sum(delivered_to_collector) / 1000,
+    delivered_to_processing_operator = sum(delivered_to_processing_operator) / 1000,
+    delivered_to_other_eu_country = sum(delivered_to_other_eu_country) / 1000
+  ) |>
+  ungroup()
+
 ```
 
 ```{r waste_collection_to_CSV_2018}
@@ -4161,6 +4252,18 @@ waste_recovery_18.by_codes1 <- waste_recovery_18.by_codes1 |>
 
 ## Rename type_of_waste
 waste_recovery_18.by_codes1 <- rename_waste_names(waste_recovery_18.by_codes1)
+
+waste_recovery_18.by_codes1 <- waste_recovery_18.by_codes1 |> 
+  mutate(year = 2018)
+
+waste_recovery_18.by_codes1 <- waste_recovery_18.by_codes1 |>
+  group_by(year, statistical_region, type_of_waste) |>
+  summarise(
+    waste_stored_start_year = sum(waste_stored_start_year) / 1000,
+    waste_stored_end_year = sum(waste_stored_end_year) / 1000
+  ) |>
+  ungroup()
+
 ```
 
 ```{r waste_recovery_disposal_collected}
@@ -4205,6 +4308,53 @@ waste_recovery_18.by_codes2 <- waste_recovery_18.by_codes2 |>
 
 ## Rename type_of_waste
 waste_recovery_18.by_codes2 <- rename_waste_names(waste_recovery_18.by_codes2)
+
+# define columns based on received_from
+waste_recovery_18.by_codes2 <- waste_recovery_18.by_codes2 |> 
+  mutate(
+    received_from_own_waste_OVD = case_when(
+      received_from == "own waste, 'OVD' case" ~ total_waste_received,
+      TRUE ~ 0
+    ),
+    received_from_other_producer_RS = case_when(
+      received_from == "other original producer in RS" ~ total_waste_received,
+      TRUE ~ 0
+    ),
+    received_from_other_collector_RS = case_when(
+      received_from == "other collector in RS" ~ total_waste_received,
+      TRUE ~ 0
+    ),
+    received_from_other_processing_operator_RS = case_when(
+      received_from == "other processing operator in RS" ~ total_waste_received,
+      TRUE ~ 0
+    ),
+    received_from_other_EU_country = case_when(
+      received_from == "other EU country" ~ total_waste_received,
+      TRUE ~ 0
+    ),
+    received_from_other_country_outside_EU = case_when(
+      received_from == "other country (outside EU)" ~ total_waste_received,
+      TRUE ~ 0
+    )
+  )
+
+waste_recovery_18.by_codes2 <- waste_recovery_18.by_codes2 |> 
+  mutate(year = 2018)
+
+waste_recovery_18.by_codes2 <- waste_recovery_18.by_codes2 |>
+  group_by(year, statistical_region, type_of_waste) |>
+  summarise(
+    total_waste_received = sum(total_waste_received) / 1000,
+    received_from_own_waste_OVD = sum(received_from_own_waste_OVD) / 1000,
+    received_from_other_producer_RS = sum(received_from_other_producer_RS) / 1000,
+    received_from_other_collector_RS = sum(received_from_other_collector_RS) / 1000,
+    received_from_other_processing_operator_RS = sum(received_from_other_processing_operator_RS) / 1000,
+    received_from_other_EU_country = sum(received_from_other_EU_country) / 1000,
+    received_from_other_country_outside_EU = sum(received_from_other_country_outside_EU) / 1000
+  ) |>
+  ungroup()
+
+
 ```
 
 ```{r treatment_of_waste}
@@ -4232,6 +4382,18 @@ waste_recovery_18.by_codes3 <- waste_recovery_18.by_codes3 |>
 
 ## Rename type_of_waste
 waste_recovery_18.by_codes3 <- rename_waste_names(waste_recovery_18.by_codes3)
+
+waste_recovery_18.by_codes3 <- waste_recovery_18.by_codes3 |> 
+  mutate(year = 2018)
+
+waste_recovery_18.by_codes3 <- waste_recovery_18.by_codes3 |>
+  group_by(year, statistical_region, type_of_waste) |>
+  summarise(
+    total_waste_given_away = sum(total_waste_given_away) / 1000
+  ) |>
+  ungroup()
+
+
 ```
 
 ```{r waste_generated}
@@ -4297,6 +4459,22 @@ waste_recovery_18.by_codes4 <- waste_recovery_18.by_codes4 |>
 
 ## Rename type_of_waste
 waste_recovery_18.by_codes4 <- rename_waste_names(waste_recovery_18.by_codes4)
+
+waste_recovery_18.by_codes4 <- waste_recovery_18.by_codes4 |> 
+  mutate(year = 2018)
+
+waste_recovery_18.by_codes4 <- waste_recovery_18.by_codes4 |>
+  group_by(year, statistical_region, type_of_waste) |>
+  summarise(
+    total_waste_generated = sum(total_waste_generated) / 1000,
+    delivered_to_collector_RS = sum(delivered_to_collector_RS) / 1000,
+    delivered_to_processing_operator_RS = sum(delivered_to_processing_operator_RS) / 1000,
+    delivered_to_other_EU_country = sum(delivered_to_other_EU_country) / 1000,
+    delivered_to_other_country_outside_EU = sum(delivered_to_other_country_outside_EU) / 1000
+  ) |>
+  ungroup()
+
+
 ```
 
 ```{r municipal_waste_received}
@@ -4330,6 +4508,17 @@ waste_recovery_18.by_codes5 <- rename_waste_names(waste_recovery_18.by_codes5)
 waste_recovery_18.by_codes5 <- waste_recovery_18.by_codes5 |> 
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
+waste_recovery_18.by_codes5 <- waste_recovery_18.by_codes5 |> 
+  mutate(year = 2018)
+
+waste_recovery_18.by_codes5 <- waste_recovery_18.by_codes5 |>
+  group_by(year, name_of_company, statistical_region, name_of_municipality, type_of_waste) |>
+  summarise(
+    total_waste_received = sum(total_waste_received) / 1000
+  ) |>
+  ungroup()
+
+
 ```
 
 ```{r difference_waste_input_treatment_process}
@@ -4361,6 +4550,16 @@ waste_recovery_18.by_codes6 <- waste_recovery_18.by_codes6 |>
 ## Rename type_of_waste
 waste_recovery_18.by_codes6 <- rename_waste_names(waste_recovery_18.by_codes6)
 
+waste_recovery_18.by_codes6 <- waste_recovery_18.by_codes6 |> 
+  mutate(year = 2018)
+
+waste_recovery_18.by_codes6 <- waste_recovery_18.by_codes6 |>
+  group_by(year, name_of_company, type_of_waste) |> 
+  summarise(
+    lost_mass = sum(lost_mass) / 1000
+  ) |>
+  ungroup()
+
 ```
 
 ```{r landfill_capacity}
@@ -4388,6 +4587,12 @@ waste_recovery_18.sheet7 <- waste_recovery_18.sheet7 |>
     start_date = `DATUM ZAČETKA ODLAGANAJA`,
     end_date = `PREDVIDENO PRENEHANJE ODLAGANJA`
   )
+
+waste_recovery_18.sheet7 <- waste_recovery_18.sheet7 |> 
+  mutate(year = 2018)
+
+waste_recovery_18.sheet7 <- waste_recovery_18.sheet7 |>
+  select(year, name_of_company, landfill, filled_volume_start_year, filled_area_start_year, free_volume_end_year, free_area_end_year, total_capacity, remaining_capacity, start_date, end_date)
 
 ```
 
@@ -4426,8 +4631,23 @@ waste_recovery_18.by_codes8 <- waste_recovery_18.by_codes8 |>
     rejected = `ZAVRNJENO (kg)`
   )
 
-## if NA
-waste_recovery_18.by_codes8[is.na(waste_recovery_18.by_codes8)] <- 0
+## Drop columns containing NA values
+waste_recovery_18.by_codes8 <- select_if(waste_recovery_18.by_codes8, ~!all(is.na(.)))
+
+waste_recovery_18.by_codes8 <- rename_waste_names(waste_recovery_18.by_codes8)
+
+waste_recovery_18.by_codes8 <- waste_recovery_18.by_codes8 |> 
+  mutate(year = 2018)
+
+waste_recovery_18.by_codes8 <- waste_recovery_18.by_codes8 |>
+  group_by(year, name_of_company, landfill, type_of_waste) |>
+  summarise(
+    total_non_hazardous_waste_received = sum(total_non_hazardous_waste_received) / 1000,
+    disposed = sum(disposed) / 1000
+  ) |>
+  ungroup()
+
+
 ```
 
 ```{r municipal_waste_disposed}

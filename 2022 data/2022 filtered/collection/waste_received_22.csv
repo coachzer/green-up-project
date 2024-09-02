@@ -1,54 +1,54 @@
-﻿"Leto","Poročilo","Statistična regija","waste_code","Naziv odpadka","Zbrani odpadki, prevzeti od izvirnih povzročiteljev brez evidenčnega lista (prepuščeni) kg","Zbrani odpadki, prevzeti od izvirnih povzročiteljev z evidenčnim listom (oddani) kg","Zbrani odpadki prevzeti od drugih imetnikov od zbiralcev v RS kg","Zbrani odpadki prevzeti od drugih imetnikov od izvajalcev obdelave v RS kg"
-2022,"ODP-zbiranje","GORENJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",2010600,0,0,0
-2022,"ODP-zbiranje","GORENJSKA","15 01 03","Lesena embalaža",96800,0,0,0
-2022,"ODP-zbiranje","GORENJSKA","17 02 01","Les",610910,11280,0,0
-2022,"ODP-zbiranje","GORENJSKA","20 01 38","Les, ki ni naveden v 20 01 37",4522080,39820,0,0
-2022,"ODP-zbiranje","GORIŠKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,36265,0,0
-2022,"ODP-zbiranje","GORIŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",1205934,582788,0,0
-2022,"ODP-zbiranje","GORIŠKA","15 01 03","Lesena embalaža",62206,109380,0,0
-2022,"ODP-zbiranje","GORIŠKA","17 02 01","Les",1125,115810,0,0
-2022,"ODP-zbiranje","GORIŠKA","20 01 38","Les, ki ni naveden v 20 01 37",3587060,14660,0,0
-2022,"ODP-zbiranje","JUGOVZHODNA SLOVENIJA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,77280,0,4019420
-2022,"ODP-zbiranje","JUGOVZHODNA SLOVENIJA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",1614949,29098,0,0
-2022,"ODP-zbiranje","JUGOVZHODNA SLOVENIJA","15 01 03","Lesena embalaža",0,6967,0,0
-2022,"ODP-zbiranje","JUGOVZHODNA SLOVENIJA","17 02 01","Les",0,82230,0,0
-2022,"ODP-zbiranje","JUGOVZHODNA SLOVENIJA","20 01 38","Les, ki ni naveden v 20 01 37",2779420,4360,0,0
-2022,"ODP-zbiranje","KOROŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",497090,859498,104340,8000
-2022,"ODP-zbiranje","KOROŠKA","15 01 03","Lesena embalaža",0,471580,0,0
-2022,"ODP-zbiranje","KOROŠKA","17 02 01","Les",0,5160,0,0
-2022,"ODP-zbiranje","KOROŠKA","20 01 38","Les, ki ni naveden v 20 01 37",0,48560,0,0
-2022,"ODP-zbiranje","OBALNO-KRAŠKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,66560,0,0
-2022,"ODP-zbiranje","OBALNO-KRAŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",1473973,100874,0,0
-2022,"ODP-zbiranje","OBALNO-KRAŠKA","15 01 03","Lesena embalaža",0,1642860,0,0
-2022,"ODP-zbiranje","OBALNO-KRAŠKA","20 01 38","Les, ki ni naveden v 20 01 37",3888730,0,0,0
-2022,"ODP-zbiranje","OSREDNJESLOVENSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,1100,0,0
-2022,"ODP-zbiranje","OSREDNJESLOVENSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",4815079,7051328,360638,509565
-2022,"ODP-zbiranje","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",315700,2945126,21820,24120
-2022,"ODP-zbiranje","OSREDNJESLOVENSKA","17 02 01","Les",0,615312,0,0
-2022,"ODP-zbiranje","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",11838076,117789,0,0
-2022,"ODP-zbiranje","PODRAVSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,113240,0,0
-2022,"ODP-zbiranje","PODRAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",2061762,140167,133297,0
-2022,"ODP-zbiranje","PODRAVSKA","15 01 03","Lesena embalaža",380831,485846,147810,0
-2022,"ODP-zbiranje","PODRAVSKA","17 02 01","Les",0,240470,55885,0
-2022,"ODP-zbiranje","PODRAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",9350739,497245,397153,0
-2022,"ODP-zbiranje","POMURSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",609997,510659,0,0
-2022,"ODP-zbiranje","POMURSKA","15 01 03","Lesena embalaža",0,156019,0,0
-2022,"ODP-zbiranje","POMURSKA","17 02 01","Les",0,129620,0,0
-2022,"ODP-zbiranje","POMURSKA","20 01 38","Les, ki ni naveden v 20 01 37",905780,7160,125800,0
-2022,"ODP-zbiranje","POSAVSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,33640,0,0
-2022,"ODP-zbiranje","POSAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",542050,767237,133496,0
-2022,"ODP-zbiranje","POSAVSKA","15 01 03","Lesena embalaža",5790,177085,2240,0
-2022,"ODP-zbiranje","POSAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",1879610,441816,106824,0
-2022,"ODP-zbiranje","PRIMORSKO-NOTRANJSKA","03 01 01","Odpadna lubje in pluta",0,2460,0,0
-2022,"ODP-zbiranje","PRIMORSKO-NOTRANJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",382632,126578,0,0
-2022,"ODP-zbiranje","PRIMORSKO-NOTRANJSKA","15 01 03","Lesena embalaža",2870,9320,0,0
-2022,"ODP-zbiranje","PRIMORSKO-NOTRANJSKA","17 02 01","Les",4740,0,0,0
-2022,"ODP-zbiranje","PRIMORSKO-NOTRANJSKA","20 01 38","Les, ki ni naveden v 20 01 37",1407720,56980,0,0
-2022,"ODP-zbiranje","SAVINJSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,87540,0,0
-2022,"ODP-zbiranje","SAVINJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",1805265,4059440,0,0
-2022,"ODP-zbiranje","SAVINJSKA","15 01 03","Lesena embalaža",2920,3508050,196720,0
-2022,"ODP-zbiranje","SAVINJSKA","17 02 01","Les",0,783925,0,0
-2022,"ODP-zbiranje","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",4094870,0,0,0
-2022,"ODP-zbiranje","ZASAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",480252,621907,144286,0
-2022,"ODP-zbiranje","ZASAVSKA","15 01 03","Lesena embalaža",0,231263,0,0
-2022,"ODP-zbiranje","ZASAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",1042750,3020,0,0
+﻿"year","statistical_region","waste_code","type_of_waste","waste_from_producers_no_record","waste_from_producers_with_record","waste_from_collectors_RS","waste_from_processors_RS"
+2022,"GORENJSKA","15 01 01","Paper/Cardboard Packaging",2010.6,0,0,0
+2022,"GORENJSKA","15 01 03","Wooden packaging",96.8,0,0,0
+2022,"GORENJSKA","17 02 01","Wood",610.91,11.28,0,0
+2022,"GORENJSKA","20 01 38","Wood, not specified in 20 01 37",4522.08,39.82,0,0
+2022,"GORIŠKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",0,36.265,0,0
+2022,"GORIŠKA","15 01 01","Paper/Cardboard Packaging",1205.934,582.788,0,0
+2022,"GORIŠKA","15 01 03","Wooden packaging",62.206,109.38,0,0
+2022,"GORIŠKA","17 02 01","Wood",1.125,115.81,0,0
+2022,"GORIŠKA","20 01 38","Wood, not specified in 20 01 37",3587.06,14.66,0,0
+2022,"JUGOVZHODNA SLOVENIJA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",0,77.28,0,4019.42
+2022,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper/Cardboard Packaging",1614.949,29.098,0,0
+2022,"JUGOVZHODNA SLOVENIJA","15 01 03","Wooden packaging",0,6.967,0,0
+2022,"JUGOVZHODNA SLOVENIJA","17 02 01","Wood",0,82.23,0,0
+2022,"JUGOVZHODNA SLOVENIJA","20 01 38","Wood, not specified in 20 01 37",2779.42,4.36,0,0
+2022,"KOROŠKA","15 01 01","Paper/Cardboard Packaging",497.09,859.498,104.34,8
+2022,"KOROŠKA","15 01 03","Wooden packaging",0,471.58,0,0
+2022,"KOROŠKA","17 02 01","Wood",0,5.16,0,0
+2022,"KOROŠKA","20 01 38","Wood, not specified in 20 01 37",0,48.56,0,0
+2022,"OBALNO-KRAŠKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",0,66.56,0,0
+2022,"OBALNO-KRAŠKA","15 01 01","Paper/Cardboard Packaging",1473.973,100.874,0,0
+2022,"OBALNO-KRAŠKA","15 01 03","Wooden packaging",0,1642.86,0,0
+2022,"OBALNO-KRAŠKA","20 01 38","Wood, not specified in 20 01 37",3888.73,0,0,0
+2022,"OSREDNJESLOVENSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",0,1.1,0,0
+2022,"OSREDNJESLOVENSKA","15 01 01","Paper/Cardboard Packaging",4815.079,7051.328,360.638,509.565
+2022,"OSREDNJESLOVENSKA","15 01 03","Wooden packaging",315.7,2945.126,21.82,24.12
+2022,"OSREDNJESLOVENSKA","17 02 01","Wood",0,615.312,0,0
+2022,"OSREDNJESLOVENSKA","20 01 38","Wood, not specified in 20 01 37",11838.076,117.789,0,0
+2022,"PODRAVSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",0,113.24,0,0
+2022,"PODRAVSKA","15 01 01","Paper/Cardboard Packaging",2061.762,140.167,133.297,0
+2022,"PODRAVSKA","15 01 03","Wooden packaging",380.831,485.846,147.81,0
+2022,"PODRAVSKA","17 02 01","Wood",0,240.47,55.885,0
+2022,"PODRAVSKA","20 01 38","Wood, not specified in 20 01 37",9350.739,497.245,397.153,0
+2022,"POMURSKA","15 01 01","Paper/Cardboard Packaging",609.997,510.659,0,0
+2022,"POMURSKA","15 01 03","Wooden packaging",0,156.019,0,0
+2022,"POMURSKA","17 02 01","Wood",0,129.62,0,0
+2022,"POMURSKA","20 01 38","Wood, not specified in 20 01 37",905.78,7.16,125.8,0
+2022,"POSAVSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",0,33.64,0,0
+2022,"POSAVSKA","15 01 01","Paper/Cardboard Packaging",542.05,767.237,133.496,0
+2022,"POSAVSKA","15 01 03","Wooden packaging",5.79,177.085,2.24,0
+2022,"POSAVSKA","20 01 38","Wood, not specified in 20 01 37",1879.61,441.816,106.824,0
+2022,"PRIMORSKO-NOTRANJSKA","03 01 01","Bark and Cork Waste",0,2.46,0,0
+2022,"PRIMORSKO-NOTRANJSKA","15 01 01","Paper/Cardboard Packaging",382.632,126.578,0,0
+2022,"PRIMORSKO-NOTRANJSKA","15 01 03","Wooden packaging",2.87,9.32,0,0
+2022,"PRIMORSKO-NOTRANJSKA","17 02 01","Wood",4.74,0,0,0
+2022,"PRIMORSKO-NOTRANJSKA","20 01 38","Wood, not specified in 20 01 37",1407.72,56.98,0,0
+2022,"SAVINJSKA","03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04",0,87.54,0,0
+2022,"SAVINJSKA","15 01 01","Paper/Cardboard Packaging",1805.265,4059.44,0,0
+2022,"SAVINJSKA","15 01 03","Wooden packaging",2.92,3508.05,196.72,0
+2022,"SAVINJSKA","17 02 01","Wood",0,783.925,0,0
+2022,"SAVINJSKA","20 01 38","Wood, not specified in 20 01 37",4094.87,0,0,0
+2022,"ZASAVSKA","15 01 01","Paper/Cardboard Packaging",480.252,621.907,144.286,0
+2022,"ZASAVSKA","15 01 03","Wooden packaging",0,231.263,0,0
+2022,"ZASAVSKA","20 01 38","Wood, not specified in 20 01 37",1042.75,3.02,0,0

@@ -1,113 +1,113 @@
-﻿"Leto","Poročilo","Statistična regija","waste_code","Naziv odpadka","Količina odpadkov, na vhod v postopek obdelave (kg)","Postopek obdelave (R, D)","Opis postopka obdelave","Odpadne sveče pri odpadku 20 02 03 (da/ne)"
-2022,"ODP-obdelava","GORENJSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",1813347,"R_01","20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije",NA
-2022,"ODP-obdelava","GORENJSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",226118,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","GORENJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",5800279,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","GORENJSKA","15 01 03","Lesena embalaža",46800,"R_01","20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije",NA
-2022,"ODP-obdelava","GORENJSKA","15 01 03","Lesena embalaža",6293400,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","GORENJSKA","17 02 01","Les",142100,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","GORENJSKA","17 02 01","Les",927150,"R_01","20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije",NA
-2022,"ODP-obdelava","GORENJSKA","17 02 01","Les",1205000,"R_05","7 – predelava odpadkov v premični napravi",NA
-2022,"ODP-obdelava","GORENJSKA","17 02 01","Les",383760,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","GORENJSKA","20 01 38","Les, ki ni naveden v 20 01 37",3883637,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","GORIŠKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",810,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","GORIŠKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",52980,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","GORIŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",11380,"R_0101","22 – sosežig",NA
-2022,"ODP-obdelava","GORIŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",737929,"R_12","23 – drug postopek predelave",NA
-2022,"ODP-obdelava","GORIŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",1820437,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","GORIŠKA","15 01 03","Lesena embalaža",517435,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","GORIŠKA","17 02 01","Les",18130,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","GORIŠKA","17 02 01","Les",7760,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","GORIŠKA","20 01 38","Les, ki ni naveden v 20 01 37",2060,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",3618370,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","03 01 99","Odpadki, ki niso navedeni drugje",2320,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",7768746,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","15 01 03","Lesena embalaža",2067103,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","15 01 03","Lesena embalaža",59759,"R_13","23 – drug postopek predelave",NA
-2022,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","17 02 01","Les",256640,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","20 01 38","Les, ki ni naveden v 20 01 37",64998,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","KOROŠKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",460000,"R_01","20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije",NA
-2022,"ODP-obdelava","KOROŠKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",11460,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","KOROŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",1164732,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","KOROŠKA","15 01 03","Lesena embalaža",196355,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","KOROŠKA","17 02 01","Les",13260,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","KOROŠKA","20 01 38","Les, ki ni naveden v 20 01 37",32550,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OBALNO-KRAŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",3255282,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OBALNO-KRAŠKA","15 01 03","Lesena embalaža",719443,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OBALNO-KRAŠKA","17 02 01","Les",14500,"R_12","9 – predelava odpadkov v polnilo pri gradnji objektov",NA
-2022,"ODP-obdelava","OBALNO-KRAŠKA","17 02 01","Les",137662,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OBALNO-KRAŠKA","20 01 38","Les, ki ni naveden v 20 01 37",116052,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",1143475,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",24900,"R_0302","6 – aerobna predelava (kompostarne)",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",1100,"R_12","23 – drug postopek predelave",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",1878360,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",435485,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",7345381,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",734,"R_12","23 – drug postopek predelave",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",53556662,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",102550,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",1795,"D_13","27 – drug postopek odstranjevanja",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",973570,"PU","1 – priprava za ponovno uporabo",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",87385,"R_01","20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",6149839,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",192740,"R_0302","6 – aerobna predelava (kompostarne)",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",5514832,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",15500,"R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",238060,"R_13","23 – drug postopek predelave",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","17 02 01","Les",21100,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","17 02 01","Les",3599240,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","17 02 01","Les",315430,"R_12","23 – drug postopek predelave",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","17 02 01","Les",67500,"R_12","7 – predelava odpadkov v premični napravi",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","17 02 01","Les",1436241,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",5941392,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",300175,"PU","1 – priprava za ponovno uporabo",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",25383521,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",3550120,"R_0302","6 – aerobna predelava (kompostarne)",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",89580,"R_12","7 – predelava odpadkov v premični napravi",NA
-2022,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",26634045,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","PODRAVSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",117640,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","PODRAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",5853,"R_12","19 – predelava v trdno gorivo (R12)",NA
-2022,"ODP-obdelava","PODRAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",14635729,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","PODRAVSKA","15 01 03","Lesena embalaža",3130397,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","PODRAVSKA","17 02 01","Les",344540,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","PODRAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",117526,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POMURSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",1789560,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POMURSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",4348847,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POMURSKA","15 01 03","Lesena embalaža",476064,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POMURSKA","17 02 01","Les",335019,"R_12","7 – predelava odpadkov v premični napravi",NA
-2022,"ODP-obdelava","POMURSKA","17 02 01","Les",4580,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POMURSKA","20 01 38","Les, ki ni naveden v 20 01 37",40480,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","POMURSKA","20 01 38","Les, ki ni naveden v 20 01 37",940220,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POSAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",4723705,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","POSAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",1232354,"R_12","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POSAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",796156,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POSAVSKA","15 01 03","Lesena embalaža",6388,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","POSAVSKA","15 01 03","Lesena embalaža",211779,"R_01","20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije",NA
-2022,"ODP-obdelava","POSAVSKA","15 01 03","Lesena embalaža",119620,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POSAVSKA","17 02 01","Les",860,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","POSAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",132208,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","POSAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",971732,"R_01","20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije",NA
-2022,"ODP-obdelava","POSAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",2460,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","PRIMORSKO-NOTRANJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",207475,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","PRIMORSKO-NOTRANJSKA","15 01 03","Lesena embalaža",39268,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","PRIMORSKO-NOTRANJSKA","15 01 03","Lesena embalaža",81500,"R_01","20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije",NA
-2022,"ODP-obdelava","SAVINJSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",62160,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","SAVINJSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",39000,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","SAVINJSKA","03 01 99","Odpadki, ki niso navedeni drugje",1152040,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","SAVINJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",34860,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","SAVINJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",62125,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","SAVINJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",23888447,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","SAVINJSKA","15 01 03","Lesena embalaža",20680,"BO","99 – brez obdelave",NA
-2022,"ODP-obdelava","SAVINJSKA","15 01 03","Lesena embalaža",727680,"R_01","22 – sosežig",NA
-2022,"ODP-obdelava","SAVINJSKA","15 01 03","Lesena embalaža",7742050,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","SAVINJSKA","15 01 03","Lesena embalaža",3917704,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","SAVINJSKA","17 02 01","Les",5920,"D_01","26 – odlaganje",NA
-2022,"ODP-obdelava","SAVINJSKA","17 02 01","Les",642873,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","SAVINJSKA","17 02 01","Les",33520,"R_12","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","SAVINJSKA","17 02 01","Les",85727,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",77700,"R_01","22 – sosežig",NA
-2022,"ODP-obdelava","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",1357360,"R_03","4 – recikliranje",NA
-2022,"ODP-obdelava","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",70000,"R_0302","6 – aerobna predelava (kompostarne)",NA
-2022,"ODP-obdelava","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",190420,"R_12","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",47371,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
-2022,"ODP-obdelava","ZASAVSKA","17 02 01","Les",11580,"R_05","4 – recikliranje",NA
-2022,"ODP-obdelava","ZASAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",459430,"R_12, R_13","2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)",NA
+﻿"year","statistical_region","type_of_waste","waste_quantity_per_treatment","description_of_treatment"
+2022,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1813.347,"use as fuel/energy production"
+2022,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",226.118,"pre-treatment"
+2022,"GORENJSKA","Paper/Cardboard Packaging",5800.279,"pre-treatment"
+2022,"GORENJSKA","Wooden packaging",46.8,"use as fuel/energy production"
+2022,"GORENJSKA","Wooden packaging",6293.4,"pre-treatment"
+2022,"GORENJSKA","Wood",142.1,"no treatment"
+2022,"GORENJSKA","Wood",927.15,"use as fuel/energy production"
+2022,"GORENJSKA","Wood",1205,"recovery of waste in a mobile installation"
+2022,"GORENJSKA","Wood",383.76,"pre-treatment"
+2022,"GORENJSKA","Wood, not specified in 20 01 37",3883.637,"pre-treatment"
+2022,"GORIŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",0.81,"no treatment"
+2022,"GORIŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",52.98,"pre-treatment"
+2022,"GORIŠKA","Paper/Cardboard Packaging",11.38,"co-incineration"
+2022,"GORIŠKA","Paper/Cardboard Packaging",737.929,"other recovery operation"
+2022,"GORIŠKA","Paper/Cardboard Packaging",1820.437,"pre-treatment"
+2022,"GORIŠKA","Wooden packaging",517.435,"pre-treatment"
+2022,"GORIŠKA","Wood",18.13,"no treatment"
+2022,"GORIŠKA","Wood",7.76,"pre-treatment"
+2022,"GORIŠKA","Wood, not specified in 20 01 37",2.06,"pre-treatment"
+2022,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04",3618.37,"pre-treatment"
+2022,"JUGOVZHODNA SLOVENIJA","Miscellaneous Waste",2.32,"pre-treatment"
+2022,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",7768.746,"pre-treatment"
+2022,"JUGOVZHODNA SLOVENIJA","Wooden packaging",2067.103,"pre-treatment"
+2022,"JUGOVZHODNA SLOVENIJA","Wooden packaging",59.759,"other recovery operation"
+2022,"JUGOVZHODNA SLOVENIJA","Wood",256.64,"pre-treatment"
+2022,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",64.998,"pre-treatment"
+2022,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",460,"use as fuel/energy production"
+2022,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",11.46,"pre-treatment"
+2022,"KOROŠKA","Paper/Cardboard Packaging",1164.732,"pre-treatment"
+2022,"KOROŠKA","Wooden packaging",196.355,"pre-treatment"
+2022,"KOROŠKA","Wood",13.26,"pre-treatment"
+2022,"KOROŠKA","Wood, not specified in 20 01 37",32.55,"pre-treatment"
+2022,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",3255.282,"pre-treatment"
+2022,"OBALNO-KRAŠKA","Wooden packaging",719.443,"pre-treatment"
+2022,"OBALNO-KRAŠKA","Wood",14.5,"processing into aggregate for construction"
+2022,"OBALNO-KRAŠKA","Wood",137.662,"pre-treatment"
+2022,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37",116.052,"pre-treatment"
+2022,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1143.475,"recycling"
+2022,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",24.9,"aerobic treatment (composting plants)"
+2022,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1.1,"other recovery operation"
+2022,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1878.36,"pre-treatment"
+2022,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",435.485,"no treatment"
+2022,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",7345.381,"recycling"
+2022,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",0.734,"other recovery operation"
+2022,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",53556.662,"pre-treatment"
+2022,"OSREDNJESLOVENSKA","Wooden packaging",102.55,"no treatment"
+2022,"OSREDNJESLOVENSKA","Wooden packaging",1.795,"other disposal operation"
+2022,"OSREDNJESLOVENSKA","Wooden packaging",973.57,"preparation for re-use"
+2022,"OSREDNJESLOVENSKA","Wooden packaging",87.385,"use as fuel/energy production"
+2022,"OSREDNJESLOVENSKA","Wooden packaging",6149.839,"recycling"
+2022,"OSREDNJESLOVENSKA","Wooden packaging",192.74,"aerobic treatment (composting plants)"
+2022,"OSREDNJESLOVENSKA","Wooden packaging",5514.832,"pre-treatment"
+2022,"OSREDNJESLOVENSKA","Wooden packaging",15.5,"pre-treatment"
+2022,"OSREDNJESLOVENSKA","Wooden packaging",238.06,"other recovery operation"
+2022,"OSREDNJESLOVENSKA","Wood",21.1,"no treatment"
+2022,"OSREDNJESLOVENSKA","Wood",3599.24,"recycling"
+2022,"OSREDNJESLOVENSKA","Wood",315.43,"other recovery operation"
+2022,"OSREDNJESLOVENSKA","Wood",67.5,"recovery of waste in a mobile installation"
+2022,"OSREDNJESLOVENSKA","Wood",1436.241,"pre-treatment"
+2022,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",5941.392,"no treatment"
+2022,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",300.175,"preparation for re-use"
+2022,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",25383.521,"recycling"
+2022,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",3550.12,"aerobic treatment (composting plants)"
+2022,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",89.58,"recovery of waste in a mobile installation"
+2022,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",26634.045,"pre-treatment"
+2022,"PODRAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",117.64,"pre-treatment"
+2022,"PODRAVSKA","Paper/Cardboard Packaging",5.853,"conversion to solid fuel"
+2022,"PODRAVSKA","Paper/Cardboard Packaging",14635.729,"pre-treatment"
+2022,"PODRAVSKA","Wooden packaging",3130.397,"pre-treatment"
+2022,"PODRAVSKA","Wood",344.54,"pre-treatment"
+2022,"PODRAVSKA","Wood, not specified in 20 01 37",117.526,"pre-treatment"
+2022,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1789.56,"pre-treatment"
+2022,"POMURSKA","Paper/Cardboard Packaging",4348.847,"pre-treatment"
+2022,"POMURSKA","Wooden packaging",476.064,"pre-treatment"
+2022,"POMURSKA","Wood",335.019,"recovery of waste in a mobile installation"
+2022,"POMURSKA","Wood",4.58,"pre-treatment"
+2022,"POMURSKA","Wood, not specified in 20 01 37",40.48,"no treatment"
+2022,"POMURSKA","Wood, not specified in 20 01 37",940.22,"pre-treatment"
+2022,"POSAVSKA","Paper/Cardboard Packaging",4723.705,"no treatment"
+2022,"POSAVSKA","Paper/Cardboard Packaging",1232.354,"pre-treatment"
+2022,"POSAVSKA","Paper/Cardboard Packaging",796.156,"pre-treatment"
+2022,"POSAVSKA","Wooden packaging",6.388,"no treatment"
+2022,"POSAVSKA","Wooden packaging",211.779,"use as fuel/energy production"
+2022,"POSAVSKA","Wooden packaging",119.62,"pre-treatment"
+2022,"POSAVSKA","Wood",0.86,"pre-treatment"
+2022,"POSAVSKA","Wood, not specified in 20 01 37",132.208,"no treatment"
+2022,"POSAVSKA","Wood, not specified in 20 01 37",971.732,"use as fuel/energy production"
+2022,"POSAVSKA","Wood, not specified in 20 01 37",2.46,"pre-treatment"
+2022,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",207.475,"no treatment"
+2022,"PRIMORSKO-NOTRANJSKA","Wooden packaging",39.268,"no treatment"
+2022,"PRIMORSKO-NOTRANJSKA","Wooden packaging",81.5,"use as fuel/energy production"
+2022,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",62.16,"recycling"
+2022,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",39,"pre-treatment"
+2022,"SAVINJSKA","Miscellaneous Waste",1152.04,"pre-treatment"
+2022,"SAVINJSKA","Paper/Cardboard Packaging",34.86,"no treatment"
+2022,"SAVINJSKA","Paper/Cardboard Packaging",62.125,"recycling"
+2022,"SAVINJSKA","Paper/Cardboard Packaging",23888.447,"pre-treatment"
+2022,"SAVINJSKA","Wooden packaging",20.68,"no treatment"
+2022,"SAVINJSKA","Wooden packaging",727.68,"co-incineration"
+2022,"SAVINJSKA","Wooden packaging",7742.05,"recycling"
+2022,"SAVINJSKA","Wooden packaging",3917.704,"pre-treatment"
+2022,"SAVINJSKA","Wood",5.92,"disposal"
+2022,"SAVINJSKA","Wood",642.873,"recycling"
+2022,"SAVINJSKA","Wood",33.52,"pre-treatment"
+2022,"SAVINJSKA","Wood",85.727,"pre-treatment"
+2022,"SAVINJSKA","Wood, not specified in 20 01 37",77.7,"co-incineration"
+2022,"SAVINJSKA","Wood, not specified in 20 01 37",1357.36,"recycling"
+2022,"SAVINJSKA","Wood, not specified in 20 01 37",70,"aerobic treatment (composting plants)"
+2022,"SAVINJSKA","Wood, not specified in 20 01 37",190.42,"pre-treatment"
+2022,"SAVINJSKA","Wood, not specified in 20 01 37",47.371,"pre-treatment"
+2022,"ZASAVSKA","Wood",11.58,"recycling"
+2022,"ZASAVSKA","Wood, not specified in 20 01 37",459.43,"pre-treatment"

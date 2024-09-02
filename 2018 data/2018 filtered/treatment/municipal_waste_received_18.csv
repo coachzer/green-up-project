@@ -1,124 +1,124 @@
-﻿"name_of_company","name_of_municipality","waste_code","type_of_waste","total_waste_received","statistical_region"
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","RADEČE","20 01 38","Wood, not specified in 20 01 37",62800,"POSAVSKA"
-"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","ZAGORJE OB SAVI","20 01 38","Wood, not specified in 20 01 37",44940,"ZASAVSKA"
-"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje; KETTEJEV DREVORED 3, 8000 NOVO MESTO","NOVO MESTO","20 01 38","Wood, not specified in 20 01 37",1510,"JUGOVZHODNA SLOVENIJA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","ČRNA NA KOROŠKEM","15 01 01","Paper/Cardboard Packaging",1054,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","DRAVOGRAD","15 01 01","Paper/Cardboard Packaging",9380,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","MEŽICA","15 01 01","Paper/Cardboard Packaging",1133,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","MISLINJA","15 01 01","Paper/Cardboard Packaging",17491,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","MUTA","15 01 01","Paper/Cardboard Packaging",287,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","PODVELKA","15 01 01","Paper/Cardboard Packaging",205,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","PREVALJE","15 01 01","Paper/Cardboard Packaging",2048,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","RADLJE OB DRAVI","15 01 01","Paper/Cardboard Packaging",489,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","RAVNE NA KOROŠKEM","15 01 01","Paper/Cardboard Packaging",3645,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","RIBNICA NA POHORJU","15 01 01","Paper/Cardboard Packaging",100,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","SLOVENJ GRADEC","15 01 01","Paper/Cardboard Packaging",63869,"KOROŠKA"
-"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","VUZENICA","15 01 01","Paper/Cardboard Packaging",219,"KOROŠKA"
-"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","KOSTANJEVICA NA KRKI","15 01 01","Paper/Cardboard Packaging",35700,"POSAVSKA"
-"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","KRŠKO","15 01 01","Paper/Cardboard Packaging",490900,"POSAVSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","BISTRICA OB SOTLI","20 01 38","Wood, not specified in 20 01 37",2793,"POSAVSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","KOZJE","20 01 38","Wood, not specified in 20 01 37",5929,"SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","PODČETRTEK","20 01 38","Wood, not specified in 20 01 37",6657,"SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","ROGAŠKA SLATINA","20 01 38","Wood, not specified in 20 01 37",25354,"SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","ROGATEC","20 01 38","Wood, not specified in 20 01 37",5257,"SAVINJSKA"
-"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","ŠMARJE PRI JELŠAH","20 01 38","Wood, not specified in 20 01 37",24010,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","AJDOVŠČINA","15 01 01","Paper/Cardboard Packaging",1119,"GORIŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","BLED","15 01 01","Paper/Cardboard Packaging",11620,"GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","BRASLOVČE","15 01 01","Paper/Cardboard Packaging",1484,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","BREZOVICA","15 01 01","Paper/Cardboard Packaging",8272,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","BREŽICE","15 01 01","Paper/Cardboard Packaging",4740,"POSAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","CELJE","15 01 01","Paper/Cardboard Packaging",57927,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","CERKNICA","15 01 01","Paper/Cardboard Packaging",12080,"PRIMORSKONOTRANJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","CERKNICA","20 01 38","Wood, not specified in 20 01 37",67990,"PRIMORSKONOTRANJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","DOL PRI LJUBLJANI","15 01 01","Paper/Cardboard Packaging",1385,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","DOMŽALE","15 01 01","Paper/Cardboard Packaging",11689,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","DRAVOGRAD","15 01 01","Paper/Cardboard Packaging",1746,"KOROŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJA VAS-POLJANE","15 01 01","Paper/Cardboard Packaging",2370,"GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORNJA RADGONA","15 01 01","Paper/Cardboard Packaging",1147,"POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GROSUPLJE","15 01 01","Paper/Cardboard Packaging",20098,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GROSUPLJE","15 01 03","Wooden packaging",9840,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","HOČE-SLIVNICA","15 01 01","Paper/Cardboard Packaging",5585,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","HRPELJE-KOZINA","15 01 01","Paper/Cardboard Packaging",1827,"OBALNOKRAŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","IDRIJA","15 01 01","Paper/Cardboard Packaging",39072,"GORIŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ILIRSKA BISTRICA","15 01 01","Paper/Cardboard Packaging",8838,"PRIMORSKONOTRANJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","IZOLA","15 01 01","Paper/Cardboard Packaging",9960,"OBALNOKRAŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","IZOLA","15 01 03","Wooden packaging",8060,"OBALNOKRAŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","JESENICE","15 01 01","Paper/Cardboard Packaging",4923,"GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KAMNIK","15 01 01","Paper/Cardboard Packaging",10792,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KOČEVJE","15 01 01","Paper/Cardboard Packaging",1863,"JUGOVZHODNA SLOVENIJA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KOPER","15 01 01","Paper/Cardboard Packaging",110832,"OBALNOKRAŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KOPER","15 01 03","Wooden packaging",46200,"OBALNOKRAŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KRANJ","15 01 01","Paper/Cardboard Packaging",38569,"GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KRANJSKA GORA","15 01 01","Paper/Cardboard Packaging",4067,"GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KRŠKO","15 01 01","Paper/Cardboard Packaging",6754,"POSAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LENART","15 01 01","Paper/Cardboard Packaging",115459,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LENDAVA","15 01 01","Paper/Cardboard Packaging",9004,"POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LITIJA","15 01 01","Paper/Cardboard Packaging",5535,"ZASAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LITIJA","15 01 03","Wooden packaging",840,"ZASAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LJUBLJANA","15 01 01","Paper/Cardboard Packaging",528833,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LJUBLJANA","15 01 03","Wooden packaging",11650,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LJUBLJANA","20 01 38","Wood, not specified in 20 01 37",680,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LJUTOMER","15 01 01","Paper/Cardboard Packaging",4551,"POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LOGATEC","15 01 01","Paper/Cardboard Packaging",46626,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LOGATEC","15 01 03","Wooden packaging",115020,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LOGATEC","20 01 38","Wood, not specified in 20 01 37",325960,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LUKOVICA","15 01 01","Paper/Cardboard Packaging",7430,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","LUKOVICA","15 01 03","Wooden packaging",390,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","MARIBOR","15 01 01","Paper/Cardboard Packaging",245915,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","MEDVODE","15 01 01","Paper/Cardboard Packaging",5833,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","MENGEŠ","15 01 01","Paper/Cardboard Packaging",7957,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","METLIKA","15 01 01","Paper/Cardboard Packaging",4881,"JUGOVZHODNA SLOVENIJA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","MIKLAVŽ NA DRAVSKEM POLJU","15 01 01","Paper/Cardboard Packaging",1532,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","MURSKA SOBOTA","15 01 01","Paper/Cardboard Packaging",52690,"POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","NAZARJE","15 01 01","Paper/Cardboard Packaging",793232,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","NOVA GORICA","15 01 01","Paper/Cardboard Packaging",18365,"GORIŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","NOVA GORICA","15 01 03","Wooden packaging",8400,"GORIŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","NOVO MESTO","15 01 01","Paper/Cardboard Packaging",38355,"JUGOVZHODNA SLOVENIJA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ORMOŽ","15 01 01","Paper/Cardboard Packaging",26306,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PIRAN","15 01 01","Paper/Cardboard Packaging",15940,"OBALNOKRAŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PIVKA","15 01 01","Paper/Cardboard Packaging",105340,"PRIMORSKONOTRANJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODČETRTEK","15 01 01","Paper/Cardboard Packaging",1400,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODLEHNIK","15 01 01","Paper/Cardboard Packaging",12200,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","POSTOJNA","15 01 01","Paper/Cardboard Packaging",18969,"PRIMORSKONOTRANJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","POSTOJNA","15 01 03","Wooden packaging",400,"PRIMORSKONOTRANJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PREVALJE","15 01 01","Paper/Cardboard Packaging",12646,"KOROŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PTUJ","15 01 01","Paper/Cardboard Packaging",32201,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","RADENCI","15 01 01","Paper/Cardboard Packaging",74900,"POMURSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","RADOVLJICA","15 01 01","Paper/Cardboard Packaging",22500,"GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","RIBNICA","15 01 01","Paper/Cardboard Packaging",1622,"JUGOVZHODNA SLOVENIJA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ROGAŠKA SLATINA","15 01 01","Paper/Cardboard Packaging",11074,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","RUŠE","15 01 01","Paper/Cardboard Packaging",108680,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SELNICA OB DRAVI","15 01 01","Paper/Cardboard Packaging",1395,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SEŽANA","15 01 01","Paper/Cardboard Packaging",13055,"OBALNOKRAŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SLOVENJ GRADEC","15 01 01","Paper/Cardboard Packaging",54618,"KOROŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SLOVENSKA BISTRICA","15 01 01","Paper/Cardboard Packaging",18490,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SLOVENSKE KONJICE","15 01 01","Paper/Cardboard Packaging",16472,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SLOVENSKE KONJICE","15 01 03","Wooden packaging",760,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ŠEMPETER-VRTOJBA","15 01 01","Paper/Cardboard Packaging",3077,"GORIŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ŠENTILJ","15 01 01","Paper/Cardboard Packaging",1198,"PODRAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ŠENTJUR","15 01 01","Paper/Cardboard Packaging",5280,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ŠKOFJA LOKA","15 01 01","Paper/Cardboard Packaging",5339,"GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ŠMARJE PRI JELŠAH","15 01 01","Paper/Cardboard Packaging",1670,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ŠTORE","15 01 01","Paper/Cardboard Packaging",280,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","TOLMIN","15 01 01","Paper/Cardboard Packaging",6066,"GORIŠKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","TRBOVLJE","15 01 01","Paper/Cardboard Packaging",832,"ZASAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","TREBNJE","15 01 01","Paper/Cardboard Packaging",4490,"JUGOVZHODNA SLOVENIJA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","TRZIN","15 01 01","Paper/Cardboard Packaging",12905,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","TRŽIČ","15 01 01","Paper/Cardboard Packaging",10453,"GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","VELENJE","15 01 01","Paper/Cardboard Packaging",12256,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","VODICE","15 01 01","Paper/Cardboard Packaging",2009,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","VOJNIK","15 01 01","Paper/Cardboard Packaging",480,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","VRHNIKA","15 01 01","Paper/Cardboard Packaging",66317,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","VRHNIKA","15 01 03","Wooden packaging",45850,"OSREDNJESLOVENSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ZAGORJE OB SAVI","15 01 01","Paper/Cardboard Packaging",8485,"ZASAVSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ZREČE","15 01 01","Paper/Cardboard Packaging",6500,"SAVINJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ŽIRI","15 01 01","Paper/Cardboard Packaging",12270,"GORENJSKA"
-"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ŽIRI","15 01 03","Wooden packaging",1500,"GORENJSKA"
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","BREZOVICA","20 01 38","Wood, not specified in 20 01 37",100500,"OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","CERKLJE NA GORENJSKEM","20 01 38","Wood, not specified in 20 01 37",223080,"GORENJSKA"
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","IG","20 01 38","Wood, not specified in 20 01 37",83180,"OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","LJUBLJANA","20 01 38","Wood, not specified in 20 01 37",5065720,"OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","MEDVODE","20 01 38","Wood, not specified in 20 01 37",183060,"OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","ŠKOFLJICA","20 01 38","Wood, not specified in 20 01 37",84360,"OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","VELIKE LAŠČE","20 01 38","Wood, not specified in 20 01 37",52140,"OSREDNJESLOVENSKA"
-"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","VODICE","20 01 38","Wood, not specified in 20 01 37",71320,"OSREDNJESLOVENSKA"
+﻿"year","name_of_company","statistical_region","name_of_municipality","type_of_waste","total_waste_received"
+2018,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","POSAVSKA","RADEČE","Wood, not specified in 20 01 37",62.8
+2018,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","ZASAVSKA","ZAGORJE OB SAVI","Wood, not specified in 20 01 37",44.94
+2018,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje; KETTEJEV DREVORED 3, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","NOVO MESTO","Wood, not specified in 20 01 37",1.51
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","DRAVOGRAD","Paper/Cardboard Packaging",9.38
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","MEŽICA","Paper/Cardboard Packaging",1.133
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","MISLINJA","Paper/Cardboard Packaging",17.491
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","MUTA","Paper/Cardboard Packaging",0.287
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","PODVELKA","Paper/Cardboard Packaging",0.205
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","PREVALJE","Paper/Cardboard Packaging",2.048
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","RADLJE OB DRAVI","Paper/Cardboard Packaging",0.489
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","RAVNE NA KOROŠKEM","Paper/Cardboard Packaging",3.645
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","RIBNICA NA POHORJU","Paper/Cardboard Packaging",0.1
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","SLOVENJ GRADEC","Paper/Cardboard Packaging",63.869
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","VUZENICA","Paper/Cardboard Packaging",0.219
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","KOROŠKA","ČRNA NA KOROŠKEM","Paper/Cardboard Packaging",1.054
+2018,"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","KOSTANJEVICA NA KRKI","Paper/Cardboard Packaging",35.7
+2018,"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","KRŠKO","Paper/Cardboard Packaging",490.9
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","POSAVSKA","BISTRICA OB SOTLI","Wood, not specified in 20 01 37",2.793
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","KOZJE","Wood, not specified in 20 01 37",5.929
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","PODČETRTEK","Wood, not specified in 20 01 37",6.657
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","ROGATEC","Wood, not specified in 20 01 37",5.257
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","ROGAŠKA SLATINA","Wood, not specified in 20 01 37",25.354
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","ŠMARJE PRI JELŠAH","Wood, not specified in 20 01 37",24.01
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","BLED","Paper/Cardboard Packaging",11.62
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","GORENJA VAS-POLJANE","Paper/Cardboard Packaging",2.37
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","JESENICE","Paper/Cardboard Packaging",4.923
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","KRANJ","Paper/Cardboard Packaging",38.569
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","KRANJSKA GORA","Paper/Cardboard Packaging",4.067
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","RADOVLJICA","Paper/Cardboard Packaging",22.5
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","TRŽIČ","Paper/Cardboard Packaging",10.453
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","ŠKOFJA LOKA","Paper/Cardboard Packaging",5.339
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","ŽIRI","Paper/Cardboard Packaging",12.27
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORENJSKA","ŽIRI","Wooden packaging",1.5
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORIŠKA","AJDOVŠČINA","Paper/Cardboard Packaging",1.119
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORIŠKA","IDRIJA","Paper/Cardboard Packaging",39.072
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORIŠKA","NOVA GORICA","Paper/Cardboard Packaging",18.365
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORIŠKA","NOVA GORICA","Wooden packaging",8.4
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORIŠKA","TOLMIN","Paper/Cardboard Packaging",6.066
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","GORIŠKA","ŠEMPETER-VRTOJBA","Paper/Cardboard Packaging",3.077
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","JUGOVZHODNA SLOVENIJA","KOČEVJE","Paper/Cardboard Packaging",1.863
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","JUGOVZHODNA SLOVENIJA","METLIKA","Paper/Cardboard Packaging",4.881
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","JUGOVZHODNA SLOVENIJA","NOVO MESTO","Paper/Cardboard Packaging",38.355
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","JUGOVZHODNA SLOVENIJA","RIBNICA","Paper/Cardboard Packaging",1.622
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","JUGOVZHODNA SLOVENIJA","TREBNJE","Paper/Cardboard Packaging",4.49
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KOROŠKA","DRAVOGRAD","Paper/Cardboard Packaging",1.746
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KOROŠKA","PREVALJE","Paper/Cardboard Packaging",12.646
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","KOROŠKA","SLOVENJ GRADEC","Paper/Cardboard Packaging",54.618
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OBALNOKRAŠKA","HRPELJE-KOZINA","Paper/Cardboard Packaging",1.827
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OBALNOKRAŠKA","IZOLA","Paper/Cardboard Packaging",9.96
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OBALNOKRAŠKA","IZOLA","Wooden packaging",8.06
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OBALNOKRAŠKA","KOPER","Paper/Cardboard Packaging",110.832
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OBALNOKRAŠKA","KOPER","Wooden packaging",46.2
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OBALNOKRAŠKA","PIRAN","Paper/Cardboard Packaging",15.94
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OBALNOKRAŠKA","SEŽANA","Paper/Cardboard Packaging",13.055
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","BREZOVICA","Paper/Cardboard Packaging",8.272
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","DOL PRI LJUBLJANI","Paper/Cardboard Packaging",1.385
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","DOMŽALE","Paper/Cardboard Packaging",11.689
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","GROSUPLJE","Paper/Cardboard Packaging",20.098
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","GROSUPLJE","Wooden packaging",9.84
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","KAMNIK","Paper/Cardboard Packaging",10.792
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","LJUBLJANA","Paper/Cardboard Packaging",528.833
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","LJUBLJANA","Wood, not specified in 20 01 37",0.68
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","LJUBLJANA","Wooden packaging",11.65
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","LOGATEC","Paper/Cardboard Packaging",46.626
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","LOGATEC","Wood, not specified in 20 01 37",325.96
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","LOGATEC","Wooden packaging",115.02
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","LUKOVICA","Paper/Cardboard Packaging",7.43
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","LUKOVICA","Wooden packaging",0.39
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","MEDVODE","Paper/Cardboard Packaging",5.833
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","MENGEŠ","Paper/Cardboard Packaging",7.957
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","TRZIN","Paper/Cardboard Packaging",12.905
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","VODICE","Paper/Cardboard Packaging",2.009
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","VRHNIKA","Paper/Cardboard Packaging",66.317
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","OSREDNJESLOVENSKA","VRHNIKA","Wooden packaging",45.85
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","HOČE-SLIVNICA","Paper/Cardboard Packaging",5.585
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","LENART","Paper/Cardboard Packaging",115.459
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","MARIBOR","Paper/Cardboard Packaging",245.915
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","MIKLAVŽ NA DRAVSKEM POLJU","Paper/Cardboard Packaging",1.532
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","ORMOŽ","Paper/Cardboard Packaging",26.306
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","PODLEHNIK","Paper/Cardboard Packaging",12.2
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","PTUJ","Paper/Cardboard Packaging",32.201
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","RUŠE","Paper/Cardboard Packaging",108.68
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","SELNICA OB DRAVI","Paper/Cardboard Packaging",1.395
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","SLOVENSKA BISTRICA","Paper/Cardboard Packaging",18.49
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","ŠENTILJ","Paper/Cardboard Packaging",1.198
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","POMURSKA","GORNJA RADGONA","Paper/Cardboard Packaging",1.147
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","POMURSKA","LENDAVA","Paper/Cardboard Packaging",9.004
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","POMURSKA","LJUTOMER","Paper/Cardboard Packaging",4.551
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","POMURSKA","MURSKA SOBOTA","Paper/Cardboard Packaging",52.69
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","POMURSKA","RADENCI","Paper/Cardboard Packaging",74.9
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","POSAVSKA","BREŽICE","Paper/Cardboard Packaging",4.74
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","POSAVSKA","KRŠKO","Paper/Cardboard Packaging",6.754
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PRIMORSKONOTRANJSKA","CERKNICA","Paper/Cardboard Packaging",12.08
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PRIMORSKONOTRANJSKA","CERKNICA","Wood, not specified in 20 01 37",67.99
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PRIMORSKONOTRANJSKA","ILIRSKA BISTRICA","Paper/Cardboard Packaging",8.838
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PRIMORSKONOTRANJSKA","PIVKA","Paper/Cardboard Packaging",105.34
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PRIMORSKONOTRANJSKA","POSTOJNA","Paper/Cardboard Packaging",18.969
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PRIMORSKONOTRANJSKA","POSTOJNA","Wooden packaging",0.4
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","BRASLOVČE","Paper/Cardboard Packaging",1.484
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","CELJE","Paper/Cardboard Packaging",57.927
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","NAZARJE","Paper/Cardboard Packaging",793.232
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","PODČETRTEK","Paper/Cardboard Packaging",1.4
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","ROGAŠKA SLATINA","Paper/Cardboard Packaging",11.074
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","SLOVENSKE KONJICE","Paper/Cardboard Packaging",16.472
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","SLOVENSKE KONJICE","Wooden packaging",0.76
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","VELENJE","Paper/Cardboard Packaging",12.256
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","VOJNIK","Paper/Cardboard Packaging",0.48
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","ZREČE","Paper/Cardboard Packaging",6.5
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","ŠENTJUR","Paper/Cardboard Packaging",5.28
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","ŠMARJE PRI JELŠAH","Paper/Cardboard Packaging",1.67
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","SAVINJSKA","ŠTORE","Paper/Cardboard Packaging",0.28
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ZASAVSKA","LITIJA","Paper/Cardboard Packaging",5.535
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ZASAVSKA","LITIJA","Wooden packaging",0.84
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ZASAVSKA","TRBOVLJE","Paper/Cardboard Packaging",0.832
+2018,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","ZASAVSKA","ZAGORJE OB SAVI","Paper/Cardboard Packaging",8.485
+2018,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","GORENJSKA","CERKLJE NA GORENJSKEM","Wood, not specified in 20 01 37",223.08
+2018,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","BREZOVICA","Wood, not specified in 20 01 37",100.5
+2018,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","IG","Wood, not specified in 20 01 37",83.18
+2018,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","LJUBLJANA","Wood, not specified in 20 01 37",5065.72
+2018,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","MEDVODE","Wood, not specified in 20 01 37",183.06
+2018,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","VELIKE LAŠČE","Wood, not specified in 20 01 37",52.14
+2018,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","VODICE","Wood, not specified in 20 01 37",71.32
+2018,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","ŠKOFLJICA","Wood, not specified in 20 01 37",84.36
