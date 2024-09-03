@@ -1,39 +1,39 @@
 ﻿"year","statistical_region","input_waste_name","output_waste_name","waste_handed_to_collectors_RS","waste_delivered_to_operators_RS","waste_sent_to_EU","waste_sent_to_non_EU"
-2021,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","Sawdust/Chips/Wood, not specified in 03 01 04",0,0,276.647,0
 2021,"GORENJSKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",0,3101.363,0,0
-2021,"GORENJSKA","Wooden packaging","Wooden packaging",0,1700.78,4558.987,0
+2021,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","Sawdust/Chips/Wood, not specified in 03 01 04",0,0,276.647,0
 2021,"GORENJSKA","Wood","Wood",0,10.92,671.57,0
-2021,"GORENJSKA","Wood, not specified in 20 01 37","Wooden packaging",0,56.42,0,0
 2021,"GORENJSKA","Wood, not specified in 20 01 37","Wood, not specified in 20 01 37",0,606.87,2574.74,0
+2021,"GORENJSKA","Wood, not specified in 20 01 37","Wooden packaging",0,56.42,0,0
+2021,"GORENJSKA","Wooden packaging","Wooden packaging",0,1700.78,4558.987,0
 2021,"GORIŠKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",45.65,1029.126,0,0
 2021,"GORIŠKA","Wooden packaging","Wooden packaging",0,353.11,12.18,0
-2021,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04","Sawdust/Chips/Wood, not specified in 03 01 04",4677.46,0,0,0
 2021,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",0,598.046,2078.505,0
-2021,"JUGOVZHODNA SLOVENIJA","Wooden packaging","Wooden packaging",93.131,993.03,0,0
+2021,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04","Sawdust/Chips/Wood, not specified in 03 01 04",4677.46,0,0,0
 2021,"JUGOVZHODNA SLOVENIJA","Wood","Wood",0,145.94,0,0
 2021,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","Wood, not specified in 20 01 37",0,41.45,0,0
+2021,"JUGOVZHODNA SLOVENIJA","Wooden packaging","Wooden packaging",93.131,993.03,0,0
 2021,"KOROŠKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",22.7,42.654,990.152,0
-2021,"KOROŠKA","Wooden packaging","Wooden packaging",0,225.68,0,0
 2021,"KOROŠKA","Wood, not specified in 20 01 37","Wooden packaging",0,7.8,0,0
+2021,"KOROŠKA","Wooden packaging","Wooden packaging",0,225.68,0,0
 2021,"OBALNO-KRAŠKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",0,208.551,69.92,0
-2021,"OBALNO-KRAŠKA","Wooden packaging","Wooden packaging",0,703.407,0,0
-2021,"OBALNO-KRAŠKA","Wood","Wooden packaging",0,74.62,0,0
 2021,"OBALNO-KRAŠKA","Wood","Wood",0,120.58,0,0
+2021,"OBALNO-KRAŠKA","Wood","Wooden packaging",0,74.62,0,0
 2021,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37","Wooden packaging",0,65.333,0,0
+2021,"OBALNO-KRAŠKA","Wooden packaging","Wooden packaging",0,703.407,0,0
 2021,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",0,3276.38,23558.325,0
-2021,"OSREDNJESLOVENSKA","Wooden packaging","Wooden packaging",0,3455.305,127.18,0
+2021,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","Wood, not specified in 20 01 37",0,3746.57,0,0
 2021,"OSREDNJESLOVENSKA","Wooden packaging","Wood",0,456.62,0,0
 2021,"OSREDNJESLOVENSKA","Wooden packaging","Wood, not specified in 20 01 37",0,187.09,0,0
-2021,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","Wood, not specified in 20 01 37",0,3746.57,0,0
+2021,"OSREDNJESLOVENSKA","Wooden packaging","Wooden packaging",0,3455.305,127.18,0
 2021,"PODRAVSKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",0,731.826,913.68,0
-2021,"PODRAVSKA","Wooden packaging","Wooden packaging",0,2702.12,0,0
-2021,"PODRAVSKA","Wood, not specified in 20 01 37","Wooden packaging",0,54.76,0,0
 2021,"PODRAVSKA","Wood, not specified in 20 01 37","Wood, not specified in 20 01 37",0,2557.39,0,0
+2021,"PODRAVSKA","Wood, not specified in 20 01 37","Wooden packaging",0,54.76,0,0
+2021,"PODRAVSKA","Wooden packaging","Wooden packaging",0,2702.12,0,0
+2021,"POMURSKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",27.501,514.102,1286.98,0
 2021,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04","Sawdust/Chips/Wood, not specified in 03 01 04",751.44,0,0,0
 2021,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04","Wood, not specified in 20 01 37",0,1393.94,0,0
-2021,"POMURSKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",27.501,514.102,1286.98,0
-2021,"POMURSKA","Wooden packaging","Wooden packaging",0,61.22,0,0
 2021,"POMURSKA","Wood, not specified in 20 01 37","Wood, not specified in 20 01 37",0,1377.797,0,0
+2021,"POMURSKA","Wooden packaging","Wooden packaging",0,61.22,0,0
 2021,"POSAVSKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",0,61.54,1344.98,0
 2021,"POSAVSKA","Wooden packaging","Wooden packaging",0,209.12,0,0
 2021,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging","Paper/Cardboard Packaging",0,180.82,0,0

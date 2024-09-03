@@ -1,2 +1,2 @@
-﻿"Leto","Poročilo","waste_code","Naziv odpadka","Prevzeti odpadki vsi odpadki","Prevzeti odpadki od tega odpadki brez ocene odpadka","Ravnanje z odpadki na odlagališču Odloženi odpadki (D1) skupaj","Ravnanje z odpadki na odlagališču nevarni odpadki","Ravnanje z odpadki na odlagališču nenevarni odpadki","Ravnanje z odpadki na odlagališču inertni odpadki","Ravnanje z odpadki na odlagališču Odpadki za gradnjo objektov odlagališča","Ravnanje z odpadki na odlagališču Odpadki za prekrivanje odlagališča","Ravnanje z odpadki na odlagališču Zavrnjeni odpadki"
-2020,"ODP-obdelava","17 02 01","Les","64680",NA,"64680",NA,"64680",NA,NA,NA,NA
+﻿"year","type_of_waste","total_waste_received","disposed_waste_total","disposed_waste_non_hazardous"
+2020,"Wood",64.68,64.68,64.68

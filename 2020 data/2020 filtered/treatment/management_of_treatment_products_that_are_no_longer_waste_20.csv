@@ -1,6 +1,6 @@
-﻿"year","waste_code","input_waste_name","output_waste_name","delivered_to_storage_or_other_persons_RS","shipped_to_EU","shipped_to_non_EU"
-2020,"15 01 03","Wooden packaging","other",6.926,0,0
-2020,"03 01 05","Sawdust/Chips/Wood, not specified in 03 01 04","wood",315.672,0,0
-2020,"15 01 03","Wooden packaging","wood",2584.778,0,0
-2020,"17 02 01","Wood","wood",68.16,0,0
-2020,"20 01 38","Wood, not specified in 20 01 37","wood",551.9,0,0
+﻿"year","input_waste_name","output_waste_name","delivered_to_storage_or_other_persons_RS","shipped_to_EU","shipped_to_non_EU"
+2020,"Sawdust/Chips/Wood, not specified in 03 01 04","wood",315.672,0,0
+2020,"Wood","wood",68.16,0,0
+2020,"Wood, not specified in 20 01 37","wood",551.9,0,0
+2020,"Wooden packaging","other",6.926,0,0
+2020,"Wooden packaging","wood",2584.778,0,0

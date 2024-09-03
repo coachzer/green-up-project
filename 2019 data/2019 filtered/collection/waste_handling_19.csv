@@ -1,52 +1,52 @@
-﻿"statistical_region","type_of_waste","total_waste_delivered","waste_delivered_to_other_collector_RS","waste_delivered_to_processing_operator_RS","waste_delivered_to_other_EU_country","year"
-"GORENJSKA","Paper/Cardboard Packaging",1796.966,30.96,1766.006,0,2019
-"GORENJSKA","Wood",294.14,0,294.14,0,2019
-"GORENJSKA","Wood, not specified in 20 01 37",3232.89,0,3232.89,0,2019
-"GORENJSKA","Wooden packaging",453.619,0,453.619,0,2019
-"GORIŠKA","Paper/Cardboard Packaging",1731.567,0,1731.567,0,2019
-"GORIŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",14.74,0,14.74,0,2019
-"GORIŠKA","Wood",896.4,0,896.4,0,2019
-"GORIŠKA","Wood, not specified in 20 01 37",2461.93,0,2461.93,0,2019
-"GORIŠKA","Wooden packaging",121.5,0,121.5,0,2019
-"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",3740.935,0,1479.837,2261.098,2019
-"JUGOVZHODNA SLOVENIJA","Wood",36.079,0,36.079,0,2019
-"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",2799.79,0,2799.79,0,2019
-"JUGOVZHODNA SLOVENIJA","Wooden packaging",61.594,0,61.594,0,2019
-"KOROŠKA","Paper/Cardboard Packaging",1618.629,132.996,1485.633,0,2019
-"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",21.94,0,21.94,0,2019
-"KOROŠKA","Wood",50.72,0,50.72,0,2019
-"KOROŠKA","Wood, not specified in 20 01 37",5.08,0,5.08,0,2019
-"KOROŠKA","Wooden packaging",486.24,0,486.24,0,2019
-"OBALNO-KRAŠKA","Paper/Cardboard Packaging",1615.252,257.992,1357.26,0,2019
-"OBALNO-KRAŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",1274.31,0,213.78,1060.53,2019
-"OBALNO-KRAŠKA","Wood, not specified in 20 01 37",3626.91,0,3626.91,0,2019
-"OBALNO-KRAŠKA","Wooden packaging",476.5,0,476.5,0,2019
-"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",13129.261,236.003,12893.258,0,2019
-"OSREDNJESLOVENSKA","Wood",1288.385,0,1288.385,0,2019
-"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",9327.92,45.58,9282.34,0,2019
-"OSREDNJESLOVENSKA","Wooden packaging",3485.047,6.89,3478.157,0,2019
-"PODRAVSKA","Paper/Cardboard Packaging",2456.455,13.23,2443.225,0,2019
-"PODRAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",35.11,0,4.19,30.92,2019
-"PODRAVSKA","Wood",132.66,0,132.66,0,2019
-"PODRAVSKA","Wood, not specified in 20 01 37",7955.123,479.365,3307.822,4167.936,2019
-"PODRAVSKA","Wooden packaging",941.76,121.98,607.023,212.757,2019
-"POMURSKA","Paper/Cardboard Packaging",801.232,12.28,788.952,0,2019
-"POMURSKA","Wood",45.48,0,45.48,0,2019
-"POMURSKA","Wood, not specified in 20 01 37",864.94,0,864.94,0,2019
-"POMURSKA","Wooden packaging",71.315,0,71.315,0,2019
-"POSAVSKA","Paper/Cardboard Packaging",1646.484,95.6,1127.04,423.844,2019
-"POSAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",252.16,252.16,0,0,2019
-"POSAVSKA","Wood",7.92,0,7.92,0,2019
-"POSAVSKA","Wood, not specified in 20 01 37",1243.317,0,1243.317,0,2019
-"POSAVSKA","Wooden packaging",254.29,6.44,247.85,0,2019
-"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",718.479,0,718.479,0,2019
-"PRIMORSKO-NOTRANJSKA","Wood, not specified in 20 01 37",917.62,0,917.62,0,2019
-"PRIMORSKO-NOTRANJSKA","Wooden packaging",61.95,0,61.95,0,2019
-"SAVINJSKA","Paper/Cardboard Packaging",3499.831,6.737,3493.094,0,2019
-"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",72.9,12.4,60.5,0,2019
-"SAVINJSKA","Wood",318.91,0,318.91,0,2019
-"SAVINJSKA","Wood, not specified in 20 01 37",2724.677,0,2724.677,0,2019
-"SAVINJSKA","Wooden packaging",1948.403,0,1948.403,0,2019
-"ZASAVSKA","Paper/Cardboard Packaging",1037.189,135,902.189,0,2019
-"ZASAVSKA","Wood, not specified in 20 01 37",887.81,0,887.81,0,2019
-"ZASAVSKA","Wooden packaging",287.7,0.26,287.44,0,2019
+﻿"year","statistical_region","type_of_waste","total_waste_delivered","waste_delivered_to_other_collector_RS","waste_delivered_to_processing_operator_RS","waste_delivered_to_other_EU_country"
+2019,"GORENJSKA","Paper/Cardboard Packaging",1796.966,30.96,1766.006,0
+2019,"GORENJSKA","Wood",294.14,0,294.14,0
+2019,"GORENJSKA","Wood, not specified in 20 01 37",3232.89,0,3232.89,0
+2019,"GORENJSKA","Wooden packaging",453.619,0,453.619,0
+2019,"GORIŠKA","Paper/Cardboard Packaging",1731.567,0,1731.567,0
+2019,"GORIŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",14.74,0,14.74,0
+2019,"GORIŠKA","Wood",896.4,0,896.4,0
+2019,"GORIŠKA","Wood, not specified in 20 01 37",2461.93,0,2461.93,0
+2019,"GORIŠKA","Wooden packaging",121.5,0,121.5,0
+2019,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",3740.935,0,1479.837,2261.098
+2019,"JUGOVZHODNA SLOVENIJA","Wood",36.079,0,36.079,0
+2019,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",2799.79,0,2799.79,0
+2019,"JUGOVZHODNA SLOVENIJA","Wooden packaging",61.594,0,61.594,0
+2019,"KOROŠKA","Paper/Cardboard Packaging",1618.629,132.996,1485.633,0
+2019,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",21.94,0,21.94,0
+2019,"KOROŠKA","Wood",50.72,0,50.72,0
+2019,"KOROŠKA","Wood, not specified in 20 01 37",5.08,0,5.08,0
+2019,"KOROŠKA","Wooden packaging",486.24,0,486.24,0
+2019,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",1615.252,257.992,1357.26,0
+2019,"OBALNO-KRAŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",1274.31,0,213.78,1060.53
+2019,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37",3626.91,0,3626.91,0
+2019,"OBALNO-KRAŠKA","Wooden packaging",476.5,0,476.5,0
+2019,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",13129.261,236.003,12893.258,0
+2019,"OSREDNJESLOVENSKA","Wood",1288.385,0,1288.385,0
+2019,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",9327.92,45.58,9282.34,0
+2019,"OSREDNJESLOVENSKA","Wooden packaging",3485.047,6.89,3478.157,0
+2019,"PODRAVSKA","Paper/Cardboard Packaging",2456.455,13.23,2443.225,0
+2019,"PODRAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",35.11,0,4.19,30.92
+2019,"PODRAVSKA","Wood",132.66,0,132.66,0
+2019,"PODRAVSKA","Wood, not specified in 20 01 37",7955.123,479.365,3307.822,4167.936
+2019,"PODRAVSKA","Wooden packaging",941.76,121.98,607.023,212.757
+2019,"POMURSKA","Paper/Cardboard Packaging",801.232,12.28,788.952,0
+2019,"POMURSKA","Wood",45.48,0,45.48,0
+2019,"POMURSKA","Wood, not specified in 20 01 37",864.94,0,864.94,0
+2019,"POMURSKA","Wooden packaging",71.315,0,71.315,0
+2019,"POSAVSKA","Paper/Cardboard Packaging",1646.484,95.6,1127.04,423.844
+2019,"POSAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",252.16,252.16,0,0
+2019,"POSAVSKA","Wood",7.92,0,7.92,0
+2019,"POSAVSKA","Wood, not specified in 20 01 37",1243.317,0,1243.317,0
+2019,"POSAVSKA","Wooden packaging",254.29,6.44,247.85,0
+2019,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",718.479,0,718.479,0
+2019,"PRIMORSKO-NOTRANJSKA","Wood, not specified in 20 01 37",917.62,0,917.62,0
+2019,"PRIMORSKO-NOTRANJSKA","Wooden packaging",61.95,0,61.95,0
+2019,"SAVINJSKA","Paper/Cardboard Packaging",3499.831,6.737,3493.094,0
+2019,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",72.9,12.4,60.5,0
+2019,"SAVINJSKA","Wood",318.91,0,318.91,0
+2019,"SAVINJSKA","Wood, not specified in 20 01 37",2724.677,0,2724.677,0
+2019,"SAVINJSKA","Wooden packaging",1948.403,0,1948.403,0
+2019,"ZASAVSKA","Paper/Cardboard Packaging",1037.189,135,902.189,0
+2019,"ZASAVSKA","Wood, not specified in 20 01 37",887.81,0,887.81,0
+2019,"ZASAVSKA","Wooden packaging",287.7,0.26,287.44,0

@@ -1,98 +1,52 @@
-﻿"Leto","Poročilo","Statistična regija","waste_code","Naziv odpadka","Prevzeti odpadki lastni odpadki kg","Prevzeti odpadki od drugih izvirnih povzročiteljev v RS kg","Prevzeti odpadki od zbiralcev odpadkov v RS kg","Prevzeti odpadki od izvajalcev obdelave v RS kg","Prevzeti odpadki iz drugih držav članic EU kg","Prevzeti odpadki iz držav izven EU kg","Prevzeti odpadki SKUPAJ kg","Postopek obdelave (R, D)"
-2020,"ODP-obdelava","GORENJSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,1977884,0,0,0,0,1977884,"R_01"
-2020,"ODP-obdelava","GORENJSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,323022,0,0,0,0,323022,"R_12, R_13"
-2020,"ODP-obdelava","GORENJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,4214000,259781,51458,0,0,4525239,"R_12, R_13"
-2020,"ODP-obdelava","GORENJSKA","15 01 03","Lesena embalaža",0,56850,51760,0,0,0,108610,"R_01"
-2020,"ODP-obdelava","GORENJSKA","15 01 03","Lesena embalaža",0,6960,0,0,0,0,6960,"R_12, D_13"
-2020,"ODP-obdelava","GORENJSKA","15 01 03","Lesena embalaža",0,2314085,0,2081735,0,0,4395820,"R_12, R_13"
-2020,"ODP-obdelava","GORENJSKA","17 02 01","Les",0,28001,582120,0,0,0,610121,"R_01"
-2020,"ODP-obdelava","GORENJSKA","17 02 01","Les",0,189200,0,0,0,0,189200,"R_05"
-2020,"ODP-obdelava","GORENJSKA","17 02 01","Les",0,93420,0,0,0,0,93420,"R_12, R_13"
-2020,"ODP-obdelava","GORENJSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,1080,0,0,0,0,1080,"D_13"
-2020,"ODP-obdelava","GORENJSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,187523,170350,434590,0,0,792463,"R_12, R_13"
-2020,"ODP-obdelava","GORIŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",9790,2140,0,0,0,0,11930,"R_0101"
-2020,"ODP-obdelava","GORIŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,1408079,715454,0,0,0,2123533,"R_12, R_13"
-2020,"ODP-obdelava","GORIŠKA","15 01 03","Lesena embalaža",0,480835,10370,1560,0,0,492765,"R_12, R_13"
-2020,"ODP-obdelava","GORIŠKA","17 02 01","Les",0,0,126050,0,0,0,126050,"R_03"
-2020,"ODP-obdelava","GORIŠKA","17 02 01","Les",0,191520,0,0,0,0,191520,"R_05"
-2020,"ODP-obdelava","GORIŠKA","17 02 01","Les",0,24380,0,0,0,0,24380,"R_12, R_13"
-2020,"ODP-obdelava","GORIŠKA","20 01 38","Les, ki ni naveden v 20 01 37",0,5400,0,0,0,0,5400,"R_12, R_13"
-2020,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,3207340,662440,0,0,0,3869780,"R_12, R_13"
-2020,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,5758529,247454,4365,0,0,6010348,"R_12, R_13"
-2020,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","15 01 03","Lesena embalaža",0,2448743,612,0,0,0,2449355,"R_12, R_13"
-2020,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","15 01 03","Lesena embalaža",0,48835,0,0,0,0,48835,"R_13"
-2020,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","17 02 01","Les",0,69490,0,0,0,0,69490,"R_12, R_13"
-2020,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","20 01 38","Les, ki ni naveden v 20 01 37",0,64500,0,0,0,0,64500,"R_12, R_13"
-2020,"ODP-obdelava","JUGOVZHODNA SLOVENIJA","20 01 38","Les, ki ni naveden v 20 01 37",0,58280,0,0,0,0,58280,"R_13"
-2020,"ODP-obdelava","KOROŠKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",450000,0,0,0,0,0,450000,"R_01"
-2020,"ODP-obdelava","KOROŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,1130348,236692,0,0,0,1367040,"R_12, R_13"
-2020,"ODP-obdelava","KOROŠKA","15 01 03","Lesena embalaža",0,160840,0,0,0,0,160840,"R_12, R_13"
-2020,"ODP-obdelava","KOROŠKA","17 02 01","Les",0,6000,0,0,0,0,6000,"R_05"
-2020,"ODP-obdelava","OBALNO-KRAŠKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,3008876,473684,196032,100,0,3678692,"R_12, R_13"
-2020,"ODP-obdelava","OBALNO-KRAŠKA","15 01 03","Lesena embalaža",0,853985,0,0,200,0,854185,"R_12, R_13"
-2020,"ODP-obdelava","OBALNO-KRAŠKA","17 02 01","Les",0,105384,0,0,0,0,105384,"R_12, R_13"
-2020,"ODP-obdelava","OBALNO-KRAŠKA","20 01 38","Les, ki ni naveden v 20 01 37",0,395180,0,0,0,0,395180,"R_12, R_13"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,534740,586660,0,0,0,1121400,"R_03"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,24720,23660,0,0,0,48380,"R_0302"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,247780,0,0,0,0,247780,"R_12, R_13"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",307,27066688,16514346,3516722,5340,0,47103403,"R_12, R_13"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",0,32141,0,331910,0,0,364051,"PU"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",0,32080,0,91530,0,0,123610,"R_01"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",0,244500,3073788,6857960,0,0,10176248,"R_03"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",0,21860,185800,0,0,0,207660,"R_0302"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",0,329700,0,0,0,0,329700,"R_05"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",0,0,0,53000,0,0,53000,"R_12"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",13500,4048289,2893183,2022371,520,0,8977863,"R_12, R_13"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","15 01 03","Lesena embalaža",0,13714,0,0,0,0,13714,"R_13"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","17 02 01","Les",0,1269271,1505391,121880,0,0,2896542,"R_03"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","17 02 01","Les",0,586252,0,0,0,0,586252,"R_05"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","17 02 01","Les",0,19180,17240,0,0,0,36420,"R_12"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","17 02 01","Les",0,450722,0,0,9140,0,459862,"R_12, R_13"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",6270040,2564750,15913470,6415680,0,0,31163940,"R_03"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,1629978,1957390,0,0,0,3587368,"R_0302"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,0,0,13280,0,0,13280,"R_05"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,877810,0,1954420,0,0,2832230,"R_12"
-2020,"ODP-obdelava","OSREDNJESLOVENSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,1385613,4261116,372052,0,0,6018781,"R_12, R_13"
-2020,"ODP-obdelava","PODRAVSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,88540,0,0,0,0,88540,"R_12, R_13"
-2020,"ODP-obdelava","PODRAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,43160,0,0,0,0,43160,"R_12"
-2020,"ODP-obdelava","PODRAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",1156,10623238,1399180,1053777,2160,0,13079511,"R_12, R_13"
-2020,"ODP-obdelava","PODRAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,0,0,0,0,0,0,"R_13"
-2020,"ODP-obdelava","PODRAVSKA","15 01 03","Lesena embalaža",0,2152868,1136959,0,0,0,3289827,"R_12, R_13"
-2020,"ODP-obdelava","PODRAVSKA","17 02 01","Les",0,13380,0,0,0,0,13380,"R_05"
-2020,"ODP-obdelava","PODRAVSKA","17 02 01","Les",0,360300,13460,0,0,0,373760,"R_12, R_13"
-2020,"ODP-obdelava","PODRAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,1173060,0,0,0,0,1173060,"R_03"
-2020,"ODP-obdelava","PODRAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,372280,0,0,0,0,372280,"R_12, R_13"
-2020,"ODP-obdelava","PODRAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,1501566,180908,138260,0,0,1820734,"R_13"
-2020,"ODP-obdelava","POMURSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,2071240,0,0,0,0,2071240,"R_12, R_13"
-2020,"ODP-obdelava","POMURSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",30940,2335352,437400,478448,0,0,3282140,"R_12, R_13"
-2020,"ODP-obdelava","POMURSKA","15 01 03","Lesena embalaža",0,565026,94919,0,0,0,659945,"R_12, R_13"
-2020,"ODP-obdelava","POMURSKA","17 02 01","Les",0,33000,0,0,0,0,33000,"R_05"
-2020,"ODP-obdelava","POMURSKA","17 02 01","Les",0,1940,0,0,0,0,1940,"R_12, R_13"
-2020,"ODP-obdelava","POMURSKA","20 01 38","Les, ki ni naveden v 20 01 37",5020,680680,170360,0,0,0,856060,"R_12, R_13"
-2020,"ODP-obdelava","POSAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,81860,129017,4102420,0,0,4313297,"R_12"
-2020,"ODP-obdelava","POSAVSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,1406484,2442400,701820,0,0,4550704,"R_12, R_13"
-2020,"ODP-obdelava","POSAVSKA","15 01 03","Lesena embalaža",386599,0,0,0,0,0,386599,"R_01"
-2020,"ODP-obdelava","POSAVSKA","15 01 03","Lesena embalaža",0,176670,3160,0,0,0,179830,"R_12, R_13"
-2020,"ODP-obdelava","POSAVSKA","17 02 01","Les",0,400,0,0,0,0,400,"R_12, R_13"
-2020,"ODP-obdelava","POSAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,0,927000,0,0,0,927000,"R_01"
-2020,"ODP-obdelava","POSAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,4320,0,0,0,0,4320,"R_12, R_13"
-2020,"ODP-obdelava","PRIMORSKO-NOTRANJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,159020,0,0,0,0,159020,"R_12, R_13"
-2020,"ODP-obdelava","PRIMORSKO-NOTRANJSKA","15 01 03","Lesena embalaža",0,388750,0,0,0,0,388750,"R_01"
-2020,"ODP-obdelava","PRIMORSKO-NOTRANJSKA","15 01 03","Lesena embalaža",0,5500,0,0,0,0,5500,"R_12, R_13"
-2020,"ODP-obdelava","SAVINJSKA","03 01 01","Odpadna lubje in pluta",0,1855,0,0,0,0,1855,"R_01"
-2020,"ODP-obdelava","SAVINJSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,2580,0,0,0,0,2580,"R_01"
-2020,"ODP-obdelava","SAVINJSKA","03 01 05","Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04",0,40230,4200,0,0,0,44430,"R_12, R_13"
-2020,"ODP-obdelava","SAVINJSKA","03 01 99","Odpadki, ki niso navedeni drugje",0,1233880,0,0,0,0,1233880,"R_12, R_13"
-2020,"ODP-obdelava","SAVINJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,0,0,0,14070,0,14070,"R_03"
-2020,"ODP-obdelava","SAVINJSKA","15 01 01","Papirna in kartonska embalaža ter embalaža iz lepenke",0,11233076,4391902,1254267,0,0,16879245,"R_12, R_13"
-2020,"ODP-obdelava","SAVINJSKA","15 01 03","Lesena embalaža",0,0,120,0,0,0,120,"PU"
-2020,"ODP-obdelava","SAVINJSKA","15 01 03","Lesena embalaža",0,0,0,962522,0,0,962522,"R_01"
-2020,"ODP-obdelava","SAVINJSKA","15 01 03","Lesena embalaža",0,0,265940,0,0,0,265940,"R_12"
-2020,"ODP-obdelava","SAVINJSKA","15 01 03","Lesena embalaža",0,1889164,2654824,2878912,0,0,7422900,"R_12, R_13"
-2020,"ODP-obdelava","SAVINJSKA","17 02 01","Les",0,64680,0,0,0,0,64680,"D_01"
-2020,"ODP-obdelava","SAVINJSKA","17 02 01","Les",0,71542,163220,0,0,0,234762,"R_12, R_13"
-2020,"ODP-obdelava","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,0,478780,21340,0,0,500120,"R_01"
-2020,"ODP-obdelava","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,70000,0,0,0,0,70000,"R_03"
-2020,"ODP-obdelava","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,0,717475,0,0,0,717475,"R_12"
-2020,"ODP-obdelava","SAVINJSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,33922,1775120,147640,0,0,1956682,"R_12, R_13"
-2020,"ODP-obdelava","ZASAVSKA","20 01 38","Les, ki ni naveden v 20 01 37",0,126580,0,0,0,0,126580,"R_12, R_13"
+﻿"year","statistical_region","type_of_waste","total_waste_received","waste_received_own_waste","waste_received_from_producers_RS","waste_received_from_collectors_RS","waste_received_from_processors_RS","waste_received_from_EU","waste_received_from_non_EU"
+2020,"GORENJSKA","Paper/Cardboard Packaging",4525.239,0,4214,259.781,51.458,0,0
+2020,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",2300.906,0,2300.906,0,0,0,0
+2020,"GORENJSKA","Wood",892.741,0,310.621,582.12,0,0,0
+2020,"GORENJSKA","Wood, not specified in 20 01 37",793.543,0,188.603,170.35,434.59,0,0
+2020,"GORENJSKA","Wooden packaging",4511.39,0,2377.895,51.76,2081.735,0,0
+2020,"GORIŠKA","Paper/Cardboard Packaging",2135.463,9.79,1410.219,715.454,0,0,0
+2020,"GORIŠKA","Wood",341.95,0,215.9,126.05,0,0,0
+2020,"GORIŠKA","Wood, not specified in 20 01 37",5.4,0,5.4,0,0,0,0
+2020,"GORIŠKA","Wooden packaging",492.765,0,480.835,10.37,1.56,0,0
+2020,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",6010.348,0,5758.529,247.454,4.365,0,0
+2020,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04",3869.78,0,3207.34,662.44,0,0,0
+2020,"JUGOVZHODNA SLOVENIJA","Wood",69.49,0,69.49,0,0,0,0
+2020,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",122.78,0,122.78,0,0,0,0
+2020,"JUGOVZHODNA SLOVENIJA","Wooden packaging",2498.19,0,2497.578,0.612,0,0,0
+2020,"KOROŠKA","Paper/Cardboard Packaging",1367.04,0,1130.348,236.692,0,0,0
+2020,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",450,450,0,0,0,0,0
+2020,"KOROŠKA","Wood",6,0,6,0,0,0,0
+2020,"KOROŠKA","Wooden packaging",160.84,0,160.84,0,0,0,0
+2020,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",3678.692,0,3008.876,473.684,196.032,0.1,0
+2020,"OBALNO-KRAŠKA","Wood",105.384,0,105.384,0,0,0,0
+2020,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37",395.18,0,395.18,0,0,0,0
+2020,"OBALNO-KRAŠKA","Wooden packaging",854.185,0,853.985,0,0,0.2,0
+2020,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",47103.403,0.307,27066.688,16514.346,3516.722,5.34,0
+2020,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1417.56,0,807.24,610.32,0,0,0
+2020,"OSREDNJESLOVENSKA","Wood",3979.076,0,2325.425,1522.631,121.88,9.14,0
+2020,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",43615.599,6270.04,6458.151,22131.976,8755.432,0,0
+2020,"OSREDNJESLOVENSKA","Wooden packaging",20245.846,13.5,4722.284,6152.771,9356.771,0.52,0
+2020,"PODRAVSKA","Paper/Cardboard Packaging",13122.671,1.156,10666.398,1399.18,1053.777,2.16,0
+2020,"PODRAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",88.54,0,88.54,0,0,0,0
+2020,"PODRAVSKA","Wood",387.14,0,373.68,13.46,0,0,0
+2020,"PODRAVSKA","Wood, not specified in 20 01 37",3366.074,0,3046.906,180.908,138.26,0,0
+2020,"PODRAVSKA","Wooden packaging",3289.827,0,2152.868,1136.959,0,0,0
+2020,"POMURSKA","Paper/Cardboard Packaging",3282.14,30.94,2335.352,437.4,478.448,0,0
+2020,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04",2071.24,0,2071.24,0,0,0,0
+2020,"POMURSKA","Wood",34.94,0,34.94,0,0,0,0
+2020,"POMURSKA","Wood, not specified in 20 01 37",856.06,5.02,680.68,170.36,0,0,0
+2020,"POMURSKA","Wooden packaging",659.945,0,565.026,94.919,0,0,0
+2020,"POSAVSKA","Paper/Cardboard Packaging",8864.001,0,1488.344,2571.417,4804.24,0,0
+2020,"POSAVSKA","Wood",0.4,0,0.4,0,0,0,0
+2020,"POSAVSKA","Wood, not specified in 20 01 37",931.32,0,4.32,927,0,0,0
+2020,"POSAVSKA","Wooden packaging",566.429,386.599,176.67,3.16,0,0,0
+2020,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",159.02,0,159.02,0,0,0,0
+2020,"PRIMORSKO-NOTRANJSKA","Wooden packaging",394.25,0,394.25,0,0,0,0
+2020,"SAVINJSKA","Bark and Cork Waste",1.855,0,1.855,0,0,0,0
+2020,"SAVINJSKA","Miscellaneous Waste",1233.88,0,1233.88,0,0,0,0
+2020,"SAVINJSKA","Paper/Cardboard Packaging",16893.315,0,11233.076,4391.902,1254.267,14.07,0
+2020,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",47.01,0,42.81,4.2,0,0,0
+2020,"SAVINJSKA","Wood",299.442,0,136.222,163.22,0,0,0
+2020,"SAVINJSKA","Wood, not specified in 20 01 37",3244.277,0,103.922,2971.375,168.98,0,0
+2020,"SAVINJSKA","Wooden packaging",8651.482,0,1889.164,2920.884,3841.434,0,0
+2020,"ZASAVSKA","Wood, not specified in 20 01 37",126.58,0,126.58,0,0,0,0
