@@ -52,9 +52,12 @@ create_numeric_input_row <- function(input_id1,
 }
 
 shinyUI(dashboardPage(
-  dashboardHeader(title = "Wood Waste Management Simulation"),
+  dashboardHeader(title = "Wood Waste Management"),
+  # Dashboard Sidebar -----
   dashboardSidebar(sidebarMenu(
     id = "tabs",
+    # Hidden tabs -----
+    ## Analysis -----
     hidden(
       menuItem(
         "hiddenAnalysis",
@@ -62,6 +65,7 @@ shinyUI(dashboardPage(
         icon = icon("chart-simple")
       )
     ),
+    ## Simulation -----
     hidden(
       menuItem(
         "hiddenSimulation",
@@ -69,54 +73,69 @@ shinyUI(dashboardPage(
         icon = icon("play")
       )
     ),
+    # Main tabs -----
+    ## Analysis -----
     menuItem(
       "Analysis",
       id = "analysisID",
       tabName = "analysis",
       expandedName = "ANALYSIS",
       icon = icon("chart-simple"),
+      ### Sub-items -----
+      #### Generation -----
       menuSubItem(
         "Generation",
         tabName = "generation",
         icon = icon("trash-arrow-up")
       ),
+      #### Collection -----
       menuSubItem(
         "Collection",
         tabName = "collection",
         icon = icon("truck-arrow-right")
       ),
+      #### Treatment -----
       menuSubItem(
         "Treatment",
         tabName = "treatment",
         icon = icon("hand-holding-heart")
       )
     ),
+    ## Simulation -----
     menuItem(
       "Simulation",
       id = "simulationID",
       expandedName = "SIMULATION",
       tabName = "simulation",
       icon = icon("play"),
+      ### Sub-items -----
+      #### Define Simulation -----
       menuSubItem(
         "Define Simulation",
         tabName = "define_simulation",
         icon = icon("pen-to-square")
       ),
+      #### Outputs -----
       menuSubItem("Outputs", tabName = "outputs", icon = icon("file-alt")),
+      #### Plots of Data -----
       menuSubItem(
         "Plots of Data",
         tabName = "plots",
         icon = icon("chart-line")
       ),
+      #### Tables of Data -----
       menuSubItem("Tables of Data", tabName = "tables", icon = icon("table")),
+      #### Costs -----
       menuSubItem(
         "Costs of Management",
         tabName = "costs",
         icon = icon("dollar-sign")
       ),
+      #### Distance Matrix -----
       menuSubItem("Distance Matrix", tabName = "distance_matrix", icon = icon("th"))
     )
   )), 
+  # Dashboard Body -----
   dashboardBody(
     useShinyFeedback(),
     useShinyjs(),
@@ -124,12 +143,94 @@ shinyUI(dashboardPage(
       # Analysis -----
       tabItem(
         tabName = "hiddenAnalysis",
-        h2("Analysis of Wood Waste Management")
+        h1("Analysis of Wood Waste Management")
       ),
       # Generation ----
       tabItem(
         tabName = "generation",
-        h2("Generation of Wood Waste")
+        h2("Generation of Wood Waste"),
+        fluidRow(
+          infoBoxOutput("totalWasteGenerated"),
+          infoBoxOutput("totalTreatedByProducer"),
+          infoBoxOutput("totalTransferredRS")
+        ),
+        fluidRow(
+          style = "display: flex; justify-content: center; align-items: center;",
+          infoBoxOutput("totalSentEU"),
+          infoBoxOutput("totalSentOutsideEU")
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Total Wood Waste Generation by Year",
+            plotlyOutput("totalWasteByYear")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            title = "Total Wood Waste Generation by Region and Year",
+            plotlyOutput("wasteByRegionYear")
+          ),
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            title = "Total Wood Waste Generation by Type and Year",
+            plotlyOutput("wasteByTypeYear")
+          )
+          
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Total Wood Waste Transferred for Treatment by Year",
+            plotlyOutput("wasteTransferred")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            title = "Total Wood Waste Transferred for Treatment by Region and Year",
+            plotlyOutput("wasteTransferredByRegionYear")
+          ),
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            title = "Total Wood Waste Transferred for Treatment by Type and Year",
+            plotlyOutput("wasteTransferredByTypeYear")
+          )
+          
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Total Wood Waste Stored at the End of the Year",
+            plotlyOutput("wasteStoredEndYear")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            title = "Total Wood Waste Stored at the End of the Year by Region and Year",
+            plotlyOutput("wasteStoredEndYearByRegionYear")
+          ),
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            title = "Total Wood Waste Stored at the End of the Year by Type and Year",
+            plotlyOutput("wasteStoredEndYearByTypeYear")
+          )
+          
+        ),
       ),
       # Collection ----
       tabItem(
@@ -146,7 +247,7 @@ shinyUI(dashboardPage(
       # Simulation -----
       tabItem(
         tabName = "hiddenSimulation",
-        h2("Description of the Wood Waste Management Simulation")
+        h1("Description of the Wood Waste Management Simulation")
       ),
       # Define Simulation -----
       tabItem(
@@ -376,27 +477,29 @@ shinyUI(dashboardPage(
           title = "Filter By",
           solidHeader = TRUE,
           status = "primary",
-          column(3, numericInput(
-            "time_start", "Start Time:", value = 0, min = 0
-          )),
-          column(
-            3,
-            numericInput(
-              "time_end",
-              "Time End:",
-              value = 100,
-              min = 0,
-              max = 365
-            )
-          ),
-          column(
-            6,
-            radioButtons(
-              "plot_type",
-              "Plot Type:",
-              choices = list("Cumulative" = "cumulative", "Non-Cumulative" = "non_cumulative"),
-              selected = "cumulative"
-            )
+          # column(
+          #   3, 
+          #   numericInput(
+          #     "time_start", 
+          #     "Start Time:", 
+          #     value = 0, 
+          #     min = 0
+          # )),
+          # column(
+          #   3,
+          #   numericInput(
+          #     "time_end",
+          #     "Time End:",
+          #     value = 100,
+          #     min = 0,
+          #     max = 365
+          #   )
+          # ),
+          radioButtons(
+            "plot_type",
+            "Plot Type:",
+            choices = list("Cumulative" = "cumulative", "Non-Cumulative" = "non_cumulative"),
+            selected = "cumulative"
           ),
           selectInput(
             "regions_selected",

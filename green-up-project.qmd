@@ -3085,15 +3085,18 @@ waste_collected_municipality.19 <- waste_collected_municipality.19 |>
       waste_code == "17 02 01" ~ "Wood",
       waste_code == "20 01 38" ~ "Wood, not specified in 20 01 37",
       waste_code == "03 01 99" ~ "Miscellaneous Waste"
-    )
+    ),
+    year = 2019
   )
 
 waste_collected_municipality.19 <- waste_collected_municipality.19 |>
-  mutate(
-    total_waste_collected = total_waste_collected / 1000,
-    municipal_waste_collected = municipal_waste_collected / 1000,
-    waste_collected_from_activities = waste_collected_from_activities / 1000
-  )
+  group_by(year, name_of_company, type_of_waste) |>
+  summarise(
+    total_waste_collected = sum(total_waste_collected) / 1000,
+    municipal_waste_collected = sum(municipal_waste_collected) / 1000,
+    waste_collected_from_activities = sum(waste_collected_from_activities) / 1000
+  ) |>
+  ungroup()
 
 waste_collection_19.sheet3 <- waste_collected_municipality.19
 

@@ -12,6 +12,246 @@ library(shinyBS)
 library(reshape2)
 library(igraph)
 
+# data for generation ----
+
+g.2022.data <- read_csv("../../2022 data/2022 filtered/generation/generation_22.csv")
+g.2021.data <- read_csv("../../2021 data/2021 filtered/generation/generation_21.csv")
+g.2020.data <- read_csv("../../2020 data/2020 filtered/generation/generation_20.csv")
+g.2019.data <- read_csv("../../2019 data/2019 filtered/generation/generation_19.csv")
+g.2018.data.1 <- read_csv("../../2018 data/2018 filtered/generation/waste_generation_18.csv")
+g.2018.data.2 <- read_csv("../../2018 data/2018 filtered/generation/waste_management_18.csv")
+g.2017.data.1 <- read_csv("../../2017 data/2017 filtered/generation/waste_generation_17.csv")
+g.2017.data.2 <- read_csv("../../2017 data/2017 filtered/generation/waste_management_17.csv")
+g.2016.data.1 <- read_csv("../../2016 data/2016 filtered/generation/waste_generation_16.csv")
+g.2016.data.2 <- read_csv("../../2016 data/2016 filtered/generation/waste_management_16.csv")
+
+g.2018.data.2 <- g.2018.data.2 |>
+  mutate(
+    waste_handed_to_others_RS = ifelse(
+      delivered_to == "processing operator in RS",
+      total_waste_given_away,
+      0
+    ),
+    waste_sent_to_EU =
+      ifelse(delivered_to == "other EU country", total_waste_given_away, 0),
+    waste_treated_by_producer =
+      ifelse(
+        delivered_to == "processed the waste themselves",
+        total_waste_given_away,
+        0
+      )
+  )
+
+g.2018.data.2 <- g.2018.data.2 |>
+  dplyr::select(-delivered_to, -total_waste_given_away)
+
+g.2018.data.2 <- g.2018.data.2 |>
+  group_by(statistical_region, type_of_waste) |>
+  summarize(
+    waste_handed_to_others_RS = sum(waste_handed_to_others_RS, na.rm = TRUE),
+    waste_sent_to_EU = sum(waste_sent_to_EU, na.rm = TRUE),
+    waste_treated_by_producer = sum(waste_treated_by_producer)
+  ) |>
+  ungroup()
+
+# combine g.2018.data.1 and g.2018.data.2 based on the region and company
+g.2018.data <- g.2018.data.1 |>
+  left_join(
+    g.2018.data.2,
+    by = c(
+      "statistical_region" = "statistical_region",
+      # "name_of_company" = "name_of_company",
+      "type_of_waste" = "type_of_waste"
+    )
+  )
+
+# add year column to 2018 data
+g.2018.data <- g.2018.data |>
+  mutate(year = 2018)
+
+# create a total waste stored column for 2018 data
+g.2018.data <- g.2018.data |>
+  mutate(total_waste_stored = waste_stored_start_year + waste_generated) |> 
+  dplyr::select(
+    year,
+    statistical_region,
+    type_of_waste,
+    total_waste_stored,
+    waste_stored_start_year,
+    waste_generated,
+    waste_stored_end_year,
+    waste_treated_by_producer,
+    waste_handed_to_others_RS,
+    waste_sent_to_EU
+  )
+
+skim(g.2018.data)
+
+g.2017.data.2$management |> unique()
+
+g.2017.data.2 <- g.2017.data.2 |>
+  mutate(
+    waste_handed_to_others_RS = ifelse(
+      management == "given to another collector in RS" ,
+      total_waste_given_away,
+      0
+    ),
+    waste_sent_to_EU =
+      ifelse(management == "sent to another EU country", total_waste_given_away, 0),
+    waste_treated_by_producer =
+      ifelse(
+        management == "own processing (OVD for processing own waste)",
+        total_waste_given_away,
+        0
+      )
+  )
+
+g.2017.data.2 <- g.2017.data.2 |>
+  dplyr::select(-management, -total_waste_given_away)
+
+g.2017.data.2 <- g.2017.data.2 |>
+  group_by(statistical_region, type_of_waste) |>
+  summarize(
+    waste_handed_to_others_RS = sum(waste_handed_to_others_RS, na.rm = TRUE),
+    waste_sent_to_EU = sum(waste_sent_to_EU, na.rm = TRUE),
+    waste_treated_by_producer = sum(waste_treated_by_producer)
+  ) |>
+  ungroup()
+
+g.2017.data <- g.2017.data.1 |>
+  left_join(
+    g.2017.data.2,
+    by = c(
+      "statistical_region" = "statistical_region",
+      "type_of_waste" = "type_of_waste"
+    )
+  )
+
+g.2017.data <- g.2017.data |>
+  mutate(year = 2017)
+
+g.2017.data <- g.2017.data |>
+  dplyr::select(
+    year,
+    statistical_region,
+    type_of_waste,
+    total_waste_2017,
+    waste_stored_start_year,
+    total_waste_generated,
+    waste_stored_end_year,
+    waste_treated_by_producer,
+    waste_handed_to_others_RS,
+    waste_sent_to_EU
+  )
+
+g.2016.data.2 <- g.2016.data.2 |>
+  mutate(
+    waste_handed_to_others_RS = ifelse(
+      management == "given to another collector in RS" ,
+      total_waste_given_away,
+      0
+    ),
+    waste_sent_to_EU =
+      ifelse(management == "sent to another EU country", total_waste_given_away, 0),
+    waste_treated_by_producer =
+      ifelse(
+        management == "own processing (OVD for processing own waste)",
+        total_waste_given_away,
+        0
+      )
+  )
+
+g.2016.data.2 <- g.2016.data.2 |>
+  dplyr::select(-management, -total_waste_given_away)
+
+g.2016.data.2 <- g.2016.data.2 |>
+  group_by(statistical_region, type_of_waste) |>
+  summarize(
+    waste_handed_to_others_RS = sum(waste_handed_to_others_RS, na.rm = TRUE),
+    waste_sent_to_EU = sum(waste_sent_to_EU, na.rm = TRUE),
+    waste_treated_by_producer = sum(waste_treated_by_producer)
+  ) |>
+  ungroup()
+
+g.2016.data <- g.2016.data.1 |>
+  left_join(
+    g.2016.data.2,
+    by = c(
+      "statistical_region" = "statistical_region",
+      "type_of_waste" = "type_of_waste"
+    )
+  )
+
+g.2016.data <- g.2016.data |>
+  mutate(year = 2016)
+
+g.2016.data[is.na(g.2016.data)] <- 0
+
+g.2016.data <- g.2016.data |>
+  mutate(waste_sent_for_treatment_outside_EU = 0)
+
+g.2017.data <- g.2017.data |>
+  mutate(waste_sent_for_treatment_outside_EU = 0)
+
+g.2018.data <- g.2018.data |>
+  mutate(waste_sent_for_treatment_outside_EU = 0)
+
+names(g.2016.data) <- colnames(g.2022.data)
+names(g.2017.data) <- colnames(g.2022.data)
+names(g.2018.data) <- colnames(g.2022.data)
+names(g.2019.data) <- colnames(g.2022.data)
+names(g.2020.data) <- colnames(g.2022.data)
+names(g.2021.data) <- colnames(g.2022.data)
+
+combined_data <- bind_rows(g.2016.data, g.2017.data, g.2018.data, g.2019.data, g.2020.data, g.2021.data, g.2022.data)
+
+# apply clear_waste_name
+combined_data <- combined_data |>
+  mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+## data for infoBox ----
+
+# total waste
+total_waste <- combined_data |>
+  summarize(
+    total_generated = sum(generated_in_the_year, na.rm = TRUE)
+  )
+
+total_waste <- round(total_waste$total_generated, 2)
+
+# total waste treated by the original generator
+total_treated_by_producer <- combined_data |>
+  summarize(
+    total_treated_by_producer = sum(waste_treated_by_original_generator, na.rm = TRUE)
+  )
+
+total_treated_by_producer <- round(total_treated_by_producer$total_treated_by_producer, 2)
+
+# total waste transferred for treatment in RS
+totaL_transferred_RS <- combined_data |>
+  summarize(
+    total_transferred_RS = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE)
+  )
+
+total_transferred_RS <- round(totaL_transferred_RS$total_transferred_RS, 2)
+
+# total sent to EU
+total_sent_EU <- combined_data |>
+  summarize(
+    total_sent_EU = sum(waste_sent_for_treatment_EU, na.rm = TRUE)
+  )
+
+total_sent_EU <- round(total_sent_EU$total_sent_EU, 2)
+
+# total sent outside of EU
+total_sent_outside_EU <- combined_data |>
+  summarize(
+    total_sent_outside_EU = sum(waste_sent_for_treatment_outside_EU, na.rm = TRUE)
+  )
+
+total_sent_outside_EU <- round(total_sent_outside_EU$total_sent_outside_EU, 2)
+
+# shinyServer ----
 shinyServer(function(input, output, session) {
   
   # Hidden UI elements -----
@@ -23,7 +263,199 @@ shinyServer(function(input, output, session) {
     if(input$sidebarItemExpanded == "SIMULATION"){
       updateTabItems(session, "tabs", selected = "hiddenSimulation")
     }
+    
   })
+  
+  # Analysis tab -----
+  
+  # infoBox for total waste generated 
+  output$totalWasteGenerated <- renderInfoBox({
+    infoBox(
+      "Total Waste Generated",
+      total_waste,
+      icon = icon("trash"),
+      color = "purple"
+    )
+  })
+  
+  # infoBox for total waste treated by the original generator
+  output$totalTreatedByProducer <- renderInfoBox({
+    infoBox(
+      "Total Waste Treated by Producer",
+      total_treated_by_producer,
+      icon = icon("recycle"),
+      color = "green"
+    )
+  })
+  
+  # infoBox for total waste transferred for treatment in RS
+  output$totalTransferredRS <- renderInfoBox({
+    infoBox(
+      "Total Waste Transferred for Treatment in RS",
+      total_transferred_RS,
+      icon = icon("truck"),
+      color = "blue"
+    )
+  })
+  
+  # infoBox for total waste sent to EU
+  output$totalSentEU <- renderInfoBox({
+    infoBox(
+      "Total Waste Sent to EU",
+      total_sent_EU,
+      icon = icon("plane"),
+      color = "yellow"
+    )
+  })
+  
+  # infoBox for total waste sent outside of EU
+  output$totalSentOutsideEU <- renderInfoBox({
+    infoBox(
+      "Total Waste Sent Outside of EU",
+      total_sent_outside_EU,
+      icon = icon("globe"),
+      color = "red"
+    )
+  })
+  
+  # Total waste by year plot
+  output$totalWasteByYear <- renderPlotly({
+    total_waste_by_year <- combined_data |>
+      group_by(year) |>
+      summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE))
+    
+    ggplotly(
+      ggplot(total_waste_by_year, aes(x = year, y = total_generated_waste)) +
+        geom_line(group = 1) +
+        geom_point() +
+        labs(x = "Year", y = "Total Generated Waste (tons)") +
+        theme_minimal()
+    )
+  })
+  
+  # Waste by region and year plot
+  output$wasteByRegionYear <- renderPlotly({
+    waste_by_region_year <- combined_data |>
+      group_by(statistical_region, year) |>
+      summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE)) |>
+      ungroup()
+    
+    ggplotly(
+      ggplot(waste_by_region_year, aes(x = year, y = total_generated_waste, color = statistical_region)) +
+        geom_line() +
+        geom_point() +
+        labs(x = "Year", y = "Total Generated Waste (tons)") +
+        theme_minimal()
+    )
+  })
+  
+  # Waste by type and year plot
+  output$wasteByTypeYear <- renderPlotly({
+    waste_by_type_year <- combined_data |>
+      group_by(type_of_waste, year) |>
+      summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE)) |>
+      ungroup()
+    
+    ggplotly(
+      ggplot(waste_by_type_year, aes(x = year, y = total_generated_waste, color = type_of_waste)) +
+        geom_line() +
+        geom_point() +
+        labs(x = "Year", y = "Total Generated Waste (tons)") +
+        theme_minimal()
+    )
+  })
+  
+  # Waste transferred for treatment plot
+  output$wasteTransferred <- renderPlotly({
+    waste_transferred <- combined_data |>
+      group_by(year) |>
+      summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE))
+    
+    ggplotly(
+      ggplot(waste_transferred, aes(x = year, y = total_sent)) +
+        geom_line(group = 1) +
+        geom_point() +
+        labs(x = "Year", y = "Total Waste Transferred (tons)") +
+        theme_minimal()
+    )
+  })
+  
+  output$wasteTransferredByRegionYear <- renderPlotly({
+    waste_transferred_by_region_year <- combined_data |>
+      group_by(statistical_region, year) |>
+      summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE)) |>
+      ungroup()
+    
+    ggplotly(
+      ggplot(waste_transferred_by_region_year, aes(x = year, y = total_sent, color = statistical_region)) +
+        geom_line() +
+        geom_point() +
+        labs(x = "Year", y = "Total Waste Transferred (tons)") +
+        theme_minimal()
+    )
+  })
+  
+  output$wasteTransferredByTypeYear <- renderPlotly({
+    waste_transferred_by_type_year <- combined_data |>
+      group_by(type_of_waste, year) |>
+      summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE)) |>
+      ungroup()
+    
+    ggplotly(
+      ggplot(waste_transferred_by_type_year, aes(x = year, y = total_sent, color = type_of_waste)) +
+        geom_line() +
+        geom_point() +
+        labs(x = "Year", y = "Total Waste Transferred (tons)") +
+        theme_minimal()
+    )
+  })
+  
+  # Waste stored at the end of the year plot
+  output$wasteStoredEndYear <- renderPlotly({
+    waste_stored_at_the_end_year <- combined_data |>
+      group_by(year) |>
+      summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE))
+    
+    ggplotly(
+      ggplot(waste_stored_at_the_end_year, aes(x = year, y = total_stored)) +
+        geom_line(group = 1) +
+        geom_point() +
+        labs(x = "Year", y = "Total Waste Stored (tons)") +
+        theme_minimal()
+    )
+  })
+  
+  output$wasteStoredEndYearByRegionYear <- renderPlotly({
+    waste_stored_at_the_end_year_by_region <- combined_data |>
+      group_by(statistical_region, year) |>
+      summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE)) |>
+      ungroup()
+    
+    ggplotly(
+      ggplot(waste_stored_at_the_end_year_by_region, aes(x = year, y = total_stored, color = statistical_region)) +
+        geom_line() +
+        geom_point() +
+        labs(x = "Year", y = "Total Waste Stored (tons)") +
+        theme_minimal()
+    )
+  })
+  
+  output$wasteStoredEndYearByTypeYear <- renderPlotly({
+    waste_stored_at_the_end_year_by_type <- combined_data |>
+      group_by(type_of_waste, year) |>
+      summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE)) |>
+      ungroup()
+    
+    ggplotly(
+      ggplot(waste_stored_at_the_end_year_by_type, aes(x = year, y = total_stored, color = type_of_waste)) +
+        geom_line() +
+        geom_point() +
+        labs(x = "Year", y = "Total Waste Stored (tons)") +
+        theme_minimal()
+    )
+  })
+  
+  # Simulation tab -----
   
   # Selected choices for filtering tables -----
   selected_choices <- c(
