@@ -47,10 +47,11 @@ if (!require("echarts4r.maps")) {
   remotes::install_github('JohnCoene/echarts4r.maps')
 }
 
+# Set the working directory to the project folder
+setwd("C:/Users/kovac/Desktop/Work/Green UP Project/green-up-project")
 
 # Apply the function to each package in the list
 lapply(packages, install_and_load)
-
 
 # List of municipalities for each region
 POMURSKA <- c(
@@ -620,12 +621,12 @@ names(g.2021.data) <- colnames(g.2022.data)
 
 combined_data <- bind_rows(g.2016.data, g.2017.data, g.2018.data, g.2019.data, g.2020.data, g.2021.data, g.2022.data)
 
-# export the combined generation data to the data folder
-write_csv(combined_data, "Interface/Visualization/data/gnr_combined.csv")
-
 # apply clear_waste_name
 combined_data <- combined_data |>
     mutate(type_of_waste = clear_waste_name(type_of_waste))
+
+# export the combined generation data to the data folder
+write_csv(combined_data, "Interface/Visualization/data/gnr_combined.csv")
 
 # Summarize total waste generation by year
 total_waste_by_year <- combined_data |>
@@ -705,9 +706,7 @@ ggplotly(t5, width = 1000, height = 500)
 
 # Collection Data Analysis Process
 
-## Code
-
-### Waste Storage
+## Waste Storage
 
 1. **Data Loading**:
    - The code starts by reading in waste storage data from multiple years (2016-2022) into separate dataframes.
@@ -735,6 +734,8 @@ ggplotly(t5, width = 1000, height = 500)
 6. **Visualization 2 - Line Plot**:
    - The second visualization (`t7`) is a line plot showing the total waste stored at the start and end of each year over time.
    - This provides an overview of how waste storage has changed over the years, both at the start and end of each year.
+   
+### Code
 
 ```{r collection_combined_data_waste_storage}
 waste.storage.2022.data <- read_csv("2022 data/2022 filtered/collection/waste_storage_22.csv")
@@ -749,6 +750,10 @@ names(waste.storage.2021.data) <- colnames(waste.storage.2016.data)
 names(waste.storage.2022.data) <- colnames(waste.storage.2016.data)
 
 combined_storage_data <- bind_rows(waste.storage.2016.data, waste.storage.2017.data, waste.storage.2018.data, waste.storage.2019.data, waste.storage.2020.data, waste.storage.2021.data, waste.storage.2022.data)
+
+# clear waste names
+combined_storage_data <- combined_storage_data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 # export the combined storage data to the data folder
 write_csv(combined_storage_data, "Interface/Visualization/data/coll_storage_combined.csv")
@@ -797,11 +802,31 @@ t7 <- ggplot(yearly_data, aes(x = year)) +
 
 ggplotly(t7, width = 1000, height = 500)
 
+type_data <- combined_storage_data |>
+    group_by(type_of_waste, year) |>
+    summarize(
+        total_start = sum(waste_stored_start_year, na.rm = TRUE),
+        total_end = sum(waste_stored_end_year, na.rm = TRUE)
+    ) |>
+    ungroup()
 
+t8 <- ggplot(type_data, aes(x = year, y = total_start, color = type_of_waste)) +
+    geom_point(aes(y = total_start, color = "Start of Year")) +
+    geom_point(aes(y = total_end, color = "End of Year")) +
+    geom_line(aes(y = total_start, color = "Start of Year")) +
+    geom_line(aes(y = total_end, color = "End of Year")) +
+    labs(
+        title = "Total Stored Waste by Type Over Time",
+        y = "Total Stored Waste",
+        color = "Time of Year"
+    ) +
+    theme_minimal()
+
+ggplotly(t8, width = 1000, height = 500)
 # outlier because of reporting or because of effects of COVID or something completely else?
 ```
 
-### Waste Received
+## Waste Received
 
 1. **Data Loading**:
    - Waste collection data from the years 2016 to 2022 is loaded into separate dataframes.
@@ -836,7 +861,8 @@ ggplotly(t7, width = 1000, height = 500)
 
 8. **Interactive Plots**:
    - The `ggplotly()` function is used to make the grouped bar plot, stacked bar plot, and line plot interactive, allowing for more detailed exploration of the data.
-
+   
+### Code
 
 ```{r collection_combined_data_waste_received}
 waste.received.2016.data <- read_csv("2016 data/2016 filtered/collection/waste_collected_16.csv")
@@ -854,84 +880,126 @@ names(waste.received.2021.data) <- colnames(waste.received.2022.data)
 # Combine data
 combined_received_data <- bind_rows(waste.received.2016.data, waste.received.2017.data, waste.received.2018.data, waste.received.2019.data, waste.received.2020.data, waste.received.2021.data, waste.received.2022.data)
 
+# clear waste names
+combined_received_data <- combined_received_data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
 # export the combined received data to the data folder
 write_csv(combined_received_data, "Interface/Visualization/data/coll_received_combined.csv")
 
 # Reshape data for plotting
 df_long_received <- melt(combined_received_data,
                          id.vars = c("statistical_region", "type_of_waste", "year"),
-                         measure.vars = c("total_waste_collected", "waste_from_producers_no_record", "waste_from_producers_with_record", "waste_from_collectors_RS", "waste_from_processors_RS"),
+                         measure.vars = c("waste_from_producers_no_record", "waste_from_producers_with_record", "waste_from_collectors_RS", "waste_from_processors_RS"),
                          variable.name = "source", value.name = "total_collected"
 )
 
-# Grouped bar plot
-t8 <- ggplot(df_long_received, aes(x = statistical_region, y = total_collected, fill = source, group = type_of_waste)) +
-    geom_bar(stat = "identity", position = "dodge") +
+# Calculate total collected waste (excluding total_waste_collected)
+total_collected_per_region <- df_long_received %>%
+  group_by(statistical_region) %>%
+  summarize(total_collected = sum(total_collected, na.rm = TRUE)) %>%
+  arrange(desc(total_collected))
+
+# Reorder the regions in descending order of total_collected
+df_long_received$statistical_region <- factor(df_long_received$statistical_region, 
+                                              levels = total_collected_per_region$statistical_region)
+
+# Colorblind-friendly palette (Okabe-Ito)
+color_palette <- c("waste_from_producers_no_record" = "#E69F00",  # Orange
+                   "waste_from_producers_with_record" = "#56B4E9",  # Sky blue
+                   "waste_from_collectors_RS" = "#009E73",  # Green
+                   "waste_from_processors_RS" = "#F0E442")  # Yellow
+
+# Stacked bar plot
+t8_stacked <- ggplot(df_long_received, aes(x = statistical_region, y = total_collected, fill = source)) +
+    geom_col() + 
     labs(
         title = "Waste Received by Source",
         x = "Statistical Region", y = "Total Collected Waste"
     ) +
     scale_fill_manual(
-        values = c("total_waste_collected" = "blue", "waste_from_producers_no_record" = "red", "waste_from_producers_with_record" = "green", "waste_from_collectors_RS" = "purple", "waste_from_processors_RS" = "orange"),
-        labels = c("Total Collected", "From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")
+        values = color_palette,
+        labels = c("From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")
+    ) +
+    # coord_flip() +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Faceted bar plot by source
+t8_faceted <- ggplot(df_long_received, aes(x = statistical_region, y = total_collected, fill = source)) +
+    geom_bar(stat = "identity", position = "dodge") +
+    facet_wrap(~ source, ncol = 1, scales = "free_y") +  # Create a facet for each source
+    labs(
+        title = "Waste Received by Source",
+        x = "Statistical Region", y = "Total Collected Waste"
+    ) +
+    scale_fill_manual(
+        values = color_palette,
+        labels = c("From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")
     ) +
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggplotly(t8, width = 1000, height = 1000)
-
-# stacked bar plot, layer the total_waste_collected behind all the others
-t8_stacked <- ggplot(df_long_received, aes(x = statistical_region, y = total_collected, fill = source)) +
-    geom_bar(stat = "identity") +
+# Grouped bar plot
+t8_grouped <- ggplot(df_long_received, aes(x = statistical_region, y = total_collected, fill = source)) +
+    geom_bar(stat = "identity", position = "dodge") +  # Group the bars by source
     labs(
         title = "Waste Received by Source",
         x = "Statistical Region", y = "Total Collected Waste"
     ) +
     scale_fill_manual(
-        values = c("total_waste_collected" = "blue", "waste_from_producers_no_record" = "red", "waste_from_producers_with_record" = "green", "waste_from_collectors_RS" = "purple", "waste_from_processors_RS" = "orange"),
-        labels = c("Total Collected", "From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")
+        values = color_palette,
+        labels = c("From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")
     ) +
-    coord_flip() +
-    theme_minimal()
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggplotly(t8_stacked, width = 1000, height = 1000)
 
+ggplotly(t8_faceted, width = 1000, height = 1000)
+
+ggplotly(t8_grouped, width = 1000, height = 1000)
+
 # Year plot
 yearly_data_received <- combined_received_data |>
-    group_by(year) |>
-    summarize(
-        total_collected = sum(total_waste_collected, na.rm = TRUE),
-        from_producers_no_record = sum(waste_from_producers_no_record, na.rm = TRUE),
-        from_producers_with_record = sum(waste_from_producers_with_record, na.rm = TRUE),
-        from_collectors_RS = sum(waste_from_collectors_RS, na.rm = TRUE),
-        from_processors_RS = sum(waste_from_processors_RS, na.rm = TRUE)
-    )
+  group_by(year) |>
+  summarize(
+    total_collected = sum(total_waste_collected, na.rm = TRUE),
+    from_producers_no_record = sum(waste_from_producers_no_record, na.rm = TRUE),
+    from_producers_with_record = sum(waste_from_producers_with_record, na.rm = TRUE),
+    from_collectors_RS = sum(waste_from_collectors_RS, na.rm = TRUE),
+    from_processors_RS = sum(waste_from_processors_RS, na.rm = TRUE)
+  )
 
 # Line and point
 t9 <- ggplot(yearly_data_received, aes(x = year)) +
-    # geom_point(aes(y = total_collected, color = "Total Collected")) +
-    # geom_line(aes(y = total_collected, color = "Total Collected")) +
-    geom_line(aes(y = from_producers_no_record, color = "From Producers (No Record)")) +
-    geom_line(aes(y = from_producers_with_record, color = "From Producers (With Record)")) +
-    geom_line(aes(y = from_collectors_RS, color = "From Collectors (RS)")) +
-    geom_line(aes(y = from_processors_RS, color = "From Processors (RS)")) +
-    labs(
-        title = "Waste Collected by Source Over Time",
-        y = "Waste Collected",
-        color = "Source"
-    ) +
-    theme_minimal()
+  # geom_point(aes(y = total_collected, color = "Total Collected")) +
+  # geom_line(aes(y = total_collected, color = "Total Collected")) +
+  geom_point(aes(y = from_producers_no_record, color = "From Producers (No Record)")) +
+  geom_line(aes(y = from_producers_no_record, color = "From Producers (No Record)")) +
+  geom_point(aes(y = from_producers_with_record, color = "From Producers (With Record)")) +
+  geom_line(aes(y = from_producers_with_record, color = "From Producers (With Record)")) +
+  geom_point(aes(y = from_collectors_RS, color = "From Collectors (RS)")) +
+  geom_line(aes(y = from_collectors_RS, color = "From Collectors (RS)")) +
+  geom_point(aes(y = from_processors_RS, color = "From Processors (RS)")) +
+  geom_line(aes(y = from_processors_RS, color = "From Processors (RS)")) +
+  labs(
+    title = "Waste Collected by Source Over Time",
+    y = "Waste Collected",
+    color = "Source"
+  ) +
+  theme_minimal()
 
 ggplotly(t9, width = 1000, height = 500)
 ```
 
-### Municipal Waste Collected
+## Municipal Waste Collected
 
-#### Problem Statement:
+### Problem Statement:
 - **Challenge**: The code is attempting to create location data for companies based on 2018 data. The 2018 dataset contains address information within the `name_of_company` column. However, it is not guaranteed that the address from 2018 is the same for the company in 2019. 
 - **Assumption**: For this analysis, the code assumes that the address for a company in 2019 is the same as in 2018.
 
-#### Data Processing Steps:
+### Data Processing Steps:
 
 1. **Data Loading**:
    - The municipal waste collection data from 2018 to 2022 is loaded into separate dataframes.
@@ -963,7 +1031,7 @@ ggplotly(t9, width = 1000, height = 500)
 9. **Data Reshaping**:
    - The combined data is reshaped into a long format suitable for plotting using `melt()`, with columns for `year`, `statistical_region`, `name_of_municipality`, `type_of_waste`, and `total_collected`.
 
-#### Visualizations:
+### Visualizations:
 
 1. **Total Waste Collected by Municipality and Region (2018-2022)**:
    - A line plot (`t10`) is created to show the total waste collected by municipality and region from 2018 to 2022, with separate lines for each type of waste. The plot is faceted by statistical region.
@@ -971,7 +1039,8 @@ ggplotly(t9, width = 1000, height = 500)
 2. **Top 5 Municipalities by Total Waste Collected (2018-2022)**:
    - The top 5 municipalities based on total waste collected are identified.
    - A line plot (`t11`) is generated to visualize the total waste collected over the years for these top 5 municipalities, with separate lines for each municipality and waste type.
-
+   
+### Code
 
 ```{r collection_combined_data_municipal_waste_collected}
 waste.management.2018.data <- read_csv("2018 data/2018 filtered/collection/municipal_waste_collected_18.csv")
@@ -979,8 +1048,6 @@ waste.management.2019.data <- read_csv("2019 data/2019 filtered/collection/waste
 waste.management.2020.data <- read_csv("2020 data/2020 filtered/collection/management_of_collected_waste_20.csv")
 waste.management.2021.data <- read_csv("2021 data/2021 filtered/collection/waste_municipality_of_origin_21.csv")
 waste.management.2022.data <- read_csv("2022 data/2022 filtered/collection/waste_municipality_of_origin_22.csv")
-
-
 
 waste.management.2019.data <- waste.management.2019.data |>
     select(year, name_of_company, type_of_waste, total_waste_collected, municipal_waste_collected, waste_collected_from_activities)
@@ -1097,6 +1164,10 @@ waste.management.2022.data <- waste.management.2022.data |>
 
 combined_municipal_data <- bind_rows(waste.management.2018.data, waste.management.2019.data, waste.management.2020.data, waste.management.2021.data, waste.management.2022.data)
 
+# clear waste name
+combined_municipal_data <- combined_municipal_data |>
+    mutate(type_of_waste = clear_waste_name(type_of_waste))
+
 # export the combined municipal data to the data folder
 write_csv(combined_municipal_data, "Interface/Visualization/data/coll_municipal_combined.csv")
 
@@ -1153,7 +1224,7 @@ ggplotly(t11, width = 1000, height = 1000)
 
 ```
 
-### Municipal Waste Collected by Municipality of Origin
+## Municipal Waste Collected by Municipality of Origin
 
 This section of the analysis focuses on the municipal waste collected by the municipality of origin from 2018 to 2022. The steps involved in the code are summarized as follows:
 
@@ -1180,6 +1251,7 @@ This section of the analysis focuses on the municipal waste collected by the mun
    - A stacked bar plot is created to visualize the total waste collected by municipality of origin over the years.
    - The plot displays the amount of waste collected in tons, with different municipalities distinguished by color.
 
+### Code
 
 ```{r collection_combined_data_municipal_waste_collected_by_municipality}
 waste.collected.2018.data <- read_csv("2018 data/2018 filtered/collection/municipal_waste_collected_separated_by_municipality_of_origin_18.csv")
@@ -1242,8 +1314,8 @@ df_long_collected <- melt(
 )
 
 # stacked bar plot
-t12 <- ggplot(df_long_collected, aes(x = year, y = total_collected, fill = name_of_municipality, group = type_of_waste)) +
-  geom_bar(stat = "identity") +
+t12 <- ggplot(df_long_collected, aes(x = year, y = total_collected, fill = name_of_municipality, group = statistical_region)) +
+  geom_bar(stat = "identity", position = "dodge") +
   labs(title = "Total Waste Collected by Municipality of Origin",
        x = "Year",
        y = "Total Waste Collected (in tons)",
@@ -1253,7 +1325,7 @@ t12 <- ggplot(df_long_collected, aes(x = year, y = total_collected, fill = name_
 ggplotly(t12, width = 1000, height = 1000)
 ```
 
-### Municipal Waste Management
+## Municipal Waste Management
 
 This section analyzes municipal waste management from 2016 to 2022, focusing on various sources of waste management across different regions and waste types. The steps involved in the code are summarized below:
 
@@ -1281,7 +1353,8 @@ This section analyzes municipal waste management from 2016 to 2022, focusing on 
    - **Time Trend by Waste Type**: Uses area plots to show waste composition over time by region.
    - **Heatmap**: Displays waste management intensity across regions and years.
    - **Sparklines**: Normalized line plots showing waste management trends by region in a compact format.
-
+   
+### Code
 
 ```{r collection_combined_data_municipal_waste_management}
 waste.management.2016.data <- read_csv("2016 data/2016 filtered/collection/management_of_waste_collected_16.csv")
@@ -1311,12 +1384,16 @@ names(waste.management.2019.data) <- colnames(waste.management.2022.data)
 
 combined_management_data <- bind_rows(waste.management.2016.data, waste.management.2017.data, waste.management.2018.data, waste.management.2019.data, waste.management.2020.data, waste.management.2021.data, waste.management.2022.data)
 
-# export
-write_csv(combined_management_data, "Interface/Visualization/data/coll_management_combined.csv")
+# clear waste name
+combined_management_data <- combined_management_data |>
+  mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 # filter out statistical_region = "NEOPREDELJENO"
 combined_management_data <- combined_management_data |>
     filter(statistical_region != "NEOPREDELJENO")
+
+# export
+write_csv(combined_management_data, "Interface/Visualization/data/coll_management_combined.csv")
 
 # we only have 1 instance of waste_sent_to_non_EU 
 # combined_management_data <- combined_management_data |> select(-waste_sent_to_non_EU)
@@ -1443,13 +1520,65 @@ ggplotly(t19, width = 1000, height = 1000)
 
 ```
 
-### Household composting - No relevant data
+## Household composting - No relevant data
 
 # Treatment Data Analysis Process
 
-## Code 
+## Waste Storage
 
-### Waste Storage
+1. **Load Waste Storage Data**
+- Read CSV files for waste storage data from 2016 to 2022.
+- Aggregate 2021 data by `year`, `statistical_region`, and `type_of_waste`.
+- For 2022, set `waste_stored_end_year` to 0.
+
+2. **Combine Data**
+- Combine all years of waste storage data into a single dataframe.
+- Factor the `year` column.
+
+3. **Add Lagged Column**
+- Add a lagged column to compare the end year with the next year's start year using `lead()`.
+
+4. **Identify Matching Instances**
+- Filter for instances where `waste_stored_end_year` matches the next year's start year.
+- Create a summary table showing matches by year, region, and type of waste.
+
+5. **Plot Waste Storage Data**
+- Create a line plot using `ggplot2` to visualize waste storage data from 2018 to 2022.
+- Mark matching instances with red points.
+- Convert the plot to an interactive plot using `plotly`.
+
+6. **Complete Data for Analysis**
+- Ensure every combination of `statistical_region`, `type_of_waste`, and `year` exists using `complete()`.
+- Add a lagged column for the previous year's end year and calculate the difference.
+
+7. **Flags for "Outside Period"**
+- Create flags indicating whether there are gaps in data.
+- Replace NAs with zeros for plotting purposes.
+
+8. **Significant Change Analysis**
+- Define a threshold for significant change (e.g., 10% increase or decrease).
+- Flag changes in waste storage amounts.
+
+9. **Filter Data by Specific Waste Type**
+- Filter the complete data for "Paper/Cardboard Packaging" in the "OSREDNJESLOVENSKA" region.
+
+10. **Visualize Changes**
+- Create a plot to visualize changes in waste amounts and mark significant changes with symbols.
+- Convert to an interactive plot using `plotly`.
+
+11. **Prepare Data for Waterfall Chart**
+- Create a dataset for a waterfall plot comparing waste amounts at year's end and next year's start.
+- Transform data for plotting.
+
+12. **Create Waterfall Plot**
+- Create a waterfall plot to visualize changes in waste amounts, using colors to indicate increases, decreases, and end-year amounts.
+- Convert the waterfall plot to an interactive plot using `plotly`.
+
+13. **Variant Waterfall Chart**
+- Prepare a variant dataset for a side-by-side bar comparison.
+- Create a variant waterfall plot for the same waste type and region.
+
+### Code
 
 ```{r treatment_combined_data_waste_storage}
 waste.storage.2016.data <- read_csv("2016 data/2016 filtered/treatment/waste_storage_16.csv")
@@ -1473,8 +1602,9 @@ names(waste.storage.2022.data) <- colnames(waste.storage.2021.data)
 
 combined_storage_data <- bind_rows(waste.storage.2016.data, waste.storage.2017.data, waste.storage.2018.data, waste.storage.2019.data, waste.storage.2020.data, waste.storage.2021.data, waste.storage.2022.data)
 
-# export
-write_csv(combined_storage_data, "Interface/Visualization/data/trt_storage_combined.csv")
+# clear waste name
+combined_storage_data <- combined_storage_data |>
+  mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 # Factor the year column
 combined_storage_data$year <- factor(combined_storage_data$year)
@@ -1485,6 +1615,9 @@ combined_storage_data <- combined_storage_data |>
     group_by(statistical_region, type_of_waste) |>
     mutate(next_year_start = lead(waste_stored_start_year, 1)) |>
     ungroup()
+
+# export
+write_csv(combined_storage_data, "Interface/Visualization/data/trt_storage_combined.csv")
 
 # Identify matching instances
 matching_instances <- combined_storage_data |>
@@ -1806,7 +1939,7 @@ t24
 
 ```
 
-### Waste Collected
+## Waste Collected
 
 ```{r treatment_combined_data_waste_collected}
 waste.collected.2016.data <- read_csv("2016 data/2016 filtered/treatment/waste_collected_16.csv")
@@ -1915,7 +2048,7 @@ plot_waste_type
 
 ```
 
-### Treatment of Waste
+## Treatment of Waste
 
 ```{r treatment_combined_data_waste_treatment}
 waste.treatment.2016.data <- read_csv("2016 data/2016 filtered/treatment/treatment_of_waste_16.csv")
@@ -1967,7 +2100,7 @@ ggplotly(p, width = 1000, height = 800)
 
 ```
 
-### Waste Generated - ON HOLD
+## Waste Generated - ON HOLD
 
 ```{r treatment_combined_data_waste_generated}
 waste.generated.2016.data <- read_csv("2016 data/2016 filtered/treatment/waste_generated_and_untreated_16.csv")
@@ -1979,7 +2112,7 @@ waste.generated.2021.data <- read_csv("2021 data/2021 filtered/treatment/managem
 
 ```
 
-### Municipal Waste Received
+## Municipal Waste Received
 
 ```{r treatment_combined_data_municipal_waste_received}
 municipal.waste.received.2018.data <- read_csv("2018 data/2018 filtered/treatment/municipal_waste_received_18.csv")
@@ -2129,7 +2262,7 @@ ggplotly(correlation_analysis, width = 1000, height = 800)
 
 ```
 
-### Difference in Waste Input and Treatment Process
+## Difference in Waste Input and Treatment Process
 
 ```{r treatment_combined_data_waste_input_treatment}
 waste.input.treatment.2018.data <- read_csv("2018 data/2018 filtered/treatment/difference_in_waste_input_and_treatment_process_18.csv")
@@ -2200,13 +2333,13 @@ ggplotly(p, width = 1000, height = 800)
 
 ```
 
-### Landfill Capacity - ON HOLD
+## Landfill Capacity - ON HOLD
 
 ```{r treatment_combined_data_landfill_capacity}
 waste.landfill.capacity.2018.data <- read_csv("2018 data/2018 filtered/treatment/landfill_capacity_18.csv")
 ```
 
-### Landfill Quantities Management - ON HOLD
+## Landfill Quantities Management - ON HOLD
 
 ```{r treatment_combined_data_landfill_quantities}
 waste.landfill.quantities.2019.data <- read_csv("2017 data/2017 filtered/treatment/total_waste_in_landfill_17.csv")

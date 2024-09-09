@@ -235,14 +235,267 @@ shinyUI(dashboardPage(
       # Collection ----
       tabItem(
         tabName = "collection",
-        h2("Collection of Wood Waste")
-        # plotlyOutput("collection_analysis")
+        h2("Collection of Wood Waste"),
+        
+        # Tabset for different collection views
+        tabsetPanel(
+          id = "collection_tabs",
+          
+          # Collection Storage ----
+          tabPanel("Collection Storage",
+                   fluidRow(
+                     # infoBoxOutput("totalStorageWaste"),
+                     # infoBoxOutput("totalStoredByRegion"),
+                     # infoBoxOutput("totalStoredByType")
+                   ),
+                   fluidRow(
+                     box(
+                       # Select input for choosing the plot
+                       selectInput("plot_selection", "Choose a Plot:",
+                                   choices = c("Total Wood Waste Over Time", "Total Wood Waste Over Time - Variant"),
+                                   selected = "Total Wood Waste Over Time"),  # Default selection
+                     )
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Selected Plot",
+                       plotlyOutput("selectedPlot1")
+                     )
+                   )
+          ),
+          
+          # Collection Received ----
+          tabPanel("Collection Received",
+                   # add space between
+                   fluidRow(
+                     style = "display: flex; justify-content: center; align-items: center; margin-top: 20px;",
+                     infoBoxOutput("totalReceivedWaste"),
+                     infoBoxOutput("highestWasteProducingRegion")
+                   ),
+                   fluidRow(
+                     style = "display: flex; justify-content: center; align-items: center;",
+                     infoBoxOutput("totalWasteFromProducersNoRecord"),
+                     infoBoxOutput("totalWasteFromProducers"),
+                     infoBoxOutput("totalWasteFromCollectors"),
+                     infoBoxOutput("totalWasteFromProcessors")
+                   ),
+                   # Custom CSS styles
+                   tags$style(
+                     '
+                       #totalWasteFromProducersNoRecord .info-box-icon {
+                         background-color: #E69F00 !important; /* Color for waste from producers no record */
+                       }
+                       #totalWasteFromProducers .info-box-icon {
+                         background-color: #56B4E9 !important; /* Color for waste from producers with record */
+                       }
+                       #totalWasteFromCollectors .info-box-icon {
+                         background-color: #009E73 !important; /* Color for waste from collectors */
+                       }
+                       #totalWasteFromProcessors .info-box-icon {
+                         background-color: #F0E442 !important; /* Color for waste from processors */
+                       }
+                       .info-box-icon {
+                         color: white; /* Default text color */
+                       }
+                     '
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Total Wood Waste Received by Year",
+                       plotlyOutput("totalWasteReceivedByYear")
+                     )
+                   ),
+                   fluidRow(
+                     # Add a dropdown menu for plot selection
+                     box(
+                       collapsible = TRUE,
+                       width = 3,
+                       title = "Waste Data Plot Selection",
+                       # Plot selection input
+                       selectInput(inputId = "plot_type", 
+                                   label = "Choose a Plot Type", 
+                                   choices = c("Stacked Bar Plot" = "stacked", 
+                                               "Faceted Bar Plot" = "faceted", 
+                                               "Grouped Bar Plot" = "grouped"),
+                                   selected = "stacked"),  # Default is stacked plot
+                       
+                       # Selectize input for statistical regions
+                       selectizeInput(inputId = "region_filter", 
+                                      label = "Select Statistical Regions", 
+                                      choices = NULL,  # Will be populated from server
+                                      multiple = TRUE),
+                       
+                       # Selectize input for sources
+                       selectizeInput(inputId = "source_filter", 
+                                      label = "Select Sources", 
+                                      choices = c("From Producers (No Record)", 
+                                                  "From Producers (With Record)", 
+                                                  "From Collectors (RS)", 
+                                                  "From Processors (RS)"),
+                                      selected = c("From Producers (No Record)", 
+                                                   "From Producers (With Record)", 
+                                                   "From Collectors (RS)", 
+                                                   "From Processors (RS)"), 
+                                      multiple = TRUE)
+                     ),
+                     box(
+                       collapsible = TRUE,
+                       width = 9,
+                       title = "Waste Data Plot",
+                       plotlyOutput("selectedPlot2")
+                     )
+                   )
+          ),
+          # Collection Municipal ----
+          tabPanel("Collection Municipal",
+                   fluidRow(
+                     # infoBoxOutput("totalMunicipalWaste"),
+                     # infoBoxOutput("totalMunicipalByRegion"),
+                     # infoBoxOutput("totalMunicipalByType")
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Total Municipal Waste Collected by Year",
+                       # plotlyOutput("municipalByYear")
+                     )
+                   )
+          ),
+          
+          # Collection Municipal Collected ----
+          tabPanel("Collection Municipal Collected",
+                   fluidRow(
+                     # infoBoxOutput("totalMunicipalCollected"),
+                     # infoBoxOutput("totalCollectedByRegion"),
+                     # infoBoxOutput("totalCollectedByType")
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Total Municipal Collected by Year",
+                       # plotlyOutput("municipalCollectedByYear")
+                     )
+                   )
+          ),
+          
+          # Collection Management ----
+          tabPanel("Collection Management",
+                   fluidRow(
+                     # infoBoxOutput("totalManagementWaste"),
+                     # infoBoxOutput("totalManagementByRegion"),
+                     # infoBoxOutput("totalManagementByType")
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Management of Collected Waste by Year",
+                       # plotlyOutput("managementByYear")
+                     )
+                   )
+          )
+        )
       ),
       # Treatment ----
       tabItem(
         tabName = "treatment",
-        h2("Treatment of Wood Waste")
-        # plotlyOutput("treatment_analysis")
+        h2("Treatment of Wood Waste"),
+        
+        # Tabset for different treatment views
+        tabsetPanel(
+          id = "treatment_tabs",
+          
+          # Treatment Storage ----
+          tabPanel("Treatment Storage",
+                   fluidRow(
+                     # infoBoxOutput("totalStorageTreatment"),
+                     # infoBoxOutput("totalStoredByRegion"),
+                     # infoBoxOutput("totalStoredByType")
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Total Wood Waste Stored for Treatment by Year",
+                       # plotlyOutput("storedTreatmentByYear")
+                     )
+                   )
+          ),
+          
+          # Treatment Collected ----
+          tabPanel("Treatment Collected",
+                   fluidRow(
+                     # infoBoxOutput("totalCollectedTreatment"),
+                     # infoBoxOutput("totalCollectedByRegion"),
+                     # infoBoxOutput("totalCollectedByType")
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Total Wood Waste Collected for Treatment by Year",
+                       # plotlyOutput("collectedTreatmentByYear")
+                     )
+                   )
+          ),
+          
+          # Treatment Treatment ----
+          tabPanel("Treatment Treatment",
+                   fluidRow(
+                     # infoBoxOutput("totalTreatedWaste"),
+                     # infoBoxOutput("totalTreatedByRegion"),
+                     # infoBoxOutput("totalTreatedByType")
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Total Wood Waste Treated by Year",
+                       # plotlyOutput("treatedByYear")
+                     )
+                   )
+          ),
+          
+          # Treatment Municipal Waste Received ----
+          tabPanel("Treatment Municipal Waste Received",
+                   fluidRow(
+                     # infoBoxOutput("totalMunicipalReceived"),
+                     # infoBoxOutput("totalReceivedByRegion"),
+                     # infoBoxOutput("totalReceivedByType")
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Total Municipal Waste Received for Treatment by Year",
+                       # plotlyOutput("municipalReceivedByYear")
+                     )
+                   )
+          ),
+          
+          # Treatment Input Treatment ----
+          tabPanel("Treatment Input Treatment",
+                   fluidRow(
+                     # infoBoxOutput("totalInputTreatment"),
+                     # infoBoxOutput("totalInputByRegion"),
+                     # infoBoxOutput("totalInputByType")
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
+                       title = "Input Treatment Data by Year",
+                       # plotlyOutput("inputTreatmentByYear")
+                     )
+                   )
+          )
+        )
       ),
       # Simulation -----
       tabItem(
