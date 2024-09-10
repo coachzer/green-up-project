@@ -1375,7 +1375,7 @@ shinyServer(function(input, output, session) {
                "No data available", 
                paste("Average Waste:", round(avg_waste, 2))
         )
-      ))) +
+      ))) +         
       viridis::scale_fill_viridis(
         option = "plasma", 
         name = "Average Waste\n(2018-2021)", 
@@ -2686,11 +2686,11 @@ shinyServer(function(input, output, session) {
             Event == event_type,
             Region %in% input$regions_selected,
             WasteType %in% input$waste_types_selected,
-            Scenario %in% input$scenario,
-            Time >= input$time_start,
-            Time <= input$time_end
+            Scenario %in% input$scenario# ,
+            # Time >= input$time_start,
+            # Time <= input$time_end
           ) |>
-          arrange(Time) |>
+          # arrange(Time) |>
           group_by(Region, WasteType) |>
           mutate(CumulativeAmount = cumsum(Amount))
         data
