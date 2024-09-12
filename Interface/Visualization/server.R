@@ -18,7 +18,7 @@ library(igraph)
 # Do not forget to set your working directory to the Visualization folder
 setwd("C:/Users/kovac/Desktop/Work/Green UP Project/green-up-project/Interface/Visualization")
 
-# Colorblind-friendly palette (Okabe-Ito)
+# Colorblind-friendly palette
 color_palette <- c("waste_from_producers_no_record" = "#E69F00",  # Orange
                    "waste_from_producers_with_record" = "#56B4E9",  # Sky blue
                    "waste_from_collectors_RS" = "#009E73",  # Green
@@ -161,30 +161,45 @@ variant_data_long <- variant_data_long |>
 
 # Create the variant waterfall plot with side-by-side bars
 variant_plot <- ggplot(variant_data_long, aes(x = year, y = value, fill = bar_category)) +
-  geom_col(position = position_identity(),
-           color = "black",
-           aes(text = paste0(
-             "Year: ", year, "<br>",
-             "Type: ", bar_type, "<br>",
-             "Value: ", round(value, 2), " tons<br>"
-           ))) +
-  geom_text(aes(label = ifelse(value > 0, round(value, 1), ifelse(value == 0, NA, round(value, 1))),
-                y = ifelse(value >= 0, value, value) + 0.05 * max(value)),
-            position = position_dodge(width = 0.9),
-            vjust = -0.5, size = 3) +
-  scale_fill_manual(values = c("End Year" = "#4169E1", 
-                               "Increase" = "#006400",  
-                               "Start Amount" = "#808080",
-                               "Decrease" = "#8B0000", 
-                               "No Change" = "#D3D3D3"),
-                    name = "Type") +
-  labs(x = "Year",
-       y = "Waste Amount (tons)") +
+  geom_col(color = "black", aes(
+    text = paste0(
+      "Year: ",
+      year,
+      "<br>",
+      "Type: ",
+      bar_type,
+      "<br>",
+      "Value: ",
+      round(value, 2),
+      " tons<br>"
+    )
+  )) +
+  geom_text(
+    aes(
+      label = ifelse(value > 0, round(value, 1), ifelse(value == 0, NA, round(value, 1))),
+      y = ifelse(value >= 0, value, value) + 0.05 * max(value)
+    ),
+    position = position_dodge(width = 0.7),
+    vjust = -0.5,
+    size = 3
+  ) +
+  scale_fill_manual(
+    values = c(
+      "End Year" = "#4169E1",
+      "Increase" = "#006400",
+      "Start Amount" = "#808080",
+      "Decrease" = "#8B0000",
+      "No Change" = "#D3D3D3"
+    ),
+    name = "Type"
+  ) +
+  labs(x = "Year", y = "Waste Amount (tons)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 # Convert variant plot to plotly for interactivity
-variant_plot <- ggplotly(variant_plot, tooltip = "text") 
+variant_plot <- ggplotly(variant_plot, tooltip = "text") |> 
+  layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
 
 #### coll_received_data ----
 ##### data for coll_received_data infoBox 
@@ -349,69 +364,110 @@ plot_total_waste_by_year <- function(data) {
   # Summarize total waste collected per year
   summarized_data <- data |>
     group_by(year) |>
-    summarize(total_collected = sum(total_collected, na.rm = TRUE))
+    summarize(total_collected = sum(total_collected, na.rm = TRUE)) |>
+    ungroup()
   
-  # Create the time series plot
-  p <- ggplot(summarized_data, aes(x = year, y = total_collected, group = 1)) +
-    geom_line() +
-    geom_point() +
-    theme_minimal() +
-    labs(title = "Total Waste Collected by Year",
-         x = "Year",
-         y = "Total Waste Collected")
+  # Create the time series plot using Plotly
+  p <- plot_ly(
+    data = summarized_data,
+    x = ~year,
+    y = ~total_collected,
+    type = 'scatter',
+    mode = 'lines+markers',
+    marker = list(size = 6),
+    line = list(width = 2)
+  ) |>
+    layout(
+      title = "Total Waste Collected by Year",
+      xaxis = list(title = "Year", range = c(min(data$year), max(data$year))),
+      yaxis = list(title = "Total Waste Collected"),
+      showlegend = FALSE
+    )
   
-  ggplotly(p, tooltip = c("x", "y"))
+  return(p)
 }
 
 # 2. Bar plot of waste collected by municipality for a specific year
 plot_waste_by_municipality <- function(data, selected_year, top_n) {
-  p <- data |>
+  # Summarize data for the selected year and top_n municipalities
+  summarized_data <- data |>
     filter(year == selected_year) |>
     group_by(name_of_municipality) |>
     summarize(total_collected = sum(total_collected, na.rm = TRUE)) |>
     top_n(top_n, total_collected) |>
-    ggplot(aes(x = reorder(name_of_municipality, -total_collected), y = total_collected)) +
-    geom_bar(stat = "identity") +
-    theme_minimal() +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-    labs(title = paste("Top", top_n, "Municipalities by Waste Collected in", selected_year),
-         x = "Municipality",
-         y = "Total Waste Collected")
+    ungroup() 
   
-  ggplotly(p, tooltip = c("x", "y"))
+  # Create the bar plot using Plotly
+  p <- plot_ly(
+    data = summarized_data,
+    x = ~reorder(name_of_municipality, -total_collected),
+    y = ~total_collected,
+    type = 'bar'
+  ) |>
+    layout(
+      title = paste("Top", top_n, "Municipalities by Waste Collected in", selected_year),
+      xaxis = list(title = "Municipality", tickangle = -45),
+      yaxis = list(title = "Total Waste Collected"),
+      showlegend = FALSE
+    )
+  
+  return(p)
 }
 
 # 3. Stacked bar plot of waste types by year
 plot_waste_types_by_year <- function(data) {
-  p <- data |>
+  # Summarize data by year and type of waste
+  summarized_data <- data |>
     group_by(year, type_of_waste) |>
     summarize(total_collected = sum(total_collected, na.rm = TRUE)) |>
-    ggplot(aes(x = as.factor(year), y = total_collected, fill = type_of_waste)) +
-    geom_bar(stat = "identity") +
-    theme_minimal() +
-    labs(title = "Waste Types Collected by Year",
-         x = "Year",
-         y = "Total Waste Collected",
-         fill = "Type of Waste")
+    ungroup()
   
-  ggplotly(p, tooltip = c("x", "y", "fill"))
+  # Create the stacked bar plot using Plotly
+  p <- plot_ly(
+    data = summarized_data,
+    x = ~as.factor(year),
+    y = ~total_collected,
+    color = ~type_of_waste,
+    type = 'bar',
+    text = ~paste("Year:", year, "<br>Total Collected:", total_collected),
+    hoverinfo = 'text'
+  ) |>
+    layout(
+      title = "Waste Types Collected by Year",
+      xaxis = list(title = "Year"),
+      yaxis = list(title = "Total Waste Collected"),
+      barmode = 'stack', # This creates the stacked bar effect
+      legend = list(title=list(text='Type of Waste'))
+    )
+  
+  return(p)
 }
 
 # 4. Heatmap of waste collection by statistical region and year
 plot_heatmap_by_region <- function(data) {
-  p <- data |>
+  # Summarize data by year and statistical region
+  summarized_data <- data |>
     group_by(year, statistical_region) |>
     summarize(total_collected = sum(total_collected, na.rm = TRUE)) |>
-    ggplot(aes(x = as.factor(year), y = statistical_region, fill = total_collected)) +
-    geom_tile() +
-    scale_fill_viridis_c() +
-    theme_minimal() +
-    labs(title = "Heatmap of Waste Collection by Region and Year",
-         x = "Year",
-         y = "Statistical Region",
-         fill = "Total Collected")
+    ungroup()
   
-  ggplotly(p, tooltip = c("x", "y", "fill"))
+  # Create the heatmap using Plotly
+  p <- plot_ly(
+    data = summarized_data,
+    x = ~as.factor(year),
+    y = ~statistical_region,
+    z = ~total_collected,
+    type = "heatmap",
+    colors = colorRamp(c("blue", "yellow", "red")), # You can customize colors here
+    colorbar = list(title = "Total Collected")
+  ) |>
+    layout(
+      title = "Heatmap of Waste Collection by Region and Year",
+      xaxis = list(title = "Year"),
+      yaxis = list(title = "Statistical Region")
+    )
+  
+  return(p)
 }
 
 #### coll_management_data ----
@@ -442,31 +498,16 @@ trt_collected_data <- read_csv("data/trt_collected_combined.csv")
 #### trt_treatment_data ----
 trt_treatment_data <- read_csv("data/trt_treatment_combined.csv")
 
-# Aggregate data by year and type of waste
-aggregated_data <- trt_treatment_data |>
-  # filter out statistical_region = "NEOPREDELJENO"
-  filter(statistical_region != "NEOPREDELJENO") |>
-  group_by(year, type_of_waste) |>
-  summarize(total_waste = sum(waste_entering_treatment_process, na.rm = TRUE))
-
-# Create the ggplot visualization
-p <- ggplot(aggregated_data, aes(x = year, y = total_waste, color = type_of_waste, group = type_of_waste)) +
-  geom_line(size = 1) +
-  geom_point(size = 3) +
-  labs(title = "Waste Treatment Over Time by Waste Type",
-       x = "Year",
-       y = "Total Waste Entering Treatment Process",
-       color = "Type of Waste") +
-  theme_minimal() +
-  theme(legend.position = "bottom",
-        plot.title = element_text(hjust = 0.5, face = "bold"))
-
-ggplotly(p, width = 1000, height = 800)
-
 #### trt_municipal_waste_received_data ----
 trt_municipal_waste_received_data <- read_csv("data/trt_municipal_waste_received_combined.csv")
 #### trt_input_treatment_data ----
 trt_input_treatment_data <- read_csv("data/trt_input_treatment_combined.csv")
+
+trt_input_treatment_data <- trt_input_treatment_data |> 
+  group_by(year, type_of_waste) |>
+  summarise(mass_change = sum(mass_change, na.rm = TRUE)) |>
+  ungroup()
+
 # shinyServer ----
 shinyServer(function(input, output, session) {
   
@@ -495,7 +536,7 @@ shinyServer(function(input, output, session) {
   output$totalWasteGenerated <- renderInfoBox({
     infoBox(
       "Total Waste Generated",
-      total_waste,
+      paste(total_waste, " tons"),
       icon = icon("trash"),
       color = "purple"
     )
@@ -505,7 +546,7 @@ shinyServer(function(input, output, session) {
   output$totalTreatedByProducer <- renderInfoBox({
     infoBox(
       "Total Waste Treated by Producer",
-      total_treated_by_producer,
+      paste(total_treated_by_producer, " tons"),
       icon = icon("recycle"),
       color = "green"
     )
@@ -515,7 +556,7 @@ shinyServer(function(input, output, session) {
   output$totalTransferredRS <- renderInfoBox({
     infoBox(
       "Total Waste Transferred for Treatment in RS",
-      total_transferred_RS,
+      paste(total_transferred_RS, " tons"),
       icon = icon("truck"),
       color = "blue"
     )
@@ -525,7 +566,7 @@ shinyServer(function(input, output, session) {
   output$totalSentEU <- renderInfoBox({
     infoBox(
       "Total Waste Sent to EU",
-      total_sent_EU,
+      paste(total_sent_EU, " tons"),
       icon = icon("plane"),
       color = "yellow"
     )
@@ -535,7 +576,7 @@ shinyServer(function(input, output, session) {
   output$totalSentOutsideEU <- renderInfoBox({
     infoBox(
       "Total Waste Sent Outside of EU",
-      total_sent_outside_EU,
+      paste(total_sent_outside_EU, " tons"),
       icon = icon("globe"),
       color = "red"
     )
@@ -543,141 +584,225 @@ shinyServer(function(input, output, session) {
   
   # Total waste by year plot
   output$totalWasteByYear <- renderPlotly({
+    # Summarize total generated waste by year
     total_waste_by_year <- gnr_data |>
       group_by(year) |>
       summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE))
     
-    ggplotly(
-      ggplot(total_waste_by_year, aes(x = year, y = total_generated_waste)) +
-        geom_line(group = 1) +
-        geom_point() +
-        labs(x = "Year", y = "Total Generated Waste (tons)") +
-        theme_minimal()
-    )
+    # Create the plotly plot
+    plot_ly() |>
+      add_trace(
+        data = total_waste_by_year,
+        x = ~year,
+        y = ~total_generated_waste,
+        type = 'scatter',
+        mode = 'lines+markers'
+      ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Generated Waste (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
   })
   
   # Waste by region and year plot
   output$wasteByRegionYear <- renderPlotly({
+    # Summarize the total generated waste by region and year
     waste_by_region_year <- gnr_data |>
+      # Combine the two region name variations
+      mutate(statistical_region = ifelse(statistical_region %in% c("JUGOVZHODNA SLOVENIJA", "JUGOVZHODNASLOVENIJA"), 
+                                         "JUGOVZHODNA SLOVENIJA", 
+                                         statistical_region)) |>
       group_by(statistical_region, year) |>
       summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE)) |>
       ungroup()
     
-    ggplotly(
-      ggplot(waste_by_region_year, aes(x = year, y = total_generated_waste, color = statistical_region)) +
-        geom_line() +
-        geom_point() +
-        labs(x = "Year", y = "Total Generated Waste (tons)") +
-        theme_minimal()
-    )
+    plot_ly() |>
+      add_trace(
+        data = waste_by_region_year,
+        x = ~year,
+        y = ~total_generated_waste,
+        color = ~statistical_region,
+        type = 'scatter',
+        mode = 'lines+markers'
+      ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Generated Waste (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
   })
   
   # Waste by type and year plot
   output$wasteByTypeYear <- renderPlotly({
+    # Summarize the total generated waste by type and year
     waste_by_type_year <- gnr_data |>
       group_by(type_of_waste, year) |>
       summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE)) |>
       ungroup()
     
-    ggplotly(
-      ggplot(waste_by_type_year, aes(x = year, y = total_generated_waste, color = type_of_waste)) +
-        geom_line() +
-        geom_point() +
-        labs(x = "Year", y = "Total Generated Waste (tons)") +
-        theme_minimal()
-    )
+    plot_ly() |>
+      add_trace(
+        data = waste_by_type_year,
+        x = ~year,
+        y = ~total_generated_waste,
+        color = ~type_of_waste,
+        type = 'scatter',
+        mode = 'lines+markers'
+      ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Generated Waste (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
   })
   
-  # Waste transferred for treatment plot
+  # Waste transferred by year plot
   output$wasteTransferred <- renderPlotly({
+    # Summarize the total waste transferred by year
     waste_transferred <- gnr_data |>
       group_by(year) |>
       summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE))
     
-    ggplotly(
-      ggplot(waste_transferred, aes(x = year, y = total_sent)) +
-        geom_line(group = 1) +
-        geom_point() +
-        labs(x = "Year", y = "Total Waste Transferred (tons)") +
-        theme_minimal()
-    )
+    plot_ly(
+      waste_transferred,
+      x = ~year,
+      y = ~total_sent,
+      type = 'scatter',
+      mode = 'lines+markers'
+    ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Waste Transferred (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
   })
   
+  # Waste transferred by region and year plot
   output$wasteTransferredByRegionYear <- renderPlotly({
+    # Summarize the total waste transferred by region and year
     waste_transferred_by_region_year <- gnr_data |>
+      # Combine the two region name variations
+      mutate(statistical_region = ifelse(statistical_region %in% c("JUGOVZHODNA SLOVENIJA", "JUGOVZHODNASLOVENIJA"), 
+                                         "JUGOVZHODNA SLOVENIJA", 
+                                         statistical_region)) |>
       group_by(statistical_region, year) |>
       summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE)) |>
       ungroup()
     
-    ggplotly(
-      ggplot(waste_transferred_by_region_year, aes(x = year, y = total_sent, color = statistical_region)) +
-        geom_line() +
-        geom_point() +
-        labs(x = "Year", y = "Total Waste Transferred (tons)") +
-        theme_minimal()
-    )
+    plot_ly(
+      waste_transferred_by_region_year,
+      x = ~ year,
+      y = ~ total_sent,
+      color = ~ statistical_region,
+      type = 'scatter',
+      mode = 'lines+markers'
+    ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Waste Transferred (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
   })
   
+  # Waste transferred by type and year plot
   output$wasteTransferredByTypeYear <- renderPlotly({
+    # Summarize the total waste transferred by type and year
     waste_transferred_by_type_year <- gnr_data |>
       group_by(type_of_waste, year) |>
       summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE)) |>
       ungroup()
     
-    ggplotly(
-      ggplot(waste_transferred_by_type_year, aes(x = year, y = total_sent, color = type_of_waste)) +
-        geom_line() +
-        geom_point() +
-        labs(x = "Year", y = "Total Waste Transferred (tons)") +
-        theme_minimal()
-    )
+    plot_ly(
+      waste_transferred_by_type_year,
+      x = ~ year,
+      y = ~ total_sent,
+      color = ~ type_of_waste,
+      type = 'scatter',
+      mode = 'lines+markers'
+    ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Waste Transferred (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
   })
   
   # Waste stored at the end of the year plot
   output$wasteStoredEndYear <- renderPlotly({
+    # Summarize the total waste stored by year
     waste_stored_at_the_end_year <- gnr_data |>
       group_by(year) |>
       summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE))
     
-    ggplotly(
-      ggplot(waste_stored_at_the_end_year, aes(x = year, y = total_stored)) +
-        geom_line(group = 1) +
-        geom_point() +
-        labs(x = "Year", y = "Total Waste Stored (tons)") +
-        theme_minimal()
-    )
+    plot_ly(
+      waste_stored_at_the_end_year,
+      x = ~ year,
+      y = ~ total_stored,
+      type = 'scatter',
+      mode = 'lines+markers'
+    ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Waste Stored (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
+    
   })
   
+  # Waste stored at the end of the year by region plot
   output$wasteStoredEndYearByRegionYear <- renderPlotly({
+    # Summarize the total waste stored by region and year
     waste_stored_at_the_end_year_by_region <- gnr_data |>
+      # Combine the two region name variations
+      mutate(statistical_region = ifelse(statistical_region %in% c("JUGOVZHODNA SLOVENIJA", "JUGOVZHODNASLOVENIJA"), 
+                                         "JUGOVZHODNA SLOVENIJA", 
+                                         statistical_region)) |>
+      # Group by the modified region and year
       group_by(statistical_region, year) |>
       summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE)) |>
       ungroup()
     
-    ggplotly(
-      ggplot(waste_stored_at_the_end_year_by_region, aes(x = year, y = total_stored, color = statistical_region)) +
-        geom_line() +
-        geom_point() +
-        labs(x = "Year", y = "Total Waste Stored (tons)") +
-        theme_minimal()
-    )
+    
+    plot_ly(
+      waste_stored_at_the_end_year_by_region,
+      x = ~ year,
+      y = ~ total_stored,
+      color = ~ statistical_region,
+      type = 'scatter',
+      mode = 'lines+markers'
+    ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Waste Stored (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
+    
   })
   
+  # Waste stored at the end of the year by type plot
   output$wasteStoredEndYearByTypeYear <- renderPlotly({
+    # Summarize the total waste stored by type of waste and year
     waste_stored_at_the_end_year_by_type <- gnr_data |>
       group_by(type_of_waste, year) |>
       summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE)) |>
       ungroup()
     
-    ggplotly(
-      ggplot(waste_stored_at_the_end_year_by_type, aes(x = year, y = total_stored, color = type_of_waste)) +
-        geom_line() +
-        geom_point() +
-        labs(x = "Year", y = "Total Waste Stored (tons)") +
-        theme_minimal()
-    )
+    plot_ly(
+      waste_stored_at_the_end_year_by_type,
+      x = ~ year,
+      y = ~ total_stored,
+      color = ~ type_of_waste,
+      type = 'scatter',
+      mode = 'lines+markers'
+    ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Waste Stored (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
+    
   })
-  
   
   ## Collection ----
   
@@ -695,11 +820,14 @@ shinyServer(function(input, output, session) {
         theme_minimal() +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
       
-      ggplotly(t)
+      ggplotly(t) |> 
+        layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
     } else {
       variant_plot  # This is the variant plot
     }
   })
+  
+  ### Received ----
   
   # Load data for storage
   output$storageData <- DT::renderDataTable({
@@ -710,7 +838,7 @@ shinyServer(function(input, output, session) {
   output$totalReceivedWaste <- renderInfoBox({
     infoBox(
       "Total Waste Collected",
-      total_waste_collected,
+      paste(total_waste_collected, " tons"),
       icon = icon("trash"),
       color = "purple"
     )
@@ -730,7 +858,7 @@ shinyServer(function(input, output, session) {
   output$totalWasteFromProducersNoRecord <- renderInfoBox({
     infoBox(
       "Waste from Producers no Record",
-      waste_from_producers_no_record,
+      paste(waste_from_producers_no_record, " tons"),
       icon = icon("truck"),
       color = "green",  # Use a predefined color class for default styling
       fill = FALSE
@@ -741,7 +869,7 @@ shinyServer(function(input, output, session) {
   output$totalWasteFromProducers <- renderInfoBox({
     infoBox(
       "Waste from Producers with Record",
-      waste_from_producers_with_record,
+      paste(waste_from_producers_with_record, " tons"),
       icon = icon("truck"),
       color = "green",  # Use a predefined color class for default styling
       fill = FALSE
@@ -752,7 +880,7 @@ shinyServer(function(input, output, session) {
   output$totalWasteFromCollectors <- renderInfoBox({
     infoBox(
       "Waste from Collectors in RS",
-      waste_from_collectors_RS,
+      paste(waste_from_collectors_RS),
       icon = icon("truck"),
       color = "blue",  # Use a predefined color class for default styling
       fill = FALSE
@@ -763,7 +891,7 @@ shinyServer(function(input, output, session) {
   output$totalWasteFromProcessors <- renderInfoBox({
     infoBox(
       "Waste from Processors in RS",
-      waste_from_processors_RS,
+      paste(waste_from_processors_RS, " tons"),
       icon = icon("truck"),
       color = "blue",  # Use a predefined color class for default styling
       fill = FALSE
@@ -778,8 +906,8 @@ shinyServer(function(input, output, session) {
     
     # Line and point
     t <- ggplot(yearly_data_received, aes(x = year)) +
-      # geom_point(aes(y = total_collected, color = "Total Collected")) +
-      # geom_line(aes(y = total_collected, color = "Total Collected")) +
+      geom_point(aes(y = total_collected, color = "Total Collected")) +
+      geom_line(aes(y = total_collected, color = "Total Collected")) +
       geom_point(aes(y = from_producers_no_record, color = "From Producers (No Record)")) +
       geom_line(aes(y = from_producers_no_record, color = "From Producers (No Record)")) +
       geom_point(aes(y = from_producers_with_record, color = "From Producers (With Record)")) +
@@ -795,7 +923,8 @@ shinyServer(function(input, output, session) {
       ) +
       theme_minimal()
     
-    ggplotly(t)
+    ggplotly(t) |> 
+      layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
   })
   
   source_mapping <- c(
@@ -809,8 +938,7 @@ shinyServer(function(input, output, session) {
   updateSelectizeInput(session, "region_filter", 
                        choices = na.omit(unique(df_long_received$statistical_region)),
                        selected = na.omit(unique(df_long_received$statistical_region)),
-                       options = list(maxItems = length(unique(df_long_received$statistical_region)), 
-                                      placeholder = 'Select or remove statistical regions'))
+                       options = list(maxItems = length(unique(df_long_received$statistical_region))))
   
   
   filtered_data <- reactive({
@@ -823,20 +951,12 @@ shinyServer(function(input, output, session) {
       filter(statistical_region %in% input$region_filter,
              source %in% mapped_sources)
     
-    print(paste("Filtered data dimensions:", nrow(data), "rows,", ncol(data), "columns"))
-    print("Unique values in filtered data:")
-    print(lapply(data, function(x) unique(x)))
-    
     return(data)
   })
   
   # Reactive plot selection based on user input and filtered data
-  # Reactive plot selection based on user input and filtered data
   datasetInput <- reactive({
     data <- filtered_data()
-    
-    # Debugging: Print dimensions of the data
-    print(paste("Dimensions of filtered data:", nrow(data), "rows,", ncol(data), "columns"))
     
     if(nrow(data) == 0) {
       return(ggplotly(ggplot() + 
@@ -850,31 +970,41 @@ shinyServer(function(input, output, session) {
     # Create a factor with levels in the desired order for consistent coloring
     data$source <- factor(data$source, levels = source_mapping, labels = names(source_mapping))
     
+    # Summarize the total collected waste by region
+    data_summarized <- data |>
+      group_by(statistical_region, source) |>
+      summarize(total_collected = sum(total_collected, na.rm = TRUE)) |>
+      ungroup()
+    
     # Create the base plot
-    base_plot <- ggplot(data, aes(x = statistical_region, y = total_collected, fill = source)) +
+    base_plot <- ggplot(data_summarized, aes(x = statistical_region, y = total_collected, fill = source)) +
       labs(x = "Statistical Region", y = "Total Collected Waste") +
       scale_fill_manual(values = color_mapping, name = "Source") +
       theme_minimal() +
-      theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
     
     # Add specific geom based on plot type
-    plot <- switch(input$plot_type,
-                   "stacked" = base_plot + geom_col(),
-                   "faceted" = base_plot + geom_bar(stat = "identity", position = "dodge") +
-                     facet_wrap(~ source, ncol = 1, scales = "free_y"),
-                   "grouped" = base_plot + geom_bar(stat = "identity", position = "dodge"),
-                   base_plot + geom_col()  # Default to stacked plot
+    plot <- switch(
+      input$plot_type_coll_received,
+      "stacked" = base_plot + geom_col(),
+      "faceted" = base_plot + geom_bar(stat = "identity", position = "dodge") +
+        facet_wrap( ~ source, ncol = 1, scales = "free_y"),
+      "grouped" = base_plot + geom_bar(stat = "identity", position = "dodge"),
+      base_plot + geom_col()  # Default to stacked plot
     )
     
-    ggplotly(plot)
+    ggplotly(plot, tooltip = c("x", "y", "fill")) |>
+      layout(
+        hovermode = "x",
+        xaxis = list(autorange = TRUE),
+        yaxis = list(autorange = TRUE)
+      )
   })
   
   # Render the selected plot
   output$selectedPlot2 <- renderPlotly({
     datasetInput()  # Call the reactive plot
   })
-  
-  ### Received ----
   
   ### Municipal ----
   
@@ -891,10 +1021,25 @@ shinyServer(function(input, output, session) {
                     choices = unique(df_long_municipal$type_of_waste),
                     selected = unique(df_long_municipal$type_of_waste)[1])
   
-  # Reactive expression to filter data based on selected regions
+  # Update the number of top municipalities
+  updateNumericInput(session, "top_n_municipal", 
+                     min = 1, 
+                     max = unique(df_long_municipal$name_of_municipality), 
+                     value = 5)
+  
+  # Reactive expression to filter data based on selected regions and top n municipalities
   filtered_municipal_data <- reactive({
-    df_long_municipal |>
+    top_municipalities <- df_long_municipal |>
       filter(statistical_region %in% c(input$region1, input$region2) &
+               type_of_waste == input$waste_type) |>
+      group_by(name_of_municipality) |>
+      summarize(total_collected = sum(total_collected, na.rm = TRUE), .groups = 'drop') |>
+      arrange(desc(total_collected)) |>
+      slice_max(order_by = total_collected, n = input$top_n_municipal, with_ties = FALSE)  # Select top n municipalities
+    
+    df_long_municipal |>
+      filter(name_of_municipality %in% top_municipalities$name_of_municipality &
+               statistical_region %in% c(input$region1, input$region2) &
                type_of_waste == input$waste_type)
   })
   
@@ -917,6 +1062,7 @@ shinyServer(function(input, output, session) {
       slice(1)  # Select the municipality with the highest waste collected
     
     infoBox(
+      width = 12,
       title = "Top Municipality",   # Add title here
       value = max_municipality$name_of_municipality,
       subtitle = paste("Collected:", max_municipality$total_waste, "tons"),
@@ -925,19 +1071,28 @@ shinyServer(function(input, output, session) {
     )
   })
   
-  # Render the comparison plot
+  # Render the comparison plot for top n municipalities
   output$municipalComparison <- renderPlotly({
-    t10 <- ggplot(filtered_municipal_data(), aes(x = year, y = total_collected, color = name_of_municipality, group = interaction(name_of_municipality, type_of_waste))) +
-      geom_line() +
-      geom_point() +
-      scale_x_continuous("year", labels = as.character(unique(filtered_municipal_data()$year)), breaks = unique(filtered_municipal_data()$year)) +
-      labs(x = "Year",
-           y = "Total Waste Collected (in tons)",
-           color = "Municipality") +
-      theme_minimal()
+    # Create a filtered dataset for plotting
+    filtered_data <- filtered_municipal_data()
     
-    ggplotly(t10)  # Convert to plotly for interactivity
+    # Create the plot using Plotly
+    p <- plot_ly(data = filtered_data,
+                 x = ~year,
+                 y = ~total_collected,
+                 color = ~name_of_municipality,
+                 type = 'scatter',
+                 mode = 'lines+markers',
+                 colors = 'Set3') |> 
+      layout(title = "Waste Collected by Municipality",
+             xaxis = list(title = "Year", 
+                          tickvals = unique(filtered_data$year)),
+             yaxis = list(title = "Total Waste Collected (in tons)"),
+             showlegend = TRUE)
+    
+    return(p)
   })
+  
   
   ### Municipal Collected ----
   
@@ -1002,8 +1157,7 @@ shinyServer(function(input, output, session) {
       group_by(year) |>
       summarise(total_waste = sum(total_waste_given_away, na.rm = TRUE)) |>
       plot_ly(x = ~year, y = ~total_waste, type = 'scatter', mode = 'lines+markers') |>
-      layout(title = "Total Waste Trend (2016-2022)",
-             xaxis = list(title = "Year"),
+      layout(xaxis = list(title = "Year"),
              yaxis = list(title = "Total Waste"))
   })
   
@@ -1012,9 +1166,8 @@ shinyServer(function(input, output, session) {
     df_long_management |>
       group_by(statistical_region) |>
       summarise(total_waste = sum(total_waste_given_away, na.rm = TRUE)) |>
-      plot_ly(x = ~statistical_region, y = ~total_waste, type = 'bar') |>
-      layout(title = "Total Waste by Region",
-             xaxis = list(title = "Region"),
+      plot_ly(x = ~reorder(statistical_region, -total_waste), y = ~total_waste, type = 'bar') |>
+      layout(xaxis = list(title = "Region"),
              yaxis = list(title = "Total Waste"))
   })
   
@@ -1023,9 +1176,8 @@ shinyServer(function(input, output, session) {
     df_long_management |>
       group_by(type_of_waste) |>
       summarise(total_waste = sum(total_waste_given_away, na.rm = TRUE)) |>
-      plot_ly(x = ~type_of_waste, y = ~total_waste, type = 'bar') |>
-      layout(title = "Total Waste by Type",
-             xaxis = list(title = "Waste Type"),
+      plot_ly(x = ~reorder(type_of_waste, -total_waste), y = ~total_waste, type = 'bar') |>
+      layout(xaxis = list(title = "Waste Type"),
              yaxis = list(title = "Total Waste"))
   })
   
@@ -1070,7 +1222,8 @@ shinyServer(function(input, output, session) {
     data_filtered <- trt_storage_data
     
     # Filter data based on selected region
-    if (!is.null(input$region_trt_storage) && length(input$region_trt_storage) > 0) {
+    if (!is.null(input$region_trt_storage) &&
+        length(input$region_trt_storage) > 0) {
       data_filtered <- data_filtered[data_filtered$statistical_region %in% input$region_trt_storage, ]
     }
     
@@ -1090,28 +1243,14 @@ shinyServer(function(input, output, session) {
     data <- trt_storage_data
     updateSelectizeInput(
       session,
-      "year_range_trt_storage",
-      choices = sort(unique(as.character(data$year))),
-      selected = sort(unique(as.character(data$year))),
-      server = TRUE
+      "waste_type_trt_storage",
+      choices = unique(data$type_of_waste)
     )
-    updateSelectInput(session,
-                      "waste_type_trt_storage",
-                      choices = unique(data$type_of_waste))
-    updateSelectInput(session,
-                      "region_trt_storage",
-                      choices = unique(data$statistical_region))
-  })
-  
-  # Debug output for filter choices and selections
-  output$filter_debug <- renderPrint({
-    data <- trt_storage_data
-    cat("Available Years:", paste(sort(unique(data$year)), collapse = ", "), "\n")
-    cat("Selected Years:", paste(input$year_range_trt_storage, collapse = ", "), "\n\n")
-    cat("Available Waste Types:", paste(sort(unique(data$type_of_waste)), collapse = ", "), "\n")
-    cat("Selected Waste Types:", paste(input$waste_type_trt_storage, collapse = ", "), "\n\n")
-    cat("Available Regions:", paste(sort(unique(data$statistical_region)), collapse = ", "), "\n")
-    cat("Selected Regions:", paste(input$region_trt_storage, collapse = ", "), "\n")
+    updateSelectizeInput(
+      session,
+      "region_trt_storage",
+      choices = unique(data$statistical_region)
+    )
   })
   
   # Filter data based on inputs
@@ -1121,21 +1260,12 @@ shinyServer(function(input, output, session) {
     
     filtered <- data |> 
       filter(
-        year %in% input$year_range_trt_storage,
+        year >= input$year_range_trt_storage[1] & year <= input$year_range_trt_storage[2],  # Filter by year range
         type_of_waste %in% input$waste_type_trt_storage,
         statistical_region %in% input$region_trt_storage
       )
     
     filtered
-  })
-  
-  # Display current filter selections
-  output$current_filters <- renderText({
-    paste(
-      "Years:", paste(input$year_range_trt_storage, collapse = ", "), "\n",
-      "Waste Types:", paste(input$waste_type_trt_storage, collapse = ", "), "\n",
-      "Regions:", paste(input$region_trt_storage, collapse = ", ")
-    )
   })
   
   # Process data for plotting
@@ -1249,8 +1379,9 @@ shinyServer(function(input, output, session) {
       theme_minimal() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
     
-    ggplotly(p, tooltip = c("x", "y", "fill"))
-  })
+    ggplotly(p, tooltip = c("x", "y", "fill")) |> 
+      layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
+  }) 
   
   ### Collected ----
   
@@ -1263,7 +1394,7 @@ shinyServer(function(input, output, session) {
   output$plot_yearly <- renderPlotly({
     plot_ly(yearly_total, x = ~year, y = ~total_waste, type = 'scatter', mode = 'lines+markers') |>
       layout(
-        title = "Total Waste Received Over Years",
+        # title = "Total Waste Received Over Years",
         xaxis = list(title = "Year"),
         yaxis = list(title = "Total Waste Received")
       )
@@ -1277,9 +1408,14 @@ shinyServer(function(input, output, session) {
   
   # Create the plotly bar chart for total waste by region
   output$plot_region <- renderPlotly({
-    plot_ly(region_total, x = ~statistical_region, y = ~total_waste, type = 'bar') |>
+    plot_ly(
+      region_total,
+      x = ~reorder(statistical_region, -total_waste),
+      y = ~ total_waste,
+      type = 'bar'
+    ) |>
       layout(
-        title = "Total Waste Received by Statistical Region",
+        # title = "Total Waste Received by Statistical Region",
         xaxis = list(title = "Statistical Region"),
         yaxis = list(title = "Total Waste Received")
       )
@@ -1293,9 +1429,14 @@ shinyServer(function(input, output, session) {
   
   # Create the plotly bar chart for total waste by type of waste
   output$plot_waste_type <- renderPlotly({
-    plot_ly(waste_type_total, x = ~type_of_waste, y = ~total_waste, type = 'bar') |>
+    plot_ly(
+      waste_type_total,
+      x = ~reorder(type_of_waste, -total_waste),
+      y = ~ total_waste,
+      type = 'bar'
+    ) |>
       layout(
-        title = "Total Waste Received by Type of Waste",
+        # title = "Total Waste Received by Type of Waste",
         xaxis = list(title = "Type of Waste"),
         yaxis = list(title = "Total Waste Received")
       )
@@ -1306,24 +1447,43 @@ shinyServer(function(input, output, session) {
   # Update the choices for waste types and regions based on available data
   observe({
     data <- trt_treatment_data
-    updateSelectInput(session, "waste_type_trt_treatment", choices = unique(data$type_of_waste), selected = unique(data$type_of_waste))
-    updateSelectInput(session, "region_trt_treatment", choices = unique(data$statistical_region), selected = unique(data$statistical_region))
+    updateSelectizeInput(
+      session,
+      "waste_type_trt_treatment",
+      choices = unique(data$type_of_waste),
+      selected = unique(data$type_of_waste),
+      options = list(plugins = list('remove_button'))
+    )
+    updateSelectizeInput(
+      session,
+      "region_trt_treatment",
+      choices = unique(data$statistical_region),
+      selected = unique(data$statistical_region),
+      options = list(plugins = list('remove_button'))
+    )
   })
   
   # Filter the data based on user inputs
   filtered_treatment_data <- reactive({
     data <- trt_treatment_data |>
       filter(
-        year >= input$year_range_trt_treatment[1] & year <= input$year_range_trt_treatment[2],  # Filter by year range
-        type_of_waste %in% input$waste_type_trt_treatment,  # Filter by selected waste types
-        statistical_region %in% input$region_trt_treatment,  # Filter by selected regions
+        year >= input$year_range_trt_treatment[1] &
+          year <= input$year_range_trt_treatment[2],
+        # Filter by year range
+        type_of_waste %in% input$waste_type_trt_treatment,
+        # Filter by selected waste types
+        statistical_region %in% input$region_trt_treatment,
+        # Filter by selected regions
         statistical_region != "NEOPREDELJENO"  # Exclude the "NEOPREDELJENO" region
       )
     
     # Summarize the data by year and waste type
     aggregated_data <- data |>
       group_by(year, type_of_waste) |>
-      summarize(total_waste = sum(waste_entering_treatment_process, na.rm = TRUE), .groups = 'drop')
+      summarize(
+        total_waste = sum(waste_entering_treatment_process, na.rm = TRUE),
+        .groups = 'drop'
+      )
     
     return(aggregated_data)
   })
@@ -1332,18 +1492,16 @@ shinyServer(function(input, output, session) {
   output$plot_waste_treatment <- renderPlotly({
     data <- filtered_treatment_data()
     
-    p <- ggplot(data, aes(x = year, y = total_waste, color = type_of_waste, group = type_of_waste)) +
-      geom_line(size = 1) +
-      geom_point(size = 3) +
-      labs(title = "Waste Treatment Over Time by Waste Type",
-           x = "Year",
-           y = "Total Waste Entering Treatment Process",
-           color = "Type of Waste") +
-      theme_minimal() +
-      theme(legend.position = "bottom",
-            plot.title = element_text(hjust = 0.5, face = "bold"))
+    # Create a Plotly plot
+    p <- plot_ly(data, x = ~year, y = ~total_waste, color = ~type_of_waste, type = 'scatter', mode = 'lines+markers') %>%
+      layout(
+        title = "Waste Treatment Over Time by Waste Type (in tons)",
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Waste Entering Treatment Process", autorange = TRUE),
+        legend = list(position = "bottom")
+      )
     
-    ggplotly(p, tooltip = c("x", "y", "color"))
+    return(p)
   })
   
   ### Municipal Waste Received ----
@@ -1393,20 +1551,69 @@ shinyServer(function(input, output, session) {
     
     ggplotly(static_map, tooltip = "text") |>
       layout(
-        hoverlabel = list(bgcolor = "white", font = list(family = "Arial", size = 12))
-      )
+        hoverlabel = list(bgcolor = "white", font = list(family = "Arial", size = 12)),
+        xaxis = list(autorange = TRUE), 
+        yaxis = list(autorange = TRUE)
+      ) 
+  })
+  
+  # Observe and update the top_n_trt_municipal slider dynamically based on the selected year range
+  observe({
+    filtered_data <- trt_municipal_waste_received_data |>
+      filter(year >= input$year_range_trt_municipal[1] & year <= input$year_range_trt_municipal[2])
+    
+    # Summarize total waste by municipality for the selected year range
+    total_waste_by_municipality <- filtered_data |>
+      group_by(year, name_of_municipality) |>
+      summarise(total_waste = sum(waste_collected_by_municipality, na.rm = TRUE)) |>
+      ungroup()
+    
+    # Get the top municipalities by total waste for the selected year range
+    top_municipalities <- total_waste_by_municipality |>
+      group_by(name_of_municipality) |>
+      summarise(total_waste = sum(total_waste)) |>
+      arrange(desc(total_waste))
+    
+    # Update top_n_trt_municipal slider with the maximum number of municipalities in the filtered range
+    num_municipalities <- nrow(top_municipalities)
+    updateSliderInput(session, "top_n_trt_municipal", max = num_municipalities)
   })
   
   # Render trend plot
   output$trendPlot <- renderPlotly({
-    trend_by_municipality <- trt_municipal_waste_received_data |>
+    # Filter data based on selected year range
+    filtered_data <- trt_municipal_waste_received_data |>
+      filter(year >= input$year_range_trt_municipal[1] & year <= input$year_range_trt_municipal[2])
+    
+    # Summarize total waste by municipality and year
+    total_waste_by_municipality <- filtered_data |>
       group_by(year, name_of_municipality) |>
       summarise(total_waste = sum(waste_collected_by_municipality, na.rm = TRUE)) |>
-      ggplot(aes(x = year, y = total_waste, color = name_of_municipality)) +
+      ungroup()
+    
+    # Get the top N municipalities for the selected range
+    top_municipalities <- total_waste_by_municipality |>
+      group_by(name_of_municipality) |>
+      summarise(total_waste = sum(total_waste)) |>
+      arrange(desc(total_waste)) |>
+      head(input$top_n_trt_municipal) |>
+      pull(name_of_municipality)
+    
+    # Filter the dataset for the top N municipalities
+    filtered_data <- total_waste_by_municipality |>
+      filter(name_of_municipality %in% top_municipalities)
+    
+    # Create plot
+    trend_plot <- ggplot(filtered_data,
+                         aes(x = year, y = total_waste, color = name_of_municipality)) +
+      geom_point() +
       geom_line() +
+      theme_minimal() +
       labs(x = "Year", y = "Waste Collected")
     
-    ggplotly(trend_by_municipality)
+    ggplotly(trend_plot) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
   })
   
   # Render region comparison plot
@@ -1414,44 +1621,41 @@ shinyServer(function(input, output, session) {
     region_comparison <- trt_municipal_waste_received_data |>
       group_by(statistical_region) |>
       summarise(total_waste = sum(waste_collected_by_municipality, na.rm = TRUE)) |>
-      ggplot(aes(x = reorder(statistical_region, -total_waste), y = total_waste, fill = statistical_region)) +
+      ggplot(aes(
+        x = reorder(statistical_region, -total_waste),
+        y = total_waste,
+        fill = statistical_region
+      )) +
       geom_bar(stat = "identity") +
+      theme_minimal() +
       labs(x = "Statistical Region", y = "Waste Collected") +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
     
-    ggplotly(region_comparison)
-  })
-  
-  # Render correlation plot
-  output$correlationPlot <- renderPlotly({
-    trt_municipal_waste_received_data <- trt_municipal_waste_received_data |>
-      mutate(
-        paper_cardboard_packaging = ifelse(type_of_waste == "Paper/Cardboard Packaging", waste_collected_by_municipality, 0),
-        other_wood_waste = ifelse(type_of_waste == "Other Wood Waste", waste_collected_by_municipality, 0),
-        wooden_packaging = ifelse(type_of_waste == "Wooden Packaging", waste_collected_by_municipality, 0)
-      )
-    
-    correlation_analysis <- trt_municipal_waste_received_data |>
-      group_by(name_of_municipality) |>
-      summarise(
-        paper_cardboard_packaging = sum(paper_cardboard_packaging, na.rm = TRUE),
-        other_wood_waste = sum(other_wood_waste, na.rm = TRUE),
-        wooden_packaging = sum(wooden_packaging, na.rm = TRUE)
-      ) |>
-      ggplot(aes(x = paper_cardboard_packaging, y = other_wood_waste)) +
-      geom_point() +
-      geom_smooth(method = "lm") +
-      labs(x = "Paper/Cardboard Packaging", y = "Other Wood Waste")
-    
-    ggplotly(correlation_analysis)
+    ggplotly(region_comparison) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
   })
   
   ### Input Treatment ----
   
   # Update filters
   observe({
-    updateSelectInput(session, "year_filter", choices = sort(unique(trt_input_treatment_data$year)), selected = unique(trt_input_treatment_data$year))
-    updateSelectInput(session, "waste_type_filter", choices = sort(unique(trt_input_treatment_data$type_of_waste)), selected = unique(trt_input_treatment_data$type_of_waste))
+    updateSelectizeInput(
+      session,
+      "year_filter",
+      choices = sort(unique(trt_input_treatment_data$year)),
+      selected = unique(trt_input_treatment_data$year),
+      options = list(plugins = list('remove_button'))
+    )
+    updateSelectizeInput(
+      session,
+      "waste_type_filter",
+      choices = sort(unique(
+        trt_input_treatment_data$type_of_waste
+      )),
+      selected = unique(trt_input_treatment_data$type_of_waste),
+      options = list(plugins = list('remove_button'))
+    )
   })
   
   # Filter data based on user input
@@ -1460,15 +1664,15 @@ shinyServer(function(input, output, session) {
       filter(year %in% input$year_filter, type_of_waste %in% input$waste_type_filter)
   })
   
-  # Plot 1: Mass Change by Year
+  # Mass Change by Year
   output$inputTreatmentByYear <- renderPlotly({
     plot_ly(filtered_input_data(), x = ~year, y = ~mass_change, type = 'bar', color = ~type_of_waste) |>
-      layout(title = "Mass Change During Treatment Over the Years by Waste Type",
+      layout(#title = "Mass Change During Treatment Over the Years by Waste Type",
              xaxis = list(title = "Year"),
              yaxis = list(title = "Total Mass Change"))
   })
   
-  # Plot 2: Mass Change by Operation
+  # Mass Change by Operation - NOT USED
   output$inputTreatmentByOperation <- renderPlotly({
     plot_ly(filtered_input_data(), x = ~year, y = ~mass_change, color = ~treatment_operation, type = 'bar') |>
       layout(title = "Mass Change During Treatment by Operation",
@@ -2751,7 +2955,9 @@ shinyServer(function(input, output, session) {
                x = "Time",
                y = plot_params$y_label) +
           theme_bw()
-        ggplotly(p)
+        ggplotly(p) |>
+          layout(xaxis = list(autorange = TRUE),
+                 yaxis = list(autorange = TRUE))
       })
       
       output$collection_plot <- renderPlotly({
@@ -2767,7 +2973,9 @@ shinyServer(function(input, output, session) {
                x = "Time",
                y = plot_params$y_label) +
           theme_bw()
-        ggplotly(p)
+        ggplotly(p) |>
+          layout(xaxis = list(autorange = TRUE),
+                 yaxis = list(autorange = TRUE))
       })
       
       output$handling_plot <- renderPlotly({
@@ -2783,7 +2991,9 @@ shinyServer(function(input, output, session) {
                x = "Time",
                y = plot_params$y_label) +
           theme_bw()
-        ggplotly(p)
+        ggplotly(p) |>
+          layout(xaxis = list(autorange = TRUE),
+                 yaxis = list(autorange = TRUE))
       })
       
       output$recycling_plot <- renderPlotly({
@@ -2799,7 +3009,9 @@ shinyServer(function(input, output, session) {
                x = "Time",
                y = plot_params$y_label) +
           theme_bw()
-        ggplotly(p)
+        ggplotly(p) |>
+          layout(xaxis = list(autorange = TRUE),
+                 yaxis = list(autorange = TRUE))
       })
       
       # Results Table -----
@@ -2826,11 +3038,11 @@ shinyServer(function(input, output, session) {
           color = interaction(Region, WasteType)
         )) +
           geom_line() +
-          labs(title = "Collection Cost Over Time",
-               x = "Time",
-               y = "Collection Cost") +
+          labs(title = "Collection Cost Over Time", x = "Time", y = "Collection Cost") +
           theme_bw()
-        ggplotly(p)
+        ggplotly(p) |>
+          layout(xaxis = list(autorange = TRUE),
+                 yaxis = list(autorange = TRUE))
       })
       
       output$processing_cost_plot <- renderPlotly({
@@ -2841,11 +3053,11 @@ shinyServer(function(input, output, session) {
           color = interaction(Region, WasteType)
         )) +
           geom_line() +
-          labs(title = "Processing Cost Over Time",
-               x = "Time",
-               y = "Processing Cost") +
+          labs(title = "Processing Cost Over Time", x = "Time", y = "Processing Cost") +
           theme_bw()
-        ggplotly(p)
+        ggplotly(p) |>
+          layout(xaxis = list(autorange = TRUE),
+                 yaxis = list(autorange = TRUE))
       })
       
       output$transportation_cost_plot <- renderPlotly({
@@ -2856,11 +3068,11 @@ shinyServer(function(input, output, session) {
           color = interaction(Region, WasteType)
         )) +
           geom_line() +
-          labs(title = "Transportation Cost Over Time",
-               x = "Time",
-               y = "Transportation Cost") +
+          labs(title = "Transportation Cost Over Time", x = "Time", y = "Transportation Cost") +
           theme_bw()
-        ggplotly(p)
+        ggplotly(p) |>
+          layout(xaxis = list(autorange = TRUE),
+                 yaxis = list(autorange = TRUE))
       })
       
       output$recycling_revenue_plot <- renderPlotly({
@@ -2871,17 +3083,17 @@ shinyServer(function(input, output, session) {
           color = interaction(Region, WasteType)
         )) +
           geom_line() +
-          labs(title = "Recycling Revenue Over Time",
-               x = "Time",
-               y = "Recycling Revenue") +
+          labs(title = "Recycling Revenue Over Time", x = "Time", y = "Recycling Revenue") +
           theme_bw()
-        ggplotly(p)
+        ggplotly(p) |>
+          layout(xaxis = list(autorange = TRUE),
+                 yaxis = list(autorange = TRUE))
       })
       
       # Costs Table -----
       
       output$costs_table <- renderDT({
-        datatable(costs(), options = list(pageLength = 10, autoWidth = TRUE))
+        datatable(costs(), options = list(pageLength = 10, autoWidth = FALSE))
       })
       
       # Distance Matrix -----

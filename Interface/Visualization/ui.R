@@ -261,13 +261,12 @@ shinyUI(dashboardPage(
           
           # Collection Storage ----
           tabPanel("Collection Storage",
-                   fluidRow(
-                     # infoBoxOutput("totalStorageWaste"),
-                     # infoBoxOutput("totalStoredByRegion"),
-                     # infoBoxOutput("totalStoredByType")
-                   ),
+                   style = "margin-top: 20px;",
                    fluidRow(
                      box(
+                       width = 3,
+                       solidHeader = TRUE,
+                       status = "primary",
                        # Select input for choosing the plot
                        selectInput("plot_selection", "Choose a Plot:",
                                    choices = c("Total Wood Waste Over Time", "Total Wood Waste Over Time - Variant"),
@@ -278,16 +277,17 @@ shinyUI(dashboardPage(
                      box(
                        collapsible = TRUE,
                        width = 12,
-                       title = "Selected Plot",
+                       title = "Comparison of Waste Stored at Year's End and Next Year's Start",
                        solidHeader = TRUE,
                        status = "primary",
-                       plotlyOutput("selectedPlot1")
+                       plotlyOutput("selectedPlot1", height = "500px")
                      )
                    )
           ),
           
           # Collection Received ----
           tabPanel("Collection Received",
+                   # Info Boxes ----
                    # add space between
                    fluidRow(
                      style = "display: flex; justify-content: center; align-items: center; margin-top: 20px;",
@@ -301,7 +301,7 @@ shinyUI(dashboardPage(
                      infoBoxOutput("totalWasteFromCollectors"),
                      infoBoxOutput("totalWasteFromProcessors")
                    ),
-                   # Custom CSS styles
+                   # Custom CSS styles ----
                    tags$style(
                      '
                        #totalWasteFromProducersNoRecord .info-box-icon {
@@ -321,16 +321,18 @@ shinyUI(dashboardPage(
                        }
                      '
                    ),
+                   # Waste Received by Year ----
                    fluidRow(
                      box(
                        collapsible = TRUE,
                        width = 12,
-                       title = "Total Wood Waste Received by Year",
+                       title = "Total Wood Waste Received by Year by Source",
                        solidHeader = TRUE,
                        status = "primary",
                        plotlyOutput("totalWasteReceivedByYear")
                      )
                    ),
+                   # Waste Received by Region ----
                    fluidRow(
                      # Add a dropdown menu for plot selection
                      box(
@@ -340,7 +342,7 @@ shinyUI(dashboardPage(
                        solidHeader = TRUE,
                        status = "primary",
                        # Plot selection input
-                       selectInput(inputId = "plot_type", 
+                       selectInput(inputId = "plot_type_coll_received", 
                                    label = "Choose a Plot Type", 
                                    choices = c("Stacked Bar Plot" = "stacked", 
                                                "Faceted Bar Plot" = "faceted", 
@@ -351,7 +353,8 @@ shinyUI(dashboardPage(
                        selectizeInput(inputId = "region_filter", 
                                       label = "Select Statistical Regions", 
                                       choices = NULL,  # Will be populated from server
-                                      multiple = TRUE),
+                                      multiple = TRUE,
+                                      options = list(plugins = list("remove_button"), placeholder = "Select Statistical Regions")),
                        
                        # Selectize input for sources
                        selectizeInput(inputId = "source_filter", 
@@ -364,50 +367,68 @@ shinyUI(dashboardPage(
                                                    "From Producers (With Record)", 
                                                    "From Collectors (RS)", 
                                                    "From Processors (RS)"), 
-                                      multiple = TRUE)
+                                      multiple = TRUE,
+                                      options = list(plugins = list("remove_button"), placeholder = "Select Statistical Regions"))
                      ),
                      box(
                        collapsible = TRUE,
-                       width = 9,
                        title = "Waste Data Plot",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 9,
                        plotlyOutput("selectedPlot2")
                      )
                    )
           ),
           # Collection Municipal ----
           tabPanel("Collection Municipal",
+                   style = "margin-top: 20px;",
                    fluidRow(
-                     # infoBoxOutput("totalMunicipalWaste"),
-                     # infoBoxOutput("totalMunicipalByRegion"),
-                     # infoBoxOutput("totalMunicipalByType")
-                     # InfoBox for municipality with the most waste collected
-                     infoBoxOutput("maxWasteMunicipality")
-                   ),
-                   fluidRow(
-                     box(
-                       collapsible = TRUE,
-                       width = 3,
-                       title = "Select a Region:",
-                       solidHeader = TRUE,
-                       status = "primary",
-                       # Select inputs for choosing two regions
-                       selectInput("region1", "Select Region:", choices = NULL),
-                       # Select input for choosing the waste type
-                       selectInput("waste_type", "Select Type of Waste:", choices = NULL)
+                     column(
+                       width = 4,  # Left column: Filter options first, then the InfoBox
+                       fluidRow(
+                         box(
+                           collapsible = TRUE,
+                           width = 12,
+                           title = "Select a Region:",
+                           solidHeader = TRUE,
+                           status = "primary",
+                           # Select inputs for choosing a region
+                           selectInput("region1", "Select Region:", choices = NULL),
+                           # Select input for choosing the waste type
+                           selectInput("waste_type", "Select Type of Waste:", choices = NULL),
+                           # Select the number of municipalities to display
+                           numericInput("top_n_municipal", "Number of Municipalities to Display:", value = 10, min = 1, max = 50)
+                         )
+                       ),
+                       fluidRow(
+                         column(
+                           width = 12,
+                           div(
+                             style = "margin-top: 20px; padding: 10px;",
+                             infoBoxOutput("maxWasteMunicipality", width = 12)  # InfoBox comes after filtering
+                           )
+                         )
+                       )
                      ),
-                     box(
-                       collapsible = TRUE,
-                       width = 9,
-                       title = "Waste Collected by Municipality (2018-2022)",
-                       solidHeader = TRUE,
-                       status = "primary",
-                       plotlyOutput("municipalComparison")
+                     column(
+                       width = 8,  # Right column: Plot output
+                       fluidRow(
+                         box(
+                           collapsible = TRUE,
+                           width = 12,
+                           title = "Waste Collected by Municipality (2018-2022)",
+                           solidHeader = TRUE,
+                           status = "primary",
+                           plotlyOutput("municipalComparison")
+                         )
+                       )
                      )
                    )
           ),
-          
           # Collection Municipal Collected ----
           tabPanel("Collection Municipal Collected",
+                   style = "margin-top: 20px;",
                    fluidRow(
                      box(
                        collapsible = TRUE,
@@ -469,11 +490,43 @@ shinyUI(dashboardPage(
           # Collection Management ----
           tabPanel(
             "Collection Management",
-            fluidRow(box(plotlyOutput("totalWasteTrend"), width = 12)),
-            fluidRow(box(plotlyOutput("wasteByRegion"), width = 6), box(plotlyOutput("wasteByType"), width = 6)),
+            style = "margin-top: 20px;",
+            fluidRow(
+              box(
+                collapsible = TRUE,
+                solidHeader = TRUE,
+                status = "primary",
+                title = "Total Waste Trend (2016-2022)",
+                plotlyOutput("totalWasteTrend"),
+                width = 12
+              )
+            ),
+            fluidRow(
+              box(
+                collapsible = TRUE,
+                solidHeader = TRUE,
+                status = "primary",
+                title = "Total Waste by Region",
+                plotlyOutput("wasteByRegion"),
+                width = 6
+              ),
+              box(
+                collapsible = TRUE,
+                solidHeader = TRUE,
+                status = "primary",
+                title = "Total Waste by Type",
+                plotlyOutput("wasteByType"),
+                width = 6
+              )
+            ),
             fluidRow(column(
-              3, box(
+              3,
+              box(
+                collapsible = TRUE,
                 width = 12,
+                solidHeader = TRUE,
+                status = "primary",
+                title = "Select Filters:",
                 selectInput("region", "Select Region:", choices = NULL),
                 selectInput("wasteType", "Select Waste Type:", choices = NULL),
                 sliderInput(
@@ -486,6 +539,10 @@ shinyUI(dashboardPage(
                 )
               )
             ), column(9, box(
+              collapsible = TRUE,
+              solidHeader = TRUE,
+              status = "primary",
+              title = "Management of Waste Over Time by Region and Type",
               width = 12, plotlyOutput("detailedPlot", height = "600px")
             )))
           )
@@ -501,65 +558,68 @@ shinyUI(dashboardPage(
           id = "treatment_tabs",
           
           # Treatment Storage ----
-          tabPanel("Treatment Storage",
-                   fluidRow(
-                     column(
-                       3,
-                       box(
-                         collapsible = TRUE,
-                         width = 12,
-                         title = "Select Filters:",
-                         solidHeader = TRUE,
-                         status = "primary",
-                         selectizeInput("year_range_trt_storage", "Select Year Range",
-                                        choices = NULL, 
-                                        multiple = TRUE,
-                                        options = list(plugins = list("remove_button"))),
-                         selectInput(
-                           "waste_type_trt_storage", 
-                           "Select Waste Type",
-                           choices = NULL
-                         ),
-                         selectInput(
-                           "region_trt_storage", 
-                           "Select Region",
-                           choices = NULL
-                         )
-                       )
-                     ),
-                     column(
-                       9,
-                       box(
-                         collapsible = TRUE,
-                         width = 12,
-                         title = "Changes in Stored Wood Waste by Year",
-                         solidHeader = TRUE,
-                         status = "primary",
-                         plotlyOutput("waterfall_plot")
-                       )
-                     )
-                   )
-          ),
+          tabPanel("Treatment Storage", 
+                   style = "margin-top: 20px;", fluidRow(
+            box(
+              collapsible = TRUE,
+              width = 3,
+              title = "Select Filters:",
+              solidHeader = TRUE,
+              status = "primary",
+              sliderInput(
+                "year_range_trt_storage",
+                "Select Year Range:",
+                min = 2016,
+                max = 2022,
+                value = c(2016, 2022)
+              ),
+              selectizeInput("waste_type_trt_storage", 
+                             "Select Waste Type", 
+                             choices = NULL),
+              selectizeInput("region_trt_storage", 
+                             "Select Region", 
+                             choices = NULL)
+            ),
+            
+            box(
+              collapsible = TRUE,
+              width = 9,
+              title = "Changes in Stored Wood Waste by Year",
+              solidHeader = TRUE,
+              status = "primary",
+              plotlyOutput("waterfall_plot")
+            )
+          )), 
           
           # Treatment Collected ----
           tabPanel("Treatment Collected",
+                   style = "margin-top: 20px;",
                    fluidRow(
                      box(
-                       title = "Total Waste Received Over Years", 
+                       collapsible = TRUE,
+                       title = "Total Waste Received Over Years (in tons)",
+                       solidHeader = TRUE,
+                       status = "primary",
                        width = 12, 
                        plotlyOutput("plot_yearly")
                      )
                    ),
                    fluidRow(
                      box(
-                       title = "Total Waste Received by Statistical Region", 
+                       collapsible = TRUE,
+                       title = "Total Waste Received by Statistical Region (in tons)", 
+                       solidHeader = TRUE,
+                       status = "primary",
                        width = 12, 
                        plotlyOutput("plot_region")
                      )
                    ),
                    fluidRow(
                      box(
-                       title = "Total Waste Received by Type of Waste", 
+                       collapsible = TRUE,
+                       title = "Total Waste Received by Type of Waste (in tons)", 
+                       solidHeader = TRUE,
+                       status = "primary",
                        width = 12, 
                        plotlyOutput("plot_waste_type")
                      )
@@ -567,90 +627,131 @@ shinyUI(dashboardPage(
           ),
           
           # Treatment Treatment ----
-          tabPanel("Treatment Treatment",
-                   fluidRow(
-                     column(
-                       3,
-                       box(
-                         title = "Filter Data:", 
-                         solidHeader = TRUE,
-                         status = "primary",
-                         width = 12,
-                         sliderInput("year_range_trt_treatment", "Select Year Range:", min = 2016, max = 2022, value = c(2016, 2022)),
-                         selectInput("waste_type_trt_treatment", "Select Waste Type:", choices = NULL, multiple = TRUE),
-                         selectInput("region_trt_treatment", "Select Region:", choices = NULL, multiple = TRUE)
-                       )
-                     ),
-                     column(
-                       9,
-                       box(
-                         title = "Waste Treatment Over Time by Waste Type", 
-                         solidHeader = TRUE,
-                         status = "primary",
-                         width = 12, 
-                         plotlyOutput("plot_waste_treatment")
-                       )
-                     )
-                     
-                   )
-          ),
+          tabPanel("Treatment Treatment", 
+                   style = "margin-top: 20px;", fluidRow(
+            box(
+              collapsible = TRUE,
+              title = "Filter Data:",
+              solidHeader = TRUE,
+              status = "primary",
+              width = 3,
+              sliderInput(
+                "year_range_trt_treatment",
+                "Select Year Range:",
+                min = 2016,
+                max = 2022,
+                value = c(2016, 2022)
+              ),
+              selectizeInput(
+                "waste_type_trt_treatment",
+                "Select Waste Type",
+                choices = NULL,
+                multiple = TRUE
+              ),
+              selectizeInput(
+                "region_trt_treatment",
+                "Select Region",
+                choices = NULL,
+                multiple = TRUE
+              )
+            ),
+            
+            box(
+              collapsible = TRUE,
+              title = "Waste Treatment Over Time by Waste Type (in tons)",
+              solidHeader = TRUE,
+              status = "primary",
+              width = 9,
+              plotlyOutput("plot_waste_treatment", height = "500px")
+            )
+          )), 
+          
+          
           
           # Treatment Municipal Waste Received ----
           tabPanel("Treatment Municipal Waste Received",
+                   style = "margin-top: 20px;",
                    fluidRow(
                      box(
+                       collapsible = TRUE,
+                       title = "Average Municipal Waste Collected for Treatment in Slovenia (2018-2021)",
+                       solidHeader = TRUE,
+                       status = "primary",
                        width = 12,
-                       title = "Average Municipal Waste Collected in Slovenia (2018-2021)",
                        plotlyOutput("wasteMap", height = "600px")
                      )
                    ),
                    fluidRow(
                      box(
-                       width = 12,
-                       title = "Waste Collected Over Time by Municipality",
+                       collapsible = TRUE,
+                       title = "Filter Data:",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 3,
+                       sliderInput("top_n_trt_municipal", 
+                                   "Select Top N Municipalities:",
+                                   min = 1, 
+                                   max = 10, 
+                                   value = 3,
+                                   animate = TRUE,
+                                   ticks = FALSE
+                                   ),
+                       sliderInput("year_range_trt_municipal", "Select Year Range:",
+                                   min = 2018, max = 2021, value = c(2018, 2023), step = 1, sep = "")
+                     ),
+                     box(
+                       collapsible = TRUE,
+                       title = "Waste Collected Over Time by Municipality (in tons)",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 9,
                        plotlyOutput("trendPlot", height = "600px")
                      )
-                   ),
+                   )
+                   ,
                    fluidRow(
                      box(
+                       collapsible = TRUE,
+                       title = "Total Waste Collected by Region (in tons)",
+                       solidHeader = TRUE,
+                       status = "primary",
                        width = 12,
-                       title = "Total Waste Collected by Region",
                        plotlyOutput("regionPlot", height = "600px")
-                     )
-                   ),
-                   fluidRow(
-                     box(
-                       width = 12,
-                       title = "Correlation between Paper/Cardboard Packaging and Other Wood Waste",
-                       plotlyOutput("correlationPlot", height = "600px")
                      )
                    )
           ),
           
           # Treatment Input Treatment ----
-          tabPanel("Treatment Input Treatment",
-                   fluidRow(
-                     box(
-                       title = "Filters",
-                       selectInput("year_filter", "Select Year:", choices = NULL, multiple = TRUE),
-                       selectInput("waste_type_filter", "Select Waste Type:", choices = NULL, multiple = TRUE)
-                     )
-                   ),
-                   fluidRow(
-                     box(
-                       title = "Mass Change by Year",
-                       plotlyOutput("inputTreatmentByYear"),
-                       width = 12
-                     )
-                   ),
-                   fluidRow(
-                     box(
-                       title = "Mass Change by Operation",
-                       plotlyOutput("inputTreatmentByOperation"),
-                       width = 12
-                     )
-                   )
-          )
+          tabPanel("Treatment Input Treatment", 
+                   style = "margin-top: 20px;", fluidRow(
+            box(
+              collapsible = TRUE,
+              title = "Filter Data:",
+              solidHeader = TRUE,
+              status = "primary",
+              width = 3,
+              selectizeInput(
+                "year_filter",
+                "Select Year:",
+                choices = NULL,
+                multiple = TRUE
+              ),
+              selectizeInput(
+                "waste_type_filter",
+                "Select Waste Type:",
+                choices = NULL,
+                multiple = TRUE
+              )
+            ),
+            box(
+              collapsible = TRUE,
+              title = "Mass Change During Treatment Over the Years by Waste Type (in tons)",
+              solidHeader = TRUE,
+              status = "primary",
+              width = 9,
+              plotlyOutput("inputTreatmentByYear"),
+            )
+          ))
         )
       ),
       # Simulation -----
@@ -666,9 +767,9 @@ shinyUI(dashboardPage(
           # Left column -----
           box(
             width = 6,
-            h3(
-              "Scenarios lock one or more of the parameters based on the selected scenario."
-            ),
+            title = "Select a Scenario and Set Parameters",
+            solidHeader = TRUE,
+            status = "primary",
             selectInput(
               "scenario",
               "Scenario/Presets:",
@@ -748,6 +849,9 @@ shinyUI(dashboardPage(
           # Right column -----
           box(
             width = 6,
+            title = "Simulation Parameters",
+            solidHeader = TRUE,
+            status = "primary",
             create_numeric_input_row(
               input_id1 = "generation_rate_increase",
               label1 = "Generation Rate Multiplier:",
@@ -847,31 +951,49 @@ shinyUI(dashboardPage(
       # Outputs -----
       tabItem(tabName = "outputs", fluidRow(
         box(
+          collapsible = TRUE,
           width = 12,
           title = "Simulation Outputs",
           solidHeader = TRUE,
           status = "primary",
-          selectInput(
-            "selected_region",
-            "Select Region:",
-            choices = NULL,
-            multiple = TRUE
+          fluidRow(
+            column(
+              6,
+              selectizeInput(
+                "selected_region",
+                "Select Region:",
+                choices = NULL,
+                multiple = TRUE,
+                options = list(plugins = list("remove_button", "drag_drop"))
+              )
+            ),
+            column(
+              6,
+              selectizeInput(
+                "selected_waste_type",
+                "Select Waste Type:",
+                choices = NULL,
+                multiple = TRUE,
+                options = list(plugins = list("remove_button"))
+              )
+            )
           ),
-          selectInput(
-            "selected_waste_type",
-            "Select Waste Type:",
-            choices = NULL,
-            multiple = TRUE
-          ),
-          selectInput(
-            "selected_metric",
-            "Select Metric:",
-            choices = NULL,
-            multiple = TRUE
+          fluidRow(
+            column(
+              12,
+              selectizeInput(
+                "selected_metric",
+                "Select Metric:",
+                choices = NULL,
+                multiple = TRUE,
+                options = list(plugins = list("remove_button"))
+              )
+            )
           ),
           DTOutput("simulation_output")
         ),
         box(
+          collapsible = TRUE,
           width = 6,
           title = "Cumulative Totals",
           solidHeader = TRUE,
@@ -882,6 +1004,7 @@ shinyUI(dashboardPage(
       # Plots of Data -----
       tabItem(tabName = "plots", fluidRow(
         box(
+          collapsible = TRUE,
           width = 12,
           title = "Filter By",
           solidHeader = TRUE,
@@ -926,6 +1049,7 @@ shinyUI(dashboardPage(
           )
         ),
         box(
+          collapsible = TRUE,
           width = 12,
           title = "Plots",
           solidHeader = TRUE,
@@ -939,6 +1063,7 @@ shinyUI(dashboardPage(
       # Tables of Data -----
       tabItem(tabName = "tables", fluidRow(
         box(
+          collapsible = TRUE,
           width = 12,
           title = "Results Table",
           solidHeader = TRUE,
@@ -951,6 +1076,7 @@ shinyUI(dashboardPage(
           #column(6, downloadButton("download_report", "Download Report", width = "100%"))
         ),
         box(
+          collapsible = TRUE,
           width = 12,
           title = "Costs Table",
           solidHeader = TRUE,
@@ -961,6 +1087,7 @@ shinyUI(dashboardPage(
       # Costs -----
       tabItem(tabName = "costs", fluidRow(
         box(
+          collapsible = TRUE,
           width = 12,
           title = "Costs Over Time",
           solidHeader = TRUE,
@@ -974,6 +1101,7 @@ shinyUI(dashboardPage(
       # Distance Matrix -----
       tabItem(tabName = "distance_matrix", fluidRow(
         box(
+          collapsible = TRUE,
           width = 6,
           title = "Distance Matrix",
           solidHeader = TRUE,
@@ -987,6 +1115,7 @@ shinyUI(dashboardPage(
           )
         ),
         box(
+          collapsible = TRUE,
           width = 6,
           title = "Distance Matrix Plot",
           solidHeader = TRUE,
