@@ -73,135 +73,10 @@ total_sent_outside_EU <- gnr_data |>
 total_sent_outside_EU <- round(total_sent_outside_EU$total_sent_outside_EU, 2)
 
 ### Collection ----
-coll_storage_data <- read_csv("data/coll_storage_combined.csv")
-coll_received_data <- read_csv("data/coll_received_combined.csv")
-coll_municipal_data <- read_csv("data/coll_municipal_combined.csv")
-coll_municipal_collected_data <- read_csv("data/coll_municipal_collected_combined.csv")
-coll_management_data <- read_csv("data/coll_management_combined.csv")
 #### coll_storage_data ----
-
-# yearly data plot
-
-yearly_data <- coll_storage_data |>
-  group_by(year) |>
-  summarize(
-    total_start = sum(waste_stored_start_year, na.rm = TRUE),
-    total_end = sum(waste_stored_end_year, na.rm = TRUE)
-  )
-
-# variant ----
-# Prepare the yearly data
-yearly_data <- coll_storage_data |>
-  group_by(year) |>
-  summarize(
-    total_start = sum(waste_stored_start_year, na.rm = TRUE),
-    total_end = sum(waste_stored_end_year, na.rm = TRUE)
-  )
-
-# Create the variant data
-variant_data <- yearly_data |>
-  arrange(year) |>
-  mutate(
-    end_year = paste0(year, " End"),
-    start_next_year = paste0(year + 1, " Start"),
-    end_amount = total_end,
-    start_amount = lead(total_start),
-    difference = lead(total_start) - total_end
-  ) |>
-  select(end_year, start_next_year, end_amount, start_amount, difference) |>
-  pivot_longer(
-    cols = c(end_year, start_next_year),
-    names_to = "type",
-    values_to = "year"
-  ) |>
-  mutate(
-    amount = ifelse(type == "end_year", end_amount, start_amount),
-    difference = ifelse(type == "start_next_year", difference, 0),
-    cumulative = cumsum(amount),
-    color_category = case_when(
-      type == "end_year" ~ "End Year",
-      difference > 0 ~ "Increase",
-      difference < 0 ~ "Decrease",
-      TRUE ~ "No Change"
-    )
-  ) |>
-  filter(!is.na(start_amount))
-
-# Create a new column for ordered factor
-variant_data$year <- with(variant_data, 
-                          paste(year, ifelse(type == "end_year", "", ""), sep = " "))
-# Ensure 'year' is a factor with the desired order
-variant_data$year <- factor(variant_data$year, 
-                            levels = unique(variant_data$year))
-
-# Prepare data for side-by-side bars
-variant_data_long <- variant_data |>
-  pivot_longer(
-    cols = c(amount, difference),
-    names_to = "bar_type",
-    values_to = "value"
-  ) |>
-  mutate(
-    bar_category = case_when(
-      bar_type == "amount" & type == "end_year" ~ "End Year",
-      bar_type == "amount" & type != "end_year" ~ "Start Amount",
-      bar_type == "difference" & color_category == "Increase" ~ "Increase",
-      bar_type == "difference" & color_category == "Decrease" ~ "Decrease",
-      TRUE ~ "No Change"
-    )
-  )
-
-# Define the desired order of bar categories
-desired_order <- c("Start Amount", "Increase", "End Year", "Decrease", "No Change")
-
-# Reorder the data based on the desired order of bar categories
-variant_data_long <- variant_data_long |> 
-  mutate(bar_category = factor(bar_category, levels = desired_order)) |> 
-  arrange(bar_category)
-
-# Create the variant waterfall plot with side-by-side bars
-variant_plot <- ggplot(variant_data_long, aes(x = year, y = value, fill = bar_category)) +
-  geom_col(color = "black", aes(
-    text = paste0(
-      "Year: ",
-      year,
-      "<br>",
-      "Type: ",
-      bar_type,
-      "<br>",
-      "Value: ",
-      round(value, 2),
-      " tons<br>"
-    )
-  )) +
-  geom_text(
-    aes(
-      label = ifelse(value > 0, round(value, 1), ifelse(value == 0, NA, round(value, 1))),
-      y = ifelse(value >= 0, value, value) + 0.05 * max(value)
-    ),
-    position = position_dodge(width = 0.7),
-    vjust = -0.5,
-    size = 3
-  ) +
-  scale_fill_manual(
-    values = c(
-      "End Year" = "#4169E1",
-      "Increase" = "#006400",
-      "Start Amount" = "#808080",
-      "Decrease" = "#8B0000",
-      "No Change" = "#D3D3D3"
-    ),
-    name = "Type"
-  ) +
-  labs(x = "Year", y = "Waste Amount (tons)") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-# Convert variant plot to plotly for interactivity
-variant_plot <- ggplotly(variant_plot, tooltip = "text") |> 
-  layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
-
+coll_storage_data <- read_csv("data/coll_storage_combined.csv")
 #### coll_received_data ----
+coll_received_data <- read_csv("data/coll_received_combined.csv")
 ##### data for coll_received_data infoBox 
 total_waste_collected <- round(sum(coll_received_data$total_waste_collected, na.rm = TRUE), 2)
 
@@ -296,6 +171,7 @@ t_grouped <- ggplot(df_long_received, aes(x = statistical_region, y = total_coll
 
 
 #### coll_municipal_data ----
+coll_municipal_data <- read_csv("data/coll_municipal_combined.csv")
 
 # Reshape data for plotting
 df_long_municipal <- melt(
@@ -345,6 +221,7 @@ t11 <- ggplot(df_top_municipal, aes(x = year, y = total_collected, color = name_
   theme(legend.position = "bottom")
 
 #### coll_municipal_collected_data ----
+coll_municipal_collected_data <- read_csv("data/coll_municipal_collected_combined.csv")
 
 df_long_collected <- melt(
   coll_municipal_collected_data,
@@ -430,7 +307,8 @@ plot_waste_types_by_year <- function(data) {
     color = ~type_of_waste,
     type = 'bar',
     text = ~paste("Year:", year, "<br>Total Collected:", total_collected),
-    hoverinfo = 'text'
+    hoverinfo = 'text',
+    textposition = 'inside'
   ) |>
     layout(
       title = "Waste Types Collected by Year",
@@ -471,6 +349,7 @@ plot_heatmap_by_region <- function(data) {
 }
 
 #### coll_management_data ----
+coll_management_data <- read_csv("data/coll_management_combined.csv")
 
 # Reshape data for plotting
 df_long_management <- melt(
@@ -808,9 +687,98 @@ shinyServer(function(input, output, session) {
   
   ### Storage ----
   
+  observe({
+    updateSelectizeInput(
+      session,
+      "region_selection_coll_storage",
+      choices = coll_storage_data$statistical_region,
+      selected = coll_storage_data$statistical_region[1],
+      options = list(
+        placeholder = "Select a region",
+        plugins = list("remove_button")
+      ),
+    )
+  })
+  
   # Render the selected plot based on user input
   output$selectedPlot1 <- renderPlotly({
-    if (input$plot_selection == "Total Wood Waste Over Time") {
+    # Filter by selected regions
+    filtered_data <- coll_storage_data |> 
+      filter(statistical_region %in% input$region_selection_coll_storage)
+    
+    # Update yearly data plot based on the filtered data
+    yearly_data <- filtered_data |>
+      group_by(year) |>
+      summarize(
+        total_start = sum(waste_stored_start_year, na.rm = TRUE),
+        total_end = sum(waste_stored_end_year, na.rm = TRUE)
+      )
+    
+    print(colnames(yearly_data))
+    
+    # Variant data with the same region filtering applied
+    variant_data <- yearly_data |>
+      arrange(year) |>
+      mutate(
+        end_year = paste0(year, " End"),
+        start_next_year = paste0(year + 1, " Start"),
+        end_amount = total_end,
+        start_amount = lead(total_start),
+        difference = lead(total_start) - total_end
+      ) |>
+      select(end_year, start_next_year, end_amount, start_amount, difference) |>
+      pivot_longer(
+        cols = c(end_year, start_next_year),
+        names_to = "type",
+        values_to = "year"
+      ) |>
+      mutate(
+        amount = ifelse(type == "end_year", end_amount, start_amount),
+        difference = ifelse(type == "start_next_year", difference, 0),
+        cumulative = cumsum(amount),
+        color_category = case_when(
+          type == "end_year" ~ "End Year",
+          difference > 0 ~ "Increase",
+          difference < 0 ~ "Decrease",
+          TRUE ~ "No Change"
+        )
+      ) |>
+      filter(!is.na(start_amount))
+    
+    # Create a new column for ordered factor
+    variant_data$year <- with(variant_data, 
+                              paste(year, ifelse(type == "end_year", "", ""), sep = " "))
+    # Ensure 'year' is a factor with the desired order
+    variant_data$year <- factor(variant_data$year, 
+                                levels = unique(variant_data$year))
+    
+    # Prepare data for side-by-side bars
+    variant_data_long <- variant_data |>
+      pivot_longer(
+        cols = c(amount, difference),
+        names_to = "bar_type",
+        values_to = "value"
+      ) |>
+      mutate(
+        bar_category = case_when(
+          bar_type == "amount" & type == "end_year" ~ "End Year",
+          bar_type == "amount" & type != "end_year" ~ "Start Amount",
+          bar_type == "difference" & color_category == "Increase" ~ "Increase",
+          bar_type == "difference" & color_category == "Decrease" ~ "Decrease",
+          TRUE ~ "No Change"
+        )
+      )
+    
+    # Define the desired order of bar categories
+    desired_order <- c("Start Amount", "Increase", "End Year", "Decrease", "No Change")
+    
+    # Reorder the data based on the desired order of bar categories
+    variant_data_long <- variant_data_long |> 
+      mutate(bar_category = factor(bar_category, levels = desired_order)) |> 
+      arrange(bar_category)
+    
+    # Create plots based on user selection
+    if (input$plot_selection_coll_storage == "Total Wood Waste Over Time") {
       t <- ggplot(yearly_data, aes(x = year)) +
         geom_point(aes(y = total_start, color = "Start of Year")) +
         geom_point(aes(y = total_end, color = "End of Year")) +
@@ -823,9 +791,50 @@ shinyServer(function(input, output, session) {
       ggplotly(t) |> 
         layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
     } else {
-      variant_plot  # This is the variant plot
+      # Create the variant waterfall plot with stacked bars
+      variant_plot <- ggplot(variant_data_long, aes(x = year, y = value, fill = bar_category)) +
+        geom_col(color = "black", aes(
+          text = paste0(
+            "Year: ",
+            year,
+            "<br>",
+            "Type: ",
+            bar_type,
+            "<br>",
+            "Value: ",
+            round(value, 2),
+            " tons<br>"
+          )
+        )) +
+        geom_text(
+          aes(
+            label = ifelse(value > 0, round(value, 1), ifelse(value == 0, NA, round(value, 1))),
+            y = ifelse(value >= 0, value, value) + 0.05 * max(value)
+          ),
+          position = position_dodge(width = 0.7),
+          vjust = -0.5,
+          size = 3
+        ) +
+        scale_fill_manual(
+          values = c(
+            "End Year" = "#4169E1",
+            "Increase" = "#006400",
+            "Start Amount" = "#808080",
+            "Decrease" = "#8B0000",
+            "No Change" = "#D3D3D3"
+          ),
+          name = "Type"
+        ) +
+        labs(x = "Year", y = "Waste Amount (tons)") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1))
+      
+      # Convert variant plot to plotly for interactivity
+      variant_plot <- ggplotly(variant_plot, tooltip = "text") |> 
+        layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
     }
   })
+  
   
   ### Received ----
   
@@ -1365,22 +1374,32 @@ shinyServer(function(input, output, session) {
     
     p <- ggplot(variant_data_long, aes(x = year, y = value, fill = bar_category)) +
       geom_col(position = position_identity(), color = "black") +
-      geom_text(aes(label = ifelse(value > 0, round(value, 1), ifelse(value == 0, NA, round(value, 1))),
-                    y = ifelse(value >= 0, value, value) + 0.05 * max(value)),
-                position = position_dodge(width = 0.9),
-                vjust = -0.5, size = 3) +
-      scale_fill_manual(values = c("End Year" = "#4169E1", 
-                                   "Increase" = "#006400",
-                                   "Start Amount" = "#808080",
-                                   "Decrease" = "#8B0000",
-                                   "No Change" = "#D3D3D3"),
-                        name = "Type") +
+      geom_text(
+        aes(
+          label = ifelse(value > 0, round(value, 1), ifelse(value == 0, NA, round(value, 1))),
+          y = ifelse(value >= 0, value, value) + 0.05 * max(value)
+        ),
+        position = position_dodge(width = 0.9),
+        vjust = -0.5,
+        size = 3
+      ) +
+      scale_fill_manual(
+        values = c(
+          "End Year" = "#4169E1",
+          "Increase" = "#006400",
+          "Start Amount" = "#808080",
+          "Decrease" = "#8B0000",
+          "No Change" = "#D3D3D3"
+        ),
+        name = "Type"
+      ) +
       labs(x = "Year", y = "Waste Amount (tons)") +
       theme_minimal() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
     
-    ggplotly(p, tooltip = c("x", "y", "fill")) |> 
-      layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
+    ggplotly(p, tooltip = c("x", "y", "fill")) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
   }) 
   
   ### Collected ----
@@ -1608,6 +1627,7 @@ shinyServer(function(input, output, session) {
                          aes(x = year, y = total_waste, color = name_of_municipality)) +
       geom_point() +
       geom_line() +
+      scale_x_continuous(breaks = unique(filtered_data$year)) +
       theme_minimal() +
       labs(x = "Year", y = "Waste Collected")
     
@@ -1640,12 +1660,12 @@ shinyServer(function(input, output, session) {
   
   # Update filters
   observe({
-    updateSelectizeInput(
+    updateSliderInput(
       session,
       "year_filter",
-      choices = sort(unique(trt_input_treatment_data$year)),
-      selected = unique(trt_input_treatment_data$year),
-      options = list(plugins = list('remove_button'))
+      min = min(unique(trt_input_treatment_data$year)),
+      max = max(unique(trt_input_treatment_data$year)),
+      value = c(min(unique(trt_input_treatment_data$year)), max(unique(trt_input_treatment_data$year)))
     )
     updateSelectizeInput(
       session,
@@ -1661,15 +1681,37 @@ shinyServer(function(input, output, session) {
   # Filter data based on user input
   filtered_input_data <- reactive({
     trt_input_treatment_data |>
-      filter(year %in% input$year_filter, type_of_waste %in% input$waste_type_filter)
+      filter(year >= input$year_filter[1] & year <= input$year_filter[2], 
+             type_of_waste %in% input$waste_type_filter,
+             mass_change > 0)
   })
   
   # Mass Change by Year
   output$inputTreatmentByYear <- renderPlotly({
-    plot_ly(filtered_input_data(), x = ~year, y = ~mass_change, type = 'bar', color = ~type_of_waste) |>
-      layout(#title = "Mass Change During Treatment Over the Years by Waste Type",
-             xaxis = list(title = "Year"),
-             yaxis = list(title = "Total Mass Change"))
+    plot_ly(
+      filtered_input_data(),
+      x = ~ year,
+      y = ~ mass_change,
+      type = 'bar',
+      color = ~ type_of_waste,
+      text = ~ paste(
+        "Year:",
+        year,
+        "<br>Mass Change:",
+        mass_change,
+        "tons",
+        "<br>Type of Waste:",
+        type_of_waste
+      ),
+      hoverinfo = 'text',
+      textposition = 'inside'
+    ) |>
+      layout(
+        #title = "Mass Change During Treatment Over the Years by Waste Type",
+        barmode = 'stack',
+        xaxis = list(title = "Year"),
+        yaxis = list(title = "Total Mass Change")
+      )
   })
   
   # Mass Change by Operation - NOT USED

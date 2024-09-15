@@ -58,21 +58,22 @@ shinyUI(dashboardPage(
     id = "tabs",
     # Hidden tabs -----
     ## Analysis -----
-    hidden(
-      menuItem(
-        "hiddenAnalysis",
-        tabName = "hiddenAnalysis",
-        icon = icon("chart-simple")
-      )
-    ),
-    ## Simulation -----
-    hidden(
-      menuItem(
-        "hiddenSimulation",
-        tabName = "hiddenSimulation",
-        icon = icon("play")
-      )
-    ),
+    # add information if needed for the hidden tabs, then remove the #'s from the lines below
+    # hidden(
+    #   menuItem(
+    #     "hiddenAnalysis",
+    #     tabName = "hiddenAnalysis",
+    #     icon = icon("chart-simple")
+    #   )
+    # ),
+    # ## Simulation -----
+    # hidden(
+    #   menuItem(
+    #     "hiddenSimulation",
+    #     tabName = "hiddenSimulation",
+    #     icon = icon("play")
+    #   )
+    # ),
     # Main tabs -----
     ## Analysis -----
     menuItem(
@@ -268,9 +269,14 @@ shinyUI(dashboardPage(
                        solidHeader = TRUE,
                        status = "primary",
                        # Select input for choosing the plot
-                       selectInput("plot_selection", "Choose a Plot:",
+                       selectInput("plot_selection_coll_storage", "Choose a Plot:",
                                    choices = c("Total Wood Waste Over Time", "Total Wood Waste Over Time - Variant"),
                                    selected = "Total Wood Waste Over Time"),  # Default selection
+                       # Select input for filtering by region
+                       selectizeInput("region_selection_coll_storage", "Select Region:",
+                                   choices = NULL,  
+                                   selected = NULL, 
+                                   multiple = TRUE)
                      )
                    ),
                    fluidRow(
@@ -284,6 +290,7 @@ shinyUI(dashboardPage(
                      )
                    )
           ),
+          
           
           # Collection Received ----
           tabPanel("Collection Received",
@@ -376,7 +383,7 @@ shinyUI(dashboardPage(
                        solidHeader = TRUE,
                        status = "primary",
                        width = 9,
-                       plotlyOutput("selectedPlot2")
+                       plotlyOutput("selectedPlot2", height = "500px")
                      )
                    )
           ),
@@ -730,11 +737,12 @@ shinyUI(dashboardPage(
               solidHeader = TRUE,
               status = "primary",
               width = 3,
-              selectizeInput(
+              sliderInput(
                 "year_filter",
-                "Select Year:",
-                choices = NULL,
-                multiple = TRUE
+                "Select Year Range:",
+                min = 2018,
+                max = 2022,
+                value = c(2018, 2022)
               ),
               selectizeInput(
                 "waste_type_filter",
