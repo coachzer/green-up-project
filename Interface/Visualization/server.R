@@ -16,7 +16,7 @@ library(reshape2)
 library(igraph)
 
 # Do not forget to set your working directory to the Visualization folder
-setwd("C:/Users/kovac/Desktop/Work/Green UP Project/green-up-project/Interface/Visualization")
+# setwd("C:/Users/kovac/Desktop/Work/Green UP Project/green-up-project/Interface/Visualization")
 
 # Colorblind-friendly palette
 color_palette <- c("waste_from_producers_no_record" = "#E69F00",  # Orange

@@ -1,3 +1,5 @@
+# install.packages("shiny", "plotly", "DT", "shinyFeedback", "shinydashboard", "shinyjs", "shinyBS", "bslib", "igraph")
+
 library(shiny)
 library(plotly)
 library(DT)
