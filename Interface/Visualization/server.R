@@ -406,6 +406,11 @@ shinyServer(function(input, output, session) {
   
   ## Generation ----
   
+  
+  # TO-DO: Add overlay of the three "per year basis" plots
+  #       
+  
+  
   # Load data for generation
   output$generationData <- DT::renderDataTable({
     gnr_data
@@ -683,6 +688,57 @@ shinyServer(function(input, output, session) {
     
   })
   
+  # Combined waste management plot
+  output$combinedWastePlot <- renderPlotly({
+    # Summarize all three metrics by year
+    combined_data <- gnr_data |>
+      group_by(year) |>
+      summarize(
+        total_generated_waste = sum(generated_in_the_year, na.rm = TRUE),
+        total_waste_transferred = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE),
+        total_waste_stored_start = sum(temporarily_stored_start_year, na.rm = TRUE),
+        total_waste_stored_end = sum(temporarily_stored_end_year, na.rm = TRUE)
+      )
+    
+    # Create the combined plotly plot
+    plot_ly(data = combined_data, x = ~year) |>
+      add_trace(
+        y = ~total_generated_waste,
+        name = "Total Generated Waste",
+        type = 'scatter',
+        mode = 'lines+markers',
+        line = list(color = '#E69F00')
+      ) |>
+      add_trace(
+        y = ~total_waste_transferred,
+        name = "Waste Transferred",
+        type = 'scatter',
+        mode = 'lines+markers',
+        line = list(color = '#56B4E9')
+      ) |>
+      add_trace(
+        y = ~total_waste_stored_start,
+        name = "Waste Stored at Start of Year",
+        type = 'scatter',
+        mode = 'lines+markers',
+        line = list(color = '#009E73')
+      ) |>
+      add_trace(
+        y = ~total_waste_stored_end,
+        name = "Waste Stored at End of Year",
+        type = 'scatter',
+        mode = 'lines+markers',
+        line = list(color = '#F0E442')
+      ) |>
+      layout(
+        # title = "Combined Waste Management Metrics Over Time",
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Waste Amount (tons)", autorange = TRUE),
+        hovermode = "x unified",
+        legend = list(orientation = 'h', y = -0.2)
+      )
+  })
+  
   ## Collection ----
   
   ### Storage ----
@@ -713,8 +769,6 @@ shinyServer(function(input, output, session) {
         total_start = sum(waste_stored_start_year, na.rm = TRUE),
         total_end = sum(waste_stored_end_year, na.rm = TRUE)
       )
-    
-    print(colnames(yearly_data))
     
     # Variant data with the same region filtering applied
     variant_data <- yearly_data |>
@@ -889,7 +943,7 @@ shinyServer(function(input, output, session) {
   output$totalWasteFromCollectors <- renderInfoBox({
     infoBox(
       "Waste from Collectors in RS",
-      paste(waste_from_collectors_RS),
+      paste(waste_from_collectors_RS, " tons"),
       icon = icon("truck"),
       color = "blue",  # Use a predefined color class for default styling
       fill = FALSE
@@ -1512,7 +1566,7 @@ shinyServer(function(input, output, session) {
     data <- filtered_treatment_data()
     
     # Create a Plotly plot
-    p <- plot_ly(data, x = ~year, y = ~total_waste, color = ~type_of_waste, type = 'scatter', mode = 'lines+markers') %>%
+    p <- plot_ly(data, x = ~year, y = ~total_waste, color = ~type_of_waste, type = 'scatter', mode = 'lines+markers') |>
       layout(
         title = "Waste Treatment Over Time by Waste Type (in tons)",
         xaxis = list(title = "Year", autorange = TRUE),

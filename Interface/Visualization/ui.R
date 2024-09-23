@@ -165,6 +165,17 @@ shinyUI(dashboardPage(
             collapsible = TRUE,
             collapsed = FALSE,
             width = 12,
+            title = "Combined Waste Management Metrics",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("combinedWastePlot")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
             title = "Total Wood Waste Generation by Year",
             solidHeader = TRUE,
             status = "primary",
