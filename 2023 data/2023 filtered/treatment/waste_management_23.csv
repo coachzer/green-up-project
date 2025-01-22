@@ -1,0 +1,250 @@
+﻿"year","statistical_region","input_waste_name","treatment_operation","output_waste_name","further_treatment_envisaged","waste_sent_to_self_storage_end_year","waste_sent_to_collector_SI","waste_sent_to_treatment_operator","waste_sent_to_EU_member_states","waste_sent_to_non_EU_countries","waste_sent_to_no_further_management"
+2023,"GORENJSKA","Bulky Waste","R_12, R_13","Wood, not specified in 20 01 37",NA,0,88.06,0,0,0,0
+2023,"GORENJSKA","Metals","R_12, R_13","Wood, not specified in 20 01 37",NA,0,8.254,0,0,0,0
+2023,"GORENJSKA","Paper/Cardboard Packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","D_01",0,0,2463.271,0,0,0
+2023,"GORENJSKA","Paper/Cardboard Packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12, R_13",0,0,1.82,0,0,0
+2023,"GORENJSKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_03",0,0,20.25,629.1,0,0
+2023,"GORENJSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,316.24,0,0
+2023,"GORENJSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,70.3,0,0,0,0,0
+2023,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_01","Ash, Slag and Boiler Dust (except boiler dust specified in 10 01 04)","R_05",0,0,525.642,0,0,0
+2023,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_03","Wood, not specified in 19 12 06","R_12, R_13",0,0,0,209.921,0,0
+2023,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12, R_13","Wood, not specified in 20 01 37","R_12, R_13",0,0,133.82,0,0,0
+2023,"GORENJSKA","Wood","BO","Wood",NA,142.1,0,0,0,0,0
+2023,"GORENJSKA","Wood","R_01","Ash, Slag and Boiler Dust (except boiler dust specified in 10 01 04)","R_05",0,0,1445.98,0,0,0
+2023,"GORENJSKA","Wood","R_03","Wood, not specified in 19 12 06","R_12, R_13",0,0,0,35.51,0,0
+2023,"GORENJSKA","Wood","R_12","Wood, not specified in 19 12 06","R_03",0,0,1.956,0,0,0
+2023,"GORENJSKA","Wood","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","D_01",0,0,20.24,0,0,0
+2023,"GORENJSKA","Wood","R_12, R_13","Wood","R_03",0,0,139.63,0,0,0
+2023,"GORENJSKA","Wood","R_12, R_13","Wood, not specified in 20 01 37","R_12, R_13",0,0,20.228,0,0,0
+2023,"GORENJSKA","Wood, not specified in 20 01 37","R_03","Wood, not specified in 19 12 06","R_12, R_13",0,0,0,7699.5,0,0
+2023,"GORENJSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37","R_03",0,0,0,42.1,0,0
+2023,"GORENJSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37",NA,0,33.846,0,0,0,0
+2023,"GORENJSKA","Wooden packaging","R_01","Ash, Slag and Boiler Dust (except boiler dust specified in 10 01 04)","R_05",0,0,34,0,0,0
+2023,"GORENJSKA","Wooden packaging","R_03","Wooden packaging",NA,3637.282,0,0,0,0,0
+2023,"GORENJSKA","Wooden packaging","R_12, R_13","Wood, not specified in 20 01 37","R_12, R_13",0,0,642.732,0,0,0
+2023,"GORENJSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,477.7,0,0,0
+2023,"GORENJSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_12, R_13",0,0,661.42,0,0,0
+2023,"GORIŠKA","Components Removed from Discarded Equipment, not specified in 16 02 15","R_12","Wooden packaging",NA,0,2.25,0,0,0,0
+2023,"GORIŠKA","Discarded Equipment Containing HCFCs, HFCs","R_12","Wooden packaging",NA,0,6.23,0,0,0,0
+2023,"GORIŠKA","Dust and Particles of Coloured Metals","R_12","Wooden packaging",NA,0,0.88,0,0,0,0
+2023,"GORIŠKA","Inorganic Waste, not specified in 16 03 03","R_12","Wooden packaging",NA,0,2.3,0,0,0,0
+2023,"GORIŠKA","Paper/Cardboard Packaging","R_12","Paper/Cardboard Packaging","R_03",0,0,223.1,0,0,0
+2023,"GORIŠKA","Paper/Cardboard Packaging","R_12","Paper/Cardboard Packaging","R_12, R_13",0,0,844.689,0,0,0
+2023,"GORIŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_12, R_13",0,0,0.117,0,0,0
+2023,"GORIŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,2877.383,0,0
+2023,"GORIŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,338.527,0,0,0
+2023,"GORIŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,15.966,0,0,0,0,0
+2023,"GORIŠKA","Sawdust/Chips/Wood, not specified in 03 01 04","BO","Sawdust/Chips/Wood, not specified in 03 01 04",NA,5.06,0,0,0,0,0
+2023,"GORIŠKA","Shavings and Turnings of Coloured Metals","R_12","Wooden packaging",NA,0,1.02,0,0,0,0
+2023,"GORIŠKA","Wooden packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12, R_13",0,0,17.221,0,0,0
+2023,"GORIŠKA","Wooden packaging","R_12, R_13","Wood, not specified in 19 12 06",NA,2.975,0,0,0,0,0
+2023,"GORIŠKA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,716.74,0,0,0
+2023,"GORIŠKA","Wooden packaging","R_12, R_13","Wooden packaging","R_12, R_13",0,0,3.56,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Bulky Waste","R_12","Wood, not specified in 20 01 37","R_12, R_13",0,0,98.56,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12",0,0,86.307,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_03",0,0,634.283,109.095,0.54,0
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_12, R_13",0,0,38.5,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard",NA,138.466,0,0,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,4863.031,24.07,0
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12",0,0,590.814,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,151.987,0,0,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12",0,0,249.629,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12, R_13","Sawdust/Chips/Wood, not specified in 03 01 04",NA,0,1558.85,0,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12, R_13","Wood, not specified in 19 12 06",NA,0,1638.13,0,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Waste Plastic","R_03","Paper/Cardboard Packaging","R_03",0,0,113.1,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Waste Plastic","R_03","Wooden packaging","R_03",0,0,38.81,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Wood","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12",0,0,293.058,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37","R_12, R_13",0,0,19.41,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37",NA,0,16.82,0,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Wooden packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12, R_13",0,0,86.975,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Wooden packaging","R_12, R_13","Wood, not specified in 19 12 06",NA,0,34.92,0,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,465.78,0,0,0
+2023,"JUGOVZHODNA SLOVENIJA","Wooden packaging","R_12, R_13","Wooden packaging","R_12, R_13",0,0,1828.421,0,0,0
+2023,"KOROŠKA","Bulky Waste","R_12, R_13","Wood, not specified in 20 01 37","R_03",0,0,1700.38,0,0,0
+2023,"KOROŠKA","Mixed Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,95.72,0,0
+2023,"KOROŠKA","Mixed Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,0,46.48,0,0,0,0
+2023,"KOROŠKA","Paper/Cardboard Packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","D_08,09",0,0,7.8,0,0,0
+2023,"KOROŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_03",0,0,0,32.666,0,0
+2023,"KOROŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,1069.665,0,0
+2023,"KOROŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,0,51.945,0,0,0,0
+2023,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_01","Sawdust/Chips/Wood, not specified in 03 01 04","D_01",0,0,8.12,0,0,0
+2023,"KOROŠKA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,301.94,0,0,0
+2023,"OBALNO-KRAŠKA","Miscellaneous Waste","R_12, R_13","Wood","R_03",0,0,51.325,0,0,0
+2023,"OBALNO-KRAŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_12, R_13",0,0,48.963,0,0,0
+2023,"OBALNO-KRAŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard",NA,34.84,0,0,0,0,0
+2023,"OBALNO-KRAŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,1695.127,0,0
+2023,"OBALNO-KRAŠKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,55.031,0,0,0,0,0
+2023,"OBALNO-KRAŠKA","Plastic Packaging","R_03","Wooden packaging","R_03",0,0,0,3.64,0,0
+2023,"OBALNO-KRAŠKA","Plastic Packaging","R_03","Wooden packaging","R_12, R_13",0,0,5.96,0,0,0
+2023,"OBALNO-KRAŠKA","Plastic Packaging","R_03","Wooden packaging",NA,0,1.916,0,0,0,0
+2023,"OBALNO-KRAŠKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12, R_13","Wood","R_03",0,0,187.685,0,0,0
+2023,"OBALNO-KRAŠKA","Wood","BO","Wood",NA,8.4,0,0,0,0,0
+2023,"OBALNO-KRAŠKA","Wood","R_12, R_13","Wooden packaging","R_03",0,0,99.41,0,0,0
+2023,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 19 12 06",NA,5.524,0,0,0,0,0
+2023,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37","R_12, R_13","Wooden packaging","R_03",0,0,204.611,0,0,0
+2023,"OBALNO-KRAŠKA","Wooden packaging","R_12, R_13","Wood, not specified in 19 12 06",NA,0,40.64,0,0,0,0
+2023,"OBALNO-KRAŠKA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,469.109,0,0,0
+2023,"OBALNO-KRAŠKA","Wooden packaging","R_12, R_13","Wooden packaging",NA,11.59,0,0,0,0,0
+2023,"OSREDNJESLOVENSKA","Bulky Waste","R_12, R_13","Wood, not specified in 20 01 37","R_03",0,0,113.47,0,0,0
+2023,"OSREDNJESLOVENSKA","Bulky Waste","R_12, R_13","Wood, not specified in 20 01 37","R_12, R_13",0,0,27.15,0,0,0
+2023,"OSREDNJESLOVENSKA","Discarded Electrical and Electronic Equipment, not specified in 20 01 21, 20 01 23 and 20 01 35","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,13.48,0,0,0
+2023,"OSREDNJESLOVENSKA","Discarded Electrical and Electronic Equipment, not specified in 20 01 21, 20 01 23 and 20 01 35","R_12, R_13","Wood, not specified in 20 01 37","R_12, R_13",0,0,27.91,0,0,0
+2023,"OSREDNJESLOVENSKA","Discarded Equipment, not specified in 16 02 09 to 16 02 13","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,3.8,0,0,0
+2023,"OSREDNJESLOVENSKA","Discarded Equipment, not specified in 16 02 09 to 16 02 13","R_12, R_13","Wood, not specified in 20 01 37","R_12, R_13",0,0,15,0,0,0
+2023,"OSREDNJESLOVENSKA","Mixed Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,502.62,410.267,0,0
+2023,"OSREDNJESLOVENSKA","Mixed Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,105.31,0,0,0
+2023,"OSREDNJESLOVENSKA","Mixed Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,13.982,0,0,0,0,0
+2023,"OSREDNJESLOVENSKA","Organic Waste, not specified in 16 03 05","R_0301","Paper/Cardboard Packaging","R_12, R_13",0,0,63.82,0,0,0
+2023,"OSREDNJESLOVENSKA","Organic Waste, not specified in 16 03 05","R_0301","Wooden packaging","R_03",0,0,64.84,0,0,0
+2023,"OSREDNJESLOVENSKA","Organic Waste, not specified in 16 03 05","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,2.32,0,0,0
+2023,"OSREDNJESLOVENSKA","Paper and Cardboard","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,2841.522,1123.105,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_03","Mechanically Separated Rejects from Waste Paper and Cardboard Pulping","R_12",0,0,156.823,0,0,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_03","Sorted Paper and Cardboard for Recycling","R_12, R_13",0,0,1.66,0,0,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_03",0,0,3074.043,0,11325.353,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_12, R_13",0,0,1155.273,0,0,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,506.121,18370.128,17405.429,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12",0,0,252.845,0,0,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,2085.462,0,0,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,129.938,0,0,0,0,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,424.937,0,0,0
+2023,"OSREDNJESLOVENSKA","Plastic","R_03","Wooden packaging","R_03",0,0,48.92,0,0,0
+2023,"OSREDNJESLOVENSKA","Plastic Packaging","R_03","Paper/Cardboard Packaging","R_03",0,0,5.34,0,0,0
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_01","Ash, Slag and Boiler Dust from Co-incineration, not specified in 10 01 14","D_10",0,0,6.76,0,0,0
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_03","Sawdust/Chips/Wood, not specified in 03 01 04",NA,0,0,0,0,0,0
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_03","Wood, not specified in 19 12 06","R_01",0,0,0,631.46,0,0
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_03","Wood, not specified in 19 12 06","R_03",0,0,0,258.08,0,0
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12, R_13",0,0,17.98,0,0,0
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12, R_13","Wood, not specified in 19 12 06","R_03",0,0,0,1525.02,0,0
+2023,"OSREDNJESLOVENSKA","Sorted Paper and Cardboard for Recycling","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,661.19,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_03","Wood, not specified in 19 12 06","R_03",0,0,0,2883.17,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_12","Ferrous Metals","R_12, R_13",0,0,20.89,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_12","Non-ferrous Metals","R_12, R_13",0,0,0.868,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_12","Wood, not specified in 19 12 06","R_01",0,0,89.88,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_12","Wood, not specified in 19 12 06","R_03",0,0,37.07,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_12","Wood, not specified in 20 01 37","R_12",0,0,9.22,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12",0,0,233.161,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_12, R_13","Wood","R_03",0,0,604.92,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_12, R_13","Wood, not specified in 19 12 06","R_03",0,0,0,1037.911,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_13","Wood","R_03",0,0,47.36,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_13","Wooden packaging","R_03",0,0,0,28.18,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","BO","Wood, not specified in 20 01 37",NA,2438.086,0,0,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_03","Iron and Steel","R_03",0,0,567.169,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_03","Wood, not specified in 19 12 06","R_03",0,0,0,26856.848,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_12","Wood, not specified in 19 12 06","R_01",0,0,426.54,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_12, R_13","Ferrous Metals","R_12, R_13",0,0,680.715,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12",0,0,126.535,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 19 12 06","R_03",0,0,0,10152.981,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37","R_01",0,0,637.14,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37","R_0302",0,0,1078.08,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37","R_12",0,0,9172.58,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","PU","Wooden packaging","PU",0,0,0.6,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_01","Iron Dust and Particles","R_12, R_13",0,0,2.63,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_03","Wood, not specified in 19 12 06","R_03",0,0,0,10585.153,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_12, R_13","Ferrous Metals","R_04",0,0,82.283,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12",0,0,154.281,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12, R_13",0,0,1.315,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_12, R_13","Wood, not specified in 19 12 06","R_03",0,0,0,4034.408,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_12, R_13","Wood, not specified in 20 01 37","R_12, R_13",0,0,35.38,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,2559.63,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_12, R_13",0,0,93.228,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_12, R_13","Wooden packaging",NA,68.422,0,0,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_13","Wooden packaging","R_03",0,0,100.75,173.005,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_13","Wooden packaging","R_12, R_13",0,0,24.175,0,0,0
+2023,"PODRAVSKA","Bulky Waste","R_12","Wood, not specified in 20 01 37","R_03",0,0,120,0,0,0
+2023,"PODRAVSKA","Miscellaneous Waste","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_01",0,0,0,1036.33,0,0
+2023,"PODRAVSKA","Mixed Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,2434.813,0,0
+2023,"PODRAVSKA","Mixed Packaging","R_12, R_13","Wooden packaging","R_03",0,0,1.46,0,0,0
+2023,"PODRAVSKA","Paper and Cardboard","R_12","Paper/Cardboard Packaging","R_03",0,0,0,21.88,0,0
+2023,"PODRAVSKA","Paper/Cardboard Packaging","R_12","Combustible Waste (Refuse Derived Fuel)","R_01",0,0,0,18.356,0,0
+2023,"PODRAVSKA","Paper/Cardboard Packaging","R_12, R_13","Ferrous Metals","R_12, R_13",0,0,3.4,0,0,0
+2023,"PODRAVSKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_03",0,0,903.738,330.342,0,0
+2023,"PODRAVSKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_12, R_13",0,0,1073.307,0,0,0
+2023,"PODRAVSKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard",NA,55.319,0,0,0,0,0
+2023,"PODRAVSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_02",0,0,0,185.31,0,0
+2023,"PODRAVSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,20.1,12380.916,1108.16,0
+2023,"PODRAVSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,1091.528,0,0,0
+2023,"PODRAVSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,39.654,0,0,0,0,0
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","BO","Wood, not specified in 20 01 37","R_03",0,0,503.438,0,0,0
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","R_0302","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11",NA,0,299.36,0,0,0,0
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_01",0,0,0,134.605,0,0
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37",NA,0,108.24,0,0,0,0
+2023,"PODRAVSKA","Wooden packaging","R_12, R_13","Metals",NA,186.032,0,0,0,0,0
+2023,"PODRAVSKA","Wooden packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_01",0,0,0,2.991,0,0
+2023,"PODRAVSKA","Wooden packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12",0,0,135.44,0,0,0
+2023,"PODRAVSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,4909.06,6.8,0,0
+2023,"PODRAVSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_12, R_13",0,0,132.925,0,0,0
+2023,"PODRAVSKA","Wooden packaging","R_12, R_13","Wooden packaging",NA,7.436,0,0,0,0,0
+2023,"POMURSKA","Bulky Waste","R_12, R_13","Wood, not specified in 20 01 37","R_03",0,0,1012.28,0,0,0
+2023,"POMURSKA","Bulky Waste","R_12, R_13","Wood, not specified in 20 01 37",NA,26.98,0,0,0,0,0
+2023,"POMURSKA","Miscellaneous Waste","R_12, R_13","Wooden packaging","R_03",0,0,93.125,0,0,0
+2023,"POMURSKA","Mixed Municipal Waste","D_08,09","Wood, not specified in 20 01 37",NA,64.2,0,0,0,0,0
+2023,"POMURSKA","Mixed Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,256.215,0,0,0
+2023,"POMURSKA","Paper and Cardboard","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,347.633,0,0
+2023,"POMURSKA","Paper/Cardboard Packaging","BO","Paper/Cardboard Packaging","R_12, R_13",0,0,166.035,0,0,0
+2023,"POMURSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,2322.325,0,0
+2023,"POMURSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,303.95,0,0,0
+2023,"POMURSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,112.467,192.126,0,0,0,0
+2023,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12, R_13","Wood, not specified in 19 12 06","R_03",0,0,0,1950.61,0,0
+2023,"POMURSKA","Wood, not specified in 20 01 37","R_12","Wood, not specified in 20 01 37","R_03",0,0,608.88,0,0,0
+2023,"POMURSKA","Wood, not specified in 20 01 37","R_12","Wood, not specified in 20 01 37","R_12, R_13",0,0,352.38,0,0,0
+2023,"POMURSKA","Wood, not specified in 20 01 37","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12, R_13",0,0,352.58,0,0,0
+2023,"POMURSKA","Wooden packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12, R_13",0,0,117.596,0,0,0
+2023,"POMURSKA","Wooden packaging","R_12, R_13","Wood, not specified in 19 12 06","R_03",0,0,0,551.67,0,0
+2023,"POMURSKA","Wooden packaging","R_12, R_13","Wood, not specified in 19 12 06",NA,10.827,0,0,0,0,0
+2023,"POMURSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,146.115,0,0,0
+2023,"POSAVSKA","Paper and Cardboard","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,22.7,2867.409,0,0
+2023,"POSAVSKA","Paper and Cardboard","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,17.14,0,0,0
+2023,"POSAVSKA","Paper/Cardboard Packaging","BO","Paper/Cardboard Packaging","R_03",0,0,0,2414.891,0,0
+2023,"POSAVSKA","Paper/Cardboard Packaging","BO","Paper/Cardboard Packaging",NA,44.629,0,0,0,0,0
+2023,"POSAVSKA","Paper/Cardboard Packaging","R_12","Paper and Cardboard","R_03",0,0,2295.256,0,0,0
+2023,"POSAVSKA","Paper/Cardboard Packaging","R_12","Plastic and Rubber","R_12, R_13",0,0,10.37,0,0,0
+2023,"POSAVSKA","Paper/Cardboard Packaging","R_12, R_13","Paper and Cardboard","R_03",0,0,844.279,0,0,0
+2023,"POSAVSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,22.28,0,0
+2023,"POSAVSKA","Wood, not specified in 20 01 37","BO","Wood, not specified in 20 01 37",NA,103.355,0,0,0,0,0
+2023,"POSAVSKA","Wood, not specified in 20 01 37","R_01","Ash, Slag and Boiler Dust (except boiler dust specified in 10 01 04)","R_00",0,0,59.91,0,0,0
+2023,"POSAVSKA","Wood, not specified in 20 01 37","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_01",0,0,0,1.46,0,0
+2023,"POSAVSKA","Wooden packaging","R_01","Ash, Slag and Boiler Dust (except boiler dust specified in 10 01 04)","R_00",0,0,1.37,0,0,0
+2023,"POSAVSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,147.3,0,0,0
+2023,"POSAVSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_12, R_13",0,0,35.32,0,0,0
+2023,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,109.384,0,0,0
+2023,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,5.815,0,0,0,0,0
+2023,"PRIMORSKO-NOTRANJSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_04",0,0,0,40.72,0,0
+2023,"PRIMORSKO-NOTRANJSKA","Wooden packaging","R_12, R_13","Wooden packaging",NA,12.828,0,0,0,0,0
+2023,"SAVINJSKA","Paper and Cardboard","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,11287.446,0,0
+2023,"SAVINJSKA","Paper and Cardboard","R_12, R_13","Paper/Cardboard Packaging",NA,54.239,0,0,0,0,0
+2023,"SAVINJSKA","Paper/Cardboard Packaging","BO","Paper/Cardboard Packaging","R_12, R_13",0,0,5.11,0,0,0
+2023,"SAVINJSKA","Paper/Cardboard Packaging","BO","Paper/Cardboard Packaging",NA,2.51,10.12,0,0,0,0
+2023,"SAVINJSKA","Paper/Cardboard Packaging","R_03","Plastic and Rubber","R_12",0,0,1.26,0,0,0
+2023,"SAVINJSKA","Paper/Cardboard Packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","D_13",0,0,457.379,0,0,0
+2023,"SAVINJSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,8297.615,2494.8,0
+2023,"SAVINJSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging","R_12, R_13",0,0,103.25,0,0,0
+2023,"SAVINJSKA","Paper/Cardboard Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,0,495.14,0,0,0,0
+2023,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_01","Ash, Slag and Boiler Dust (except boiler dust specified in 10 01 04)",NA,0.3,0,0,0,0,0
+2023,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_01",0,0,29.235,0,0,0
+2023,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_12, R_13","Sawdust/Chips/Wood, not specified in 03 01 04",NA,0,246,0,0,0,0
+2023,"SAVINJSKA","Sorted Paper and Cardboard for Recycling","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,0,679.773,0,0
+2023,"SAVINJSKA","Wood","D_01","Wood",NA,0,0,0,0,0,20.97
+2023,"SAVINJSKA","Wood","R_12","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","D_01",0,0,2.62,0,0,0
+2023,"SAVINJSKA","Wood","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_01",0,0,325.559,0,0,0
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","R_01","Ash, Slag and Boiler Dust (except boiler dust specified in 10 01 04)",NA,37.9,0,0,0,0,0
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","R_0302","Off-specification Compost","R_10",0,0,15.26,0,0,0
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","R_0302","Off-specification Compost",NA,35.56,0,0,0,0,0
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","R_12","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","D_01",0,0,250.82,0,0,0
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","R_12","Wood, not specified in 19 12 06","R_03",0,0,1256.6,0,0,0
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 19 12 06","R_03",0,0,0,431.11,0,0
+2023,"SAVINJSKA","Wooden packaging","BO","Wooden packaging",NA,20.68,0,0,0,0,0
+2023,"SAVINJSKA","Wooden packaging","R_01","Ash, Slag and Boiler Dust (except boiler dust specified in 10 01 04)",NA,17.7,0,0,0,0,0
+2023,"SAVINJSKA","Wooden packaging","R_03","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_12, R_13",0,0,19.02,0,0,0
+2023,"SAVINJSKA","Wooden packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","D_13",0,0,3.571,0,0,0
+2023,"SAVINJSKA","Wooden packaging","R_12, R_13","Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11","R_01",0,0,206.426,0,0,0
+2023,"SAVINJSKA","Wooden packaging","R_12, R_13","Wood, not specified in 19 12 06","R_01",0,0,0,1123.081,0,0
+2023,"SAVINJSKA","Wooden packaging","R_12, R_13","Wood, not specified in 19 12 06","R_03",0,0,0,1777.49,0,0
+2023,"SAVINJSKA","Wooden packaging","R_12, R_13","Wood, not specified in 19 12 06","R_12",0,0,0,125.345,0,0
+2023,"SAVINJSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_01",0,0,591.32,0,0,0
+2023,"SAVINJSKA","Wooden packaging","R_12, R_13","Wooden packaging","R_03",0,0,2263.189,286.82,0,0
+2023,"ZASAVSKA","Mixed Packaging","R_12, R_13","Paper/Cardboard Packaging","R_03",0,0,170.3,0,0,0
+2023,"ZASAVSKA","Mixed Packaging","R_12, R_13","Paper/Cardboard Packaging",NA,29.84,0,0,0,0,0
+2023,"ZASAVSKA","Paper/Cardboard Packaging","BO","Paper/Cardboard Packaging",NA,4.965,0,0,0,0,0
+2023,"ZASAVSKA","Wood","BO","Wood",NA,11.58,0,0,0,0,0
+2023,"ZASAVSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37","R_05",0,0,8.48,0,0,0
+2023,"ZASAVSKA","Wood, not specified in 20 01 37","R_12, R_13","Wood, not specified in 20 01 37",NA,416.21,0,0,0,0,0

@@ -1,0 +1,22 @@
+﻿"year","statistical_region","type_of_waste","treatment_operation","non_waste_substances","storage_operator_end_year","delivered_company_and_person_RS_kg","delivered_to_EU","delivered_to_non_EU"
+2023,"GORENJSKA","Bark and Cork Waste","R_03","other",0,0.85,0,0
+2023,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_03","other",0,47.6,0,0
+2023,"GORIŠKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_03","compost (product)",0,0.776,0,0
+2023,"GORIŠKA","Wood","R_03","compost (product)",0,9.972,0,0
+2023,"KOROŠKA","Wood","R_05","wood",0,41.21,0,0
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_03","paper and cardboard",0,0,3499.797,0
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_01","other",0,0,0,0
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_03","other",0,104.65,0,0
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_0302","compost (product)",0,42.38,0,0
+2023,"OSREDNJESLOVENSKA","Wood","R_12","wood",0,162.422,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_0302","compost (product)",3694.69,0,0,0
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_12","wood",0,107.42,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","PU","wood",0,398.78,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","PU","other",0,439.19,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_01","other",63.15,0,0,0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_0302","compost (product)",0,18.8,0,0
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","R_0302","compost (product)",0,781.786,0,0
+2023,"SAVINJSKA","Paper/Cardboard Packaging","R_03","textiles and leather",0,0.145,37.303,0
+2023,"SAVINJSKA","Wood","R_03","wood",0,284.63,0,0
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","R_03","wood",0,1569.417,0,0
+2023,"SAVINJSKA","Wooden packaging","R_03","wood",0,6874.433,0,0

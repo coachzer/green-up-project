@@ -1,0 +1,28 @@
+﻿"year","statistical_region","input_waste_name","treatment_operation","mass_difference"
+2023,"GORENJSKA","Bark and Cork Waste","R_03",0
+2023,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_03",0
+2023,"GORIŠKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_03",0.634
+2023,"GORIŠKA","Wood","R_03",8.158
+2023,"KOROŠKA","Paper/Cardboard Packaging","R_12, R_13",7.9
+2023,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_01",430.88
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_03",499.839
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_12, R_13",0.18
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","R_13",-11.659
+2023,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_01",583.24
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","R_12, R_13",1984.99
+2023,"OSREDNJESLOVENSKA","Wooden packaging","PU",0
+2023,"OSREDNJESLOVENSKA","Wooden packaging","R_01",0
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","R_0302",225.174
+2023,"POMURSKA","Paper/Cardboard Packaging","R_12, R_13",22.084
+2023,"POMURSKA","Wood, not specified in 20 01 37","R_12",42.9
+2023,"POSAVSKA","Wood, not specified in 20 01 37","R_01",1937.103
+2023,"POSAVSKA","Wooden packaging","R_01",44.311
+2023,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging","R_12, R_13",0.72
+2023,"SAVINJSKA","Paper/Cardboard Packaging","R_03",-14.548
+2023,"SAVINJSKA","Paper/Cardboard Packaging","R_12, R_13",91.201
+2023,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","R_01",0.7
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","R_01",1225.14
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","R_0302",19.18
+2023,"SAVINJSKA","Wooden packaging","R_01",573.62
+2023,"SAVINJSKA","Wooden packaging","R_12, R_13",0.309
+2023,"ZASAVSKA","Wood, not specified in 20 01 37","R_12, R_13",91.46

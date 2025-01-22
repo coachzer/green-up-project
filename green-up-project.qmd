@@ -134,7 +134,7 @@ create_year_directories <- function(base_dir, years, sub_dirs) {
 }
 
 base_dir <- "."
-years <- 2016:2022
+years <- 2016:2023
 sub_dirs <- c("generation", "collection", "treatment")
 
 create_year_directories(base_dir, years, sub_dirs)
@@ -228,47 +228,121 @@ filter_df_by_codes <- function(df) {
   numeric_columns <- sapply(df, is.numeric)
   df[, numeric_columns][is.na(df[, numeric_columns])] <- 0
   
-  # df <- df |> select_if(~ !any(is.na(.)))
+  # Initialize list to collect filter conditions
+  conditions <- list()
   
-  # character_columns <- sapply(df, is.character)
-  # df[, character_columns][is.na(df[, character_columns])] <- "ne"
-  
-  # Check if any columns from the given exist and rename accordingly
+  # Handle columns_to_rename and add condition if present
+  columns_to_rename <- c("Številka odpadka")  # Adjust based on actual columns
   if (any(columns_to_rename %in% colnames(df))) {
     df <- df |>
-      rename_with( ~ ifelse(. %in% columns_to_rename, "waste_code", .), cols = columns_to_rename) |>
-      filter(
-        waste_code %in%
-          codes |
-          grepl("^03 01 [0-9]", waste_code, perl = TRUE) &
-          !grepl("03 01 04", waste_code, perl = TRUE)
-      )
+      rename_with(~ ifelse(. %in% columns_to_rename, "waste_code", .), 
+                  cols = columns_to_rename)
+    if ("waste_code" %in% colnames(df)) {
+      conditions <- c(conditions, 
+                      expr(
+                        waste_code %in% codes |
+                        grepl("^03 01 [0-9]", waste_code) & !grepl("03 01 04", waste_code) |
+                        is.na(waste_code)
+                      ))
+    }
+  }
+  
+  # Check and rename other relevant columns, adding their conditions
+  
+  if ("Številka odloženih odpadkov" %in% colnames(df)) {
+    df <- df |> rename(deposited_waste_code = `Številka odloženih odpadkov`)
+    conditions <- c(conditions, 
+                    expr(
+                      deposited_waste_code %in% codes |
+                      grepl("^03 01 [0-9]", deposited_waste_code) & !grepl("03 01 04", deposited_waste_code) |
+                      is.na(deposited_waste_code)
+                    ))
+  }
+  
+  if ("Odpadek na vhodu v postopek obdelave številka" %in% colnames(df)) {
+    df <- df |> rename(input_waste_code = `Odpadek na vhodu v postopek obdelave številka`)
+    conditions <- c(conditions, 
+                    expr(
+                      input_waste_code %in% codes |
+                      grepl("^03 01 [0-9]", input_waste_code) & !grepl("03 01 04", input_waste_code) |
+                      is.na(input_waste_code)
+                    ))
+  }
+  
+  if ("Odpadki na izhodu iz postopka drobljenja naziv" %in% colnames(df)) {
+    df <- df |> rename(shredding_outlet_waste_name = `Odpadki na izhodu iz postopka drobljenja naziv`)
+    conditions <- c(conditions, 
+                    expr(
+                      shredding_outlet_waste_name %in% codes |
+                      grepl("^03 01 [0-9]", shredding_outlet_waste_name) & !grepl("03 01 04", shredding_outlet_waste_name) |
+                      is.na(shredding_outlet_waste_name)
+                    ))
+  }
+  
+  if ("Odpadki na vhodu v obdelavo številka" %in% colnames(df)) {
+    df <- df |> rename(input_waste_code = `Odpadki na vhodu v obdelavo številka`)
+    conditions <- c(conditions, 
+                    expr(
+                      input_waste_code %in% codes |
+                      grepl("^03 01 [0-9]", input_waste_code) & !grepl("03 01 04", input_waste_code) |
+                      is.na(input_waste_code)
+                    ))
+  }
+  
+  if ("Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki številka" %in% colnames(df)) {
+    df <- df |> rename(treatment_inlet_delivered_waste_code = `Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki številka`)
+    conditions <- c(conditions, 
+                    expr(
+                      treatment_inlet_delivered_waste_code %in% codes |
+                      grepl("^03 01 [0-9]", treatment_inlet_delivered_waste_code) & !grepl("03 01 04", treatment_inlet_delivered_waste_code) |
+                      is.na(treatment_inlet_delivered_waste_code)
+                    ))
   }
   
   if ("Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki številka" %in% colnames(df)) {
-    df <- df |>
-      rename(treatment_outlet_delivered_waste_code = `Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki številka`)
-    
-    df <- df |>
-      filter(
-        treatment_outlet_delivered_waste_code %in%
-          codes |
-          grepl("^03 01 [0-9]", treatment_outlet_delivered_waste_code, perl = TRUE) &
-          !grepl("03 01 04", treatment_outlet_delivered_waste_code, perl = TRUE)
-      )
+    df <- df |> rename(treatment_outlet_delivered_waste_code = `Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki številka`)
+    conditions <- c(conditions, 
+                    expr(
+                      treatment_outlet_delivered_waste_code %in% codes |
+                      grepl("^03 01 [0-9]", treatment_outlet_delivered_waste_code) & !grepl("03 01 04", treatment_outlet_delivered_waste_code) |
+                      is.na(treatment_outlet_delivered_waste_code)
+                    ))
   }
-
   
+  if ("Številka odpadka na vhodu v postopek obdelave" %in% colnames(df)) {
+    df <- df |> rename(treatment_inlet_waste_code = `Številka odpadka na vhodu v postopek obdelave`)
+    conditions <- c(conditions, 
+                    expr(
+                      treatment_inlet_waste_code %in% codes |
+                      grepl("^03 01 [0-9]", treatment_inlet_waste_code) & !grepl("03 01 04", treatment_inlet_waste_code) |
+                      is.na(treatment_inlet_waste_code)
+                    ))
+  }
   
+  if ("Številka v postopku obdelave nastalih odpadkov" %in% colnames(df)) {
+    df <- df |> rename(treatment_outlet_waste_code = `Številka v postopku obdelave nastalih odpadkov`)
+    conditions <- c(conditions, 
+                    expr(
+                      treatment_outlet_waste_code %in% codes |
+                      grepl("^03 01 [0-9]", treatment_outlet_waste_code) & !grepl("03 01 04", treatment_outlet_waste_code) |
+                      is.na(treatment_outlet_waste_code)
+                    ))
+  }
   
-  # if there is a need to drop specific column
+  # if there is a need to drop specific column/s
   
-  # column_name <- "Odpadne nagrobne sveče (da/ne)"
-  #
+  # column_name <- c("Odpadne nagrobne sveče (da/ne)", "Odpadne sveče pri odpadku 20 02 03 (da/ne)")
+  # 
   # if (column_name %in% colnames(df)) {
   #   df <- df |>
   #     select(-column_name)
   # }
+  
+  # Combine all conditions with OR and apply the filter
+  if (length(conditions) > 0) {
+    combined_condition <- Reduce(function(x, y) expr(!!x | !!y), conditions)
+    df <- df |> filter(!!combined_condition)
+  }
   
   return(df)
 }
@@ -329,13 +403,42 @@ rename_waste_names <- function(df, column_name = "type_of_waste") {
   
   df |> 
     mutate(!!column_name := case_when(
-      !!column_name == "Les, ki ni naveden v 20 01 37" ~ "Wood, not specified in 20 01 37",
-      !!column_name == "Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
+      !!column_name == "Les, ki ni naveden v 20 01 37" ~ "Wood, not specified in 20 01 37",
+      !!column_name == "Žagovina, oblanci, odrezki, les, iverne plošče in furnir, ki niso navedeni v 03 01 04" ~ "Sawdust/Chips/Wood, not specified in 03 01 04",
       !!column_name == "Odpadki, ki niso navedeni drugje" ~ "Miscellaneous Waste",
       !!column_name == "Papirna in kartonska embalaža ter embalaža iz lepenke" ~ "Paper/Cardboard Packaging",
       !!column_name == "Lesena embalaža" ~ "Wooden packaging",
       !!column_name == "Les" ~ "Wood",
       !!column_name == "Odpadna lubje in pluta" ~ "Bark and Cork Waste",
+      !!column_name == "Kovine" ~ "Metals",
+      !!column_name == "Kosovni odpadki" ~ "Bulky Waste",
+      !!column_name == "Opilki in ostružki barvnih kovin" ~ "Shavings and Turnings of Coloured Metals",
+      !!column_name == "Prah in delci barvnih kovin" ~ "Dust and Particles of Coloured Metals",
+      !!column_name == "Zavržena oprema, ki vsebuje fluorokloroogljikovodike, HCFC, HFC" ~ "Discarded Equipment Containing HCFCs, HFCs",
+      !!column_name == "Sestavine, odstranjene iz zavržene opreme, ki niso navedene v 16 02 15" ~ "Components Removed from Discarded Equipment, not specified in 16 02 15",
+      !!column_name == "Anorganski odpadki, ki niso navedeni v 16 03 03" ~ "Inorganic Waste, not specified in 16 03 03",
+      !!column_name == "Odpadna plastika" ~ "Waste Plastic",
+      !!column_name == "Mešana embalaža" ~ "Mixed Packaging",
+      !!column_name == "Plastična embalaža" ~ "Plastic Packaging",
+      !!column_name == "Odpadki iz sortiranja papirja ter kartona in lepenke, namenjenih za recikliranje" ~ "Sorted Paper and Cardboard for Recycling",
+      !!column_name == "Zavržena oprema, ki ni navedena v 16 02 09 do 16 02 13" ~ "Discarded Equipment, not specified in 16 02 09 to 16 02 13",
+      !!column_name == "Organski odpadki, ki niso navedeni v 16 03 05" ~ "Organic Waste, not specified in 16 03 05",
+      !!column_name == "Papir ter karton in lepenka" ~ "Paper and Cardboard",
+      !!column_name == "Zavržena električna in elektronska oprema, ki ni navedena v 20 01 21, 20 01 23 in 20 01 35" ~ "Discarded Electrical and Electronic Equipment, not specified in 20 01 21, 20 01 23 and 20 01 35",
+      !!column_name == "Plastika" ~ "Plastic",
+      !!column_name == "Mešani komunalni odpadki" ~ "Mixed Municipal Waste",
+      !!column_name == "Pepel, žlindra in kotlovski prah (razen kotlovskega prahu, ki je naveden v 10 01 04)" ~ "Ash, Slag and Boiler Dust (except boiler dust specified in 10 01 04)",
+      !!column_name == "Les, ki ni naveden v 19 12 06" ~ "Wood, not specified in 19 12 06",
+      !!column_name == "Drugi odpadki (vključno z mešanicami materialov) iz mehanske obdelave odpadkov, ki niso navedeni v 19 12 11" ~ "Other Wastes (including mixtures of materials) from Mechanical Treatment, not specified in 19 12 11",
+      !!column_name == "Pepel, žlindra in kotlovski prah iz naprav za sosežig, ki niso navedeni v 10 01 14" ~ "Ash, Slag and Boiler Dust from Co-incineration, not specified in 10 01 14",
+      !!column_name == "Mehansko ločeni rejekti iz razpuščanja odpadnega papirja ter kartona in lepenke" ~ "Mechanically Separated Rejects from Waste Paper and Cardboard Pulping",
+      !!column_name == "Prah in delci železa" ~ "Iron Dust and Particles",
+      !!column_name == "Železne kovine" ~ "Ferrous Metals",
+      !!column_name == "Barvne kovine" ~ "Non-ferrous Metals",
+      !!column_name == "Železo in jeklo" ~ "Iron and Steel",
+      !!column_name == "Gorljivi odpadki (iz odpadkov pridobljeno gorivo)" ~ "Combustible Waste (Refuse Derived Fuel)",
+      !!column_name == "Plastika in guma" ~ "Plastic and Rubber",
+      !!column_name == "Kompost, ki ne ustreza specifikaciji" ~ "Off-specification Compost"
     ))
 }
 
@@ -343,22 +446,32 @@ rename_waste_names <- function(df, column_name = "type_of_waste") {
 
 # Define a function to rename the description of treatment
 rename_treatment_description <- function(df) {
-  df |> 
-    mutate(description_of_treatment = case_when(
-      description_of_treatment == "20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije" ~ "use as fuel/energy production",
-      description_of_treatment == "2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)" ~ "pre-treatment", # pre-treatment (sorting, grading, drying, separation, etc.)
-      description_of_treatment == "99 – brez obdelave" ~ "no treatment",
-      description_of_treatment == "7 – predelava odpadkov v premični napravi" ~ "recovery of waste in a mobile installation",
-      description_of_treatment == "22 – sosežig" ~ "co-incineration",
-      description_of_treatment == "23 – drug postopek predelave" ~ "other recovery operation",
-      description_of_treatment == "9 – predelava odpadkov v polnilo pri gradnji objektov" ~ "processing into aggregate for construction",
-      description_of_treatment == "4 – recikliranje" ~ "recycling",
-      description_of_treatment == "6 – aerobna predelava (kompostarne)" ~ "aerobic treatment (composting plants)",
-      description_of_treatment == "27 – drug postopek odstranjevanja" ~ "other disposal operation",
-      description_of_treatment == "1 – priprava za ponovno uporabo" ~ "preparation for re-use",
-      description_of_treatment == "19 – predelava v trdno gorivo (R12)" ~ "conversion to solid fuel",
-      description_of_treatment == "26 – odlaganje" ~ "disposal"
-    ))
+ df |> 
+   mutate(description_of_treatment = case_when(
+     description_of_treatment == "19a – predelava odpadkov v sekance" ~ "processing into wood chips",
+     description_of_treatment == "20 – uporaba biomase kot gorivo" ~ "use of biomass as fuel",
+     description_of_treatment == "20 – uporaba kot gorivo ali druga sredstva za pridobivanje energije" ~ "use as fuel/energy production",
+     description_of_treatment == "02 – predobdelava odpadkov (sortiranje, šrediranje, sušenje, ločevanje itd.)" ~ "pre-treatment",
+     description_of_treatment == "2 – predobdelava (sortiranje, šrediranje, sušenje, ločevanje itd.)" ~ "pre-treatment",
+     description_of_treatment == "99 – brez obdelave" ~ "no treatment",
+     description_of_treatment == "04 – recikliranje odpadkov" ~ "recycling",
+     description_of_treatment == "4 – recikliranje" ~ "recycling", 
+     description_of_treatment == "06 – aerobna predelava odpadkov (kompostarne)" ~ "aerobic treatment (composting plants)",
+     description_of_treatment == "6 – aerobna predelava (kompostarne)" ~ "aerobic treatment (composting plants)",
+     description_of_treatment == "22 – sosežig odpadkov - proizvodnja materialnih izdelkov" ~ "co-incineration - production of material products",
+     description_of_treatment == "22 – sosežig" ~ "co-incineration",
+     description_of_treatment == "21 – sosežig odpadkov - proizvodnja energije" ~ "co-incineration - energy production",
+     description_of_treatment == "19 – predelava odpadkov v trdno gorivo (R12)" ~ "conversion to solid fuel",
+     description_of_treatment == "19 – predelava v trdno gorivo (R12)" ~ "conversion to solid fuel",
+     description_of_treatment == "01 – priprava odpadkov za ponovno uporabo" ~ "preparation for re-use",
+     description_of_treatment == "1 – priprava za ponovno uporabo" ~ "preparation for re-use",
+     description_of_treatment == "26 – odlaganje odpadkov" ~ "disposal",
+     description_of_treatment == "26 – odlaganje" ~ "disposal",
+     description_of_treatment == "7 – predelava odpadkov v premični napravi" ~ "recovery of waste in a mobile installation",
+     description_of_treatment == "23 – drug postopek predelave" ~ "other recovery operation",
+     description_of_treatment == "9 – predelava odpadkov v polnilo pri gradnji objektov" ~ "processing into aggregate for construction",
+     description_of_treatment == "27 – drug postopek odstranjevanja" ~ "other disposal operation"
+   ))
 }
 
 # ------------------------------------------------------------
@@ -462,7 +575,617 @@ rename_region <- function(data) {
 ## Update 4 (30/08/2024)
 
 1.  Finished up importing all the data available from the SURS website
-2.  Cleaned up all the years and ready for combining data per type (generation, collection or treatment)
+2.  Cleaned up all the years (available) and ready for combining data per type (generation, collection or treatment)
+
+# Year 2023
+
+## 2023 - Data from the annual reports of the original generators
+
+### Code
+
+```{r waste_generation_2023}
+
+waste_generation_23.path <- "2023 data\\podatki LP ODP-nastajanje 2023.xlsx"
+
+sheet_names <- excel_sheets(waste_generation_23.path)
+
+processed_sheets <- list()
+
+sheets_with_n_max_3 <- c(2, 3, 5)
+
+# header is 6 in this case
+skip <- 6
+
+for (sheet_name in sheet_names) {
+  sheet_index <- match(sheet_name, sheet_names)
+  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
+  processed_sheet <- process_sheet(waste_generation_23.path, sheet_index, n_max, skip = skip)
+  processed_sheets[[sheet_name]] <- processed_sheet
+}
+
+processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+generation.23 <- processed_sheets[[1]]
+
+english_colnames <- c("year", "report", "statistical_region", 
+                      "waste_code", "type_of_waste", "total_waste_generated_stored",
+                      "temporarily_stored_start_year", "generated_in_the_year",
+                      "temporarily_stored_end_year",
+                      "waste_treated_by_original_generator",
+                      "waste_transferred_for_treatment_in_RS", # this are waste collectors, waste treatment operators
+                      "waste_sent_for_treatment_EU",
+                      "waste_sent_for_treatment_outside_EU")
+
+colnames(generation.23) <- english_colnames
+
+generation.23 <- generation.23 |> select(-report)
+
+generation.23 <- rename_waste_names(generation.23)
+
+generation.23 <- generation.23 |> 
+  group_by(year, statistical_region, type_of_waste) |>
+  summarise(total_waste_generated_stored = sum(total_waste_generated_stored) / 1000,
+            temporarily_stored_start_year = sum(temporarily_stored_start_year) / 1000,
+            generated_in_the_year = sum(generated_in_the_year) / 1000,
+            temporarily_stored_end_year = sum(temporarily_stored_end_year) / 1000,
+            waste_treated_by_original_generator = sum(waste_treated_by_original_generator) / 1000,
+            waste_transferred_for_treatment_in_RS = sum(waste_transferred_for_treatment_in_RS) / 1000,
+            waste_sent_for_treatment_EU = sum(waste_sent_for_treatment_EU) / 1000,
+            waste_sent_for_treatment_outside_EU = sum(waste_sent_for_treatment_outside_EU) / 1000) |> 
+  ungroup()
+
+write.csv(generation.23, "2023 data\\2023 filtered\\generation\\generation_23.csv", row.names = FALSE)
+
+```
+
+## 2023 - Data on waste collected and its subsequent management from waste collectors' reports
+
+### Code
+
+```{r waste_collection_2023}
+
+waste_collection_23.path <- "2023 data\\podatki LP ODP-zbiranje 2023.xlsx"
+
+sheet_names <- excel_sheets(waste_collection_23.path)
+
+processed_sheets <- list()
+
+sheets_with_n_max_3 <- c(1, 3, 5)
+
+processed_sheets <- lapply(sheet_names, function(sheet_name) {
+  sheet_index <- match(sheet_name, sheet_names)
+  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
+  
+  if (sheet_index == 1) {
+    processed_sheet <- process_sheet(waste_collection_23.path, sheet_index, n_max)
+  } else if (sheet_index == 6) {
+    processed_sheet <- process_sheet(waste_collection_23.path, sheet_index, 1)
+  } else {
+    processed_sheet <- process_sheet(waste_collection_23.path, sheet_index, n_max)
+  }
+
+  # for the first 5 sheets deselect the last column
+  # this is done to skip the candles on graves
+  processed_sheets[[sheet_name]] <- if (sheet_index <= 5) {
+    processed_sheet[, -ncol(processed_sheet)]
+  } else {
+    processed_sheet
+  }
+})
+
+# Applying the function to each data frame in processed_sheets
+processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+# Table 1: Waste collected, 2023
+collected.23 <- processed_sheets[[1]] |> select(-Poročilo)
+
+colnames(collected.23) 
+
+collected.23 <- collected.23 |>
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    type_of_waste = `Naziv odpadka`,
+    waste_from_producers_no_record = `Zbrani odpadki, prevzetih od izvirnih povzročiteljev brez evidenčnega lista (prepuščeni) kg`,
+    waste_from_producers_with_record = `Zbrani odpadki, prevzetih od izvirnih povzročiteljev z evidenčnim listom (oddani) kg`,
+    waste_from_collectors_RS = `Zbrani odpadki, prevzetih od drugih imetnikov od zbiralcev v RS kg`,
+    waste_from_processors_RS = `Zbrani odpadki, prevzetih od drugih imetnikov od izvajalcev obdelave v RS kg`,
+    waste_collected_from_collectors_warehouse = `Odpadki prevzeti iz skladišča zbiralca (stanje na dan 1.1.) kg`
+  )
+
+collected.23 <- rename_waste_names(collected.23)
+
+collected.23 <- collected.23 |> 
+  mutate(total_waste_collected = waste_from_producers_no_record + waste_from_producers_with_record + waste_from_collectors_RS + waste_from_processors_RS) |> 
+  mutate(total_waste_collected_including_warehouse = total_waste_collected + waste_collected_from_collectors_warehouse)
+
+collected.23 <- collected.23 |>
+  group_by(year, statistical_region, type_of_waste) |>
+  summarise(total_waste_collected = sum(total_waste_collected) / 1000,
+            total_waste_collected_including_warehouse = sum(total_waste_collected_including_warehouse) / 1000,
+            waste_from_producers_no_record = sum(waste_from_producers_no_record) / 1000,
+            waste_from_producers_with_record = sum(waste_from_producers_with_record) / 1000,
+            waste_from_collectors_RS = sum(waste_from_collectors_RS) / 1000,
+            waste_from_processors_RS = sum(waste_from_processors_RS) / 1000,
+            waste_collected_from_collectors_warehouse = sum(waste_collected_from_collectors_warehouse) / 1000) |>
+  ungroup()
+
+processed_sheets[[1]] <- collected.23 
+
+# Table 1a: Waste collected by collection centre, 2023
+collected_centre.23 <- processed_sheets[[2]] |> select(-Poročilo)
+
+collected_centre.23 <- collected_centre.23 |>
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    collection_centre = `Zbirni center`,
+    type_of_waste = `Naziv odpadka`,
+    waste_collected_by_centre = `Zbrani odpadki`
+  )
+
+collected_centre.23 <- rename_waste_names(collected_centre.23)
+
+collected_centre.23 <- collected_centre.23 |>
+  group_by(year, statistical_region, collection_centre, type_of_waste) |>
+  summarise(waste_collected_by_centre = sum(as.numeric(waste_collected_by_centre)) / 1000) |>
+  ungroup()
+
+processed_sheets[[2]] <- collected_centre.23 
+
+# Table 2: Additional data on municipal waste collected and waste 16 01 03, 2023
+collected_additional.23 <- processed_sheets[[3]] |> select(-Poročilo)
+
+colnames(collected_additional.23) 
+
+collected_additional.23 <- collected_additional.23 |>
+  rename(
+    year = `Leto`,
+    type_of_waste = `Naziv odpadka`,
+    # Collected under the public municipal waste collection service
+    waste_collected_public_service = `Zbrani v okviru javne službe zbiranja komunalnih odpadkov`,
+    total_waste_collected = `Zbrani komunalni odpadki in odpadek 16 01 03 glede na dejavnost nastanka SKUPAJ kg`,
+    waste_collected_from_households = `Zbrani komunalni odpadki in odpadek 16 01 03 glede na dejavnost nastanka iz gospodinjstev kg`,
+    waste_collected_from_activities = `Zbrani komunalni odpadki in odpadek 16 01 03 glede na dejavnost nastanka iz dejavnosti kg`
+  )
+
+collected_additional.23 <- rename_waste_names(collected_additional.23)
+
+# rename the content of waste_collected_public service, if there is a "da" put yes, if there is a "ne" put no
+collected_additional.23 <- collected_additional.23 |>
+  mutate(waste_collected_public_service = case_when(
+    waste_collected_public_service == "da" ~ "yes",
+    waste_collected_public_service == "ne" ~ "no"
+  ))
+
+collected_additional.23 <- collected_additional.23 |>
+  group_by(year, type_of_waste, waste_collected_public_service) |>
+  summarise(total_waste_collected = sum(total_waste_collected) / 1000,
+            waste_collected_from_households = sum(waste_collected_from_households) / 1000,
+            waste_collected_from_activities = sum(waste_collected_from_activities) / 1000) |>
+  ungroup()
+
+processed_sheets[[3]] <- collected_additional.23 
+
+# Table 3: Municipal waste collected and waste 16 01 03, separated by municipality of origin, 2023
+collected_municipality.23 <- processed_sheets[[4]] |> select(-Poročilo, -`Šifra občine 1`)
+
+colnames(collected_municipality.23)
+ 
+
+collected_municipality.23 <- collected_municipality.23 |>
+  rename(
+    year = `Leto`,
+    type_of_waste = `Naziv odpadka`,
+    waste_collected_public_service = `Zbrani v okviru javne službe zbiranja komunalnih odpadkov`,
+    total_waste_collected = `Komunalni odpadki in odpadek 16 01 03 po občini izvora kg`,
+    name_of_municipality = `Naziv občine`
+  )
+
+collected_municipality.23 <- rename_waste_names(collected_municipality.23)
+
+# rename the content of waste_collected_public service, if there is a "da" put yes, if there is a "ne" put no
+collected_municipality.23 <- collected_municipality.23 |>
+  mutate(waste_collected_public_service = case_when(
+    waste_collected_public_service == "da" ~ "yes",
+    waste_collected_public_service == "ne" ~ "no"
+  ))
+
+# add the statistical region to the collected_municipality.23
+collected_municipality.23 <- collected_municipality.23 |> 
+  left_join(municipality_region_mapping, by = "name_of_municipality")
+
+collected_municipality.23 <- collected_municipality.23 |>
+  group_by(year, statistical_region, name_of_municipality, type_of_waste, waste_collected_public_service) |>
+  summarise(total_waste_collected = sum(total_waste_collected) / 1000) |>
+  ungroup()
+
+processed_sheets[[4]] <- collected_municipality.23
+
+# Table 4: Further management of collected waste, 2023
+collected_management.23 <- processed_sheets[[5]] |> select(-Poročilo)
+
+colnames(collected_management.23)
+
+collected_management.23 <- collected_management.23 |>
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    type_of_waste = `Naziv odpadka`,
+    waste_collected_from_collectors_RS = `Odpadki, oddani v nadaljnje ravnanje zbiralcem v RS kg`,
+    waste_collected_from_processors_RS = `Odpadki, oddani v nadaljnje ravnanje izvajalcem obdelave v RS kg`,
+    waste_collected_to_EU = `Odpadki, oddani v nadaljnje ravnanje v druge države članice EU kg`,
+    waste_collected_outside_EU = `Odpadki, oddani v nadaljnje ravnanje v države izven EU kg`,
+    # or delivered to the collector's warehouse
+    waste_collected_to_collectors_warehouse = `Odpadki oddani v skladišče zbiralca (stanje na dan 31.12.)`
+  )
+
+collected_management.23 <- rename_waste_names(collected_management.23)
+
+collected_management.23 <- collected_management.23 |>
+  group_by(year, statistical_region, type_of_waste) |>
+  summarise(waste_collected_from_collectors_RS = sum(waste_collected_from_collectors_RS) / 1000,
+            waste_collected_from_processors_RS = sum(waste_collected_from_processors_RS) / 1000,
+            waste_collected_to_EU = sum(waste_collected_to_EU) / 1000,
+            waste_collected_outside_EU = sum(waste_collected_outside_EU) / 1000,
+            waste_collected_to_collectors_warehouse = sum(waste_collected_to_collectors_warehouse) / 1000) |>
+  ungroup()
+
+processed_sheets[[5]] <- collected_management.23
+
+# Table 5: Household composting, 2023
+
+household_composting.23 <- processed_sheets[[6]] |> select(-Poročilo, -`Šifra občine 1`)
+
+colnames(household_composting.23)
+
+household_composting.23 <- household_composting.23 |>
+  rename(
+    year = `Leto`,
+    name_of_municipality = `Naziv občine`,
+    number_of_households_in_municipality = `Število gospodinjstev v občini 2`,
+    number_of_households_composting = `Število gospodinjstev, ki hišno kompostirajo`
+  )
+
+# add another column that would be just the percentage of households composting
+household_composting.23 <- household_composting.23 |>
+  mutate(percentage_of_households_composting = round(number_of_households_composting / number_of_households_in_municipality * 100, 2))
+
+processed_sheets[[6]] <- household_composting.23
+
+# Tabela 6: Dodatni podatki o odpadnih oljih, 2023
+
+sheet_names <- c(
+  "Waste received",
+  "Waste received by collection center",
+  "Waste source of generation",
+  "Waste municipality of origin",
+  "Municipal waste management",
+  "Household composting"
+)
+
+# add the new names
+names(processed_sheets) <- sheet_names
+
+# For each sheet in processed_sheets, write the data to a .csv file
+for (sheet_name in sheet_names) {
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2023 data\\2023 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_23.csv"))
+}
+
+
+```
+
+## 2023 - Data from waste treatment operators' reports
+
+### Code
+
+```{r waste_treatment_2023}
+
+waste_treatment_23.path <- "2023 data\\podatki LP ODP-obdelava 2023.xlsx"
+
+sheet_names <- excel_sheets(waste_treatment_23.path)
+
+processed_sheets <- list()
+
+sheets_with_n_max_3 <- c(2, 3, 5, 6, 7, 9)
+
+sheets_with_n_max_4 <- 11
+
+processed_sheets <- lapply(sheet_names, function(sheet_name) {
+  sheet_index <- match(sheet_name, sheet_names)
+  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else if (sheet_index == sheets_with_n_max_4) 4 else 2
+  
+  processed_sheet <- process_sheet(waste_treatment_23.path, sheet_index, n_max)
+
+  processed_sheets[[sheet_name]] <- processed_sheet
+  
+})
+
+processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
+
+# Table 1: Storage of waste/materials or objects generated in the treatment process in previous years, as at 1.1., 2023
+treatment.23 <- processed_sheets[[1]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
+
+colnames(treatment.23)
+
+treatment.23 <- treatment.23 |>
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    type_of_waste_inlet = `Naziv odpadka na vhodu v postopek obdelave`,
+    type_of_waste_outlet = `Naziv v postopku obdelave nastalih odpadkov`,
+    stored_quantity_start_year = `Skladiščena količina na dan 1.1.2023 kg`
+  )
+
+treatment.23 <- rename_waste_names(treatment.23, "type_of_waste_inlet")
+treatment.23 <- rename_waste_names(treatment.23, "type_of_waste_outlet")
+
+treatment.23 <- treatment.23 |>
+  group_by(year, statistical_region, type_of_waste_inlet, type_of_waste_outlet, `V postopku obdelave nastala snov ali predmet`) |>
+  summarise(stored_quantity_start_year = sum(stored_quantity_start_year) / 1000) |>
+  ungroup()
+
+# if both type_of_waste_inlet and type_of_waste_outlet are NA in the same row, we can remove one of them
+treatment.23 <- treatment.23 |>
+  filter(!(is.na(type_of_waste_inlet) & is.na(type_of_waste_outlet)))
+
+# if any column has NA, then write undefined
+treatment.23[] <- lapply(treatment.23, function(x) ifelse(is.na(x), "undefined", x))
+
+processed_sheets[[1]] <- treatment.23
+
+# Table 2: Waste received, 2023
+treatment_received.23 <- processed_sheets[[2]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
+
+colnames(treatment_received.23)
+
+treatment_received.23 <- treatment_received.23 |>
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    type_of_waste = `Naziv odpadka`,
+    stored_quantity_start_year = `Prevzeti odpadki neobdelani odpadki iz skladišča (stanje na dan 1.1.) kg`,
+    own_waste_received = `Prevzeti odpadki lastni odpadki kg`,
+    # generators
+    waste_received_from_producers_RS = `Prevzeti odpadki od drugih izvirnih povzročiteljev v RS kg`,
+    # collectors
+    waste_received_from_collectors_RS = `Prevzeti odpadki od zbiralcev odpadkov v RS kg`,
+    # treatment operators
+    waste_received_from_processors_RS = `Prevzeti odpadki od izvajalcev obdelave v RS kg`,
+    waste_received_from_EU = `Prevzeti odpadki iz drugih držav članic EU kg`,
+    waste_received_from_outside_EU = `Prevzeti odpadki iz držav izven EU kg`,
+    total_waste_received = `Prevzeti odpadki SKUPAJ kg`
+  )
+
+treatment_received.23 <- rename_waste_names(treatment_received.23)
+
+treatment_received.23 <- treatment_received.23 |>
+  group_by(year, statistical_region, type_of_waste) |>
+  summarise(stored_quantity_start_year = sum(stored_quantity_start_year) / 1000,
+            own_waste_received = sum(own_waste_received) / 1000,
+            waste_received_from_producers_RS = sum(waste_received_from_producers_RS) / 1000,
+            waste_received_from_collectors_RS = sum(waste_received_from_collectors_RS) / 1000,
+            waste_received_from_processors_RS = sum(waste_received_from_processors_RS) / 1000,
+            waste_received_from_EU = sum(waste_received_from_EU) / 1000,
+            waste_received_from_outside_EU = sum(waste_received_from_outside_EU) / 1000,
+            total_waste_received = sum(total_waste_received) / 1000) |>
+  ungroup()
+
+processed_sheets[[2]] <- treatment_received.23
+
+# EXCLUDED - Table 2a: Recovered end-of-life vehicles (ELV) of categories M1, N1 and three-wheel motor vehicles (L2e), 2023
+treatment_ELVs.23 <- processed_sheets[[3]] |> select(-Poročilo)
+
+# Table 3: Treatment of waste received, 2023
+waste_treated.23 <- processed_sheets[[4]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
+
+colnames(waste_treated.23)
+
+waste_treated.23 <- waste_treated.23 |>
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    type_of_waste = `Naziv odpadka na vhodu v postopek obdelave`,
+    quantity_treated = `Količina odpadkov, na vhod v postopek obdelave (kg)`,
+    treatment_code = `Postopek obdelave (R, D)`,
+    description_of_treatment = `Opis postopka obdelave`
+  )
+
+waste_treated.23 <- rename_waste_names(waste_treated.23)
+
+waste_treated.23 <- rename_treatment_description(waste_treated.23)
+
+processed_sheets[[4]] <- waste_treated.23
+
+# Table 4: Management of waste from the treatment process and management of untreated waste, 2023
+management.23 <- processed_sheets[[5]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
+
+colnames(management.23)
+
+management.23 <- management.23 |> 
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    input_waste_name = `Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki naziv`,
+    treatment_operation = `Postopek obdelave (R/D)`,
+    output_waste_name = `Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki naziv`,
+    waste_sent_to_self_storage_end_year = `Odpadki, oddani v nadaljnje ravnanje sami sebi v skladiščenje (stanje na dan 31.12.) kg`,
+    waste_sent_to_collector_SI = `Odpadki, oddani v nadaljnje ravnanje zbiralcu odpadkov v SI kg`,
+    waste_sent_to_treatment_operator = `Odpadki, oddani v nadaljnje ravnanje izvajalcu obdelave v SI kg`,
+    waste_sent_to_EU_member_states = `Odpadki, oddani v nadaljnje ravnanje v druge države članice EU kg`,
+    waste_sent_to_non_EU_countries = `Odpadki, oddani v nadaljnje ravnanje v države izven EU kg`,
+    waste_sent_to_no_further_management = `Odpadki, oddani v nadaljnje ravnanje ni nadaljnjega ravnanja (vnos v/na tla, odlaganje na odlagališču) kg`,
+    further_treatment_envisaged = `Predviden nadaljnji postopek obdelave (R/D)`
+  )
+
+management.23 <- rename_waste_names(management.23, "input_waste_name")
+management.23 <- rename_waste_names(management.23, "output_waste_name")
+
+management.23 <- management.23 |>
+  group_by(year, statistical_region, input_waste_name, treatment_operation, output_waste_name, further_treatment_envisaged) |>
+  summarise(waste_sent_to_self_storage_end_year = sum(waste_sent_to_self_storage_end_year) / 1000,
+            waste_sent_to_collector_SI = sum(waste_sent_to_collector_SI) / 1000,
+            waste_sent_to_treatment_operator = sum(waste_sent_to_treatment_operator) / 1000,
+            waste_sent_to_EU_member_states = sum(waste_sent_to_EU_member_states) / 1000,
+            waste_sent_to_non_EU_countries = sum(waste_sent_to_non_EU_countries) / 1000,
+            waste_sent_to_no_further_management = sum(waste_sent_to_no_further_management) / 1000) |>
+  ungroup()
+
+processed_sheets[[5]] <- management.23
+    
+# Table 4a: Management of treatment products that are no longer waste, 2023
+management_products.23 <- processed_sheets[[6]] |> select(-Poročilo)
+
+colnames(management_products.23) 
+
+management_products.23 <- management_products.23 |>
+  rename(
+    year = `Leto`,
+    statistical_region = `Poročilo Statistična regija`,
+    type_of_waste = `Odpadki na vhodu v obdelavo naziv`,
+    treatment_operation = `Postopek obdelave (R/D)`,
+    non_waste_substances = `V postopku obdelave nastale snovi in predmeti, ki niso več odpadki`,
+    storage_operator_end_year = `Količina nastalih snovi in predmetov oddana v skladiščenje pri izvajalcu obdelave (stanje na dan 31.12.) kg`,
+    delivered_company_and_person_RS_kg = `Količina nastalih snovi in predmetov oddana podjetju in fizični osebi v RS kg`,
+    delivered_to_EU = `Količina nastalih snovi in predmetov oddana podjetju v drugi državi članici EU kg`,
+    delivered_to_non_EU = `Količina nastalih snovi in predmetov oddana podjetju v državi izven EU kg`
+  )
+
+management_products.23 <- rename_waste_names(management_products.23, "type_of_waste")
+
+# drop rows containing NA values
+management_products.23 <- management_products.23 |>
+  filter(!is.na(type_of_waste))
+
+management_products.23 <- management_products.23 |>
+  group_by(year, statistical_region, type_of_waste, treatment_operation, non_waste_substances) |>
+  summarise(storage_operator_end_year = sum(storage_operator_end_year) / 1000,
+            delivered_company_and_person_RS_kg = sum(delivered_company_and_person_RS_kg) / 1000,
+            delivered_to_EU = sum(delivered_to_EU) / 1000,
+            delivered_to_non_EU = sum(delivered_to_non_EU) / 1000) |>
+  ungroup()
+
+# rename the non_waste_substances column
+management_products.23 <- management_products.23 |>
+  mutate(non_waste_substances = case_when(
+    non_waste_substances == "99 – drugo" ~ "other",
+    non_waste_substances == "16 – kompost (proizvod)" ~ "compost (product)",
+    non_waste_substances == "7 – les" ~ "wood",
+    non_waste_substances == "5 – papir in karton" ~ "paper and cardboard",
+    non_waste_substances == "11 – tekstil in usnje" ~ "textiles and leather"
+  ))
+
+processed_sheets[[6]] <- management_products.23
+
+# EXCLUDED - Table 4b: Materials resulting from the shredding of dismantled end-of-life vehicles (ELVs) of categories M1, N1 and three-wheel motor vehicles (L2e), 2023
+ELV_materials.23 <- processed_sheets[[7]] |> select(-Poročilo)
+
+colnames(ELV_materials.23)
+
+# EXCLUDED - Table 5: Mechanical-biological treatment of mixed municipal waste, separated by municipality of origin, 2023
+MBT_municipality.23 <- processed_sheets[[8]] |> select(-Poročilo)
+
+# Table 6: Mass difference between waste input and treatment product volumes, 2023
+mass_difference.23 <- processed_sheets[[9]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
+
+colnames(mass_difference.23)
+
+mass_difference.23 <- mass_difference.23 |>
+  rename(
+    year = `Leto`,
+    statistical_region = `Statistična regija`,
+    input_waste_name = `Odpadek na vhodu v postopek obdelave naziv`,
+    treatment_operation = `Postopek obdelave (R/D)`,
+    mass_difference = `Zmanjšanje ali povečanje mase med postopkom obdelave (kg)`
+  )
+
+mass_difference.23 <- rename_waste_names(mass_difference.23, "input_waste_name")
+
+mass_difference.23 <- mass_difference.23 |>
+  group_by(year, statistical_region, input_waste_name, treatment_operation) |>
+  summarise(mass_difference = sum(mass_difference) / 1000) |>
+  ungroup()
+
+processed_sheets[[9]] <- mass_difference.23
+
+# EXCLUDED - Table 7: Landfill capacity and status, 2023
+landfill_capacity.23 <- processed_sheets[[10]] |> select(-Poročilo)
+
+# Table 8: Waste management in landfill, 2023
+landfill_management.23 <- processed_sheets[[11]] |> select(-Poročilo)
+
+colnames(landfill_management.23)
+
+landfill_management.23 <- landfill_management.23 |>
+  rename(
+    year = `Leto`,
+    landfill = `Odlagališče`,
+    type_of_waste = `Naziv odpadka`,
+    total_waste_received = `Prevzeti odpadki vsi odpadki kg`,
+    waste_without_waste_code = `Prevzeti odpadki od tega odpadki brez ocene odpadka kg`,
+    waste_disposed_on_landfill = `Ravnanje z odpadki na odlagališču Odloženi odpadki (D1) skupaj kg`,
+    hazardous_waste_disposed_on_landfill = `Ravnanje z odpadki na odlagališču nevarni odpadki kg`,
+    non_hazardous_waste_disposed_on_landfill = `Ravnanje z odpadki na odlagališču nenevarni odpadki kg`,
+    inert_waste_disposed_on_landfill = `Ravnanje z odpadki na odlagališču inertni odpadki kg`,
+    construction_waste_disposed_on_landfill = `Ravnanje z odpadki na odlagališču Odpadki za gradnjo objektov odlagališča kg`,
+    landfill_covering_waste_disposed_on_landfill = `Ravnanje z odpadki na odlagališču Odpadki za prekrivanje odlagališča kg`
+  )
+
+landfill_management.23 <- landfill_management.23 |> 
+  group_by(year, landfill, type_of_waste) |>
+  summarise(total_waste_received = sum(total_waste_received) / 1000,
+            waste_without_waste_code = sum(waste_without_waste_code) / 1000,
+            waste_disposed_on_landfill = sum(waste_disposed_on_landfill) / 1000,
+            hazardous_waste_disposed_on_landfill = sum(hazardous_waste_disposed_on_landfill) / 1000,
+            non_hazardous_waste_disposed_on_landfill = sum(non_hazardous_waste_disposed_on_landfill) / 1000,
+            inert_waste_disposed_on_landfill = sum(inert_waste_disposed_on_landfill) / 1000,
+            construction_waste_disposed_on_landfill = sum(construction_waste_disposed_on_landfill) / 1000,
+            landfill_covering_waste_disposed_on_landfill = sum(landfill_covering_waste_disposed_on_landfill) / 1000) |>
+  ungroup()
+
+processed_sheets[[11]] <- landfill_management.23
+
+# EXCLUDED - Table 9: Disposed waste resulting from municipal waste treatment (from mechanical-biological treatment of mixed municipal waste and from treatment operations of separated fractions of municipal waste), by municipality of origin, 2023
+disposed_municipality.23 <- processed_sheets[[12]] |> select(-Poročilo)
+
+colnames(disposed_municipality.23)
+
+# EXCLUDED - Table 10: Compost or digestate production, 2023
+compost_digestate.23 <- processed_sheets[[13]] |> select(-Poročilo)
+
+# EXCLUDED - Table 11: Use of compost or digestate as waste, 2023
+compost_digestate_use.23 <- processed_sheets[[14]] |> select(-Poročilo)
+
+# # EXCLUDED - Table 12: Additional data on waste oils, 2023
+waste_oils.23 <- processed_sheets[[15]] |> select(-Poročilo)
+
+sheet_names <- c(
+  "Prev Treatment",                   # Sheet 1
+  "Waste Received",             # Sheet 2
+  "EXCLUDED_Table2a_ELVs",            # Sheet 3
+  "Waste Treatment",                 # Sheet 4
+  "Waste Management",                # Sheet 5
+  "Waste Management Products",       # Sheet 6
+  "EXCLUDED_Table4b_ELVMaterials",    # Sheet 7
+  "EXCLUDED_Table5_MBTMunicipality",  # Sheet 8
+  "Mass Diff",            # Sheet 9
+  "Landfill Capacity", # Sheet 10
+  "Landfill Management",        # Sheet 11
+  "EXCLUDED_Table9_DisposedMunicipality", # Sheet 12
+  "EXCLUDED_Table10_Compost",         # Sheet 13
+  "EXCLUDED_Table11_CompostUse",      # Sheet 14
+  "EXCLUDED_Table12_WasteOils"        # Sheet 15
+)
+
+# add the new names
+names(processed_sheets) <- sheet_names
+
+for (sheet_name in sheet_names) {
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2023 data\\2023 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_23.csv"))
+}
+
+
+```
 
 # Year 2022
 
@@ -4803,9 +5526,6 @@ waste_generation_17.by_codes1 <- waste_generation_17.sheet1 |>
       !grepl("03 01 04", `ŠT. ODPADKA`, perl = TRUE)
     )
 
-waste_generation_17.by_codes1 <- waste_generation_17.by_codes1 |> 
-  select(-SKD, -`MATIČNA ŠTEVILKA`)
-
 ## Rename
 colnames(waste_generation_17.by_codes1)    
 
@@ -4833,9 +5553,14 @@ waste_generation_17.by_codes1 <- waste_generation_17.by_codes1 |>
       waste_code == "03 01 99" ~ "Miscellaneous Waste"
     )
   )
-
 ## If column have NA values, put zero instead
 waste_generation_17.by_codes1[is.na(waste_generation_17.by_codes1)] <- 0
+
+## to csv
+write_excel_csv(waste_generation_17.by_codes1, "2017 data\\2017 filtered\\generation\\test_waste_generation_17.csv")
+
+waste_generation_17.by_codes1 <- waste_generation_17.by_codes1 |> 
+  select(-SKD, -`MATIČNA ŠTEVILKA`)
 
 waste_generation_17.by_codes1 <- waste_generation_17.by_codes1 |> 
   group_by(name_of_company, statistical_region, type_of_waste) |>
