@@ -191,7 +191,7 @@ t10 <- ggplot(df_long_municipal, aes(x = year, y = total_collected, color = name
   geom_line() +
   geom_point() +
   facet_wrap(~statistical_region, scales = "free_y") +
-  labs(title = "Total Waste Collected by Municipality and Region (2018-2022)",
+  labs(title = "Total Waste Collected by Municipality and Region (2018-2023)",
        x = "Year",
        y = "Total Waste Collected (in tons)",
        color = "Municipality") +
@@ -212,7 +212,7 @@ df_top_municipal <- df_long_municipal |>
 t11 <- ggplot(df_top_municipal, aes(x = year, y = total_collected, color = name_of_municipality, group = name_of_municipality)) +
   geom_line() +
   geom_point() +
-  labs(title = "Total Waste Collected by Top 5 Municipalities (2018-2022)",
+  labs(title = "Total Waste Collected by Top 5 Municipalities (2018-2023)",
        x = "Year",
        y = "Total Waste Collected (in tons)",
        color = "Municipality") +
@@ -231,7 +231,7 @@ df_long_collected <- melt(
     "name_of_municipality",
     "type_of_waste"
   ),
-  measure.vars = c("total_waste_collected"),
+  measure.vars = c("waste_by_municipality"), # changed from total_waste_collected
   variable.name = "source",
   value.name = "total_collected"
 )
@@ -657,7 +657,13 @@ shinyServer(function(input, output, session) {
       mode = 'lines+markers'
     ) |>
       layout(
-        xaxis = list(title = "Year", autorange = TRUE),
+        xaxis = list(
+          title = "Year",
+          tickangle = 45,
+          tickmode = "array",
+          ticktext = unique(waste_stored_at_the_end_year_by_region$year),
+          tickvals = unique(waste_stored_at_the_end_year_by_region$year)
+        ),
         yaxis = list(title = "Total Waste Stored (tons)", autorange = TRUE),
         hovermode = "x"
       )
@@ -681,7 +687,13 @@ shinyServer(function(input, output, session) {
       mode = 'lines+markers'
     ) |>
       layout(
-        xaxis = list(title = "Year", autorange = TRUE),
+        xaxis = list(
+          title = "Year",
+          tickangle = 45,
+          tickmode = "array",
+          ticktext = unique(waste_stored_at_the_end_year_by_type$year),
+          tickvals = unique(waste_stored_at_the_end_year_by_type$year)
+        ),
         yaxis = list(title = "Total Waste Stored (tons)", autorange = TRUE),
         hovermode = "x"
       )
@@ -780,7 +792,7 @@ shinyServer(function(input, output, session) {
         start_amount = lead(total_start),
         difference = lead(total_start) - total_end
       ) |>
-      select(end_year, start_next_year, end_amount, start_amount, difference) |>
+      dplyr::select(end_year, start_next_year, end_amount, start_amount, difference) |>
       pivot_longer(
         cols = c(end_year, start_next_year),
         names_to = "type",
@@ -984,7 +996,9 @@ shinyServer(function(input, output, session) {
         y = "Waste Collected",
         color = "Source"
       ) +
-      theme_minimal()
+      theme_minimal() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      scale_x_continuous(breaks = unique(yearly_data_received$year))
     
     ggplotly(t) |> 
       layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
@@ -1267,17 +1281,32 @@ shinyServer(function(input, output, session) {
     # Filter data based on selected waste type
     if (!is.null(input$waste_type_trt_storage) && length(input$waste_type_trt_storage) > 0) {
       data_filtered <- data_filtered[data_filtered$type_of_waste %in% input$waste_type_trt_storage, ]
+      
+      # Check if current region exists for selected waste type
+      available_regions <- unique(data_filtered$statistical_region)
+      if (!input$region_trt_storage %in% available_regions) {
+        # If current region is not available, select the first available region
+        showNotification(
+          paste("No data available for the selected combination. Changed region to:", available_regions[1]),
+          type = "warning"
+        )
+        
+        updateSelectInput(
+          session,
+          "region_trt_storage",
+          choices = available_regions,
+          selected = available_regions[1]
+        )
+      } else {
+        # Update available regions while keeping current selection
+        updateSelectInput(
+          session,
+          "region_trt_storage",
+          choices = available_regions,
+          selected = input$region_trt_storage
+        )
+      }
     }
-    
-    # Update region selectInput based on filtered data, using isolate to avoid triggering region observer
-    isolate({
-      updateSelectInput(
-        session,
-        "region_trt_storage",
-        choices = unique(data_filtered$statistical_region),
-        selected = input$region_trt_storage  # Keep the current selection if valid
-      )
-    })
   })
   
   # Observe region input and update waste type based on the selected region
@@ -1285,20 +1314,34 @@ shinyServer(function(input, output, session) {
     data_filtered <- trt_storage_data
     
     # Filter data based on selected region
-    if (!is.null(input$region_trt_storage) &&
-        length(input$region_trt_storage) > 0) {
+    if (!is.null(input$region_trt_storage) && length(input$region_trt_storage) > 0) {
       data_filtered <- data_filtered[data_filtered$statistical_region %in% input$region_trt_storage, ]
+      
+      # Check if current waste type exists for selected region
+      available_waste_types <- unique(data_filtered$type_of_waste)
+      if (!input$waste_type_trt_storage %in% available_waste_types) {
+        # If current waste type is not available, select the first available type
+        showNotification(
+          paste("No data available for the selected combination. Changed waste type to:", available_waste_types[1]),
+          type = "warning"
+        )
+        
+        updateSelectInput(
+          session,
+          "waste_type_trt_storage",
+          choices = available_waste_types,
+          selected = available_waste_types[1]
+        )
+      } else {
+        # Update available waste types while keeping current selection
+        updateSelectInput(
+          session,
+          "waste_type_trt_storage",
+          choices = available_waste_types,
+          selected = input$waste_type_trt_storage
+        )
+      }
     }
-    
-    # Update waste type selectInput based on filtered data, using isolate to avoid triggering waste type observer
-    isolate({
-      updateSelectInput(
-        session,
-        "waste_type_trt_storage",
-        choices = unique(data_filtered$type_of_waste),
-        selected = input$waste_type_trt_storage  # Keep the current selection if valid
-      )
-    })
   })
   
   # Update input choices
@@ -1307,12 +1350,14 @@ shinyServer(function(input, output, session) {
     updateSelectizeInput(
       session,
       "waste_type_trt_storage",
-      choices = unique(data$type_of_waste)
+      choices = unique(data$type_of_waste),
+      selected = "Other Wood Waste"
     )
     updateSelectizeInput(
       session,
       "region_trt_storage",
-      choices = unique(data$statistical_region)
+      choices = unique(data$statistical_region),
+      selected = "OSREDNJESLOVENSKA"
     )
   })
   
@@ -1323,17 +1368,28 @@ shinyServer(function(input, output, session) {
     
     filtered <- data |> 
       filter(
-        year >= input$year_range_trt_storage[1] & year <= input$year_range_trt_storage[2],  # Filter by year range
+        year >= input$year_range_trt_storage[1] & year <= input$year_range_trt_storage[2],
         type_of_waste %in% input$waste_type_trt_storage,
         statistical_region %in% input$region_trt_storage
       )
+    
+    # Check if we have any data after filtering
+    if (nrow(filtered) == 0) {
+      showNotification(
+        "No data available for the selected combination of year, waste type, and region.",
+        type = "warning"
+      )
+      return(NULL)
+    }
     
     filtered
   })
   
   # Process data for plotting
   processed_data <- reactive({
+    req(filtered_storage_data())
     req(nrow(filtered_storage_data()) > 0)
+    
     complete_data <- filtered_storage_data() |>
       complete(
         year,
@@ -1346,7 +1402,18 @@ shinyServer(function(input, output, session) {
       arrange(statistical_region, type_of_waste, year) |>
       group_by(statistical_region, type_of_waste) |>
       mutate(previous_end_year = lag(waste_stored_end_year, 1)) |>
-      ungroup() |>
+      ungroup()
+    
+    # Check if we have enough data points for a meaningful plot
+    if (n_distinct(complete_data$year) < 2) {
+      showNotification(
+        "Not enough data points for plotting. Please select a wider year range.",
+        type = "warning"
+      )
+      return(NULL)
+    }
+    
+    complete_data <- complete_data |>
       mutate(
         outside_period_next_start = ifelse(is.na(lead(waste_stored_start_year)), TRUE, FALSE),
         outside_period_prev_end = ifelse(is.na(previous_end_year), TRUE, FALSE),
@@ -1369,36 +1436,56 @@ shinyServer(function(input, output, session) {
   })
   
   output$waterfall_plot <- renderPlotly({
-    req(nrow(processed_data()) > 0) 
+    # Add multiple requirements checks
+    req(processed_data())
+    req(nrow(processed_data()) > 0)
+    
     data <- processed_data()
     
-    variant_data <- data |>
-      arrange(year) |>
-      mutate(
-        end_year = paste0(as.numeric(year), " End"),
-        start_next_year = paste0(as.numeric(year) + 1, " Start"),
-        end_amount = waste_stored_end_year,
-        start_amount = lead(waste_stored_start_year),
-        difference = lead(waste_stored_start_year) - waste_stored_end_year
-      ) |>
-      select(end_year, start_next_year, end_amount, start_amount, difference) |>
-      pivot_longer(
-        cols = c(end_year, start_next_year),
-        names_to = "type",
-        values_to = "year"
-      ) |>
-      mutate(
-        amount = ifelse(type == "end_year", end_amount, start_amount),
-        difference = ifelse(type == "start_next_year", difference, 0),
-        cumulative = cumsum(amount),
-        color_category = case_when(
-          type == "end_year" ~ "End Year",
-          difference > 0 ~ "Increase",
-          difference < 0 ~ "Decrease",
-          TRUE ~ "No Change"
-        )
-      ) |>
-      filter(!is.na(start_amount))
+    # Additional check for data after processing
+    if (is.null(data) || nrow(data) == 0) {
+      return(NULL)
+    }
+    
+    variant_data <- tryCatch({
+      data |>
+        arrange(year) |>
+        mutate(
+          end_year = paste0(as.numeric(year), " End"),
+          start_next_year = paste0(as.numeric(year) + 1, " Start"),
+          end_amount = waste_stored_end_year,
+          start_amount = lead(waste_stored_start_year),
+          difference = lead(waste_stored_start_year) - waste_stored_end_year
+        ) |>
+        dplyr::select(end_year, start_next_year, end_amount, start_amount, difference) |>
+        pivot_longer(
+          cols = c(end_year, start_next_year),
+          names_to = "type",
+          values_to = "year"
+        ) |>
+        mutate(
+          amount = ifelse(type == "end_year", end_amount, start_amount),
+          difference = ifelse(type == "start_next_year", difference, 0),
+          cumulative = cumsum(amount),
+          color_category = case_when(
+            type == "end_year" ~ "End Year",
+            difference > 0 ~ "Increase",
+            difference < 0 ~ "Decrease",
+            TRUE ~ "No Change"
+          )
+        ) |>
+        filter(!is.na(start_amount))
+    }, error = function(e) {
+      showNotification(
+        "Error processing data for plot. Please try different selections.",
+        type = "error"
+      )
+      return(NULL)
+    })
+    
+    if (is.null(variant_data) || nrow(variant_data) == 0) {
+      return(NULL)
+    }
     
     variant_data$year <- with(variant_data, 
                               paste(year, ifelse(type == "end_year", "", ""), sep = " "))
@@ -1579,7 +1666,7 @@ shinyServer(function(input, output, session) {
   
   ### Municipal Waste Received ----
   
-  slovenia_map <- sf::st_read("../../map.geojson")
+  slovenia_map <- sf::st_read("data/map.geojson")
   
   # Prepare map data
   waste_by_municipality <- trt_municipal_waste_received_data |>

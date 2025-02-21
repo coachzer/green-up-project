@@ -1,605 +1,605 @@
-﻿"year","statistical_region","name_of_municipality","type_of_waste","waste_collected_public_service","total_waste_collected"
-2023,"GORENJSKA","BLED","Paper/Cardboard Packaging","no",0.34
-2023,"GORENJSKA","BLED","Paper/Cardboard Packaging","yes",106.308
-2023,"GORENJSKA","BLED","Wood, not specified in 20 01 37","yes",420.15
-2023,"GORENJSKA","BOHINJ","Paper/Cardboard Packaging","yes",94.318
-2023,"GORENJSKA","BOHINJ","Wood, not specified in 20 01 37","yes",197.93
-2023,"GORENJSKA","CERKLJE NA GORENJSKEM","Paper/Cardboard Packaging","no",24.68
-2023,"GORENJSKA","CERKLJE NA GORENJSKEM","Paper/Cardboard Packaging","yes",193.475
-2023,"GORENJSKA","CERKLJE NA GORENJSKEM","Wood, not specified in 20 01 37","yes",247.42
-2023,"GORENJSKA","GORENJA VAS-POLJANE","Paper/Cardboard Packaging","no",0.8
-2023,"GORENJSKA","GORENJA VAS-POLJANE","Paper/Cardboard Packaging","yes",30.412
-2023,"GORENJSKA","GORENJA VAS-POLJANE","Wood, not specified in 20 01 37","yes",184.11
-2023,"GORENJSKA","GORJE","Paper/Cardboard Packaging","yes",20.24
-2023,"GORENJSKA","GORJE","Wood, not specified in 20 01 37","yes",140.05
-2023,"GORENJSKA","JESENICE","Paper/Cardboard Packaging","yes",129.06
-2023,"GORENJSKA","JESENICE","Wood, not specified in 20 01 37","yes",948.8
-2023,"GORENJSKA","JESENICE","Wooden packaging","no",0.246
-2023,"GORENJSKA","JEZERSKO","Paper/Cardboard Packaging","yes",15.5
-2023,"GORENJSKA","JEZERSKO","Wood, not specified in 20 01 37","yes",25.12
-2023,"GORENJSKA","KRANJ","Paper/Cardboard Packaging","no",0.14
-2023,"GORENJSKA","KRANJ","Paper/Cardboard Packaging","yes",609.251
-2023,"GORENJSKA","KRANJ","Wood, not specified in 20 01 37","yes",1280.53
-2023,"GORENJSKA","KRANJ","Wooden packaging","yes",17.55
-2023,"GORENJSKA","KRANJSKA GORA","Paper/Cardboard Packaging","yes",153.675
-2023,"GORENJSKA","KRANJSKA GORA","Wood, not specified in 20 01 37","yes",148.46
-2023,"GORENJSKA","NAKLO","Paper/Cardboard Packaging","yes",50.57
-2023,"GORENJSKA","NAKLO","Wood, not specified in 20 01 37","yes",90.08
-2023,"GORENJSKA","PREDDVOR","Paper/Cardboard Packaging","yes",39.254
-2023,"GORENJSKA","RADOVLJICA","Paper/Cardboard Packaging","no",1.52
-2023,"GORENJSKA","RADOVLJICA","Paper/Cardboard Packaging","yes",285.33
-2023,"GORENJSKA","RADOVLJICA","Wood, not specified in 20 01 37","yes",670.57
-2023,"GORENJSKA","TRŽIČ","Paper/Cardboard Packaging","yes",198.307
-2023,"GORENJSKA","TRŽIČ","Wood, not specified in 20 01 37","yes",281.06
-2023,"GORENJSKA","ŠENČUR","Paper/Cardboard Packaging","no",3.62
-2023,"GORENJSKA","ŠENČUR","Paper/Cardboard Packaging","yes",102.212
-2023,"GORENJSKA","ŠENČUR","Wood, not specified in 20 01 37","yes",185.2
-2023,"GORENJSKA","ŠENČUR","Wooden packaging","yes",1.9
-2023,"GORENJSKA","ŠKOFJA LOKA","Paper/Cardboard Packaging","yes",378.264
-2023,"GORENJSKA","ŠKOFJA LOKA","Wood, not specified in 20 01 37","yes",36.34
-2023,"GORENJSKA","ŠKOFJA LOKA","Wooden packaging","no",7.342
-2023,"GORENJSKA","ŠKOFJA LOKA","Wooden packaging","yes",63.12
-2023,"GORENJSKA","ŽELEZNIKI","Paper/Cardboard Packaging","yes",49.182
-2023,"GORENJSKA","ŽIRI","Paper/Cardboard Packaging","yes",13.195
-2023,"GORENJSKA","ŽIRI","Wood, not specified in 20 01 37","yes",136.12
-2023,"GORENJSKA","ŽIROVNICA","Paper/Cardboard Packaging","yes",32.262
-2023,"GORENJSKA","ŽIROVNICA","Wood, not specified in 20 01 37","yes",237.2
-2023,"GORIŠKA","AJDOVŠČINA","Paper/Cardboard Packaging","no",41.47
-2023,"GORIŠKA","AJDOVŠČINA","Paper/Cardboard Packaging","yes",210.75
-2023,"GORIŠKA","AJDOVŠČINA","Wood, not specified in 20 01 37","yes",589.82
-2023,"GORIŠKA","AJDOVŠČINA","Wooden packaging","no",3.2
-2023,"GORIŠKA","AJDOVŠČINA","Wooden packaging","yes",19.539
-2023,"GORIŠKA","BOVEC","Paper/Cardboard Packaging","no",0.919
-2023,"GORIŠKA","BOVEC","Paper/Cardboard Packaging","yes",49.413
-2023,"GORIŠKA","BOVEC","Wood, not specified in 20 01 37","yes",136.097
-2023,"GORIŠKA","BRDA","Paper/Cardboard Packaging","no",56.514
-2023,"GORIŠKA","BRDA","Paper/Cardboard Packaging","yes",47.514
-2023,"GORIŠKA","BRDA","Wood, not specified in 20 01 37","yes",246.685
-2023,"GORIŠKA","CERKNO","Paper/Cardboard Packaging","yes",55.333
-2023,"GORIŠKA","CERKNO","Wood, not specified in 20 01 37","yes",92.742
-2023,"GORIŠKA","IDRIJA","Paper/Cardboard Packaging","no",64.923
-2023,"GORIŠKA","IDRIJA","Paper/Cardboard Packaging","yes",132.975
-2023,"GORIŠKA","IDRIJA","Wood, not specified in 20 01 37","yes",275.548
-2023,"GORIŠKA","IDRIJA","Wooden packaging","no",36.701
-2023,"GORIŠKA","KANAL","Paper/Cardboard Packaging","no",12.949
-2023,"GORIŠKA","KANAL","Paper/Cardboard Packaging","yes",20.126
-2023,"GORIŠKA","KANAL","Wood, not specified in 20 01 37","yes",205.97
-2023,"GORIŠKA","KANAL","Wooden packaging","no",51.85
-2023,"GORIŠKA","KOBARID","Paper/Cardboard Packaging","no",0.455
-2023,"GORIŠKA","KOBARID","Paper/Cardboard Packaging","yes",43.712
-2023,"GORIŠKA","KOBARID","Wood, not specified in 20 01 37","yes",120.393
-2023,"GORIŠKA","KOBARID","Wooden packaging","no",3.64
-2023,"GORIŠKA","MIREN-KOSTANJEVICA","Paper/Cardboard Packaging","no",157.667
-2023,"GORIŠKA","MIREN-KOSTANJEVICA","Paper/Cardboard Packaging","yes",33.116
-2023,"GORIŠKA","MIREN-KOSTANJEVICA","Wood, not specified in 20 01 37","yes",178.959
-2023,"GORIŠKA","MIREN-KOSTANJEVICA","Wooden packaging","no",0.12
-2023,"GORIŠKA","NOVA GORICA","Paper/Cardboard Packaging","no",488.963
-2023,"GORIŠKA","NOVA GORICA","Paper/Cardboard Packaging","yes",249.194
-2023,"GORIŠKA","NOVA GORICA","Wood, not specified in 20 01 37","yes",923.39
-2023,"GORIŠKA","NOVA GORICA","Wooden packaging","no",67.153
-2023,"GORIŠKA","NOVA GORICA","Wooden packaging","yes",2.971
-2023,"GORIŠKA","RENČE-VOGRSKO","Paper/Cardboard Packaging","no",15.102
-2023,"GORIŠKA","RENČE-VOGRSKO","Paper/Cardboard Packaging","yes",18.771
-2023,"GORIŠKA","RENČE-VOGRSKO","Wood, not specified in 20 01 37","yes",113.196
-2023,"GORIŠKA","RENČE-VOGRSKO","Wooden packaging","no",16.62
-2023,"GORIŠKA","RENČE-VOGRSKO","Wooden packaging","yes",0.44
-2023,"GORIŠKA","TOLMIN","Paper/Cardboard Packaging","no",32.698
-2023,"GORIŠKA","TOLMIN","Paper/Cardboard Packaging","yes",96.926
-2023,"GORIŠKA","TOLMIN","Wood, not specified in 20 01 37","yes",266.96
-2023,"GORIŠKA","TOLMIN","Wooden packaging","no",17.32
-2023,"GORIŠKA","VIPAVA","Paper/Cardboard Packaging","yes",60.77
-2023,"GORIŠKA","VIPAVA","Wood, not specified in 20 01 37","yes",154.79
-2023,"GORIŠKA","VIPAVA","Wooden packaging","yes",5.441
-2023,"GORIŠKA","ŠEMPETER-VRTOJBA","Paper/Cardboard Packaging","no",191.623
-2023,"GORIŠKA","ŠEMPETER-VRTOJBA","Paper/Cardboard Packaging","yes",90.655
-2023,"GORIŠKA","ŠEMPETER-VRTOJBA","Wood, not specified in 20 01 37","no",9.25
-2023,"GORIŠKA","ŠEMPETER-VRTOJBA","Wood, not specified in 20 01 37","yes",179.55
-2023,"GORIŠKA","ŠEMPETER-VRTOJBA","Wooden packaging","no",3.659
-2023,"JUGOVZHODNA SLOVENIJA","DOLENJSKE TOPLICE","Paper/Cardboard Packaging","yes",46.408
-2023,"JUGOVZHODNA SLOVENIJA","KOSTEL","Paper/Cardboard Packaging","yes",16.8
-2023,"JUGOVZHODNA SLOVENIJA","KOSTEL","Wood, not specified in 20 01 37","yes",13.04
-2023,"JUGOVZHODNA SLOVENIJA","KOČEVJE","Paper/Cardboard Packaging","no",3.252
-2023,"JUGOVZHODNA SLOVENIJA","KOČEVJE","Paper/Cardboard Packaging","yes",221.47
-2023,"JUGOVZHODNA SLOVENIJA","KOČEVJE","Wood, not specified in 20 01 37","yes",382.2
-2023,"JUGOVZHODNA SLOVENIJA","LOŠKI POTOK","Paper/Cardboard Packaging","yes",22.964
-2023,"JUGOVZHODNA SLOVENIJA","LOŠKI POTOK","Wood, not specified in 20 01 37","yes",50.131
-2023,"JUGOVZHODNA SLOVENIJA","METLIKA","Paper/Cardboard Packaging","no",0.82
-2023,"JUGOVZHODNA SLOVENIJA","METLIKA","Paper/Cardboard Packaging","yes",179.599
-2023,"JUGOVZHODNA SLOVENIJA","METLIKA","Wood, not specified in 20 01 37","yes",344.14
-2023,"JUGOVZHODNA SLOVENIJA","MIRNA","Paper/Cardboard Packaging","yes",38.601
-2023,"JUGOVZHODNA SLOVENIJA","MIRNA","Wood, not specified in 20 01 37","no",4.02
-2023,"JUGOVZHODNA SLOVENIJA","MIRNA","Wood, not specified in 20 01 37","yes",55.207
-2023,"JUGOVZHODNA SLOVENIJA","MIRNA PEČ","Paper/Cardboard Packaging","yes",37.49
-2023,"JUGOVZHODNA SLOVENIJA","MOKRONOG-TREBELNO","Paper/Cardboard Packaging","no",11.76
-2023,"JUGOVZHODNA SLOVENIJA","MOKRONOG-TREBELNO","Paper/Cardboard Packaging","yes",47.303
-2023,"JUGOVZHODNA SLOVENIJA","MOKRONOG-TREBELNO","Wood, not specified in 20 01 37","yes",72.577
-2023,"JUGOVZHODNA SLOVENIJA","NOVO MESTO","Paper/Cardboard Packaging","no",25.367
-2023,"JUGOVZHODNA SLOVENIJA","NOVO MESTO","Paper/Cardboard Packaging","yes",512.128
-2023,"JUGOVZHODNA SLOVENIJA","NOVO MESTO","Wood, not specified in 20 01 37","yes",846.9
-2023,"JUGOVZHODNA SLOVENIJA","RIBNICA","Paper/Cardboard Packaging","no",1.884
-2023,"JUGOVZHODNA SLOVENIJA","RIBNICA","Paper/Cardboard Packaging","yes",98.283
-2023,"JUGOVZHODNA SLOVENIJA","RIBNICA","Wood, not specified in 20 01 37","yes",214.555
-2023,"JUGOVZHODNA SLOVENIJA","RIBNICA","Wooden packaging","no",0.3
-2023,"JUGOVZHODNA SLOVENIJA","SEMIČ","Paper/Cardboard Packaging","yes",38.111
-2023,"JUGOVZHODNA SLOVENIJA","SEMIČ","Wood, not specified in 20 01 37","yes",74.806
-2023,"JUGOVZHODNA SLOVENIJA","SODRAŽICA","Paper/Cardboard Packaging","yes",23.181
-2023,"JUGOVZHODNA SLOVENIJA","SODRAŽICA","Wood, not specified in 20 01 37","yes",50.604
-2023,"JUGOVZHODNA SLOVENIJA","STRAŽA","Paper/Cardboard Packaging","yes",45.888
-2023,"JUGOVZHODNA SLOVENIJA","TREBNJE","Paper/Cardboard Packaging","yes",160.196
-2023,"JUGOVZHODNA SLOVENIJA","TREBNJE","Wood, not specified in 20 01 37","yes",245.791
-2023,"JUGOVZHODNA SLOVENIJA","TREBNJE","Wooden packaging","no",2.34
-2023,"JUGOVZHODNA SLOVENIJA","ČRNOMELJ","Paper/Cardboard Packaging","no",7.954
-2023,"JUGOVZHODNA SLOVENIJA","ČRNOMELJ","Paper/Cardboard Packaging","yes",119.569
-2023,"JUGOVZHODNA SLOVENIJA","ČRNOMELJ","Wood, not specified in 20 01 37","yes",234.694
-2023,"JUGOVZHODNA SLOVENIJA","ČRNOMELJ","Wooden packaging","no",19.28
-2023,"JUGOVZHODNA SLOVENIJA","ŠENTJERNEJ","Paper/Cardboard Packaging","yes",91.949
-2023,"JUGOVZHODNA SLOVENIJA","ŠENTJERNEJ","Wood, not specified in 20 01 37","yes",204.74
-2023,"JUGOVZHODNA SLOVENIJA","ŠENTRUPERT","Paper/Cardboard Packaging","no",16.39
-2023,"JUGOVZHODNA SLOVENIJA","ŠENTRUPERT","Paper/Cardboard Packaging","yes",39.2
-2023,"JUGOVZHODNA SLOVENIJA","ŠENTRUPERT","Wood, not specified in 20 01 37","yes",60.145
-2023,"JUGOVZHODNA SLOVENIJA","ŠENTRUPERT","Wooden packaging","no",6.48
-2023,"JUGOVZHODNA SLOVENIJA","ŠKOCJAN","Paper/Cardboard Packaging","no",15.3
-2023,"JUGOVZHODNA SLOVENIJA","ŠKOCJAN","Paper/Cardboard Packaging","yes",36.018
-2023,"JUGOVZHODNA SLOVENIJA","ŠMARJEŠKE TOPLICE","Paper/Cardboard Packaging","yes",42.425
-2023,"JUGOVZHODNA SLOVENIJA","ŽUŽEMBERK","Paper/Cardboard Packaging","no",7.481
-2023,"JUGOVZHODNA SLOVENIJA","ŽUŽEMBERK","Paper/Cardboard Packaging","yes",53.507
-2023,"JUGOVZHODNA SLOVENIJA","ŽUŽEMBERK","Wood, not specified in 20 01 37","yes",219.71
-2023,"KOROŠKA","DRAVOGRAD","Paper/Cardboard Packaging","no",115.956
-2023,"KOROŠKA","DRAVOGRAD","Paper/Cardboard Packaging","yes",76.68
-2023,"KOROŠKA","DRAVOGRAD","Wood, not specified in 20 01 37","no",20.9
-2023,"KOROŠKA","DRAVOGRAD","Wooden packaging","no",11.44
-2023,"KOROŠKA","MEŽICA","Paper/Cardboard Packaging","no",0.46
-2023,"KOROŠKA","MEŽICA","Paper/Cardboard Packaging","yes",25.234
-2023,"KOROŠKA","MISLINJA","Paper/Cardboard Packaging","no",1.6
-2023,"KOROŠKA","MISLINJA","Paper/Cardboard Packaging","yes",22.72
-2023,"KOROŠKA","MUTA","Paper/Cardboard Packaging","no",49.18
-2023,"KOROŠKA","MUTA","Paper/Cardboard Packaging","yes",15.466
-2023,"KOROŠKA","MUTA","Wooden packaging","no",38.7
-2023,"KOROŠKA","PODVELKA","Paper/Cardboard Packaging","yes",16.967
-2023,"KOROŠKA","PODVELKA","Wood, not specified in 20 01 37","no",28.48
-2023,"KOROŠKA","PREVALJE","Paper/Cardboard Packaging","no",156.17
-2023,"KOROŠKA","PREVALJE","Paper/Cardboard Packaging","yes",47.623
-2023,"KOROŠKA","PREVALJE","Wooden packaging","no",60.986
-2023,"KOROŠKA","RADLJE OB DRAVI","Paper/Cardboard Packaging","no",53.726
-2023,"KOROŠKA","RADLJE OB DRAVI","Paper/Cardboard Packaging","yes",63.712
-2023,"KOROŠKA","RAVNE NA KOROŠKEM","Paper/Cardboard Packaging","no",79.584
-2023,"KOROŠKA","RAVNE NA KOROŠKEM","Paper/Cardboard Packaging","yes",79.429
-2023,"KOROŠKA","RAVNE NA KOROŠKEM","Wood, not specified in 20 01 37","no",46.1
-2023,"KOROŠKA","RAVNE NA KOROŠKEM","Wooden packaging","no",132.28
-2023,"KOROŠKA","RIBNICA NA POHORJU","Paper/Cardboard Packaging","yes",3.578
-2023,"KOROŠKA","SLOVENJ GRADEC","Paper/Cardboard Packaging","no",66.88
-2023,"KOROŠKA","SLOVENJ GRADEC","Paper/Cardboard Packaging","yes",83.8
-2023,"KOROŠKA","SLOVENJ GRADEC","Wooden packaging","no",1.96
-2023,"KOROŠKA","VUZENICA","Paper/Cardboard Packaging","no",0.31
-2023,"KOROŠKA","VUZENICA","Paper/Cardboard Packaging","yes",15.697
-2023,"KOROŠKA","ČRNA NA KOROŠKEM","Paper/Cardboard Packaging","no",328.48
-2023,"KOROŠKA","ČRNA NA KOROŠKEM","Paper/Cardboard Packaging","yes",22.644
-2023,"KOROŠKA","ČRNA NA KOROŠKEM","Wooden packaging","no",309.68
-2023,"OBALNOKRAŠKA","ANKARAN","Paper/Cardboard Packaging","yes",46.5
-2023,"OBALNOKRAŠKA","ANKARAN","Wood, not specified in 20 01 37","yes",70.722
-2023,"OBALNOKRAŠKA","DIVAČA","Paper/Cardboard Packaging","yes",55.306
-2023,"OBALNOKRAŠKA","DIVAČA","Wood, not specified in 20 01 37","yes",91.39
-2023,"OBALNOKRAŠKA","HRPELJE-KOZINA","Paper/Cardboard Packaging","yes",64.026
-2023,"OBALNOKRAŠKA","HRPELJE-KOZINA","Wood, not specified in 20 01 37","yes",105.799
-2023,"OBALNOKRAŠKA","IZOLA","Paper/Cardboard Packaging","yes",232.715
-2023,"OBALNOKRAŠKA","IZOLA","Wood, not specified in 20 01 37","yes",629.72
-2023,"OBALNOKRAŠKA","KOMEN","Paper/Cardboard Packaging","yes",45.922
-2023,"OBALNOKRAŠKA","KOMEN","Wood, not specified in 20 01 37","yes",75.884
-2023,"OBALNOKRAŠKA","KOPER","Paper/Cardboard Packaging","no",106.76
-2023,"OBALNOKRAŠKA","KOPER","Paper/Cardboard Packaging","yes",534.679
-2023,"OBALNOKRAŠKA","KOPER","Wood, not specified in 20 01 37","yes",1697.338
-2023,"OBALNOKRAŠKA","KOPER","Wooden packaging","no",1523.04
-2023,"OBALNOKRAŠKA","PIRAN","Paper/Cardboard Packaging","yes",493.335
-2023,"OBALNOKRAŠKA","PIRAN","Wood, not specified in 20 01 37","yes",962.45
-2023,"OBALNOKRAŠKA","SEŽANA","Paper/Cardboard Packaging","yes",166.315
-2023,"OBALNOKRAŠKA","SEŽANA","Wood, not specified in 20 01 37","yes",274.827
-2023,"OSREDNJESLOVENSKA","BOROVNICA","Paper/Cardboard Packaging","yes",33.961
-2023,"OSREDNJESLOVENSKA","BOROVNICA","Wood, not specified in 20 01 37","yes",108.221
-2023,"OSREDNJESLOVENSKA","BREZOVICA","Paper/Cardboard Packaging","no",25.14
-2023,"OSREDNJESLOVENSKA","BREZOVICA","Paper/Cardboard Packaging","yes",181.17
-2023,"OSREDNJESLOVENSKA","BREZOVICA","Wood, not specified in 20 01 37","yes",100.78
-2023,"OSREDNJESLOVENSKA","BREZOVICA","Wooden packaging","no",1.84
-2023,"OSREDNJESLOVENSKA","DOBREPOLJE","Paper/Cardboard Packaging","no",0.506
-2023,"OSREDNJESLOVENSKA","DOBREPOLJE","Paper/Cardboard Packaging","yes",18.264
-2023,"OSREDNJESLOVENSKA","DOBREPOLJE","Wood, not specified in 20 01 37","yes",15.659
-2023,"OSREDNJESLOVENSKA","DOBREPOLJE","Wooden packaging","yes",1.53
-2023,"OSREDNJESLOVENSKA","DOBROVA-POLHOV GRADEC","Paper/Cardboard Packaging","no",10.484
-2023,"OSREDNJESLOVENSKA","DOBROVA-POLHOV GRADEC","Paper/Cardboard Packaging","yes",73.008
-2023,"OSREDNJESLOVENSKA","DOL PRI LJUBLJANI","Paper/Cardboard Packaging","no",67.96
-2023,"OSREDNJESLOVENSKA","DOL PRI LJUBLJANI","Paper/Cardboard Packaging","yes",62.057
-2023,"OSREDNJESLOVENSKA","DOL PRI LJUBLJANI","Wooden packaging","no",24.84
-2023,"OSREDNJESLOVENSKA","DOMŽALE","Paper/Cardboard Packaging","no",152.268
-2023,"OSREDNJESLOVENSKA","DOMŽALE","Paper/Cardboard Packaging","yes",550.95
-2023,"OSREDNJESLOVENSKA","DOMŽALE","Wood, not specified in 20 01 37","yes",1554.769
-2023,"OSREDNJESLOVENSKA","DOMŽALE","Wooden packaging","no",195.26
-2023,"OSREDNJESLOVENSKA","GROSUPLJE","Paper/Cardboard Packaging","no",40.68
-2023,"OSREDNJESLOVENSKA","GROSUPLJE","Paper/Cardboard Packaging","yes",197.513
-2023,"OSREDNJESLOVENSKA","GROSUPLJE","Wood, not specified in 20 01 37","yes",494.656
-2023,"OSREDNJESLOVENSKA","GROSUPLJE","Wooden packaging","no",39.63
-2023,"OSREDNJESLOVENSKA","GROSUPLJE","Wooden packaging","yes",48.322
-2023,"OSREDNJESLOVENSKA","HORJUL","Paper/Cardboard Packaging","no",20.734
-2023,"OSREDNJESLOVENSKA","HORJUL","Paper/Cardboard Packaging","yes",33.764
-2023,"OSREDNJESLOVENSKA","IG","Paper/Cardboard Packaging","no",51.262
-2023,"OSREDNJESLOVENSKA","IG","Paper/Cardboard Packaging","yes",154.021
-2023,"OSREDNJESLOVENSKA","IG","Wood, not specified in 20 01 37","yes",94.42
-2023,"OSREDNJESLOVENSKA","IG","Wooden packaging","no",25.02
-2023,"OSREDNJESLOVENSKA","IVANČNA GORICA","Paper/Cardboard Packaging","no",18.674
-2023,"OSREDNJESLOVENSKA","IVANČNA GORICA","Paper/Cardboard Packaging","yes",121.8
-2023,"OSREDNJESLOVENSKA","IVANČNA GORICA","Wood, not specified in 20 01 37","yes",217.605
-2023,"OSREDNJESLOVENSKA","IVANČNA GORICA","Wooden packaging","no",42.5
-2023,"OSREDNJESLOVENSKA","IVANČNA GORICA","Wooden packaging","yes",21.258
-2023,"OSREDNJESLOVENSKA","KAMNIK","Paper/Cardboard Packaging","no",205.688
-2023,"OSREDNJESLOVENSKA","KAMNIK","Paper/Cardboard Packaging","yes",187.14
-2023,"OSREDNJESLOVENSKA","KAMNIK","Wood, not specified in 20 01 37","no",111.68
-2023,"OSREDNJESLOVENSKA","KAMNIK","Wood, not specified in 20 01 37","yes",562.25
-2023,"OSREDNJESLOVENSKA","KAMNIK","Wooden packaging","no",114.21
-2023,"OSREDNJESLOVENSKA","KAMNIK","Wooden packaging","yes",0.02
-2023,"OSREDNJESLOVENSKA","KOMENDA","Paper/Cardboard Packaging","no",23.526
-2023,"OSREDNJESLOVENSKA","KOMENDA","Paper/Cardboard Packaging","yes",33.03
-2023,"OSREDNJESLOVENSKA","KOMENDA","Wood, not specified in 20 01 37","yes",312.78
-2023,"OSREDNJESLOVENSKA","KOMENDA","Wooden packaging","no",1.34
-2023,"OSREDNJESLOVENSKA","KOMENDA","Wooden packaging","yes",14.26
-2023,"OSREDNJESLOVENSKA","LJUBLJANA","Paper/Cardboard Packaging","no",2195.114
-2023,"OSREDNJESLOVENSKA","LJUBLJANA","Paper/Cardboard Packaging","yes",2086.713
-2023,"OSREDNJESLOVENSKA","LJUBLJANA","Paper/Cardboard Packaging",NA,5.35
-2023,"OSREDNJESLOVENSKA","LJUBLJANA","Wood, not specified in 20 01 37","no",78.665
-2023,"OSREDNJESLOVENSKA","LJUBLJANA","Wood, not specified in 20 01 37","yes",8179.79
-2023,"OSREDNJESLOVENSKA","LJUBLJANA","Wooden packaging","no",2117.14
-2023,"OSREDNJESLOVENSKA","LJUBLJANA","Wooden packaging","yes",257.64
-2023,"OSREDNJESLOVENSKA","LOG-DRAGOMER","Paper/Cardboard Packaging","no",0.472
-2023,"OSREDNJESLOVENSKA","LOG-DRAGOMER","Paper/Cardboard Packaging","yes",26.414
-2023,"OSREDNJESLOVENSKA","LOG-DRAGOMER","Wood, not specified in 20 01 37","yes",84.172
-2023,"OSREDNJESLOVENSKA","LOGATEC","Paper/Cardboard Packaging","no",58.889
-2023,"OSREDNJESLOVENSKA","LOGATEC","Paper/Cardboard Packaging","yes",170.728
-2023,"OSREDNJESLOVENSKA","LOGATEC","Wood, not specified in 20 01 37","no",27.46
-2023,"OSREDNJESLOVENSKA","LOGATEC","Wood, not specified in 20 01 37","yes",376.97
-2023,"OSREDNJESLOVENSKA","LOGATEC","Wooden packaging","no",79.642
-2023,"OSREDNJESLOVENSKA","LUKOVICA","Paper/Cardboard Packaging","no",5.187
-2023,"OSREDNJESLOVENSKA","LUKOVICA","Paper/Cardboard Packaging","yes",82.642
-2023,"OSREDNJESLOVENSKA","LUKOVICA","Wood, not specified in 20 01 37","yes",230.33
-2023,"OSREDNJESLOVENSKA","LUKOVICA","Wooden packaging","no",46.6
-2023,"OSREDNJESLOVENSKA","MEDVODE","Paper/Cardboard Packaging","no",57.02
-2023,"OSREDNJESLOVENSKA","MEDVODE","Paper/Cardboard Packaging","yes",247.821
-2023,"OSREDNJESLOVENSKA","MEDVODE","Wood, not specified in 20 01 37","yes",286.6
-2023,"OSREDNJESLOVENSKA","MEDVODE","Wooden packaging","no",225.39
-2023,"OSREDNJESLOVENSKA","MENGEŠ","Paper/Cardboard Packaging","no",36.423
-2023,"OSREDNJESLOVENSKA","MENGEŠ","Paper/Cardboard Packaging","yes",119.373
-2023,"OSREDNJESLOVENSKA","MENGEŠ","Wood, not specified in 20 01 37","no",4.36
-2023,"OSREDNJESLOVENSKA","MENGEŠ","Wood, not specified in 20 01 37","yes",332.7
-2023,"OSREDNJESLOVENSKA","MENGEŠ","Wooden packaging","no",55.976
-2023,"OSREDNJESLOVENSKA","MORAVČE","Paper/Cardboard Packaging","no",4.036
-2023,"OSREDNJESLOVENSKA","MORAVČE","Paper/Cardboard Packaging","yes",64.277
-2023,"OSREDNJESLOVENSKA","MORAVČE","Wood, not specified in 20 01 37","yes",179.146
-2023,"OSREDNJESLOVENSKA","MORAVČE","Wooden packaging","no",71.28
-2023,"OSREDNJESLOVENSKA","TRZIN","Paper/Cardboard Packaging","no",328.422
-2023,"OSREDNJESLOVENSKA","TRZIN","Paper/Cardboard Packaging","yes",101.008
-2023,"OSREDNJESLOVENSKA","TRZIN","Wood, not specified in 20 01 37","no",0.89
-2023,"OSREDNJESLOVENSKA","TRZIN","Wood, not specified in 20 01 37","yes",281.515
-2023,"OSREDNJESLOVENSKA","TRZIN","Wooden packaging","no",23.763
-2023,"OSREDNJESLOVENSKA","VELIKE LAŠČE","Paper/Cardboard Packaging","yes",50.32
-2023,"OSREDNJESLOVENSKA","VELIKE LAŠČE","Wood, not specified in 20 01 37","yes",63.28
-2023,"OSREDNJESLOVENSKA","VODICE","Paper/Cardboard Packaging","yes",79.329
-2023,"OSREDNJESLOVENSKA","VODICE","Wood, not specified in 20 01 37","yes",128.26
-2023,"OSREDNJESLOVENSKA","VRHNIKA","Paper/Cardboard Packaging","no",22.115
-2023,"OSREDNJESLOVENSKA","VRHNIKA","Paper/Cardboard Packaging","yes",110.797
-2023,"OSREDNJESLOVENSKA","VRHNIKA","Wood, not specified in 20 01 37","yes",408.837
-2023,"OSREDNJESLOVENSKA","VRHNIKA","Wooden packaging","no",0.58
-2023,"OSREDNJESLOVENSKA","ŠKOFLJICA","Paper/Cardboard Packaging","no",102.131
-2023,"OSREDNJESLOVENSKA","ŠKOFLJICA","Paper/Cardboard Packaging","yes",144.917
-2023,"OSREDNJESLOVENSKA","ŠKOFLJICA","Wood, not specified in 20 01 37","yes",111.2
-2023,"OSREDNJESLOVENSKA","ŠKOFLJICA","Wooden packaging","no",0.096
-2023,"OSREDNJESLOVENSKA","ŠMARTNO PRI LITIJI","Paper/Cardboard Packaging","no",18.073
-2023,"OSREDNJESLOVENSKA","ŠMARTNO PRI LITIJI","Paper/Cardboard Packaging","yes",76.491
-2023,"OSREDNJESLOVENSKA","ŠMARTNO PRI LITIJI","Wood, not specified in 20 01 37","no",1.63
-2023,"OSREDNJESLOVENSKA","ŠMARTNO PRI LITIJI","Wood, not specified in 20 01 37","yes",113.391
-2023,"PODRAVSKA","BENEDIKT","Paper/Cardboard Packaging","yes",12.832
-2023,"PODRAVSKA","BENEDIKT","Wood, not specified in 20 01 37","yes",2.82
-2023,"PODRAVSKA","CERKVENJAK","Paper/Cardboard Packaging","yes",14.864
-2023,"PODRAVSKA","CERKVENJAK","Wood, not specified in 20 01 37","yes",1.3
-2023,"PODRAVSKA","CIRKULANE","Paper/Cardboard Packaging","no",2.116
-2023,"PODRAVSKA","CIRKULANE","Paper/Cardboard Packaging","yes",11.916
-2023,"PODRAVSKA","DESTRNIK","Paper/Cardboard Packaging","yes",16.098
-2023,"PODRAVSKA","DORNAVA","Paper/Cardboard Packaging","yes",21.18
-2023,"PODRAVSKA","DORNAVA","Wood, not specified in 20 01 37","yes",23.612
-2023,"PODRAVSKA","DUPLEK","Paper/Cardboard Packaging","yes",59.776
-2023,"PODRAVSKA","DUPLEK","Wood, not specified in 20 01 37","yes",114.02
-2023,"PODRAVSKA","GORIŠNICA","Paper/Cardboard Packaging","yes",33.771
-2023,"PODRAVSKA","GORIŠNICA","Wood, not specified in 20 01 37","yes",69.3
-2023,"PODRAVSKA","HAJDINA","Paper/Cardboard Packaging","no",4.38
-2023,"PODRAVSKA","HAJDINA","Paper/Cardboard Packaging","yes",37.474
-2023,"PODRAVSKA","HAJDINA","Wood, not specified in 20 01 37","yes",90.84
-2023,"PODRAVSKA","HOČE-SLIVNICA","Paper/Cardboard Packaging","no",12.205
-2023,"PODRAVSKA","HOČE-SLIVNICA","Paper/Cardboard Packaging","yes",22.76
-2023,"PODRAVSKA","HOČE-SLIVNICA","Wood, not specified in 20 01 37","no",0.443
-2023,"PODRAVSKA","HOČE-SLIVNICA","Wood, not specified in 20 01 37","yes",394.85
-2023,"PODRAVSKA","HOČE-SLIVNICA","Wooden packaging","no",3.48
-2023,"PODRAVSKA","JURŠINCI","Paper/Cardboard Packaging","yes",19.947
-2023,"PODRAVSKA","JURŠINCI","Wood, not specified in 20 01 37","yes",10.378
-2023,"PODRAVSKA","KIDRIČEVO","Paper/Cardboard Packaging","yes",53.695
-2023,"PODRAVSKA","KIDRIČEVO","Wood, not specified in 20 01 37","yes",179.9
-2023,"PODRAVSKA","KUNGOTA","Paper/Cardboard Packaging","no",1.345
-2023,"PODRAVSKA","KUNGOTA","Paper/Cardboard Packaging","yes",23.9
-2023,"PODRAVSKA","KUNGOTA","Wood, not specified in 20 01 37","yes",91.58
-2023,"PODRAVSKA","LENART","Paper/Cardboard Packaging","yes",49.268
-2023,"PODRAVSKA","LENART","Wood, not specified in 20 01 37","no",8.58
-2023,"PODRAVSKA","LENART","Wood, not specified in 20 01 37","yes",19.14
-2023,"PODRAVSKA","LENART","Wooden packaging","no",354.571
-2023,"PODRAVSKA","LENART","Wooden packaging","yes",44.133
-2023,"PODRAVSKA","LOVRENC NA POHORJU","Paper/Cardboard Packaging","yes",16.72
-2023,"PODRAVSKA","LOVRENC NA POHORJU","Wood, not specified in 20 01 37","yes",154.46
-2023,"PODRAVSKA","MAJŠPERK","Paper/Cardboard Packaging","no",1.78
-2023,"PODRAVSKA","MAJŠPERK","Paper/Cardboard Packaging","yes",24.177
-2023,"PODRAVSKA","MAJŠPERK","Wood, not specified in 20 01 37","yes",44.1
-2023,"PODRAVSKA","MAKOLE","Paper/Cardboard Packaging","yes",9.958
-2023,"PODRAVSKA","MAKOLE","Wood, not specified in 20 01 37","yes",46.387
-2023,"PODRAVSKA","MARIBOR","Paper/Cardboard Packaging","no",54.73
-2023,"PODRAVSKA","MARIBOR","Paper/Cardboard Packaging","yes",529.81
-2023,"PODRAVSKA","MARIBOR","Wood, not specified in 20 01 37","no",1.82
-2023,"PODRAVSKA","MARIBOR","Wood, not specified in 20 01 37","yes",5118.39
-2023,"PODRAVSKA","MARIBOR","Wooden packaging","no",13.13
-2023,"PODRAVSKA","MARIBOR","Wooden packaging","yes",26.5
-2023,"PODRAVSKA","MARKOVCI","Paper/Cardboard Packaging","no",1.581
-2023,"PODRAVSKA","MARKOVCI","Paper/Cardboard Packaging","yes",35.222
-2023,"PODRAVSKA","MARKOVCI","Wood, not specified in 20 01 37","yes",70.58
-2023,"PODRAVSKA","MIKLAVŽ NA DRAVSKEM POLJU","Paper/Cardboard Packaging","no",5.32
-2023,"PODRAVSKA","MIKLAVŽ NA DRAVSKEM POLJU","Paper/Cardboard Packaging","yes",39.4
-2023,"PODRAVSKA","MIKLAVŽ NA DRAVSKEM POLJU","Wood, not specified in 20 01 37","yes",209.76
-2023,"PODRAVSKA","OPLOTNICA","Paper/Cardboard Packaging","yes",27.371
-2023,"PODRAVSKA","OPLOTNICA","Wood, not specified in 20 01 37","no",2.72
-2023,"PODRAVSKA","OPLOTNICA","Wood, not specified in 20 01 37","yes",154.668
-2023,"PODRAVSKA","ORMOŽ","Paper/Cardboard Packaging","yes",112.845
-2023,"PODRAVSKA","ORMOŽ","Wood, not specified in 20 01 37","yes",15.02
-2023,"PODRAVSKA","ORMOŽ","Wooden packaging","yes",13.065
-2023,"PODRAVSKA","PESNICA","Paper/Cardboard Packaging","yes",31.3
-2023,"PODRAVSKA","PESNICA","Wood, not specified in 20 01 37","yes",252.5
-2023,"PODRAVSKA","PODLEHNIK","Paper/Cardboard Packaging","yes",9.465
-2023,"PODRAVSKA","POLJČANE","Paper/Cardboard Packaging","no",0.06
-2023,"PODRAVSKA","POLJČANE","Paper/Cardboard Packaging","yes",29.219
-2023,"PODRAVSKA","POLJČANE","Wood, not specified in 20 01 37","yes",170.268
-2023,"PODRAVSKA","PTUJ","Paper/Cardboard Packaging","no",1.96
-2023,"PODRAVSKA","PTUJ","Paper/Cardboard Packaging","yes",238.59
-2023,"PODRAVSKA","PTUJ","Wood, not specified in 20 01 37","no",122.56
-2023,"PODRAVSKA","PTUJ","Wood, not specified in 20 01 37","yes",422.3
-2023,"PODRAVSKA","PTUJ","Wooden packaging","no",15.16
-2023,"PODRAVSKA","RAČE-FRAM","Paper/Cardboard Packaging","yes",70.911
-2023,"PODRAVSKA","RAČE-FRAM","Wood, not specified in 20 01 37","yes",401.707
-2023,"PODRAVSKA","RUŠE","Paper/Cardboard Packaging","no",3.28
-2023,"PODRAVSKA","RUŠE","Paper/Cardboard Packaging","yes",22.99
-2023,"PODRAVSKA","RUŠE","Wood, not specified in 20 01 37","yes",356.664
-2023,"PODRAVSKA","RUŠE","Wooden packaging","no",41.72
-2023,"PODRAVSKA","SELNICA OB DRAVI","Paper/Cardboard Packaging","no",4.77
-2023,"PODRAVSKA","SELNICA OB DRAVI","Paper/Cardboard Packaging","yes",14.09
-2023,"PODRAVSKA","SELNICA OB DRAVI","Wood, not specified in 20 01 37","yes",213.896
-2023,"PODRAVSKA","SELNICA OB DRAVI","Wooden packaging","no",11.84
-2023,"PODRAVSKA","SLOVENSKA BISTRICA","Paper/Cardboard Packaging","no",4.48
-2023,"PODRAVSKA","SLOVENSKA BISTRICA","Paper/Cardboard Packaging","yes",209.091
-2023,"PODRAVSKA","SLOVENSKA BISTRICA","Wood, not specified in 20 01 37","no",20.04
-2023,"PODRAVSKA","SLOVENSKA BISTRICA","Wood, not specified in 20 01 37","yes",1129.28
-2023,"PODRAVSKA","SREDIŠČE OB DRAVI","Paper/Cardboard Packaging","yes",22.569
-2023,"PODRAVSKA","SREDIŠČE OB DRAVI","Wooden packaging","yes",2.613
-2023,"PODRAVSKA","STARŠE","Paper/Cardboard Packaging","yes",19.5
-2023,"PODRAVSKA","STARŠE","Wood, not specified in 20 01 37","yes",354.88
-2023,"PODRAVSKA","SVETA ANA","Paper/Cardboard Packaging","yes",11.366
-2023,"PODRAVSKA","SVETA ANA","Wood, not specified in 20 01 37","no",1.04
-2023,"PODRAVSKA","SVETA ANA","Wood, not specified in 20 01 37","yes",1
-2023,"PODRAVSKA","SVETA TROJICA V SLOVENSKIH GORICAH","Paper/Cardboard Packaging","yes",11.204
-2023,"PODRAVSKA","SVETA TROJICA V SLOVENSKIH GORICAH","Wood, not specified in 20 01 37","no",1.6
-2023,"PODRAVSKA","SVETA TROJICA V SLOVENSKIH GORICAH","Wood, not specified in 20 01 37","yes",1.92
-2023,"PODRAVSKA","SVETI ANDRAŽ V SLOV. GORICAH","Paper/Cardboard Packaging","yes",8.064
-2023,"PODRAVSKA","SVETI JURIJ V SLOVENSKIH GORICAH","Paper/Cardboard Packaging","yes",9.27
-2023,"PODRAVSKA","SVETI JURIJ V SLOVENSKIH GORICAH","Wood, not specified in 20 01 37","no",0.8
-2023,"PODRAVSKA","SVETI JURIJ V SLOVENSKIH GORICAH","Wood, not specified in 20 01 37","yes",4.22
-2023,"PODRAVSKA","SVETI TOMAŽ","Paper/Cardboard Packaging","yes",15.046
-2023,"PODRAVSKA","SVETI TOMAŽ","Wooden packaging","yes",1.742
-2023,"PODRAVSKA","TRNOVSKA VAS","Paper/Cardboard Packaging","yes",9.659
-2023,"PODRAVSKA","TRNOVSKA VAS","Wood, not specified in 20 01 37","yes",31.84
-2023,"PODRAVSKA","VIDEM","Paper/Cardboard Packaging","yes",38.712
-2023,"PODRAVSKA","VIDEM","Wood, not specified in 20 01 37","yes",65.48
-2023,"PODRAVSKA","ZAVRČ","Paper/Cardboard Packaging","yes",6.322
-2023,"PODRAVSKA","ŠENTILJ","Paper/Cardboard Packaging","yes",47.786
-2023,"PODRAVSKA","ŠENTILJ","Wood, not specified in 20 01 37","yes",21.73
-2023,"PODRAVSKA","ŠENTILJ","Wooden packaging","no",2.48
-2023,"PODRAVSKA","ŽETALE","Paper/Cardboard Packaging","yes",6.093
-2023,"PODRAVSKA","ŽETALE","Wood, not specified in 20 01 37","yes",10.5
-2023,"POMURSKA","APAČE","Paper/Cardboard Packaging","yes",66.6
-2023,"POMURSKA","APAČE","Wood, not specified in 20 01 37","yes",6.8
-2023,"POMURSKA","BELTINCI","Paper/Cardboard Packaging","no",0.54
-2023,"POMURSKA","BELTINCI","Paper/Cardboard Packaging","yes",14.989
-2023,"POMURSKA","BELTINCI","Wood, not specified in 20 01 37","yes",135.209
-2023,"POMURSKA","CANKOVA","Paper/Cardboard Packaging","yes",4.621
-2023,"POMURSKA","CANKOVA","Wood, not specified in 20 01 37","yes",24.576
-2023,"POMURSKA","DOBROVNIK","Paper/Cardboard Packaging","yes",5.266
-2023,"POMURSKA","DOBROVNIK","Wood, not specified in 20 01 37","yes",21.481
-2023,"POMURSKA","GORNJA RADGONA","Paper/Cardboard Packaging","yes",45.75
-2023,"POMURSKA","GORNJA RADGONA","Wood, not specified in 20 01 37","yes",57.94
-2023,"POMURSKA","GORNJA RADGONA","Wooden packaging","no",3.86
-2023,"POMURSKA","GORNJI PETROVCI","Paper/Cardboard Packaging","yes",6.238
-2023,"POMURSKA","GORNJI PETROVCI","Wood, not specified in 20 01 37","yes",5.863
-2023,"POMURSKA","GRAD","Paper/Cardboard Packaging","yes",15.204
-2023,"POMURSKA","GRAD","Wood, not specified in 20 01 37","yes",21.568
-2023,"POMURSKA","HODOŠ","Paper/Cardboard Packaging","yes",1.743
-2023,"POMURSKA","HODOŠ","Wood, not specified in 20 01 37","yes",2.346
-2023,"POMURSKA","KOBILJE","Paper/Cardboard Packaging","yes",1.755
-2023,"POMURSKA","KOBILJE","Wood, not specified in 20 01 37","yes",7.75
-2023,"POMURSKA","KRIŽEVCI","Paper/Cardboard Packaging","yes",5.83
-2023,"POMURSKA","KUZMA","Paper/Cardboard Packaging","yes",6.342
-2023,"POMURSKA","KUZMA","Wood, not specified in 20 01 37","yes",21.852
-2023,"POMURSKA","LENDAVA","Paper/Cardboard Packaging","no",484.229
-2023,"POMURSKA","LENDAVA","Paper/Cardboard Packaging","yes",111.1
-2023,"POMURSKA","LENDAVA","Wood, not specified in 20 01 37","no",0.2
-2023,"POMURSKA","LENDAVA","Wood, not specified in 20 01 37","yes",33.52
-2023,"POMURSKA","LENDAVA","Wooden packaging","no",168.997
-2023,"POMURSKA","LJUTOMER","Paper/Cardboard Packaging","yes",20.26
-2023,"POMURSKA","MORAVSKE TOPLICE","Paper/Cardboard Packaging","yes",43.709
-2023,"POMURSKA","MORAVSKE TOPLICE","Wood, not specified in 20 01 37","no",6.06
-2023,"POMURSKA","MORAVSKE TOPLICE","Wood, not specified in 20 01 37","yes",25.927
-2023,"POMURSKA","MURSKA SOBOTA","Paper/Cardboard Packaging","no",0.213
-2023,"POMURSKA","MURSKA SOBOTA","Paper/Cardboard Packaging","yes",99.36
-2023,"POMURSKA","MURSKA SOBOTA","Wood, not specified in 20 01 37","no",19.3
-2023,"POMURSKA","MURSKA SOBOTA","Wood, not specified in 20 01 37","yes",329.254
-2023,"POMURSKA","ODRANCI","Paper/Cardboard Packaging","yes",8.591
-2023,"POMURSKA","ODRANCI","Wood, not specified in 20 01 37","yes",19.135
-2023,"POMURSKA","PUCONCI","Paper/Cardboard Packaging","yes",50.421
-2023,"POMURSKA","PUCONCI","Wood, not specified in 20 01 37","no",49.34
-2023,"POMURSKA","PUCONCI","Wood, not specified in 20 01 37","yes",1.819
-2023,"POMURSKA","RADENCI","Paper/Cardboard Packaging","no",1.62
-2023,"POMURSKA","RADENCI","Paper/Cardboard Packaging","yes",29.296
-2023,"POMURSKA","RADENCI","Wood, not specified in 20 01 37","yes",16.22
-2023,"POMURSKA","RADENCI","Wooden packaging","no",70.62
-2023,"POMURSKA","RAZKRIŽJE","Paper/Cardboard Packaging","yes",1.72
-2023,"POMURSKA","ROGAŠOVCI","Paper/Cardboard Packaging","yes",7.26
-2023,"POMURSKA","ROGAŠOVCI","Wood, not specified in 20 01 37","yes",19.119
-2023,"POMURSKA","SVETI JURIJ OB ŠČAVNICI","Paper/Cardboard Packaging","yes",7.885
-2023,"POMURSKA","SVETI JURIJ OB ŠČAVNICI","Wood, not specified in 20 01 37","yes",6.23
-2023,"POMURSKA","TIŠINA","Paper/Cardboard Packaging","yes",55.04
-2023,"POMURSKA","TIŠINA","Wood, not specified in 20 01 37","yes",58.996
-2023,"POMURSKA","TURNIŠČE","Paper/Cardboard Packaging","no",0.684
-2023,"POMURSKA","TURNIŠČE","Paper/Cardboard Packaging","yes",5.72
-2023,"POMURSKA","TURNIŠČE","Wood, not specified in 20 01 37","yes",38.543
-2023,"POMURSKA","VELIKA POLANA","Paper/Cardboard Packaging","no",2.772
-2023,"POMURSKA","VELIKA POLANA","Wood, not specified in 20 01 37","yes",4.78
-2023,"POMURSKA","VERŽEJ","Paper/Cardboard Packaging","yes",4.23
-2023,"POMURSKA","ČRENŠOVCI","Paper/Cardboard Packaging","yes",4.524
-2023,"POMURSKA","ČRENŠOVCI","Wood, not specified in 20 01 37","yes",47.939
-2023,"POMURSKA","ŠALOVCI","Paper/Cardboard Packaging","yes",3.777
-2023,"POMURSKA","ŠALOVCI","Wood, not specified in 20 01 37","yes",11.663
-2023,"POSAVSKA","BISTRICA OB SOTLI","Paper/Cardboard Packaging","yes",9.04
-2023,"POSAVSKA","BISTRICA OB SOTLI","Wood, not specified in 20 01 37","yes",3.246
-2023,"POSAVSKA","BREŽICE","Paper/Cardboard Packaging","no",137.395
-2023,"POSAVSKA","BREŽICE","Paper/Cardboard Packaging","yes",303.42
-2023,"POSAVSKA","BREŽICE","Wood, not specified in 20 01 37","yes",917.75
-2023,"POSAVSKA","BREŽICE","Wooden packaging","no",31.02
-2023,"POSAVSKA","KOSTANJEVICA NA KRKI","Paper/Cardboard Packaging","no",10.164
-2023,"POSAVSKA","KOSTANJEVICA NA KRKI","Paper/Cardboard Packaging","yes",9.74
-2023,"POSAVSKA","KOSTANJEVICA NA KRKI","Wood, not specified in 20 01 37","yes",96.72
-2023,"POSAVSKA","KOSTANJEVICA NA KRKI","Wooden packaging","no",18.56
-2023,"POSAVSKA","KRŠKO","Paper/Cardboard Packaging","no",285.707
-2023,"POSAVSKA","KRŠKO","Paper/Cardboard Packaging","yes",80.29
-2023,"POSAVSKA","KRŠKO","Wood, not specified in 20 01 37","yes",2610.33
-2023,"POSAVSKA","KRŠKO","Wooden packaging","no",75.432
-2023,"POSAVSKA","RADEČE","Paper/Cardboard Packaging","no",32.864
-2023,"POSAVSKA","RADEČE","Paper/Cardboard Packaging","yes",66.872
-2023,"POSAVSKA","RADEČE","Wood, not specified in 20 01 37","yes",82.08
-2023,"POSAVSKA","RADEČE","Wooden packaging","no",0.1
-2023,"POSAVSKA","SEVNICA","Paper/Cardboard Packaging","no",112.987
-2023,"POSAVSKA","SEVNICA","Paper/Cardboard Packaging","yes",226.824
-2023,"POSAVSKA","SEVNICA","Wood, not specified in 20 01 37","no",0.203
-2023,"POSAVSKA","SEVNICA","Wood, not specified in 20 01 37","yes",239.1
-2023,"POSAVSKA","SEVNICA","Wooden packaging","no",66.988
-2023,"POSAVSKA","SEVNICA","Wooden packaging","yes",6.599
-2023,"PRIMORSKONOTRANJSKA","BLOKE","Paper/Cardboard Packaging","yes",60.602
-2023,"PRIMORSKONOTRANJSKA","BLOKE","Wood, not specified in 20 01 37","yes",25.85
-2023,"PRIMORSKONOTRANJSKA","CERKNICA","Paper/Cardboard Packaging","no",18.54
-2023,"PRIMORSKONOTRANJSKA","CERKNICA","Paper/Cardboard Packaging","yes",92.526
-2023,"PRIMORSKONOTRANJSKA","CERKNICA","Wood, not specified in 20 01 37","yes",321.055
-2023,"PRIMORSKONOTRANJSKA","CERKNICA","Wooden packaging","no",114.9
-2023,"PRIMORSKONOTRANJSKA","ILIRSKA BISTRICA","Paper/Cardboard Packaging","no",3.83
-2023,"PRIMORSKONOTRANJSKA","ILIRSKA BISTRICA","Paper/Cardboard Packaging","yes",120.788
-2023,"PRIMORSKONOTRANJSKA","ILIRSKA BISTRICA","Wood, not specified in 20 01 37","yes",295.17
-2023,"PRIMORSKONOTRANJSKA","LOŠKA DOLINA","Paper/Cardboard Packaging","yes",29.382
-2023,"PRIMORSKONOTRANJSKA","LOŠKA DOLINA","Wood, not specified in 20 01 37","yes",106.385
-2023,"PRIMORSKONOTRANJSKA","PIVKA","Paper/Cardboard Packaging","yes",43.92
-2023,"PRIMORSKONOTRANJSKA","PIVKA","Wood, not specified in 20 01 37","yes",129.87
-2023,"PRIMORSKONOTRANJSKA","PIVKA","Wooden packaging","yes",2.32
-2023,"PRIMORSKONOTRANJSKA","POSTOJNA","Paper/Cardboard Packaging","no",1.3
-2023,"PRIMORSKONOTRANJSKA","POSTOJNA","Paper/Cardboard Packaging","yes",110.18
-2023,"PRIMORSKONOTRANJSKA","POSTOJNA","Wood, not specified in 20 01 37","yes",510.47
-2023,"SAVINJSKA","BRASLOVČE","Paper/Cardboard Packaging","no",36.7
-2023,"SAVINJSKA","BRASLOVČE","Paper/Cardboard Packaging","yes",42.367
-2023,"SAVINJSKA","BRASLOVČE","Wood, not specified in 20 01 37","yes",161.513
-2023,"SAVINJSKA","BRASLOVČE","Wooden packaging","no",12.12
-2023,"SAVINJSKA","CELJE","Paper/Cardboard Packaging","no",589.18
-2023,"SAVINJSKA","CELJE","Paper/Cardboard Packaging","yes",443.534
-2023,"SAVINJSKA","CELJE","Wood, not specified in 20 01 37","yes",1010.573
-2023,"SAVINJSKA","CELJE","Wooden packaging","no",62.48
-2023,"SAVINJSKA","DOBJE","Paper/Cardboard Packaging","no",0.22
-2023,"SAVINJSKA","DOBJE","Paper/Cardboard Packaging","yes",36.945
-2023,"SAVINJSKA","DOBJE","Wood, not specified in 20 01 37","yes",55.015
-2023,"SAVINJSKA","DOBRNA","Paper/Cardboard Packaging","yes",10.668
-2023,"SAVINJSKA","DOBRNA","Wood, not specified in 20 01 37","yes",120.115
-2023,"SAVINJSKA","GORNJI GRAD","Paper/Cardboard Packaging","yes",21.504
-2023,"SAVINJSKA","GORNJI GRAD","Wood, not specified in 20 01 37","yes",332.191
-2023,"SAVINJSKA","KOZJE","Paper/Cardboard Packaging","yes",21.687
-2023,"SAVINJSKA","KOZJE","Wood, not specified in 20 01 37","yes",7.786
-2023,"SAVINJSKA","LAŠKO","Paper/Cardboard Packaging","no",0.27
-2023,"SAVINJSKA","LAŠKO","Paper/Cardboard Packaging","yes",191.285
-2023,"SAVINJSKA","LAŠKO","Wood, not specified in 20 01 37","yes",117.097
-2023,"SAVINJSKA","LAŠKO","Wooden packaging","no",0.2
-2023,"SAVINJSKA","LJUBNO","Paper/Cardboard Packaging","no",29.395
-2023,"SAVINJSKA","LJUBNO","Paper/Cardboard Packaging","yes",10.666
-2023,"SAVINJSKA","LJUBNO","Wood, not specified in 20 01 37","yes",23.66
-2023,"SAVINJSKA","LJUBNO","Wooden packaging","no",14.56
-2023,"SAVINJSKA","LUČE","Paper/Cardboard Packaging","yes",2.994
-2023,"SAVINJSKA","LUČE","Wood, not specified in 20 01 37","yes",34.93
-2023,"SAVINJSKA","MOZIRJE","Paper/Cardboard Packaging","yes",42.737
-2023,"SAVINJSKA","MOZIRJE","Wood, not specified in 20 01 37","yes",70.322
-2023,"SAVINJSKA","NAZARJE","Paper/Cardboard Packaging","no",0.7
-2023,"SAVINJSKA","NAZARJE","Paper/Cardboard Packaging","yes",24.908
-2023,"SAVINJSKA","NAZARJE","Wood, not specified in 20 01 37","yes",30.348
-2023,"SAVINJSKA","PODČETRTEK","Paper/Cardboard Packaging","yes",29.774
-2023,"SAVINJSKA","PODČETRTEK","Wood, not specified in 20 01 37","yes",10.69
-2023,"SAVINJSKA","POLZELA","Paper/Cardboard Packaging","yes",21.861
-2023,"SAVINJSKA","POLZELA","Wood, not specified in 20 01 37","yes",184.322
-2023,"SAVINJSKA","PREBOLD","Paper/Cardboard Packaging","yes",23.025
-2023,"SAVINJSKA","PREBOLD","Wood, not specified in 20 01 37","yes",136.444
-2023,"SAVINJSKA","REČICA OB SAVINJI","Paper/Cardboard Packaging","yes",19.2
-2023,"SAVINJSKA","REČICA OB SAVINJI","Wood, not specified in 20 01 37","yes",30.138
-2023,"SAVINJSKA","ROGATEC","Paper/Cardboard Packaging","yes",18.467
-2023,"SAVINJSKA","ROGATEC","Wood, not specified in 20 01 37","yes",6.621
-2023,"SAVINJSKA","ROGAŠKA SLATINA","Paper/Cardboard Packaging","no",0.49
-2023,"SAVINJSKA","ROGAŠKA SLATINA","Paper/Cardboard Packaging","yes",89.579
-2023,"SAVINJSKA","ROGAŠKA SLATINA","Wood, not specified in 20 01 37","yes",32.169
-2023,"SAVINJSKA","SLOVENSKE KONJICE","Paper/Cardboard Packaging","yes",157.058
-2023,"SAVINJSKA","SLOVENSKE KONJICE","Wood, not specified in 20 01 37","yes",666.97
-2023,"SAVINJSKA","SOLČAVA","Paper/Cardboard Packaging","yes",3.271
-2023,"SAVINJSKA","SOLČAVA","Wood, not specified in 20 01 37","yes",4.916
-2023,"SAVINJSKA","TABOR","Paper/Cardboard Packaging","yes",6.756
-2023,"SAVINJSKA","TABOR","Wood, not specified in 20 01 37","yes",61.747
-2023,"SAVINJSKA","VELENJE","Paper/Cardboard Packaging","no",3224.425
-2023,"SAVINJSKA","VELENJE","Paper/Cardboard Packaging","yes",273.575
-2023,"SAVINJSKA","VELENJE","Wood, not specified in 20 01 37","yes",874.868
-2023,"SAVINJSKA","VELENJE","Wooden packaging","no",2831.11
-2023,"SAVINJSKA","VITANJE","Paper/Cardboard Packaging","yes",7.644
-2023,"SAVINJSKA","VOJNIK","Paper/Cardboard Packaging","no",1.8
-2023,"SAVINJSKA","VOJNIK","Paper/Cardboard Packaging","yes",45.847
-2023,"SAVINJSKA","VOJNIK","Wood, not specified in 20 01 37","yes",198.088
-2023,"SAVINJSKA","VRANSKO","Paper/Cardboard Packaging","yes",11.276
-2023,"SAVINJSKA","VRANSKO","Wood, not specified in 20 01 37","yes",66.458
-2023,"SAVINJSKA","ZREČE","Paper/Cardboard Packaging","yes",26.238
-2023,"SAVINJSKA","ZREČE","Wood, not specified in 20 01 37","yes",4.12
-2023,"SAVINJSKA","ŠENTJUR","Paper/Cardboard Packaging","no",62.6
-2023,"SAVINJSKA","ŠENTJUR","Paper/Cardboard Packaging","yes",40.958
-2023,"SAVINJSKA","ŠENTJUR","Wood, not specified in 20 01 37","no",130.88
-2023,"SAVINJSKA","ŠENTJUR","Wood, not specified in 20 01 37","yes",398.105
-2023,"SAVINJSKA","ŠENTJUR","Wooden packaging","no",1.84
-2023,"SAVINJSKA","ŠMARJE PRI JELŠAH","Paper/Cardboard Packaging","no",26.42
-2023,"SAVINJSKA","ŠMARJE PRI JELŠAH","Paper/Cardboard Packaging","yes",89.013
-2023,"SAVINJSKA","ŠMARJE PRI JELŠAH","Wood, not specified in 20 01 37","yes",31.958
-2023,"SAVINJSKA","ŠMARJE PRI JELŠAH","Wooden packaging","no",51.09
-2023,"SAVINJSKA","ŠMARTNO OB PAKI","Paper/Cardboard Packaging","yes",39.481
-2023,"SAVINJSKA","ŠMARTNO OB PAKI","Wood, not specified in 20 01 37","yes",100.666
-2023,"SAVINJSKA","ŠOŠTANJ","Paper/Cardboard Packaging","no",45.01
-2023,"SAVINJSKA","ŠOŠTANJ","Paper/Cardboard Packaging","yes",73.601
-2023,"SAVINJSKA","ŠOŠTANJ","Wood, not specified in 20 01 37","yes",248.621
-2023,"SAVINJSKA","ŠOŠTANJ","Wooden packaging","no",22.7
-2023,"SAVINJSKA","ŠTORE","Paper/Cardboard Packaging","no",20.16
-2023,"SAVINJSKA","ŠTORE","Paper/Cardboard Packaging","yes",21.81
-2023,"SAVINJSKA","ŠTORE","Wood, not specified in 20 01 37","yes",91.87
-2023,"SAVINJSKA","ŠTORE","Wooden packaging","no",18.2
-2023,"SAVINJSKA","ŽALEC","Paper/Cardboard Packaging","yes",112.353
-2023,"SAVINJSKA","ŽALEC","Wood, not specified in 20 01 37","yes",1135.19
-2023,"ZASAVSKA","HRASTNIK","Paper/Cardboard Packaging","no",157.194
-2023,"ZASAVSKA","HRASTNIK","Paper/Cardboard Packaging","yes",165.251
-2023,"ZASAVSKA","HRASTNIK","Wooden packaging","no",162.57
-2023,"ZASAVSKA","LITIJA","Paper/Cardboard Packaging","no",18.808
-2023,"ZASAVSKA","LITIJA","Paper/Cardboard Packaging","yes",217.706
-2023,"ZASAVSKA","LITIJA","Wood, not specified in 20 01 37","no",9.76
-2023,"ZASAVSKA","LITIJA","Wood, not specified in 20 01 37","yes",322.729
-2023,"ZASAVSKA","TRBOVLJE","Paper/Cardboard Packaging","no",29.493
-2023,"ZASAVSKA","TRBOVLJE","Paper/Cardboard Packaging","yes",114.398
-2023,"ZASAVSKA","TRBOVLJE","Wood, not specified in 20 01 37","yes",638.58
-2023,"ZASAVSKA","TRBOVLJE","Wooden packaging","no",14.745
-2023,"ZASAVSKA","ZAGORJE OB SAVI","Paper/Cardboard Packaging","no",161.786
-2023,"ZASAVSKA","ZAGORJE OB SAVI","Paper/Cardboard Packaging","yes",184.617
-2023,"ZASAVSKA","ZAGORJE OB SAVI","Wood, not specified in 20 01 37","yes",358.8
-2023,"ZASAVSKA","ZAGORJE OB SAVI","Wooden packaging","no",80.712
+﻿"year","statistical_region","type_of_waste","name_of_municipality","waste_collected_public_service","waste_by_municipality"
+2023,"GORENJSKA","Paper/Cardboard Packaging","BLED","no",0.34
+2023,"GORENJSKA","Paper/Cardboard Packaging","BLED","yes",106.308
+2023,"GORENJSKA","Paper/Cardboard Packaging","BOHINJ","yes",94.318
+2023,"GORENJSKA","Paper/Cardboard Packaging","CERKLJE NA GORENJSKEM","no",24.68
+2023,"GORENJSKA","Paper/Cardboard Packaging","CERKLJE NA GORENJSKEM","yes",193.475
+2023,"GORENJSKA","Paper/Cardboard Packaging","GORENJA VAS-POLJANE","no",0.8
+2023,"GORENJSKA","Paper/Cardboard Packaging","GORENJA VAS-POLJANE","yes",30.412
+2023,"GORENJSKA","Paper/Cardboard Packaging","GORJE","yes",20.24
+2023,"GORENJSKA","Paper/Cardboard Packaging","JESENICE","yes",129.06
+2023,"GORENJSKA","Paper/Cardboard Packaging","JEZERSKO","yes",15.5
+2023,"GORENJSKA","Paper/Cardboard Packaging","KRANJ","no",0.14
+2023,"GORENJSKA","Paper/Cardboard Packaging","KRANJ","yes",609.251
+2023,"GORENJSKA","Paper/Cardboard Packaging","KRANJSKA GORA","yes",153.675
+2023,"GORENJSKA","Paper/Cardboard Packaging","NAKLO","yes",50.57
+2023,"GORENJSKA","Paper/Cardboard Packaging","PREDDVOR","yes",39.254
+2023,"GORENJSKA","Paper/Cardboard Packaging","RADOVLJICA","no",1.52
+2023,"GORENJSKA","Paper/Cardboard Packaging","RADOVLJICA","yes",285.33
+2023,"GORENJSKA","Paper/Cardboard Packaging","TRŽIČ","yes",198.307
+2023,"GORENJSKA","Paper/Cardboard Packaging","ŠENČUR","no",3.62
+2023,"GORENJSKA","Paper/Cardboard Packaging","ŠENČUR","yes",102.212
+2023,"GORENJSKA","Paper/Cardboard Packaging","ŠKOFJA LOKA","yes",378.264
+2023,"GORENJSKA","Paper/Cardboard Packaging","ŽELEZNIKI","yes",49.182
+2023,"GORENJSKA","Paper/Cardboard Packaging","ŽIRI","yes",13.195
+2023,"GORENJSKA","Paper/Cardboard Packaging","ŽIROVNICA","yes",32.262
+2023,"GORENJSKA","Wood, not specified in 20 01 37","BLED","yes",420.15
+2023,"GORENJSKA","Wood, not specified in 20 01 37","BOHINJ","yes",197.93
+2023,"GORENJSKA","Wood, not specified in 20 01 37","CERKLJE NA GORENJSKEM","yes",247.42
+2023,"GORENJSKA","Wood, not specified in 20 01 37","GORENJA VAS-POLJANE","yes",184.11
+2023,"GORENJSKA","Wood, not specified in 20 01 37","GORJE","yes",140.05
+2023,"GORENJSKA","Wood, not specified in 20 01 37","JESENICE","yes",948.8
+2023,"GORENJSKA","Wood, not specified in 20 01 37","JEZERSKO","yes",25.12
+2023,"GORENJSKA","Wood, not specified in 20 01 37","KRANJ","yes",1280.53
+2023,"GORENJSKA","Wood, not specified in 20 01 37","KRANJSKA GORA","yes",148.46
+2023,"GORENJSKA","Wood, not specified in 20 01 37","NAKLO","yes",90.08
+2023,"GORENJSKA","Wood, not specified in 20 01 37","RADOVLJICA","yes",670.57
+2023,"GORENJSKA","Wood, not specified in 20 01 37","TRŽIČ","yes",281.06
+2023,"GORENJSKA","Wood, not specified in 20 01 37","ŠENČUR","yes",185.2
+2023,"GORENJSKA","Wood, not specified in 20 01 37","ŠKOFJA LOKA","yes",36.34
+2023,"GORENJSKA","Wood, not specified in 20 01 37","ŽIRI","yes",136.12
+2023,"GORENJSKA","Wood, not specified in 20 01 37","ŽIROVNICA","yes",237.2
+2023,"GORENJSKA","Wooden packaging","JESENICE","no",0.246
+2023,"GORENJSKA","Wooden packaging","KRANJ","yes",17.55
+2023,"GORENJSKA","Wooden packaging","ŠENČUR","yes",1.9
+2023,"GORENJSKA","Wooden packaging","ŠKOFJA LOKA","no",7.342
+2023,"GORENJSKA","Wooden packaging","ŠKOFJA LOKA","yes",63.12
+2023,"GORIŠKA","Paper/Cardboard Packaging","AJDOVŠČINA","no",41.47
+2023,"GORIŠKA","Paper/Cardboard Packaging","AJDOVŠČINA","yes",210.75
+2023,"GORIŠKA","Paper/Cardboard Packaging","BOVEC","no",0.919
+2023,"GORIŠKA","Paper/Cardboard Packaging","BOVEC","yes",49.413
+2023,"GORIŠKA","Paper/Cardboard Packaging","BRDA","no",56.514
+2023,"GORIŠKA","Paper/Cardboard Packaging","BRDA","yes",47.514
+2023,"GORIŠKA","Paper/Cardboard Packaging","CERKNO","yes",55.333
+2023,"GORIŠKA","Paper/Cardboard Packaging","IDRIJA","no",64.923
+2023,"GORIŠKA","Paper/Cardboard Packaging","IDRIJA","yes",132.975
+2023,"GORIŠKA","Paper/Cardboard Packaging","KANAL","no",12.949
+2023,"GORIŠKA","Paper/Cardboard Packaging","KANAL","yes",20.126
+2023,"GORIŠKA","Paper/Cardboard Packaging","KOBARID","no",0.455
+2023,"GORIŠKA","Paper/Cardboard Packaging","KOBARID","yes",43.712
+2023,"GORIŠKA","Paper/Cardboard Packaging","MIREN-KOSTANJEVICA","no",157.667
+2023,"GORIŠKA","Paper/Cardboard Packaging","MIREN-KOSTANJEVICA","yes",33.116
+2023,"GORIŠKA","Paper/Cardboard Packaging","NOVA GORICA","no",488.963
+2023,"GORIŠKA","Paper/Cardboard Packaging","NOVA GORICA","yes",249.194
+2023,"GORIŠKA","Paper/Cardboard Packaging","RENČE-VOGRSKO","no",15.102
+2023,"GORIŠKA","Paper/Cardboard Packaging","RENČE-VOGRSKO","yes",18.771
+2023,"GORIŠKA","Paper/Cardboard Packaging","TOLMIN","no",32.698
+2023,"GORIŠKA","Paper/Cardboard Packaging","TOLMIN","yes",96.926
+2023,"GORIŠKA","Paper/Cardboard Packaging","VIPAVA","yes",60.77
+2023,"GORIŠKA","Paper/Cardboard Packaging","ŠEMPETER-VRTOJBA","no",191.623
+2023,"GORIŠKA","Paper/Cardboard Packaging","ŠEMPETER-VRTOJBA","yes",90.655
+2023,"GORIŠKA","Wood, not specified in 20 01 37","AJDOVŠČINA","yes",589.82
+2023,"GORIŠKA","Wood, not specified in 20 01 37","BOVEC","yes",136.097
+2023,"GORIŠKA","Wood, not specified in 20 01 37","BRDA","yes",246.685
+2023,"GORIŠKA","Wood, not specified in 20 01 37","CERKNO","yes",92.742
+2023,"GORIŠKA","Wood, not specified in 20 01 37","IDRIJA","yes",275.548
+2023,"GORIŠKA","Wood, not specified in 20 01 37","KANAL","yes",205.97
+2023,"GORIŠKA","Wood, not specified in 20 01 37","KOBARID","yes",120.393
+2023,"GORIŠKA","Wood, not specified in 20 01 37","MIREN-KOSTANJEVICA","yes",178.959
+2023,"GORIŠKA","Wood, not specified in 20 01 37","NOVA GORICA","yes",923.39
+2023,"GORIŠKA","Wood, not specified in 20 01 37","RENČE-VOGRSKO","yes",113.196
+2023,"GORIŠKA","Wood, not specified in 20 01 37","TOLMIN","yes",266.96
+2023,"GORIŠKA","Wood, not specified in 20 01 37","VIPAVA","yes",154.79
+2023,"GORIŠKA","Wood, not specified in 20 01 37","ŠEMPETER-VRTOJBA","no",9.25
+2023,"GORIŠKA","Wood, not specified in 20 01 37","ŠEMPETER-VRTOJBA","yes",179.55
+2023,"GORIŠKA","Wooden packaging","AJDOVŠČINA","no",3.2
+2023,"GORIŠKA","Wooden packaging","AJDOVŠČINA","yes",19.539
+2023,"GORIŠKA","Wooden packaging","IDRIJA","no",36.701
+2023,"GORIŠKA","Wooden packaging","KANAL","no",51.85
+2023,"GORIŠKA","Wooden packaging","KOBARID","no",3.64
+2023,"GORIŠKA","Wooden packaging","MIREN-KOSTANJEVICA","no",0.12
+2023,"GORIŠKA","Wooden packaging","NOVA GORICA","no",67.153
+2023,"GORIŠKA","Wooden packaging","NOVA GORICA","yes",2.971
+2023,"GORIŠKA","Wooden packaging","RENČE-VOGRSKO","no",16.62
+2023,"GORIŠKA","Wooden packaging","RENČE-VOGRSKO","yes",0.44
+2023,"GORIŠKA","Wooden packaging","TOLMIN","no",17.32
+2023,"GORIŠKA","Wooden packaging","VIPAVA","yes",5.441
+2023,"GORIŠKA","Wooden packaging","ŠEMPETER-VRTOJBA","no",3.659
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","DOLENJSKE TOPLICE","yes",46.408
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","KOSTEL","yes",16.8
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","KOČEVJE","no",3.252
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","KOČEVJE","yes",221.47
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","LOŠKI POTOK","yes",22.964
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","METLIKA","no",0.82
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","METLIKA","yes",179.599
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","MIRNA","yes",38.601
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","MIRNA PEČ","yes",37.49
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","MOKRONOG-TREBELNO","no",11.76
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","MOKRONOG-TREBELNO","yes",47.303
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","NOVO MESTO","no",25.367
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","NOVO MESTO","yes",512.128
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","RIBNICA","no",1.884
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","RIBNICA","yes",98.283
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","SEMIČ","yes",38.111
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","SODRAŽICA","yes",23.181
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","STRAŽA","yes",45.888
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","TREBNJE","yes",160.196
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ČRNOMELJ","no",7.954
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ČRNOMELJ","yes",119.569
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ŠENTJERNEJ","yes",91.949
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ŠENTRUPERT","no",16.39
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ŠENTRUPERT","yes",39.2
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ŠKOCJAN","no",15.3
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ŠKOCJAN","yes",36.018
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ŠMARJEŠKE TOPLICE","yes",42.425
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ŽUŽEMBERK","no",7.481
+2023,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging","ŽUŽEMBERK","yes",53.507
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","KOSTEL","yes",13.04
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","KOČEVJE","yes",382.2
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","LOŠKI POTOK","yes",50.131
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","METLIKA","yes",344.14
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","MIRNA","no",4.02
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","MIRNA","yes",55.207
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","MOKRONOG-TREBELNO","yes",72.577
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","NOVO MESTO","yes",846.9
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","RIBNICA","yes",214.555
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","SEMIČ","yes",74.806
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","SODRAŽICA","yes",50.604
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","TREBNJE","yes",245.791
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","ČRNOMELJ","yes",234.694
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","ŠENTJERNEJ","yes",204.74
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","ŠENTRUPERT","yes",60.145
+2023,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37","ŽUŽEMBERK","yes",219.71
+2023,"JUGOVZHODNA SLOVENIJA","Wooden packaging","RIBNICA","no",0.3
+2023,"JUGOVZHODNA SLOVENIJA","Wooden packaging","TREBNJE","no",2.34
+2023,"JUGOVZHODNA SLOVENIJA","Wooden packaging","ČRNOMELJ","no",19.28
+2023,"JUGOVZHODNA SLOVENIJA","Wooden packaging","ŠENTRUPERT","no",6.48
+2023,"KOROŠKA","Paper/Cardboard Packaging","DRAVOGRAD","no",115.956
+2023,"KOROŠKA","Paper/Cardboard Packaging","DRAVOGRAD","yes",76.68
+2023,"KOROŠKA","Paper/Cardboard Packaging","MEŽICA","no",0.46
+2023,"KOROŠKA","Paper/Cardboard Packaging","MEŽICA","yes",25.234
+2023,"KOROŠKA","Paper/Cardboard Packaging","MISLINJA","no",1.6
+2023,"KOROŠKA","Paper/Cardboard Packaging","MISLINJA","yes",22.72
+2023,"KOROŠKA","Paper/Cardboard Packaging","MUTA","no",49.18
+2023,"KOROŠKA","Paper/Cardboard Packaging","MUTA","yes",15.466
+2023,"KOROŠKA","Paper/Cardboard Packaging","PODVELKA","yes",16.967
+2023,"KOROŠKA","Paper/Cardboard Packaging","PREVALJE","no",156.17
+2023,"KOROŠKA","Paper/Cardboard Packaging","PREVALJE","yes",47.623
+2023,"KOROŠKA","Paper/Cardboard Packaging","RADLJE OB DRAVI","no",53.726
+2023,"KOROŠKA","Paper/Cardboard Packaging","RADLJE OB DRAVI","yes",63.712
+2023,"KOROŠKA","Paper/Cardboard Packaging","RAVNE NA KOROŠKEM","no",79.584
+2023,"KOROŠKA","Paper/Cardboard Packaging","RAVNE NA KOROŠKEM","yes",79.429
+2023,"KOROŠKA","Paper/Cardboard Packaging","RIBNICA NA POHORJU","yes",3.578
+2023,"KOROŠKA","Paper/Cardboard Packaging","SLOVENJ GRADEC","no",66.88
+2023,"KOROŠKA","Paper/Cardboard Packaging","SLOVENJ GRADEC","yes",83.8
+2023,"KOROŠKA","Paper/Cardboard Packaging","VUZENICA","no",0.31
+2023,"KOROŠKA","Paper/Cardboard Packaging","VUZENICA","yes",15.697
+2023,"KOROŠKA","Paper/Cardboard Packaging","ČRNA NA KOROŠKEM","no",328.48
+2023,"KOROŠKA","Paper/Cardboard Packaging","ČRNA NA KOROŠKEM","yes",22.644
+2023,"KOROŠKA","Wood, not specified in 20 01 37","DRAVOGRAD","no",20.9
+2023,"KOROŠKA","Wood, not specified in 20 01 37","PODVELKA","no",28.48
+2023,"KOROŠKA","Wood, not specified in 20 01 37","RAVNE NA KOROŠKEM","no",46.1
+2023,"KOROŠKA","Wooden packaging","DRAVOGRAD","no",11.44
+2023,"KOROŠKA","Wooden packaging","MUTA","no",38.7
+2023,"KOROŠKA","Wooden packaging","PREVALJE","no",60.986
+2023,"KOROŠKA","Wooden packaging","RAVNE NA KOROŠKEM","no",132.28
+2023,"KOROŠKA","Wooden packaging","SLOVENJ GRADEC","no",1.96
+2023,"KOROŠKA","Wooden packaging","ČRNA NA KOROŠKEM","no",309.68
+2023,"OBALNOKRAŠKA","Paper/Cardboard Packaging","ANKARAN","yes",46.5
+2023,"OBALNOKRAŠKA","Paper/Cardboard Packaging","DIVAČA","yes",55.306
+2023,"OBALNOKRAŠKA","Paper/Cardboard Packaging","HRPELJE-KOZINA","yes",64.026
+2023,"OBALNOKRAŠKA","Paper/Cardboard Packaging","IZOLA","yes",232.715
+2023,"OBALNOKRAŠKA","Paper/Cardboard Packaging","KOMEN","yes",45.922
+2023,"OBALNOKRAŠKA","Paper/Cardboard Packaging","KOPER","no",106.76
+2023,"OBALNOKRAŠKA","Paper/Cardboard Packaging","KOPER","yes",534.679
+2023,"OBALNOKRAŠKA","Paper/Cardboard Packaging","PIRAN","yes",493.335
+2023,"OBALNOKRAŠKA","Paper/Cardboard Packaging","SEŽANA","yes",166.315
+2023,"OBALNOKRAŠKA","Wood, not specified in 20 01 37","ANKARAN","yes",70.722
+2023,"OBALNOKRAŠKA","Wood, not specified in 20 01 37","DIVAČA","yes",91.39
+2023,"OBALNOKRAŠKA","Wood, not specified in 20 01 37","HRPELJE-KOZINA","yes",105.799
+2023,"OBALNOKRAŠKA","Wood, not specified in 20 01 37","IZOLA","yes",629.72
+2023,"OBALNOKRAŠKA","Wood, not specified in 20 01 37","KOMEN","yes",75.884
+2023,"OBALNOKRAŠKA","Wood, not specified in 20 01 37","KOPER","yes",1697.338
+2023,"OBALNOKRAŠKA","Wood, not specified in 20 01 37","PIRAN","yes",962.45
+2023,"OBALNOKRAŠKA","Wood, not specified in 20 01 37","SEŽANA","yes",274.827
+2023,"OBALNOKRAŠKA","Wooden packaging","KOPER","no",1523.04
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","BOROVNICA","yes",33.961
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","BREZOVICA","no",25.14
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","BREZOVICA","yes",181.17
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","DOBREPOLJE","no",0.506
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","DOBREPOLJE","yes",18.264
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","DOBROVA-POLHOV GRADEC","no",10.484
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","DOBROVA-POLHOV GRADEC","yes",73.008
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","DOL PRI LJUBLJANI","no",67.96
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","DOL PRI LJUBLJANI","yes",62.057
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","DOMŽALE","no",152.268
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","DOMŽALE","yes",550.95
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","GROSUPLJE","no",40.68
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","GROSUPLJE","yes",197.513
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","HORJUL","no",20.734
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","HORJUL","yes",33.764
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","IG","no",51.262
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","IG","yes",154.021
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","IVANČNA GORICA","no",18.674
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","IVANČNA GORICA","yes",121.8
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","KAMNIK","no",205.688
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","KAMNIK","yes",187.14
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","KOMENDA","no",23.526
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","KOMENDA","yes",33.03
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","LJUBLJANA","no",2195.114
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","LJUBLJANA","yes",2086.713
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","LJUBLJANA",NA,5.35
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","LOG-DRAGOMER","no",0.472
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","LOG-DRAGOMER","yes",26.414
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","LOGATEC","no",58.889
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","LOGATEC","yes",170.728
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","LUKOVICA","no",5.187
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","LUKOVICA","yes",82.642
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","MEDVODE","no",57.02
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","MEDVODE","yes",247.821
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","MENGEŠ","no",36.423
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","MENGEŠ","yes",119.373
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","MORAVČE","no",4.036
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","MORAVČE","yes",64.277
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","TRZIN","no",328.422
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","TRZIN","yes",101.008
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","VELIKE LAŠČE","yes",50.32
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","VODICE","yes",79.329
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","VRHNIKA","no",22.115
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","VRHNIKA","yes",110.797
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","ŠKOFLJICA","no",102.131
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","ŠKOFLJICA","yes",144.917
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","ŠMARTNO PRI LITIJI","no",18.073
+2023,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging","ŠMARTNO PRI LITIJI","yes",76.491
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","BOROVNICA","yes",108.221
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","BREZOVICA","yes",100.78
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","DOBREPOLJE","yes",15.659
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","DOMŽALE","yes",1554.769
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","GROSUPLJE","yes",494.656
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","IG","yes",94.42
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","IVANČNA GORICA","yes",217.605
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","KAMNIK","no",111.68
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","KAMNIK","yes",562.25
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","KOMENDA","yes",312.78
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","LJUBLJANA","no",78.665
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","LJUBLJANA","yes",8179.79
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","LOG-DRAGOMER","yes",84.172
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","LOGATEC","no",27.46
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","LOGATEC","yes",376.97
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","LUKOVICA","yes",230.33
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","MEDVODE","yes",286.6
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","MENGEŠ","no",4.36
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","MENGEŠ","yes",332.7
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","MORAVČE","yes",179.146
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","TRZIN","no",0.89
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","TRZIN","yes",281.515
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","VELIKE LAŠČE","yes",63.28
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","VODICE","yes",128.26
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","VRHNIKA","yes",408.837
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","ŠKOFLJICA","yes",111.2
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","ŠMARTNO PRI LITIJI","no",1.63
+2023,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","ŠMARTNO PRI LITIJI","yes",113.391
+2023,"OSREDNJESLOVENSKA","Wooden packaging","BREZOVICA","no",1.84
+2023,"OSREDNJESLOVENSKA","Wooden packaging","DOBREPOLJE","yes",1.53
+2023,"OSREDNJESLOVENSKA","Wooden packaging","DOL PRI LJUBLJANI","no",24.84
+2023,"OSREDNJESLOVENSKA","Wooden packaging","DOMŽALE","no",195.26
+2023,"OSREDNJESLOVENSKA","Wooden packaging","GROSUPLJE","no",39.63
+2023,"OSREDNJESLOVENSKA","Wooden packaging","GROSUPLJE","yes",48.322
+2023,"OSREDNJESLOVENSKA","Wooden packaging","IG","no",25.02
+2023,"OSREDNJESLOVENSKA","Wooden packaging","IVANČNA GORICA","no",42.5
+2023,"OSREDNJESLOVENSKA","Wooden packaging","IVANČNA GORICA","yes",21.258
+2023,"OSREDNJESLOVENSKA","Wooden packaging","KAMNIK","no",114.21
+2023,"OSREDNJESLOVENSKA","Wooden packaging","KAMNIK","yes",0.02
+2023,"OSREDNJESLOVENSKA","Wooden packaging","KOMENDA","no",1.34
+2023,"OSREDNJESLOVENSKA","Wooden packaging","KOMENDA","yes",14.26
+2023,"OSREDNJESLOVENSKA","Wooden packaging","LJUBLJANA","no",2117.14
+2023,"OSREDNJESLOVENSKA","Wooden packaging","LJUBLJANA","yes",257.64
+2023,"OSREDNJESLOVENSKA","Wooden packaging","LOGATEC","no",79.642
+2023,"OSREDNJESLOVENSKA","Wooden packaging","LUKOVICA","no",46.6
+2023,"OSREDNJESLOVENSKA","Wooden packaging","MEDVODE","no",225.39
+2023,"OSREDNJESLOVENSKA","Wooden packaging","MENGEŠ","no",55.976
+2023,"OSREDNJESLOVENSKA","Wooden packaging","MORAVČE","no",71.28
+2023,"OSREDNJESLOVENSKA","Wooden packaging","TRZIN","no",23.763
+2023,"OSREDNJESLOVENSKA","Wooden packaging","VRHNIKA","no",0.58
+2023,"OSREDNJESLOVENSKA","Wooden packaging","ŠKOFLJICA","no",0.096
+2023,"PODRAVSKA","Paper/Cardboard Packaging","BENEDIKT","yes",12.832
+2023,"PODRAVSKA","Paper/Cardboard Packaging","CERKVENJAK","yes",14.864
+2023,"PODRAVSKA","Paper/Cardboard Packaging","CIRKULANE","no",2.116
+2023,"PODRAVSKA","Paper/Cardboard Packaging","CIRKULANE","yes",11.916
+2023,"PODRAVSKA","Paper/Cardboard Packaging","DESTRNIK","yes",16.098
+2023,"PODRAVSKA","Paper/Cardboard Packaging","DORNAVA","yes",21.18
+2023,"PODRAVSKA","Paper/Cardboard Packaging","DUPLEK","yes",59.776
+2023,"PODRAVSKA","Paper/Cardboard Packaging","GORIŠNICA","yes",33.771
+2023,"PODRAVSKA","Paper/Cardboard Packaging","HAJDINA","no",4.38
+2023,"PODRAVSKA","Paper/Cardboard Packaging","HAJDINA","yes",37.474
+2023,"PODRAVSKA","Paper/Cardboard Packaging","HOČE-SLIVNICA","no",12.205
+2023,"PODRAVSKA","Paper/Cardboard Packaging","HOČE-SLIVNICA","yes",22.76
+2023,"PODRAVSKA","Paper/Cardboard Packaging","JURŠINCI","yes",19.947
+2023,"PODRAVSKA","Paper/Cardboard Packaging","KIDRIČEVO","yes",53.695
+2023,"PODRAVSKA","Paper/Cardboard Packaging","KUNGOTA","no",1.345
+2023,"PODRAVSKA","Paper/Cardboard Packaging","KUNGOTA","yes",23.9
+2023,"PODRAVSKA","Paper/Cardboard Packaging","LENART","yes",49.268
+2023,"PODRAVSKA","Paper/Cardboard Packaging","LOVRENC NA POHORJU","yes",16.72
+2023,"PODRAVSKA","Paper/Cardboard Packaging","MAJŠPERK","no",1.78
+2023,"PODRAVSKA","Paper/Cardboard Packaging","MAJŠPERK","yes",24.177
+2023,"PODRAVSKA","Paper/Cardboard Packaging","MAKOLE","yes",9.958
+2023,"PODRAVSKA","Paper/Cardboard Packaging","MARIBOR","no",54.73
+2023,"PODRAVSKA","Paper/Cardboard Packaging","MARIBOR","yes",529.81
+2023,"PODRAVSKA","Paper/Cardboard Packaging","MARKOVCI","no",1.581
+2023,"PODRAVSKA","Paper/Cardboard Packaging","MARKOVCI","yes",35.222
+2023,"PODRAVSKA","Paper/Cardboard Packaging","MIKLAVŽ NA DRAVSKEM POLJU","no",5.32
+2023,"PODRAVSKA","Paper/Cardboard Packaging","MIKLAVŽ NA DRAVSKEM POLJU","yes",39.4
+2023,"PODRAVSKA","Paper/Cardboard Packaging","OPLOTNICA","yes",27.371
+2023,"PODRAVSKA","Paper/Cardboard Packaging","ORMOŽ","yes",112.845
+2023,"PODRAVSKA","Paper/Cardboard Packaging","PESNICA","yes",31.3
+2023,"PODRAVSKA","Paper/Cardboard Packaging","PODLEHNIK","yes",9.465
+2023,"PODRAVSKA","Paper/Cardboard Packaging","POLJČANE","no",0.06
+2023,"PODRAVSKA","Paper/Cardboard Packaging","POLJČANE","yes",29.219
+2023,"PODRAVSKA","Paper/Cardboard Packaging","PTUJ","no",1.96
+2023,"PODRAVSKA","Paper/Cardboard Packaging","PTUJ","yes",238.59
+2023,"PODRAVSKA","Paper/Cardboard Packaging","RAČE-FRAM","yes",70.911
+2023,"PODRAVSKA","Paper/Cardboard Packaging","RUŠE","no",3.28
+2023,"PODRAVSKA","Paper/Cardboard Packaging","RUŠE","yes",22.99
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SELNICA OB DRAVI","no",4.77
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SELNICA OB DRAVI","yes",14.09
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SLOVENSKA BISTRICA","no",4.48
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SLOVENSKA BISTRICA","yes",209.091
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SREDIŠČE OB DRAVI","yes",22.569
+2023,"PODRAVSKA","Paper/Cardboard Packaging","STARŠE","yes",19.5
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SVETA ANA","yes",11.366
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SVETA TROJICA V SLOVENSKIH GORICAH","yes",11.204
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SVETI ANDRAŽ V SLOV. GORICAH","yes",8.064
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SVETI JURIJ V SLOVENSKIH GORICAH","yes",9.27
+2023,"PODRAVSKA","Paper/Cardboard Packaging","SVETI TOMAŽ","yes",15.046
+2023,"PODRAVSKA","Paper/Cardboard Packaging","TRNOVSKA VAS","yes",9.659
+2023,"PODRAVSKA","Paper/Cardboard Packaging","VIDEM","yes",38.712
+2023,"PODRAVSKA","Paper/Cardboard Packaging","ZAVRČ","yes",6.322
+2023,"PODRAVSKA","Paper/Cardboard Packaging","ŠENTILJ","yes",47.786
+2023,"PODRAVSKA","Paper/Cardboard Packaging","ŽETALE","yes",6.093
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","BENEDIKT","yes",2.82
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","CERKVENJAK","yes",1.3
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","DORNAVA","yes",23.612
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","DUPLEK","yes",114.02
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","GORIŠNICA","yes",69.3
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","HAJDINA","yes",90.84
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","HOČE-SLIVNICA","no",0.443
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","HOČE-SLIVNICA","yes",394.85
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","JURŠINCI","yes",10.378
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","KIDRIČEVO","yes",179.9
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","KUNGOTA","yes",91.58
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","LENART","no",8.58
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","LENART","yes",19.14
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","LOVRENC NA POHORJU","yes",154.46
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","MAJŠPERK","yes",44.1
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","MAKOLE","yes",46.387
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","MARIBOR","no",1.82
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","MARIBOR","yes",5118.39
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","MARKOVCI","yes",70.58
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","MIKLAVŽ NA DRAVSKEM POLJU","yes",209.76
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","OPLOTNICA","no",2.72
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","OPLOTNICA","yes",154.668
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","ORMOŽ","yes",15.02
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","PESNICA","yes",252.5
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","POLJČANE","yes",170.268
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","PTUJ","no",122.56
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","PTUJ","yes",422.3
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","RAČE-FRAM","yes",401.707
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","RUŠE","yes",356.664
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","SELNICA OB DRAVI","yes",213.896
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","SLOVENSKA BISTRICA","no",20.04
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","SLOVENSKA BISTRICA","yes",1129.28
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","STARŠE","yes",354.88
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","SVETA ANA","no",1.04
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","SVETA ANA","yes",1
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","SVETA TROJICA V SLOVENSKIH GORICAH","no",1.6
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","SVETA TROJICA V SLOVENSKIH GORICAH","yes",1.92
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","SVETI JURIJ V SLOVENSKIH GORICAH","no",0.8
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","SVETI JURIJ V SLOVENSKIH GORICAH","yes",4.22
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","TRNOVSKA VAS","yes",31.84
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","VIDEM","yes",65.48
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","ŠENTILJ","yes",21.73
+2023,"PODRAVSKA","Wood, not specified in 20 01 37","ŽETALE","yes",10.5
+2023,"PODRAVSKA","Wooden packaging","HOČE-SLIVNICA","no",3.48
+2023,"PODRAVSKA","Wooden packaging","LENART","no",354.571
+2023,"PODRAVSKA","Wooden packaging","LENART","yes",44.133
+2023,"PODRAVSKA","Wooden packaging","MARIBOR","no",13.13
+2023,"PODRAVSKA","Wooden packaging","MARIBOR","yes",26.5
+2023,"PODRAVSKA","Wooden packaging","ORMOŽ","yes",13.065
+2023,"PODRAVSKA","Wooden packaging","PTUJ","no",15.16
+2023,"PODRAVSKA","Wooden packaging","RUŠE","no",41.72
+2023,"PODRAVSKA","Wooden packaging","SELNICA OB DRAVI","no",11.84
+2023,"PODRAVSKA","Wooden packaging","SREDIŠČE OB DRAVI","yes",2.613
+2023,"PODRAVSKA","Wooden packaging","SVETI TOMAŽ","yes",1.742
+2023,"PODRAVSKA","Wooden packaging","ŠENTILJ","no",2.48
+2023,"POMURSKA","Paper/Cardboard Packaging","APAČE","yes",66.6
+2023,"POMURSKA","Paper/Cardboard Packaging","BELTINCI","no",0.54
+2023,"POMURSKA","Paper/Cardboard Packaging","BELTINCI","yes",14.989
+2023,"POMURSKA","Paper/Cardboard Packaging","CANKOVA","yes",4.621
+2023,"POMURSKA","Paper/Cardboard Packaging","DOBROVNIK","yes",5.266
+2023,"POMURSKA","Paper/Cardboard Packaging","GORNJA RADGONA","yes",45.75
+2023,"POMURSKA","Paper/Cardboard Packaging","GORNJI PETROVCI","yes",6.238
+2023,"POMURSKA","Paper/Cardboard Packaging","GRAD","yes",15.204
+2023,"POMURSKA","Paper/Cardboard Packaging","HODOŠ","yes",1.743
+2023,"POMURSKA","Paper/Cardboard Packaging","KOBILJE","yes",1.755
+2023,"POMURSKA","Paper/Cardboard Packaging","KRIŽEVCI","yes",5.83
+2023,"POMURSKA","Paper/Cardboard Packaging","KUZMA","yes",6.342
+2023,"POMURSKA","Paper/Cardboard Packaging","LENDAVA","no",484.229
+2023,"POMURSKA","Paper/Cardboard Packaging","LENDAVA","yes",111.1
+2023,"POMURSKA","Paper/Cardboard Packaging","LJUTOMER","yes",20.26
+2023,"POMURSKA","Paper/Cardboard Packaging","MORAVSKE TOPLICE","yes",43.709
+2023,"POMURSKA","Paper/Cardboard Packaging","MURSKA SOBOTA","no",0.213
+2023,"POMURSKA","Paper/Cardboard Packaging","MURSKA SOBOTA","yes",99.36
+2023,"POMURSKA","Paper/Cardboard Packaging","ODRANCI","yes",8.591
+2023,"POMURSKA","Paper/Cardboard Packaging","PUCONCI","yes",50.421
+2023,"POMURSKA","Paper/Cardboard Packaging","RADENCI","no",1.62
+2023,"POMURSKA","Paper/Cardboard Packaging","RADENCI","yes",29.296
+2023,"POMURSKA","Paper/Cardboard Packaging","RAZKRIŽJE","yes",1.72
+2023,"POMURSKA","Paper/Cardboard Packaging","ROGAŠOVCI","yes",7.26
+2023,"POMURSKA","Paper/Cardboard Packaging","SVETI JURIJ OB ŠČAVNICI","yes",7.885
+2023,"POMURSKA","Paper/Cardboard Packaging","TIŠINA","yes",55.04
+2023,"POMURSKA","Paper/Cardboard Packaging","TURNIŠČE","no",0.684
+2023,"POMURSKA","Paper/Cardboard Packaging","TURNIŠČE","yes",5.72
+2023,"POMURSKA","Paper/Cardboard Packaging","VELIKA POLANA","no",2.772
+2023,"POMURSKA","Paper/Cardboard Packaging","VERŽEJ","yes",4.23
+2023,"POMURSKA","Paper/Cardboard Packaging","ČRENŠOVCI","yes",4.524
+2023,"POMURSKA","Paper/Cardboard Packaging","ŠALOVCI","yes",3.777
+2023,"POMURSKA","Wood, not specified in 20 01 37","APAČE","yes",6.8
+2023,"POMURSKA","Wood, not specified in 20 01 37","BELTINCI","yes",135.209
+2023,"POMURSKA","Wood, not specified in 20 01 37","CANKOVA","yes",24.576
+2023,"POMURSKA","Wood, not specified in 20 01 37","DOBROVNIK","yes",21.481
+2023,"POMURSKA","Wood, not specified in 20 01 37","GORNJA RADGONA","yes",57.94
+2023,"POMURSKA","Wood, not specified in 20 01 37","GORNJI PETROVCI","yes",5.863
+2023,"POMURSKA","Wood, not specified in 20 01 37","GRAD","yes",21.568
+2023,"POMURSKA","Wood, not specified in 20 01 37","HODOŠ","yes",2.346
+2023,"POMURSKA","Wood, not specified in 20 01 37","KOBILJE","yes",7.75
+2023,"POMURSKA","Wood, not specified in 20 01 37","KUZMA","yes",21.852
+2023,"POMURSKA","Wood, not specified in 20 01 37","LENDAVA","no",0.2
+2023,"POMURSKA","Wood, not specified in 20 01 37","LENDAVA","yes",33.52
+2023,"POMURSKA","Wood, not specified in 20 01 37","MORAVSKE TOPLICE","no",6.06
+2023,"POMURSKA","Wood, not specified in 20 01 37","MORAVSKE TOPLICE","yes",25.927
+2023,"POMURSKA","Wood, not specified in 20 01 37","MURSKA SOBOTA","no",19.3
+2023,"POMURSKA","Wood, not specified in 20 01 37","MURSKA SOBOTA","yes",329.254
+2023,"POMURSKA","Wood, not specified in 20 01 37","ODRANCI","yes",19.135
+2023,"POMURSKA","Wood, not specified in 20 01 37","PUCONCI","no",49.34
+2023,"POMURSKA","Wood, not specified in 20 01 37","PUCONCI","yes",1.819
+2023,"POMURSKA","Wood, not specified in 20 01 37","RADENCI","yes",16.22
+2023,"POMURSKA","Wood, not specified in 20 01 37","ROGAŠOVCI","yes",19.119
+2023,"POMURSKA","Wood, not specified in 20 01 37","SVETI JURIJ OB ŠČAVNICI","yes",6.23
+2023,"POMURSKA","Wood, not specified in 20 01 37","TIŠINA","yes",58.996
+2023,"POMURSKA","Wood, not specified in 20 01 37","TURNIŠČE","yes",38.543
+2023,"POMURSKA","Wood, not specified in 20 01 37","VELIKA POLANA","yes",4.78
+2023,"POMURSKA","Wood, not specified in 20 01 37","ČRENŠOVCI","yes",47.939
+2023,"POMURSKA","Wood, not specified in 20 01 37","ŠALOVCI","yes",11.663
+2023,"POMURSKA","Wooden packaging","GORNJA RADGONA","no",3.86
+2023,"POMURSKA","Wooden packaging","LENDAVA","no",168.997
+2023,"POMURSKA","Wooden packaging","RADENCI","no",70.62
+2023,"POSAVSKA","Paper/Cardboard Packaging","BISTRICA OB SOTLI","yes",9.04
+2023,"POSAVSKA","Paper/Cardboard Packaging","BREŽICE","no",137.395
+2023,"POSAVSKA","Paper/Cardboard Packaging","BREŽICE","yes",303.42
+2023,"POSAVSKA","Paper/Cardboard Packaging","KOSTANJEVICA NA KRKI","no",10.164
+2023,"POSAVSKA","Paper/Cardboard Packaging","KOSTANJEVICA NA KRKI","yes",9.74
+2023,"POSAVSKA","Paper/Cardboard Packaging","KRŠKO","no",285.707
+2023,"POSAVSKA","Paper/Cardboard Packaging","KRŠKO","yes",80.29
+2023,"POSAVSKA","Paper/Cardboard Packaging","RADEČE","no",32.864
+2023,"POSAVSKA","Paper/Cardboard Packaging","RADEČE","yes",66.872
+2023,"POSAVSKA","Paper/Cardboard Packaging","SEVNICA","no",112.987
+2023,"POSAVSKA","Paper/Cardboard Packaging","SEVNICA","yes",226.824
+2023,"POSAVSKA","Wood, not specified in 20 01 37","BISTRICA OB SOTLI","yes",3.246
+2023,"POSAVSKA","Wood, not specified in 20 01 37","BREŽICE","yes",917.75
+2023,"POSAVSKA","Wood, not specified in 20 01 37","KOSTANJEVICA NA KRKI","yes",96.72
+2023,"POSAVSKA","Wood, not specified in 20 01 37","KRŠKO","yes",2610.33
+2023,"POSAVSKA","Wood, not specified in 20 01 37","RADEČE","yes",82.08
+2023,"POSAVSKA","Wood, not specified in 20 01 37","SEVNICA","no",0.203
+2023,"POSAVSKA","Wood, not specified in 20 01 37","SEVNICA","yes",239.1
+2023,"POSAVSKA","Wooden packaging","BREŽICE","no",31.02
+2023,"POSAVSKA","Wooden packaging","KOSTANJEVICA NA KRKI","no",18.56
+2023,"POSAVSKA","Wooden packaging","KRŠKO","no",75.432
+2023,"POSAVSKA","Wooden packaging","RADEČE","no",0.1
+2023,"POSAVSKA","Wooden packaging","SEVNICA","no",66.988
+2023,"POSAVSKA","Wooden packaging","SEVNICA","yes",6.599
+2023,"PRIMORSKONOTRANJSKA","Paper/Cardboard Packaging","BLOKE","yes",60.602
+2023,"PRIMORSKONOTRANJSKA","Paper/Cardboard Packaging","CERKNICA","no",18.54
+2023,"PRIMORSKONOTRANJSKA","Paper/Cardboard Packaging","CERKNICA","yes",92.526
+2023,"PRIMORSKONOTRANJSKA","Paper/Cardboard Packaging","ILIRSKA BISTRICA","no",3.83
+2023,"PRIMORSKONOTRANJSKA","Paper/Cardboard Packaging","ILIRSKA BISTRICA","yes",120.788
+2023,"PRIMORSKONOTRANJSKA","Paper/Cardboard Packaging","LOŠKA DOLINA","yes",29.382
+2023,"PRIMORSKONOTRANJSKA","Paper/Cardboard Packaging","PIVKA","yes",43.92
+2023,"PRIMORSKONOTRANJSKA","Paper/Cardboard Packaging","POSTOJNA","no",1.3
+2023,"PRIMORSKONOTRANJSKA","Paper/Cardboard Packaging","POSTOJNA","yes",110.18
+2023,"PRIMORSKONOTRANJSKA","Wood, not specified in 20 01 37","BLOKE","yes",25.85
+2023,"PRIMORSKONOTRANJSKA","Wood, not specified in 20 01 37","CERKNICA","yes",321.055
+2023,"PRIMORSKONOTRANJSKA","Wood, not specified in 20 01 37","ILIRSKA BISTRICA","yes",295.17
+2023,"PRIMORSKONOTRANJSKA","Wood, not specified in 20 01 37","LOŠKA DOLINA","yes",106.385
+2023,"PRIMORSKONOTRANJSKA","Wood, not specified in 20 01 37","PIVKA","yes",129.87
+2023,"PRIMORSKONOTRANJSKA","Wood, not specified in 20 01 37","POSTOJNA","yes",510.47
+2023,"PRIMORSKONOTRANJSKA","Wooden packaging","CERKNICA","no",114.9
+2023,"PRIMORSKONOTRANJSKA","Wooden packaging","PIVKA","yes",2.32
+2023,"SAVINJSKA","Paper/Cardboard Packaging","BRASLOVČE","no",36.7
+2023,"SAVINJSKA","Paper/Cardboard Packaging","BRASLOVČE","yes",42.367
+2023,"SAVINJSKA","Paper/Cardboard Packaging","CELJE","no",589.18
+2023,"SAVINJSKA","Paper/Cardboard Packaging","CELJE","yes",443.534
+2023,"SAVINJSKA","Paper/Cardboard Packaging","DOBJE","no",0.22
+2023,"SAVINJSKA","Paper/Cardboard Packaging","DOBJE","yes",36.945
+2023,"SAVINJSKA","Paper/Cardboard Packaging","DOBRNA","yes",10.668
+2023,"SAVINJSKA","Paper/Cardboard Packaging","GORNJI GRAD","yes",21.504
+2023,"SAVINJSKA","Paper/Cardboard Packaging","KOZJE","yes",21.687
+2023,"SAVINJSKA","Paper/Cardboard Packaging","LAŠKO","no",0.27
+2023,"SAVINJSKA","Paper/Cardboard Packaging","LAŠKO","yes",191.285
+2023,"SAVINJSKA","Paper/Cardboard Packaging","LJUBNO","no",29.395
+2023,"SAVINJSKA","Paper/Cardboard Packaging","LJUBNO","yes",10.666
+2023,"SAVINJSKA","Paper/Cardboard Packaging","LUČE","yes",2.994
+2023,"SAVINJSKA","Paper/Cardboard Packaging","MOZIRJE","yes",42.737
+2023,"SAVINJSKA","Paper/Cardboard Packaging","NAZARJE","no",0.7
+2023,"SAVINJSKA","Paper/Cardboard Packaging","NAZARJE","yes",24.908
+2023,"SAVINJSKA","Paper/Cardboard Packaging","PODČETRTEK","yes",29.774
+2023,"SAVINJSKA","Paper/Cardboard Packaging","POLZELA","yes",21.861
+2023,"SAVINJSKA","Paper/Cardboard Packaging","PREBOLD","yes",23.025
+2023,"SAVINJSKA","Paper/Cardboard Packaging","REČICA OB SAVINJI","yes",19.2
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ROGATEC","yes",18.467
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ROGAŠKA SLATINA","no",0.49
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ROGAŠKA SLATINA","yes",89.579
+2023,"SAVINJSKA","Paper/Cardboard Packaging","SLOVENSKE KONJICE","yes",157.058
+2023,"SAVINJSKA","Paper/Cardboard Packaging","SOLČAVA","yes",3.271
+2023,"SAVINJSKA","Paper/Cardboard Packaging","TABOR","yes",6.756
+2023,"SAVINJSKA","Paper/Cardboard Packaging","VELENJE","no",3224.425
+2023,"SAVINJSKA","Paper/Cardboard Packaging","VELENJE","yes",273.575
+2023,"SAVINJSKA","Paper/Cardboard Packaging","VITANJE","yes",7.644
+2023,"SAVINJSKA","Paper/Cardboard Packaging","VOJNIK","no",1.8
+2023,"SAVINJSKA","Paper/Cardboard Packaging","VOJNIK","yes",45.847
+2023,"SAVINJSKA","Paper/Cardboard Packaging","VRANSKO","yes",11.276
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ZREČE","yes",26.238
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŠENTJUR","no",62.6
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŠENTJUR","yes",40.958
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŠMARJE PRI JELŠAH","no",26.42
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŠMARJE PRI JELŠAH","yes",89.013
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŠMARTNO OB PAKI","yes",39.481
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŠOŠTANJ","no",45.01
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŠOŠTANJ","yes",73.601
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŠTORE","no",20.16
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŠTORE","yes",21.81
+2023,"SAVINJSKA","Paper/Cardboard Packaging","ŽALEC","yes",112.353
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","BRASLOVČE","yes",161.513
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","CELJE","yes",1010.573
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","DOBJE","yes",55.015
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","DOBRNA","yes",120.115
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","GORNJI GRAD","yes",332.191
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","KOZJE","yes",7.786
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","LAŠKO","yes",117.097
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","LJUBNO","yes",23.66
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","LUČE","yes",34.93
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","MOZIRJE","yes",70.322
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","NAZARJE","yes",30.348
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","PODČETRTEK","yes",10.69
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","POLZELA","yes",184.322
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","PREBOLD","yes",136.444
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","REČICA OB SAVINJI","yes",30.138
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ROGATEC","yes",6.621
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ROGAŠKA SLATINA","yes",32.169
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","SLOVENSKE KONJICE","yes",666.97
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","SOLČAVA","yes",4.916
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","TABOR","yes",61.747
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","VELENJE","yes",874.868
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","VOJNIK","yes",198.088
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","VRANSKO","yes",66.458
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ZREČE","yes",4.12
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ŠENTJUR","no",130.88
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ŠENTJUR","yes",398.105
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ŠMARJE PRI JELŠAH","yes",31.958
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ŠMARTNO OB PAKI","yes",100.666
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ŠOŠTANJ","yes",248.621
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ŠTORE","yes",91.87
+2023,"SAVINJSKA","Wood, not specified in 20 01 37","ŽALEC","yes",1135.19
+2023,"SAVINJSKA","Wooden packaging","BRASLOVČE","no",12.12
+2023,"SAVINJSKA","Wooden packaging","CELJE","no",62.48
+2023,"SAVINJSKA","Wooden packaging","LAŠKO","no",0.2
+2023,"SAVINJSKA","Wooden packaging","LJUBNO","no",14.56
+2023,"SAVINJSKA","Wooden packaging","VELENJE","no",2831.11
+2023,"SAVINJSKA","Wooden packaging","ŠENTJUR","no",1.84
+2023,"SAVINJSKA","Wooden packaging","ŠMARJE PRI JELŠAH","no",51.09
+2023,"SAVINJSKA","Wooden packaging","ŠOŠTANJ","no",22.7
+2023,"SAVINJSKA","Wooden packaging","ŠTORE","no",18.2
+2023,"ZASAVSKA","Paper/Cardboard Packaging","HRASTNIK","no",157.194
+2023,"ZASAVSKA","Paper/Cardboard Packaging","HRASTNIK","yes",165.251
+2023,"ZASAVSKA","Paper/Cardboard Packaging","LITIJA","no",18.808
+2023,"ZASAVSKA","Paper/Cardboard Packaging","LITIJA","yes",217.706
+2023,"ZASAVSKA","Paper/Cardboard Packaging","TRBOVLJE","no",29.493
+2023,"ZASAVSKA","Paper/Cardboard Packaging","TRBOVLJE","yes",114.398
+2023,"ZASAVSKA","Paper/Cardboard Packaging","ZAGORJE OB SAVI","no",161.786
+2023,"ZASAVSKA","Paper/Cardboard Packaging","ZAGORJE OB SAVI","yes",184.617
+2023,"ZASAVSKA","Wood, not specified in 20 01 37","LITIJA","no",9.76
+2023,"ZASAVSKA","Wood, not specified in 20 01 37","LITIJA","yes",322.729
+2023,"ZASAVSKA","Wood, not specified in 20 01 37","TRBOVLJE","yes",638.58
+2023,"ZASAVSKA","Wood, not specified in 20 01 37","ZAGORJE OB SAVI","yes",358.8
+2023,"ZASAVSKA","Wooden packaging","HRASTNIK","no",162.57
+2023,"ZASAVSKA","Wooden packaging","TRBOVLJE","no",14.745
+2023,"ZASAVSKA","Wooden packaging","ZAGORJE OB SAVI","no",80.712

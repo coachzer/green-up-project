@@ -595,10 +595,12 @@ shinyUI(dashboardPage(
               ),
               selectizeInput("waste_type_trt_storage", 
                              "Select Waste Type", 
-                             choices = NULL),
+                             choices = NULL,
+                             selected = "Other Wood Waste"),
               selectizeInput("region_trt_storage", 
                              "Select Region", 
-                             choices = NULL)
+                             choices = NULL,
+                             selected = "OSREDNJESLOVENSKA")
             ),
             
             box(
@@ -659,8 +661,8 @@ shinyUI(dashboardPage(
                 "year_range_trt_treatment",
                 "Select Year Range:",
                 min = 2016,
-                max = 2022,
-                value = c(2016, 2022)
+                max = 2023,
+                value = c(2016, 2023)
               ),
               selectizeInput(
                 "waste_type_trt_treatment",

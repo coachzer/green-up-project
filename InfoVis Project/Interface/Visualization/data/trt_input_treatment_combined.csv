@@ -1,0 +1,26 @@
+year,name_of_company,type_of_waste,mass_change,treatment_operation
+2018,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU",Other Wood Waste,88.925,NA
+2018,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI",Paper/Cardboard Packaging,12.692,NA
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU",Paper/Cardboard Packaging,13,NA
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA",Other Wood Waste,7,NA
+2018,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE",Paper/Cardboard Packaging,2.508,NA
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.",Other Wood Waste,10.66,NA
+2019,Javno podjetje center za ravnanje z odpadki Puconci d.o.o.,Paper/Cardboard Packaging,18.359,NA
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.",Paper/Cardboard Packaging,5.86,NA
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.",Other Wood Waste,7,NA
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.",Sawdust and Wood Cuttings,3.294,NA
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.",Paper/Cardboard Packaging,138.913,NA
+2020,NA,Paper/Cardboard Packaging,109.148,NA
+2020,NA,Wood,63.025,NA
+2020,NA,Other Wood Waste,18.392,NA
+2020,NA,Wooden Packaging,0,NA
+2021,NA,Paper/Cardboard Packaging,68.755,NA
+2021,NA,Sawdust and Wood Cuttings,0.04,NA
+2021,NA,Other Wood Waste,57.032,NA
+2022,NA,Paper/Cardboard Packaging,-36.898,R_03
+2022,NA,Paper/Cardboard Packaging,58.352,"R_12, R_13"
+2022,NA,Wooden Packaging,0.132,"R_12, R_13"
+2022,NA,Wood,0,R_12
+2022,NA,Other Wood Waste,-494.74,R_03
+2022,NA,Other Wood Waste,18.67,R_0302
+2022,NA,Other Wood Waste,880.146,"R_12, R_13"

@@ -24,3 +24,17 @@ year,name_of_company,type_of_waste,mass_change,treatment_operation
 2022,NA,Other Wood Waste,-494.74,R_03
 2022,NA,Other Wood Waste,18.67,R_0302
 2022,NA,Other Wood Waste,880.146,"R_12, R_13"
+2023,NA,Bark and Cork Waste,0,R_03
+2023,NA,Paper/Cardboard Packaging,485.291,R_03
+2023,NA,Paper/Cardboard Packaging,122.085,"R_12, R_13"
+2023,NA,Paper/Cardboard Packaging,-11.659,R_13
+2023,NA,Sawdust and Wood Cuttings,1014.82,R_01
+2023,NA,Sawdust and Wood Cuttings,0.634,R_03
+2023,NA,Wood,8.158,R_03
+2023,NA,Other Wood Waste,3162.2430000000004,R_01
+2023,NA,Other Wood Waste,244.354,R_0302
+2023,NA,Other Wood Waste,42.9,R_12
+2023,NA,Other Wood Waste,2076.45,"R_12, R_13"
+2023,NA,Wooden Packaging,0,PU
+2023,NA,Wooden Packaging,617.931,R_01
+2023,NA,Wooden Packaging,0.309,"R_12, R_13"

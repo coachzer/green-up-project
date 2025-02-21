@@ -10,6 +10,8 @@ td, th {
 }
 </style>
 
+<div style="text-align: justify;">
+
 # Visualization Tool Report
 
 ## 1. General Information
@@ -41,9 +43,7 @@ The visualization tool supports the following tasks:
 
 ### Prototype Explorations
 
-This project started as a way to have an interface for defining the Wood
-Waste Simulation based on the analysis we did from the data on waste
-generation and management.
+This project started as a way to have an interface for defining the Wood Waste Simulation based on the analysis we did from the data on waste generation and management.
 
 This analysis was done prior to the creation of the tool.
 
@@ -53,17 +53,11 @@ This analysis was done prior to the creation of the tool.
 | :---------------------------------------------------------------------------------------------------------------------------------------------: |
 |                                _Initial version of the Interface for defining user made Wood Waste Simulation._                                 |
 
-The layout was divided into two: the left side with the option to define
-the parameters and the right view with the views that consisted of the
-simulation output, cumulative tables, plots based on the tables and
-overall results table.
+The layout was divided into two: the left side with the option to define the parameters and the right view with the views that consisted of the simulation output, cumulative tables, plots based on the tables and overall results table.
 
-The advantage of this view was that it had the parameters on the screen
-at all times, meaning we are not losing track of what we inputted.
+The advantage of this view was that it had the parameters on the screen at all times, meaning we are not losing track of what we inputted.
 
-The limitations of this view are the lack of filtering options,
-tooltips, ways to guide the user and explain them which parameters
-affect what.
+The limitations of this view are the lack of filtering options, tooltips, ways to guide the user and explain them which parameters affect what.
 
 #### Prototype 2 - Adding Scenario Options to the Interface
 
@@ -75,18 +69,11 @@ affect what.
   <em>Second version of the Interface with the Scenario options.</em>
 </p>
 
-The second protype consisted of the Scenario functionality, which gave
-users the option to try out some presets to get a feel of how the
-simulation tool works. Each scenario change one or multiple things
-depending on the wanted outcome.
+The second protype consisted of the Scenario functionality, which gave users the option to try out some presets to get a feel of how the simulation tool works. Each scenario change one or multiple things depending on the wanted outcome.
+
+</div>
 
 #### Prototype 3 - Splitting the tool into two: Analysis and Simulation
-
-As we were working on the simulation tool, we decided that the tool itself
-was not enough and that it would be fitting to accompany it with the
-Analysis part of how we got to creating the tool at start. So this is
-when the tool was split into two and we established two views: Analysis and
-Simulation.
 
 <div style="text-align: center;">
   <table style="margin: 0 auto;">
@@ -102,6 +89,10 @@ Simulation.
     </tr>
   </table>
 </div>
+
+<div style="text-align: justify;">
+
+As we were working on the simulation tool, we decided that the tool itself was not enough and that it would be fitting to accompany it with the Analysis part of how we got to creating the tool at start. So this is when the tool was split into two and we established two views: Analysis and Simulation.
 
 ### Final Prototype
 
@@ -232,3 +223,5 @@ The simulation component is tightly integrated with the analysis component, allo
 The data was not in the best shape and it took a lot of time to clean it up and make it usable for the tool. The data was also not in the best format for the simulation tool, so we had to make some assumptions and simplifications to make it work. We do not have all the data from all the years, so that is why for some analysis the time span is shorter than for others, for example from 2018 to 2022, where as for some it is from 2016 to 2022.
 
 We wanted to establish views per company, per municipality and then per region, but again that was not possible, as every year the template of the data changed and we had to adapt to that.
+
+</div>
