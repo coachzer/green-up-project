@@ -6717,14 +6717,22 @@ cat("Total waste from newly added codes:", new_types_waste, "\n")
 total_new_dataset <- sum(new_codes_data_2016$total_waste_generated, na.rm = TRUE)
 cat("Percentage contribution of new types:", round(new_types_waste / total_new_dataset * 100, 2), "%\n")
 
-new_types_breakdown <- new_codes_data_2016 %>%
-  filter(type_of_waste %in% newly_added_types) |> 
-  summarise(waste_generated = sum(total_waste_generated, na.rm = TRUE)) %>%
-  arrange(desc(waste_generated))
+new_waste_types <- setdiff(
+  unique(new_codes_data_2016$type_of_waste),
+  unique(old_codes_data_2016$type_of_waste)
+)
 
-# Print top 5 contributors
-print("Top new waste contributors:")
-print(head(new_types_breakdown, 5))
+# Then analyze these new types
+new_types_breakdown <- new_codes_data_2016 %>%
+  filter(type_of_waste %in% new_waste_types) %>%
+  group_by(type_of_waste) %>%  # Group by type instead of code
+  summarise(
+    waste_generated = sum(total_waste_generated, na.rm = TRUE),
+    .groups = 'drop'
+  ) %>%
+  arrange(desc(waste_generated))  # Sort descending by volume
+
+print(new_types_breakdown)
 
 # Plot 1: New vs. Existing waste composition
 composition_data <- data.frame(
@@ -6750,13 +6758,23 @@ ggplot(composition_data, aes(x = "", y = waste, fill = category)) +
   theme(axis.text.x = element_blank())
 
 # Plot 2: New waste codes
-ggplot(new_codes_breakdown, aes(x = reorder(waste_code, -waste_generated), y = waste_generated)) +
-  geom_col(fill = "steelblue", alpha = 0.8, width = 0.7) +  # Slightly transparent and narrower bars
+waste_code_labels <- c(
+  "Waste Bark and Wood" = "03 03 01",
+  "Mech_Sep_Rejects_Pulp" = "03 03 07",
+  "Bulky Waste" = "20 03 07",
+  "Paper and Cardboard" = "19 12 01",
+  "Wood not specified under 19 12 06" = "19 12 07",
+  "Forestry Waste" = "02 01 07"
+)
+
+# Apply the labels using scale_x_discrete()
+ggplot(new_types_breakdown, aes(x = reorder(type_of_waste, -waste_generated), y = waste_generated)) +
+  geom_col(fill = "steelblue", alpha = 0.8, width = 0.7) +
   geom_text(
-    aes(label = scales::comma(waste_generated)),  # Formats numbers with commas (e.g., 8,200)
-    vjust = -0.5,                                 # Positions labels above bars
-    size = 3.5,                                   # Smaller font for minimalism
-    color = "black",                              # High contrast
+    aes(label = scales::comma(waste_generated)),
+    vjust = -0.5,
+    size = 3.5,
+    color = "black",
     fontface = "bold"
   ) +
   labs(
@@ -6764,12 +6782,13 @@ ggplot(new_codes_breakdown, aes(x = reorder(waste_code, -waste_generated), y = w
     x = "Waste Code",
     y = "Waste Generated (tons)"
   ) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +  # Adds headroom for labels
-  theme_minimal(base_size = 12) +                # Clean base theme
+  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
+  scale_x_discrete(labels = waste_code_labels) +  # Replace x-axis labels with waste codes
+  theme_minimal(base_size = 12) +
   theme(
-    panel.grid.major.x = element_blank(),        # Removes vertical grid lines
-    plot.title = element_text(face = "bold"),    # Bold title
-    axis.text.x = element_text(angle = 45, hjust = 1)  # Rotates x-labels for readability
+    panel.grid.major.x = element_blank(),
+    plot.title = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1)
   )
 ```
 
