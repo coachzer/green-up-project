@@ -1,7 +1,7 @@
 ﻿"year","type_of_waste","treatment_operation","non_waste_substances","storage_operator_end_year","delivered_company_and_person_RS_kg","delivered_to_EU","delivered_to_non_EU"
-2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_03","wood",0,62.16,0,0
-2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_03","other",0,110.025,0,0
-2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_0302","compost (product)",24.9,0,0,0
+2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_03","wood",0,62.16,0,0
+2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_03","other",0,110.025,0,0
+2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_0302","compost (product)",24.9,0,0,0
 2022,"Paper/Cardboard Packaging","R_03","textiles and leather",0,0,96.293,0
 2022,"Paper/Cardboard Packaging","R_03","paper and cardboard",0,0,4509.451,0
 2022,"Wooden packaging","PU","wood",0,656.58,0,0
@@ -14,6 +14,13 @@
 2022,"Wood","R_05","wood",0,1205,0,0
 2022,"Wood","R_12","building filler",0,14.5,0,0
 2022,"Wood","R_12","wood",0,680.945,0,0
-2022,"Wood, not specified in 20 01 37","PU","wood",300.175,0,0,0
-2022,"Wood, not specified in 20 01 37","R_03","wood",0,1357.36,0,0
-2022,"Wood, not specified in 20 01 37","R_0302","compost (product)",0,3550.12,0,0
+2022,"Wood, not specified in 20 01 37","PU","wood",300.175,0,0,0
+2022,"Wood, not specified in 20 01 37","R_03","wood",0,1357.36,0,0
+2022,"Wood, not specified in 20 01 37","R_0302","compost (product)",0,3550.12,0,0
+2022,NA,NA,"textiles and leather",0,12.32,70.1,0
+2022,NA,NA,NA,13241.5,32435,0,0
+2022,NA,NA,"compost (product)",114774.999,2656.011,0,0
+2022,NA,NA,NA,0,1082.902,1978.194,0
+2022,NA,NA,NA,0,794.26,0,0
+2022,NA,NA,NA,0,0,232.454,0
+2022,NA,NA,"other",0,0,40.104,0

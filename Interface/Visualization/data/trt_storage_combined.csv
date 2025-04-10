@@ -1,5 +1,4 @@
 year,statistical_region,type_of_waste,waste_stored_start_year,waste_stored_end_year,next_year_start
-2023,GORENJSKA,Bark and Cork Waste,0,0,NA
 2017,GORENJSKA,Other Wood Waste,0,380.816,380.816
 2018,GORENJSKA,Other Wood Waste,380.816,0.28,0.28
 2019,GORENJSKA,Other Wood Waste,0.28,2.24,2.24
@@ -15,13 +14,11 @@ year,statistical_region,type_of_waste,waste_stored_start_year,waste_stored_end_y
 2021,GORENJSKA,Paper/Cardboard Packaging,79.478,33.004,4.565
 2023,GORENJSKA,Paper/Cardboard Packaging,4.565,0,NA
 2023,GORENJSKA,Sawdust and Wood Cuttings,8.781,0,NA
-2023,GORENJSKA,Wood,0,0,NA
 2016,GORENJSKA,Wooden Packaging,8.215,0,12.375
 2019,GORENJSKA,Wooden Packaging,12.375,9.194,9.194
 2020,GORENJSKA,Wooden Packaging,9.194,7.456,57.756
 2021,GORENJSKA,Wooden Packaging,57.756,45.662,0
-2022,GORENJSKA,Wooden Packaging,0,0,0
-2023,GORENJSKA,Wooden Packaging,0,0,NA
+2022,GORENJSKA,Wooden Packaging,0,0,NA
 2017,GORIŠKA,Other Wood Waste,60,0,NA
 2016,GORIŠKA,Paper/Cardboard Packaging,63.481,68.386,56.028
 2019,GORIŠKA,Paper/Cardboard Packaging,56.028,22.237,22.237
@@ -71,6 +68,8 @@ year,statistical_region,type_of_waste,waste_stored_start_year,waste_stored_end_y
 2019,OBALNO-KRAŠKA,Wooden Packaging,15.219,6.397,6.397
 2020,OBALNO-KRAŠKA,Wooden Packaging,6.397,0,0
 2021,OBALNO-KRAŠKA,Wooden Packaging,0,5.771,NA
+2019,OSREDNJESLOVENSKA,Bark and Wood,6.52,5.024,5.024
+2020,OSREDNJESLOVENSKA,Bark and Wood,5.024,0,NA
 2016,OSREDNJESLOVENSKA,Other Wood Waste,4517.17,5370.962,2467.372
 2017,OSREDNJESLOVENSKA,Other Wood Waste,2467.372,2920.534,2899.798
 2018,OSREDNJESLOVENSKA,Other Wood Waste,2899.798,1822.638,1846.348
@@ -140,6 +139,12 @@ year,statistical_region,type_of_waste,waste_stored_start_year,waste_stored_end_y
 2020,POMURSKA,Wooden Packaging,13.78,31.114,31.114
 2021,POMURSKA,Wooden Packaging,31.114,17.208,20.827
 2023,POMURSKA,Wooden Packaging,20.827,0,NA
+2016,POSAVSKA,Bark and Wood,5107.321,2951.603,2951.603
+2017,POSAVSKA,Bark and Wood,2951.603,9838.463,9838.463
+2018,POSAVSKA,Bark and Wood,9838.463,4606.417,4606.417
+2019,POSAVSKA,Bark and Wood,4606.417,5555.076,5555.076
+2020,POSAVSKA,Bark and Wood,5555.076,8392.205,584.055
+2021,POSAVSKA,Bark and Wood,584.055,545.64,NA
 2023,POSAVSKA,Other Wood Waste,132.208,0,NA
 2016,POSAVSKA,Paper/Cardboard Packaging,0.46,0,0
 2021,POSAVSKA,Paper/Cardboard Packaging,0,2.266,NA

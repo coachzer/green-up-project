@@ -38,6 +38,7 @@
 "OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","processed the waste themselves",100.96
 "OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04","processing operator in RS",879.554
 "OSREDNJESLOVENSKA","Waste Bark and Cork","processing operator in RS",27
+"OSREDNJESLOVENSKA","Waste Bark and Wood","processing operator in RS",35.794
 "OSREDNJESLOVENSKA","Wood","processing operator in RS",1744.236
 "OSREDNJESLOVENSKA","Wood, not specified in 20 01 37","processing operator in RS",314.275
 "OSREDNJESLOVENSKA","Wooden packaging","processed the waste themselves",26.94
@@ -59,12 +60,15 @@
 "POSAVSKA","Paper/Cardboard Packaging","processed the waste themselves",10.24
 "POSAVSKA","Paper/Cardboard Packaging","processing operator in RS",1464.359
 "POSAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04","processing operator in RS",75.38
+"POSAVSKA","Waste Bark and Wood","processed the waste themselves",25367
+"POSAVSKA","Waste Bark and Wood","processing operator in RS",1.908
 "POSAVSKA","Wood","processing operator in RS",0.72
 "POSAVSKA","Wood, not specified in 20 01 37","processing operator in RS",208.009
 "POSAVSKA","Wooden packaging","processed the waste themselves",170
 "POSAVSKA","Wooden packaging","processing operator in RS",283.58
 "PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging","processing operator in RS",1130.786
 "PRIMORSKO-NOTRANJSKA","Sawdust/Chips/Wood, not specified in 03 01 04","processing operator in RS",16.64
+"PRIMORSKO-NOTRANJSKA","Waste Bark and Wood","processing operator in RS",5.305
 "PRIMORSKO-NOTRANJSKA","Wood","processing operator in RS",296.43
 "PRIMORSKO-NOTRANJSKA","Wood, not specified in 20 01 37","processing operator in RS",40.39
 "PRIMORSKO-NOTRANJSKA","Wooden packaging","processing operator in RS",816.102

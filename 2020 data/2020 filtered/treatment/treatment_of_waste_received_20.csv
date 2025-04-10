@@ -1,52 +1,55 @@
 ﻿"year","statistical_region","type_of_waste","waste_entering_treatment_process"
 2020,"GORENJSKA","Paper/Cardboard Packaging",4525.239
-2020,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",2300.906
+2020,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",2300.906
 2020,"GORENJSKA","Wood",892.741
-2020,"GORENJSKA","Wood, not specified in 20 01 37",793.543
+2020,"GORENJSKA","Wood, not specified in 20 01 37",793.543
 2020,"GORENJSKA","Wooden packaging",4511.39
 2020,"GORIŠKA","Paper/Cardboard Packaging",2135.463
 2020,"GORIŠKA","Wood",341.95
-2020,"GORIŠKA","Wood, not specified in 20 01 37",5.4
+2020,"GORIŠKA","Wood, not specified in 20 01 37",5.4
 2020,"GORIŠKA","Wooden packaging",494.325
 2020,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",5989.374
-2020,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04",3869.78
+2020,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04",3869.78
 2020,"JUGOVZHODNA SLOVENIJA","Wood",69.49
-2020,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",104.14
+2020,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",104.14
 2020,"JUGOVZHODNA SLOVENIJA","Wooden packaging",2498.94
 2020,"KOROŠKA","Paper/Cardboard Packaging",1367.04
-2020,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",450
+2020,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",450
 2020,"KOROŠKA","Wood",6
 2020,"KOROŠKA","Wooden packaging",160.84
 2020,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",3678.692
+2020,"OBALNO-KRAŠKA","Waste Bark and Wood",2.46
 2020,"OBALNO-KRAŠKA","Wood",105.384
-2020,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37",395.18
+2020,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37",395.18
 2020,"OBALNO-KRAŠKA","Wooden packaging",854.185
 2020,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",57661.55
-2020,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1451.87
+2020,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1451.87
+2020,"OSREDNJESLOVENSKA","Waste Bark and Wood",31.75
 2020,"OSREDNJESLOVENSKA","Wood",3969.196
-2020,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",39397.321
+2020,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",39397.321
 2020,"OSREDNJESLOVENSKA","Wooden packaging",20232.346
 2020,"PODRAVSKA","Paper/Cardboard Packaging",13112.723
-2020,"PODRAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",88.54
+2020,"PODRAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",88.54
 2020,"PODRAVSKA","Wood",387.14
-2020,"PODRAVSKA","Wood, not specified in 20 01 37",3366.074
+2020,"PODRAVSKA","Wood, not specified in 20 01 37",3366.074
 2020,"PODRAVSKA","Wooden packaging",3290.318
 2020,"POMURSKA","Paper/Cardboard Packaging",3322.104
-2020,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04",2071.24
+2020,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04",2071.24
 2020,"POMURSKA","Wood",34.94
-2020,"POMURSKA","Wood, not specified in 20 01 37",856.98
+2020,"POMURSKA","Wood, not specified in 20 01 37",856.98
 2020,"POMURSKA","Wooden packaging",659.945
 2020,"POSAVSKA","Paper/Cardboard Packaging",4800.291
+2020,"POSAVSKA","Waste Bark and Wood",7126.511
 2020,"POSAVSKA","Wood",0.4
-2020,"POSAVSKA","Wood, not specified in 20 01 37",931.32
+2020,"POSAVSKA","Wood, not specified in 20 01 37",931.32
 2020,"POSAVSKA","Wooden packaging",566.429
 2020,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",159.02
 2020,"PRIMORSKO-NOTRANJSKA","Wooden packaging",394.25
 2020,"SAVINJSKA","Bark and Cork Waste",1.855
 2020,"SAVINJSKA","Miscellaneous Waste",1233.88
 2020,"SAVINJSKA","Paper/Cardboard Packaging",16886.935
-2020,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",47.01
+2020,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",47.01
 2020,"SAVINJSKA","Wood",299.442
-2020,"SAVINJSKA","Wood, not specified in 20 01 37",3244.277
+2020,"SAVINJSKA","Wood, not specified in 20 01 37",3244.277
 2020,"SAVINJSKA","Wooden packaging",8636.522
-2020,"ZASAVSKA","Wood, not specified in 20 01 37",126.58
+2020,"ZASAVSKA","Wood, not specified in 20 01 37",126.58

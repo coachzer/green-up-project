@@ -13,6 +13,7 @@
 "JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",12.512,5199.684,13.789
 "JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04",4.3,3137.124,10.4
 "JUGOVZHODNA SLOVENIJA","Waste Bark and Cork",0,0.012,0
+"JUGOVZHODNA SLOVENIJA","Waste Bark and Wood",0.024,0.116,0.14
 "JUGOVZHODNA SLOVENIJA","Wood",0,283.894,0
 "JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",0,106.685,0
 "JUGOVZHODNA SLOVENIJA","Wooden packaging",5.05,3169.507,3.283
@@ -32,6 +33,7 @@
 "OSREDNJESLOVENSKA","Paper/Cardboard Packaging",15.057,26422.295,16.779
 "OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1.464,981.804,2.754
 "OSREDNJESLOVENSKA","Waste Bark and Cork",0,27,0
+"OSREDNJESLOVENSKA","Waste Bark and Wood",0,35.794,0
 "OSREDNJESLOVENSKA","Wood",0,1754.236,10
 "OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",0.001,316.097,1.823
 "OSREDNJESLOVENSKA","Wooden packaging",32.523,6918.555,12.435
@@ -47,11 +49,13 @@
 "POMURSKA","Wooden packaging",0.57,717.651,0.865
 "POSAVSKA","Paper/Cardboard Packaging",0.104,1475.129,0.634
 "POSAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",0,75.38,0
+"POSAVSKA","Waste Bark and Wood",9838.463,20136.862,4606.417
 "POSAVSKA","Wood",0,0.72,0
 "POSAVSKA","Wood, not specified in 20 01 37",0,208.009,0
 "POSAVSKA","Wooden packaging",106,464.58,117
 "PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",5.236,1130.636,5.086
 "PRIMORSKO-NOTRANJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",0,16.64,0
+"PRIMORSKO-NOTRANJSKA","Waste Bark and Wood",0,5.305,0
 "PRIMORSKO-NOTRANJSKA","Wood",0,296.43,0
 "PRIMORSKO-NOTRANJSKA","Wood, not specified in 20 01 37",0,40.39,0
 "PRIMORSKO-NOTRANJSKA","Wooden packaging",0,816.102,0

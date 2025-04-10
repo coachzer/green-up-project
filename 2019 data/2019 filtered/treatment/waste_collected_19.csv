@@ -1,6 +1,7 @@
 ﻿"year","statistical_region","type_of_waste","total_waste_received","waste_received_from_producer","waste_received_from_collector","waste_received_from_processing_operator","waste_received_from_other_EU_country","waste_received_from_other_country_outside_EU"
 2019,"GORENJSKA","Paper/Cardboard Packaging",5992.841,0,487.704,6.55,5.5,62.9
 2019,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",9469.22,5894.909,12.4,0,0,0
+2019,"GORENJSKA","Waste Bark and Wood",20.8,0,0,0,0,0
 2019,"GORENJSKA","Wood",915.6,0,294.14,0,0,0
 2019,"GORENJSKA","Wood, not specified in 20 01 37",1757.431,0,516.63,678.788,0,0
 2019,"GORENJSKA","Wooden packaging",4453.586,0,27.46,1497.844,0,0
@@ -23,6 +24,7 @@
 2019,"OBALNO-KRAŠKA","Wooden packaging",753.661,0,7.68,0,0,0
 2019,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",48713.521,0.875,16132.786,5735.436,490.74,144.28
 2019,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",2725.75,0,196.29,0,0,0
+2019,"OSREDNJESLOVENSKA","Waste Bark and Wood",116.274,0,0,0,0,0
 2019,"OSREDNJESLOVENSKA","Wood",4062.414,0,1505.682,50.18,0,0
 2019,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",38515.217,0,9693.121,13631.1,0,0
 2019,"OSREDNJESLOVENSKA","Wooden packaging",17170.465,1.109,4605.948,7388.031,0,0
@@ -37,6 +39,7 @@
 2019,"POMURSKA","Wood, not specified in 20 01 37",735.76,0,133.32,0,0,0
 2019,"POMURSKA","Wooden packaging",422.249,0,0,0,0,0
 2019,"POSAVSKA","Paper/Cardboard Packaging",6909.799,0,1534.289,3622.907,0,0
+2019,"POSAVSKA","Waste Bark and Wood",14221,14221,0,0,0,0
 2019,"POSAVSKA","Wood, not specified in 20 01 37",996.363,0,539.983,0,0,0
 2019,"POSAVSKA","Wooden packaging",365.2,232,3.76,0,0,0
 2019,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",276.71,0,0,0,113.3,0

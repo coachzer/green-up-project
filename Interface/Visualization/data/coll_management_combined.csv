@@ -82,6 +82,7 @@ year,statistical_region,type_of_waste,total_waste_given_away,waste_handed_to_col
 2017,POMURSKA,Wooden Packaging,6.686,0,6.686,0,0
 2017,POSAVSKA,Paper/Cardboard Packaging,1054.011,64.606,970.878,18.527,0
 2017,POSAVSKA,Sawdust and Wood Cuttings,119.63,119.63,0,0,0
+2017,POSAVSKA,Bark and Wood,19.26,0,19.26,0,0
 2017,POSAVSKA,Other Wood Waste,594.56,0,594.56,0,0
 2017,POSAVSKA,Wooden Packaging,294.835,0,294.835,0,0
 2017,PRIMORSKO-NOTRANJSKA,Paper/Cardboard Packaging,622.975,444.082,174.553,4.34,0
@@ -121,6 +122,7 @@ year,statistical_region,type_of_waste,total_waste_given_away,waste_handed_to_col
 2018,OBALNO-KRAŠKA,Wooden Packaging,501.43,3.36,498.07,0,0
 2018,OSREDNJESLOVENSKA,Paper/Cardboard Packaging,26584.24,1949.724,23657.4,977.116,0
 2018,OSREDNJESLOVENSKA,Sawdust and Wood Cuttings,630.38,0,630.38,0,0
+2018,OSREDNJESLOVENSKA,Bark and Wood,6.52,0,6.52,0,0
 2018,OSREDNJESLOVENSKA,Wood,175.49,56.08,119.41,0,0
 2018,OSREDNJESLOVENSKA,Other Wood Waste,17068.29,122.08,16946.21,0,0
 2018,OSREDNJESLOVENSKA,Wooden Packaging,8922.184,146.87,5395.914,3379.4,0
@@ -135,6 +137,7 @@ year,statistical_region,type_of_waste,total_waste_given_away,waste_handed_to_col
 2018,POMURSKA,Wooden Packaging,50.567,0,50.567,0,0
 2018,POSAVSKA,Paper/Cardboard Packaging,1431.519,105.566,1325.953,0,0
 2018,POSAVSKA,Sawdust and Wood Cuttings,310.7,310.7,0,0,0
+2018,POSAVSKA,Bark and Wood,1.508,0,1.508,0,0
 2018,POSAVSKA,Other Wood Waste,1004.119,170.75,833.369,0,0
 2018,POSAVSKA,Wooden Packaging,348.438,0,348.438,0,0
 2018,PRIMORSKO-NOTRANJSKA,Paper/Cardboard Packaging,321.43,52.75,268.68,0,0
@@ -186,6 +189,7 @@ year,statistical_region,type_of_waste,total_waste_given_away,waste_handed_to_col
 2019,POMURSKA,Wooden Packaging,71.315,0,71.315,0,0
 2019,POSAVSKA,Paper/Cardboard Packaging,1646.484,95.6,1127.04,423.844,0
 2019,POSAVSKA,Sawdust and Wood Cuttings,252.16,252.16,0,0,0
+2019,POSAVSKA,Bark and Wood,0.4,0,0.4,0,0
 2019,POSAVSKA,Wood,7.92,0,7.92,0,0
 2019,POSAVSKA,Other Wood Waste,1243.317,0,1243.317,0,0
 2019,POSAVSKA,Wooden Packaging,254.29,6.44,247.85,0,0
@@ -339,6 +343,7 @@ year,statistical_region,type_of_waste,total_waste_given_away,waste_handed_to_col
 2022,POMURSKA,Wood,129.62,0,129.62,0,0
 2022,POMURSKA,Other Wood Waste,1043.2,0,1043.2,0,0
 2022,POSAVSKA,Sawdust and Wood Cuttings,39.94,0,39.94,0,0
+2022,POSAVSKA,Bark and Wood,3.94,0,3.94,0,0
 2022,POSAVSKA,Paper/Cardboard Packaging,1417.881,159.056,1206.965,51.86,0
 2022,POSAVSKA,Wooden Packaging,185.169,2.24,182.929,0,0
 2022,POSAVSKA,Other Wood Waste,2437.95,2.06,2435.89,0,0
@@ -393,6 +398,7 @@ year,statistical_region,type_of_waste,total_waste_given_away,waste_handed_to_col
 2023,POMURSKA,Wooden Packaging,168.557,0,168.557,0,0
 2023,POSAVSKA,Paper/Cardboard Packaging,4069.36,485.998,2972.532,610.83,0
 2023,POSAVSKA,Sawdust and Wood Cuttings,48.14,0,48.14,0,0
+2023,POSAVSKA,Bark and Wood,7.62,0,7.62,0,0
 2023,POSAVSKA,Wood,12.75,0,12.75,0,0
 2023,POSAVSKA,Other Wood Waste,4812.54,108.07,4704.47,0,0
 2023,POSAVSKA,Wooden Packaging,2481.314,4.219,2477.095,0,0

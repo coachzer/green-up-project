@@ -29,6 +29,21 @@ descriptive statistics for all years
 # Setup
 
 ```{r setup, message = FALSE, warning = FALSE}
+
+# Get the current working directory
+current_dir <- getwd()
+
+# Define the desired working directory
+desired_dir <- "C:/Users/kovac/Desktop/Work/Green UP Project/green-up-project"
+
+# Check if the current working directory is different from the desired one
+if (file.exists(desired_dir)) {
+  setwd(desired_dir)
+  cat("Working directory has been changed to:", desired_dir, "\n")
+} else {
+  cat("The directory does not exist:", desired_dir, "\n")
+}
+
 # Load required libraries
 # List of required packages
 packages <- c(
@@ -48,9 +63,6 @@ if (!require("echarts4r.maps")) {
   install.packages("remotes")
   remotes::install_github("JohnCoene/echarts4r.maps")
 }
-
-# Set the working directory to the project folder
-setwd("C:/Users/kovac/Desktop/Work/Green UP Project/green-up-project")
 
 # Apply the function to each package in the list
 lapply(packages, install_and_load)
@@ -363,6 +375,7 @@ clear_waste_name <- function(name) {
     name == "Wood" ~ "Wood",
     name == "Wood, not specified in 20 01 37" ~ "Other Wood Waste",
     name == "Wood, not specified in 20 01 37" ~ "Other Wood Waste",
+    name == "Waste Bark and Wood" ~ "Bark and Wood", 
     name == "Waste bark and cork" ~ "Bark and Cork",
     name == "Waste not specified elsewhere" ~ "Unspecified Wood Waste",
     TRUE ~ name
@@ -1877,8 +1890,9 @@ links_stage1 <- flow_2023 |>
     target = paste0(type_of_waste_outlet, " (Outlet)")
   ) |>
   group_by(source, target) |>
-  summarise(value = sum(stored_quantity_start_year)) |>
-  ungroup()
+  summarise(value = sum(quantity_stored_start_year)) |>
+  ungroup() |>
+  filter(value != 0)
 
 links_stage2 <- flow_2023 |>
   mutate(
@@ -1888,8 +1902,9 @@ links_stage2 <- flow_2023 |>
     source,
     target = paste0(substance_or_object, " (Product)")
   ) |>
-  summarise(value = sum(stored_quantity_start_year)) |>
-  ungroup()
+  summarise(value = sum(quantity_stored_start_year)) |>
+  ungroup() |>
+  filter(value != 0)
 
 # Combine all links
 all_links <- bind_rows(links_stage1, links_stage2)
@@ -1939,27 +1954,29 @@ waste.storage.2021.data <- waste.storage.2021.data |>
   ungroup()
 
 waste.storage.2022.data <- waste.storage.2022.data |>
+  select(year, statistical_region, type_of_waste, quantity_stored_start_year)
+
+waste.storage.2022.data <- waste.storage.2022.data |>
   mutate(waste_stored_end_year = 0)
 
 names(waste.storage.2022.data) <- colnames(waste.storage.2021.data)
 
 filtered_2023 <- waste.storage.2023.data |>
   group_by(year, statistical_region, type_of_waste_inlet) |>
-  summarize(waste_stored_start_year = sum(stored_quantity_start_year, na.rm = TRUE)) |>
-  ungroup()
+  summarize(waste_stored_start_year = sum(quantity_stored_start_year, na.rm = TRUE)) |>
+  ungroup() |> 
+  filter(waste_stored_start_year != 0)
 
 filtered_2023 <- filtered_2023 |>
   mutate(waste_stored_end_year = 0)
 
 # filter only by wood, so if the rows contain Wood/Paper in the type_of_waste_inlet column
 filtered_2023 <- filtered_2023 |>
-  filter(str_detect(type_of_waste_inlet, "(?i)wood|bark|sawdust|cork|paper"))
+  filter(str_detect(type_of_waste_inlet, "(?i)wood|bark|sawdust|cork|paper|cardboard"))
 
-# rename type_of_waste_inlet to type_of_waste
-names(filtered_2023)[3] <- "type_of_waste"
+colnames(filtered_2023)[3] <- "type_of_waste"
 
 waste.storage.2023.data <- filtered_2023
-
 
 combined_storage_data <- bind_rows(waste.storage.2016.data, waste.storage.2017.data, waste.storage.2018.data, waste.storage.2019.data, waste.storage.2020.data, waste.storage.2021.data, waste.storage.2022.data, waste.storage.2023.data)
 
@@ -2735,13 +2752,16 @@ waste.input.treatment.2022.data <- read_csv("2022 data/2022 filtered/treatment/m
 waste.input.treatment.2023.data <- read_csv("2023 data/2023 filtered/treatment/mass_diff_23.csv")
 
 waste.input.treatment.2018.data <- waste.input.treatment.2018.data |>
+  select(year, type_of_waste, lost_mass) |> 
   rename(mass_change = lost_mass)
 
 waste.input.treatment.2019.data <- waste.input.treatment.2019.data |>
+  select(year, type_of_waste, lost_mass) |> 
   rename(mass_change = lost_mass)
 
 waste.input.treatment.2020.data <- waste.input.treatment.2020.data |>
-  rename(type_of_waste = input_waste_name)
+  rename(type_of_waste = input_waste_name) |> 
+  filter(year != 0)
 
 waste.input.treatment.2021.data <- waste.input.treatment.2021.data |>
   rename(type_of_waste = input_waste_name)
