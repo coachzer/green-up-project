@@ -23,7 +23,7 @@ number of companies
 type of waste per companies, how many different types
 node = a company in a region, point on a map
 cant just focus on headquarters (HQ) of the node
-try to figure out connection between operator, collector and storage
+try to figure out connection between treatment operator, collector and storage
 descriptive statistics for all years
 
 # Setup
@@ -1118,7 +1118,7 @@ p4 <- waste.received.centre.2023.data |>
        y = "Waste Collected (tonnes)",
        fill = "Type of Waste")
 
-# 5. Count of centres per region
+# 5. Count of centers per region
 p5 <- waste.received.centre.2023.data |>
   group_by(statistical_region) |>
   summarise(number_of_centres = n_distinct(collection_centre)) |>
@@ -1135,10 +1135,17 @@ p5 <- waste.received.centre.2023.data |>
 # Convert to plotly with consistent dimensions
 plots <- list(p1, p2, p3, p4, p5) |>
   lapply(function(p) {
-    ggplotly(p, width = 1000, height = 800) |>
-      layout(showlegend = TRUE,
-             legend = list(x = 1.1, y = 0.5),
-             margin = list(r = 100))  # Add right margin to accommodate legend
+    ggplotly(p, width = 1000, height = 800) |> 
+      layout(
+        showlegend = TRUE,
+        legend = list(
+          x = 1.1, 
+          y = 0.5,
+          xanchor = "left",  # Anchor the left side of the legend at x position
+          yanchor = "center" # Center the legend vertically at y position
+        ),
+        margin = list(r = 150)  # May need more right margin
+      )
   })
 
 # Display plots
