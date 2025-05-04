@@ -20,6 +20,7 @@ There are data-sets for each year: [generated waste]{.underline}, [collected was
  - Ctrl + f
   - TO-DO
   - TO-CHECK
+  - STOPPED FOR NOW
 
 ## Setup
 
@@ -2353,10 +2354,10 @@ landfill_management.22 <- landfill_management.22 |>
     cover_waste_kg = `Ravnanje z odpadki na odlagališču Odpadki za prekrivanje odlagališča kg`
   )
 
-landfill_management.22 <- rename_waste_names(landfill_management.22)
+landfill_management.22 <- categorize_waste(landfill_management.22, waste_code_col = "waste_code")
 
 landfill_management.22 <- landfill_management.22 |>
-  group_by(year, type_of_waste) |>
+  group_by(year, waste_code, type_of_waste) |>
   mutate(
     received_all_waste_t = as.numeric(received_all_waste_kg) / 1000,
     received_without_assessment_t = as.numeric(received_without_assessment_kg) / 1000,
@@ -2370,7 +2371,7 @@ landfill_management.22 <- landfill_management.22 |>
   ungroup()
 
 # Do we need to do this? TO-CHECK
-landfill_management.22 <- landfill_management.22 |> select(-waste_code, -received_all_waste_kg, -received_without_assessment_kg, -total_disposed_waste_kg, -hazardous_waste_kg, -non_hazardous_waste_kg, -inert_waste_kg, -construction_waste_kg, -cover_waste_kg)
+# landfill_management.22 <- landfill_management.22 |> select(-waste_code, -received_all_waste_kg, -received_without_assessment_kg, -total_disposed_waste_kg, -hazardous_waste_kg, -non_hazardous_waste_kg, -inert_waste_kg, -construction_waste_kg, -cover_waste_kg)
 
 processed_sheets[[9]] <- landfill_management.22
 
@@ -2574,11 +2575,11 @@ generation.21 <- generation.21 |> select(-report)
 # Odpadki, ki niso navedeni drugje
 # Papirna in kartonska embalaža ter embalaža iz lepenke
 # Lesena embalaža
-generation.21 <- rename_waste_names(generation.21)
+generation.21 <- categorize_waste(generation.21, waste_code_col = "waste_code")
 
 # change to tons
 generation.21 <- generation.21 |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste) |>
   summarise(
     total_waste_generated_stored = sum(total_waste_generated_stored) / 1000,
     temporarily_stored_start_year = sum(temporarily_stored_start_year) / 1000,
@@ -2724,15 +2725,17 @@ processed_sheets[[1]] <- processed_sheets[[1]] |>
     previous_stored_end_year = `Predhodno skladiščeni odpadki na dan 31.12.2021 kg`
   )
 
-processed_sheets[[1]] <- rename_waste_names(processed_sheets[[1]])
+processed_sheets[[1]] <- categorize_waste(processed_sheets[[1]], waste_code_col = "waste_code")
 
 processed_sheets[[1]] <- processed_sheets[[1]] |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste) |>
   summarise(
     previous_stored_start_year = sum(previous_stored_start_year) / 1000,
     previous_stored_end_year = sum(previous_stored_end_year) / 1000
   ) |>
   ungroup()
+
+# STOPPED FOR NOW
 
 # Sheet 2: Waste collected, 2021 ----
 processed_sheets[[2]]
