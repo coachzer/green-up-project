@@ -2016,7 +2016,7 @@ management.22 <- management.22 |>
 
 management.22 <- management.22 
 
-processed_sheets[[5]] <- management.22 |> select(year, statistical_region, type_of_waste, total_waste_given_away, waste_handed_to_collectors_RS, waste_delivered_to_operators_RS, waste_sent_to_EU, waste_sent_to_non_EU)
+processed_sheets[[5]] <- management.22 |> select(year, statistical_region, waste_code, type_of_waste, total_waste_given_away, waste_handed_to_collectors_RS, waste_delivered_to_operators_RS, waste_sent_to_EU, waste_sent_to_non_EU)
 
 # Household composting
 composting.22 <- processed_sheets[[6]] |> select(-Poročilo, -`Šifra občine 1`)
@@ -2028,6 +2028,10 @@ composting.22 <- composting.22 |>
     number_of_households = `Število gospodinjstev v občini 2`,
     number_of_households_composting = `Število gospodinjstev, ki hišno kompostirajo`
   )
+
+# add another column that would be just the percentage of households composting
+composting.22 <- composting.22 |>
+  mutate(percentage_of_households_composting = round(number_of_households_composting / number_of_households * 100, 2))
 
 processed_sheets[[6]] <- composting.22
 
@@ -2095,7 +2099,7 @@ treatment.22 <- treatment.22 |>
     quantity_stored_start_year = `Skladiščena količina na dan 1.1.2022 kg`
   )
 
-treatment.22 <- rename_waste_names(treatment.22)
+treatment.22 <- categorize_waste(treatment.22, waste_code_col = "waste_code")
 
 treatment.22 <- rename_substances(treatment.22)
 
@@ -2130,10 +2134,10 @@ waste_received.22 <- waste_received.22 |>
     total_waste_received = `Prevzeti odpadki SKUPAJ kg`,
   )
 
-waste_received.22 <- rename_waste_names(waste_received.22)
+waste_received.22 <- categorize_waste(waste_received.22, waste_code_col = "waste_code")
 
 waste_received.22 <- waste_received.22 |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste) |>
   summarize(
     total_waste_received = sum(as.numeric(total_waste_received)) / 1000,
     untreated_waste_from_storage_start_year = sum(as.numeric(untreated_waste_from_storage_start_year)) / 1000,
@@ -2160,15 +2164,14 @@ waste_treated.22 <- waste_treated.22 |>
     description_of_treatment = `Opis postopka obdelave`,
   )
 
-waste_treated.22 <- rename_waste_names(waste_treated.22)
+waste_treated.22 <- categorize_waste(waste_treated.22, waste_code_col = "waste_code")
 
 waste_treated.22 <- rename_treatment_description(waste_treated.22)
 
 waste_treated.22 <- waste_treated.22 |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste) |>
   summarize(waste_quantity_per_treatment = sum(as.numeric(waste_quantity_per_treatment)) / 1000) |>
   ungroup()
-
 
 processed_sheets[[3]] <- waste_treated.22
 
@@ -2191,12 +2194,12 @@ management.22 <- management.22 |>
     further_treatment_envisaged = `Predviden nadaljnji postopek obdelave (R/D)`
   )
 
-management.22 <- rename_waste_names(management.22, "input_waste_name")
-
-management.22 <- rename_waste_names(management.22, "output_waste_name")
+management.22 <- management.22 |>
+  process_waste_column(treatment_inlet_delivered_waste_code, input_waste_name) |>
+  process_waste_column(treatment_outlet_delivered_waste_code, output_waste_name)
 
 management.22 <- management.22 |>
-  group_by(year, statistical_region, input_waste_name, treatment_operation, output_waste_name) |>
+  group_by(year, statistical_region, treatment_inlet_delivered_waste_code, input_waste_name, treatment_operation, treatment_outlet_delivered_waste_code, output_waste_name) |>
   summarize(
     waste_sent_to_self_storage_end_year = sum(as.numeric(waste_sent_to_self_storage_end_year)) / 1000,
     waste_sent_to_collector_SI = sum(as.numeric(waste_sent_to_collector_SI)) / 1000,
@@ -2224,17 +2227,21 @@ management_no_waste.22 <- management_no_waste.22 |>
     delivered_to_non_EU = `Količina nastalih snovi in predmetov oddana podjetju v državi izven EU kg`
   )
 
-management_no_waste.22 <- rename_waste_names(management_no_waste.22, "type_of_waste")
+management_no_waste.22 <- categorize_waste(management_no_waste.22, waste_code_col = "input_waste_code")
+
+# drop rows containing NA
+management_no_waste.22 <- management_no_waste.22 |>
+  filter(!is.na(input_waste_code))
 
 ## rename the non_waste_substances content
 management_no_waste.22 <- management_no_waste.22 |>
   mutate(non_waste_substances = case_when(
-    non_waste_substances == "7 – les" ~ "wood",
-    non_waste_substances == "99 – drugo" ~ "other",
-    non_waste_substances == "16 – kompost (proizvod)" ~ "compost (product)",
-    non_waste_substances == "11 – tekstil in usnje" ~ "textiles and leather",
-    non_waste_substances == "5 – papir in karton" ~ "paper and cardboard",
-    non_waste_substances == "22 – gradbeno polnilo" ~ "building filler"
+    non_waste_substances == "7 – les" ~ "7 – wood",
+    non_waste_substances == "99 – drugo" ~ "99 – other",
+    non_waste_substances == "16 – kompost (proizvod)" ~ "16 – compost (product)",
+    non_waste_substances == "11 – tekstil in usnje" ~ "11 – textiles and leather",
+    non_waste_substances == "5 – papir in karton" ~ "5 – paper and cardboard",
+    non_waste_substances == "22 – gradbeno polnilo" ~ "22 – building filler"
   ))
 
 management_no_waste.22 <- management_no_waste.22 |>
@@ -2245,7 +2252,7 @@ management_no_waste.22 <- management_no_waste.22 |>
     delivered_to_non_EU = as.numeric(delivered_to_non_EU) / 1000
   )
 
-processed_sheets[[5]] <- management_no_waste.22 |> select(-input_waste_code)
+processed_sheets[[5]] <- management_no_waste.22
 
 # Mechanical-biological treatment of mixed municipal waste, separated by municipality of origin
 mech_bio_treatment.22 <- processed_sheets[[6]] |> select(-Poročilo, -`Šifra občine 1`)
@@ -2279,14 +2286,14 @@ mass_difference.22 <- mass_difference.22 |>
     reduction_or_increase_of_mass_during_treatment = `Zmanjšanje ali povečanje mase med postopkom obdelave (kg)`,
   )
 
-mass_difference.22 <- rename_waste_names(mass_difference.22)
+mass_difference.22 <- categorize_waste(mass_difference.22, waste_code_col = "input_waste_code")
 
 mass_difference.22 <- mass_difference.22 |>
   group_by(year, type_of_waste, treatment_operation) |>
   mutate(reduction_or_increase_of_mass_during_treatment = as.numeric(reduction_or_increase_of_mass_during_treatment) / 1000) |>
   ungroup()
 
-processed_sheets[[7]] <- mass_difference.22 |> select(-input_waste_code)
+processed_sheets[[7]] <- mass_difference.22
 
 # Landfill capacity and status
 landfill_capacity.22 <- processed_sheets[[8]] |> select(-Poročilo)

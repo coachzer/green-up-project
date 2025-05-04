@@ -1,26 +1,33 @@
-﻿"year","type_of_waste","treatment_operation","non_waste_substances","storage_operator_end_year","delivered_company_and_person_RS_kg","delivered_to_EU","delivered_to_non_EU"
-2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_03","wood",0,62.16,0,0
-2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_03","other",0,110.025,0,0
-2022,"Sawdust/Chips/Wood, not specified in 03 01 04","R_0302","compost (product)",24.9,0,0,0
-2022,"Paper/Cardboard Packaging","R_03","textiles and leather",0,0,96.293,0
-2022,"Paper/Cardboard Packaging","R_03","paper and cardboard",0,0,4509.451,0
-2022,"Wooden packaging","PU","wood",0,656.58,0,0
-2022,"Wooden packaging","PU","other",0,316.81,0,0
-2022,"Wooden packaging","R_01","other",0,85.685,0,0
-2022,"Wooden packaging","R_03","wood",0,7742.05,0,0
-2022,"Wooden packaging","R_0302","compost (product)",192.74,0,0,0
-2022,"Wooden packaging","R_12","wood",0,0,4925.839,0
-2022,"Wood","R_03","wood",0,642.873,0,0
-2022,"Wood","R_05","wood",0,1205,0,0
-2022,"Wood","R_12","building filler",0,14.5,0,0
-2022,"Wood","R_12","wood",0,680.945,0,0
-2022,"Wood, not specified in 20 01 37","PU","wood",300.175,0,0,0
-2022,"Wood, not specified in 20 01 37","R_03","wood",0,1357.36,0,0
-2022,"Wood, not specified in 20 01 37","R_0302","compost (product)",0,3550.12,0,0
-2022,NA,NA,"textiles and leather",0,12.32,70.1,0
-2022,NA,NA,NA,13241.5,32435,0,0
-2022,NA,NA,"compost (product)",114774.999,2656.011,0,0
-2022,NA,NA,NA,0,1082.902,1978.194,0
-2022,NA,NA,NA,0,794.26,0,0
-2022,NA,NA,NA,0,0,232.454,0
-2022,NA,NA,"other",0,0,40.104,0
+﻿"year","input_waste_code","type_of_waste","treatment_operation","non_waste_substances","storage_operator_end_year","delivered_company_and_person_RS_kg","delivered_to_EU","delivered_to_non_EU","waste_category"
+2022,"02 01 07","Forestry Waste (02 01 07)","R_03","16 – compost (product)",0,0.62,0,0,"Agricultural/Forestry Waste"
+2022,"02 01 07","Forestry Waste (02 01 07)","R_12","7 – wood",0,49,12.74,0,"Agricultural/Forestry Waste"
+2022,"03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","R_03","7 – wood",0,62.16,0,0,"Wood/Paper Production Waste"
+2022,"03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","R_03","99 – other",0,110.025,0,0,"Wood/Paper Production Waste"
+2022,"03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","R_0302","16 – compost (product)",24.9,0,0,0,"Wood/Paper Production Waste"
+2022,"15 01 01","Paper and Cardboard Packaging (15 01 01)","R_03","11 – textiles and leather",0,0,96.293,0,"Packaging Waste"
+2022,"15 01 01","Paper and Cardboard Packaging (15 01 01)","R_03","5 – paper and cardboard",0,0,4509.451,0,"Packaging Waste"
+2022,"15 01 03","Wooden Packaging (15 01 03)","PU","7 – wood",0,656.58,0,0,"Packaging Waste"
+2022,"15 01 03","Wooden Packaging (15 01 03)","PU","99 – other",0,316.81,0,0,"Packaging Waste"
+2022,"15 01 03","Wooden Packaging (15 01 03)","R_01","99 – other",0,85.685,0,0,"Packaging Waste"
+2022,"15 01 03","Wooden Packaging (15 01 03)","R_03","7 – wood",0,7742.05,0,0,"Packaging Waste"
+2022,"15 01 03","Wooden Packaging (15 01 03)","R_0302","16 – compost (product)",192.74,0,0,0,"Packaging Waste"
+2022,"15 01 03","Wooden Packaging (15 01 03)","R_12","7 – wood",0,0,4925.839,0,"Packaging Waste"
+2022,"17 02 01","Construction Wood Waste (17 02 01)","R_03","7 – wood",0,642.873,0,0,"Construction/Demolition Waste"
+2022,"17 02 01","Construction Wood Waste (17 02 01)","R_05","7 – wood",0,1205,0,0,"Construction/Demolition Waste"
+2022,"17 02 01","Construction Wood Waste (17 02 01)","R_12","22 – building filler",0,14.5,0,0,"Construction/Demolition Waste"
+2022,"17 02 01","Construction Wood Waste (17 02 01)","R_12","7 – wood",0,680.945,0,0,"Construction/Demolition Waste"
+2022,"19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","R_03","11 – textiles and leather",0,0,85.312,0,"Waste Treatment Residues"
+2022,"19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","R_03","5 – paper and cardboard",0,0,27827.156,0,"Waste Treatment Residues"
+2022,"19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","R_03","99 – other",0,49720.509,0,0,"Waste Treatment Residues"
+2022,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","R_03","5 – paper and cardboard",0,0,50199.765,0,"Municipal Waste"
+2022,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","R_03","99 – other",0,28085.049,0,0,"Municipal Waste"
+2022,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","R_13","22 – building filler",0,75.936,0,0,"Municipal Waste"
+2022,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","R_13","99 – other",14.705,0,0,0,"Municipal Waste"
+2022,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","PU","7 – wood",300.175,0,0,0,"Municipal Waste"
+2022,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","R_03","7 – wood",0,1357.36,0,0,"Municipal Waste"
+2022,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","R_0302","16 – compost (product)",0,3550.12,0,0,"Municipal Waste"
+2022,"20 03 07","Bulky Municipal Waste (20 03 07)","PU","7 – wood",23.423,0,0,0,"Municipal Waste"
+2022,"20 03 07","Bulky Municipal Waste (20 03 07)","PU","99 – other",0,15.85,0,0,"Municipal Waste"
+2022,"20 03 07","Bulky Municipal Waste (20 03 07)","R_12","7 – wood",0,1.084,0,0,"Municipal Waste"
+2022,"20 03 07","Bulky Municipal Waste (20 03 07)","R_12, R_13","11 – textiles and leather",0,2.25,0,0,"Municipal Waste"
+2022,"20 03 07","Bulky Municipal Waste (20 03 07)","R_12, R_13","7 – wood",0,1.49,0,0,"Municipal Waste"
