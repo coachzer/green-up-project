@@ -1,469 +1,887 @@
-﻿"year","name_of_municipality","type_of_waste","waste_by_municipality","statistical_region"
-2021,"AJDOVŠČINA","Paper/Cardboard Packaging",263.233,"GORIŠKA"
-2021,"AJDOVŠČINA","Wood, not specified in 20 01 37",376.298,"GORIŠKA"
-2021,"AJDOVŠČINA","Wooden packaging",7.22,"GORIŠKA"
-2021,"ANKARAN","Paper/Cardboard Packaging",33.305,"OBALNOKRAŠKA"
-2021,"ANKARAN","Wood, not specified in 20 01 37",71.702,"OBALNOKRAŠKA"
-2021,"APAČE","Paper/Cardboard Packaging",72.62,"POMURSKA"
-2021,"BELTINCI","Paper/Cardboard Packaging",54.107,"POMURSKA"
-2021,"BELTINCI","Wood, not specified in 20 01 37",151.06,"POMURSKA"
-2021,"BISTRICA OB SOTLI","Paper/Cardboard Packaging",5.01,"POSAVSKA"
-2021,"BISTRICA OB SOTLI","Wood, not specified in 20 01 37",2.779,"POSAVSKA"
-2021,"BISTRICA OB SOTLI","Wooden packaging",0.005,"POSAVSKA"
-2021,"BLED","Paper/Cardboard Packaging",100.438,"GORENJSKA"
-2021,"BLED","Wood, not specified in 20 01 37",299.678,"GORENJSKA"
-2021,"BLOKE","Paper/Cardboard Packaging",27.994,"PRIMORSKONOTRANJSKA"
-2021,"BLOKE","Wood, not specified in 20 01 37",39.72,"PRIMORSKONOTRANJSKA"
-2021,"BOHINJ","Paper/Cardboard Packaging",64,"GORENJSKA"
-2021,"BOHINJ","Wood, not specified in 20 01 37",228.66,"GORENJSKA"
-2021,"BOROVNICA","Paper/Cardboard Packaging",27.648,"OSREDNJESLOVENSKA"
-2021,"BOROVNICA","Wood, not specified in 20 01 37",129.238,"OSREDNJESLOVENSKA"
-2021,"BOVEC","Paper/Cardboard Packaging",92.124,"GORIŠKA"
-2021,"BOVEC","Wood, not specified in 20 01 37",141.359,"GORIŠKA"
-2021,"BRASLOVČE","Paper/Cardboard Packaging",25.769,"SAVINJSKA"
-2021,"BRASLOVČE","Wood, not specified in 20 01 37",76.929,"SAVINJSKA"
-2021,"BRDA","Paper/Cardboard Packaging",61.432,"GORIŠKA"
-2021,"BRDA","Wood, not specified in 20 01 37",321.534,"GORIŠKA"
-2021,"BRDA","Wooden packaging",0.325,"GORIŠKA"
-2021,"BREZOVICA","Paper/Cardboard Packaging",57.189,"OSREDNJESLOVENSKA"
-2021,"BREZOVICA","Wood, not specified in 20 01 37",91.54,"OSREDNJESLOVENSKA"
-2021,"BREZOVICA","Wooden packaging",2.36,"OSREDNJESLOVENSKA"
-2021,"BREŽICE","Paper/Cardboard Packaging",208.518,"POSAVSKA"
-2021,"BREŽICE","Wood, not specified in 20 01 37",265.236,"POSAVSKA"
-2021,"BREŽICE","Wooden packaging",49.11,"POSAVSKA"
-2021,"CANKOVA","Paper/Cardboard Packaging",9.571,"POMURSKA"
-2021,"CANKOVA","Wood, not specified in 20 01 37",23.96,"POMURSKA"
-2021,"CELJE","Paper/Cardboard Packaging",770.435,"SAVINJSKA"
-2021,"CELJE","Wood, not specified in 20 01 37",17.237,"SAVINJSKA"
-2021,"CELJE","Wooden packaging",90.766,"SAVINJSKA"
-2021,"CERKLJE NA GORENJSKEM","Paper/Cardboard Packaging",50.34,"GORENJSKA"
-2021,"CERKLJE NA GORENJSKEM","Wood, not specified in 20 01 37",220.12,"GORENJSKA"
-2021,"CERKNICA","Paper/Cardboard Packaging",149.195,"PRIMORSKONOTRANJSKA"
-2021,"CERKNICA","Wooden packaging",107.809,"PRIMORSKONOTRANJSKA"
-2021,"CERKNO","Paper/Cardboard Packaging",17.987,"GORIŠKA"
-2021,"CERKNO","Wood, not specified in 20 01 37",87.05,"GORIŠKA"
-2021,"CERKVENJAK","Paper/Cardboard Packaging",1.202,"PODRAVSKA"
-2021,"CIRKULANE","Paper/Cardboard Packaging",13.385,"PODRAVSKA"
-2021,"DESTRNIK","Paper/Cardboard Packaging",17.1,"PODRAVSKA"
-2021,"DIVAČA","Paper/Cardboard Packaging",46.802,"OBALNOKRAŠKA"
-2021,"DIVAČA","Wood, not specified in 20 01 37",109.193,"OBALNOKRAŠKA"
-2021,"DOBJE","Paper/Cardboard Packaging",59.609,"SAVINJSKA"
-2021,"DOBJE","Wood, not specified in 20 01 37",0.522,"SAVINJSKA"
-2021,"DOBREPOLJE","Paper/Cardboard Packaging",19.869,"OSREDNJESLOVENSKA"
-2021,"DOBREPOLJE","Wood, not specified in 20 01 37",17.723,"OSREDNJESLOVENSKA"
-2021,"DOBREPOLJE","Wooden packaging",1.852,"OSREDNJESLOVENSKA"
-2021,"DOBRNA","Paper/Cardboard Packaging",12.351,"SAVINJSKA"
-2021,"DOBRNA","Wood, not specified in 20 01 37",40.514,"SAVINJSKA"
-2021,"DOBROVA-POLHOV GRADEC","Paper/Cardboard Packaging",23.633,"OSREDNJESLOVENSKA"
-2021,"DOBROVNIK","Paper/Cardboard Packaging",1.17,"POMURSKA"
-2021,"DOBROVNIK","Wood, not specified in 20 01 37",19.38,"POMURSKA"
-2021,"DOL PRI LJUBLJANI","Paper/Cardboard Packaging",30.947,"OSREDNJESLOVENSKA"
-2021,"DOL PRI LJUBLJANI","Wooden packaging",3.4,"OSREDNJESLOVENSKA"
-2021,"DOLENJSKE TOPLICE","Paper/Cardboard Packaging",27.606,"JUGOVZHODNA SLOVENIJA"
-2021,"DOLENJSKE TOPLICE","Wood, not specified in 20 01 37",83.784,"JUGOVZHODNA SLOVENIJA"
-2021,"DOMŽALE","Paper/Cardboard Packaging",592.684,"OSREDNJESLOVENSKA"
-2021,"DOMŽALE","Wood, not specified in 20 01 37",1237.32,"OSREDNJESLOVENSKA"
-2021,"DOMŽALE","Wooden packaging",99.388,"OSREDNJESLOVENSKA"
-2021,"DORNAVA","Paper/Cardboard Packaging",41.454,"PODRAVSKA"
-2021,"DORNAVA","Wood, not specified in 20 01 37",36.978,"PODRAVSKA"
-2021,"DRAVOGRAD","Paper/Cardboard Packaging",190.5,"KOROŠKA"
-2021,"DUPLEK","Paper/Cardboard Packaging",63.011,"PODRAVSKA"
-2021,"DUPLEK","Wood, not specified in 20 01 37",61.82,"PODRAVSKA"
-2021,"DUPLEK","Wooden packaging",0.614,"PODRAVSKA"
-2021,"GORENJA VAS-POLJANE","Paper/Cardboard Packaging",38.624,"GORENJSKA"
-2021,"GORENJA VAS-POLJANE","Wood, not specified in 20 01 37",96.26,"GORENJSKA"
-2021,"GORIŠNICA","Paper/Cardboard Packaging",40.128,"PODRAVSKA"
-2021,"GORIŠNICA","Wood, not specified in 20 01 37",85.362,"PODRAVSKA"
-2021,"GORIŠNICA","Wooden packaging",0.736,"PODRAVSKA"
-2021,"GORJE","Paper/Cardboard Packaging",14.988,"GORENJSKA"
-2021,"GORJE","Wood, not specified in 20 01 37",99.892,"GORENJSKA"
-2021,"GORNJA RADGONA","Paper/Cardboard Packaging",118.017,"POMURSKA"
-2021,"GORNJA RADGONA","Wood, not specified in 20 01 37",88.7,"POMURSKA"
-2021,"GORNJA RADGONA","Wooden packaging",0.98,"POMURSKA"
-2021,"GORNJI GRAD","Paper/Cardboard Packaging",21.949,"SAVINJSKA"
-2021,"GORNJI GRAD","Wood, not specified in 20 01 37",43.291,"SAVINJSKA"
-2021,"GORNJI PETROVCI","Paper/Cardboard Packaging",3.096,"POMURSKA"
-2021,"GORNJI PETROVCI","Wood, not specified in 20 01 37",6.247,"POMURSKA"
-2021,"GRAD","Paper/Cardboard Packaging",3.858,"POMURSKA"
-2021,"GRAD","Wood, not specified in 20 01 37",20.18,"POMURSKA"
-2021,"GROSUPLJE","Paper/Cardboard Packaging",193.867,"OSREDNJESLOVENSKA"
-2021,"GROSUPLJE","Wood, not specified in 20 01 37",495.144,"OSREDNJESLOVENSKA"
-2021,"GROSUPLJE","Wooden packaging",56.318,"OSREDNJESLOVENSKA"
-2021,"HAJDINA","Paper/Cardboard Packaging",42.315,"PODRAVSKA"
-2021,"HAJDINA","Wood, not specified in 20 01 37",79.705,"PODRAVSKA"
-2021,"HAJDINA","Wooden packaging",0.292,"PODRAVSKA"
-2021,"HODOŠ","Paper/Cardboard Packaging",0.777,"POMURSKA"
-2021,"HODOŠ","Wood, not specified in 20 01 37",2.199,"POMURSKA"
-2021,"HORJUL","Paper/Cardboard Packaging",36.393,"OSREDNJESLOVENSKA"
-2021,"HORJUL","Wooden packaging",0.536,"OSREDNJESLOVENSKA"
-2021,"HOČE-SLIVNICA","Paper/Cardboard Packaging",45.481,"PODRAVSKA"
-2021,"HOČE-SLIVNICA","Wood, not specified in 20 01 37",189.743,"PODRAVSKA"
-2021,"HOČE-SLIVNICA","Wooden packaging",1.945,"PODRAVSKA"
-2021,"HRASTNIK","Paper/Cardboard Packaging",328.463,"ZASAVSKA"
-2021,"HRASTNIK","Wooden packaging",155.33,"ZASAVSKA"
-2021,"HRPELJE-KOZINA","Paper/Cardboard Packaging",53.842,"OBALNOKRAŠKA"
-2021,"HRPELJE-KOZINA","Wood, not specified in 20 01 37",122.758,"OBALNOKRAŠKA"
-2021,"IDRIJA","Paper/Cardboard Packaging",228.209,"GORIŠKA"
-2021,"IDRIJA","Wood, not specified in 20 01 37",329.77,"GORIŠKA"
-2021,"IDRIJA","Wooden packaging",165.34,"GORIŠKA"
-2021,"IG","Paper/Cardboard Packaging",58.528,"OSREDNJESLOVENSKA"
-2021,"IG","Wood, not specified in 20 01 37",112.54,"OSREDNJESLOVENSKA"
-2021,"IG","Wooden packaging",11.9,"OSREDNJESLOVENSKA"
-2021,"ILIRSKA BISTRICA","Paper/Cardboard Packaging",133.871,"PRIMORSKONOTRANJSKA"
-2021,"ILIRSKA BISTRICA","Wood, not specified in 20 01 37",297.06,"PRIMORSKONOTRANJSKA"
-2021,"ILIRSKA BISTRICA","Wooden packaging",3.36,"PRIMORSKONOTRANJSKA"
-2021,"IVANČNA GORICA","Paper/Cardboard Packaging",139.87,"OSREDNJESLOVENSKA"
-2021,"IVANČNA GORICA","Wood, not specified in 20 01 37",210.143,"OSREDNJESLOVENSKA"
-2021,"IVANČNA GORICA","Wooden packaging",24.39,"OSREDNJESLOVENSKA"
-2021,"IZOLA","Paper/Cardboard Packaging",185.373,"OBALNOKRAŠKA"
-2021,"IZOLA","Wood, not specified in 20 01 37",646.12,"OBALNOKRAŠKA"
-2021,"JESENICE","Paper/Cardboard Packaging",150.87,"GORENJSKA"
-2021,"JESENICE","Wood, not specified in 20 01 37",980,"GORENJSKA"
-2021,"JEZERSKO","Paper/Cardboard Packaging",15.82,"GORENJSKA"
-2021,"JEZERSKO","Wood, not specified in 20 01 37",43.78,"GORENJSKA"
-2021,"JURŠINCI","Paper/Cardboard Packaging",19.812,"PODRAVSKA"
-2021,"JURŠINCI","Wood, not specified in 20 01 37",9.096,"PODRAVSKA"
-2021,"JURŠINCI","Wooden packaging",0.32,"PODRAVSKA"
-2021,"KAMNIK","Paper/Cardboard Packaging",519.919,"OSREDNJESLOVENSKA"
-2021,"KAMNIK","Wood, not specified in 20 01 37",163.24,"OSREDNJESLOVENSKA"
-2021,"KAMNIK","Wooden packaging",99.108,"OSREDNJESLOVENSKA"
-2021,"KANAL","Paper/Cardboard Packaging",16.114,"GORIŠKA"
-2021,"KANAL","Wood, not specified in 20 01 37",278.276,"GORIŠKA"
-2021,"KANAL","Wooden packaging",1.081,"GORIŠKA"
-2021,"KIDRIČEVO","Paper/Cardboard Packaging",67.31,"PODRAVSKA"
-2021,"KIDRIČEVO","Wood, not specified in 20 01 37",97.12,"PODRAVSKA"
-2021,"KIDRIČEVO","Wooden packaging",0.828,"PODRAVSKA"
-2021,"KOBARID","Paper/Cardboard Packaging",81.494,"GORIŠKA"
-2021,"KOBARID","Wood, not specified in 20 01 37",125.049,"GORIŠKA"
-2021,"KOBILJE","Paper/Cardboard Packaging",0.55,"POMURSKA"
-2021,"KOBILJE","Wood, not specified in 20 01 37",12.24,"POMURSKA"
-2021,"KOMEN","Paper/Cardboard Packaging",40.093,"OBALNOKRAŠKA"
-2021,"KOMEN","Wood, not specified in 20 01 37",95.162,"OBALNOKRAŠKA"
-2021,"KOMENDA","Paper/Cardboard Packaging",135.42,"OSREDNJESLOVENSKA"
-2021,"KOMENDA","Wood, not specified in 20 01 37",45.19,"OSREDNJESLOVENSKA"
-2021,"KOMENDA","Wooden packaging",31.09,"OSREDNJESLOVENSKA"
-2021,"KOPER","Paper/Cardboard Packaging",479.4,"OBALNOKRAŠKA"
-2021,"KOPER","Wood, not specified in 20 01 37",1720.835,"OBALNOKRAŠKA"
-2021,"KOPER","Wooden packaging",1490.52,"OBALNOKRAŠKA"
-2021,"KOSTANJEVICA NA KRKI","Paper/Cardboard Packaging",57.674,"POSAVSKA"
-2021,"KOSTANJEVICA NA KRKI","Wood, not specified in 20 01 37",18,"POSAVSKA"
-2021,"KOSTANJEVICA NA KRKI","Wooden packaging",25.298,"POSAVSKA"
-2021,"KOSTEL","Paper/Cardboard Packaging",13.72,"JUGOVZHODNA SLOVENIJA"
-2021,"KOSTEL","Wood, not specified in 20 01 37",6.4,"JUGOVZHODNA SLOVENIJA"
-2021,"KOZJE","Paper/Cardboard Packaging",21.18,"SAVINJSKA"
-2021,"KOZJE","Wood, not specified in 20 01 37",6.115,"SAVINJSKA"
-2021,"KOZJE","Wooden packaging",0.011,"SAVINJSKA"
-2021,"KOČEVJE","Paper/Cardboard Packaging",193.584,"JUGOVZHODNA SLOVENIJA"
-2021,"KOČEVJE","Wood, not specified in 20 01 37",371.978,"JUGOVZHODNA SLOVENIJA"
-2021,"KRANJ","Paper/Cardboard Packaging",511.007,"GORENJSKA"
-2021,"KRANJ","Wood, not specified in 20 01 37",1212.82,"GORENJSKA"
-2021,"KRANJ","Wooden packaging",19.15,"GORENJSKA"
-2021,"KRANJSKA GORA","Paper/Cardboard Packaging",126.596,"GORENJSKA"
-2021,"KRANJSKA GORA","Wood, not specified in 20 01 37",211.91,"GORENJSKA"
-2021,"KRIŽEVCI","Paper/Cardboard Packaging",4.302,"POMURSKA"
-2021,"KRŠKO","Paper/Cardboard Packaging",1055.943,"POSAVSKA"
-2021,"KRŠKO","Wood, not specified in 20 01 37",1341,"POSAVSKA"
-2021,"KRŠKO","Wooden packaging",93.919,"POSAVSKA"
-2021,"KUNGOTA","Paper/Cardboard Packaging",23.045,"PODRAVSKA"
-2021,"KUNGOTA","Wood, not specified in 20 01 37",127.64,"PODRAVSKA"
-2021,"KUZMA","Paper/Cardboard Packaging",9.746,"POMURSKA"
-2021,"KUZMA","Wood, not specified in 20 01 37",13.3,"POMURSKA"
-2021,"LAŠKO","Paper/Cardboard Packaging",179.777,"SAVINJSKA"
-2021,"LAŠKO","Wood, not specified in 20 01 37",28.714,"SAVINJSKA"
-2021,"LAŠKO","Wooden packaging",0.27,"SAVINJSKA"
-2021,"LENART","Paper/Cardboard Packaging",37.659,"PODRAVSKA"
-2021,"LENART","Wood, not specified in 20 01 37",117.721,"PODRAVSKA"
-2021,"LENART","Wooden packaging",264.793,"PODRAVSKA"
-2021,"LENDAVA","Paper/Cardboard Packaging",665.521,"POMURSKA"
-2021,"LENDAVA","Wood, not specified in 20 01 37",7.6,"POMURSKA"
-2021,"LENDAVA","Wooden packaging",189.901,"POMURSKA"
-2021,"LITIJA","Paper/Cardboard Packaging",210.584,"ZASAVSKA"
-2021,"LITIJA","Wood, not specified in 20 01 37",293.23,"ZASAVSKA"
-2021,"LITIJA","Wooden packaging",2.62,"ZASAVSKA"
-2021,"LJUBLJANA","Paper/Cardboard Packaging",5050.614,"OSREDNJESLOVENSKA"
-2021,"LJUBLJANA","Wood, not specified in 20 01 37",7114.556,"OSREDNJESLOVENSKA"
-2021,"LJUBLJANA","Wooden packaging",2975.833,"OSREDNJESLOVENSKA"
-2021,"LJUBNO","Paper/Cardboard Packaging",23.998,"SAVINJSKA"
-2021,"LJUBNO","Wood, not specified in 20 01 37",24.721,"SAVINJSKA"
-2021,"LJUBNO","Wooden packaging",9.54,"SAVINJSKA"
-2021,"LJUTOMER","Paper/Cardboard Packaging",14.447,"POMURSKA"
-2021,"LJUTOMER","Wood, not specified in 20 01 37",5.06,"POMURSKA"
-2021,"LOG-DRAGOMER","Paper/Cardboard Packaging",25.213,"OSREDNJESLOVENSKA"
-2021,"LOG-DRAGOMER","Wood, not specified in 20 01 37",100.519,"OSREDNJESLOVENSKA"
-2021,"LOGATEC","Paper/Cardboard Packaging",391.756,"OSREDNJESLOVENSKA"
-2021,"LOGATEC","Wood, not specified in 20 01 37",323.7,"OSREDNJESLOVENSKA"
-2021,"LOGATEC","Wooden packaging",129.123,"OSREDNJESLOVENSKA"
-2021,"LOVRENC NA POHORJU","Paper/Cardboard Packaging",18.4,"PODRAVSKA"
-2021,"LOVRENC NA POHORJU","Wood, not specified in 20 01 37",163.2,"PODRAVSKA"
-2021,"LOŠKA DOLINA","Paper/Cardboard Packaging",20.525,"PRIMORSKONOTRANJSKA"
-2021,"LOŠKI POTOK","Paper/Cardboard Packaging",21.963,"JUGOVZHODNA SLOVENIJA"
-2021,"LOŠKI POTOK","Wood, not specified in 20 01 37",60.425,"JUGOVZHODNA SLOVENIJA"
-2021,"LUKOVICA","Paper/Cardboard Packaging",54.73,"OSREDNJESLOVENSKA"
-2021,"LUKOVICA","Wood, not specified in 20 01 37",173.15,"OSREDNJESLOVENSKA"
-2021,"LUKOVICA","Wooden packaging",54.6,"OSREDNJESLOVENSKA"
-2021,"LUČE","Paper/Cardboard Packaging",4.31,"SAVINJSKA"
-2021,"LUČE","Wood, not specified in 20 01 37",9.945,"SAVINJSKA"
-2021,"MAJŠPERK","Paper/Cardboard Packaging",28.968,"PODRAVSKA"
-2021,"MAJŠPERK","Wood, not specified in 20 01 37",27.88,"PODRAVSKA"
-2021,"MAJŠPERK","Wooden packaging",0.412,"PODRAVSKA"
-2021,"MAKOLE","Paper/Cardboard Packaging",15.152,"PODRAVSKA"
-2021,"MAKOLE","Wood, not specified in 20 01 37",57.704,"PODRAVSKA"
-2021,"MARIBOR","Paper/Cardboard Packaging",573.594,"PODRAVSKA"
-2021,"MARIBOR","Wood, not specified in 20 01 37",4825.56,"PODRAVSKA"
-2021,"MARIBOR","Wooden packaging",122.12,"PODRAVSKA"
-2021,"MARKOVCI","Paper/Cardboard Packaging",27.336,"PODRAVSKA"
-2021,"MARKOVCI","Wood, not specified in 20 01 37",65.337,"PODRAVSKA"
-2021,"MARKOVCI","Wooden packaging",0.412,"PODRAVSKA"
-2021,"MEDVODE","Paper/Cardboard Packaging",104.114,"OSREDNJESLOVENSKA"
-2021,"MEDVODE","Wood, not specified in 20 01 37",268.96,"OSREDNJESLOVENSKA"
-2021,"MEDVODE","Wooden packaging",149.92,"OSREDNJESLOVENSKA"
-2021,"MENGEŠ","Paper/Cardboard Packaging",108.797,"OSREDNJESLOVENSKA"
-2021,"MENGEŠ","Wood, not specified in 20 01 37",275.913,"OSREDNJESLOVENSKA"
-2021,"MENGEŠ","Wooden packaging",32.461,"OSREDNJESLOVENSKA"
-2021,"METLIKA","Paper/Cardboard Packaging",159.61,"JUGOVZHODNA SLOVENIJA"
-2021,"METLIKA","Wood, not specified in 20 01 37",247.87,"JUGOVZHODNA SLOVENIJA"
-2021,"MEŽICA","Paper/Cardboard Packaging",15.706,"KOROŠKA"
-2021,"MIKLAVŽ NA DRAVSKEM POLJU","Paper/Cardboard Packaging",6.04,"PODRAVSKA"
-2021,"MIREN-KOSTANJEVICA","Paper/Cardboard Packaging",71.606,"GORIŠKA"
-2021,"MIREN-KOSTANJEVICA","Wood, not specified in 20 01 37",242.499,"GORIŠKA"
-2021,"MIRNA","Paper/Cardboard Packaging",28.429,"JUGOVZHODNA SLOVENIJA"
-2021,"MIRNA","Wood, not specified in 20 01 37",52.25,"JUGOVZHODNA SLOVENIJA"
-2021,"MIRNA","Wooden packaging",29.08,"JUGOVZHODNA SLOVENIJA"
-2021,"MIRNA PEČ","Paper/Cardboard Packaging",21.928,"JUGOVZHODNA SLOVENIJA"
-2021,"MIRNA PEČ","Wood, not specified in 20 01 37",70.703,"JUGOVZHODNA SLOVENIJA"
-2021,"MISLINJA","Paper/Cardboard Packaging",52.223,"KOROŠKA"
-2021,"MOKRONOG-TREBELNO","Paper/Cardboard Packaging",65.988,"JUGOVZHODNA SLOVENIJA"
-2021,"MOKRONOG-TREBELNO","Wood, not specified in 20 01 37",64.029,"JUGOVZHODNA SLOVENIJA"
-2021,"MORAVSKE TOPLICE","Paper/Cardboard Packaging",20.018,"POMURSKA"
-2021,"MORAVSKE TOPLICE","Wood, not specified in 20 01 37",28.127,"POMURSKA"
-2021,"MORAVČE","Paper/Cardboard Packaging",48.061,"OSREDNJESLOVENSKA"
-2021,"MORAVČE","Wood, not specified in 20 01 37",156.81,"OSREDNJESLOVENSKA"
-2021,"MOZIRJE","Paper/Cardboard Packaging",49.035,"SAVINJSKA"
-2021,"MOZIRJE","Wooden packaging",13.877,"SAVINJSKA"
-2021,"MURSKA SOBOTA","Paper/Cardboard Packaging",211.568,"POMURSKA"
-2021,"MURSKA SOBOTA","Wood, not specified in 20 01 37",488.64,"POMURSKA"
-2021,"MURSKA SOBOTA","Wooden packaging",22.44,"POMURSKA"
-2021,"MUTA","Paper/Cardboard Packaging",25.564,"KOROŠKA"
-2021,"MUTA","Wooden packaging",57.882,"KOROŠKA"
-2021,"NAKLO","Paper/Cardboard Packaging",52.234,"GORENJSKA"
-2021,"NAKLO","Wood, not specified in 20 01 37",81.48,"GORENJSKA"
-2021,"NAKLO","Wooden packaging",3.12,"GORENJSKA"
-2021,"NAZARJE","Paper/Cardboard Packaging",20.664,"SAVINJSKA"
-2021,"NAZARJE","Wood, not specified in 20 01 37",53.076,"SAVINJSKA"
-2021,"NOVA GORICA","Paper/Cardboard Packaging",335.408,"GORIŠKA"
-2021,"NOVA GORICA","Wood, not specified in 20 01 37",820.615,"GORIŠKA"
-2021,"NOVA GORICA","Wooden packaging",0.319,"GORIŠKA"
-2021,"NOVO MESTO","Paper/Cardboard Packaging",457.374,"JUGOVZHODNA SLOVENIJA"
-2021,"NOVO MESTO","Wood, not specified in 20 01 37",1191.882,"JUGOVZHODNA SLOVENIJA"
-2021,"NOVO MESTO","Wooden packaging",19.93,"JUGOVZHODNA SLOVENIJA"
-2021,"ODRANCI","Paper/Cardboard Packaging",0.278,"POMURSKA"
-2021,"ODRANCI","Wood, not specified in 20 01 37",18.214,"POMURSKA"
-2021,"OPLOTNICA","Paper/Cardboard Packaging",31.247,"PODRAVSKA"
-2021,"OPLOTNICA","Wood, not specified in 20 01 37",118.996,"PODRAVSKA"
-2021,"ORMOŽ","Paper/Cardboard Packaging",113.703,"PODRAVSKA"
-2021,"ORMOŽ","Wood, not specified in 20 01 37",1.88,"PODRAVSKA"
-2021,"ORMOŽ","Wooden packaging",0.18,"PODRAVSKA"
-2021,"PESNICA","Paper/Cardboard Packaging",34.12,"PODRAVSKA"
-2021,"PESNICA","Wood, not specified in 20 01 37",245.7,"PODRAVSKA"
-2021,"PIRAN","Paper/Cardboard Packaging",619.255,"OBALNOKRAŠKA"
-2021,"PIRAN","Wood, not specified in 20 01 37",738.25,"OBALNOKRAŠKA"
-2021,"PIVKA","Paper/Cardboard Packaging",141.71,"PRIMORSKONOTRANJSKA"
-2021,"PIVKA","Wood, not specified in 20 01 37",147.5,"PRIMORSKONOTRANJSKA"
-2021,"PIVKA","Wooden packaging",12.99,"PRIMORSKONOTRANJSKA"
-2021,"PODLEHNIK","Paper/Cardboard Packaging",9.984,"PODRAVSKA"
-2021,"PODVELKA","Paper/Cardboard Packaging",11.216,"KOROŠKA"
-2021,"PODČETRTEK","Paper/Cardboard Packaging",24.45,"SAVINJSKA"
-2021,"PODČETRTEK","Wood, not specified in 20 01 37",6.42,"SAVINJSKA"
-2021,"PODČETRTEK","Wooden packaging",0.011,"SAVINJSKA"
-2021,"POLJČANE","Paper/Cardboard Packaging",37.578,"PODRAVSKA"
-2021,"POLJČANE","Wood, not specified in 20 01 37",947.451,"PODRAVSKA"
-2021,"POLZELA","Paper/Cardboard Packaging",24.817,"SAVINJSKA"
-2021,"POLZELA","Wood, not specified in 20 01 37",69.176,"SAVINJSKA"
-2021,"POSTOJNA","Paper/Cardboard Packaging",115.2,"PRIMORSKONOTRANJSKA"
-2021,"POSTOJNA","Wood, not specified in 20 01 37",228.83,"PRIMORSKONOTRANJSKA"
-2021,"POSTOJNA","Wooden packaging",2.17,"PRIMORSKONOTRANJSKA"
-2021,"PREBOLD","Paper/Cardboard Packaging",32.122,"SAVINJSKA"
-2021,"PREBOLD","Wood, not specified in 20 01 37",107.831,"SAVINJSKA"
-2021,"PREBOLD","Wooden packaging",147.4,"SAVINJSKA"
-2021,"PREDDVOR","Paper/Cardboard Packaging",31.187,"GORENJSKA"
-2021,"PREVALJE","Paper/Cardboard Packaging",259.261,"KOROŠKA"
-2021,"PREVALJE","Wooden packaging",100.66,"KOROŠKA"
-2021,"PTUJ","Paper/Cardboard Packaging",299.633,"PODRAVSKA"
-2021,"PTUJ","Wood, not specified in 20 01 37",472.412,"PODRAVSKA"
-2021,"PTUJ","Wooden packaging",102.301,"PODRAVSKA"
-2021,"PUCONCI","Paper/Cardboard Packaging",32.471,"POMURSKA"
-2021,"PUCONCI","Wood, not specified in 20 01 37",11.287,"POMURSKA"
-2021,"RADENCI","Paper/Cardboard Packaging",37.997,"POMURSKA"
-2021,"RADENCI","Wooden packaging",49.96,"POMURSKA"
-2021,"RADEČE","Paper/Cardboard Packaging",91.568,"POSAVSKA"
-2021,"RADEČE","Wood, not specified in 20 01 37",93.16,"POSAVSKA"
-2021,"RADEČE","Wooden packaging",2.6,"POSAVSKA"
-2021,"RADLJE OB DRAVI","Paper/Cardboard Packaging",115.785,"KOROŠKA"
-2021,"RADOVLJICA","Paper/Cardboard Packaging",246.597,"GORENJSKA"
-2021,"RADOVLJICA","Wood, not specified in 20 01 37",482.33,"GORENJSKA"
-2021,"RADOVLJICA","Wooden packaging",0.46,"GORENJSKA"
-2021,"RAVNE NA KOROŠKEM","Paper/Cardboard Packaging",127.419,"KOROŠKA"
-2021,"RAVNE NA KOROŠKEM","Wooden packaging",85.62,"KOROŠKA"
-2021,"RAZKRIŽJE","Paper/Cardboard Packaging",1.41,"POMURSKA"
-2021,"RAZKRIŽJE","Wooden packaging",0.04,"POMURSKA"
-2021,"RAČE-FRAM","Paper/Cardboard Packaging",81.215,"PODRAVSKA"
-2021,"RAČE-FRAM","Wood, not specified in 20 01 37",309.289,"PODRAVSKA"
-2021,"RENČE-VOGRSKO","Paper/Cardboard Packaging",28.65,"GORIŠKA"
-2021,"RENČE-VOGRSKO","Wood, not specified in 20 01 37",157.878,"GORIŠKA"
-2021,"RENČE-VOGRSKO","Wooden packaging",0.685,"GORIŠKA"
-2021,"REČICA OB SAVINJI","Paper/Cardboard Packaging",27.583,"SAVINJSKA"
-2021,"REČICA OB SAVINJI","Wooden packaging",7.806,"SAVINJSKA"
-2021,"RIBNICA","Paper/Cardboard Packaging",107.67,"JUGOVZHODNA SLOVENIJA"
-2021,"RIBNICA","Wood, not specified in 20 01 37",258.61,"JUGOVZHODNA SLOVENIJA"
-2021,"RIBNICA","Wooden packaging",1.405,"JUGOVZHODNA SLOVENIJA"
-2021,"RIBNICA NA POHORJU","Paper/Cardboard Packaging",2.366,"KOROŠKA"
-2021,"ROGATEC","Paper/Cardboard Packaging",29.46,"SAVINJSKA"
-2021,"ROGATEC","Wood, not specified in 20 01 37",4.623,"SAVINJSKA"
-2021,"ROGATEC","Wooden packaging",12.708,"SAVINJSKA"
-2021,"ROGAŠKA SLATINA","Paper/Cardboard Packaging",75.98,"SAVINJSKA"
-2021,"ROGAŠKA SLATINA","Wood, not specified in 20 01 37",22.601,"SAVINJSKA"
-2021,"ROGAŠKA SLATINA","Wooden packaging",3.28,"SAVINJSKA"
-2021,"ROGAŠOVCI","Paper/Cardboard Packaging",5.021,"POMURSKA"
-2021,"ROGAŠOVCI","Wood, not specified in 20 01 37",19.66,"POMURSKA"
-2021,"RUŠE","Paper/Cardboard Packaging",30.479,"PODRAVSKA"
-2021,"RUŠE","Wood, not specified in 20 01 37",344.745,"PODRAVSKA"
-2021,"RUŠE","Wooden packaging",46.82,"PODRAVSKA"
-2021,"SELNICA OB DRAVI","Paper/Cardboard Packaging",20.431,"PODRAVSKA"
-2021,"SELNICA OB DRAVI","Wood, not specified in 20 01 37",201.195,"PODRAVSKA"
-2021,"SELNICA OB DRAVI","Wooden packaging",0.48,"PODRAVSKA"
-2021,"SEMIČ","Paper/Cardboard Packaging",34.756,"JUGOVZHODNA SLOVENIJA"
-2021,"SEMIČ","Wood, not specified in 20 01 37",64.152,"JUGOVZHODNA SLOVENIJA"
-2021,"SEVNICA","Paper/Cardboard Packaging",358.258,"POSAVSKA"
-2021,"SEVNICA","Wood, not specified in 20 01 37",272.76,"POSAVSKA"
-2021,"SEVNICA","Wooden packaging",84.03,"POSAVSKA"
-2021,"SEŽANA","Paper/Cardboard Packaging",147.34,"OBALNOKRAŠKA"
-2021,"SEŽANA","Wood, not specified in 20 01 37",339.307,"OBALNOKRAŠKA"
-2021,"SLOVENJ GRADEC","Paper/Cardboard Packaging",387.551,"KOROŠKA"
-2021,"SLOVENSKA BISTRICA","Paper/Cardboard Packaging",217.904,"PODRAVSKA"
-2021,"SLOVENSKE KONJICE","Paper/Cardboard Packaging",119.616,"SAVINJSKA"
-2021,"SLOVENSKE KONJICE","Wood, not specified in 20 01 37",545.45,"SAVINJSKA"
-2021,"SODRAŽICA","Paper/Cardboard Packaging",23.915,"JUGOVZHODNA SLOVENIJA"
-2021,"SODRAŽICA","Wood, not specified in 20 01 37",60.995,"JUGOVZHODNA SLOVENIJA"
-2021,"SODRAŽICA","Wooden packaging",1.56,"JUGOVZHODNA SLOVENIJA"
-2021,"SOLČAVA","Paper/Cardboard Packaging",2.432,"SAVINJSKA"
-2021,"SOLČAVA","Wood, not specified in 20 01 37",2.494,"SAVINJSKA"
-2021,"SREDIŠČE OB DRAVI","Paper/Cardboard Packaging",22.741,"PODRAVSKA"
-2021,"STARŠE","Paper/Cardboard Packaging",23.76,"PODRAVSKA"
-2021,"STARŠE","Wood, not specified in 20 01 37",221.14,"PODRAVSKA"
-2021,"STRAŽA","Paper/Cardboard Packaging",27.732,"JUGOVZHODNA SLOVENIJA"
-2021,"STRAŽA","Wood, not specified in 20 01 37",90.481,"JUGOVZHODNA SLOVENIJA"
-2021,"SV. TROJICA V SLOV. GORICAH","Wood, not specified in 20 01 37",79.669,"PODRAVSKA"
-2021,"SVETA ANA","Wood, not specified in 20 01 37",120.525,"PODRAVSKA"
-2021,"SVETA ANA","Wooden packaging",1.443,"PODRAVSKA"
-2021,"SVETI ANDRAŽ V SLOV. GORICAH","Paper/Cardboard Packaging",8.196,"PODRAVSKA"
-2021,"SVETI JURIJ OB ŠČAVNICI","Paper/Cardboard Packaging",10.367,"POMURSKA"
-2021,"SVETI JURIJ V SLOV. GORICAH","Wood, not specified in 20 01 37",3.28,"PODRAVSKA"
-2021,"SVETI TOMAŽ","Paper/Cardboard Packaging",15.16,"PODRAVSKA"
-2021,"TABOR","Paper/Cardboard Packaging",9.154,"SAVINJSKA"
-2021,"TABOR","Wood, not specified in 20 01 37",30.151,"SAVINJSKA"
-2021,"TIŠINA","Paper/Cardboard Packaging",6.19,"POMURSKA"
-2021,"TIŠINA","Wood, not specified in 20 01 37",56.83,"POMURSKA"
-2021,"TOLMIN","Paper/Cardboard Packaging",244.144,"GORIŠKA"
-2021,"TOLMIN","Wood, not specified in 20 01 37",277.282,"GORIŠKA"
-2021,"TOLMIN","Wooden packaging",26.68,"GORIŠKA"
-2021,"TRBOVLJE","Paper/Cardboard Packaging",212.026,"ZASAVSKA"
-2021,"TRBOVLJE","Wood, not specified in 20 01 37",601.44,"ZASAVSKA"
-2021,"TRBOVLJE","Wooden packaging",16.05,"ZASAVSKA"
-2021,"TREBNJE","Paper/Cardboard Packaging",118.799,"JUGOVZHODNA SLOVENIJA"
-2021,"TREBNJE","Wood, not specified in 20 01 37",230,"JUGOVZHODNA SLOVENIJA"
-2021,"TRNOVSKA VAS","Paper/Cardboard Packaging",7.89,"PODRAVSKA"
-2021,"TRNOVSKA VAS","Wood, not specified in 20 01 37",14.91,"PODRAVSKA"
-2021,"TRNOVSKA VAS","Wooden packaging",0.391,"PODRAVSKA"
-2021,"TRZIN","Paper/Cardboard Packaging",186.553,"OSREDNJESLOVENSKA"
-2021,"TRZIN","Wood, not specified in 20 01 37",235.903,"OSREDNJESLOVENSKA"
-2021,"TRZIN","Wooden packaging",11.474,"OSREDNJESLOVENSKA"
-2021,"TRŽIČ","Paper/Cardboard Packaging",191.915,"GORENJSKA"
-2021,"TRŽIČ","Wood, not specified in 20 01 37",272.42,"GORENJSKA"
-2021,"TURNIŠČE","Paper/Cardboard Packaging",0.362,"POMURSKA"
-2021,"TURNIŠČE","Wood, not specified in 20 01 37",26.12,"POMURSKA"
-2021,"VELENJE","Paper/Cardboard Packaging",4937.927,"SAVINJSKA"
-2021,"VELENJE","Wood, not specified in 20 01 37",751.254,"SAVINJSKA"
-2021,"VELENJE","Wooden packaging",3772.62,"SAVINJSKA"
-2021,"VELIKA POLANA","Paper/Cardboard Packaging",2.74,"POMURSKA"
-2021,"VELIKA POLANA","Wood, not specified in 20 01 37",6.44,"POMURSKA"
-2021,"VELIKE LAŠČE","Paper/Cardboard Packaging",12.99,"OSREDNJESLOVENSKA"
-2021,"VELIKE LAŠČE","Wood, not specified in 20 01 37",58.02,"OSREDNJESLOVENSKA"
-2021,"VERŽEJ","Paper/Cardboard Packaging",2.28,"POMURSKA"
-2021,"VIDEM","Paper/Cardboard Packaging",31.672,"PODRAVSKA"
-2021,"VIDEM","Wood, not specified in 20 01 37",18.704,"PODRAVSKA"
-2021,"VIDEM","Wooden packaging",0.408,"PODRAVSKA"
-2021,"VIPAVA","Paper/Cardboard Packaging",56.085,"GORIŠKA"
-2021,"VIPAVA","Wood, not specified in 20 01 37",88.462,"GORIŠKA"
-2021,"VIPAVA","Wooden packaging",2.28,"GORIŠKA"
-2021,"VODICE","Paper/Cardboard Packaging",17.808,"OSREDNJESLOVENSKA"
-2021,"VODICE","Wood, not specified in 20 01 37",118.88,"OSREDNJESLOVENSKA"
-2021,"VOJNIK","Paper/Cardboard Packaging",55.016,"SAVINJSKA"
-2021,"VOJNIK","Wood, not specified in 20 01 37",165.874,"SAVINJSKA"
-2021,"VRANSKO","Paper/Cardboard Packaging",15.527,"SAVINJSKA"
-2021,"VRANSKO","Wood, not specified in 20 01 37",47.16,"SAVINJSKA"
-2021,"VRHNIKA","Paper/Cardboard Packaging",224.423,"OSREDNJESLOVENSKA"
-2021,"VRHNIKA","Wood, not specified in 20 01 37",489.493,"OSREDNJESLOVENSKA"
-2021,"VRHNIKA","Wooden packaging",33.66,"OSREDNJESLOVENSKA"
-2021,"VUZENICA","Paper/Cardboard Packaging",10.409,"KOROŠKA"
-2021,"ZAGORJE OB SAVI","Paper/Cardboard Packaging",405.573,"ZASAVSKA"
-2021,"ZAGORJE OB SAVI","Wood, not specified in 20 01 37",466.205,"ZASAVSKA"
-2021,"ZAGORJE OB SAVI","Wooden packaging",110.53,"ZASAVSKA"
-2021,"ZAVRČ","Paper/Cardboard Packaging",4.868,"PODRAVSKA"
-2021,"ČRENŠOVCI","Paper/Cardboard Packaging",1.184,"POMURSKA"
-2021,"ČRENŠOVCI","Wood, not specified in 20 01 37",49.922,"POMURSKA"
-2021,"ČRNA NA KOROŠKEM","Paper/Cardboard Packaging",401.8,"KOROŠKA"
-2021,"ČRNA NA KOROŠKEM","Wooden packaging",193.98,"KOROŠKA"
-2021,"ČRNOMELJ","Paper/Cardboard Packaging",111.204,"JUGOVZHODNA SLOVENIJA"
-2021,"ČRNOMELJ","Wood, not specified in 20 01 37",201.268,"JUGOVZHODNA SLOVENIJA"
-2021,"ČRNOMELJ","Wooden packaging",6.96,"JUGOVZHODNA SLOVENIJA"
-2021,"ŠALOVCI","Paper/Cardboard Packaging",1.601,"POMURSKA"
-2021,"ŠALOVCI","Wood, not specified in 20 01 37",13.574,"POMURSKA"
-2021,"ŠEMPETER-VRTOJBA","Paper/Cardboard Packaging",186.382,"GORIŠKA"
-2021,"ŠEMPETER-VRTOJBA","Wood, not specified in 20 01 37",79.08,"GORIŠKA"
-2021,"ŠENTILJ","Paper/Cardboard Packaging",19.596,"PODRAVSKA"
-2021,"ŠENTILJ","Wood, not specified in 20 01 37",96.58,"PODRAVSKA"
-2021,"ŠENTILJ","Wooden packaging",0.7,"PODRAVSKA"
-2021,"ŠENTJERNEJ","Paper/Cardboard Packaging",56.938,"JUGOVZHODNA SLOVENIJA"
-2021,"ŠENTJERNEJ","Wood, not specified in 20 01 37",168.347,"JUGOVZHODNA SLOVENIJA"
-2021,"ŠENTJUR","Paper/Cardboard Packaging",103.075,"SAVINJSKA"
-2021,"ŠENTJUR","Wood, not specified in 20 01 37",7.755,"SAVINJSKA"
-2021,"ŠENTJUR","Wooden packaging",2.8,"SAVINJSKA"
-2021,"ŠENTRUPERT","Paper/Cardboard Packaging",28.871,"JUGOVZHODNA SLOVENIJA"
-2021,"ŠENTRUPERT","Wood, not specified in 20 01 37",53.061,"JUGOVZHODNA SLOVENIJA"
-2021,"ŠENČUR","Paper/Cardboard Packaging",107.91,"GORENJSKA"
-2021,"ŠENČUR","Wood, not specified in 20 01 37",147.28,"GORENJSKA"
-2021,"ŠENČUR","Wooden packaging",2.86,"GORENJSKA"
-2021,"ŠKOCJAN","Paper/Cardboard Packaging",23.355,"JUGOVZHODNA SLOVENIJA"
-2021,"ŠKOCJAN","Wood, not specified in 20 01 37",79.891,"JUGOVZHODNA SLOVENIJA"
-2021,"ŠKOFJA LOKA","Paper/Cardboard Packaging",276.915,"GORENJSKA"
-2021,"ŠKOFJA LOKA","Wooden packaging",55.048,"GORENJSKA"
-2021,"ŠKOFLJICA","Paper/Cardboard Packaging",63.389,"OSREDNJESLOVENSKA"
-2021,"ŠKOFLJICA","Wood, not specified in 20 01 37",139.44,"OSREDNJESLOVENSKA"
-2021,"ŠKOFLJICA","Wooden packaging",2.05,"OSREDNJESLOVENSKA"
-2021,"ŠMARJE PRI JELŠAH","Paper/Cardboard Packaging",80.4,"SAVINJSKA"
-2021,"ŠMARJE PRI JELŠAH","Wood, not specified in 20 01 37",25.252,"SAVINJSKA"
-2021,"ŠMARJE PRI JELŠAH","Wooden packaging",0.045,"SAVINJSKA"
-2021,"ŠMARJEŠKE TOPLICE","Paper/Cardboard Packaging",24.986,"JUGOVZHODNA SLOVENIJA"
-2021,"ŠMARJEŠKE TOPLICE","Wood, not specified in 20 01 37",82.071,"JUGOVZHODNA SLOVENIJA"
-2021,"ŠMARTNO OB PAKI","Paper/Cardboard Packaging",37.71,"SAVINJSKA"
-2021,"ŠMARTNO OB PAKI","Wood, not specified in 20 01 37",33.337,"SAVINJSKA"
-2021,"ŠMARTNO PRI LITIJI","Paper/Cardboard Packaging",153.381,"OSREDNJESLOVENSKA"
-2021,"ŠMARTNO PRI LITIJI","Wood, not specified in 20 01 37",108.77,"OSREDNJESLOVENSKA"
-2021,"ŠOŠTANJ","Paper/Cardboard Packaging",166.459,"SAVINJSKA"
-2021,"ŠOŠTANJ","Wood, not specified in 20 01 37",128.422,"SAVINJSKA"
-2021,"ŠOŠTANJ","Wooden packaging",61.62,"SAVINJSKA"
-2021,"ŠTORE","Paper/Cardboard Packaging",20.81,"SAVINJSKA"
-2021,"ŠTORE","Wood, not specified in 20 01 37",1.567,"SAVINJSKA"
-2021,"ŠTORE","Wooden packaging",13.7,"SAVINJSKA"
-2021,"ŽALEC","Paper/Cardboard Packaging",158.732,"SAVINJSKA"
-2021,"ŽALEC","Wood, not specified in 20 01 37",548.494,"SAVINJSKA"
-2021,"ŽALEC","Wooden packaging",43.86,"SAVINJSKA"
-2021,"ŽELEZNIKI","Paper/Cardboard Packaging",51.943,"GORENJSKA"
-2021,"ŽETALE","Paper/Cardboard Packaging",6.283,"PODRAVSKA"
-2021,"ŽETALE","Wood, not specified in 20 01 37",7.946,"PODRAVSKA"
-2021,"ŽETALE","Wooden packaging",0.308,"PODRAVSKA"
-2021,"ŽIRI","Paper/Cardboard Packaging",5.614,"GORENJSKA"
-2021,"ŽIROVNICA","Paper/Cardboard Packaging",44.93,"GORENJSKA"
-2021,"ŽIROVNICA","Wood, not specified in 20 01 37",185.05,"GORENJSKA"
-2021,"ŽUŽEMBERK","Paper/Cardboard Packaging",34.13,"JUGOVZHODNA SLOVENIJA"
-2021,"ŽUŽEMBERK","Wood, not specified in 20 01 37",110.415,"JUGOVZHODNA SLOVENIJA"
+﻿"year","statistical_region","waste_code","type_of_waste","waste_by_municipality"
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",263.233
+2021,"GORIŠKA","15 01 03","Wooden Packaging (15 01 03)",7.22
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",430.344
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",376.298
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",363.753
+2021,"OBALNOKRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",33.305
+2021,"OBALNOKRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",113.25
+2021,"OBALNOKRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",71.702
+2021,"OBALNOKRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",27.881
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",72.62
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",20.316
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",317.14
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",54.107
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",162.954
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",151.06
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",308.544
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",5.511
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",72.73
+2021,"POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",5.01
+2021,"POSAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.005
+2021,"POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",9.31
+2021,"POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",2.779
+2021,"POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",50.902
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",100.438
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",312.818
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",299.678
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",182.1
+2021,"PRIMORSKONOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",27.994
+2021,"PRIMORSKONOTRANJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",6.7
+2021,"PRIMORSKONOTRANJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",39.72
+2021,"PRIMORSKONOTRANJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",71.41
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",64
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",71.01
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",228.66
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",222.46
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",27.648
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",158.388
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",129.238
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",73.985
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",92.124
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",57.242
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",141.359
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",68.255
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",25.769
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",57.074
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",76.929
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",497.179
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",61.432
+2021,"GORIŠKA","15 01 03","Wooden Packaging (15 01 03)",0.325
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",137.568
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",321.534
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",297.933
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",57.189
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",2.36
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",198.491
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",91.54
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",251.595
+2021,"POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",208.518
+2021,"POSAVSKA","15 01 03","Wooden Packaging (15 01 03)",49.11
+2021,"POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",663.009
+2021,"POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",265.236
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",9.571
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",17.216
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",23.96
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",75.82
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",770.435
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",90.766
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1618.924
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",17.237
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",2240.341
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",50.34
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",131.422
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",220.12
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",97.26
+2021,"PRIMORSKONOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",149.195
+2021,"PRIMORSKONOTRANJSKA","15 01 03","Wooden Packaging (15 01 03)",107.809
+2021,"PRIMORSKONOTRANJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",56.27
+2021,"PRIMORSKONOTRANJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",0.98
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",17.987
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",104.888
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",87.05
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",138.165
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",1.202
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",5.267
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",57.005
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",13.385
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",31.231
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",34.735
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",17.1
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",39.9
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",30.062
+2021,"OBALNOKRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",46.802
+2021,"OBALNOKRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",118.392
+2021,"OBALNOKRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",109.193
+2021,"OBALNOKRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",33.635
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",59.609
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",2.132
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",0.522
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",39.618
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",19.869
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",1.852
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",60.191
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",17.723
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",31.691
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",12.351
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",86.75
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",40.514
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",262.209
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",23.633
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",61.271
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",71.64
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",1.17
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",27.676
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",19.38
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",43.8
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",30.947
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",3.4
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",65.806
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",94.18
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",27.606
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",10.649
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",83.784
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",69.082
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",592.684
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",99.388
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1764.467
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1237.32
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",1208.81
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",41.454
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",132.642
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",36.978
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",48.134
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",190.5
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",275.704
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",296.42
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",63.011
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.614
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",141.665
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",61.82
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",214.98
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",38.624
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",103.021
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",96.26
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",152.84
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",40.128
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.736
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",85.252
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",85.362
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",125.79
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",14.988
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",46.28
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",99.892
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",39.58
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",118.017
+2021,"POMURSKA","15 01 03","Wooden Packaging (15 01 03)",0.98
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",217.493
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",88.7
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",499.284
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",21.949
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",45.642
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",43.291
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",54.145
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",3.096
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",19.639
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",6.247
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",43.45
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",3.858
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",29.002
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",20.18
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",73.23
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",193.867
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",56.318
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",540.47
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",495.144
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",222.056
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",42.315
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.292
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",95.19
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",79.705
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",122.537
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",0.777
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",13.867
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",2.199
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",8.299
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",36.393
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",0.536
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",26.487
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",41.01
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",45.481
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",1.945
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",148.664
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",189.743
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",378.652
+2021,"ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",328.463
+2021,"ZASAVSKA","15 01 03","Wooden Packaging (15 01 03)",155.33
+2021,"ZASAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",28.931
+2021,"ZASAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",333.46
+2021,"OBALNOKRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",53.842
+2021,"OBALNOKRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",133.1
+2021,"OBALNOKRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",122.758
+2021,"OBALNOKRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",37.813
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",228.209
+2021,"GORIŠKA","15 01 03","Wooden Packaging (15 01 03)",165.34
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",414.265
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",329.77
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",321.466
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",58.528
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",11.9
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",142.934
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",112.54
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",228.26
+2021,"PRIMORSKONOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",133.871
+2021,"PRIMORSKONOTRANJSKA","15 01 03","Wooden Packaging (15 01 03)",3.36
+2021,"PRIMORSKONOTRANJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",167.234
+2021,"PRIMORSKONOTRANJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",297.06
+2021,"PRIMORSKONOTRANJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",456.05
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",139.87
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",24.39
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",346.797
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",210.143
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",150.533
+2021,"OBALNOKRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",185.373
+2021,"OBALNOKRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",401.389
+2021,"OBALNOKRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",646.12
+2021,"OBALNOKRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",290.02
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",150.87
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",398.759
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",980
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",1165.32
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",15.82
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",43.78
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",19.812
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.32
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",50.402
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",9.096
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",7.623
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",519.919
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",99.108
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",455.73
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",163.24
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",782.68
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",16.114
+2021,"GORIŠKA","15 01 03","Wooden Packaging (15 01 03)",1.081
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",115.54
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",278.276
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",278.133
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",67.31
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.828
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",162.705
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",97.12
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",244.24
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",81.494
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",50.637
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",125.049
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",60.38
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",0.55
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",5.83
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",12.24
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",16.74
+2021,"OBALNOKRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",40.093
+2021,"OBALNOKRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",103.178
+2021,"OBALNOKRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",95.162
+2021,"OBALNOKRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",29.313
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",135.42
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",31.09
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",228.79
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",45.19
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",119.16
+2021,"OBALNOKRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",479.4
+2021,"OBALNOKRAŠKA","15 01 03","Wooden Packaging (15 01 03)",1490.52
+2021,"OBALNOKRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1350.121
+2021,"OBALNOKRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1720.835
+2021,"OBALNOKRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",582.742
+2021,"POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",57.674
+2021,"POSAVSKA","15 01 03","Wooden Packaging (15 01 03)",25.298
+2021,"POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",20.4
+2021,"POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",18
+2021,"POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",21.66
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",13.72
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",5.93
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",6.4
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",21.28
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",21.18
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",0.011
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",20.483
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",6.115
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",111.983
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",193.584
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",894.754
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",371.978
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",525.16
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",511.007
+2021,"GORENJSKA","15 01 03","Wooden Packaging (15 01 03)",19.15
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",942.682
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1212.82
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",644.331
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",126.596
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",21.228
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",211.91
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",245.41
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",4.302
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",44.88
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",219.54
+2021,"POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",1055.943
+2021,"POSAVSKA","15 01 03","Wooden Packaging (15 01 03)",93.919
+2021,"POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",387.8
+2021,"POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1341
+2021,"POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",312.12
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",23.045
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",84.948
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",127.64
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",175.675
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",9.746
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",13.056
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",13.3
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",35.68
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",179.777
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",0.27
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",20.29
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",28.714
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",291.76
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",37.659
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",264.793
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",71.516
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",117.721
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",396.36
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",665.521
+2021,"POMURSKA","15 01 03","Wooden Packaging (15 01 03)",189.901
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",315.714
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",7.6
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",277.15
+2021,"ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",210.584
+2021,"ZASAVSKA","15 01 03","Wooden Packaging (15 01 03)",2.62
+2021,"ZASAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",282.559
+2021,"ZASAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",293.23
+2021,"ZASAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",326.31
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",5050.614
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",2975.833
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",29770.079
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",7114.556
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",8726.595
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",23.998
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",9.54
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",21.614
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",24.721
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",42.171
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",14.447
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",144.78
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",5.06
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",681.88
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",25.213
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",127.174
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",100.519
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",63.025
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",391.756
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",129.123
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",305.465
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",323.7
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",155.02
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",18.4
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",49.136
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",163.2
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",59.522
+2021,"PRIMORSKONOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",20.525
+2021,"PRIMORSKONOTRANJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",2.52
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",21.963
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",11.197
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",60.425
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",73.261
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",54.73
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",54.6
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",108.293
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",173.15
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",169.111
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",4.31
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",40.991
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",9.945
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",18.853
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",28.968
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.412
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",67.593
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",27.88
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",106.07
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",15.152
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",26
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",57.704
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",21.21
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",573.594
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",122.12
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",3883.881
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",4825.56
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",2217.005
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",27.336
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.412
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",70.209
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",65.337
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",116.26
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",104.114
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",149.92
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",608.067
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",268.96
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",445.5
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",108.797
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",32.461
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",269.433
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",275.913
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",269.477
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",159.61
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",18.496
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",247.87
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",388.15
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",15.706
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",39.893
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",125.778
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",6.04
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",159.31
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",127.754
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",71.606
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",194.438
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",242.499
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",221.41
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",28.429
+2021,"JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)",29.08
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",19.627
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",52.25
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",29.111
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",21.928
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",8.459
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",70.703
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",58.296
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",52.223
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",29.259
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",175.412
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",65.988
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",10.89
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",64.029
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",35.674
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",20.018
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",98.555
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",28.127
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",181.746
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",48.061
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",2.04
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",156.81
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",153.152
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",49.035
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",13.877
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",34.324
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",177.168
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",211.568
+2021,"POMURSKA","15 01 03","Wooden Packaging (15 01 03)",22.44
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",902.782
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",488.64
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",708.871
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",25.564
+2021,"KOROŠKA","15 01 03","Wooden Packaging (15 01 03)",57.882
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",15.151
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",65.871
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",52.234
+2021,"GORENJSKA","15 01 03","Wooden Packaging (15 01 03)",3.12
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",27.528
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",81.48
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",30.777
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",20.664
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",63.866
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",53.076
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",51.633
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",335.408
+2021,"GORIŠKA","15 01 03","Wooden Packaging (15 01 03)",0.319
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1011.635
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",820.615
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",866.602
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",457.374
+2021,"JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)",19.93
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",876.126
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1191.882
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",718.683
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",0.278
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",42.583
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",18.214
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",51.625
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",31.247
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",53.616
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",118.996
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",43.738
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",113.703
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.18
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",72.042
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1.88
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",351.59
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",34.12
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",88.448
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",245.7
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",143.519
+2021,"OBALNOKRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",619.255
+2021,"OBALNOKRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",45.886
+2021,"OBALNOKRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",738.25
+2021,"OBALNOKRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",1101.02
+2021,"PRIMORSKONOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",141.71
+2021,"PRIMORSKONOTRANJSKA","15 01 03","Wooden Packaging (15 01 03)",12.99
+2021,"PRIMORSKONOTRANJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",93.72
+2021,"PRIMORSKONOTRANJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",147.5
+2021,"PRIMORSKONOTRANJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",319.42
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",9.984
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",23.296
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",19.18
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",11.216
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",26.508
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",49.805
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",24.45
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",0.011
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",21.505
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",6.42
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",117.57
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",37.578
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",64.481
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",947.451
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",52.601
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",24.817
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",37.156
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",69.176
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",502.045
+2021,"PRIMORSKONOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",115.2
+2021,"PRIMORSKONOTRANJSKA","15 01 03","Wooden Packaging (15 01 03)",2.17
+2021,"PRIMORSKONOTRANJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",401.406
+2021,"PRIMORSKONOTRANJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",228.83
+2021,"PRIMORSKONOTRANJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",662.04
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",32.122
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",147.4
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",0.6
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",107.831
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",485.116
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",31.187
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",2.66
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",12.883
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",259.261
+2021,"KOROŠKA","15 01 03","Wooden Packaging (15 01 03)",100.66
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",76.238
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",240.362
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",299.633
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",102.301
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1224.09
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",472.412
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",595.332
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",32.471
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",146.42
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",11.287
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",258.515
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",37.997
+2021,"POMURSKA","15 01 03","Wooden Packaging (15 01 03)",49.96
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",9.829
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",276.754
+2021,"POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",91.568
+2021,"POSAVSKA","15 01 03","Wooden Packaging (15 01 03)",2.6
+2021,"POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",70.7
+2021,"POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",93.16
+2021,"POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",53.84
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",115.785
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",60.578
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",139.934
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",246.597
+2021,"GORENJSKA","15 01 03","Wooden Packaging (15 01 03)",0.46
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",383.346
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",482.33
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",626.82
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",127.419
+2021,"KOROŠKA","15 01 03","Wooden Packaging (15 01 03)",85.62
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",126.99
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",393.725
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",1.41
+2021,"POMURSKA","15 01 03","Wooden Packaging (15 01 03)",0.04
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",18.21
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",71.83
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",81.215
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",139.357
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",309.289
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",114.16
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",28.65
+2021,"GORIŠKA","15 01 03","Wooden Packaging (15 01 03)",0.685
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",87.529
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",157.878
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",143.632
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",27.583
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",7.806
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",19.218
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",99.657
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",107.67
+2021,"JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)",1.405
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",161.091
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",258.61
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",313.547
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",2.366
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",3.399
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",19.279
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",29.46
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",12.708
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",15.487
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",4.623
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",84.67
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",75.98
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",3.28
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",75.709
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",22.601
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",413.916
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",5.021
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",43.235
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",19.66
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",60.94
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",30.479
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",46.82
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",171.951
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",344.745
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",141.162
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",20.431
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.48
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",70.766
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",201.195
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",93.93
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",34.756
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",28.472
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",64.152
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",126.228
+2021,"POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",358.258
+2021,"POSAVSKA","15 01 03","Wooden Packaging (15 01 03)",84.03
+2021,"POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",422.844
+2021,"POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",272.76
+2021,"POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",166.03
+2021,"OBALNOKRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",147.34
+2021,"OBALNOKRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",366.35
+2021,"OBALNOKRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",339.307
+2021,"OBALNOKRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",104.329
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",387.551
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",68.143
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",701.648
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",217.904
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",368.903
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",297.258
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",119.616
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",472.143
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",545.45
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",237.67
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",23.915
+2021,"JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)",1.56
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",33.211
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",60.995
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",73.952
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",2.432
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",7.153
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",2.494
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",10.319
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",22.741
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",14.408
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",68.15
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",23.76
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",59.704
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",221.14
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",87.543
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",27.732
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",10.698
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",90.481
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",74.603
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",5.255
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",79.669
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",85.411
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",1.443
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",4.755
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",120.525
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",89.926
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",8.196
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",19.124
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",13.07
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",10.367
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",3.75
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",89.617
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",4.555
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",3.28
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",52.614
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",15.16
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",9.606
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",45.3
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",9.154
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",0
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",30.151
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",135.355
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",6.19
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",70.549
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",56.83
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",105.958
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",244.144
+2021,"GORIŠKA","15 01 03","Wooden Packaging (15 01 03)",26.68
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",112.284
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",277.282
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",133.885
+2021,"ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",212.026
+2021,"ZASAVSKA","15 01 03","Wooden Packaging (15 01 03)",16.05
+2021,"ZASAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",396.711
+2021,"ZASAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",601.44
+2021,"ZASAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",189
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",118.799
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",36.911
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",230
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",120.812
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",7.89
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.391
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",18.41
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",14.91
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",71.058
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",186.553
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",11.474
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",194.859
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",235.903
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",230.4
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",191.915
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",76.57
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",272.42
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",360.55
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",0.362
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",39.381
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",26.12
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",86.29
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",4937.927
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",3772.62
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1052.921
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",751.254
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",690.002
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",2.74
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",14.34
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",6.44
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",18.76
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",12.99
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",44.391
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",58.02
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",155.52
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",2.28
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",18.23
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",83.41
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",31.672
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.408
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",97.206
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",18.704
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",122.716
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",56.085
+2021,"GORIŠKA","15 01 03","Wooden Packaging (15 01 03)",2.28
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",129.695
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",88.462
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",103.322
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",3.63
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",64.773
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",17.808
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",57.706
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",118.88
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",165.42
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",55.016
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",324.257
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",165.874
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",1006.083
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",15.527
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",0
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",47.16
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",224.675
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",224.423
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",33.66
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",683.336
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",489.493
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",137.01
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",10.409
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",14.91
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",46.591
+2021,"ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",405.573
+2021,"ZASAVSKA","15 01 03","Wooden Packaging (15 01 03)",110.53
+2021,"ZASAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",207.256
+2021,"ZASAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",466.205
+2021,"ZASAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",126.68
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",4.868
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",13.023
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",27.102
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",10.978
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",336.09
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",1.184
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",83.125
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",49.922
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",139.161
+2021,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",401.8
+2021,"KOROŠKA","15 01 03","Wooden Packaging (15 01 03)",193.98
+2021,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",35.741
+2021,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",112.695
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",111.204
+2021,"JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)",6.96
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",89.528
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",201.268
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",396.022
+2021,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",1.601
+2021,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",12.944
+2021,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",13.574
+2021,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)",34.341
+2021,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",186.382
+2021,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",87.36
+2021,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",79.08
+2021,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)",76.23
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",19.596
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.7
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",23.647
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",96.58
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",408.979
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",56.938
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",22.184
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",168.347
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",138.806
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",103.075
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",2.8
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",403.381
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",7.755
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",579.957
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",28.871
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",9.024
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",53.061
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",29.563
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",107.91
+2021,"GORENJSKA","15 01 03","Wooden Packaging (15 01 03)",2.86
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",19.857
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",147.28
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",54.396
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",23.355
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",8.539
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",79.891
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",65.872
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",276.915
+2021,"GORENJSKA","15 01 03","Wooden Packaging (15 01 03)",55.048
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",3492.419
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",587.39
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",63.389
+2021,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)",2.05
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",120.79
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",139.44
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",137.2
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",80.4
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",0.045
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",106.288
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",25.252
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",462.459
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",24.986
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",9.638
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",82.071
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",67.669
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",37.71
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",62.257
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",33.337
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",62.376
+2021,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",153.381
+2021,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",153.632
+2021,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",108.77
+2021,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)",250.78
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",166.459
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",61.62
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",122.505
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",128.422
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",153.941
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",20.81
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",13.7
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",101.771
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1.567
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",154.706
+2021,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",158.732
+2021,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)",43.86
+2021,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",134.714
+2021,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",548.494
+2021,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",1797.047
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",51.943
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",39.051
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",107.62
+2021,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",6.283
+2021,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)",0.308
+2021,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",14.657
+2021,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",7.946
+2021,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)",59.147
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",5.614
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",241.945
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",49.22
+2021,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",44.93
+2021,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",97.611
+2021,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",185.05
+2021,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)",391.401
+2021,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)",34.13
+2021,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",12.647
+2021,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",110.415
+2021,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)",91.039

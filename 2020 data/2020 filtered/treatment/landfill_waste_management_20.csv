@@ -1,3 +1,3 @@
-﻿"year","type_of_waste","total_waste_received","disposed_waste_total","disposed_waste_non_hazardous"
-0,NA,NA,NA,NA
-2020,"Wood",64.68,64.68,64.68
+﻿"year","waste_code","type_of_waste","waste_category","total_waste_received","waste_without_assessment","disposed_waste_total","disposed_waste_hazardous","disposed_waste_non_hazardous","disposed_waste_inert","disposed_waste_for_construction","disposed_waste_for_covering"
+2020,"17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",64.68,0,64.68,0,64.68,0,0,0
+2020,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",11121.77,514.6,11121.77,0,11121.77,0,0,0

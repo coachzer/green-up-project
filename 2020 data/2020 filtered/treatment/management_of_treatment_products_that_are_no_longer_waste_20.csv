@@ -1,6 +1,10 @@
-﻿"year","input_waste_name","output_waste_name","delivered_to_storage_or_other_persons_RS","shipped_to_EU","shipped_to_non_EU"
-2020,"Sawdust/Chips/Wood, not specified in 03 01 04","wood",315.672,0,0
-2020,"Wood","wood",68.16,0,0
-2020,"Wood, not specified in 20 01 37","wood",551.9,0,0
-2020,"Wooden packaging","other",6.926,0,0
-2020,"Wooden packaging","wood",2584.778,0,0
+﻿"year","input_waste_code","input_waste_name","waste_category","output_waste_name","delivered_to_storage_or_other_persons_RS","shipped_to_EU","shipped_to_non_EU"
+2020,"03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","wood",315.672,0,0
+2020,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","other",6.926,0,0
+2020,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","wood",2584.778,0,0
+2020,"17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste","wood",68.16,0,0
+2020,"19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues","wood",41.82,0,0
+2020,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste","construction product",145.883,0,0
+2020,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","wood",551.9,0,0
+2020,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","textile and leather",1.77,0,0
+2020,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","wood",1.35,0,0

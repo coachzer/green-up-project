@@ -1,34 +1,56 @@
-﻿"year","statistical_region","type_of_waste","waste_stored_start_year","waste_stored_end_year"
-2020,"GORENJSKA","Paper/Cardboard Packaging",290.161,79.478
-2020,"GORENJSKA","Wood, not specified in 20 01 37",2.24,0
-2020,"GORENJSKA","Wooden packaging",9.194,7.456
-2020,"GORIŠKA","Paper/Cardboard Packaging",22.237,16.513
-2020,"GORIŠKA","Wooden packaging",0,4.28
-2020,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",344.24,0
-2020,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",84.695,0
-2020,"JUGOVZHODNA SLOVENIJA","Wooden packaging",47.314,0
-2020,"KOROŠKA","Wood",19.06,16.26
-2020,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",36.393,0
-2020,"OBALNO-KRAŠKA","Wooden packaging",6.397,0
-2020,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",214.268,104.15
-2020,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",34.31,0
-2020,"OSREDNJESLOVENSKA","Waste Bark and Wood",5.024,0
-2020,"OSREDNJESLOVENSKA","Wood",0,10.58
-2020,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",2630.79,6835.148
-2020,"OSREDNJESLOVENSKA","Wooden packaging",6.499,9.35
-2020,"PODRAVSKA","Paper/Cardboard Packaging",220.162,63.975
-2020,"PODRAVSKA","Wood, not specified in 20 01 37",769.193,130
-2020,"PODRAVSKA","Wooden packaging",0,11.82
-2020,"POMURSKA","Paper/Cardboard Packaging",197.768,84.891
-2020,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04",12.125,15.606
-2020,"POMURSKA","Wood, not specified in 20 01 37",22.96,22.04
-2020,"POMURSKA","Wooden packaging",13.78,31.114
-2020,"POSAVSKA","Waste Bark and Wood",5555.076,8392.205
-2020,"POSAVSKA","Wooden packaging",99,1.695
-2020,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",13.46,1.159
-2020,"PRIMORSKO-NOTRANJSKA","Wooden packaging",12.828,12.828
-2020,"SAVINJSKA","Paper/Cardboard Packaging",0.85,170.939
-2020,"SAVINJSKA","Wood, not specified in 20 01 37",14.96,11.851
-2020,"SAVINJSKA","Wooden packaging",18.589,69.715
-2020,"ZASAVSKA","Paper/Cardboard Packaging",21.12,21.12
-2020,"ZASAVSKA","Wood, not specified in 20 01 37",1322.45,1359.21
+﻿"year","statistical_region","waste_code","type_of_waste","waste_category","waste_stored_start_year","waste_stored_end_year"
+2020,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",290.161,79.478
+2020,"GORENJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",9.194,7.456
+2020,"GORENJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",45.096,37.685
+2020,"GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",437.993,10.988
+2020,"GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2.24,0
+2020,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",22.237,16.513
+2020,"GORIŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",0,4.28
+2020,"GORIŠKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",19.656,31.904
+2020,"GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",18.279,9.364
+2020,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",344.24,0
+2020,"JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",47.314,0
+2020,"JUGOVZHODNA SLOVENIJA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",89.585,0
+2020,"JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",36.778,0
+2020,"JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",84.695,0
+2020,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",135.19,239.73
+2020,"KOROŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",19.06,16.26
+2020,"OBALNO-KRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",36.393,0
+2020,"OBALNO-KRAŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",6.397,0
+2020,"OBALNO-KRAŠKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",61.48,0
+2020,"OBALNO-KRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",103.128,0
+2020,"OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",34.31,0
+2020,"OSREDNJESLOVENSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste",5.024,0
+2020,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",214.268,104.15
+2020,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",6.499,9.35
+2020,"OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",0,10.58
+2020,"OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",1892.019,4896.74
+2020,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",4072.324,291.574
+2020,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2630.79,6835.148
+2020,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",26,17.8
+2020,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",220.162,63.975
+2020,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",0,11.82
+2020,"PODRAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",0,8.217
+2020,"PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",441.869,193.437
+2020,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",769.193,130
+2020,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",350,380.52
+2020,"POMURSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",12.125,15.606
+2020,"POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",197.768,84.891
+2020,"POMURSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",13.78,31.114
+2020,"POMURSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",37.702,50.554
+2020,"POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",257.282,21.514
+2020,"POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",22.96,22.04
+2020,"POSAVSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste",5555.076,8392.205
+2020,"POSAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",99,1.695
+2020,"POSAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",1279.823,2365.78
+2020,"POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",4430.364,4387.533
+2020,"PRIMORSKO-NOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",13.46,1.159
+2020,"PRIMORSKO-NOTRANJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",12.828,12.828
+2020,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.85,170.939
+2020,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",18.589,69.715
+2020,"SAVINJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",384.891,92.406
+2020,"SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",58.496,68.701
+2020,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",14.96,11.851
+2020,"ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",21.12,21.12
+2020,"ZASAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",0,29.66
+2020,"ZASAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1322.45,1359.21

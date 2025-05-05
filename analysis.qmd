@@ -26,6 +26,13 @@ cant just focus on headquarters (HQ) of the node
 try to figure out connection between treatment operator, collector and storage
 descriptive statistics for all years
 
+# To try
+
+- recycling efficiency and possible products
+	- focus on 2023 treatment file
+		- osrednjeslovenska + 03 03 08
+- identify different types of companies based on the profiles
+
 # Setup
 
 ```{r setup, message = FALSE, warning = FALSE}

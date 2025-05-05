@@ -529,6 +529,24 @@ list_of_waste_by_municipality <- function(region_municipalities, waste_df) {
 
 # Define a function to rename the type_of_waste based on the code
 categorize_waste <- function(data, waste_code_col = "waste_code") {
+  
+  # Check if waste_category exists and find next available suffix
+  waste_cat_cols <- names(data)[str_detect(names(data), "^waste_category(_\\d+)?$")]
+  
+  if (length(waste_cat_cols) > 0) {
+    # Extract existing numbers
+    nums <- str_extract(waste_cat_cols, "\\d+") |> 
+      as.integer() |> 
+      suppressWarnings()
+    nums <- nums[!is.na(nums)]
+    
+    # Determine next number
+    next_num <- if (length(nums) > 0) max(nums) + 1 else 1
+    new_waste_cat_col <- paste0("waste_category_", next_num)
+  } else {
+    new_waste_cat_col <- "waste_category"
+  }
+  
   data |>
     mutate(
       type_of_waste = case_when(
@@ -552,6 +570,12 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         # 07 02 - Waste from the production, formulation, supply and use of plastics, synthetic rubber and man-made fibres
         .data[[waste_code_col]] == "07 02 13" ~ "Waste Plastics (07 02 13)",
         
+        # 07 03 - Wastes from the production, formulation, supply and use of organic dyes and pigments (except 06 11)
+        .data[[waste_code_col]] == "07 03 03*" ~ "Organic Halogenated Solvents, Washing Liquids and Mother Liquors",
+        
+        # 07 05 - Waste from the manufacture, formulation, supply and use of pharmaceutical products
+        .data[[waste_code_col]] == "07 05 14" ~ "Solid Wastes other than those mentioned in 07 05 13",
+        
         # 08 - Wastes from the manufacturing, preparation, supply and use of surface filling products (paints, varnishes and enamels), gluids, inks and printing inks
         # 08 01 - Wastes from the production, formulation, supply, use and disposal of paints and varnishes
         .data[[waste_code_col]] == "08 01 11*" ~ "Waste Paints and Varnishes Containing Hazardous Substances (08 01 11*)",
@@ -564,6 +588,9 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         # 10 01 - Wastes from power stations and other combustion plants (except 19)
         .data[[waste_code_col]] == "10 01 01" ~ "Ash, slag and boiler dust (excluding boiler dust listed under 10 01 04) (10 01 01)",
         .data[[waste_code_col]] == "10 01 15" ~ "Ash, slag and boiler dust from co-incineration plants other than those mentioned in 10 01 14 (10 01 15)",
+        
+        # 10 10 - Waste from non-ferrous foundries
+        .data[[waste_code_col]] == "10 10 08" ~ "Waste used Foundry Moulds and Cores other than those mentioned in 10 10 07 (10 10 01)",
         
         # 12 - Shaping and surface treatment of metals and plastics
         
@@ -585,6 +612,7 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         .data[[waste_code_col]] == "15 01 04" ~ "Metal Packaging (15 01 04)",
         .data[[waste_code_col]] == "15 01 05" ~ "Composite Packaging (15 01 05)",
         .data[[waste_code_col]] == "15 01 06" ~ "Mixed Packaging (15 01 06)",
+        .data[[waste_code_col]] == "15 01 07" ~ "Glass Packaging (15 01 07)",
         .data[[waste_code_col]] == "15 01 10*" ~ "Hazardous Contaminated Packaging (15 01 10*)",
         
         # 16 - Waste not otherwise specified
@@ -592,9 +620,11 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         .data[[waste_code_col]] == "16 01 03" ~ "End-of-Life Tyres (16 01 03)",
         .data[[waste_code_col]] == "16 01 04*" ~ "End-of-Life Vehicles (16 01 04*)",
         .data[[waste_code_col]] == "16 01 07*" ~ "Oil Filters (16 01 07*)",
+        .data[[waste_code_col]] == "16 01 18" ~ "Non-ferrous Metals (16 01 18)",
         
         # 16 02 - Waste electrical and electronic equipment
         .data[[waste_code_col]] == "16 02 11*" ~ "Discarded Equipment Containing Chlorofluorocarbons (16 02 11*)",
+        .data[[waste_code_col]] == "16 02 13*" ~ "Discarded Equipment Containing Hazardous Components other than those mentioned in 16 02 09 to 16 02 12 (16 02 13*)",
         .data[[waste_code_col]] == "16 02 14" ~ "Discarded Equipment Not Otherwise Specified (16 02 14)",
         .data[[waste_code_col]] == "16 02 16" ~ "Components Removed from Discarded Equipment (16 02 16)",
         
@@ -609,6 +639,9 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         .data[[waste_code_col]] == "16 08 03" ~ "Spent Catalysts Containing Transition Metals (16 08 03)",
         
         # 17 - Construction & demolition waste
+        # 17 01 - Concrete, bricks, tiles and ceramics
+        .data[[waste_code_col]] == "17 01 01" ~ "Concrete Waste (17 01 01)",
+        
         # 17 02 - Wood, glass, and plastic
         .data[[waste_code_col]] == "17 02 01" ~ "Construction Wood Waste (17 02 01)",
         
@@ -653,6 +686,7 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         .data[[waste_code_col]] == "19 12 04" ~ "Plastics and Rubber from Mechanical Treatment (19 12 04)",
         .data[[waste_code_col]] == "19 12 05" ~ "Glass from Mechanical Treatment (19 12 05)",
         .data[[waste_code_col]] == "19 12 07" ~ "Wood Waste from Treatment (not 19 12 06) (19 12 07)",
+        .data[[waste_code_col]] == "19 12 08" ~ "Textiles from Mechanical Treatment (19 12 08)",
         .data[[waste_code_col]] == "19 12 09" ~ "Minerals from Mechanical Treatment (19 12 09)",
         .data[[waste_code_col]] == "19 12 10" ~ "Refuse-Derived Fuel (19 12 10)",
         .data[[waste_code_col]] == "19 12 12" ~ "Other Mechanically Treated Waste (19 12 12)",
@@ -669,6 +703,7 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         .data[[waste_code_col]] == "20 01 26*" ~ "Non-Edible Oils and Fats (20 01 26*)",
         .data[[waste_code_col]] == "20 01 27*" ~ "Hazardous Paints, Inks, Adhesives (20 01 27*)",
         .data[[waste_code_col]] == "20 01 28" ~ "Non-Hazardous Paints, Inks, Adhesives (20 01 28)",
+        .data[[waste_code_col]] == "20 01 33*" ~ "Batteries and accumulators listed under 16 06 01, 16 06 02 or 16 06 03 and unsorted batteries and accumulators containing these batteries and accumulators (20 01 33*)",
         .data[[waste_code_col]] == "20 01 35*" ~ "Hazardous Waste Electrical Equipment (20 01 35*)",
         .data[[waste_code_col]] == "20 01 36" ~ "Non-Hazardous Waste Electrical Equipment (20 01 36)",
         .data[[waste_code_col]] == "20 01 38" ~ "Non-hazardous Wood from Municipal Waste (20 01 38)",
@@ -688,7 +723,7 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
       ),
       
       # Add broader waste categories
-      waste_category = case_when(
+      !!new_waste_cat_col := case_when(
         str_starts(.data[[waste_code_col]], "02") ~ "Agricultural/Forestry Waste",
         str_starts(.data[[waste_code_col]], "03") ~ "Wood/Paper Production Waste",
         str_starts(.data[[waste_code_col]], "07") ~ "Organic Chemical Waste",
@@ -776,7 +811,8 @@ process_waste_data <- function(data, waste_code_col = "waste_code", waste_desc_c
 # ------------------------------------------------------------
 
 process_waste_column <- function(data, code_col, waste_desc_col) {
-  data |>
+  
+  result <- data |>
     rename(
       waste_code = {{code_col}},
       type_of_waste = {{waste_desc_col}}
@@ -786,12 +822,21 @@ process_waste_column <- function(data, code_col, waste_desc_col) {
       {{code_col}} := waste_code,
       {{waste_desc_col}} := type_of_waste
     )
+  
+  # Find the newly created waste_category column
+  waste_cat_cols <- names(result)[str_detect(names(result), "^waste_category(_\\d+)?$")]
+  new_waste_cat_col <- waste_cat_cols[length(waste_cat_cols)] # Get the most recently added
+  
+  # Relocate the new waste_category column after the description column
+  result |>
+    relocate({{new_waste_cat_col}}, .after = {{waste_desc_col}})
 }
 
 # ------------------------------------------------------------
 
 # Define a function to rename the description of treatment
 rename_treatment_description <- function(df) {
+  
   df |>
     mutate(description_of_treatment = case_when(
       description_of_treatment == "19a – predelava odpadkov v sekance" ~ "processing into wood chips",
@@ -1276,7 +1321,7 @@ collected_additional.23 <- collected_additional.23 |>
   ))
 
 collected_additional.23 <- collected_additional.23 |>
-  group_by(year, waste_code, type_of_waste, waste_collected_public_service) |>
+  group_by(year, waste_code, type_of_waste, waste_category, waste_collected_public_service) |>
   summarise(
     total_waste_collected = sum(total_waste_collected) / 1000,
     waste_collected_from_households = sum(waste_collected_from_households) / 1000,
@@ -1312,7 +1357,7 @@ collected_municipality.23 <- collected_municipality.23 |>
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
 collected_municipality.23 <- collected_municipality.23 |>
-  group_by(year, statistical_region, waste_code, type_of_waste, name_of_municipality, waste_collected_public_service) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category, name_of_municipality, waste_collected_public_service) |>
   summarise(waste_by_municipality = sum(waste_by_municipality) / 1000) |>
   ungroup()
 
@@ -1468,7 +1513,7 @@ treatment.23 <- treatment.23 |>
 treatment.23[] <- lapply(treatment.23, function(x) ifelse(is.na(x), "undefined", x))
 
 treatment.23 <- treatment.23 |>
-  group_by(year, statistical_region, treatment_inlet_waste_code, type_of_waste_inlet, treatment_outlet_waste_code, type_of_waste_outlet, substance_or_object) |>
+  group_by(year, statistical_region, treatment_inlet_waste_code, type_of_waste_inlet, waste_category, treatment_outlet_waste_code, type_of_waste_outlet, waste_category_1, substance_or_object) |>
   summarise(quantity_stored_start_year = sum(quantity_stored_start_year) / 1000) |>
   ungroup()
 
@@ -1499,7 +1544,7 @@ treatment_received.23 <- treatment_received.23 |>
 treatment_received.23 <- treatment_received.23 |> process_waste_data()
 
 treatment_received.23 <- treatment_received.23 |>
-  group_by(year, statistical_region, waste_code, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarize(
     total_waste_received = sum(as.numeric(total_waste_received)) / 1000,
     untreated_waste_from_storage_start_year = sum(as.numeric(untreated_waste_from_storage_start_year)) / 1000,
@@ -1535,7 +1580,7 @@ waste_treated.23 <- waste_treated.23 |> categorize_waste(waste_code_col = "treat
 waste_treated.23 <- rename_treatment_description(waste_treated.23)
 
 waste_treated.23 <- waste_treated.23 |>
-  group_by(year, statistical_region, treatment_inlet_waste_code, type_of_waste, treatment_code, description_of_treatment) |>
+  group_by(year, statistical_region, treatment_inlet_waste_code, type_of_waste, waste_category,  treatment_code, description_of_treatment) |>
   summarise(quantity_treated = sum(quantity_treated) / 1000) |>
   ungroup()
 
@@ -1806,7 +1851,7 @@ generation.22 |>
 
 # change to tons
 generation.22 <- generation.22 |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_waste_generated_stored = sum(total_waste_generated_stored) / 1000,
     temporarily_stored_start_year = sum(temporarily_stored_start_year) / 1000,
@@ -1883,6 +1928,7 @@ pre_collection.22 <- pre_collection.22 |>
 pre_collection.22 <- categorize_waste(pre_collection.22, waste_code_col = "waste_code")
 
 pre_collection.22 <- pre_collection.22 |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   mutate(
     previous_stored_start_year = as.numeric(previous_stored_start_year) / 1000,
     previous_stored_end_year = as.numeric(previous_stored_end_year) / 1000
@@ -1910,7 +1956,7 @@ collected.22 <- collected.22 |>
   mutate(total_waste_collected = waste_from_producers_no_record + waste_from_producers_with_record + waste_from_collectors_RS + waste_from_processors_RS)
 
 collected.22 <- collected.22 |>
-  group_by(year, statistical_region, waste_code, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   mutate(
     total_waste_collected = as.numeric(total_waste_collected) / 1000,
     waste_from_producers_no_record = as.numeric(waste_from_producers_no_record) / 1000,
@@ -1948,6 +1994,7 @@ collected_mun.22 <- collected_mun.22 |>
 collected_mun.22 <- categorize_waste(collected_mun.22, waste_code_col = "waste_code")
 
 collected_mun.22 <- collected_mun.22 |>
+  group_by(year, waste_code, type_of_waste, waste_category) |>
   mutate(
     total_mun_waste_collected = as.numeric(total_mun_waste_collected) / 1000,
     mun_waste_collected_by_househoulds_gen = as.numeric(mun_waste_collected_by_househoulds_gen) / 1000,
@@ -1974,12 +2021,12 @@ collected_org_mun.22 <- collected_org_mun.22 |>
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
 collected_org_mun.22 <- collected_org_mun.22 |>
-  group_by(year, statistical_region, waste_code, type_of_waste, name_of_municipality) |>
+  group_by(year, statistical_region, name_of_municipality, waste_code, type_of_waste, waste_category) |>
   summarise(waste_by_municipality = sum(waste_by_municipality) / 1000) |>
   ungroup()
 
-find_municipality_with_most_waste(GORENJSKA, collected_org_mun.22)
-list_of_waste_by_municipality(GORENJSKA, collected_org_mun.22)
+# find_municipality_with_most_waste(GORENJSKA, collected_org_mun.22)
+# list_of_waste_by_municipality(GORENJSKA, collected_org_mun.22)
 
 processed_sheets[[4]] <- collected_org_mun.22
 
@@ -2005,7 +2052,7 @@ management.22 <- management.22 |>
   )
 
 management.22 <- management.22 |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   mutate(
     total_waste_given_away = as.numeric(total_waste_given_away) / 1000,
     waste_handed_to_collectors_RS = as.numeric(waste_handed_to_collectors_RS) / 1000,
@@ -2017,7 +2064,7 @@ management.22 <- management.22 |>
 
 management.22 <- management.22 
 
-processed_sheets[[5]] <- management.22 |> select(year, statistical_region, waste_code, type_of_waste, total_waste_given_away, waste_handed_to_collectors_RS, waste_delivered_to_operators_RS, waste_sent_to_EU, waste_sent_to_non_EU)
+processed_sheets[[5]] <- management.22 |> select(year, statistical_region, waste_code, type_of_waste, waste_category, total_waste_given_away, waste_handed_to_collectors_RS, waste_delivered_to_operators_RS, waste_sent_to_EU, waste_sent_to_non_EU)
 
 # Household composting
 composting.22 <- processed_sheets[[6]] |> select(-Poročilo, -`Šifra občine 1`)
@@ -2030,11 +2077,21 @@ composting.22 <- composting.22 |>
     number_of_households_composting = `Število gospodinjstev, ki hišno kompostirajo`
   )
 
+composting.22 <- composting.22  |>
+  left_join(municipality_region_mapping, by = "name_of_municipality")
+
 # add another column that would be just the percentage of households composting
 composting.22 <- composting.22 |>
   mutate(percentage_of_households_composting = round(number_of_households_composting / number_of_households * 100, 2))
 
-processed_sheets[[6]] <- composting.22
+processed_sheets[[6]] <- composting.22 |> select(
+  year, 
+  statistical_region, 
+  name_of_municipality,
+  number_of_households,
+  number_of_households_composting,
+  percentage_of_households_composting
+)
 
 # waste oils EXCLUDED
 waste_oils.22 <- processed_sheets[[7]]
@@ -2712,10 +2769,8 @@ for (sheet_name in sheet_names) {
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 # Sheet 1: Pre-storage of waste, 2021 ----
-processed_sheets[[1]]
-
 ## Rename the columns of the first sheet
-processed_sheets[[1]] <- processed_sheets[[1]] |>
+pre_collection.21 <- processed_sheets[[1]] |>
   select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`) |>
   rename(
     statistical_region = `Statistična regija`,
@@ -2725,23 +2780,21 @@ processed_sheets[[1]] <- processed_sheets[[1]] |>
     previous_stored_end_year = `Predhodno skladiščeni odpadki na dan 31.12.2021 kg`
   )
 
-processed_sheets[[1]] <- categorize_waste(processed_sheets[[1]], waste_code_col = "waste_code")
+pre_collection.21 <- categorize_waste(pre_collection.21, waste_code_col = "waste_code")
 
-processed_sheets[[1]] <- processed_sheets[[1]] |>
-  group_by(year, statistical_region, waste_code, type_of_waste) |>
+pre_collection.21 <- pre_collection.21 |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     previous_stored_start_year = sum(previous_stored_start_year) / 1000,
     previous_stored_end_year = sum(previous_stored_end_year) / 1000
   ) |>
   ungroup()
 
-# STOPPED FOR NOW
+processed_sheets[[1]] <- pre_collection.21
 
 # Sheet 2: Waste collected, 2021 ----
-processed_sheets[[2]]
-
 ## Rename the columns of the second sheet
-processed_sheets[[2]] <- processed_sheets[[2]] |>
+collected.21 <- processed_sheets[[2]] |>
   select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`) |>
   rename(
     statistical_region = `Statistična regija`,
@@ -2753,13 +2806,13 @@ processed_sheets[[2]] <- processed_sheets[[2]] |>
     waste_from_processors_RS = `Zbrani odpadki prevzeti od drugih imetnikov od izvajalcev obdelave v RS kg`
   )
 
-processed_sheets[[2]] <- rename_waste_names(processed_sheets[[2]])
+collected.21 <- categorize_waste(collected.21, waste_code_col = "waste_code")
 
-processed_sheets[[2]] <- processed_sheets[[2]] |>
+collected.21 <- collected.21 |>
   mutate(total_collected_waste = waste_from_producers_no_record + waste_from_producers_with_record + waste_from_collectors_RS + waste_from_processors_RS)
 
-processed_sheets[[2]] <- processed_sheets[[2]] |>
-  group_by(year, statistical_region, type_of_waste) |>
+collected.21 <- collected.21 |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_collected_waste = sum(total_collected_waste) / 1000,
     waste_from_producers_no_record = sum(waste_from_producers_no_record) / 1000,
@@ -2769,11 +2822,11 @@ processed_sheets[[2]] <- processed_sheets[[2]] |>
   ) |>
   ungroup()
 
-# Sheet 3: Municipal waste collected by source of generation, 2021 ----
-processed_sheets[[3]]
+processed_sheets[[2]] <- collected.21
 
+# Sheet 3: Municipal waste collected by source of generation, 2021 ----
 ## Rename the columns of the third sheet
-processed_sheets[[3]] <- processed_sheets[[3]] |>
+collected_mun.22 <- processed_sheets[[3]] |>
   select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`) |>
   rename(
     year = `Leto`,
@@ -2783,10 +2836,10 @@ processed_sheets[[3]] <- processed_sheets[[3]] |>
     municipal_waste_from_activities = `Zbrani komunalni odpadki glede na vir nastanka iz dejavnosti kg`
   )
 
-processed_sheets[[3]] <- rename_waste_names(processed_sheets[[3]])
+collected_mun.22 <- categorize_waste(collected_mun.22, waste_code_col = "waste_code")
 
-processed_sheets[[3]] <- processed_sheets[[3]] |>
-  group_by(year, type_of_waste) |>
+collected_mun.22 <- collected_mun.22 |>
+  group_by(year, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_municipal_waste_collected = sum(total_municipal_waste_collected) / 1000,
     municipal_waste_from_households = sum(municipal_waste_from_households) / 1000,
@@ -2794,9 +2847,10 @@ processed_sheets[[3]] <- processed_sheets[[3]] |>
   ) |>
   ungroup()
 
+processed_sheets[[3]] <- collected_mun.22
+
 # Sheet 4: Municipal waste collected by municipality of origin, 2021 ----
-wc_by_origin <- processed_sheets[[4]]
-wc_by_origin <- wc_by_origin |>
+wc_by_origin <- processed_sheets[[4]] |>
   select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`, -`Šifra občine 1`) |>
   rename(
     waste_by_municipality = `Komunalni odpadki po občini izvora kg`,
@@ -2805,59 +2859,60 @@ wc_by_origin <- wc_by_origin |>
     year = `Leto`
   )
 
-wc_by_origin <- rename_waste_names(wc_by_origin)
+wc_by_origin <- categorize_waste(wc_by_origin, waste_code_col = "waste_code")
 
 wc_by_origin <- wc_by_origin |>
-  group_by(year, name_of_municipality, type_of_waste) |>
+  group_by(year, name_of_municipality, waste_code, type_of_waste, waste_category) |>
   summarise(waste_by_municipality = sum(waste_by_municipality) / 1000) |>
   ungroup()
 
 # create center points ----
 # can create center points per municipalities with this
 # use the one with the most waste
-list_of_waste_by_municipality(GORENJSKA, wc_by_origin)
+# list_of_waste_by_municipality(GORENJSKA, wc_by_origin)
 
 # each municipality should have its own region assign to it via a new column
 
 # sum up the waste_by_municipality column
-municipal_waste_collected.gorenjska <- list_of_waste_by_municipality(GORENJSKA, wc_by_origin) |>
-  select(waste_by_municipality) |>
-  summarise(total_waste = sum(waste_by_municipality, na.rm = TRUE))
-
-municipal_waste_collected.gorenjska <- municipal_waste_collected.gorenjska$total_waste
+# municipal_waste_collected.gorenjska <- list_of_waste_by_municipality(GORENJSKA, wc_by_origin) |>
+#   select(waste_by_municipality) |>
+#   summarise(total_waste = sum(waste_by_municipality, na.rm = TRUE))
+# 
+# municipal_waste_collected.gorenjska <- municipal_waste_collected.gorenjska$total_waste
 # sum up per sheet
-
-find_municipality_with_most_waste(GORENJSKA, wc_by_origin)
+# 
+# find_municipality_with_most_waste(GORENJSKA, wc_by_origin)
 
 # go through all the regions (GORENJSKA, POMURKSA, etc.) and find municipality with most waste
-find_municipality_with_most_waste(GORENJSKA, wc_by_origin)
-find_municipality_with_most_waste(POMURSKA, wc_by_origin)
-find_municipality_with_most_waste(KOROŠKA, wc_by_origin)
-find_municipality_with_most_waste(OBALNOKRAŠKA, wc_by_origin)
-find_municipality_with_most_waste(SAVINJSKA, wc_by_origin)
-find_municipality_with_most_waste(JUGOVZHODNA.SLOVENIJA, wc_by_origin)
-find_municipality_with_most_waste(OSREDNJESLOVENSKA, wc_by_origin)
-find_municipality_with_most_waste(GORIŠKA, wc_by_origin)
-find_municipality_with_most_waste(PODRAVSKA, wc_by_origin)
-find_municipality_with_most_waste(POSAVSKA, wc_by_origin)
-find_municipality_with_most_waste(PRIMORSKONOTRANJSKA, wc_by_origin)
-find_municipality_with_most_waste(ZASAVSKA, wc_by_origin)
+# find_municipality_with_most_waste(GORENJSKA, wc_by_origin)
+# find_municipality_with_most_waste(POMURSKA, wc_by_origin)
+# find_municipality_with_most_waste(KOROŠKA, wc_by_origin)
+# find_municipality_with_most_waste(OBALNOKRAŠKA, wc_by_origin)
+# find_municipality_with_most_waste(SAVINJSKA, wc_by_origin)
+# find_municipality_with_most_waste(JUGOVZHODNA.SLOVENIJA, wc_by_origin)
+# find_municipality_with_most_waste(OSREDNJESLOVENSKA, wc_by_origin)
+# find_municipality_with_most_waste(GORIŠKA, wc_by_origin)
+# find_municipality_with_most_waste(PODRAVSKA, wc_by_origin)
+# find_municipality_with_most_waste(POSAVSKA, wc_by_origin)
+# find_municipality_with_most_waste(PRIMORSKONOTRANJSKA, wc_by_origin)
+# find_municipality_with_most_waste(ZASAVSKA, wc_by_origin)
 
 
 # Merge the mapping dataframe with the wc_by_origin dataframe
 wc_by_origin <- wc_by_origin |>
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
-# Check the result
-head(wc_by_origin)
-
-processed_sheets[[4]] <- wc_by_origin
+processed_sheets[[4]] <- wc_by_origin |> select(
+  year,
+  statistical_region,
+  waste_code, 
+  type_of_waste,
+  waste_by_municipality
+)
 
 # Sheet 5: Management of collected waste, 2021 ----
-processed_sheets[[5]]
-
 ## Rename the columns of the fifth sheet
-processed_sheets[[5]] <- processed_sheets[[5]] |>
+management.21 <- processed_sheets[[5]] |>
   select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`) |>
   rename(
     statistical_region = `Statistična regija`,
@@ -2869,15 +2924,15 @@ processed_sheets[[5]] <- processed_sheets[[5]] |>
     waste_sent_to_non_EU = `Odpadki oddani v nadaljnje ravnanje v države izven EU kg`
   )
 
-processed_sheets[[5]] <- rename_waste_names(processed_sheets[[5]])
+management.21 <- categorize_waste(management.21, waste_code_col = "waste_code")
 
-processed_sheets[[5]] <- processed_sheets[[5]] |>
+management.21 <- management.21 |>
   mutate(
     total_waste_given_away = waste_handed_to_collectors_RS + waste_delivered_to_operators_RS + waste_sent_to_EU + waste_sent_to_non_EU
   )
 
-processed_sheets[[5]] <- processed_sheets[[5]] |>
-  group_by(year, statistical_region, type_of_waste) |>
+management.21 <- management.21 |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_waste_given_away = sum(total_waste_given_away) / 1000,
     waste_handed_to_collectors_RS = sum(waste_handed_to_collectors_RS) / 1000,
@@ -2887,11 +2942,11 @@ processed_sheets[[5]] <- processed_sheets[[5]] |>
   ) |>
   ungroup()
 
-# Sheet 6: Household composting, 2021 ----
-processed_sheets[[6]]
+processed_sheets[[5]] <- management.21
 
+# Sheet 6: Household composting, 2021 ----
 ## Rename the columns of the sixth sheet
-processed_sheets[[6]] <- processed_sheets[[6]] |>
+composting.21 <- processed_sheets[[6]] |>
   select(-`Šifra občine 1`, -Poročilo) |>
   rename(
     year = `Leto`,
@@ -2900,15 +2955,27 @@ processed_sheets[[6]] <- processed_sheets[[6]] |>
     number_of_households_composting = `Število gospodinjstev na občino, ki hišno kompostirajo`
   )
 
-processed_sheets[[6]] <- processed_sheets[[6]] |>
+composting.21 <- composting.21 |>
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
 # household composting is based on municipalities, not regions
 # we need to filter by municipality name
 # check if the name of the municipality is stored in one of the regions
-processed_sheets[[6]] |>
+composting.21 |>
   group_by(statistical_region) |>
   summarise(n = n())
+
+composting.21 <- composting.21 |>
+  mutate(percentage_of_households_composting = round(number_of_households_composting / number_of_households * 100, 2))
+
+processed_sheets[[6]] <- composting.21 |> select(
+  year,
+  statistical_region,
+  name_of_municipality,
+  number_of_households,
+  number_of_households_composting,
+  percentage_of_households_composting
+)
 
 # export to csv ----
 # configure sheet names
@@ -3114,10 +3181,10 @@ waste_storage.21 <- waste_storage.21 |>
     scheduled_for_treatment_end_year = `Skladiščeno na 31.12.2021, predvideno za postopek (R,D)`
   )
 
-waste_storage.21 <- rename_waste_names(waste_storage.21)
+waste_storage.21 <- categorize_waste(waste_storage.21, waste_code_col = "waste_code")
 
 waste_storage.21 <- waste_storage.21 |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     waste_stored_start_year = sum(waste_stored_start_year) / 1000,
     waste_stored_end_year = sum(waste_stored_end_year) / 1000
@@ -3128,7 +3195,6 @@ waste_storage.21 <- waste_storage.21 |>
 # waste_storage.21$scheduled_for_treatment_end_year[is.na(waste_storage.21$scheduled_for_treatment_end_year)] <- "Not Specified"
 
 processed_sheets[[1]] <- waste_storage.21
-
 
 # Sheet 2: Waste received
 waste_received.21 <- processed_sheets[[2]]
@@ -3149,10 +3215,10 @@ waste_received.21 <- waste_received.21 |>
     treatment_operation = `Postopek obdelave (R, D)`
   )
 
-waste_received.21 <- rename_waste_names(waste_received.21)
+waste_received.21 <- categorize_waste(waste_received.21, waste_code_col = "waste_code")
 
 waste_received.21 <- waste_received.21 |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_waste_received = sum(total_waste_received) / 1000,
     waste_received_own_waste = sum(waste_received_own_waste) / 1000,
@@ -3179,10 +3245,10 @@ treating_waste.21 <- treating_waste.21 |>
     treatment_process = `Postopek obdelave (R, D)`
   )
 
-treating_waste.21 <- rename_waste_names(treating_waste.21)
+treating_waste.21 <- categorize_waste(treating_waste.21, waste_code_col = "waste_code")
 
 treating_waste.21 <- treating_waste.21 |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(waste_entering_treatment_process = sum(waste_entering_treatment_process) / 1000) |>
   ungroup()
 
@@ -3204,12 +3270,12 @@ management_waste.21 <- management_waste.21 |>
     waste_sent_to_non_EU = `Odpadki, oddani v nadaljnje ravnanje v države izven EU kg`
   )
 
-management_waste.21 <- rename_waste_names(management_waste.21, "input_waste_name")
-
-management_waste.21 <- rename_waste_names(management_waste.21, "output_waste_name")
+management_waste.21 <- management_waste.21 |>
+  process_waste_column(treatment_inlet_delivered_waste_code, input_waste_name) |>
+  process_waste_column(treatment_outlet_delivered_waste_code, output_waste_name)
 
 management_waste.21 <- management_waste.21 |>
-  group_by(year, statistical_region, input_waste_name, output_waste_name) |>
+  group_by(year, statistical_region, treatment_inlet_delivered_waste_code, input_waste_name, waste_category, treatment_outlet_delivered_waste_code, output_waste_name, waste_category_1) |>
   summarise(
     waste_handed_to_collectors_RS = sum(waste_handed_to_collectors_RS) / 1000,
     waste_delivered_to_operators_RS = sum(waste_delivered_to_operators_RS) / 1000,
@@ -3234,7 +3300,7 @@ management_waste.21a <- management_waste.21a |>
     shipped_to_non_EU = `Oddano v države izven EU kg`
   )
 
-management_waste.21a <- rename_waste_names(management_waste.21a, "input_waste_name")
+management_waste.21a <- management_waste.21a |> process_waste_column(input_waste_code, input_waste_name)
 
 management_waste.21a$output_waste_name <- case_when(
   management_waste.21a$output_waste_name == "kompost" ~ "compost",
@@ -3246,7 +3312,7 @@ management_waste.21a$output_waste_name <- case_when(
 )
 
 management_waste.21a <- management_waste.21a |>
-  group_by(year, input_waste_name, output_waste_name) |>
+  group_by(year, input_waste_code, input_waste_name, waste_category, output_waste_name) |>
   summarise(
     delivered_to_storage_or_other_persons_RS = sum(delivered_to_storage_or_other_persons_RS) / 1000,
     shipped_to_EU = sum(shipped_to_EU) / 1000,
@@ -3269,13 +3335,13 @@ waste_treatment.21 <- waste_treatment.21 |>
     name_of_municipality = `Naziv občine`
   )
 
-waste_treatment.21 <- rename_waste_names(waste_treatment.21)
+waste_treatment.21 <- categorize_waste(waste_treatment.21, waste_code_col = "waste_code")
 
 waste_treatment.21 <- waste_treatment.21 |>
   left_join(municipality_region_mapping, by = "name_of_municipality")
 
 waste_treatment.21 <- waste_treatment.21 |>
-  group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
+  group_by(year, statistical_region, name_of_municipality, waste_code, type_of_waste, waste_category) |>
   summarise(waste_collected_by_municipality = sum(waste_collected_by_municipality) / 1000) |>
   ungroup()
 
@@ -3292,10 +3358,11 @@ mass_difference.21 <- mass_difference.21 |>
     mass_change = `Zmanjšanje ali povečanje mase med postopkom obdelave (kg)`
   )
 
-mass_difference.21 <- rename_waste_names(mass_difference.21, "input_waste_name")
+mass_difference.21 <- mass_difference.21 |> 
+  process_waste_column(input_waste_code, input_waste_name)
 
 mass_difference.21 <- mass_difference.21 |>
-  group_by(year, input_waste_name) |>
+  group_by(year, input_waste_code, input_waste_name, waste_category) |>
   summarise(mass_change = sum(mass_change) / 1000) |>
   ungroup()
 
@@ -3362,10 +3429,10 @@ landfill_waste.21 <- landfill_waste.21 |>
     disposed_waste_for_covering = `Ravnanje z odpadki na odlagališču Odpadki za prekrivanje odlagališča kg`
   )
 
-landfill_waste.21 <- rename_waste_names(landfill_waste.21)
+landfill_waste.21 <- categorize_waste(landfill_waste.21, waste_code_col = "waste_code")
 
 landfill_waste.21 <- landfill_waste.21 |>
-  group_by(year, type_of_waste) |>
+  group_by(year, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_waste_received = sum(total_waste_received) / 1000,
     waste_without_assessment = sum(waste_without_assessment) / 1000,
@@ -3386,7 +3453,6 @@ processed_sheets[[9]] <- landfill_waste.21
 
 # Sheet 9: Municipal waste disposed by municipality of origin - EXCLUDED
 municipal_waste_disposed.21 <- processed_sheets[[10]]
-
 
 sheet_names <- c(
   "Waste storage",
@@ -3457,11 +3523,11 @@ generation.20 <- generation.20 |>
     waste_sent_to_non_EU = `Odpadki poslani v obdelavo v države izven EU kg`
   )
 
-generation.20 <- rename_waste_names(generation.20)
+generation.20 <- categorize_waste(generation.20, waste_code_col = "waste_code")
 
 # change to tons
 generation.20 <- generation.20 |>
-  group_by(year, statistical_region, type_of_waste) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_waste_generated = sum(total_waste_generated) / 1000,
     temporary_stored_start_year = sum(temporary_stored_start_year) / 1000,
@@ -3509,160 +3575,204 @@ for (sheet_name in sheet_names) {
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 # Table 1: Preliminary storage of waste in 2020
-waste_storage.20 <- processed_sheets[[1]]
-
-waste_storage.20 <- waste_storage.20 |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    statistical_region = `Statistična regija`,
-    waste_code = `waste_code`,
-    type_of_waste = `Naziv odpadka`,
-    waste_stored_start_year = `Predhodno skladiščeni odpadki na dan 1.1.2020 kg`,
-    waste_stored_end_year = `Predhodno skladiščeni odpadki na dan 31.12.2020 kg`
-  )
-
-waste_storage.20 <- rename_waste_names(waste_storage.20)
-
-waste_storage.20 <- waste_storage.20 |>
-    waste_stored_start_year = waste_stored_start_year / 1000,
-    waste_stored_end_year = waste_stored_end_year / 1000
+waste_storage.20 <- processed_sheets[[1]] |>
+  # 1) select & rename only what you need
+  select(
+    year                   = Leto,
+    statistical_region     = `Statistična regija`,
+    waste_code,
+    type_of_waste          = `Naziv odpadka`,
+    waste_stored_start_year= `Predhodno skladiščeni odpadki na dan 1.1.2020 kg`,
+    waste_stored_end_year  = `Predhodno skladiščeni odpadki na dan 31.12.2020 kg`
+  ) |>
+  # 2) categorize
+  process_waste_column(waste_code, type_of_waste) |>
+  # 3) convert both kg‐columns to tonnes
+  mutate(
+    across(
+      c(waste_stored_start_year, waste_stored_end_year),
+      ~ .x / 1000
+    )
   )
 
 processed_sheets[[1]] <- waste_storage.20
 
+
 # Table 2: Collected waste in 2020
-collected_waste.20 <- processed_sheets[[2]]
-
-collected_waste.20 <- collected_waste.20 |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    statistical_region = `Statistična regija`,
-    waste_code = `waste_code`,
-    type_of_waste = `Naziv odpadka`,
-    waste_received_from_producers_no_list = `Zbrani odpadki, prevzeti od izvirnih povzročiteljev brez evidenčnega lista (prepuščeni) kg`,
-    waste_received_from_producers_with_list = `Zbrani odpadki, prevzeti od izvirnih povzročiteljev z evidenčnim listom (oddani) kg`,
-    waste_received_from_collectors_RS = `Zbrani odpadki prevzeti od drugih imetnikov od zbiralcev v RS kg`,
-    waste_received_from_processors_RS = `Zbrani odpadki prevzeti od drugih imetnikov od izvajalcev obdelave v RS kg`
-  )
-
-collected_waste.20 <- rename_waste_names(collected_waste.20)
-
-collected_waste.20 <- collected_waste.20 |>
-  mutate(total_waste_collected = waste_received_from_producers_no_list + waste_received_from_producers_with_list + waste_received_from_collectors_RS + waste_received_from_processors_RS)
-
-collected_waste.20 <- collected_waste.20 |>
+collected_waste.20 <- processed_sheets[[2]] |>
+  # 1) pick & rename
+  select(
+    year                             = Leto,
+    statistical_region               = `Statistična regija`,
+    waste_code,
+    type_of_waste                    = `Naziv odpadka`,
+    waste_received_from_producers_no_list    = `Zbrani odpadki, prevzeti od izvirnih povzročiteljev brez evidenčnega lista (prepuščeni) kg`,
+    waste_received_from_producers_with_list  = `Zbrani odpadki, prevzeti od izvirnih povzročiteljev z evidenčnim listom (oddani) kg`,
+    waste_received_from_collectors_RS         = `Zbrani odpadki prevzeti od drugih imetnikov od zbiralcev v RS kg`,
+    waste_received_from_processors_RS         = `Zbrani odpadki prevzeti od drugih imetnikov od izvajalcev obdelave v RS kg`
+  ) |>
+  # 2) categorize
+  process_waste_column(waste_code, type_of_waste) |>
+  # 3+4) convert to tonnes & compute total
   mutate(
-    total_waste_collected = total_waste_collected / 1000,
-    waste_received_from_producers_no_list = waste_received_from_producers_no_list / 1000,
-    waste_received_from_producers_with_list = waste_received_from_producers_with_list / 1000,
-    waste_received_from_collectors_RS = waste_received_from_collectors_RS / 1000,
-    waste_received_from_processors_RS = waste_received_from_processors_RS / 1000
+    across(
+      c(
+        waste_received_from_producers_no_list,
+        waste_received_from_producers_with_list,
+        waste_received_from_collectors_RS,
+        waste_received_from_processors_RS
+      ),
+      ~ .x / 1000
+    ),
+    total_waste_collected = rowSums(
+      across(
+        c(
+          waste_received_from_producers_no_list,
+          waste_received_from_producers_with_list,
+          waste_received_from_collectors_RS,
+          waste_received_from_processors_RS
+        )
+      ),
+      na.rm = TRUE
+    )
   )
 
-processed_sheets[[2]] <- collected_waste.20 |> select(year, statistical_region, type_of_waste, total_waste_collected, waste_received_from_producers_no_list, waste_received_from_producers_with_list, waste_received_from_collectors_RS, waste_received_from_processors_RS)
+processed_sheets[[2]] <- collected_waste.20
+
 
 # Table 3: Collected municipal waste in 2020 by source of origin
-municipal_waste.20 <- processed_sheets[[3]]
-
-municipal_waste.20 <- municipal_waste.20 |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    waste_code = `waste_code`,
-    type_of_waste = `Naziv odpadka`,
-    total_municipal_waste_collected = `Zbrani komunalni odpadki skupaj kg`,
+municipal_waste.20 <- processed_sheets[[3]] |>
+  # 1) pick & rename exactly the columns you need
+  select(
+    year                                   = Leto,
+    waste_code,
+    type_of_waste                          = `Naziv odpadka`,
+    total_municipal_waste_collected        = `Zbrani komunalni odpadki skupaj kg`,
     municipal_waste_collected_from_households = `Zbrani komunalni odpadki glede na vir nastanka iz gospodinjstev kg`,
     municipal_waste_collected_from_activities = `Zbrani komunalni odpadki glede na vir nastanka iz dejavnosti kg`
-  )
-
-municipal_waste.20 <- rename_waste_names(municipal_waste.20)
-
-municipal_waste.20 <- municipal_waste.20 |>
+  ) |>
+  # 2) process code + type into categories
+  process_waste_column(waste_code, type_of_waste) |>
+  # 3) convert all kg-columns to tonnes in one go
   mutate(
-    total_municipal_waste_collected = total_municipal_waste_collected / 1000,
-    municipal_waste_collected_from_households = municipal_waste_collected_from_households / 1000,
-    municipal_waste_collected_from_activities = municipal_waste_collected_from_activities / 1000
+    across(
+      c(total_municipal_waste_collected,
+        municipal_waste_collected_from_households,
+        municipal_waste_collected_from_activities),
+      ~ .x / 1000
+    )
   )
 
 processed_sheets[[3]] <- municipal_waste.20
 
+
 # Table 4: Collected municipal waste in 2020 by municipality of origin
-municipal_waste_origin.20 <- processed_sheets[[4]]
-
-municipal_waste_origin.20 <- municipal_waste_origin.20 |>
-  select(-Poročilo, -`Šifra občine 1`) |>
-  rename(
-    year = `Leto`,
-    waste_code = `waste_code`,
-    type_of_waste = `Naziv odpadka`,
-    municipal_waste_collected_by_municipality = `Komunalni odpadki po občini izvora kg`,
-    name_of_municipality = `Naziv občine`
-  )
-
-municipal_waste_origin.20 <- rename_waste_names(municipal_waste_origin.20)
-
-municipal_waste_origin.20 <- municipal_waste_origin.20 |>
-  left_join(municipality_region_mapping, by = "name_of_municipality")
-
-municipal_waste_origin.20 <- municipal_waste_origin.20 |>
+municipal_waste_origin.20 <- processed_sheets[[4]] |>
+  # 1) Select & rename
+  select(
+    year                                 = Leto,
+    waste_code,
+    type_of_waste                        = `Naziv odpadka`,
+    name_of_municipality                 = `Naziv občine`,
+    municipal_waste_collected_by_municipality = `Komunalni odpadki po občini izvora kg`
+  ) |>
+  # 2) Clean up waste_code/type and categorize
+  process_waste_column(waste_code, type_of_waste) |>
+  # 3) Add the statistical_region
+  left_join(municipality_region_mapping, by = "name_of_municipality") |>
+  # 4) Convert from kg to tonnes
   mutate(
     municipal_waste_collected_by_municipality = municipal_waste_collected_by_municipality / 1000
+  ) |>
+  # 5) Keep only the final columns in the desired order
+  select(
+    year,
+    statistical_region,
+    name_of_municipality,
+    waste_code,
+    type_of_waste,
+    waste_category,
+    municipal_waste_collected_by_municipality
   )
 
 processed_sheets[[4]] <- municipal_waste_origin.20
 
 # Table 5: Management of collected waste in 2020
-management_collected_waste.20 <- processed_sheets[[5]]
-
-management_collected_waste.20 <- management_collected_waste.20 |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    statistical_region = `Statistična regija`,
-    waste_code = `waste_code`,
-    type_of_waste = `Naziv odpadka`,
-    waste_handed_to_collectors_RS = `Odpadki oddani v nadaljnje ravnanje zbiralcem v RS kg`,
+management_collected_waste.20 <- processed_sheets[[5]] |>
+  select(
+    year                            = Leto,
+    waste_code,
+    statistical_region              = `Statistična regija`,
+    type_of_waste                   = `Naziv odpadka`,
+    waste_handed_to_collectors_RS   = `Odpadki oddani v nadaljnje ravnanje zbiralcem v RS kg`,
     waste_delivered_to_operators_RS = `Odpadki oddani v nadaljnje ravnanje izvajalcem obdelave v RS kg`,
-    waste_sent_to_EU = `Odpadki oddani v nadaljnje ravnanje v druge države članice EU kg`,
-    waste_sent_to_non_EU = `Odpadki oddani v nadaljnje ravnanje v države izven EU kg`
-  )
-
-management_collected_waste.20 <- rename_waste_names(management_collected_waste.20)
-
-management_collected_waste.20 <- management_collected_waste.20 |>
+    waste_sent_to_EU                = `Odpadki oddani v nadaljnje ravnanje v druge države članice EU kg`,
+    waste_sent_to_non_EU            = `Odpadki oddani v nadaljnje ravnanje v države izven EU kg`
+    # waste_code stays the same
+  ) |>
+  process_waste_column(waste_code, type_of_waste) |>
+  # 1) divide all four “kg”‐columns by 1,000
+  # 2) compute the total as the row‐sum of those
   mutate(
-    total_waste_given_away = waste_handed_to_collectors_RS + waste_delivered_to_operators_RS + waste_sent_to_EU + waste_sent_to_non_EU
+    across(
+      c(waste_handed_to_collectors_RS,
+        waste_delivered_to_operators_RS,
+        waste_sent_to_EU,
+        waste_sent_to_non_EU),
+      ~ .x / 1000
+    ),
+    total_waste_given_away = rowSums(
+      across(
+        c(waste_handed_to_collectors_RS,
+          waste_delivered_to_operators_RS,
+          waste_sent_to_EU,
+          waste_sent_to_non_EU)
+      ),
+      na.rm = TRUE
+    )
+  ) |>
+  # finally, keep only the columns you care about
+  select(
+    year, statistical_region, waste_code,
+    type_of_waste, waste_category,
+    total_waste_given_away,
+    waste_handed_to_collectors_RS,
+    waste_delivered_to_operators_RS,
+    waste_sent_to_EU,
+    waste_sent_to_non_EU
   )
 
-management_collected_waste.20 <- management_collected_waste.20 |>
-  mutate(
-    total_waste_given_away = total_waste_given_away / 1000,
-    waste_handed_to_collectors_RS = waste_handed_to_collectors_RS / 1000,
-    waste_delivered_to_operators_RS = waste_delivered_to_operators_RS / 1000,
-    waste_sent_to_EU = waste_sent_to_EU / 1000,
-    waste_sent_to_non_EU = waste_sent_to_non_EU / 1000
-  )
+processed_sheets[[5]] <- management_collected_waste.20
 
-processed_sheets[[5]] <- management_collected_waste.20 |> select(year, statistical_region, type_of_waste, total_waste_given_away, waste_handed_to_collectors_RS, waste_delivered_to_operators_RS, waste_sent_to_EU, waste_sent_to_non_EU)
 
 # Table 6: Home composting in 2020
-home_composting.20 <- processed_sheets[[6]]
-
-home_composting.20 <- home_composting.20 |>
-  select(-`Poročilo ODP-zbiranje`, -`Šifra občine 1 1`) |>
-  rename(
-    year = `Leto 2020`,
-    name_of_municipality = `Naziv občine AJDOVŠČINA`,
-    total_households = `Število gospodinjstev na občino 2 7035`,
-    households_composting = `Število gospodinjstev na občino, ki hišno kompostirajo 1740`
+home_composting.20 <- processed_sheets[[6]] |>
+  # 1) Pick & rename only the columns you care about
+  select(
+    year                           = `Leto 2020`,
+    name_of_municipality           = `Naziv občine AJDOVŠČINA`,
+    number_of_households           = `Število gospodinjstev na občino 2 7035`,
+    number_of_households_composting = `Število gospodinjstev na občino, ki hišno kompostirajo 1740`
+  ) |>
+  # 2) Attach the region
+  left_join(municipality_region_mapping, by = "name_of_municipality") |>
+  # 3) Compute the % composting
+  mutate(
+    percentage_of_households_composting =
+      round(number_of_households_composting / number_of_households * 100, 2)
+  ) |>
+  # 4) Order columns as desired
+  select(
+    year,
+    statistical_region,
+    name_of_municipality,
+    number_of_households,
+    number_of_households_composting,
+    percentage_of_households_composting
   )
 
-home_composting.20 <- home_composting.20 |>
-  left_join(municipality_region_mapping, by = "name_of_municipality")
-
 processed_sheets[[6]] <- home_composting.20
+
 
 sheet_names <- c(
   "Waste storage",
@@ -3694,293 +3804,317 @@ sheet_names <- excel_sheets(treatment_20.path)
 processed_sheets <- list()
 
 # Define the sheets where n_max should be 3 (replace with actual sheet indices)
-sheets_with_n_max_3 <- c(2, 4, 5, 9)
+sheets_with_n_max_3 <- c(2, 4, 5, 7, 10)
+
+sheets_with_n_max_4 <- 9
 
 # Loop through each sheet
 for (sheet_name in sheet_names) {
   sheet_index <- match(sheet_name, sheet_names)
-  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
-  processed_sheet <- process_sheet(treatment_20.path, sheet_index, n_max)
-  processed_sheets[[sheet_name]] <- processed_sheet
+
+  n_max <- case_when(
+    sheet_index %in% sheets_with_n_max_3 ~ 3,
+    sheet_index %in% sheets_with_n_max_4 ~ 4,
+    TRUE                                 ~ 2
+  )
+
+  processed_sheets[[sheet_name]] <- 
+    process_sheet(treatment_20.path, sheet_index, n_max)
 }
 
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 # Table 1: Waste storage in 2020
-waste_storage.20 <- processed_sheets[[1]]
-
-waste_storage.20 <- waste_storage.20 |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    statistical_region = `Statistična regija`,
-    type_of_waste = `Naziv odpadka`,
+waste_storage.20 <- processed_sheets[[1]] |>
+  # 1) pick & rename
+  select(
+    year                    = Leto,
+    statistical_region      = `Statistična regija`,
+    waste_code,
+    type_of_waste           = `Naziv odpadka`,
     waste_stored_start_year = `Skladiščeni odpadki na dan 1.1.2020 kg`,
-    waste_stored_end_year = `Skladiščeni odpadki na dan 31.12.2020 kg`
-  )
-
-waste_storage.20 <- rename_waste_names(waste_storage.20)
-
-waste_storage.20 <- waste_storage.20 |>
-  group_by(year, statistical_region, type_of_waste) |>
-  summarize(
-    waste_stored_start_year = sum(waste_stored_start_year) / 1000,
-    waste_stored_end_year = sum(waste_stored_end_year) / 1000
+    waste_stored_end_year   = `Skladiščeni odpadki na dan 31.12.2020 kg`
   ) |>
+  # 2) categorize based on your code/type
+  process_waste_column(waste_code, type_of_waste) |>
+  # 3+4) group & summarise both columns at once
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
+  summarise(
+    across(
+      c(waste_stored_start_year, waste_stored_end_year),
+      ~ sum(.x, na.rm = TRUE) / 1000
+    )
+  ) |>
+  # 5) drop grouping
   ungroup()
 
 processed_sheets[[1]] <- waste_storage.20
 
+
 # Table 2: Waste received in 2020
-waste_received.20 <- processed_sheets[[2]]
-
-waste_received.20 <- waste_received.20 |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    statistical_region = `Statistična regija`,
-    type_of_waste = `Naziv odpadka`,
-    waste_received_own_waste = `Prevzeti odpadki lastni odpadki kg`,
+waste_received.20 <- processed_sheets[[2]] |>
+  # 1) pick & rename only the cols you need
+  select(
+    year                             = Leto,
+    waste_code,
+    statistical_region               = `Statistična regija`,
+    type_of_waste                    = `Naziv odpadka`,
+    waste_received_own_waste         = `Prevzeti odpadki lastni odpadki kg`,
     waste_received_from_producers_RS = `Prevzeti odpadki od drugih izvirnih povzročiteljev v RS kg`,
-    waste_received_from_collectors_RS = `Prevzeti odpadki od zbiralcev odpadkov v RS kg`,
-    waste_received_from_processors_RS = `Prevzeti odpadki od izvajalcev obdelave v RS kg`,
-    waste_received_from_EU = `Prevzeti odpadki iz drugih držav članic EU kg`,
-    waste_received_from_non_EU = `Prevzeti odpadki iz držav izven EU kg`,
-    total_waste_received = `Prevzeti odpadki SKUPAJ kg`,
-    treatment_operation = `Postopek obdelave (R, D)`
-  )
-
-waste_received.20 <- rename_waste_names(waste_received.20)
-
-waste_received.20 <- waste_received.20 |>
-  group_by(year, statistical_region, type_of_waste) |>
-  summarize(
-    total_waste_received = sum(total_waste_received) / 1000,
-    waste_received_own_waste = sum(waste_received_own_waste) / 1000,
-    waste_received_from_producers_RS = sum(waste_received_from_producers_RS) / 1000,
-    waste_received_from_collectors_RS = sum(waste_received_from_collectors_RS) / 1000,
-    waste_received_from_processors_RS = sum(waste_received_from_processors_RS) / 1000,
-    waste_received_from_EU = sum(waste_received_from_EU) / 1000,
-    waste_received_from_non_EU = sum(waste_received_from_non_EU) / 1000
+    waste_received_from_collectors_RS= `Prevzeti odpadki od zbiralcev odpadkov v RS kg`,
+    waste_received_from_processors_RS= `Prevzeti odpadki od izvajalcev obdelave v RS kg`,
+    waste_received_from_EU           = `Prevzeti odpadki iz drugih držav članic EU kg`,
+    waste_received_from_non_EU       = `Prevzeti odpadki iz držav izven EU kg`,
+    total_waste_received             = `Prevzeti odpadki SKUPAJ kg`,
+    treatment_operation              = `Postopek obdelave (R, D)`
   ) |>
-  ungroup()
+  # 2) categorize code & type
+  process_waste_column(waste_code, type_of_waste) |>
+  # 3) group & summarise all kg‐columns (summing then converting to tonnes)
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
+  summarise(
+    across(
+      c(
+        total_waste_received,
+        waste_received_own_waste,
+        waste_received_from_producers_RS,
+        waste_received_from_collectors_RS,
+        waste_received_from_processors_RS,
+        waste_received_from_EU,
+        waste_received_from_non_EU
+      ),
+      ~ sum(.x, na.rm = TRUE) / 1000
+    ),
+    .groups = "drop"
+  )
 
 processed_sheets[[2]] <- waste_received.20
 
 # Table 3: Treatment of waste received in 2020
-treating_waste.20 <- processed_sheets[[3]]
-
-treating_waste.20 <- treating_waste.20 |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    statistical_region = `Statistična regija`,
-    type_of_waste = `Naziv odpadka`,
+treating_waste.20 <- processed_sheets[[3]] |>
+  # 1) pick & rename
+  select(
+    year                             = Leto,
+    waste_code,
+    statistical_region               = `Statistična regija`,
+    type_of_waste                    = `Naziv odpadka`,
     waste_entering_treatment_process = `Odpadki, ki vstopajo v postopek obdelave (kg)`,
-    treatment_process = `Postopek obdelave (R, D)`
-  )
-
-treating_waste.20 <- rename_waste_names(treating_waste.20)
-
-treating_waste.20 <- treating_waste.20 |>
-  group_by(year, statistical_region, type_of_waste) |>
-  summarize(
-    waste_entering_treatment_process = sum(waste_entering_treatment_process) / 1000
+    treatment_process                = `Postopek obdelave (R, D)`
   ) |>
-  ungroup()
+  # 2) derive waste_category, etc.
+  process_waste_column(waste_code, type_of_waste) |>
+  # 3+4) group & summarise that one column into tonnes
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
+  summarise(
+    across(
+      waste_entering_treatment_process,
+      ~ sum(.x, na.rm = TRUE) / 1000
+    ),
+    .groups = "drop"
+  )
 
 processed_sheets[[3]] <- treating_waste.20
 
+
 # Table 4: Waste at the exit of the treatment process and untreated waste delivered for further management in 2020
-management_waste.20 <- processed_sheets[[4]]
-
-management_waste.20 <- management_waste.20 |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    statistical_region = `Statistična regija`,
-    input_waste_name = `Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki naziv`,
-    output_waste_name = `Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki naziv`,
-    waste_handed_to_collectors_RS = `Odpadki, oddani v nadaljnje ravnanje zbiralcu odpadkov v SI kg`,
-    waste_delivered_to_operators_RS = `Odpadki, oddani v nadaljnje ravnanje izvajalcu obdelave v SI kg`,
-    waste_sent_to_EU = `Odpadki, oddani v nadaljnje ravnanje v druge države članice EU kg`,
-    waste_sent_to_non_EU = `Odpadki, oddani v nadaljnje ravnanje v države izven EU kg`
-  )
-
-management_waste.20 <- rename_waste_names(management_waste.20, "input_waste_name")
-
-management_waste.20 <- rename_waste_names(management_waste.20, "output_waste_name")
-
-management_waste.20 <- management_waste.20 |>
-  group_by(year, statistical_region) |>
-  summarize(
-    waste_handed_to_collectors_RS = sum(waste_handed_to_collectors_RS) / 1000,
-    waste_delivered_to_operators_RS = sum(waste_delivered_to_operators_RS) / 1000,
-    waste_sent_to_EU = sum(waste_sent_to_EU) / 1000,
-    waste_sent_to_non_EU = sum(waste_sent_to_non_EU) / 1000
+management_waste.20 <- processed_sheets[[4]] |>
+  # 1) pick & rename exactly what you need
+  select(
+    year                              = Leto,
+    statistical_region                = `Statistična regija`,
+    treatment_inlet_delivered_waste_code  = treatment_inlet_delivered_waste_code,
+    input_waste_name                  = `Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki naziv`,
+    treatment_outlet_delivered_waste_code = treatment_outlet_delivered_waste_code,
+    output_waste_name                 = `Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki naziv`,
+    waste_handed_to_collectors_RS     = `Odpadki, oddani v nadaljnje ravnanje zbiralcu odpadkov v SI kg`,
+    waste_delivered_to_operators_RS   = `Odpadki, oddani v nadaljnje ravnanje izvajalcu obdelave v SI kg`,
+    waste_sent_to_EU                  = `Odpadki, oddani v nadaljnje ravnanje v druge države članice EU kg`,
+    waste_sent_to_non_EU              = `Odpadki, oddani v nadaljnje ravnanje v države izven EU kg`
   ) |>
-  ungroup()
+  # 2) categorize inlet & outlet
+  process_waste_column(treatment_inlet_delivered_waste_code, input_waste_name) |>
+  process_waste_column(treatment_outlet_delivered_waste_code, output_waste_name) |>
+  # 3+4) aggregate all four kg‐columns (sum & convert to tonnes)
+  group_by(year, statistical_region, treatment_inlet_delivered_waste_code, input_waste_name, waste_category, treatment_outlet_delivered_waste_code, output_waste_name, waste_category_1) |>
+  summarise(
+    across(
+      c(
+        waste_handed_to_collectors_RS,
+        waste_delivered_to_operators_RS,
+        waste_sent_to_EU,
+        waste_sent_to_non_EU
+      ),
+      ~ sum(.x, na.rm = TRUE) / 1000
+    ),
+    .groups = "drop"
+  ) 
 
 processed_sheets[[4]] <- management_waste.20
 
+
 # Table 4a: Recovered substances or objects that lost their waste status and were delivered for further use in 2020
-management_waste.20a <- processed_sheets[[5]]
-
-management_waste.20a <- management_waste.20a |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    input_waste_name = `Odpadki na vhodu v obdelavo naziv`,
-    output_waste_name = `Predelana snov ali predmet, ki je izgubil status odpadka, na izhodu iz postopka obdelave`,
+management_waste.20a <- processed_sheets[[5]] |>
+  # 1) select & rename
+  select(
+    year                                   = Leto,
+    input_waste_code,
+    input_waste_name                       = `Odpadki na vhodu v obdelavo naziv`,
+    output_waste_name                      = `Predelana snov ali predmet, ki je izgubil status odpadka, na izhodu iz postopka obdelave`,
     delivered_to_storage_or_other_persons_RS = `Oddano v skladišče ali drugim osebam v RS kg`,
-    shipped_to_EU = `Oddano v druge države članice EU kg`,
-    shipped_to_non_EU = `Oddano v države izven EU kg`
-  )
-
-management_waste.20a <- rename_waste_names(management_waste.20a, "input_waste_name")
-
-management_waste.20a$output_waste_name <- case_when(
-  management_waste.20a$output_waste_name == "les" ~ "wood",
-  management_waste.20a$output_waste_name == "drugo" ~ "other"
-)
-
-management_waste.20a <- management_waste.20a |>
-  group_by(year, input_waste_name, output_waste_name) |>
-  summarize(
-    delivered_to_storage_or_other_persons_RS = sum(delivered_to_storage_or_other_persons_RS) / 1000,
-    shipped_to_EU = sum(shipped_to_EU) / 1000,
-    shipped_to_non_EU = sum(shipped_to_non_EU) / 1000
+    shipped_to_EU                          = `Oddano v druge države članice EU kg`,
+    shipped_to_non_EU                      = `Oddano v države izven EU kg`
   ) |>
-  ungroup()
+  # 2) categorize input code/name
+  process_waste_column(input_waste_code, input_waste_name) |>
+  # 3) recode the output names
+  mutate(
+    output_waste_name = case_when(
+      output_waste_name == "les"                 ~ "wood",
+      output_waste_name == "drugo"               ~ "other",
+      output_waste_name == "gradbeni proizvodi"  ~ "construction product",
+      output_waste_name == "tekstil in usnje"    ~ "textile and leather",
+      TRUE                                        ~ output_waste_name
+    )
+  ) |>
+  # 4) aggregate & convert to tonnes
+  group_by(year, input_waste_code, input_waste_name, waste_category, output_waste_name) |>
+  summarise(
+    across(
+      c(delivered_to_storage_or_other_persons_RS, shipped_to_EU, shipped_to_non_EU),
+      ~ sum(.x, na.rm = TRUE) / 1000
+    ),
+    .groups = "drop"
+  )
 
 processed_sheets[[5]] <- management_waste.20a
 
 # Table 5: Municipal waste received for treatment, separated by municipality of origin in 2020
-waste_treatment.20 <- processed_sheets[[6]]
-
-waste_treatment.20 <- waste_treatment.20 |>
-  select(-Poročilo, -`Šifra občine 1`) |>
-  rename(
-    year = `Leto`,
-    waste_code = `waste_code`,
-    type_of_waste = `Naziv odpadka`,
-    waste_collected_by_municipality = `Prevzeti odpadki glede na občino izvora (kg)`,
-    name_of_municipality = `Naziv občine`
-  )
-
-waste_treatment.20 <- rename_waste_names(waste_treatment.20)
-
-waste_treatment.20 <- waste_treatment.20 |>
-  left_join(municipality_region_mapping, by = "name_of_municipality")
-
-waste_treatment.20 <- waste_treatment.20 |>
-  group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
-  summarize(
-    waste_collected_by_municipality = sum(waste_collected_by_municipality) / 1000
+waste_treatment.20 <- processed_sheets[[6]] |>
+  # 1) pick & rename only the cols you need
+  select(
+    year                                 = Leto,
+    waste_code,
+    type_of_waste                        = `Naziv odpadka`,
+    waste_collected_by_municipality     = `Prevzeti odpadki glede na občino izvora (kg)`,
+    name_of_municipality                 = `Naziv občine`
   ) |>
-  ungroup()
+  # 2) derive waste_category, etc.
+  process_waste_column(waste_code, type_of_waste) |>
+  # 3) attach region
+  left_join(municipality_region_mapping, by = "name_of_municipality") |>
+  # 4) sum & convert to tonnes in one go
+  group_by(year, statistical_region, name_of_municipality, waste_code, type_of_waste, waste_category) |>
+  summarise(
+    waste_collected_by_municipality = sum(waste_collected_by_municipality, na.rm = TRUE) / 1000,
+    .groups = "drop"
+  )
 
 processed_sheets[[6]] <- waste_treatment.20
 
 # Table 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
-mass_difference.20 <- processed_sheets[[7]]
-
-mass_difference.20 <- mass_difference.20 |>
-  select(-Poročilo) |>
-  rename(
+mass_difference.20 <- processed_sheets[[7]] |>
+  select(
     year = `Leto`,
-    input_waste_name = `NA naziv`,
-    mass_change = `Zmanjšanje ali povečanje mase med postopkom obdelave`
-  )
-
-mass_difference.20 <- rename_waste_names(mass_difference.20, "input_waste_name")
-
-mass_difference.20 <- mass_difference.20 |>
-  group_by(year, input_waste_name) |>
+    input_waste_code,
+    input_waste_name = `Odpadek na vhodu v postopek obdelave naziv`,
+    mass_change = `Zmanjšanje ali povečanje mase med postopkom obdelave (kg)`
+  ) |> 
+  process_waste_column(input_waste_code, input_waste_name) |> 
+  group_by(year, input_waste_code, input_waste_name, waste_category) |>
   summarize(
-    mass_change = sum(as.numeric(mass_change)) / 1000
+    mass_change = sum(as.numeric(mass_change), na.rm = TRUE) / 1000,
+    .groups = "drop"
   ) |>
   ungroup()
 
 processed_sheets[[7]] <- mass_difference.20
 
 # Table 7: Capacity and status of landfills (for inert, hazardous, and non-hazardous waste, including municipal waste) in 2021
-landfill_capacity.20 <- processed_sheets[[8]]
-
-landfill_capacity.20 <- landfill_capacity.20 |>
+landfill_capacity.20 <- processed_sheets[[8]] |>
+  # 1) drop the report column & rename
   select(-Poročilo) |>
   rename(
-    year = `Leto`,
-    landfill_site = `Odlagališče`,
-    volume_filled_start_year = `Zapolnjen volumen na odlagalnem polju na začetku leta m3`,
-    area_filled_start_year = `Zapolnjena površina na odlagalnem polju na začetku leta m2`,
-    volume_free_end_year = `Volumen proste kapacitete odlagalnega polja na koncu leta m3`,
-    area_free_end_year = `Površina proste kapacitete odlagalnega polja na koncu leta m2`,
-    total_disposal_capacity = `Celotna zmogljivost odlaganja t`,
+    year                        = Leto,
+    landfill_site               = Odlagališče,
+    volume_filled_start_year    = `Zapolnjen volumen na odlagalnem polju na začetku leta m3`,
+    area_filled_start_year      = `Zapolnjena površina na odlagalnem polju na začetku leta m2`,
+    volume_free_end_year        = `Volumen proste kapacitete odlagalnega polja na koncu leta m3`,
+    area_free_end_year          = `Površina proste kapacitete odlagalnega polja na koncu leta m2`,
+    total_disposal_capacity     = `Celotna zmogljivost odlaganja t`,
     remaining_capacity_start_year = `Preostala zmogljivost na dan 1.1. t`,
     remaining_capacity_end_year = `Preostala zmogljivost na dan 31.12. t`,
-    start_date_disposal = `Datum začetka odlaganja`,
-    end_date_disposal = `Datum konca odlaganja`
+    start_date_disposal         = `Datum začetka odlaganja`,
+    end_date_disposal           = `Datum konca odlaganja`
+  ) |>
+  # 2) recode landfill names in one mutate()
+  mutate(
+    landfill_site = case_when(
+      landfill_site == "Odlagališče 1"  ~ "Landfill 1",
+      landfill_site == "Odlagališče 2"  ~ "Landfill 2",
+      landfill_site == "Odlagališče 3"  ~ "Landfill 3",
+      landfill_site == "Odlagališče 4a" ~ "Landfill 4a",
+      landfill_site == "Odlagališče 4b" ~ "Landfill 4b",
+      landfill_site == "Odlagališče 5a" ~ "Landfill 5a",
+      landfill_site == "Odlagališče 5b" ~ "Landfill 5b",
+      landfill_site == "Odlagališče 6"  ~ "Landfill 6",
+      landfill_site == "Odlagališče 7"  ~ "Landfill 7",
+      landfill_site == "Odlagališče 8"  ~ "Landfill 8",
+      landfill_site == "Odlagališče 9"  ~ "Landfill 9",
+      landfill_site == "Odlagališče 10" ~ "Landfill 10",
+      landfill_site == "Odlagališče 11" ~ "Landfill 11",
+      landfill_site == "Odlagališče 12" ~ "Landfill 12",
+      landfill_site == "Odlagališče 13" ~ "Landfill 13",
+      landfill_site == "Odlagališče 14" ~ "Landfill 14",
+      landfill_site == "Odlagališče 15" ~ "Landfill 15",
+      landfill_site == "Odlagališče 16" ~ "Landfill 16",
+      TRUE                               ~ landfill_site
+    )
   )
-
-landfill_capacity.20 <- landfill_capacity.20 |>
-  mutate(landfill_site = case_when(
-    landfill_site == "Odlagališče 1" ~ "Landfill 1",
-    landfill_site == "Odlagališče 2" ~ "Landfill 2",
-    landfill_site == "Odlagališče 3" ~ "Landfill 3",
-    landfill_site == "Odlagališče 4a" ~ "Landfill 4a",
-    landfill_site == "Odlagališče 4b" ~ "Landfill 4b",
-    landfill_site == "Odlagališče 5a" ~ "Landfill 5a",
-    landfill_site == "Odlagališče 5b" ~ "Landfill 5b",
-    landfill_site == "Odlagališče 6" ~ "Landfill 6",
-    landfill_site == "Odlagališče 7" ~ "Landfill 7",
-    landfill_site == "Odlagališče 8" ~ "Landfill 8",
-    landfill_site == "Odlagališče 9" ~ "Landfill 9",
-    landfill_site == "Odlagališče 10" ~ "Landfill 10",
-    landfill_site == "Odlagališče 11" ~ "Landfill 11",
-    landfill_site == "Odlagališče 12" ~ "Landfill 12",
-    landfill_site == "Odlagališče 13" ~ "Landfill 13",
-    landfill_site == "Odlagališče 14" ~ "Landfill 14",
-    landfill_site == "Odlagališče 15" ~ "Landfill 15",
-    landfill_site == "Odlagališče 16" ~ "Landfill 16"
-  ))
 
 processed_sheets[[8]] <- landfill_capacity.20
 
 # Table 8: Waste management at landfills in 2020
-landfill_waste.20 <- processed_sheets[[9]]
-
-landfill_waste.20 <- landfill_waste.20 |>
-  select(-Poročilo) |>
-  rename(
-    year = `Leto`,
-    type_of_waste = `Naziv odpadka`,
-    total_waste_received = `Prevzeti odpadki vsi odpadki`,
-    waste_without_assessment = `Prevzeti odpadki od tega odpadki brez ocene odpadka`,
-    disposed_waste_total = `Ravnanje z odpadki na odlagališču Odloženi odpadki (D1) skupaj`,
-    disposed_waste_hazardous = `Ravnanje z odpadki na odlagališču nevarni odpadki`,
-    disposed_waste_non_hazardous = `Ravnanje z odpadki na odlagališču nenevarni odpadki`,
-    disposed_waste_inert = `Ravnanje z odpadki na odlagališču inertni odpadki`,
-    disposed_waste_for_construction = `Ravnanje z odpadki na odlagališču Odpadki za gradnjo objektov odlagališča`,
-    disposed_waste_for_covering = `Ravnanje z odpadki na odlagališču Odpadki za prekrivanje odlagališča`
+landfill_waste.20 <- processed_sheets[[9]] |>
+  # 1) drop the report column and rename everything in one step
+  select(
+    year                           = Leto,
+    waste_code,
+    type_of_waste                  = `Naziv odpadka`,
+    total_waste_received           = `Prevzeti odpadki vsi odpadki kg`,
+    waste_without_assessment       = `Prevzeti odpadki od tega odpadki brez ocene odpadka kg`,
+    disposed_waste_total           = `Ravnanje z odpadki na odlagališču Odloženi odpadki (D1) skupaj kg`,
+    disposed_waste_hazardous       = `Ravnanje z odpadki na odlagališču nevarni odpadki kg`,
+    disposed_waste_non_hazardous   = `Ravnanje z odpadki na odlagališču nenevarni odpadki kg`,
+    disposed_waste_inert           = `Ravnanje z odpadki na odlagališču inertni odpadki kg`,
+    disposed_waste_for_construction= `Ravnanje z odpadki na odlagališču Odpadki za gradnjo objektov odlagališča kg`,
+    disposed_waste_for_covering    = `Ravnanje z odpadki na odlagališču Odpadki za prekrivanje odlagališča kg`
+  ) |>
+  # 2) categorize
+  process_waste_column(waste_code, type_of_waste) |>
+  # 3) drop any all-NA columns
+  select(where(~ !all(is.na(.)))) |>
+  # 4) aggregate ALL eight metrics (sum & convert to tonnes)
+  group_by(year, waste_code, type_of_waste, waste_category) |>
+  summarise(
+    across(
+      c(
+        total_waste_received,
+        waste_without_assessment,
+        disposed_waste_total,
+        disposed_waste_hazardous,
+        disposed_waste_non_hazardous,
+        disposed_waste_inert,
+        disposed_waste_for_construction,
+        disposed_waste_for_covering
+      ),
+      ~ sum(as.numeric(.x), na.rm = TRUE) / 1000
+    ),
+    .groups = "drop"
   )
 
-landfill_waste.20 <- rename_waste_names(landfill_waste.20)
-
-## Drop columns containing NA values
-landfill_waste.20 <- select_if(landfill_waste.20, ~ !all(is.na(.)))
-
-landfill_waste.20 <- landfill_waste.20 |>
-  group_by(year, type_of_waste) |>
-  summarize(
-    total_waste_received = sum(as.numeric(total_waste_received)) / 1000,
-    disposed_waste_total = sum(as.numeric(disposed_waste_total)) / 1000,
-    disposed_waste_non_hazardous = sum(as.numeric(disposed_waste_non_hazardous)) / 1000
-  ) |>
-  ungroup()
-
 processed_sheets[[9]] <- landfill_waste.20
+
 
 # Table 9: Municipal waste disposed of by municipality of origin in 2020 - EXCLUDED
 municipal_waste_disposed.20 <- processed_sheets[[10]]
@@ -4019,16 +4153,10 @@ sheet_names <- excel_sheets(waste_generation_19.path)
 
 # Initialize a list to store processed sheets
 processed_sheets <- list()
-
-# Define the sheets where n_max should be 3 (replace with actual sheet indices)
-# if needed
-sheets_with_n_max_3 <- c(2, 3, 5)
-
 # Loop through each sheet
 for (sheet_name in sheet_names) {
   sheet_index <- match(sheet_name, sheet_names)
-  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else 2
-  processed_sheet <- process_sheet(waste_generation_19.path, sheet_index, n_max)
+  processed_sheet <- process_sheet(waste_generation_19.path, sheet_index)
   processed_sheets[[sheet_name]] <- processed_sheet
 }
 
@@ -4038,8 +4166,7 @@ processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 generation.19 <- processed_sheets[[1]]
 
 generation.19 <- generation.19 |>
-  select(-Poročilo) |>
-  rename(
+  select(
     year = `Leto`,
     statistical_region = `Statistična regija kraja nastanka odpadkov`,
     waste_code = `waste_code`,
@@ -4052,9 +4179,8 @@ generation.19 <- generation.19 |>
     waste_handed_to_others_RS = `Odpadki oddani v nadaljnje ravnanje drugim osebam v RS kg`,
     waste_sent_to_EU = `Odpadki poslani v obdelavo v druge države članice EU kg`,
     waste_sent_to_non_EU = `Odpadki poslani v obdelavo v države izven EU kg`
-  )
-
-generation.19 <- rename_waste_names(generation.19)
+  ) |> 
+  process_waste_column(waste_code, type_of_waste)
 
 # change to tons
 generation.19 <- generation.19 |>
@@ -4114,16 +4240,16 @@ waste_storage.19 <- waste_storage.19 |>
 waste_storage.19 <- waste_storage.19 |> categorize_waste()
 
 waste_storage.19 <- waste_storage.19 |>
-  group_by(statistical_region, type_of_waste) |>
+  group_by(statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
-    waste_stored_start_year = sum(waste_stored_start_year) / 1000,
+    waste_stored_start_year = sum(waste_stored_start_year) / 1000, # convert to tons
     waste_stored_end_year = sum(waste_stored_end_year) / 1000
   ) |>
   ungroup() |>
   mutate(year = 2019)
 
 waste_storage.19 <- waste_storage.19 |>
-  select(year, statistical_region, type_of_waste, waste_stored_start_year, waste_stored_end_year)
+  select(year, statistical_region, waste_code, type_of_waste, waste_category, waste_stored_start_year, waste_stored_end_year)
 
 waste_collection_19.sheet1 <- waste_storage.19
 
@@ -4194,10 +4320,7 @@ waste_collected.19 <- waste_collected.19 |>
   )
 
 waste_collected.19 <- waste_collected.19 |>
-  select(-gathered_from)
-
-waste_collected.19 <- waste_collected.19 |>
-  group_by(statistical_region, type_of_waste) |>
+  group_by(statistical_region, waste_code, type_of_waste, waste_category, gathered_from) |>
   summarise(
     waste_received = sum(waste_received) / 1000,
     waste_from_producers_no_record = sum(waste_from_producers_no_record) / 1000,
@@ -4209,7 +4332,7 @@ waste_collected.19 <- waste_collected.19 |>
   mutate(year = 2019)
 
 waste_collected.19 <- waste_collected.19 |>
-  select(year, statistical_region, type_of_waste, waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
+  select(year, statistical_region, waste_code, type_of_waste, waste_category, gathered_from, waste_received, waste_from_producers_no_record, waste_from_producers_with_record, waste_from_collectors_RS, waste_from_processors_RS)
 
 waste_collection_19.sheet2 <- waste_collected.19
 
@@ -4246,7 +4369,7 @@ waste_collected_municipality.19 <- waste_collected_municipality.19 |>
   mutate(year = 2019)
 
 waste_collected_municipality.19 <- waste_collected_municipality.19 |>
-  group_by(year, name_of_company, type_of_waste) |>
+  group_by(year, name_of_company, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_waste_collected = sum(total_waste_collected) / 1000,
     municipal_waste_collected = sum(municipal_waste_collected) / 1000,
@@ -4254,7 +4377,8 @@ waste_collected_municipality.19 <- waste_collected_municipality.19 |>
   ) |>
   ungroup()
 
-waste_collection_19.sheet3 <- waste_collected_municipality.19
+waste_collection_19.sheet3 <- waste_collected_municipality.19 |> 
+  select(year, name_of_company, waste_code, type_of_waste, waste_category, total_waste_collected, municipal_waste_collected, waste_collected_from_activities)
 
 # Table 4: Collected Municipal Waste in 2019, Separated by Municipality of Origin
 municipal_waste_origin_19.sheet4 <- read_excel(waste_collection_19.path, skip = 2, sheet = 4)
@@ -6563,7 +6687,7 @@ waste_generation_16.by_codes1 <- waste_generation_16.by_codes1 |>
   mutate(statistical_region = gsub(" ", "", statistical_region, fixed = TRUE))
 
 waste_generation_16.by_codes1 <- waste_generation_16.by_codes1 |>
-  select(year, statistical_region, waste_code, type_of_waste, total_waste_generated, waste_stored_start_year, waste_generated, waste_stored_end_year)
+  select(year, statistical_region, waste_code, type_of_waste, waste_category, total_waste_generated, waste_stored_start_year, waste_generated, waste_stored_end_year)
 ```
 
 #### New codes

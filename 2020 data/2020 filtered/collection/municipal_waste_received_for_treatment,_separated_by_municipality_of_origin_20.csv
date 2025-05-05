@@ -1,4 +1,6 @@
-﻿"year","type_of_waste","total_municipal_waste_collected","municipal_waste_collected_from_households","municipal_waste_collected_from_activities"
-2020,"Paper/Cardboard Packaging",29520.538,14560.351,14960.187
-2020,"Wooden packaging",9563.747,227.411,9336.336
-2020,"Wood, not specified in 20 01 37",38703.79,34657.962,4045.828
+﻿"year","waste_code","type_of_waste","waste_category","total_municipal_waste_collected","municipal_waste_collected_from_households","municipal_waste_collected_from_activities"
+2020,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",29520.538,14560.351,14960.187
+2020,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",9563.747,227.411,9336.336
+2020,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",74063.328,32467.801,41595.527
+2020,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",38703.79,34657.962,4045.828
+2020,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",54341.806,49610.285,4731.521
