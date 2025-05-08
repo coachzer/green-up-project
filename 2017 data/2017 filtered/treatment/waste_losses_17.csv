@@ -1,11 +1,24 @@
-﻿"year","name_of_company","type_of_waste","lost_mass"
-2017,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","Wood, not specified in 20 01 37",123.159
-2017,"EKOSISTEMI družba za ekološke projekte, zbiranje in predelavo odpadkov, d.o.o.; ULICA XIV. DIVIZIJE 14, 3000 CELJE","Sawdust/Chips/Wood, not specified in 03 01 04",116.393
-2017,"EKOSISTEMI družba za ekološke projekte, zbiranje in predelavo odpadkov, d.o.o.; ULICA XIV. DIVIZIJE 14, 3000 CELJE","Wood, not specified in 20 01 37",1525.848
-2017,"EKOSISTEMI družba za ekološke projekte, zbiranje in predelavo odpadkov, d.o.o.; ULICA XIV. DIVIZIJE 14, 3000 CELJE","Wooden packaging",420.5
-2017,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","Paper/Cardboard Packaging",16.557
-2017,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA","Paper/Cardboard Packaging",0.516
-2017,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA","Wood",0.618
-2017,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","Paper/Cardboard Packaging",1.56
-2017,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","Wood, not specified in 20 01 37",7
-2017,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","Paper/Cardboard Packaging",0.994
+﻿"year","name_of_company","waste_code","type_of_waste","waste_category","lost_mass"
+2017,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",123.159
+2017,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje; KETTEJEV DREVORED 3, 8000 NOVO MESTO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",38.05
+2017,"EKOSISTEMI družba za ekološke projekte, zbiranje in predelavo odpadkov, d.o.o.; ULICA XIV. DIVIZIJE 14, 3000 CELJE","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",116.393
+2017,"EKOSISTEMI družba za ekološke projekte, zbiranje in predelavo odpadkov, d.o.o.; ULICA XIV. DIVIZIJE 14, 3000 CELJE","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",420.5
+2017,"EKOSISTEMI družba za ekološke projekte, zbiranje in predelavo odpadkov, d.o.o.; ULICA XIV. DIVIZIJE 14, 3000 CELJE","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",23.602
+2017,"EKOSISTEMI družba za ekološke projekte, zbiranje in predelavo odpadkov, d.o.o.; ULICA XIV. DIVIZIJE 14, 3000 CELJE","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",365.645
+2017,"EKOSISTEMI družba za ekološke projekte, zbiranje in predelavo odpadkov, d.o.o.; ULICA XIV. DIVIZIJE 14, 3000 CELJE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1525.848
+2017,"EKOSISTEMI družba za ekološke projekte, zbiranje in predelavo odpadkov, d.o.o.; ULICA XIV. DIVIZIJE 14, 3000 CELJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",80.456
+2017,"JEKO, javno komunalno podjetje, d.o.o., Jesenice; CESTA MARŠALA TITA 51, 4270 JESENICE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",738.84
+2017,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",16.557
+2017,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",32.481
+2017,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1207.203
+2017,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.516
+2017,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",0.618
+2017,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.035
+2017,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.56
+2017,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",37.5
+2017,"KOMUNALA TREBNJE d.o.o.; GOLIEV TRG 9, 8210 TREBNJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",117.78
+2017,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",7
+2017,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.5
+2017,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.994
+2017,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",11.427
+2017,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2012.651

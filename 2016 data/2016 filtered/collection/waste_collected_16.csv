@@ -1,54 +1,363 @@
-﻿"year","statistical_region","type_of_waste","total_waste_collected","waste_from_producers_no_record","waste_from_producers_with_record","waste_from_collectors_RS","waste_from_processors_RS"
-2016,"GORENJSKA","Paper/Cardboard Packaging",1419.6090000000002,1288.507,94.913,4.817,31.372
-2016,"GORENJSKA","Wood",202.23,202.23,0,0,0
-2016,"GORENJSKA","Wood, not specified in 20 01 37",1902.47,1902.47,0,0,0
-2016,"GORENJSKA","Wooden packaging",264.75,178.03,86.72,0,0
-2016,"GORIŠKA","Paper/Cardboard Packaging",887.008,728.884,158.124,0,0
-2016,"GORIŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",14.64,0,14.64,0,0
-2016,"GORIŠKA","Wood",226.325,5.5,220.825,0,0
-2016,"GORIŠKA","Wood, not specified in 20 01 37",1667.99,1662.09,5.9,0,0
-2016,"GORIŠKA","Wooden packaging",159.56199999999998,131.802,27.76,0,0
-2016,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",1158.071,1044.914,59.287,0,53.87
-2016,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04",1224.884,127.67,335.584,127.67,633.96
-2016,"JUGOVZHODNA SLOVENIJA","Waste Bark and Cork",0.061,0,0.061,0,0
-2016,"JUGOVZHODNA SLOVENIJA","Wood",95.613,0,95.613,0,0
-2016,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",1673.611,1166.412,423.734,72.995,10.47
-2016,"JUGOVZHODNA SLOVENIJA","Wooden packaging",496.135,196.251,257.147,13.007,29.73
-2016,"KOROŠKA","Paper/Cardboard Packaging",1269.289,74.087,999.956,0,195.246
-2016,"KOROŠKA","Wood",22,0,22,0,0
-2016,"KOROŠKA","Wooden packaging",596.04,0,596.04,0,0
-2016,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",1346.1200000000001,1153.601,192.519,0,0
-2016,"OBALNO-KRAŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",1861.8,0,1861.8,0,0
-2016,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37",2833.7889999999998,2824.629,9.16,0,0
-2016,"OBALNO-KRAŠKA","Wooden packaging",289.79999999999995,0,273.02,16.78,0
-2016,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",18462.074,3601.995,12134.439,1111.843,1613.797
-2016,"OSREDNJESLOVENSKA","Wood",6.9799999999999995,5.3,1.68,0,0
-2016,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",4971.764,4770.387,201.377,0,0
-2016,"OSREDNJESLOVENSKA","Wooden packaging",2021.851,227.94,1589.525,201.606,2.78
-2016,"PODRAVSKA","Paper/Cardboard Packaging",3868.783,1657.864,2167.872,43.047,0
-2016,"PODRAVSKA","Wood",496.764,0,496.764,0,0
-2016,"PODRAVSKA","Wood, not specified in 20 01 37",4802.0380000000005,4503.948,265.05,0,33.04
-2016,"PODRAVSKA","Wooden packaging",196.716,30.96,165.756,0,0
-2016,"POMURSKA","Paper/Cardboard Packaging",535.304,392.787,100.057,23.68,18.78
-2016,"POMURSKA","Wood",85.44,0,85.44,0,0
-2016,"POMURSKA","Wood, not specified in 20 01 37",254.46,254.46,0,0,0
-2016,"POMURSKA","Wooden packaging",21.658,0,21.658,0,0
-2016,"POSAVSKA","Miscellaneous Waste",23.04,0,23.04,0,0
-2016,"POSAVSKA","Paper/Cardboard Packaging",1402.229,830.168,511.564,40.58,19.917
-2016,"POSAVSKA","Wood, not specified in 20 01 37",628.06,619.92,8.14,0,0
-2016,"POSAVSKA","Wooden packaging",123.268,30.284,92.984,0,0
-2016,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",293.35200000000003,167.556,125.796,0,0
-2016,"PRIMORSKO-NOTRANJSKA","Wood",2.48,0,1.24,1.24,0
-2016,"PRIMORSKO-NOTRANJSKA","Wood, not specified in 20 01 37",577.1899999999999,551.56,25.63,0,0
-2016,"SAVINJSKA","Paper/Cardboard Packaging",2053.646,1499.13,189.432,6.96,358.124
-2016,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",4.5,0,4.5,0,0
-2016,"SAVINJSKA","Wood",89.24,5.44,83.8,0,0
-2016,"SAVINJSKA","Wood, not specified in 20 01 37",1784.532,1784.532,0,0,0
-2016,"SAVINJSKA","Wooden packaging",171.157,128.275,42.882,0,0
-2016,"ZASAVSKA","Paper/Cardboard Packaging",1498.436,476.331,848.228,173.877,0
-2016,"ZASAVSKA","Wood, not specified in 20 01 37",553.1,521,32.1,0,0
-2016,"ZASAVSKA","Wooden packaging",124.87,0,124.87,0,0
-2016,NA,"Paper/Cardboard Packaging",0.14,0,0.14,0,0
-2016,NA,"Wood",1.55,0,1.55,0,0
-2016,NA,"Wood, not specified in 20 01 37",0.077,0,0.077,0,0
-2016,NA,"Wooden packaging",123.89,0,123.89,0,0
+﻿"year","name_of_company","statistical_region","waste_code","type_of_waste","waste_category","total_waste_collected","waste_from_producers_no_record","waste_from_producers_with_record","waste_from_collectors_RS","waste_from_processors_RS"
+2016,"AURENIS, podjetje za proizvodnjo, reciklažo in storitve d.o.o.; POLJUBINJ 112, 5220 TOLMIN","GORIŠKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",2.149,0,2.149,0,0
+2016,"AVTOPREVOZNIŠTVO - PREVOZ BLAGA IN OSEB MARTIN - VALENTINA FRELIH S.P.; GOROPEKE 10, 4226 ŽIRI","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",90.145,0,90.145,0,0
+2016,"AVTOPREVOZNIŠTVO - PREVOZ BLAGA IN OSEB MARTIN - VALENTINA FRELIH S.P.; GOROPEKE 10, 4226 ŽIRI","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5.78,0,5.78,0,0
+2016,"AVTOPREVOZNIŠTVO ROBERT ŽAGAR S.P.; ŽAGA 41, 5224 SRPENICA","GORIŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",226.325,5.5,220.825,0,0
+2016,"BELES, predelava lesa d.o.o..; ČRNOMALJSKA CESTA 5, 8333 SEMIČ","JUGOVZHODNA SLOVENIJA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",802.59,0,40.96,127.67,633.96
+2016,"BELES, predelava lesa d.o.o..; ČRNOMALJSKA CESTA 5, 8333 SEMIČ","JUGOVZHODNA SLOVENIJA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",122.58,0,0,0,122.58
+2016,"BRDO storitve in trgovina d.o.o.; LESNO BRDO 49C, 1360 VRHNIKA","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",126.61,0,126.61,0,0
+2016,"BRDO storitve in trgovina d.o.o.; LESNO BRDO 49C, 1360 VRHNIKA","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",42.807,0,42.807,0,0
+2016,"BRDO storitve in trgovina d.o.o.; LESNO BRDO 49C, 1360 VRHNIKA","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",1.68,0,1.68,0,0
+2016,"BRDO storitve in trgovina d.o.o.; LESNO BRDO 49C, 1360 VRHNIKA","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",0.44,0,0.44,0,0
+2016,"BRDO storitve in trgovina d.o.o.; LESNO BRDO 49C, 1360 VRHNIKA","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",8.48,0,8.48,0,0
+2016,"BREZOVNIK PREVOZI&GRADBENIŠTVO storitve d.o.o.; PAMEČE 104, 2380 SLOVENJ GRADEC","KOROŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",12,0,12,0,0
+2016,"CEP, proizvodnja, trgovina, storitve, d.o.o.; LAVA 7, 3000 CELJE","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",167.322,0,167.322,0,0
+2016,"CEP, proizvodnja, trgovina, storitve, d.o.o.; LAVA 7, 3000 CELJE","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",123.862,122.38,1.482,0,0
+2016,"CEP, proizvodnja, trgovina, storitve, d.o.o.; LAVA 7, 3000 CELJE","SAVINJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",24.156,0,0,0,24.156
+2016,"CEP, proizvodnja, trgovina, storitve, d.o.o.; LAVA 7, 3000 CELJE","SAVINJSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",3168.97,0,0,249.71,2919.26
+2016,"DARKO, prevozništvo, d.o.o.; POT NA RAKOVO JELŠO 58, 1000 LJUBLJANA","PODRAVSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",60.73,0,60.73,0,0
+2016,"DESERTA, nespecializirana trgovina na debelo, d.o.o.; KOŠNICA PRI CELJU 25F, 3000 CELJE","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",530,169.636,2.24,0,358.124
+2016,"DESERTA, nespecializirana trgovina na debelo, d.o.o.; KOŠNICA PRI CELJU 25F, 3000 CELJE","SAVINJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",390.171,153.542,236.629,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",294.624,0,294.624,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",5.584,0,5.584,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",259.924,0,246.917,13.007,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",95.613,0,95.613,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1274.887,1274.887,0,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",371.029,0,298.034,72.995,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1069.058,0,873.812,0,195.246
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","KOROŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",596.04,0,596.04,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","KOROŠKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",26.57,0,26.57,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","KOROŠKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",54.62,0,54.62,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",153.245,74.525,33.96,0,44.76
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.24,0.24,0,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1907.351,1907.351,0,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.388,0,0.388,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1479.278,1458.873,0.552,19.853,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1.02,0,1.02,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",140.319,0,97.859,23.68,18.78
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",21.658,0,21.658,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",85.44,0,85.44,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",326.826,0,0,0,326.826
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",0.631,0,0,0,0.631
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",500.057,372.524,127.533,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POSAVSKA","03 01 99","Other Unspecified Wood Waste (03 01 99)","Wood/Paper Production Waste",23.04,0,23.04,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",560.451,0,499.954,40.58,19.917
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POSAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",92.984,0,92.984,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POSAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",0.2,0,0.2,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",603.851,358.59,194.228,42.26,8.773
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",8.14,0,8.14,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","SAVINJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",24.56,0,24.56,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1022.105,0,848.228,173.877,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","ZASAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",124.87,0,124.87,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","ZASAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",422.567,215.981,206.586,0,0
+2016,"DINOS, družba za pripravo sekundarnih surovin, d.d.; ŠLANDROVA ULICA 6, 1231 LJUBLJANA - ČRNUČE","ZASAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",32.1,0,32.1,0,0
+2016,"EKO LES PLUS, ravnanje z odpadki, proizvodnja, trgovina, posredništvo, projektiranje in druge storitve, d.o.o.; PARTIZANSKA ULICA 11, 2319 POLJČANE","PODRAVSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",21.66,0,21.66,0,0
+2016,"EKO-PARK d.o.o. Lendava, javno podjetje OKO-PARK Kft. Lendva, kozhasznu vallalat; GLAVNA ULICA 109, 9220 LENDAVA - LENDVA","POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",48.3,48.3,0,0,0
+2016,"EKO-PARK d.o.o. Lendava, javno podjetje OKO-PARK Kft. Lendva, kozhasznu vallalat; GLAVNA ULICA 109, 9220 LENDAVA - LENDVA","POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",52.159,52.159,0,0,0
+2016,"EKO-PARK d.o.o. Lendava, javno podjetje OKO-PARK Kft. Lendva, kozhasznu vallalat; GLAVNA ULICA 109, 9220 LENDAVA - LENDVA","POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",49.84,44.96,4.88,0,0
+2016,"EKOLOGIJA podjetje za zbiranje in predelavo sekundarnih surovin d.o.o.; KIDRIČEVA CESTA 75, 4220 ŠKOFJA LOKA","GORENJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",6.812,0,6.812,0,0
+2016,"Gorenje Surovina družba za predelavo odpadkov d.o.o., PE ODKUPNA ENOTA SLOVENSKA BISTRICA; KOLODVORSKA ULICA 37, 2310 SLOVENSKA BISTRICA","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1.23,0,1.23,0,0
+2016,"Gorenje Surovina družba za predelavo odpadkov d.o.o., PE VELENJE; KOROŠKA CESTA 64, 3320 VELENJE","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",6.96,0,0,6.96,0
+2016,"INFRASTRUKTURA BLED d.o.o.; REČIŠKA CESTA 2, 4260 BLED","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",124.756,124.756,0,0,0
+2016,"INFRASTRUKTURA BLED d.o.o.; REČIŠKA CESTA 2, 4260 BLED","GORENJSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",86.57,86.57,0,0,0
+2016,"INFRASTRUKTURA BLED d.o.o.; REČIŠKA CESTA 2, 4260 BLED","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",334.063,334.063,0,0,0
+2016,"INFRASTRUKTURA BLED d.o.o.; REČIŠKA CESTA 2, 4260 BLED","GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",193,193,0,0,0
+2016,"INFRASTRUKTURA BLED d.o.o.; REČIŠKA CESTA 2, 4260 BLED","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",142.86,142.86,0,0,0
+2016,"INTER REC 2, proizvodnja, trgovina in storitve, d.o.o.; TBILISIJSKA ULICA 81, 1000 LJUBLJANA","JUGOVZHODNA SLOVENIJA","03 01 01","Bark and Cork Waste (03 01 01)","Wood/Paper Production Waste",0.061,0,0.061,0,0
+2016,"INTER REC 2, proizvodnja, trgovina in storitve, d.o.o.; TBILISIJSKA ULICA 81, 1000 LJUBLJANA","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",42.343,0,42.343,0,0
+2016,"INTER REC 2, proizvodnja, trgovina in storitve, d.o.o.; TBILISIJSKA ULICA 81, 1000 LJUBLJANA","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1.2,0,1.2,0,0
+2016,"J.D.Z. odpadki, reciklaža sekundarnih surovin, d.o.o.; PLANINSKA CESTA 49, 8290 SEVNICA","POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",11.61,0,11.61,0,0
+2016,"JAVNO KOMUNALNO PODJETJE DRAVOGRAD d.o.o.; MEŽA 143, 2370 DRAVOGRAD","KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",28.964,28.964,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE DRAVOGRAD d.o.o.; MEŽA 143, 2370 DRAVOGRAD","KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",7.864,7.864,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE DRAVOGRAD d.o.o.; MEŽA 143, 2370 DRAVOGRAD","KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",242.12,242.12,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.; CESTA NA KRKO 7, 1290 GROSUPLJE","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",207.825,207.825,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.; CESTA NA KRKO 7, 1290 GROSUPLJE","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",22.23,22.23,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.; CESTA NA KRKO 7, 1290 GROSUPLJE","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",779.314,779.314,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.; CESTA NA KRKO 7, 1290 GROSUPLJE","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",269.44,258.74,10.7,0,0
+2016,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.; CESTA NA KRKO 7, 1290 GROSUPLJE","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",131.242,131.242,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE KOMUNALA KOČEVJE d.o.o.; TESARSKA ULICA 10, 1330 KOČEVJE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",158.641,158.641,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE KOMUNALA KOČEVJE d.o.o.; TESARSKA ULICA 10, 1330 KOČEVJE","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",117.644,117.644,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE KOMUNALA KOČEVJE d.o.o.; TESARSKA ULICA 10, 1330 KOČEVJE","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",250.69,250.69,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE KOMUNALA KOČEVJE d.o.o.; TESARSKA ULICA 10, 1330 KOČEVJE","JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",259.2,259.2,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.; GORIČA VAS 11A, 1310 RIBNICA","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",99.83,99.83,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.; GORIČA VAS 11A, 1310 RIBNICA","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",17.216,17.216,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.; GORIČA VAS 11A, 1310 RIBNICA","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",69.734,69.734,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.; GORIČA VAS 11A, 1310 RIBNICA","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",103.644,103.644,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE KOMUNALA RIBNICA d.o.o.; GORIČA VAS 11A, 1310 RIBNICA","JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",181.374,181.374,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE LOG d.o.o.; DOBJA VAS 187, 2390 RAVNE NA KOROŠKEM","KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",24.04,24.04,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE LOG d.o.o.; DOBJA VAS 187, 2390 RAVNE NA KOROŠKEM","KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",158.53,158.53,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE LOG d.o.o.; DOBJA VAS 187, 2390 RAVNE NA KOROŠKEM","KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",514.62,514.62,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.; SAVSKA CESTA 34, 1230 DOMŽALE","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",558.478,551.568,6.91,0,0
+2016,"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.; SAVSKA CESTA 34, 1230 DOMŽALE","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",950.271,950.271,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE PRODNIK d.o.o.; SAVSKA CESTA 34, 1230 DOMŽALE","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1207.56,1207.28,0.28,0,0
+2016,"JAVNO KOMUNALNO PODJETJE RADLJE OB DRAVI d.o.o.; MARIBORSKA CESTA 3, 2360 RADLJE OB DRAVI","KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",21.083,21.083,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE RADLJE OB DRAVI d.o.o.; MARIBORSKA CESTA 3, 2360 RADLJE OB DRAVI","KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",42.119,42.119,0,0,0
+2016,"JAVNO KOMUNALNO PODJETJE RADLJE OB DRAVI d.o.o.; MARIBORSKA CESTA 3, 2360 RADLJE OB DRAVI","KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",190.77,190.77,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","PRIMORSKO-NOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",70.098,49.082,21.016,0,0
+2016,"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","PRIMORSKO-NOTRANJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",1.24,0,1.24,0,0
+2016,"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","PRIMORSKO-NOTRANJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",252.416,252.416,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","PRIMORSKO-NOTRANJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",273.02,273.02,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA CERKNICA d.o.o. Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","PRIMORSKO-NOTRANJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",149.86,147.7,2.16,0,0
+2016,"JAVNO PODJETJE KOMUNALA ILIRSKA BISTRICA, d.o.o.; PREŠERNOVA ULICA 7, 6250 ILIRSKA BISTRICA","PRIMORSKO-NOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",119.254,118.474,0.78,0,0
+2016,"JAVNO PODJETJE KOMUNALA ILIRSKA BISTRICA, d.o.o.; PREŠERNOVA ULICA 7, 6250 ILIRSKA BISTRICA","PRIMORSKO-NOTRANJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",141.9,141.9,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ILIRSKA BISTRICA, d.o.o.; PREŠERNOVA ULICA 7, 6250 ILIRSKA BISTRICA","PRIMORSKO-NOTRANJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",216.68,216.68,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ILIRSKA BISTRICA, d.o.o.; PREŠERNOVA ULICA 7, 6250 ILIRSKA BISTRICA","PRIMORSKO-NOTRANJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",181.86,180.02,1.84,0,0
+2016,"JAVNO PODJETJE KOMUNALA Izola, d.o.o. Azienda pubblica KOMUNALA Isola, S.r.l.; INDUSTRIJSKA CESTA 8, 6310 IZOLA - ISOLA","OBALNO-KRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",169.825,128.034,41.791,0,0
+2016,"JAVNO PODJETJE KOMUNALA Izola, d.o.o. Azienda pubblica KOMUNALA Isola, S.r.l.; INDUSTRIJSKA CESTA 8, 6310 IZOLA - ISOLA","OBALNO-KRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",427.043,272.554,154.489,0,0
+2016,"JAVNO PODJETJE KOMUNALA Izola, d.o.o. Azienda pubblica KOMUNALA Isola, S.r.l.; INDUSTRIJSKA CESTA 8, 6310 IZOLA - ISOLA","OBALNO-KRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",644.099,644.099,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA Izola, d.o.o. Azienda pubblica KOMUNALA Isola, S.r.l.; INDUSTRIJSKA CESTA 8, 6310 IZOLA - ISOLA","OBALNO-KRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",145.74,145.74,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA LAŠKO d.o.o.; PODŠMIHEL 1E, 3270 LAŠKO","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",137.28,137.28,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA LAŠKO d.o.o.; PODŠMIHEL 1E, 3270 LAŠKO","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",42.89,42.89,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA LAŠKO d.o.o.; PODŠMIHEL 1E, 3270 LAŠKO","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",246.2,246.2,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA RADEČE d.o.o.; TITOVA ULICA 107, 1433 RADEČE","POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",56.53,56.53,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA RADEČE d.o.o.; TITOVA ULICA 107, 1433 RADEČE","POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",15.16,15.16,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA RADEČE d.o.o.; TITOVA ULICA 107, 1433 RADEČE","POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",54.76,54.76,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA RADEČE d.o.o.; TITOVA ULICA 107, 1433 RADEČE","POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",35.88,35.88,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA SLOVENJ GRADEC d.o.o.; PAMEČE 177A, 2380 SLOVENJ GRADEC","KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",126.144,0,126.144,0,0
+2016,"JAVNO PODJETJE KOMUNALA SLOVENJ GRADEC d.o.o.; PAMEČE 177A, 2380 SLOVENJ GRADEC","KOROŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",10,0,10,0,0
+2016,"JAVNO PODJETJE KOMUNALA SLOVENJ GRADEC d.o.o.; PAMEČE 177A, 2380 SLOVENJ GRADEC","KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",8.34,0,8.34,0,0
+2016,"JAVNO PODJETJE KOMUNALA SLOVENJ GRADEC d.o.o.; PAMEČE 177A, 2380 SLOVENJ GRADEC","KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",654.45,0,654.45,0,0
+2016,"JAVNO PODJETJE KOMUNALA TRBOVLJE d.o.o.; SAVINJSKA CESTA 11A, 1420 TRBOVLJE","ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",66.334,66.334,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA TRBOVLJE d.o.o.; SAVINJSKA CESTA 11A, 1420 TRBOVLJE","ZASAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",52.156,51.976,0.18,0,0
+2016,"JAVNO PODJETJE KOMUNALA TRBOVLJE d.o.o.; SAVINJSKA CESTA 11A, 1420 TRBOVLJE","ZASAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",187.84,187.84,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA TRBOVLJE d.o.o.; SAVINJSKA CESTA 11A, 1420 TRBOVLJE","ZASAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",104.46,102.96,1.5,0,0
+2016,"JAVNO PODJETJE KOMUNALA ZAGORJE, d.o.o.; CESTA ZMAGE 57, 1410 ZAGORJE OB SAVI","ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",119.86,119.86,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ZAGORJE, d.o.o.; CESTA ZMAGE 57, 1410 ZAGORJE OB SAVI","ZASAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",140.78,140.78,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ZAGORJE, d.o.o.; CESTA ZMAGE 57, 1410 ZAGORJE OB SAVI","ZASAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",184.78,184.78,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ZAGORJE, d.o.o.; CESTA ZMAGE 57, 1410 ZAGORJE OB SAVI","ZASAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",94.08,94.08,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA d.o.o. Sevnica; NASELJE HEROJA MAROKA 17, 8290 SEVNICA","POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",111.15,111.15,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA d.o.o. Sevnica; NASELJE HEROJA MAROKA 17, 8290 SEVNICA","POSAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",9.604,9.604,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA d.o.o. Sevnica; NASELJE HEROJA MAROKA 17, 8290 SEVNICA","POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",236.571,236.571,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA d.o.o. Sevnica; NASELJE HEROJA MAROKA 17, 8290 SEVNICA","POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",262.88,262.88,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA d.o.o. Sevnica; NASELJE HEROJA MAROKA 17, 8290 SEVNICA","POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",114.04,114.04,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ČRNOMELJ d.o.o.; BELOKRANJSKA CESTA 24A, 8340 ČRNOMELJ","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",139.517,139.517,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ČRNOMELJ d.o.o.; BELOKRANJSKA CESTA 24A, 8340 ČRNOMELJ","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",32.347,32.347,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ČRNOMELJ d.o.o.; BELOKRANJSKA CESTA 24A, 8340 ČRNOMELJ","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",70.851,70.851,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ČRNOMELJ d.o.o.; BELOKRANJSKA CESTA 24A, 8340 ČRNOMELJ","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",117.495,117.495,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA ČRNOMELJ d.o.o.; BELOKRANJSKA CESTA 24A, 8340 ČRNOMELJ","JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",189.75,189.75,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA, d.o.o. Mozirje; PRAPROTNIKOVA ULICA 36, 3330 MOZIRJE","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",29.408,29.408,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA, d.o.o. Mozirje; PRAPROTNIKOVA ULICA 36, 3330 MOZIRJE","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",70.72,70.72,0,0,0
+2016,"JAVNO PODJETJE KOMUNALA, d.o.o. Mozirje; PRAPROTNIKOVA ULICA 36, 3330 MOZIRJE","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",171.96,171.96,0,0,0
+2016,"JAVNO PODJETJE KOMUNALNO STANOVANJSKO PODJETJE Litija, d.o.o.; PONOVIŠKA CESTA 15, 1270 LITIJA","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",13.2,13.2,0,0,0
+2016,"JAVNO PODJETJE KOMUNALNO STANOVANJSKO PODJETJE Litija, d.o.o.; PONOVIŠKA CESTA 15, 1270 LITIJA","ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",205.257,205.257,0,0,0
+2016,"JAVNO PODJETJE KOMUNALNO STANOVANJSKO PODJETJE Litija, d.o.o.; PONOVIŠKA CESTA 15, 1270 LITIJA","ZASAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",54.731,54.731,0,0,0
+2016,"JAVNO PODJETJE KOMUNALNO STANOVANJSKO PODJETJE Litija, d.o.o.; PONOVIŠKA CESTA 15, 1270 LITIJA","ZASAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",148.38,148.38,0,0,0
+2016,"JAVNO PODJETJE KOMUNALNO STANOVANJSKO PODJETJE Litija, d.o.o.; PONOVIŠKA CESTA 15, 1270 LITIJA","ZASAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",226.9,226.9,0,0,0
+2016,"JEKO - IN, javno komunalno podjetje, d.o.o., Jesenice; CESTA MARŠALA TITA 51, 4270 JESENICE","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",43.687,7.498,0,4.817,31.372
+2016,"JEKO - IN, javno komunalno podjetje, d.o.o., Jesenice; CESTA MARŠALA TITA 51, 4270 JESENICE","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",426.027,426.027,0,0,0
+2016,"JEKO - IN, javno komunalno podjetje, d.o.o., Jesenice; CESTA MARŠALA TITA 51, 4270 JESENICE","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1116.05,1116.05,0,0,0
+2016,"JKP, JAVNO KOMUNALNO PODJETJE d.o.o. SLOVENSKE KONJICE; CELJSKA CESTA 3, 3210 SLOVENSKE KONJICE","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",129.37,129.37,0,0,0
+2016,"JKP, JAVNO KOMUNALNO PODJETJE d.o.o. SLOVENSKE KONJICE; CELJSKA CESTA 3, 3210 SLOVENSKE KONJICE","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",273.643,273.643,0,0,0
+2016,"JKP, JAVNO KOMUNALNO PODJETJE d.o.o. SLOVENSKE KONJICE; CELJSKA CESTA 3, 3210 SLOVENSKE KONJICE","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",146.14,146.14,0,0,0
+2016,"JKP, JAVNO KOMUNALNO PODJETJE d.o.o. SLOVENSKE KONJICE; CELJSKA CESTA 3, 3210 SLOVENSKE KONJICE","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",150.445,150.445,0,0,0
+2016,"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",314.06,314.06,0,0,0
+2016,"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",709.88,687.341,0,22.539,0
+2016,"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",232.18,199.14,0,0,33.04
+2016,"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.; ULICA HEROJA LACKA 3, 2250 PTUJ","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",737.68,737.68,0,0,0
+2016,"Javno podjetje KOMUNALA Idrija d.o.o.; CARL JAKOBA ULICA 4, 5280 IDRIJA","GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",200.797,200.797,0,0,0
+2016,"Javno podjetje KOMUNALA Idrija d.o.o.; CARL JAKOBA ULICA 4, 5280 IDRIJA","GORIŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",28.8,28.8,0,0,0
+2016,"Javno podjetje KOMUNALA Idrija d.o.o.; CARL JAKOBA ULICA 4, 5280 IDRIJA","GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",337.04,337.04,0,0,0
+2016,"Javno podjetje KOMUNALA Idrija d.o.o.; CARL JAKOBA ULICA 4, 5280 IDRIJA","GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",363.27,363.27,0,0,0
+2016,"Javno podjetje KOMUNALA Idrija d.o.o.; CARL JAKOBA ULICA 4, 5280 IDRIJA","GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",328.16,328.16,0,0,0
+2016,"Javno podjetje Komunala Brežice d.o.o.; CESTA PRVIH BORCEV 18, 8250 BREŽICE","POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",190.728,190.728,0,0,0
+2016,"Javno podjetje Komunala Brežice d.o.o.; CESTA PRVIH BORCEV 18, 8250 BREŽICE","POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",210.112,210.112,0,0,0
+2016,"Javno podjetje Komunala Brežice d.o.o.; CESTA PRVIH BORCEV 18, 8250 BREŽICE","POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",614.91,614.91,0,0,0
+2016,"Javno podjetje Komunalno podjetje Logatec, d.o.o.; TRŽAŠKA CESTA 27, 1370 LOGATEC","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",104.24,104.24,0,0,0
+2016,"Javno podjetje Komunalno podjetje Logatec, d.o.o.; TRŽAŠKA CESTA 27, 1370 LOGATEC","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",219.234,219.234,0,0,0
+2016,"Javno podjetje Komunalno podjetje Logatec, d.o.o.; TRŽAŠKA CESTA 27, 1370 LOGATEC","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",242.63,242.63,0,0,0
+2016,"Javno podjetje Komunalno podjetje Logatec, d.o.o.; TRŽAŠKA CESTA 27, 1370 LOGATEC","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",93.16,93.16,0,0,0
+2016,"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",132.072,103.348,28.724,0,0
+2016,"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",0.2,0.2,0,0,0
+2016,"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",792.129,773.24,18.889,0,0
+2016,"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",712.46,664.495,47.965,0,0
+2016,"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",198.56,177.795,20.765,0,0
+2016,"Javno podjetje OKOLJE Piran, d.o.o.; ARZE 1B, 6330 PIRAN - PIRANO","OBALNO-KRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",564.771,564.771,0,0,0
+2016,"Javno podjetje OKOLJE Piran, d.o.o.; ARZE 1B, 6330 PIRAN - PIRANO","OBALNO-KRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",228.322,228.322,0,0,0
+2016,"Javno podjetje OKOLJE Piran, d.o.o.; ARZE 1B, 6330 PIRAN - PIRANO","OBALNO-KRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",394.24,394.24,0,0,0
+2016,"Javno podjetje OKOLJE Piran, d.o.o.; ARZE 1B, 6330 PIRAN - PIRANO","OBALNO-KRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",303.19,303.19,0,0,0
+2016,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",25.58,25.58,0,0,0
+2016,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",25.66,25.66,0,0,0
+2016,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1.18,1.18,0,0,0
+2016,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",119.482,119.482,0,0,0
+2016,"Javno podjetje–Azienda pubblica MARJETICA KOPER, d.o.o.-s.r.l.; ULICA 15.MAJA 4, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",301.717,301.717,0,0,0
+2016,"Javno podjetje–Azienda pubblica MARJETICA KOPER, d.o.o.-s.r.l.; ULICA 15.MAJA 4, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1223.393,1223.393,0,0,0
+2016,"Javno podjetje–Azienda pubblica MARJETICA KOPER, d.o.o.-s.r.l.; ULICA 15.MAJA 4, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1562.55,1562.55,0,0,0
+2016,"Javno podjetje–Azienda pubblica MARJETICA KOPER, d.o.o.-s.r.l.; ULICA 15.MAJA 4, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",267.5,267.5,0,0,0
+2016,"KARBON, čiste tehnologije d.o.o. Velenje; KOROŠKA CESTA 40A, 3320 VELENJE","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",26.26,0,26.26,0,0
+2016,"KARBON, čiste tehnologije d.o.o. Velenje; KOROŠKA CESTA 40A, 3320 VELENJE","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",13.24,0,13.24,0,0
+2016,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA",NA,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.14,0,0.14,0,0
+2016,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA",NA,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",123.89,0,123.89,0,0
+2016,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA",NA,"17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",1.55,0,1.55,0,0
+2016,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA",NA,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",8.378,0,8.378,0,0
+2016,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA",NA,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",0.077,0,0.077,0,0
+2016,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.; POT NA TOJNICE 42, 1360 VRHNIKA",NA,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.03,0,0.03,0,0
+2016,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.56,0,0.56,0,0
+2016,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","GORENJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",2.03,0,2.03,0,0
+2016,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",141.871,0,115.251,26.62,0
+2016,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",10545.558,0,8495.262,842.436,1207.86
+2016,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",663.969,0,459.583,201.606,2.78
+2016,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",2035.785,0,1296.865,188.88,550.04
+2016,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",31105.488,0,25060.584,4960.584,1084.32
+2016,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.; LOKA 119, 4290 TRŽIČ","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1.06,0,1.06,0,0
+2016,"KOMUNALA KRANJ, javno podjetje, d.o.o.; ULICA MIRKA VADNOVA 1, 4000 KRANJ","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",521.475,521.475,0,0,0
+2016,"KOMUNALA KRANJ, javno podjetje, d.o.o.; ULICA MIRKA VADNOVA 1, 4000 KRANJ","GORENJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",36.82,36.82,0,0,0
+2016,"KOMUNALA KRANJ, javno podjetje, d.o.o.; ULICA MIRKA VADNOVA 1, 4000 KRANJ","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",785.803,785.803,0,0,0
+2016,"KOMUNALA KRANJ, javno podjetje, d.o.o.; ULICA MIRKA VADNOVA 1, 4000 KRANJ","GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1140.97,1140.97,0,0,0
+2016,"KOMUNALA KRANJ, javno podjetje, d.o.o.; ULICA MIRKA VADNOVA 1, 4000 KRANJ","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",698.578,698.578,0,0,0
+2016,"KOMUNALA Komunalno podjetje Nova Gorica d.d.; CESTA 25. JUNIJA 1, 5000 NOVA GORICA","GORIŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",14.64,0,14.64,0,0
+2016,"KOMUNALA Komunalno podjetje Nova Gorica d.d.; CESTA 25. JUNIJA 1, 5000 NOVA GORICA","GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",397.988,274.572,123.416,0,0
+2016,"KOMUNALA Komunalno podjetje Nova Gorica d.d.; CESTA 25. JUNIJA 1, 5000 NOVA GORICA","GORIŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",130.762,103.002,27.76,0,0
+2016,"KOMUNALA Komunalno podjetje Nova Gorica d.d.; CESTA 25. JUNIJA 1, 5000 NOVA GORICA","GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",2166.988,2020.268,0,146.72,0
+2016,"KOMUNALA Komunalno podjetje Nova Gorica d.d.; CESTA 25. JUNIJA 1, 5000 NOVA GORICA","GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",939.08,939.08,0,0,0
+2016,"KOMUNALA Komunalno podjetje Nova Gorica d.d.; CESTA 25. JUNIJA 1, 5000 NOVA GORICA","GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1170.932,1170.932,0,0,0
+2016,"KOMUNALA METLIKA javno podjetje d.o.o.; CESTA XV. BRIGADE 4, 8330 METLIKA","JUGOVZHODNA SLOVENIJA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",127.67,127.67,0,0,0
+2016,"KOMUNALA METLIKA javno podjetje d.o.o.; CESTA XV. BRIGADE 4, 8330 METLIKA","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",79.361,79.361,0,0,0
+2016,"KOMUNALA METLIKA javno podjetje d.o.o.; CESTA XV. BRIGADE 4, 8330 METLIKA","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",50.166,50.166,0,0,0
+2016,"KOMUNALA METLIKA javno podjetje d.o.o.; CESTA XV. BRIGADE 4, 8330 METLIKA","JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",76.4,76.4,0,0,0
+2016,"KOMUNALA NOVO MESTO d.o.o., javno podjetje; PODBEVŠKOVA ULICA 12, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",463.805,458.515,0,0,5.29
+2016,"KOMUNALA NOVO MESTO d.o.o., javno podjetje; PODBEVŠKOVA ULICA 12, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",176.418,146.688,0,0,29.73
+2016,"KOMUNALA NOVO MESTO d.o.o., javno podjetje; PODBEVŠKOVA ULICA 12, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",371.937,370.717,0,0,1.22
+2016,"KOMUNALA NOVO MESTO d.o.o., javno podjetje; PODBEVŠKOVA ULICA 12, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",491.543,481.073,0,0,10.47
+2016,"KOMUNALA NOVO MESTO d.o.o., javno podjetje; PODBEVŠKOVA ULICA 12, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",418.05,418.05,0,0,0
+2016,"KOMUNALA RADOVLJICA, javno podjetje za komunalno dejavnost, d.o.o.; LJUBLJANSKA CESTA 27, 4240 RADOVLJICA","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",111.867,111.867,0,0,0
+2016,"KOMUNALA RADOVLJICA, javno podjetje za komunalno dejavnost, d.o.o.; LJUBLJANSKA CESTA 27, 4240 RADOVLJICA","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",357.754,337.554,20.2,0,0
+2016,"KOMUNALA RADOVLJICA, javno podjetje za komunalno dejavnost, d.o.o.; LJUBLJANSKA CESTA 27, 4240 RADOVLJICA","GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",359.04,359.04,0,0,0
+2016,"KOMUNALA RADOVLJICA, javno podjetje za komunalno dejavnost, d.o.o.; LJUBLJANSKA CESTA 27, 4240 RADOVLJICA","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",749.54,723.61,25.93,0,0
+2016,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.; ULICA POHORSKEGA BATALJONA 12, 2310 SLOVENSKA BISTRICA","OBALNO-KRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",303.19,0,303.19,0,0
+2016,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.; ULICA POHORSKEGA BATALJONA 12, 2310 SLOVENSKA BISTRICA","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",354.02,354.02,0,0,0
+2016,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.; ULICA POHORSKEGA BATALJONA 12, 2310 SLOVENSKA BISTRICA","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",621.576,621.576,0,0,0
+2016,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.; ULICA POHORSKEGA BATALJONA 12, 2310 SLOVENSKA BISTRICA","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",56.01,56.01,0,0,0
+2016,"KOMUNALA TREBNJE d.o.o.; GOLIEV TRG 9, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",109.05,109.05,0,0,0
+2016,"KOMUNALA TREBNJE d.o.o.; GOLIEV TRG 9, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",30.67,30.67,0,0,0
+2016,"KOMUNALA TREBNJE d.o.o.; GOLIEV TRG 9, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",234.69,213.51,21.18,0,0
+2016,"KOMUNALA TREBNJE d.o.o.; GOLIEV TRG 9, 8210 TREBNJE","JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",134.67,125.81,2,6.86,0
+2016,"KOMUNALA TRŽIČ d.o.o.; MLAKA 6, 4290 TRŽIČ","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",94.353,0,94.353,0,0
+2016,"KOMUNALA TRŽIČ d.o.o.; MLAKA 6, 4290 TRŽIČ","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",112.901,0,112.901,0,0
+2016,"KOMUNALA TRŽIČ d.o.o.; MLAKA 6, 4290 TRŽIČ","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",525.36,0,525.36,0,0
+2016,"KOMUNALA, javno podjetje, Kranjska Gora, d.o.o.; SPODNJE RUTE 50, 4282 GOZD MARTULJEK","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",100.986,100.986,0,0,0
+2016,"KOMUNALA, javno podjetje, Kranjska Gora, d.o.o.; SPODNJE RUTE 50, 4282 GOZD MARTULJEK","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",42.465,42.465,0,0,0
+2016,"KOMUNALA, javno podjetje, Kranjska Gora, d.o.o.; SPODNJE RUTE 50, 4282 GOZD MARTULJEK","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",282.96,282.96,0,0,0
+2016,"KOMUNALNO PODJETJE ORMOŽ d.o.o.; HARDEK 21C, 2270 ORMOŽ","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",108.676,105.216,3.46,0,0
+2016,"KOMUNALNO PODJETJE ORMOŽ d.o.o.; HARDEK 21C, 2270 ORMOŽ","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",109.612,109.352,0.26,0,0
+2016,"KOMUNALNO PODJETJE ORMOŽ d.o.o.; HARDEK 21C, 2270 ORMOŽ","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",146.88,138.88,8,0,0
+2016,"KOMUNALNO STANOVANJSKO PODJETJE d.d.; PARTIZANSKA CESTA 2, 6210 SEŽANA","OBALNO-KRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",174.187,159.079,15.108,0,0
+2016,"KOMUNALNO STANOVANJSKO PODJETJE d.d.; PARTIZANSKA CESTA 2, 6210 SEŽANA","OBALNO-KRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",963.4,963.4,0,0,0
+2016,"KOMUNALNO STANOVANJSKO PODJETJE d.d.; PARTIZANSKA CESTA 2, 6210 SEŽANA","OBALNO-KRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",232.9,223.74,9.16,0,0
+2016,"KOMUNALNO STANOVANJSKO PODJETJE d.d.; PARTIZANSKA CESTA 2, 6210 SEŽANA","OBALNO-KRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",127.22,126.52,0.7,0,0
+2016,"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.; ULICA RADA PUŠENJAKA 9, 9240 LJUTOMER","POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",89.315,88.787,0.528,0,0
+2016,"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.; ULICA RADA PUŠENJAKA 9, 9240 LJUTOMER","POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",160.917,160.125,0.792,0,0
+2016,"KOMUNALNO-STANOVANJSKO PODJETJE LJUTOMER d.o.o.; ULICA RADA PUŠENJAKA 9, 9240 LJUTOMER","POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",972.92,972.44,0.48,0,0
+2016,"KSP HRASTNIK Komunalno - stanovanjsko podjetje, d.d.; CESTA 3. JULIJA 7, 1430 HRASTNIK","ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",84.88,84.88,0,0,0
+2016,"KSP HRASTNIK Komunalno - stanovanjsko podjetje, d.d.; CESTA 3. JULIJA 7, 1430 HRASTNIK","ZASAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",45.53,45.53,0,0,0
+2016,"KSP HRASTNIK Komunalno - stanovanjsko podjetje, d.d.; CESTA 3. JULIJA 7, 1430 HRASTNIK","ZASAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",183,183,0,0,0
+2016,"KVADER MT, CNC obdelava pločevine, d.o.o.; OBRTNA ULICA 15, 1354 HORJUL","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2.38,2.38,0,0,0
+2016,"Komunala Tolmin, javno podjetje, d.o.o.; POLJUBINJ 89H, 5220 TOLMIN","GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",288.223,253.515,34.708,0,0
+2016,"Komunala Tolmin, javno podjetje, d.o.o.; POLJUBINJ 89H, 5220 TOLMIN","GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",153.12,153.12,0,0,0
+2016,"Komunala Tolmin, javno podjetje, d.o.o.; POLJUBINJ 89H, 5220 TOLMIN","GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",365.64,359.74,5.9,0,0
+2016,"Komunala Tolmin, javno podjetje, d.o.o.; POLJUBINJ 89H, 5220 TOLMIN","GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",275.29,275.29,0,0,0
+2016,"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",471.76,471.76,0,0,0
+2016,"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",20.68,20.68,0,0,0
+2016,"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",146.14,146.14,0,0,0
+2016,"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",302.28,302.28,0,0,0
+2016,"Kostak, komunalno in gradbeno podjetje, d.d.; LESKOVŠKA CESTA 2A, 8270 KRŠKO","POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",505.04,505.04,0,0,0
+2016,"LOŠKA KOMUNALA, oskrba z vodo in plinom, d.d., Škofja Loka; KIDRIČEVA CESTA 43A, 4220 ŠKOFJA LOKA","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",280.246,280.246,0,0,0
+2016,"LOŠKA KOMUNALA, oskrba z vodo in plinom, d.d., Škofja Loka; KIDRIČEVA CESTA 43A, 4220 ŠKOFJA LOKA","GORENJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",227.93,141.21,86.72,0,0
+2016,"LOŠKA KOMUNALA, oskrba z vodo in plinom, d.d., Škofja Loka; KIDRIČEVA CESTA 43A, 4220 ŠKOFJA LOKA","GORENJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",202.23,202.23,0,0,0
+2016,"LOŠKA KOMUNALA, oskrba z vodo in plinom, d.d., Škofja Loka; KIDRIČEVA CESTA 43A, 4220 ŠKOFJA LOKA","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",473.937,473.937,0,0,0
+2016,"LOŠKA KOMUNALA, oskrba z vodo in plinom, d.d., Škofja Loka; KIDRIČEVA CESTA 43A, 4220 ŠKOFJA LOKA","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",345.53,345.53,0,0,0
+2016,"LUKA KOPER INPO - invalidsko podjetje, d.o.o., gradbeništvo, proizvodne in druge storitve v kopenskem in vodnem prometu, invalidska dejavnost.; VOJKOVO NABREŽJE 38, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",1861.8,0,1861.8,0,0
+2016,"LUKA KOPER INPO - invalidsko podjetje, d.o.o., gradbeništvo, proizvodne in druge storitve v kopenskem in vodnem prometu, invalidska dejavnost.; VOJKOVO NABREŽJE 38, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",135.62,0,135.62,0,0
+2016,"LUKA KOPER INPO - invalidsko podjetje, d.o.o., gradbeništvo, proizvodne in druge storitve v kopenskem in vodnem prometu, invalidska dejavnost.; VOJKOVO NABREŽJE 38, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",289.8,0,273.02,16.78,0
+2016,"LUKA KOPER INPO - invalidsko podjetje, d.o.o., gradbeništvo, proizvodne in druge storitve v kopenskem in vodnem prometu, invalidska dejavnost.; VOJKOVO NABREŽJE 38, 6000 KOPER - CAPODISTRIA","OBALNO-KRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",9.28,0,9.28,0,0
+2016,"METALIMPEX SLV, zbiranje, recikliranje in prodaja vseh vrst odpadkov, d.o.o.; LJUBLJANSKA CESTA 26, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",11.36,0,11.36,0,0
+2016,"METALIMPEX SLV, zbiranje, recikliranje in prodaja vseh vrst odpadkov, d.o.o.; LJUBLJANSKA CESTA 26, 8000 NOVO MESTO","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",4.3,0,4.3,0,0
+2016,"NATURA VePo družba za komunalne storitve d.o.o.; VELIKA POLANA 111, 9225 VELIKA POLANA","POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",6.16,6.16,0,0,0
+2016,"NATURA VePo družba za komunalne storitve d.o.o.; VELIKA POLANA 111, 9225 VELIKA POLANA","POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",0.78,0.78,0,0,0
+2016,"NATURA VePo družba za komunalne storitve d.o.o.; VELIKA POLANA 111, 9225 VELIKA POLANA","POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",9.94,9.94,0,0,0
+2016,"OBČINA BOHINJ; TRIGLAVSKA CESTA 35, 4264 BOHINJSKA BISTRICA","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",44.278,44.278,0,0,0
+2016,"OBČINA BOHINJ; TRIGLAVSKA CESTA 35, 4264 BOHINJSKA BISTRICA","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",66.843,66.843,0,0,0
+2016,"OBČINA BOHINJ; TRIGLAVSKA CESTA 35, 4264 BOHINJSKA BISTRICA","GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",85,85,0,0,0
+2016,"OBČINA BOHINJ; TRIGLAVSKA CESTA 35, 4264 BOHINJSKA BISTRICA","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",279.38,279.38,0,0,0
+2016,"OBČINA GORENJA VAS-POLJANE; POLJANSKA CESTA 87, 4224 GORENJA VAS","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",33.281,33.281,0,0,0
+2016,"OBČINA GORENJA VAS-POLJANE; POLJANSKA CESTA 87, 4224 GORENJA VAS","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",76.463,76.463,0,0,0
+2016,"OBČINA GORENJA VAS-POLJANE; POLJANSKA CESTA 87, 4224 GORENJA VAS","GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",49.12,49.12,0,0,0
+2016,"OBČINA GORENJA VAS-POLJANE; POLJANSKA CESTA 87, 4224 GORENJA VAS","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",104.32,104.32,0,0,0
+2016,"OBČINA ŽIRI; LOŠKA CESTA 1, 4226 ŽIRI","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",62.14,62.14,0,0,0
+2016,"OBČINA ŽIRI; LOŠKA CESTA 1, 4226 ŽIRI","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",30.615,30.615,0,0,0
+2016,"OBČINA ŽIRI; LOŠKA CESTA 1, 4226 ŽIRI","GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",75.34,75.34,0,0,0
+2016,"OBČINA ŽIRI; LOŠKA CESTA 1, 4226 ŽIRI","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",78.34,78.34,0,0,0
+2016,"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka; VELIKA PRISTAVA 23, 6257 PIVKA","PRIMORSKO-NOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2.6,0,2.6,0,0
+2016,"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka; VELIKA PRISTAVA 23, 6257 PIVKA","PRIMORSKO-NOTRANJSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",0.22,0,0.22,0,0
+2016,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",117.261,97.391,19.87,0,0
+2016,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",0.18,0.18,0,0,0
+2016,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",319.81,319.35,0.46,0,0
+2016,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",64.33,64.33,0,0,0
+2016,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",516.43,516.16,0.27,0,0
+2016,"P.URŠIČ, družba za reciklažo, storitve in trgovino d.o.o.; TOVARNIŠKA CESTA 51, 2342 RUŠE","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",55.39,0,55.39,0,0
+2016,"P.URŠIČ, družba za reciklažo, storitve in trgovino d.o.o.; TOVARNIŠKA CESTA 51, 2342 RUŠE","PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1.18,0,1.18,0,0
+2016,"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",134.95,0,134.95,0,0
+2016,"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",676.59,676.59,0,0,0
+2016,"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",123.92,20.92,103,0,0
+2016,"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1444.13,1426.23,17.9,0,0
+2016,"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","PRIMORSKO-NOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",101.4,0,101.4,0,0
+2016,"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","PRIMORSKO-NOTRANJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",544.61,540.41,4.2,0,0
+2016,"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","PRIMORSKO-NOTRANJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",87.49,61.86,25.63,0,0
+2016,"PUBLIKUS gospodarjenje z odpadki d.o.o.; VODOVODNA CESTA 97, 1000 LJUBLJANA","PRIMORSKO-NOTRANJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",914.74,813.71,101.03,0,0
+2016,"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.; KOROŠKA CESTA 46, 3320 VELENJE","SAVINJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",4.5,0,4.5,0,0
+2016,"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.; KOROŠKA CESTA 46, 3320 VELENJE","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",284.002,284.002,0,0,0
+2016,"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.; KOROŠKA CESTA 46, 3320 VELENJE","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",18.54,3.4,15.14,0,0
+2016,"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.; KOROŠKA CESTA 46, 3320 VELENJE","SAVINJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",59.24,0,59.24,0,0
+2016,"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.; KOROŠKA CESTA 46, 3320 VELENJE","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",837.264,837.264,0,0,0
+2016,"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.; KOROŠKA CESTA 46, 3320 VELENJE","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",918.19,918.19,0,0,0
+2016,"PUP - SAUBERMACHER, podjetje za ravnanje z odpadki d.o.o.; KOROŠKA CESTA 46, 3320 VELENJE","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2918.26,573.22,0,2345.04,0
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",48.58,0,0,0,48.58
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",4.73,0,4.73,0,0
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",104.52,0,104.52,0,0
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",4017.327,0,3341.983,269.407,405.937
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1087.135,0,1087.135,0,0
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",596.922,0,45.327,23.01,528.585
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1242.513,0,218.737,257.684,766.092
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",38.652,0,38.652,0,0
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1.05,0,1.05,0,0
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",2370.266,0,17.14,0,2353.126
+2016,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana; VEVŠKA CESTA 52, 1260 LJUBLJANA - POLJE","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1.09,0,1.09,0,0
+2016,"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.; NORŠINSKA ULICA 12, 9000 MURSKA SOBOTA","POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",231.79,230.12,1.67,0,0
+2016,"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.; NORŠINSKA ULICA 12, 9000 MURSKA SOBOTA","POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1099.942,1084.972,14.97,0,0
+2016,"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.; NORŠINSKA ULICA 12, 9000 MURSKA SOBOTA","POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",252.5,252.5,0,0,0
+2016,"SAUBERMACHER - KOMUNALA - podjetje za odstranjevanje odpadkov Murska Sobota d.o.o.; NORŠINSKA ULICA 12, 9000 MURSKA SOBOTA","POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1043.48,1043.48,0,0,0
+2016,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2017.18,0,1974.133,43.047,0
+2016,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",144.686,0,144.686,0,0
+2016,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",12.3,0,12.3,0,0
+2016,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",0.46,0,0.46,0,0
+2016,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",2036.253,1668.798,190.345,17.03,160.08
+2016,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",372.18,223.1,149.08,0,0
+2016,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.; ULICA MATIJE GUBCA 2, 9000 MURSKA SOBOTA","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3179.08,2368.657,99.743,710.68,0
+2016,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",652.043,652.043,0,0,0
+2016,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",2.315,2.315,0,0,0
+2016,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",5.44,5.44,0,0,0
+2016,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1995.245,1995.245,0,0,0
+2016,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",655.872,655.872,0,0,0
+2016,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",4837.314,4837.314,0,0,0
+2016,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2632.394,2632.394,0,0,0
+2016,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",205.51,205.51,0,0,0
+2016,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",5.3,5.3,0,0,0
+2016,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",9780.716,9780.716,0,0,0
+2016,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",3583.602,3583.602,0,0,0
+2016,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",4883.1,4883.1,0,0,0
+2016,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.; NASIPNA ULICA 64, 2000 MARIBOR","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",676.874,580.283,96.591,0,0
+2016,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.; NASIPNA ULICA 64, 2000 MARIBOR","PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",49.8,30.96,18.84,0,0
+2016,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.; NASIPNA ULICA 64, 2000 MARIBOR","PODRAVSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",124.5,0,124.5,0,0
+2016,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.; NASIPNA ULICA 64, 2000 MARIBOR","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",3325.799,3311.809,13.99,0,0
+2016,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.; NASIPNA ULICA 64, 2000 MARIBOR","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",4008.588,3904.648,103.94,0,0
+2016,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.; NASIPNA ULICA 64, 2000 MARIBOR","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3498.22,3418.6,79.62,0,0
+2016,"SPOKS težka gradbena mehanizacija d.o.o.; PODSKRAJNIK 61A, 1380 CERKNICA","PRIMORSKO-NOTRANJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",1.24,0,0,1.24,0
+2016,"TSD, trgovina in druge storitve, d.o.o.; POD VRHOM 6, 2000 MARIBOR","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",3.07,0,3.07,0,0
+2016,"TSD, trgovina in druge storitve, d.o.o.; POD VRHOM 6, 2000 MARIBOR","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1.34,0,1.34,0,0
+2016,"TSD, trgovina in druge storitve, d.o.o.; POD VRHOM 6, 2000 MARIBOR","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.47,0,1.47,0,0
+2016,"ZOLTAN, proizvodnja, trgovina in storitve, d.o.o.; TREBIJA 24, 4224 GORENJA VAS","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.98,1.98,0,0,0
+2016,"ZOLTAN, proizvodnja, trgovina in storitve, d.o.o.; TREBIJA 24, 4224 GORENJA VAS","GORENJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",35.87,35.87,0,0,0
+2016,"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.; DORNAVSKA CESTA 26, 2250 PTUJ","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",339.125,304.285,34.84,0,0
+2016,"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.; DORNAVSKA CESTA 26, 2250 PTUJ","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",869.289,845.85,23.439,0,0
+2016,"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.; DORNAVSKA CESTA 26, 2250 PTUJ","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",186.98,177.06,9.92,0,0
+2016,"ČISTO MESTO PTUJ podjetje za gospodarjenje z odpadki d.o.o.; DORNAVSKA CESTA 26, 2250 PTUJ","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",542.92,516.06,26.86,0,0
+2016,"ŽURAN, deponiranje, predelava in proizvodnja gradbenih reciklatov, d.o.o.; FORMIN 8B, 2272 GORIŠNICA","PODRAVSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",311.534,0,311.534,0,0

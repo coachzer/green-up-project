@@ -1,55 +1,296 @@
-﻿"year","statistical_region","type_of_waste","total_waste_received","waste_received_from_producer","waste_received_from_collector","waste_received_from_processing_operator","waste_received_from_other_EU_country","waste_received_from_other_country_outside_EU"
-2019,"GORENJSKA","Paper/Cardboard Packaging",5992.841,0,487.704,6.55,5.5,62.9
-2019,"GORENJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",9469.22,5894.909,12.4,0,0,0
-2019,"GORENJSKA","Waste Bark and Wood",20.8,0,0,0,0,0
-2019,"GORENJSKA","Wood",915.6,0,294.14,0,0,0
-2019,"GORENJSKA","Wood, not specified in 20 01 37",1757.431,0,516.63,678.788,0,0
-2019,"GORENJSKA","Wooden packaging",4453.586,0,27.46,1497.844,0,0
-2019,"GORIŠKA","Paper/Cardboard Packaging",2333.202,0,708.714,0,0,0
-2019,"GORIŠKA","Wood",681.64,0,605,0,0,0
-2019,"GORIŠKA","Wood, not specified in 20 01 37",26.77,2.43,2.26,0,0,0
-2019,"GORIŠKA","Wooden packaging",643.614,0,18.23,0,0,0
-2019,"JUGOVZHODNA SLOVENIJA","Paper/Cardboard Packaging",6709.429,0,350.224,322.448,0,0
-2019,"JUGOVZHODNA SLOVENIJA","Sawdust/Chips/Wood, not specified in 03 01 04",1914.213,0,0,0,0,0
-2019,"JUGOVZHODNA SLOVENIJA","Wood",125.76,0,7.92,0,0,0
-2019,"JUGOVZHODNA SLOVENIJA","Wood, not specified in 20 01 37",250.432,0,49.634,0,0,0
-2019,"JUGOVZHODNA SLOVENIJA","Wooden packaging",3296.253,0,53.018,2.48,0,0
-2019,"KOROŠKA","Paper/Cardboard Packaging",1382.255,0,276.736,0,0,0
-2019,"KOROŠKA","Sawdust/Chips/Wood, not specified in 03 01 04",319.82,300,0,0,0,0
-2019,"KOROŠKA","Wood",13.36,0,0,0,0,0
-2019,"KOROŠKA","Wooden packaging",135.858,0,0,0,0,0
-2019,"OBALNO-KRAŠKA","Paper/Cardboard Packaging",4024.581,0,429.491,541.521,0,0
-2019,"OBALNO-KRAŠKA","Wood",94.17,0,0,0,0,0
-2019,"OBALNO-KRAŠKA","Wood, not specified in 20 01 37",1151.52,0,0,0,0,0
-2019,"OBALNO-KRAŠKA","Wooden packaging",753.661,0,7.68,0,0,0
-2019,"OSREDNJESLOVENSKA","Paper/Cardboard Packaging",48713.521,0.875,16132.786,5735.436,490.74,144.28
-2019,"OSREDNJESLOVENSKA","Sawdust/Chips/Wood, not specified in 03 01 04",2725.75,0,196.29,0,0,0
-2019,"OSREDNJESLOVENSKA","Waste Bark and Wood",116.274,0,0,0,0,0
-2019,"OSREDNJESLOVENSKA","Wood",4062.414,0,1505.682,50.18,0,0
-2019,"OSREDNJESLOVENSKA","Wood, not specified in 20 01 37",38515.217,0,9693.121,13631.1,0,0
-2019,"OSREDNJESLOVENSKA","Wooden packaging",17170.465,1.109,4605.948,7388.031,0,0
-2019,"PODRAVSKA","Paper/Cardboard Packaging",12251.353,3.673,1987.006,754.228,0,0
-2019,"PODRAVSKA","Sawdust/Chips/Wood, not specified in 03 01 04",145.4,0,85.14,0,0,0
-2019,"PODRAVSKA","Wood",347.54,0,0,0,0,0
-2019,"PODRAVSKA","Wood, not specified in 20 01 37",4598.996,0,1316.884,2083.88,0,0
-2019,"PODRAVSKA","Wooden packaging",2352.537,3.29,147.22,0,0,0
-2019,"POMURSKA","Paper/Cardboard Packaging",3371.443,0,514.421,477.21,0,0
-2019,"POMURSKA","Sawdust/Chips/Wood, not specified in 03 01 04",1914.6,0,0,0,0,0
-2019,"POMURSKA","Wood",7.38,0,0,0,0,0
-2019,"POMURSKA","Wood, not specified in 20 01 37",735.76,0,133.32,0,0,0
-2019,"POMURSKA","Wooden packaging",422.249,0,0,0,0,0
-2019,"POSAVSKA","Paper/Cardboard Packaging",6909.799,0,1534.289,3622.907,0,0
-2019,"POSAVSKA","Waste Bark and Wood",14221,14221,0,0,0,0
-2019,"POSAVSKA","Wood, not specified in 20 01 37",996.363,0,539.983,0,0,0
-2019,"POSAVSKA","Wooden packaging",365.2,232,3.76,0,0,0
-2019,"PRIMORSKO-NOTRANJSKA","Paper/Cardboard Packaging",276.71,0,0,0,113.3,0
-2019,"PRIMORSKO-NOTRANJSKA","Wood",29.66,0,0,0,0,0
-2019,"PRIMORSKO-NOTRANJSKA","Wooden packaging",545.49,0,0,0,0,0
-2019,"SAVINJSKA","Miscellaneous Waste",1550.26,0,0,0,0,0
-2019,"SAVINJSKA","Paper/Cardboard Packaging",14136.954,0,5420.639,2447.973,0,0
-2019,"SAVINJSKA","Sawdust/Chips/Wood, not specified in 03 01 04",293.676,0,17.98,0,0,0
-2019,"SAVINJSKA","Wood",582.21,0,234.07,0,0,0
-2019,"SAVINJSKA","Wood, not specified in 20 01 37",2480,0,2022.047,189.26,0,0
-2019,"SAVINJSKA","Wooden packaging",9479.001,0,2850.763,4580.05,0,0
-2019,"ZASAVSKA","Paper/Cardboard Packaging",0.14,0,0,0,0,0
-2019,"ZASAVSKA","Wood, not specified in 20 01 37",118.44,0,0,0,0,0
+﻿"year","name_of_company","statistical_region","waste_code","type_of_waste","waste_category","total_waste_received","waste_received_from_producer","waste_received_from_collector","waste_received_from_processing_operator","waste_received_from_other_EU_country","waste_received_from_other_country_outside_EU"
+2019,"ADRIA TERMINALI, logistične storitve, d.o.o.","OBALNO-KRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",578.06,0,0,0,578.06,0
+2019,"AVTOPREVOZNIŠTVO JANEZ LAVRIČ S.P.","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",281.2,0,0,0,0,0
+2019,"AVTOPREVOZNIŠTVO JANEZ LAVRIČ S.P.","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",507.765,0,0,0,0,0
+2019,"AVTOPREVOZNIŠTVO ROBERT ŽAGAR S.P.","GORIŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",605,0,605,0,0,0
+2019,"Albaugh tovarna kemičnih izdelkov d.o.o.","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2.42,2.42,0,0,0,0
+2019,"Albaugh tovarna kemičnih izdelkov d.o.o.","PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",3.29,3.29,0,0,0,0
+2019,"Albaugh tovarna kemičnih izdelkov d.o.o.","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",33.28,0,0,0,0,0
+2019,"BARKO, trgovanje z odpadnimi surovinami, d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",3.78,0,0,0,0,0
+2019,"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.","GORENJSKA","02 01 07","Forestry Waste (02 01 07)","Agricultural/Forestry Waste",0.1,0,0,0,0,0
+2019,"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.","GORENJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",7408.296,5894.909,0,0,0,0
+2019,"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.","GORENJSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste",20.8,0,0,0,0,0
+2019,"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.","GORENJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",2603.654,0,27.46,1497.844,0,0
+2019,"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.","GORENJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",137.2,0,0,0,0,0
+2019,"BIOMASA & MIZARSTVO OVSENIK, proizvodnja in storitve d.o.o.","GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1594.448,0,438.05,678.788,0,0
+2019,"BLOK reciklaža odpadne elektronike in zbiranje odpadnih barvnih kovin d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.969,0,0,0,0,0
+2019,"BREST-POHIŠTVO d.o.o. Cerknica, podjetje za proizvodnjo in promet pohištva ter opreme","PRIMORSKO-NOTRANJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",513.25,0,0,0,0,0
+2019,"BREZOVNIK PREVOZI&GRADBENIŠTVO storitve d.o.o.","KOROŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",13.36,0,0,0,0,0
+2019,"CENTER PONOVNE UPORABE, izvajanje postopkov za ponovno uporabo rabljene opreme, d.o.o., so.p.","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.78,0,1.78,0,0,0
+2019,"CENTER PONOVNE UPORABE, izvajanje postopkov za ponovno uporabo rabljene opreme, d.o.o., so.p.","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5.04,0,0,0,0,0
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","ZASAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.14,0,0,0,0,0
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","ZASAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",118.44,0,0,0,0,0
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","ZASAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1009.81,0,0,0,0,0
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",0.14,0,0,0,0,0
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1871.3,0,741.31,0,0,0
+2019,"DAMI STORITVE, odkup, odvoz in prodaja odpadnega papirja, d.o.o.","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",899.14,0,0,804.54,0,0
+2019,"DAMI STORITVE, odkup, odvoz in prodaja odpadnega papirja, d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",3175.776,2969.485,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORENJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",48.82,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",3242.268,0,184.086,6.55,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORENJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1134.239,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORENJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",11.8,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORENJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",24.978,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORENJSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",6.126,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",5026.428,0,461.38,10.911,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",67.543,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.2,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",676.673,0,198.664,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORIŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",123.219,0,8.75,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",510.374,0,30.101,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","JUGOVZHODNA SLOVENIJA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",1914.213,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",5064.991,0,126.98,322.448,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",2495.013,0,29.454,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","JUGOVZHODNA SLOVENIJA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",111.52,0,7.92,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","JUGOVZHODNA SLOVENIJA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",4.561,0,3.72,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","JUGOVZHODNA SLOVENIJA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",11.05,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1888.026,0,100.933,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",181.358,0,49.634,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OBALNO-KRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2260.715,0,75.696,541.521,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OBALNO-KRAŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",362.092,0,2.9,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OBALNO-KRAŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",78.99,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OBALNO-KRAŠKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",4.866,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OBALNO-KRAŠKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",12.58,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OBALNO-KRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1334.985,0,307.489,37.566,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OBALNO-KRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",88.91,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OBALNO-KRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.91,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste",27.754,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",14137.369,0,11575.649,2251.414,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1823.404,0,1667.515,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",144.919,0,139.493,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",1763.633,0,1733.963,24.46,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",0.088,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",19836.092,0,17760.818,1553.309,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",79.234,0,78.854,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1258.522,0,246.236,22.44,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",189.506,0,25.24,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1247.426,0,16.7,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",120.279,0,0,4.66,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","POMURSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",1914.6,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1915.672,0,11.06,393.772,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","POMURSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",267.495,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","POMURSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",23.22,0,0,23.22,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1564.915,0,112.089,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","SAVINJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",1.8,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",7931.682,0,1898.571,2447.973,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",971.093,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","SAVINJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",129.38,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","SAVINJSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",3.7,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",4273.59,0,1435.182,1429.462,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",35.82,0,0,0,0,0
+2019,"DINOS, družba za pripravo sekundarnih surovin, d.o.o.","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",36.26,0,0,0,0,0
+2019,"ECO SM, PREDELAVA IN STORITVE, D.O.O.","GORENJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",441.4,0,0,0,0,0
+2019,"EKO - TCE Tehnološki center za aplikativno ekologijo d.o.o.","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",0.14,0,0.14,0,0,0
+2019,"EKO - TCE Tehnološki center za aplikativno ekologijo d.o.o.","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",9.48,0,9.48,0,0,0
+2019,"EKO RECIKLAŽA trgovina, zbiranje in predelava sekundarnih surovin d.o.o.","GORENJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",177.07,0,0,0.78,0,0
+2019,"ENERGOLES BOHOR, proizvodnja, trgovina in storitve, d.o.o.","SAVINJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",223.916,0,0,0,0,0
+2019,"ENERGOLES BOHOR, proizvodnja, trgovina in storitve, d.o.o.","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",729.74,0,0,671,0,0
+2019,"ENERGOLES BOHOR, proizvodnja, trgovina in storitve, d.o.o.","SAVINJSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",1867.8,0,0,1867.8,0,0
+2019,"ENERGOLES BOHOR, proizvodnja, trgovina in storitve, d.o.o.","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",30.02,0,0,30.02,0,0
+2019,"FMG VZDRŽEVANJE, poslovne storitve in trgovina d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",422.38,0,0,0,422.38,0
+2019,"FMG VZDRŽEVANJE, poslovne storitve in trgovina d.o.o.","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",3206.194,0,0,0,3206.194,0
+2019,"FUNDACIJA VINCENCA DRAKSLERJA ZA ODVISNIKE - USTANOVA ZA ZDRAVLJENJE ODVISNIKOV, POMOČ ODVISNIKOM IN NJIHOVIM SVOJCEM, SO.P.","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",22.047,0,0,0,0,0
+2019,"GOR, gospodarjenje z odpadki in reciklaža d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",13.06,0,0,0,0,0
+2019,"GRANULA KOVINOPLASTIKA FRANCI LOGAR S.P.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",8,0,0,0,0,0
+2019,"GS Fotoreciklaža, družba za ravnanje z odpadki, d.o.o.","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1.52,0,0,0,0,0
+2019,"HAFNER BOŠTJANČIČ, gradbeno podjetje, d.o.o.","GORENJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",30,0,0,0,0,0
+2019,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",461.26,0,0,0,0,0
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","02 01 07","Forestry Waste (02 01 07)","Agricultural/Forestry Waste",63.14,0,0,0,0,0
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",17.36,0,0,0,0,0
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",4958.07,0,0,0,0,0
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",10174.82,0,2426.3,139.24,0,0
+2019,"JE-EMB, proizvodnja in prodaja lesene embalaže, d.o.o.","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",639.97,0,0,592.115,0,0
+2019,"JEKO, javno komunalno podjetje, d.o.o., Jesenice","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",7370.99,0,2703.96,4.28,0,0
+2019,"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",717.218,0,263.808,0,0,0
+2019,"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1029.055,0,753.837,0,0,0
+2019,"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1344.086,0,347.034,152.88,0,0
+2019,"Javne službe Ptuj, podjetje za izvajanje gospodarskih javnih služb in drugih dejavnosti, d.o.o.","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1993.031,0,1093.178,27.2,0,0
+2019,"Javno podjetje Komunalno podjetje Vrhnika, d.o.o.","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",9.16,0,0,0,0,0
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",631.778,0,286.801,83.438,0,0
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",690.48,0.58,388.08,0,0,0
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",735.76,0,133.32,0,0,0
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",4713.77,0,2539.24,0,0,0
+2019,"KEMIS kemični izdelki, predelava in odstranjevanje odpadkov d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.121,0,0.121,0,0,0
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",117.2,0,16.74,0,0,0
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2146.4,0,0,0,0,0
+2019,"KOGAL proizvodnja, trgovina, storitve, posredništvo, kmetijstvo, promet, gradbeništvo, nepremičnine d.o.o.","PODRAVSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",85.14,0,85.14,0,0,0
+2019,"KOGAL proizvodnja, trgovina, storitve, posredništvo, kmetijstvo, promet, gradbeništvo, nepremičnine d.o.o.","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2900.85,0,969.85,1931,0,0
+2019,"KOLIČEVO KARTON Proizvodnja kartona, d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",456.965,0,159.898,280.387,0,0
+2019,"KOLIČEVO KARTON Proizvodnja kartona, d.o.o.","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",83714.194,0,242.78,83448.021,0,0
+2019,"KOLIČEVO KARTON Proizvodnja kartona, d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",59256.129,0,171.753,6858.066,48125,4101
+2019,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",1648.12,0,5.74,0,0,0
+2019,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste",88.52,0,0,0,0,0
+2019,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",12909.055,0,2301.682,2733.48,68.36,0
+2019,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",5025.641,0,686.61,1926.406,0,0
+2019,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",1261.31,0,903.5,0,0,0
+2019,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",4994.794,0,239.38,4011.334,146.56,140.73
+2019,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",55207.489,0,35786.712,2710.82,2161.89,0
+2019,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",12150.1,0,4330.9,4141.84,0,0
+2019,"KOMTEKS, zbiranje in odkup sekundarnih surovin, d.o.o.","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1042.742,0,249.4,0,0,0
+2019,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",28.86,0,0,0,0,0
+2019,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",25.95,0,0,0,0,0
+2019,"KOMUNALA TREBNJE d.o.o.","JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",355.08,210.86,144.22,0,0,0
+2019,"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",4.69,2.43,2.26,0,0,0
+2019,"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",344.929,0.26,344.669,0,0,0
+2019,"KONITEX proizvodnja in predelava celuloznih materialov in regeneriranega usnja d.o.o.","SAVINJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",194.94,0,0,194.94,0,0
+2019,"KOSTANJ proizvodno podjetje d.o.o., Celje","SAVINJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",17.98,0,17.98,0,0,0
+2019,"KOSTANJ proizvodno podjetje d.o.o., Celje","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",5689.76,0,1879.86,3809.9,0,0
+2019,"KOSTANJ proizvodno podjetje d.o.o., Celje","SAVINJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",411.38,0,230.7,0,0,0
+2019,"KOSTANJ proizvodno podjetje d.o.o., Celje","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1133.96,0,886,159.24,0,0
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2465.469,0,1326.785,398.069,0,0
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",2.88,0,2.88,0,0,0
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",84.25,0,0,84.25,0,0
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",484.53,0,152.48,0,0,0
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",995.023,0,539.983,0,0,0
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1480.91,0,0,0,0,0
+2019,"LEPENKA TRGOVINA, prodaja in proizvodnja d.o.o.","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",88.925,0,20.525,0,5.5,62.9
+2019,"LEPENKA TRGOVINA, prodaja in proizvodnja d.o.o.","GORENJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",1350.085,0,132.274,385.392,638.99,0
+2019,"LESNA VRATA proizvodnja in trgovina stavbnega pohištva d.o.o.","KOROŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",300,300,0,0,0,0
+2019,"Lek farmacevtska družba d.d.","POMURSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",0.411,0.411,0,0,0,0
+2019,"MARINSON peleti, posredništvo in izdelava, Katarina Kralj Marinček s.p.","OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",95.2,0,0,0,0,0
+2019,"MIZARSTVO KOVAČ podjetje za obdelavo lesa in trgovino, d.o.o. Ljubija 55 Mozirje","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",137.83,0,38.68,99.15,0,0
+2019,"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka","PRIMORSKO-NOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",276.71,0,0,0,113.3,0
+2019,"ODPAD, zbiranje in predelava sekundarnih surovin ter trgovina d.o.o. Pivka","PRIMORSKO-NOTRANJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",32.24,0,0,0,0,0
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",70,0,0,0,0,0
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",15,0,0,0,0,0
+2019,"PUBLIKUS gospodarjenje z odpadki d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1302.654,0,0,0,0,0
+2019,"PUBLIKUS gospodarjenje z odpadki d.o.o.","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",169.23,0,0,0,0,0
+2019,"PUBLIKUS gospodarjenje z odpadki d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",729.13,0,0,0,0,0
+2019,"PUBLIKUS gospodarjenje z odpadki d.o.o.","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2154.54,0,0,2017.28,0,0
+2019,"PUBLIKUS gospodarjenje z odpadki d.o.o.","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1966.31,0,0,0,0,0
+2019,"Paloma, higienski papirji, d.d.","PODRAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",3033.96,0,270.1,530.98,2232.88,0
+2019,"Paloma, higienski papirji, d.d.","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1449.34,0,21,0,1428.34,0
+2019,"RDB Plastics, družba za zbiranje in odvoz odpadkov, d.o.o.","OBALNO-KRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",345.78,0,0,0,345.78,0
+2019,"REMATOM, storitve in trgovina, d.o.o., Ljubljana - Dobrunje","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",20.12,0,0,0,0,0
+2019,"REMATOM, storitve in trgovina, d.o.o., Ljubljana - Dobrunje","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",8.9,0,0,0,0,0
+2019,"ROKS recikliranje in predelava organskih odpadkov d.o.o.","OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",9,0,9,0,0,0
+2019,"ROKS recikliranje in predelava organskih odpadkov d.o.o.","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",76.9,0,76.9,0,0,0
+2019,"ROKS recikliranje in predelava organskih odpadkov d.o.o.","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",39.15,0,11.8,0,0,0
+2019,"ROKS recikliranje in predelava organskih odpadkov d.o.o.","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",3205.65,0,1018.42,0,0,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",695.836,0,100.62,0,0,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",49.869,0,0,0,0,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","JUGOVZHODNA SLOVENIJA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",43.92,0,0,0,43.92,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",301.97,0,0,0,44.32,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",21.85,0,0,0,0,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",9985.415,0,1136.205,27.856,0,144.28
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",24.792,0,0,0,0,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",496.49,65.507,19.998,35.755,286.36,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",6991.576,2269.966,1975.599,0,102.825,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.56,0,0,0,0,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1996.343,0,256.664,408.38,0,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",185.361,0,25.06,0,0,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","PODRAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",482.57,94.6,0,20.08,203.28,164.61
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",3382.915,0,643.74,60.04,68.66,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",27.48,0,0,0,0,0
+2019,"SALOMON d.o.o., podjetje za zaposlovanje invalidov, proizvodnjo, posredovanje in storitve Ljubljana","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",123.542,0,0,0,0,0
+2019,"SALONIT ANHOVO Gradbeni materiali, d.d.","GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",10.98,0,0,0,0,0
+2019,"SALONIT ANHOVO Gradbeni materiali, d.d.","GORIŠKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",16.28,0,0,0,16.28,0
+2019,"SALONIT ANHOVO Gradbeni materiali, d.d.","GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",16.96,7.47,0,0,0,0
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",101.1,0,0,0,0,0
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1163.662,0.875,14.47,228.35,0,0
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",131.069,1.109,3.16,0,0,0
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",42.61,0,9.12,0,0,0
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",304.01,0,0,0,0,0
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",660.41,0,512.24,12.98,0,0
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2195.08,1.253,20.748,3,0,0
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1528.632,0,19.38,314.88,0,0
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","SAVINJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",4.3,0,0,0,0,0
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",765.291,0,735.011,0,0,0
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","SAVINJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",21.46,0,0,0,0,0
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1942.451,0,1942.451,0,0,0
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",975.617,0,958.957,0,0,0
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",16211.886,0,12493.036,2650.06,0,0
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","02 01 07","Forestry Waste (02 01 07)","Agricultural/Forestry Waste",8.8,0,0,0,0,0
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",9.78,0,0,0,0,0
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1654.08,0,0,0,0,0
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3439.24,0,741.02,178.14,0,0
+2019,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2371.14,0,2371.14,0,0,0
+2019,"SPOKS težka gradbena mehanizacija d.o.o.","PRIMORSKO-NOTRANJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",29.66,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2661.648,0,283.093,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORENJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",680.553,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORENJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",1.06,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORENJSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",4.96,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORENJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",899.877,0,50.965,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORENJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",95.44,0,78.58,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",373.566,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1645.549,0,510.05,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORIŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",520.395,0,9.48,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORIŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",76.64,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORIŠKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",25.46,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",548.046,0,31.54,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",22.08,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",8.99,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",948.602,0,122.624,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",751.231,0,23.564,2.48,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","JUGOVZHODNA SLOVENIJA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",14.24,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","JUGOVZHODNA SLOVENIJA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",8.52,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","JUGOVZHODNA SLOVENIJA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",238.32,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","JUGOVZHODNA SLOVENIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",47.224,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",15.88,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","KOROŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",19.82,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1265.055,0,259.996,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","KOROŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",135.858,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","KOROŠKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",177.018,0,0,177.018,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",909.409,0.15,8.92,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",369.149,0,49.95,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OBALNO-KRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1763.866,0,353.795,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OBALNO-KRAŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",391.569,0,4.78,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OBALNO-KRAŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",15.18,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OBALNO-KRAŠKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",22.65,0,0,0,22.65,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OBALNO-KRAŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",81.646,0,10.8,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OBALNO-KRAŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1062.61,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OBALNO-KRAŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.54,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",107.42,0,4.19,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",8275.839,0,944.882,213.949,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1881.836,0,101.35,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",54.242,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",69.223,0,0,67.017,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",4099.153,0.48,2637.238,260.56,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",36.226,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","PODRAVSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",60.26,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",6081.77,0,1199.55,320.408,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1974.38,0,96.92,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","PODRAVSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",347.54,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","PODRAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",564,0,552.56,11.44,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","PODRAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",6480.909,1.05,2184.462,1635.22,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",297.72,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",4864.89,0,1490.72,2396.14,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POMURSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",823.993,0,216.56,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POMURSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",154.754,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POMURSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",7.38,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POMURSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",154.617,0.03,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.239,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",820.006,0,169.58,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POSAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",130.32,0,0.88,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",155.845,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1.34,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","POSAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",8.22,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","SAVINJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",45.68,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","SAVINJSKA","03 01 99","Other Unspecified Wood Waste (03 01 99)","Wood/Paper Production Waste",1550.26,0,0,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",5439.131,0,2786.207,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1947.258,0,932.083,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","SAVINJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",19.99,0,3.37,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","SAVINJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",161.975,0,103.475,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",3150.888,0.25,347.042,511.06,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",234.583,0,177.09,0,0,0
+2019,"Surovina, družba za predelavo odpadkov d.o.o.","SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",23.72,0,0,0,0,0
+2019,"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.","OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",764.91,0,177.36,0,0,0
+2019,"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.","OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",7107.523,0,2070.413,4869.51,0,0
+2019,"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.","OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",2027.888,0,450.889,50.18,0,0
+2019,"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.","OSREDNJESLOVENSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",70.318,0,0,70.318,0,0
+2019,"TISA podjetje za opravljanje gozdarskih storitev, d.o.o.","OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",13973.307,0,4264.947,7471.98,0,0
+2019,"TOPLARNA ŽELEZNIKI, proizvodnja in distribucija toplotne energije, d.o.o.","GORENJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",2012.104,0,12.4,0,0,0
+2019,"TOPLARNA ŽELEZNIKI, proizvodnja in distribucija toplotne energije, d.o.o.","GORENJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",35.14,0,0,0,0,0
+2019,"TOPLARNA ŽELEZNIKI, proizvodnja in distribucija toplotne energije, d.o.o.","GORENJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",294.14,0,294.14,0,0,0
+2019,"TOPLARNA ŽELEZNIKI, proizvodnja in distribucija toplotne energije, d.o.o.","GORENJSKA","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",3784.59,0,1230,2554.59,0,0
+2019,"VAUKAN posredništvo, trgovina in storitve d.o.o.","SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.85,0,0.85,0,0,0
+2019,"VAUKAN posredništvo, trgovina in storitve d.o.o.","SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",3.18,0,0,0,0,0
+2019,"VAČO varovanje okolja d.o.o.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",21.253,0,0,0,0,0
+2019,"VAČO varovanje okolja d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1115.826,0,0,0,0,0
+2019,"VAČO varovanje okolja d.o.o.","OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.693,0,0,0,0,0
+2019,"VIPAP VIDEM KRŠKO proizvodnja papirja in vlaknin d.d.","POSAVSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste",14221,14221,0,0,0,0
+2019,"VIPAP VIDEM KRŠKO proizvodnja papirja in vlaknin d.d.","POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",3624.324,0,37.924,3224.838,0,0
+2019,"VIPAP VIDEM KRŠKO proizvodnja papirja in vlaknin d.d.","POSAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",232,232,0,0,0,0
+2019,"VIPAP VIDEM KRŠKO proizvodnja papirja in vlaknin d.d.","POSAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",52620.98,0,129.281,4971.955,27864.821,19654.923
+2019,"VIPAP VIDEM KRŠKO proizvodnja papirja in vlaknin d.d.","POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",163476.081,4,1052.351,18605.949,133993.191,5971.713
+2019,"ZIMICELL rešitve pri nizkoenergijski gradnji d.o.o.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",199.538,0,0,0,0,0
+2019,"ZIPOS zbiranje in predelava odpadnih surovin d.o.o.","GORIŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",25.844,0,0,0,0,0

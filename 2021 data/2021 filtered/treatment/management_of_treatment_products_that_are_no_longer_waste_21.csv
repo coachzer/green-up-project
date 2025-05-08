@@ -1,14 +1,21 @@
-﻿"year","input_waste_name","output_waste_name","delivered_to_storage_or_other_persons_RS","shipped_to_EU","shipped_to_non_EU"
-2021,"Paper/Cardboard Packaging","paper and cardboard",0,4986.528,0
-2021,"Paper/Cardboard Packaging","textiles and leather",594.2,237.68,0
-2021,"Sawdust/Chips/Wood, not specified in 03 01 04","compost",9.36,0,0
-2021,"Sawdust/Chips/Wood, not specified in 03 01 04","wood",50.02,0,0
-2021,"Wood","wood",465.9,0,0
-2021,"Wood, not specified in 20 01 37","compost",1927.693,0,0
-2021,"Wood, not specified in 20 01 37","iron and steel metals",531.352,0,0
-2021,"Wood, not specified in 20 01 37","paper and cardboard",0.91,0,0
-2021,"Wood, not specified in 20 01 37","wood",1461.094,0,0
-2021,"Wooden packaging","compost",34.32,0,0
-2021,"Wooden packaging","iron and steel metals",0.028,0,0
-2021,"Wooden packaging","other",218.167,0,0
-2021,"Wooden packaging","wood",8356.757,393.622,0
+﻿"year","input_waste_code","input_waste_name","waste_category","output_waste_name","delivered_to_storage_or_other_persons_RS","shipped_to_EU","shipped_to_non_EU"
+2021,"03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","compost",9.36,0,0
+2021,"03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","wood",50.02,0,0
+2021,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","paper and cardboard",0,4986.528,0
+2021,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","textiles and leather",594.2,237.68,0
+2021,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","compost",34.32,0,0
+2021,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","iron and steel metals",0.028,0,0
+2021,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","other",218.167,0,0
+2021,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","wood",8356.757,393.622,0
+2021,"17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste","wood",465.9,0,0
+2021,"19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues","paper and cardboard",0,42277.116,0
+2021,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste","paper and cardboard",0,13712.84,0
+2021,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",NA,145.682,0,0
+2021,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","compost",1927.693,0,0
+2021,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","iron and steel metals",531.352,0,0
+2021,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","paper and cardboard",0.91,0,0
+2021,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","wood",1461.094,0,0
+2021,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","compost",11.25,0,0
+2021,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","other",16.825,0,0
+2021,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","textiles and leather",0.56,0,0
+2021,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","wood",0.84,0,0

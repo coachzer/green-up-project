@@ -1,92 +1,307 @@
-﻿"year","statistical_region","name_of_municipality","type_of_waste","total_waste_received"
-2019,"GORENJSKA","BOHINJ","Paper/Cardboard Packaging",4.34
-2019,"GORENJSKA","CERKLJE NA GORENJSKEM","Wood, not specified in 20 01 37",46.34
-2019,"GORENJSKA","GORENJA VAS-POLJANE","Paper/Cardboard Packaging",3.04
-2019,"GORENJSKA","KRANJ","Paper/Cardboard Packaging",0.118
-2019,"GORENJSKA","RADOVLJICA","Paper/Cardboard Packaging",489.545
-2019,"GORENJSKA","TRŽIČ","Paper/Cardboard Packaging",2.66
-2019,"GORENJSKA","ŽIRI","Paper/Cardboard Packaging",11.74
-2019,"GORIŠKA","AJDOVŠČINA","Wood, not specified in 20 01 37",2.43
-2019,"GORIŠKA","IDRIJA","Paper/Cardboard Packaging",263.854
-2019,"GORIŠKA","NOVA GORICA","Paper/Cardboard Packaging",4.54
-2019,"GORIŠKA","NOVA GORICA","Wooden packaging",4.38
-2019,"GORIŠKA","VIPAVA","Wood, not specified in 20 01 37",2.26
-2019,"KOROŠKA","DRAVOGRAD","Paper/Cardboard Packaging",16.16
-2019,"KOROŠKA","MEŽICA","Paper/Cardboard Packaging",1.768
-2019,"KOROŠKA","MISLINJA","Paper/Cardboard Packaging",18.433
-2019,"KOROŠKA","MUTA","Paper/Cardboard Packaging",0.663
-2019,"KOROŠKA","PODVELKA","Paper/Cardboard Packaging",0.474
-2019,"KOROŠKA","PREVALJE","Paper/Cardboard Packaging",9.537
-2019,"KOROŠKA","RADLJE OB DRAVI","Paper/Cardboard Packaging",1.128
-2019,"KOROŠKA","RAVNE NA KOROŠKEM","Paper/Cardboard Packaging",5.689
-2019,"KOROŠKA","RIBNICA NA POHORJU","Paper/Cardboard Packaging",0.23
-2019,"KOROŠKA","SLOVENJ GRADEC","Paper/Cardboard Packaging",67.307
-2019,"KOROŠKA","VUZENICA","Paper/Cardboard Packaging",0.506
-2019,"KOROŠKA","ČRNA NA KOROŠKEM","Paper/Cardboard Packaging",1.645
-2019,"OBALNOKRAŠKA","IZOLA","Paper/Cardboard Packaging",1.28
-2019,"OBALNOKRAŠKA","KOPER","Paper/Cardboard Packaging",1.02
-2019,"OBALNOKRAŠKA","PIRAN","Paper/Cardboard Packaging",1.76
-2019,"OSREDNJESLOVENSKA","BREZOVICA","Paper/Cardboard Packaging",6.945
-2019,"OSREDNJESLOVENSKA","BREZOVICA","Wood, not specified in 20 01 37",28.54
-2019,"OSREDNJESLOVENSKA","BREZOVICA","Wooden packaging",4.56
-2019,"OSREDNJESLOVENSKA","DOMŽALE","Paper/Cardboard Packaging",74.545
-2019,"OSREDNJESLOVENSKA","GROSUPLJE","Paper/Cardboard Packaging",14.17
-2019,"OSREDNJESLOVENSKA","HORJUL","Paper/Cardboard Packaging",0.86
-2019,"OSREDNJESLOVENSKA","HORJUL","Wood, not specified in 20 01 37",0.44
-2019,"OSREDNJESLOVENSKA","IG","Wood, not specified in 20 01 37",20.68
-2019,"OSREDNJESLOVENSKA","KOMENDA","Paper/Cardboard Packaging",0.072
-2019,"OSREDNJESLOVENSKA","LJUBLJANA","Paper/Cardboard Packaging",434.896
-2019,"OSREDNJESLOVENSKA","LJUBLJANA","Wood, not specified in 20 01 37",1452.42
-2019,"OSREDNJESLOVENSKA","LJUBLJANA","Wooden packaging",11.37
-2019,"OSREDNJESLOVENSKA","LOGATEC","Paper/Cardboard Packaging",86.825
-2019,"OSREDNJESLOVENSKA","LOGATEC","Wood, not specified in 20 01 37",303.57
-2019,"OSREDNJESLOVENSKA","LOGATEC","Wooden packaging",19.3
-2019,"OSREDNJESLOVENSKA","MEDVODE","Wood, not specified in 20 01 37",49.2
-2019,"OSREDNJESLOVENSKA","MENGEŠ","Wooden packaging",0.23
-2019,"OSREDNJESLOVENSKA","TRZIN","Paper/Cardboard Packaging",14.002
-2019,"OSREDNJESLOVENSKA","TRZIN","Wooden packaging",1.44
-2019,"OSREDNJESLOVENSKA","VELIKE LAŠČE","Wood, not specified in 20 01 37",14.5
-2019,"OSREDNJESLOVENSKA","VODICE","Wood, not specified in 20 01 37",18.52
-2019,"OSREDNJESLOVENSKA","VRHNIKA","Paper/Cardboard Packaging",121.028
-2019,"OSREDNJESLOVENSKA","VRHNIKA","Wooden packaging",59.32
-2019,"OSREDNJESLOVENSKA","ŠKOFLJICA","Wood, not specified in 20 01 37",23.88
-2019,"PODRAVSKA","HOČE-SLIVNICA","Paper/Cardboard Packaging",14.76
-2019,"PODRAVSKA","LENART","Paper/Cardboard Packaging",139.33
-2019,"PODRAVSKA","LENART","Wooden packaging",1.109
-2019,"PODRAVSKA","MARIBOR","Paper/Cardboard Packaging",104.308
-2019,"PODRAVSKA","MARIBOR","Wooden packaging",29.36
-2019,"PODRAVSKA","ORMOŽ","Paper/Cardboard Packaging",20.98
-2019,"PODRAVSKA","PESNICA","Paper/Cardboard Packaging",3.12
-2019,"PODRAVSKA","PODLEHNIK","Paper/Cardboard Packaging",7.78
-2019,"PODRAVSKA","RAČE-FRAM","Paper/Cardboard Packaging",1.7
-2019,"PODRAVSKA","RUŠE","Paper/Cardboard Packaging",101.64
-2019,"PODRAVSKA","SELNICA OB DRAVI","Paper/Cardboard Packaging",0.82
-2019,"PODRAVSKA","SV. TROJICA V SLOV. GORICAH","Paper/Cardboard Packaging",108.828
-2019,"PODRAVSKA","ŠENTILJ","Paper/Cardboard Packaging",6.79
-2019,"POMURSKA","GORNJA RADGONA","Paper/Cardboard Packaging",43.469
-2019,"POMURSKA","LENDAVA","Paper/Cardboard Packaging",1.6
-2019,"POMURSKA","LJUTOMER","Paper/Cardboard Packaging",0.08
-2019,"POMURSKA","MURSKA SOBOTA","Paper/Cardboard Packaging",71.6
-2019,"POMURSKA","RADENCI","Paper/Cardboard Packaging",81.16
-2019,"POMURSKA","SVETI JURIJ OB ŠČAVNICI","Paper/Cardboard Packaging",0.56
-2019,"POMURSKA","VERŽEJ","Paper/Cardboard Packaging",4.46
-2019,"POSAVSKA","BISTRICA OB SOTLI","Wood, not specified in 20 01 37",2.59
-2019,"POSAVSKA","KOSTANJEVICA NA KRKI","Paper/Cardboard Packaging",39.06
-2019,"POSAVSKA","KRŠKO","Paper/Cardboard Packaging",571.04
-2019,"POSAVSKA","KRŠKO","Wood, not specified in 20 01 37",539.983
-2019,"POSAVSKA","RADEČE","Wood, not specified in 20 01 37",67.3
-2019,"PRIMORSKONOTRANJSKA","CERKNICA","Paper/Cardboard Packaging",7.09
-2019,"PRIMORSKONOTRANJSKA","ILIRSKA BISTRICA","Paper/Cardboard Packaging",15.334
-2019,"PRIMORSKONOTRANJSKA","PIVKA","Paper/Cardboard Packaging",187.19
-2019,"SAVINJSKA","CELJE","Paper/Cardboard Packaging",11.633
-2019,"SAVINJSKA","KOZJE","Wood, not specified in 20 01 37",6.328
-2019,"SAVINJSKA","LAŠKO","Paper/Cardboard Packaging",0.15
-2019,"SAVINJSKA","NAZARJE","Paper/Cardboard Packaging",851.48
-2019,"SAVINJSKA","PODČETRTEK","Paper/Cardboard Packaging",0.86
-2019,"SAVINJSKA","PODČETRTEK","Wood, not specified in 20 01 37",6.804
-2019,"SAVINJSKA","ROGATEC","Wood, not specified in 20 01 37",4.704
-2019,"SAVINJSKA","ROGAŠKA SLATINA","Wood, not specified in 20 01 37",22.533
-2019,"SAVINJSKA","VELENJE","Paper/Cardboard Packaging",26.32
-2019,"SAVINJSKA","ZREČE","Paper/Cardboard Packaging",2.12
-2019,"SAVINJSKA","ŠMARJE PRI JELŠAH","Wood, not specified in 20 01 37",27.041
-2019,"ZASAVSKA","LITIJA","Wood, not specified in 20 01 37",3.38
+﻿"year","name_of_company","statistical_region","name_of_municipality","waste_code","type_of_waste","waste_category","total_waste_received"
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","POSAVSKA","RADEČE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",67.3
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","POSAVSKA","RADEČE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",57.76
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","ZASAVSKA","HRASTNIK","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",248.06
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","ZASAVSKA","LITIJA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",3.38
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","ZASAVSKA","LITIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",357.15
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","ZASAVSKA","TRBOVLJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",172.3
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","ZASAVSKA","ZAGORJE OB SAVI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",148.98
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","GORIŠKA","NOVA GORICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",60.63
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","DOLENJSKE TOPLICE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.02
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","METLIKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",304.57
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","MIRNA PEČ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.88
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","NOVO MESTO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",820.26
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","SEMIČ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",90.906
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","STRAŽA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",7.45
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","ČRNOMELJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",285.204
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","ŠENTJERNEJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",226.04
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","ŠKOCJAN","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3.5
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","ŠMARJEŠKE TOPLICE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5.61
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","JUGOVZHODNA SLOVENIJA","ŽUŽEMBERK","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",63.52
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","POSAVSKA","KOSTANJEVICA NA KRKI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.71
+2019,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","OSREDNJESLOVENSKA","DOBREPOLJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",11.07
+2019,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","OSREDNJESLOVENSKA","GROSUPLJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",310.889
+2019,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.","OSREDNJESLOVENSKA","IVANČNA GORICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",139.301
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","GORENJSKA","CERKLJE NA GORENJSKEM","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",53.02
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","GORENJSKA","GORENJA VAS-POLJANE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",118.58
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","GORENJSKA","KRANJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",596.32
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","GORENJSKA","ŽIRI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",144.24
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","GORIŠKA","IDRIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",482.48
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","JUGOVZHODNA SLOVENIJA","NOVO MESTO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",139.24
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","JUGOVZHODNA SLOVENIJA","RIBNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",319.62
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OBALNOKRAŠKA","IZOLA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",260.82
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OBALNOKRAŠKA","PIRAN","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",112.44
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","BREZOVICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",156.06
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","DOBROVA-POLHOV GRADEC","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",43.32
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","DOL PRI LJUBLJANI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",63.36
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","DOMŽALE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1222.68
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","GROSUPLJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",72.12
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","HORJUL","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",33.12
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","IG","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",128.76
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","LJUBLJANA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5492.02
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","MEDVODE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",233.24
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","VELIKE LAŠČE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",107.78
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","VODICE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",108.22
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","ŠKOFLJICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",82.84
+2019,"JAVNO PODJETJE VODOVOD KANALIZACIJA SNAGA d.o.o.","OSREDNJESLOVENSKA","ŠMARTNO PRI LITIJI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",204.54
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","GORIŠKA","NOVA GORICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",57.22
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","PODRAVSKA","BENEDIKT","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",66.17
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","PODRAVSKA","CERKVENJAK","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",60.86
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","PODRAVSKA","LENART","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",194.57
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","PODRAVSKA","ORMOŽ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",197.72
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","PODRAVSKA","SREDIŠČE OB DRAVI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",38.92
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","PODRAVSKA","SV. TROJICA V SLOV. GORICAH","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",70.94
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","PODRAVSKA","SVETA ANA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",61.14
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","PODRAVSKA","SVETI JURIJ V SLOV. GORICAH","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",51.86
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","PODRAVSKA","SVETI TOMAŽ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",25.84
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","APAČE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",369.94
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","BELTINCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",284.46
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","CANKOVA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",51.19
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","DOBROVNIK","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",31.27
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","GORNJA RADGONA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",287.53
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","GORNJI PETROVCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",23.41
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","GRAD","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",56.94
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","HODOŠ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.46
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","KOBILJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",14.96
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","KRIŽEVCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",195.55
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","KUZMA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",9.53
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","LENDAVA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",168.27
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","LJUTOMER","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",580.77
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","MORAVSKE TOPLICE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",110.45
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","MURSKA SOBOTA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",634.7
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","ODRANCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",56.31
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","PUCONCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",202.54
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","RADENCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",146.89
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","RAZKRIŽJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",74.61
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","ROGAŠOVCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",51.06
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","SVETI JURIJ OB ŠČAVNICI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",79.54
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","TIŠINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",108.32
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","TURNIŠČE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",94.56
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","VELIKA POLANA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",10.56
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","VERŽEJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",76.69
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","ČRENŠOVCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",131.58
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","POMURSKA","ŠALOVCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",35.44
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","DRAVOGRAD","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",16.16
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","DRAVOGRAD","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",272.14
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","MEŽICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.768
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","MEŽICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",118.002
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","MISLINJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",18.433
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","MISLINJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",168.812
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","MUTA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.663
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","MUTA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",68.183
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","PODVELKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.474
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","PODVELKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",48.737
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","PREVALJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",3.197
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","PREVALJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",174.202
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","RADLJE OB DRAVI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.128
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","RADLJE OB DRAVI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",116.057
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","RAVNE NA KOROŠKEM","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",5.689
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","RAVNE NA KOROŠKEM","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",292.486
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","RIBNICA NA POHORJU","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.23
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","RIBNICA NA POHORJU","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",23.674
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","SLOVENJ GRADEC","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",67.307
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","SLOVENJ GRADEC","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",675.248
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","VUZENICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.506
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","VUZENICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",52.009
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","ČRNA NA KOROŠKEM","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.645
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","KOROŠKA","ČRNA NA KOROŠKEM","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",122.01
+2019,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","PODRAVSKA","MAKOLE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.076
+2019,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","PODRAVSKA","OPLOTNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3.114
+2019,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","PODRAVSKA","POLJČANE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3.633
+2019,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","PODRAVSKA","RAČE-FRAM","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",4.152
+2019,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.","PODRAVSKA","SLOVENSKA BISTRICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",12.975
+2019,"KOMUNALA TREBNJE d.o.o.","JUGOVZHODNA SLOVENIJA","MIRNA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",28.529
+2019,"KOMUNALA TREBNJE d.o.o.","JUGOVZHODNA SLOVENIJA","MOKRONOG-TREBELNO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",34.961
+2019,"KOMUNALA TREBNJE d.o.o.","JUGOVZHODNA SLOVENIJA","TREBNJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",118.398
+2019,"KOMUNALA TREBNJE d.o.o.","JUGOVZHODNA SLOVENIJA","ŠENTRUPERT","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",28.972
+2019,"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","GORIŠKA","AJDOVŠČINA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2.43
+2019,"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","GORIŠKA","AJDOVŠČINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",270.771
+2019,"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","GORIŠKA","VIPAVA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2.26
+2019,"KOMUNALNO STANOVANJSKA DRUŽBA d.o.o. Ajdovščina","GORIŠKA","VIPAVA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",74.158
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","KOSTANJEVICA NA KRKI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",39.06
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","KOSTANJEVICA NA KRKI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.18
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","KRŠKO","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",571.04
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","KRŠKO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",113.36
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","KRŠKO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",539.983
+2019,"Kostak, komunalno in gradbeno podjetje, d.d.","POSAVSKA","KRŠKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",339.46
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","POSAVSKA","BISTRICA OB SOTLI","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2.59
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","POSAVSKA","BISTRICA OB SOTLI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.555
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","KOZJE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",6.328
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","KOZJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.356
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","PODČETRTEK","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",6.804
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","PODČETRTEK","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.458
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","ROGATEC","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",4.704
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","ROGATEC","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.008
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","ROGAŠKA SLATINA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",22.533
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","ROGAŠKA SLATINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",4.828
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","ŠMARJE PRI JELŠAH","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",27.041
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","SAVINJSKA","ŠMARJE PRI JELŠAH","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5.795
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","BLED","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",134.55
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","BOHINJ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",4.34
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","CERKLJE NA GORENJSKEM","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.62
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","GORENJA VAS-POLJANE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",3.04
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","GORENJA VAS-POLJANE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",9.12
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","GORENJA VAS-POLJANE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.22
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","KRANJ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.118
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","KRANJ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",19
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","KRANJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.56
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","KRANJSKA GORA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.36
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","RADOVLJICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",489.545
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","RADOVLJICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.76
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","TRŽIČ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2.66
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","ŠKOFJA LOKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.84
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","ŠKOFJA LOKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",325.6
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","ŽIRI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",11.74
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORENJSKA","ŽIRI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.54
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORIŠKA","IDRIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",263.854
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORIŠKA","IDRIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",62.92
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORIŠKA","KANAL","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.6
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORIŠKA","NOVA GORICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",4.54
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORIŠKA","NOVA GORICA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",4.38
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","GORIŠKA","TOLMIN","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",52.09
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","JUGOVZHODNA SLOVENIJA","OSILNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5.92
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","KOROŠKA","PREVALJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",6.34
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","KOROŠKA","RADLJE OB DRAVI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",2.38
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OBALNOKRAŠKA","ANKARAN","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",6.58
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OBALNOKRAŠKA","IZOLA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.28
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OBALNOKRAŠKA","IZOLA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.06
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OBALNOKRAŠKA","KOPER","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.02
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OBALNOKRAŠKA","KOPER","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",7.86
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OBALNOKRAŠKA","PIRAN","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.76
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OBALNOKRAŠKA","PIRAN","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1.42
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OBALNOKRAŠKA","SEŽANA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.66
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","BREZOVICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",6.945
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","BREZOVICA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",4.56
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","DOBROVA-POLHOV GRADEC","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.72
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","DOMŽALE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",74.545
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","GROSUPLJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",14.17
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","HORJUL","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.86
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","HORJUL","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",0.44
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","KAMNIK","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",4.42
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","KOMENDA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.072
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","LJUBLJANA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",434.896
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","LJUBLJANA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",11.37
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","LJUBLJANA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",8.69
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","LJUBLJANA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",20.46
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","LOGATEC","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",86.825
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","LOGATEC","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",19.3
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","LOGATEC","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.68
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","LOGATEC","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",303.57
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","LOGATEC","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.3
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","MENGEŠ","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",0.23
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","TRZIN","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",14.002
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","TRZIN","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1.44
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","TRZIN","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.82
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","VRHNIKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",121.028
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","VRHNIKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",59.32
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","VRHNIKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",11.52
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","OSREDNJESLOVENSKA","VRHNIKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",28.19
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","HOČE-SLIVNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",14.76
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","HOČE-SLIVNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",3.42
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","LENART","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",139.33
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","LENART","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1.109
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","LENART","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1106.392
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","LENART","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.82
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","MARIBOR","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",104.308
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","MARIBOR","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",29.36
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","MARIBOR","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1.16
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","MARIBOR","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",4.3
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","ORMOŽ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",20.98
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","ORMOŽ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1.42
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","PESNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",3.12
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","PODLEHNIK","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",7.78
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","PTUJ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",3.34
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","RAČE-FRAM","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.7
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","RUŠE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",101.64
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","SELNICA OB DRAVI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.82
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","SV. TROJICA V SLOV. GORICAH","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",108.828
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","SV. TROJICA V SLOV. GORICAH","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.4
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","ŠENTILJ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",6.79
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PODRAVSKA","ŠENTILJ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",14.92
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","GORNJA RADGONA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",43.469
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","GORNJA RADGONA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",3.6
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","LENDAVA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1.6
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","LENDAVA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.64
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","LJUTOMER","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.08
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","LJUTOMER","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.52
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","MURSKA SOBOTA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",71.6
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","MURSKA SOBOTA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",26.32
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","MURSKA SOBOTA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","PUCONCI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",314.88
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","RADENCI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",81.16
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","RADENCI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",19.58
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","SVETI JURIJ OB ŠČAVNICI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.56
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","SVETI JURIJ OB ŠČAVNICI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",5.5
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","POMURSKA","VERŽEJ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",4.46
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PRIMORSKONOTRANJSKA","CERKNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",7.09
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PRIMORSKONOTRANJSKA","ILIRSKA BISTRICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",15.334
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","PRIMORSKONOTRANJSKA","PIVKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",187.19
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","SAVINJSKA","CELJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",11.633
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","SAVINJSKA","LAŠKO","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.15
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","SAVINJSKA","NAZARJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",851.48
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","SAVINJSKA","PODČETRTEK","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.86
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","SAVINJSKA","VELENJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",26.32
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","SAVINJSKA","VELENJE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1.18
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","SAVINJSKA","ZREČE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2.12
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","SAVINJSKA","ZREČE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",4.12
+2019,"SAUBERMACHER SLOVENIJA storitve pri varstvu okolja, trgovina in transport d.o.o.","ZASAVSKA","ZAGORJE OB SAVI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.68
+2019,"SNAGA Javno podjetje d.o.o.","GORENJSKA","CERKLJE NA GORENJSKEM","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",46.34
+2019,"SNAGA Javno podjetje d.o.o.","GORENJSKA","CERKLJE NA GORENJSKEM","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",18.52
+2019,"SNAGA Javno podjetje d.o.o.","GORENJSKA","GORENJA VAS-POLJANE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",25.36
+2019,"SNAGA Javno podjetje d.o.o.","GORENJSKA","KRANJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",175.198
+2019,"SNAGA Javno podjetje d.o.o.","GORENJSKA","NAKLO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",10.171
+2019,"SNAGA Javno podjetje d.o.o.","GORENJSKA","PREDDVOR","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.491
+2019,"SNAGA Javno podjetje d.o.o.","GORENJSKA","ŠENČUR","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",19.72
+2019,"SNAGA Javno podjetje d.o.o.","GORENJSKA","ŽIRI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",12.22
+2019,"SNAGA Javno podjetje d.o.o.","GORIŠKA","CERKNO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",19.554
+2019,"SNAGA Javno podjetje d.o.o.","GORIŠKA","IDRIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",57.886
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","DOLENJSKE TOPLICE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",6.36
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","LOŠKI POTOK","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",21.613
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","METLIKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",23.408
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","NOVO MESTO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",87.894
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","RIBNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",57.247
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","SEMIČ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",11.668
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","SODRAŽICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",11.34
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","STRAŽA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.374
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","ČRNOMELJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",42.825
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","ŠMARJEŠKE TOPLICE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.178
+2019,"SNAGA Javno podjetje d.o.o.","JUGOVZHODNA SLOVENIJA","ŽUŽEMBERK","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5.433
+2019,"SNAGA Javno podjetje d.o.o.","OBALNOKRAŠKA","IZOLA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",116.88
+2019,"SNAGA Javno podjetje d.o.o.","OBALNOKRAŠKA","PIRAN","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",85.26
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","BOROVNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",13.975
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","BREZOVICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",28.54
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","BREZOVICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",61.74
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","DOBREPOLJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.521
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","DOBROVA-POLHOV GRADEC","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",8.38
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","DOL PRI LJUBLJANI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3.48
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","DOMŽALE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",276.348
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","GROSUPLJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",6.044
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","HORJUL","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",47.1
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","IG","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",20.68
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","IG","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",57.32
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","IVANČNA GORICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3.855
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","LJUBLJANA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1452.42
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","LJUBLJANA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1747.2
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","LOG-DRAGOMER","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",11.905
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","LUKOVICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",36.846
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","MEDVODE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",49.2
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","MEDVODE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",60.72
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","MENGEŠ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",55.27
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","MORAVČE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",36.846
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","TRZIN","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",55.27
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","VELIKE LAŠČE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",14.5
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","VELIKE LAŠČE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",19.5
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","VODICE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",18.52
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","VODICE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",29.96
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","VRHNIKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",25.88
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","ŠKOFLJICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",23.88
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","ŠKOFLJICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",16.54
+2019,"SNAGA Javno podjetje d.o.o.","OSREDNJESLOVENSKA","ŠMARTNO PRI LITIJI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",52.94
+2019,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","PODRAVSKA","KUNGOTA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",121.59
+2019,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","PODRAVSKA","LOVRENC NA POHORJU","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",87.48
+2019,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","PODRAVSKA","MARIBOR","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1481.915
+2019,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","PODRAVSKA","MIKLAVŽ NA DRAVSKEM POLJU","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",84.17
+2019,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","PODRAVSKA","PESNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",153.15
+2019,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","PODRAVSKA","RUŠE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",201.45
+2019,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","PODRAVSKA","SELNICA OB DRAVI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",119.815
+2019,"SNAGA, družba za ravnanje z odpadki in druge komunalne storitve, d.o.o.","PODRAVSKA","STARŠE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",121.57

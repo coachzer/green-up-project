@@ -1,6 +1,13 @@
-﻿"year","name_of_company","type_of_waste","lost_mass"
-2018,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","Wood, not specified in 20 01 37",88.925
-2018,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","Paper/Cardboard Packaging",12.692
-2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","Paper/Cardboard Packaging",13
-2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","Wood, not specified in 20 01 37",7
-2018,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","Paper/Cardboard Packaging",2.508
+﻿"year","name_of_company","waste_code","type_of_waste","waste_category","lost_mass"
+2018,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.; BRDCE 41B, 1431 DOL PRI HRASTNIKU","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",88.925
+2018,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje; KETTEJEV DREVORED 3, 8000 NOVO MESTO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.35
+2018,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.; CESTA NA KRKO 7, 1290 GROSUPLJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.5
+2018,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",12.692
+2018,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1358.218
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",13
+2018,"KOCEROD, družba za ravnanje z odpadki d.o.o.; MISLINJSKA DOBRAVA 108A, 2383 ŠMARTNO PRI SLOVENJ GRADCU","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",50.64
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",7
+2018,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.; CELJSKA CESTA 12, 3250 ROGAŠKA SLATINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.5
+2018,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2.508
+2018,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",17.571
+2018,"SNAGA Javno podjetje d.o.o.; POVŠETOVA ULICA 6, 1000 LJUBLJANA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",361

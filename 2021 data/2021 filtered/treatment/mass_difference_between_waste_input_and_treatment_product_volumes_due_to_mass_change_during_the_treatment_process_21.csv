@@ -1,4 +1,8 @@
-﻿"year","input_waste_name","mass_change"
-2021,"Paper/Cardboard Packaging",68.755
-2021,"Sawdust/Chips/Wood, not specified in 03 01 04",0.04
-2021,"Wood, not specified in 20 01 37",57.032
+﻿"year","input_waste_code","input_waste_name","waste_category","mass_change"
+2021,"02 01 07","Forestry Waste (02 01 07)","Agricultural/Forestry Waste",2.92
+2021,"03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",0.04
+2021,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",68.755
+2021,"19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",1931.62
+2021,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",193.144
+2021,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",57.032
+2021,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1203.892

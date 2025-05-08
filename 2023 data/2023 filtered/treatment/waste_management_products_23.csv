@@ -1,34 +1,36 @@
-﻿"year","statistical_region","type_of_waste","treatment_operation","non_waste_substances","storage_operator_end_year","delivered_company_and_person_RS_kg","delivered_to_EU","delivered_to_non_EU"
-2023,"GORENJSKA","Bark and Cork Waste (03 01 01)","R_03","other",0,0.85,0,0
-2023,"GORENJSKA","Bulky Municipal Waste (20 03 07)","PU","other",0,23.259,0,0
-2023,"GORENJSKA","Sawdust/Shavings/Cuttings (03 01 05)","R_03","other",0,47.6,0,0
-2023,"GORIŠKA","Construction Wood Waste (17 02 01)","R_03","compost (product)",0,9.972,0,0
-2023,"GORIŠKA","Sawdust/Shavings/Cuttings (03 01 05)","R_03","compost (product)",0,0.776,0,0
-2023,"KOROŠKA","Construction Wood Waste (17 02 01)","R_05","wood",0,41.21,0,0
-2023,"OSREDNJESLOVENSKA","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","R_0302","compost (product)",9.28,0,0,0
-2023,"OSREDNJESLOVENSKA","Bulky Municipal Waste (20 03 07)","R_12, R_13","textiles and leather",0,2.42,0,0
-2023,"OSREDNJESLOVENSKA","Bulky Municipal Waste (20 03 07)","R_12, R_13","wood",0,1.62,0,0
-2023,"OSREDNJESLOVENSKA","Construction Wood Waste (17 02 01)","R_12","wood",0,162.422,0,0
-2023,"OSREDNJESLOVENSKA","Forestry Waste (02 01 07)","R_03","compost (product)",0,0.553,0,0
-2023,"OSREDNJESLOVENSKA","Forestry Waste (02 01 07)","R_12","wood",0,12,0,0
-2023,"OSREDNJESLOVENSKA","Non-hazardous Wood from Municipal Waste (20 01 38)","R_0302","compost (product)",3694.69,0,0,0
-2023,"OSREDNJESLOVENSKA","Non-hazardous Wood from Municipal Waste (20 01 38)","R_12","wood",0,107.42,0,0
-2023,"OSREDNJESLOVENSKA","Paper and Cardboard","R_03","paper and cardboard",0,0,59797.694,0
-2023,"OSREDNJESLOVENSKA","Paper and Cardboard","R_13",NA,0,116.449,0,0
-2023,"OSREDNJESLOVENSKA","Paper and Cardboard Packaging (15 01 01)","R_03","paper and cardboard",0,0,3499.797,0
-2023,"OSREDNJESLOVENSKA","Sawdust/Shavings/Cuttings (03 01 05)","R_01","other",0,0,0,0
-2023,"OSREDNJESLOVENSKA","Sawdust/Shavings/Cuttings (03 01 05)","R_03","other",0,104.65,0,0
-2023,"OSREDNJESLOVENSKA","Sawdust/Shavings/Cuttings (03 01 05)","R_0302","compost (product)",0,42.38,0,0
-2023,"OSREDNJESLOVENSKA","Wooden Packaging (15 01 03)","PU","wood",0,398.78,0,0
-2023,"OSREDNJESLOVENSKA","Wooden Packaging (15 01 03)","PU","other",0,439.19,0,0
-2023,"OSREDNJESLOVENSKA","Wooden Packaging (15 01 03)","R_01","other",63.15,0,0,0
-2023,"OSREDNJESLOVENSKA","Wooden Packaging (15 01 03)","R_0302","compost (product)",0,18.8,0,0
-2023,"PODRAVSKA","Bulky Municipal Waste (20 03 07)","PU","other",0,7.841,0,0
-2023,"PODRAVSKA","Non-hazardous Wood from Municipal Waste (20 01 38)","R_0302","compost (product)",0,781.786,0,0
-2023,"POSAVSKA","Paper and Cardboard","R_03","other",0,86398.068,0,0
-2023,"SAVINJSKA","Bulky Municipal Waste (20 03 07)","PU","other",0,13.5,0,0
-2023,"SAVINJSKA","Construction Wood Waste (17 02 01)","R_03","wood",0,284.63,0,0
-2023,"SAVINJSKA","Non-hazardous Wood from Municipal Waste (20 01 38)","R_03","wood",0,1569.417,0,0
-2023,"SAVINJSKA","Paper and Cardboard","R_03","textiles and leather",0,0.253,69.497,0
-2023,"SAVINJSKA","Paper and Cardboard Packaging (15 01 01)","R_03","textiles and leather",0,0.145,37.303,0
-2023,"SAVINJSKA","Wooden Packaging (15 01 03)","R_03","wood",0,6874.433,0,0
+﻿"year","statistical_region","input_waste_code","type_of_waste","waste_category","treatment_operation","non_waste_substances","storage_operator_end_year","delivered_company_and_person_RS_kg","delivered_to_EU","delivered_to_non_EU"
+2023,"GORENJSKA","03 01 01","Bark and Cork Waste (03 01 01)","Wood/Paper Production Waste","R_03","other",0,0.85,0,0
+2023,"GORENJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_03","other",0,47.6,0,0
+2023,"GORENJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","PU","other",0,23.259,0,0
+2023,"GORIŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_03","compost (product)",0,0.776,0,0
+2023,"GORIŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste","R_03","compost (product)",0,9.972,0,0
+2023,"KOROŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste","R_05","wood",0,41.21,0,0
+2023,"OSREDNJESLOVENSKA","02 01 07","Forestry Waste (02 01 07)","Agricultural/Forestry Waste","R_03","compost (product)",0,0.553,0,0
+2023,"OSREDNJESLOVENSKA","02 01 07","Forestry Waste (02 01 07)","Agricultural/Forestry Waste","R_12","wood",0,12,0,0
+2023,"OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_01","other",0,0,0,0
+2023,"OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_03","other",0,104.65,0,0
+2023,"OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_0302","compost (product)",0,42.38,0,0
+2023,"OSREDNJESLOVENSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste","R_0302","compost (product)",9.28,0,0,0
+2023,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_03","paper and cardboard",0,0,3499.797,0
+2023,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","PU","wood",0,398.78,0,0
+2023,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","PU","other",0,439.19,0,0
+2023,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_01","other",63.15,0,0,0
+2023,"OSREDNJESLOVENSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_0302","compost (product)",0,18.8,0,0
+2023,"OSREDNJESLOVENSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste","R_12","wood",0,162.422,0,0
+2023,"OSREDNJESLOVENSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues","R_03","paper and cardboard",0,0,28544.971,0
+2023,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste","R_03","paper and cardboard",0,0,31252.723,0
+2023,"OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste","R_13","construction filler",0,116.449,0,0
+2023,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","R_0302","compost (product)",3694.69,0,0,0
+2023,"OSREDNJESLOVENSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","R_12","wood",0,107.42,0,0
+2023,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","R_12, R_13","textiles and leather",0,2.42,0,0
+2023,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","R_12, R_13","wood",0,1.62,0,0
+2023,"PODRAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","R_0302","compost (product)",0,781.786,0,0
+2023,"PODRAVSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","PU","other",0,7.841,0,0
+2023,"POSAVSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues","R_03","other",0,48438.356,0,0
+2023,"POSAVSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste","R_03","other",0,37959.712,0,0
+2023,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_03","textiles and leather",0,0.145,37.303,0
+2023,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_03","wood",0,6874.433,0,0
+2023,"SAVINJSKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste","R_03","wood",0,284.63,0,0
+2023,"SAVINJSKA","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues","R_03","textiles and leather",0,0.253,69.497,0
+2023,"SAVINJSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","R_03","wood",0,1569.417,0,0
+2023,"SAVINJSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","PU","other",0,13.5,0,0

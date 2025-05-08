@@ -1,2 +1,7 @@
-﻿"year","name_of_company","landfill","type_of_waste","total_non_hazardous_waste_received","disposed"
-2018,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","RCERO CELJE (Bukovžlak)","Wood",13.38,13.38
+﻿"year","name_of_company","landfill","waste_code","type_of_waste","waste_category","total_non_hazardous_waste_received","disposed"
+2018,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.; CESTA NA KRKO 7, 1290 GROSUPLJE","ŠPAJA DOLINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0,366.51
+2018,"JEKO, javno komunalno podjetje, d.o.o., Jesenice; CESTA MARŠALA TITA 51, 4270 JESENICE","MALA MEŽAKLA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5426.52,5426.52
+2018,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","PUCONCI - novo","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1556.17,1556.17
+2018,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.; ULICA POHORSKEGA BATALJONA 12, 2310 SLOVENSKA BISTRICA","PRAGERSKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",NA,14.17
+2018,"KOMUNALA TREBNJE d.o.o.; GOLIEV TRG 9, 8210 TREBNJE","GLOBOKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",349.2,349.2
+2018,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","RCERO CELJE (Bukovžlak)","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",13.38,13.38

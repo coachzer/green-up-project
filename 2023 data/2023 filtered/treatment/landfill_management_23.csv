@@ -1,6 +1,6 @@
-﻿"year","landfill","type_of_waste","total_waste_received","waste_without_waste_code","waste_disposed_on_landfill","hazardous_waste_disposed_on_landfill","non_hazardous_waste_disposed_on_landfill","inert_waste_disposed_on_landfill","construction_waste_disposed_on_landfill","landfill_covering_waste_disposed_on_landfill"
-2023,"GLOBOKO","Kosovni odpadki",35.1,0,35.1,0,35.1,0,0,0
-2023,"LESKOVEC - novo","Kosovni odpadki",11319.76,0,11319.76,0,11319.76,0,0,0
-2023,"MALA MEŽAKLA","Kosovni odpadki",2304.148,11.52,2304.148,0,2304.148,0,0,0
-2023,"PUCONCI - novo","Kosovni odpadki",366.72,0,366.72,0,366.72,0,0,0
-2023,"RCERO CELJE (Bukovžlak)","Les",20.97,0,20.97,0,20.97,0,0,0
+﻿"year","landfill","waste_code","type_of_waste","waste_category","total_waste_received","waste_without_waste_code","waste_disposed_on_landfill","hazardous_waste_disposed_on_landfill","non_hazardous_waste_disposed_on_landfill","inert_waste_disposed_on_landfill","construction_waste_disposed_on_landfill","landfill_covering_waste_disposed_on_landfill"
+2023,"GLOBOKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",35.1,0,35.1,0,35.1,0,0,0
+2023,"LESKOVEC - novo","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",11319.76,0,11319.76,0,11319.76,0,0,0
+2023,"MALA MEŽAKLA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2304.148,11.52,2304.148,0,2304.148,0,0,0
+2023,"PUCONCI - novo","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",366.72,0,366.72,0,366.72,0,0,0
+2023,"RCERO CELJE (Bukovžlak)","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",20.97,0,20.97,0,20.97,0,0,0

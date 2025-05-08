@@ -1,7 +1,12 @@
-﻿"year","name_of_company","type_of_waste","lost_mass"
-2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","Wood, not specified in 20 01 37",10.66
-2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","Paper/Cardboard Packaging",18.359
-2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","Paper/Cardboard Packaging",5.86
-2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","Wood, not specified in 20 01 37",7
-2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","Sawdust/Chips/Wood, not specified in 03 01 04",3.294
-2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","Paper/Cardboard Packaging",138.913
+﻿"year","name_of_company","waste_code","type_of_waste","waste_category","lost_mass"
+2019,"CENTER ZA RAVNANJE Z ODPADKI ZASAVJE, d.o.o.","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",10.66
+2019,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",18.4
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",18.359
+2019,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1701.15
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",5.86
+2019,"KOCEROD, družba za ravnanje z odpadki d.o.o.","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",14.92
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",7
+2019,"OKP JAVNO PODJETJE ZA KOMUNALNE STORITVE Rogaška Slatina, d.o.o.","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.5
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",3.294
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",138.913
+2019,"SIMBIO, družba za ravnanje z odpadki d.o.o.","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",352.587

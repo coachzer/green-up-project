@@ -1,3 +1,8 @@
-﻿"year","landfill","type_of_waste","non_hazardous_waste_received","disposed"
-2019,"RCERO CELJE (Bukovžlak)","Sawdust/Chips/Wood, not specified in 03 01 04",0.78,0.78
-2019,"RCERO CELJE (Bukovžlak)","Wood",21.32,21.32
+﻿"year","landfill","waste_code","type_of_waste","waste_category","non_hazardous_waste_received","disposed"
+2019,"GLOBOKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",170.22,170.22
+2019,"LESKOVEC - novo","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1268.32,1268.32
+2019,"MALA MEŽAKLA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",6666.298,6809.168
+2019,"PUCONCI - novo","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2086.08,2086.08
+2019,"RCERO CELJE (Bukovžlak)","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",0.78,0.78
+2019,"RCERO CELJE (Bukovžlak)","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",21.32,21.32
+2019,"ŠPAJA DOLINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0,334.406

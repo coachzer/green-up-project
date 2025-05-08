@@ -1,475 +1,475 @@
-﻿"year","statistical_region","collection_centre","waste_code","type_of_waste","waste_collected_by_centre"
-2023,"GORENJSKA","DRAGA","15 01 01","Paper and Cardboard Packaging (15 01 01)",378.264
-2023,"GORENJSKA","DRAGA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",330.441
-2023,"GORENJSKA","DRAGA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",36.34
-2023,"GORENJSKA","DRAGA","20 03 07","Bulky Municipal Waste (20 03 07)",976.41
-2023,"GORENJSKA","Gorenja vas","15 01 01","Paper and Cardboard Packaging (15 01 01)",30.412
-2023,"GORENJSKA","Gorenja vas","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",115.201
-2023,"GORENJSKA","Gorenja vas","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",184.11
-2023,"GORENJSKA","Gorenja vas","20 03 07","Bulky Municipal Waste (20 03 07)",254.9
-2023,"GORENJSKA","JEZERSKO","15 01 01","Paper and Cardboard Packaging (15 01 01)",15.5
-2023,"GORENJSKA","JEZERSKO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",8.64
-2023,"GORENJSKA","JEZERSKO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",25.12
-2023,"GORENJSKA","JEZERSKO","20 03 07","Bulky Municipal Waste (20 03 07)",41.7
-2023,"GORENJSKA","KRANJ","15 01 01","Paper and Cardboard Packaging (15 01 01)",648.505
-2023,"GORENJSKA","KRANJ","15 01 03","Wooden Packaging (15 01 03)",17.55
-2023,"GORENJSKA","KRANJ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",334.621
-2023,"GORENJSKA","KRANJ","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1280.53
-2023,"GORENJSKA","KRANJ","20 03 07","Bulky Municipal Waste (20 03 07)",659.718
-2023,"GORENJSKA","NAKLO","15 01 01","Paper and Cardboard Packaging (15 01 01)",50.57
-2023,"GORENJSKA","NAKLO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",41.9
-2023,"GORENJSKA","NAKLO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",90.08
-2023,"GORENJSKA","NAKLO","20 03 07","Bulky Municipal Waste (20 03 07)",30.141
-2023,"GORENJSKA","Rečiška cesta 2, 4260 Bled","15 01 01","Paper and Cardboard Packaging (15 01 01)",126.548
-2023,"GORENJSKA","Rečiška cesta 2, 4260 Bled","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",402.03
-2023,"GORENJSKA","Rečiška cesta 2, 4260 Bled","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",560.2
-2023,"GORENJSKA","Rečiška cesta 2, 4260 Bled","20 03 07","Bulky Municipal Waste (20 03 07)",243.27
-2023,"GORENJSKA","Režijski obrat Občine Bohinj, Bohinjska Bistrica","15 01 01","Paper and Cardboard Packaging (15 01 01)",94.318
-2023,"GORENJSKA","Režijski obrat Občine Bohinj, Bohinjska Bistrica","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",58.194
-2023,"GORENJSKA","Režijski obrat Občine Bohinj, Bohinjska Bistrica","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",197.93
-2023,"GORENJSKA","Režijski obrat Občine Bohinj, Bohinjska Bistrica","20 03 07","Bulky Municipal Waste (20 03 07)",239.57
-2023,"GORENJSKA","STUDENO","15 01 01","Paper and Cardboard Packaging (15 01 01)",49.182
-2023,"GORENJSKA","STUDENO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",42.953
-2023,"GORENJSKA","STUDENO","20 03 07","Bulky Municipal Waste (20 03 07)",100.2
-2023,"GORENJSKA","TRŽIČ","15 01 01","Paper and Cardboard Packaging (15 01 01)",198.307
-2023,"GORENJSKA","TRŽIČ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",21.63
-2023,"GORENJSKA","TRŽIČ","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",281.06
-2023,"GORENJSKA","TRŽIČ","20 03 07","Bulky Municipal Waste (20 03 07)",356.64
-2023,"GORENJSKA","Tabre","15 01 01","Paper and Cardboard Packaging (15 01 01)",153.675
-2023,"GORENJSKA","Tabre","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",7.775
-2023,"GORENJSKA","Tabre","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",148.46
-2023,"GORENJSKA","Tabre","20 03 07","Bulky Municipal Waste (20 03 07)",294.32
-2023,"GORENJSKA","ZBIRNI CENTER JESENICE, ŽIROVNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)",161.322
-2023,"GORENJSKA","ZBIRNI CENTER JESENICE, ŽIROVNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",339.93
-2023,"GORENJSKA","ZBIRNI CENTER JESENICE, ŽIROVNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1186
-2023,"GORENJSKA","ZBIRNI CENTER JESENICE, ŽIROVNICA","20 03 07","Bulky Municipal Waste (20 03 07)",956.79
-2023,"GORENJSKA","ZC DRAGA","15 01 03","Wooden Packaging (15 01 03)",63.12
-2023,"GORENJSKA","ZC Žiri","15 01 01","Paper and Cardboard Packaging (15 01 01)",13.195
-2023,"GORENJSKA","ZC Žiri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",83.856
-2023,"GORENJSKA","ZC Žiri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",136.12
-2023,"GORENJSKA","ZC Žiri","20 03 07","Bulky Municipal Waste (20 03 07)",55.76
-2023,"GORENJSKA","Zbirni center Radovljica; SAVSKA CESTA 28, 4240 RADOVLJICA","15 01 01","Paper and Cardboard Packaging (15 01 01)",285.33
-2023,"GORENJSKA","Zbirni center Radovljica; SAVSKA CESTA 28, 4240 RADOVLJICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",324.436
-2023,"GORENJSKA","Zbirni center Radovljica; SAVSKA CESTA 28, 4240 RADOVLJICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",670.57
-2023,"GORENJSKA","Zbirni center Radovljica; SAVSKA CESTA 28, 4240 RADOVLJICA","20 03 07","Bulky Municipal Waste (20 03 07)",900.57
-2023,"GORENJSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",39.3
-2023,"GORENJSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)",1274.21
-2023,"GORENJSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1194.682
-2023,"GORENJSKA","ŠENČUR","15 01 01","Paper and Cardboard Packaging (15 01 01)",102.212
-2023,"GORENJSKA","ŠENČUR","15 01 03","Wooden Packaging (15 01 03)",1.9
-2023,"GORENJSKA","ŠENČUR","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",73.138
-2023,"GORENJSKA","ŠENČUR","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",185.2
-2023,"GORENJSKA","ŠENČUR","20 03 07","Bulky Municipal Waste (20 03 07)",52.68
-2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","15 01 01","Paper and Cardboard Packaging (15 01 01)",271.52
-2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","15 01 03","Wooden Packaging (15 01 03)",24.98
-2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",518.253
-2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",744.61
-2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","20 03 07","Bulky Municipal Waste (20 03 07)",120.89
-2023,"GORIŠKA","Ljubevč","15 01 01","Paper and Cardboard Packaging (15 01 01)",188.308
-2023,"GORIŠKA","Ljubevč","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",290.005
-2023,"GORIŠKA","Ljubevč","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",368.29
-2023,"GORIŠKA","Ljubevč","20 03 07","Bulky Municipal Waste (20 03 07)",556.02
-2023,"GORIŠKA","ZBIRNI CENTER VOLČE","15 01 01","Paper and Cardboard Packaging (15 01 01)",190.051
-2023,"GORIŠKA","ZBIRNI CENTER VOLČE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",347.996
-2023,"GORIŠKA","ZBIRNI CENTER VOLČE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",523.45
-2023,"GORIŠKA","ZBIRNI CENTER VOLČE","20 03 07","Bulky Municipal Waste (20 03 07)",262.77
-2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","15 01 01","Paper and Cardboard Packaging (15 01 01)",1360.061
-2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","15 01 03","Wooden Packaging (15 01 03)",152.213
-2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1167.903
-2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1668.2
-2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","20 03 07","Bulky Municipal Waste (20 03 07)",1751.33
-2023,"GORIŠKA","ZC Vrtojba","15 01 01","Paper and Cardboard Packaging (15 01 01)",90.655
-2023,"GORIŠKA","ZC Vrtojba","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",94.065
-2023,"GORIŠKA","ZC Vrtojba","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",179.55
-2023,"GORIŠKA","ZC Vrtojba","20 03 07","Bulky Municipal Waste (20 03 07)",69.66
-2023,"GORIŠKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)",30.83
-2023,"GORIŠKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",9.1
-2023,"GORIŠKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)",116.895
-2023,"GORIŠKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",159.543
-2023,"GORIŠKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",9.25
-2023,"JUGOVZHODNA SLOVENIJA","32372, PCRO Vranoviči","15 01 01","Paper and Cardboard Packaging (15 01 01)",157.68
-2023,"JUGOVZHODNA SLOVENIJA","32372, PCRO Vranoviči","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",94.616
-2023,"JUGOVZHODNA SLOVENIJA","32372, PCRO Vranoviči","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",309.5
-2023,"JUGOVZHODNA SLOVENIJA","32372, PCRO Vranoviči","20 03 07","Bulky Municipal Waste (20 03 07)",615.7
-2023,"JUGOVZHODNA SLOVENIJA","Goriča vas","15 01 01","Paper and Cardboard Packaging (15 01 01)",144.428
-2023,"JUGOVZHODNA SLOVENIJA","Goriča vas","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",41.095
-2023,"JUGOVZHODNA SLOVENIJA","Goriča vas","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",315.29
-2023,"JUGOVZHODNA SLOVENIJA","Goriča vas","20 03 07","Bulky Municipal Waste (20 03 07)",384.657
-2023,"JUGOVZHODNA SLOVENIJA","Mali Log","20 03 07","Bulky Municipal Waste (20 03 07)",46.283
-2023,"JUGOVZHODNA SLOVENIJA","Mozelj","15 01 01","Paper and Cardboard Packaging (15 01 01)",238.27
-2023,"JUGOVZHODNA SLOVENIJA","Mozelj","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",112.353
-2023,"JUGOVZHODNA SLOVENIJA","Mozelj","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",395.24
-2023,"JUGOVZHODNA SLOVENIJA","Mozelj","20 03 07","Bulky Municipal Waste (20 03 07)",760.79
-2023,"JUGOVZHODNA SLOVENIJA","Novo mesto","15 01 01","Paper and Cardboard Packaging (15 01 01)",865.813
-2023,"JUGOVZHODNA SLOVENIJA","Novo mesto","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",241.04
-2023,"JUGOVZHODNA SLOVENIJA","Novo mesto","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",846.9
-2023,"JUGOVZHODNA SLOVENIJA","Novo mesto","20 03 07","Bulky Municipal Waste (20 03 07)",1590.32
-2023,"JUGOVZHODNA SLOVENIJA","Osilnica","20 03 07","Bulky Municipal Waste (20 03 07)",5.32
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni center Globoko in odlagališče Globoko; Hudeje 40, 8210 Trebnje","15 01 01","Paper and Cardboard Packaging (15 01 01)",285.3
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni center Globoko in odlagališče Globoko; Hudeje 40, 8210 Trebnje","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",27.98
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni center Globoko in odlagališče Globoko; Hudeje 40, 8210 Trebnje","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",437.74
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni center Globoko in odlagališče Globoko; Hudeje 40, 8210 Trebnje","20 03 07","Bulky Municipal Waste (20 03 07)",226.88
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)",1937.221
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",34.499
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",9.52
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)",63.135
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)",1737.99
-2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",487.306
-2023,"JUGOVZHODNA SLOVENIJA","bočka","15 01 01","Paper and Cardboard Packaging (15 01 01)",179.599
-2023,"JUGOVZHODNA SLOVENIJA","bočka","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",7.064
-2023,"JUGOVZHODNA SLOVENIJA","bočka","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",344.14
-2023,"JUGOVZHODNA SLOVENIJA","bočka","20 03 07","Bulky Municipal Waste (20 03 07)",287.6
-2023,"JUGOVZHODNA SLOVENIJA","Šentjernej","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",204.74
-2023,"JUGOVZHODNA SLOVENIJA","Žužemberk","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",219.71
-2023,"KOROŠKA","Dobja vas","15 01 01","Paper and Cardboard Packaging (15 01 01)",174.93
-2023,"KOROŠKA","Dobja vas","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",280.673
-2023,"KOROŠKA","Dobja vas","20 03 07","Bulky Municipal Waste (20 03 07)",785.26
-2023,"KOROŠKA","MO Slovenj Gradec (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)",122.22
-2023,"KOROŠKA","Otiški Vrh","15 01 01","Paper and Cardboard Packaging (15 01 01)",76.68
-2023,"KOROŠKA","Otiški Vrh","20 03 07","Bulky Municipal Waste (20 03 07)",238.78
-2023,"KOROŠKA","Pameče","15 01 01","Paper and Cardboard Packaging (15 01 01)",106.52
-2023,"KOROŠKA","Pameče","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",165.94
-2023,"KOROŠKA","Pameče","20 03 07","Bulky Municipal Waste (20 03 07)",936.78
-2023,"KOROŠKA","Radlje ob Dravi","15 01 01","Paper and Cardboard Packaging (15 01 01)",115.42
-2023,"KOROŠKA","Radlje ob Dravi","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",17.04
-2023,"KOROŠKA","Radlje ob Dravi","20 03 07","Bulky Municipal Waste (20 03 07)",311.5
-2023,"KOROŠKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)",2.54
-2023,"KOROŠKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",944.686
-2023,"KOROŠKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",543.436
-2023,"KOROŠKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)",65.84
-2023,"KOROŠKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",328.975
-2023,"KOROŠKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",46.1
-2023,"KOROŠKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)",0.36
-2023,"KOROŠKA","občina Dravograd (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)",205.7
-2023,"KOROŠKA","občina Mežica (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)",168.26
-2023,"KOROŠKA","občina Mislinja (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)",1.76
-2023,"KOROŠKA","občina Prevalje (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)",938.8
-2023,"KOROŠKA","občina Radlje (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)",9.14
-2023,"KOROŠKA","občina Ravne (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)",439.02
-2023,"KOROŠKA","občina Vuzenica (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)",2.64
-2023,"KOROŠKA","občina Črna (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)",492.9
-2023,"OBALNO-KRAŠKA","CERO SEĹ˝ANA","15 01 01","Paper and Cardboard Packaging (15 01 01)",331.569
-2023,"OBALNO-KRAŠKA","CERO SEĹ˝ANA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",730.721
-2023,"OBALNO-KRAŠKA","CERO SeĹľana","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",547.9
-2023,"OBALNO-KRAŠKA","CERO SeĹľana","20 03 07","Bulky Municipal Waste (20 03 07)",122.74
-2023,"OBALNO-KRAŠKA","DVORI","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",154.19
-2023,"OBALNO-KRAŠKA","Dragonja","15 01 01","Paper and Cardboard Packaging (15 01 01)",493.335
-2023,"OBALNO-KRAŠKA","Dragonja","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",202.835
-2023,"OBALNO-KRAŠKA","Dragonja","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",962.45
-2023,"OBALNO-KRAŠKA","Dragonja","20 03 07","Bulky Municipal Waste (20 03 07)",1252.2
-2023,"OBALNO-KRAŠKA","SERMIN","15 01 01","Paper and Cardboard Packaging (15 01 01)",581.179
-2023,"OBALNO-KRAŠKA","SERMIN","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1052.339
-2023,"OBALNO-KRAŠKA","SERMIN","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1613.87
-2023,"OBALNO-KRAŠKA","SERMIN","20 03 07","Bulky Municipal Waste (20 03 07)",427.13
-2023,"OBALNO-KRAŠKA","Zbirni center Izola","15 01 01","Paper and Cardboard Packaging (15 01 01)",232.715
-2023,"OBALNO-KRAŠKA","Zbirni center Izola","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",351.716
-2023,"OBALNO-KRAŠKA","Zbirni center Izola","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",629.72
-2023,"OBALNO-KRAŠKA","Zbirni center Izola","20 03 07","Bulky Municipal Waste (20 03 07)",288.12
-2023,"OBALNO-KRAŠKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)",63.58
-2023,"OBALNO-KRAŠKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",105
-2023,"OBALNO-KRAŠKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",1521.28
-2023,"OBALNO-KRAŠKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",89.573
-2023,"OBALNO-KRAŠKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)",150.86
-2023,"OSREDNJESLOVENSKA","CERO Špaja dolina, Spodnje Blato 1, 1290 Grosuplje","15 01 01","Paper and Cardboard Packaging (15 01 01)",337.577
-2023,"OSREDNJESLOVENSKA","CERO Špaja dolina, Spodnje Blato 1, 1290 Grosuplje","15 01 03","Wooden Packaging (15 01 03)",71.11
-2023,"OSREDNJESLOVENSKA","CERO Špaja dolina, Spodnje Blato 1, 1290 Grosuplje","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",855.567
-2023,"OSREDNJESLOVENSKA","CERO Špaja dolina, Spodnje Blato 1, 1290 Grosuplje","20 03 07","Bulky Municipal Waste (20 03 07)",624.16
-2023,"OSREDNJESLOVENSKA","CERO Špaja dolina; SPODNJE BLATO 1, 1290 GROSUPLJE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",727.92
-2023,"OSREDNJESLOVENSKA","CRO Dob","15 01 01","Paper and Cardboard Packaging (15 01 01)",918.25
-2023,"OSREDNJESLOVENSKA","CRO Dob","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",863.844
-2023,"OSREDNJESLOVENSKA","CRO Dob","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",2579.35
-2023,"OSREDNJESLOVENSKA","CRO Dob","20 03 07","Bulky Municipal Waste (20 03 07)",5864.76
-2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","15 01 01","Paper and Cardboard Packaging (15 01 01)",241.21
-2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","15 01 03","Wooden Packaging (15 01 03)",14.28
-2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",2127.56
-2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",949.19
-2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","20 03 07","Bulky Municipal Waste (20 03 07)",3756.3
-2023,"OSREDNJESLOVENSKA","JP KPV, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","15 01 01","Paper and Cardboard Packaging (15 01 01)",171.172
-2023,"OSREDNJESLOVENSKA","JP KPV, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",669.14
-2023,"OSREDNJESLOVENSKA","JP KPV, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",601.23
-2023,"OSREDNJESLOVENSKA","JP KPV, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","20 03 07","Bulky Municipal Waste (20 03 07)",280.24
-2023,"OSREDNJESLOVENSKA","Ostri vrh","15 01 01","Paper and Cardboard Packaging (15 01 01)",170.728
-2023,"OSREDNJESLOVENSKA","Ostri vrh","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",168.063
-2023,"OSREDNJESLOVENSKA","Ostri vrh","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",376.97
-2023,"OSREDNJESLOVENSKA","Ostri vrh","20 03 07","Bulky Municipal Waste (20 03 07)",129.77
-2023,"OSREDNJESLOVENSKA","RazĹˇirjena zbiralnica Kamnica; Dol pri Ljubljani","15 01 01","Paper and Cardboard Packaging (15 01 01)",62.057
-2023,"OSREDNJESLOVENSKA","RazĹˇirjena zbiralnica Kamnica; Dol pri Ljubljani","20 03 07","Bulky Municipal Waste (20 03 07)",82.6
-2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","15 01 01","Paper and Cardboard Packaging (15 01 01)",2193.485
-2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","15 01 03","Wooden Packaging (15 01 03)",257.64
-2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",8536.226
-2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",8179.79
-2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","20 03 07","Bulky Municipal Waste (20 03 07)",8348.45
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Brezovica; Kamnik po Krimom 6, 1352 Preserje","15 01 01","Paper and Cardboard Packaging (15 01 01)",181.17
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Brezovica; Kamnik po Krimom 6, 1352 Preserje","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",100.78
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Brezovica; Kamnik po Krimom 6, 1352 Preserje","20 03 07","Bulky Municipal Waste (20 03 07)",215.14
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ig; Matena","15 01 01","Paper and Cardboard Packaging (15 01 01)",154.021
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ig; Matena","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",94.42
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ig; Matena","20 03 07","Bulky Municipal Waste (20 03 07)",196.52
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Medvode; Cesta komandanta Staneta, Medvode","15 01 01","Paper and Cardboard Packaging (15 01 01)",247.821
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Medvode; Cesta komandanta Staneta, Medvode","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",286.6
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Medvode; Cesta komandanta Staneta, Medvode","20 03 07","Bulky Municipal Waste (20 03 07)",341.9
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Velike LaĹˇÄŤe; Turjak","15 01 01","Paper and Cardboard Packaging (15 01 01)",193.475
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Velike LaĹˇÄŤe; Turjak","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",247.42
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Velike LaĹˇÄŤe; Turjak","20 03 07","Bulky Municipal Waste (20 03 07)",107.72
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Vodice; KamniĹˇka cesta, Vodice","15 01 01","Paper and Cardboard Packaging (15 01 01)",79.329
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Vodice; KamniĹˇka cesta, Vodice","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",128.26
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Vodice; KamniĹˇka cesta, Vodice","20 03 07","Bulky Municipal Waste (20 03 07)",196.96
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ĺ kofljica; Reber","15 01 01","Paper and Cardboard Packaging (15 01 01)",195.237
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ĺ kofljica; Reber","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",174.48
-2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ĺ kofljica; Reber","20 03 07","Bulky Municipal Waste (20 03 07)",288.56
-2023,"OSREDNJESLOVENSKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)",18.34
-2023,"OSREDNJESLOVENSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",5579.414
-2023,"OSREDNJESLOVENSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",3348.982
-2023,"OSREDNJESLOVENSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)",1965.226
-2023,"OSREDNJESLOVENSKA","Zbirni centri","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)",625.217
-2023,"OSREDNJESLOVENSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",29646.02
-2023,"OSREDNJESLOVENSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1457.325
-2023,"OSREDNJESLOVENSKA","Šmartno pri Litiji","15 01 01","Paper and Cardboard Packaging (15 01 01)",294.197
-2023,"OSREDNJESLOVENSKA","Šmartno pri Litiji","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",246.844
-2023,"OSREDNJESLOVENSKA","Šmartno pri Litiji","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",436.12
-2023,"OSREDNJESLOVENSKA","Šmartno pri Litiji","20 03 07","Bulky Municipal Waste (20 03 07)",1340.08
-2023,"PODRAVSKA","CERO","15 01 01","Paper and Cardboard Packaging (15 01 01)",346.55
-2023,"PODRAVSKA","CERO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",614.041
-2023,"PODRAVSKA","CERO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",65.68
-2023,"PODRAVSKA","CERO","20 03 07","Bulky Municipal Waste (20 03 07)",111.4
-2023,"PODRAVSKA","CERO GAJKE","15 01 01","Paper and Cardboard Packaging (15 01 01)",19.947
-2023,"PODRAVSKA","CERO GAJKE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",45.6
-2023,"PODRAVSKA","CERO GAJKE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",10.378
-2023,"PODRAVSKA","CERO GAJKE","20 03 07","Bulky Municipal Waste (20 03 07)",28.097
-2023,"PODRAVSKA","CERO Gajke, DORNAVSKA CESTA 26, 2250 PTUJ","15 01 01","Paper and Cardboard Packaging (15 01 01)",259.77
-2023,"PODRAVSKA","CERO Gajke, DORNAVSKA CESTA 26, 2250 PTUJ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",730.526
-2023,"PODRAVSKA","CERO Gajke, DORNAVSKA CESTA 26, 2250 PTUJ","20 03 07","Bulky Municipal Waste (20 03 07)",22.9
-2023,"PODRAVSKA","CERO Gajke; DORNAVSKA CESTA 26, 2250 PTUJ","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",445.912
-2023,"PODRAVSKA","CERO Gajke; DORNAVSKA CESTA 26, 2250 PTUJ","20 03 07","Bulky Municipal Waste (20 03 07)",558.337
-2023,"PODRAVSKA","GORIŠNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)",33.771
-2023,"PODRAVSKA","GORIŠNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",77.201
-2023,"PODRAVSKA","GORIŠNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",69.3
-2023,"PODRAVSKA","GORIŠNICA","20 03 07","Bulky Municipal Waste (20 03 07)",170.46
-2023,"PODRAVSKA","HAJDINA","15 01 01","Paper and Cardboard Packaging (15 01 01)",37.474
-2023,"PODRAVSKA","HAJDINA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",85.666
-2023,"PODRAVSKA","HAJDINA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",90.84
-2023,"PODRAVSKA","HAJDINA","20 03 07","Bulky Municipal Waste (20 03 07)",193.68
-2023,"PODRAVSKA","MARKOVCI","15 01 01","Paper and Cardboard Packaging (15 01 01)",35.222
-2023,"PODRAVSKA","MARKOVCI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",80.519
-2023,"PODRAVSKA","MARKOVCI","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",70.58
-2023,"PODRAVSKA","MARKOVCI","20 03 07","Bulky Municipal Waste (20 03 07)",190.414
-2023,"PODRAVSKA","SEDEŽ; NASIPNA ULICA 64, 2000 MARIBOR","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",0
-2023,"PODRAVSKA","SEDEŽ; NASIPNA ULICA 64, 2000 MARIBOR","20 03 07","Bulky Municipal Waste (20 03 07)",0
-2023,"PODRAVSKA","ZBIRNI CENTER OPLOTNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",22.97
-2023,"PODRAVSKA","ZBIRNI CENTER OPLOTNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",154.618
-2023,"PODRAVSKA","ZBIRNI CENTER OPLOTNICA","20 03 07","Bulky Municipal Waste (20 03 07)",65.29
-2023,"PODRAVSKA","ZBIRNI CENTER POLJČANE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",26.58
-2023,"PODRAVSKA","ZBIRNI CENTER POLJČANE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",167.038
-2023,"PODRAVSKA","ZBIRNI CENTER POLJČANE","20 03 07","Bulky Municipal Waste (20 03 07)",52.8
-2023,"PODRAVSKA","ZBIRNI CENTER PRAGERSKO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",107.91
-2023,"PODRAVSKA","ZBIRNI CENTER PRAGERSKO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1139.427
-2023,"PODRAVSKA","ZBIRNI CENTER PRAGERSKO","20 03 07","Bulky Municipal Waste (20 03 07)",214.4
-2023,"PODRAVSKA","ZBIRNI CENTER RAČE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",47.24
-2023,"PODRAVSKA","ZBIRNI CENTER RAČE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",398.307
-2023,"PODRAVSKA","ZBIRNI CENTER RAČE","20 03 07","Bulky Municipal Waste (20 03 07)",94.89
-2023,"PODRAVSKA","Zbirni center 1; ROGOZNIŠKA CESTA 33, 2250 PTUJ","15 01 01","Paper and Cardboard Packaging (15 01 01)",245.757
-2023,"PODRAVSKA","Zbirni center 1; ROGOZNIŠKA CESTA 33, 2250 PTUJ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",597.056
-2023,"PODRAVSKA","Zbirni center 1; ROGOZNIŠKA CESTA 33, 2250 PTUJ","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",452.12
-2023,"PODRAVSKA","Zbirni center 1; ROGOZNIŠKA CESTA 33, 2250 PTUJ","20 03 07","Bulky Municipal Waste (20 03 07)",1061.11
-2023,"PODRAVSKA","Zbirni center Dobrava","15 01 01","Paper and Cardboard Packaging (15 01 01)",150.46
-2023,"PODRAVSKA","Zbirni center Dobrava","15 01 03","Wooden Packaging (15 01 03)",17.42
-2023,"PODRAVSKA","Zbirni center Dobrava","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",65.777
-2023,"PODRAVSKA","Zbirni center Dobrava","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",15.02
-2023,"PODRAVSKA","Zbirni center Dobrava","20 03 07","Bulky Municipal Waste (20 03 07)",510.08
-2023,"PODRAVSKA","Zbirni center Hoče - Slivnica","15 01 01","Paper and Cardboard Packaging (15 01 01)",22.76
-2023,"PODRAVSKA","Zbirni center Hoče - Slivnica","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",349.76
-2023,"PODRAVSKA","Zbirni center Hoče - Slivnica","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",394.85
-2023,"PODRAVSKA","Zbirni center Hoče - Slivnica","20 03 07","Bulky Municipal Waste (20 03 07)",182.836
-2023,"PODRAVSKA","Zbirni center Kungota","15 01 01","Paper and Cardboard Packaging (15 01 01)",23.9
-2023,"PODRAVSKA","Zbirni center Kungota","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",57.268
-2023,"PODRAVSKA","Zbirni center Kungota","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",91.58
-2023,"PODRAVSKA","Zbirni center Kungota","20 03 07","Bulky Municipal Waste (20 03 07)",242.436
-2023,"PODRAVSKA","Zbirni center Lahova","15 01 01","Paper and Cardboard Packaging (15 01 01)",286.097
-2023,"PODRAVSKA","Zbirni center Lahova","15 01 03","Wooden Packaging (15 01 03)",14.31
-2023,"PODRAVSKA","Zbirni center Lahova","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1630.803
-2023,"PODRAVSKA","Zbirni center Lahova","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",2763.931
-2023,"PODRAVSKA","Zbirni center Lahova","20 03 07","Bulky Municipal Waste (20 03 07)",1104.652
-2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","15 01 01","Paper and Cardboard Packaging (15 01 01)",227.653
-2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","15 01 03","Wooden Packaging (15 01 03)",622.883
-2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",143.18
-2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",338.763
-2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","20 03 07","Bulky Municipal Waste (20 03 07)",910.785
-2023,"PODRAVSKA","Zbirni center Lovrenc na Pohorju","15 01 01","Paper and Cardboard Packaging (15 01 01)",16.72
-2023,"PODRAVSKA","Zbirni center Lovrenc na Pohorju","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",42.056
-2023,"PODRAVSKA","Zbirni center Lovrenc na Pohorju","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",154.46
-2023,"PODRAVSKA","Zbirni center Lovrenc na Pohorju","20 03 07","Bulky Municipal Waste (20 03 07)",73.12
-2023,"PODRAVSKA","Zbirni center Melje","15 01 01","Paper and Cardboard Packaging (15 01 01)",243.713
-2023,"PODRAVSKA","Zbirni center Melje","15 01 03","Wooden Packaging (15 01 03)",12.19
-2023,"PODRAVSKA","Zbirni center Melje","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1389.203
-2023,"PODRAVSKA","Zbirni center Melje","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",2354.459
-2023,"PODRAVSKA","Zbirni center Melje","20 03 07","Bulky Municipal Waste (20 03 07)",940.999
-2023,"PODRAVSKA","Zbirni center Miklavž na Dravskem polju","15 01 01","Paper and Cardboard Packaging (15 01 01)",39.4
-2023,"PODRAVSKA","Zbirni center Miklavž na Dravskem polju","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",137.787
-2023,"PODRAVSKA","Zbirni center Miklavž na Dravskem polju","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",209.76
-2023,"PODRAVSKA","Zbirni center Miklavž na Dravskem polju","20 03 07","Bulky Municipal Waste (20 03 07)",159.6
-2023,"PODRAVSKA","Zbirni center Pesnica","15 01 01","Paper and Cardboard Packaging (15 01 01)",31.3
-2023,"PODRAVSKA","Zbirni center Pesnica","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",121.71
-2023,"PODRAVSKA","Zbirni center Pesnica","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",252.5
-2023,"PODRAVSKA","Zbirni center Pesnica","20 03 07","Bulky Municipal Waste (20 03 07)",199.17
-2023,"PODRAVSKA","Zbirni center Ruše","15 01 01","Paper and Cardboard Packaging (15 01 01)",37.08
-2023,"PODRAVSKA","Zbirni center Ruše","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",253.544
-2023,"PODRAVSKA","Zbirni center Ruše","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",570.56
-2023,"PODRAVSKA","Zbirni center Ruše","20 03 07","Bulky Municipal Waste (20 03 07)",239.238
-2023,"PODRAVSKA","Zbirni center Starše","15 01 01","Paper and Cardboard Packaging (15 01 01)",19.5
-2023,"PODRAVSKA","Zbirni center Starše","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",78.529
-2023,"PODRAVSKA","Zbirni center Starše","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",354.88
-2023,"PODRAVSKA","Zbirni center Starše","20 03 07","Bulky Municipal Waste (20 03 07)",96.22
-2023,"PODRAVSKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)",11.74
-2023,"PODRAVSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",231.008
-2023,"PODRAVSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",60.86
-2023,"PODRAVSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)",153.75
-2023,"PODRAVSKA","Zbirni centri","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)",1.12
-2023,"PODRAVSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1006.486
-2023,"PODRAVSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",2.84
-2023,"PODRAVSKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)",94.729
-2023,"POMURSKA","CEROP -Dolga Vas","15 01 01","Paper and Cardboard Packaging (15 01 01)",111.1
-2023,"POMURSKA","CEROP -Dolga Vas","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",97.649
-2023,"POMURSKA","CEROP -Dolga Vas","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",33.52
-2023,"POMURSKA","CEROP -Dolga Vas","20 03 07","Bulky Municipal Waste (20 03 07)",188.84
-2023,"POMURSKA","Center za ravnanje z odpadki Puconci, sedež; VANEČA 81B, 9201 PUCONCI","15 01 01","Paper and Cardboard Packaging (15 01 01)",31.74
-2023,"POMURSKA","Center za ravnanje z odpadki Puconci, sedež; VANEČA 81B, 9201 PUCONCI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",43.64
-2023,"POMURSKA","Center za ravnanje z odpadki Puconci, sedež; VANEČA 81B, 9201 PUCONCI","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",76.32
-2023,"POMURSKA","Center za ravnanje z odpadki Puconci, sedež; VANEČA 81B, 9201 PUCONCI","20 03 07","Bulky Municipal Waste (20 03 07)",264.585
-2023,"POMURSKA","Gornja Radgona","15 01 01","Paper and Cardboard Packaging (15 01 01)",45.75
-2023,"POMURSKA","Gornja Radgona","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",183.21
-2023,"POMURSKA","Gornja Radgona","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",57.94
-2023,"POMURSKA","Gornja Radgona","20 03 07","Bulky Municipal Waste (20 03 07)",250
-2023,"POMURSKA","Velika Polana","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",11.34
-2023,"POMURSKA","Velika Polana","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",4.78
-2023,"POMURSKA","Velika Polana","20 03 07","Bulky Municipal Waste (20 03 07)",33.1
-2023,"POMURSKA","ZBIRNI CENTER NORĹ INSKA MURSKA SOBOTA","15 01 01","Paper and Cardboard Packaging (15 01 01)",302.82
-2023,"POMURSKA","ZBIRNI CENTER NORĹ INSKA MURSKA SOBOTA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1235.544
-2023,"POMURSKA","ZBIRNI CENTER NORĹ INSKA MURSKA SOBOTA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",791.42
-2023,"POMURSKA","ZBIRNI CENTER NORĹ INSKA MURSKA SOBOTA","20 03 07","Bulky Municipal Waste (20 03 07)",2007.54
-2023,"POMURSKA","Zbirni center komunalnih odpadkov Radenci; Boračeva, 9252 Radenci","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",56.7
-2023,"POMURSKA","Zbirni center komunalnih odpadkov Sveti Jurij ob Ščavnici","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",22
-2023,"POMURSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",490.378
-2023,"POMURSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",168.557
-2023,"POMURSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)",93.96
-2023,"POMURSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",352.004
-2023,"POMURSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",0.2
-2023,"POMURSKA","zbirni center Apače","15 01 01","Paper and Cardboard Packaging (15 01 01)",66.6
-2023,"POMURSKA","zbirni center Apače","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",13.52
-2023,"POMURSKA","zbirni center Apače","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",6.8
-2023,"POMURSKA","zbirni center Apače","20 03 07","Bulky Municipal Waste (20 03 07)",318.17
-2023,"POMURSKA","zbirni center Ljutomer","15 01 01","Paper and Cardboard Packaging (15 01 01)",32.04
-2023,"POMURSKA","zbirni center Ljutomer","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",177.48
-2023,"POMURSKA","zbirni center Ljutomer","20 03 07","Bulky Municipal Waste (20 03 07)",865.24
-2023,"POSAVSKA","Boršt","15 01 01","Paper and Cardboard Packaging (15 01 01)",303.42
-2023,"POSAVSKA","Boršt","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",95.609
-2023,"POSAVSKA","Boršt","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",917.75
-2023,"POSAVSKA","Boršt","20 03 07","Bulky Municipal Waste (20 03 07)",1199.54
-2023,"POSAVSKA","Center za ravnanje z odpadki Spodnji Stari Grad, Vrbina, 8270 Krško","15 01 01","Paper and Cardboard Packaging (15 01 01)",319.177
-2023,"POSAVSKA","Center za ravnanje z odpadki Spodnji Stari Grad, Vrbina, 8270 Krško","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",795.47
-2023,"POSAVSKA","Center za ravnanje z odpadki Spodnji Stari Grad, Vrbina, 8270 Krško","20 03 07","Bulky Municipal Waste (20 03 07)",853.34
-2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)",226.824
-2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","15 01 03","Wooden Packaging (15 01 03)",6.599
-2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",134.056
-2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",239.1
-2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","20 03 07","Bulky Municipal Waste (20 03 07)",134.11
-2023,"POSAVSKA","ZC Hotemaž","15 01 01","Paper and Cardboard Packaging (15 01 01)",66.872
-2023,"POSAVSKA","ZC Hotemaž","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",7.953
-2023,"POSAVSKA","ZC Hotemaž","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",82.08
-2023,"POSAVSKA","ZC Hotemaž","20 03 07","Bulky Municipal Waste (20 03 07)",55.62
-2023,"POSAVSKA","Zbirni center Kostak 1","15 01 01","Paper and Cardboard Packaging (15 01 01)",2059.958
-2023,"POSAVSKA","Zbirni center Kostak 1","15 01 03","Wooden Packaging (15 01 03)",2294.62
-2023,"POSAVSKA","Zbirni center Kostak 1","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",3482.29
-2023,"POSAVSKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)",48.14
-2023,"POSAVSKA","Zbirni centri","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)",7.62
-2023,"POSAVSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",1051.763
-2023,"POSAVSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",196.055
-2023,"POSAVSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)",12.75
-2023,"POSAVSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",559.703
-2023,"POSAVSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",91.32
-2023,"POSAVSKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)",9.68
-2023,"PRIMORSKO-NOTRANJSKA","540532","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",5.62
-2023,"PRIMORSKO-NOTRANJSKA","540532","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",25.85
-2023,"PRIMORSKO-NOTRANJSKA","540532","20 03 07","Bulky Municipal Waste (20 03 07)",85.98
-2023,"PRIMORSKO-NOTRANJSKA","562279","15 01 01","Paper and Cardboard Packaging (15 01 01)",60.602
-2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","15 01 01","Paper and Cardboard Packaging (15 01 01)",154.1
-2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","15 01 03","Wooden Packaging (15 01 03)",2.32
-2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",461.05
-2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",641.02
-2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","20 03 07","Bulky Municipal Waste (20 03 07)",855.07
-2023,"PRIMORSKO-NOTRANJSKA","Zbirni center Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)",121.908
-2023,"PRIMORSKO-NOTRANJSKA","Zbirni center Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",210.718
-2023,"PRIMORSKO-NOTRANJSKA","Zbirni center Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",427.44
-2023,"PRIMORSKO-NOTRANJSKA","Zbirni center Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","20 03 07","Bulky Municipal Waste (20 03 07)",732.47
-2023,"PRIMORSKO-NOTRANJSKA","Zbirni center za ločene frakcije odpadkov Ilirska Bistrica","15 01 01","Paper and Cardboard Packaging (15 01 01)",120.788
-2023,"PRIMORSKO-NOTRANJSKA","Zbirni center za ločene frakcije odpadkov Ilirska Bistrica","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",149.596
-2023,"PRIMORSKO-NOTRANJSKA","Zbirni center za ločene frakcije odpadkov Ilirska Bistrica","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",295.17
-2023,"PRIMORSKO-NOTRANJSKA","Zbirni center za ločene frakcije odpadkov Ilirska Bistrica2","20 03 07","Bulky Municipal Waste (20 03 07)",477.21
-2023,"SAVINJSKA","35540","15 01 01","Paper and Cardboard Packaging (15 01 01)",157.058
-2023,"SAVINJSKA","35540","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",355.05
-2023,"SAVINJSKA","35540","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",666.97
-2023,"SAVINJSKA","35540","20 03 07","Bulky Municipal Waste (20 03 07)",248.75
-2023,"SAVINJSKA","STRENSKO","15 01 01","Paper and Cardboard Packaging (15 01 01)",191.285
-2023,"SAVINJSKA","STRENSKO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",117.097
-2023,"SAVINJSKA","STRENSKO","20 03 07","Bulky Municipal Waste (20 03 07)",897.32
-2023,"SAVINJSKA","ZC BISTRICA OB SOTLI","15 01 01","Paper and Cardboard Packaging (15 01 01)",5.84
-2023,"SAVINJSKA","ZC BISTRICA OB SOTLI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",6.66
-2023,"SAVINJSKA","ZC BISTRICA OB SOTLI","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",4.29
-2023,"SAVINJSKA","ZC BISTRICA OB SOTLI","20 03 07","Bulky Municipal Waste (20 03 07)",46
-2023,"SAVINJSKA","ZC KOZJE","15 01 01","Paper and Cardboard Packaging (15 01 01)",16.84
-2023,"SAVINJSKA","ZC KOZJE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",17.36
-2023,"SAVINJSKA","ZC KOZJE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",23.24
-2023,"SAVINJSKA","ZC KOZJE","20 03 07","Bulky Municipal Waste (20 03 07)",130.87
-2023,"SAVINJSKA","ZC LOKE PRI MOZIRJU","15 01 01","Paper and Cardboard Packaging (15 01 01)",61.937
-2023,"SAVINJSKA","ZC LOKE PRI MOZIRJU","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",57.403
-2023,"SAVINJSKA","ZC LOKE PRI MOZIRJU","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",100.46
-2023,"SAVINJSKA","ZC LOKE PRI MOZIRJU","20 03 07","Bulky Municipal Waste (20 03 07)",4194.2
-2023,"SAVINJSKA","ZC PODČETRTEK","15 01 01","Paper and Cardboard Packaging (15 01 01)",21.91
-2023,"SAVINJSKA","ZC PODČETRTEK","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",10.39
-2023,"SAVINJSKA","ZC PODČETRTEK","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",19.44
-2023,"SAVINJSKA","ZC PODČETRTEK","20 03 07","Bulky Municipal Waste (20 03 07)",112.77
-2023,"SAVINJSKA","ZC TUNCOVEC; TUNCOVEC 10H,3250 ROGAŠKA SLATINA","15 01 01","Paper and Cardboard Packaging (15 01 01)",150.99
-2023,"SAVINJSKA","ZC TUNCOVEC; TUNCOVEC 10H,3250 ROGAŠKA SLATINA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",75.508
-2023,"SAVINJSKA","ZC TUNCOVEC; TUNCOVEC 10H,3250 ROGAŠKA SLATINA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",17.39
-2023,"SAVINJSKA","ZC TUNCOVEC; TUNCOVEC 10H,3250 ROGAŠKA SLATINA","20 03 07","Bulky Municipal Waste (20 03 07)",861.13
-2023,"SAVINJSKA","ZC ŠMARJE PRI  JELŠAH","15 01 01","Paper and Cardboard Packaging (15 01 01)",61.98
-2023,"SAVINJSKA","ZC ŠMARJE PRI  JELŠAH","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",32.79
-2023,"SAVINJSKA","ZC ŠMARJE PRI  JELŠAH","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",28.11
-2023,"SAVINJSKA","ZC ŠMARJE PRI  JELŠAH","20 03 07","Bulky Municipal Waste (20 03 07)",198.99
-2023,"SAVINJSKA","ZC:RCERO Celje - Zbirni center","15 01 01","Paper and Cardboard Packaging (15 01 01)",817.4
-2023,"SAVINJSKA","ZC:RCERO Celje - Zbirni center","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",2078.34
-2023,"SAVINJSKA","ZC:RCERO Celje - Zbirni center","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",3619.44
-2023,"SAVINJSKA","ZC:RCERO Celje - Zbirni center","20 03 07","Bulky Municipal Waste (20 03 07)",13559.23
-2023,"SAVINJSKA","Zbirni center Podhom","15 01 01","Paper and Cardboard Packaging (15 01 01)",63.343
-2023,"SAVINJSKA","Zbirni center Podhom","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",138.461
-2023,"SAVINJSKA","Zbirni center Podhom","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",426.045
-2023,"SAVINJSKA","Zbirni center Podhom","20 03 07","Bulky Municipal Waste (20 03 07)",8858.24
-2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","15 01 01","Paper and Cardboard Packaging (15 01 01)",386.657
-2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","15 01 03","Wooden Packaging (15 01 03)",222.96
-2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",785.352
-2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1224.155
-2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","20 03 07","Bulky Municipal Waste (20 03 07)",1196.18
-2023,"SAVINJSKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)",125.76
-2023,"SAVINJSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",1012.885
-2023,"SAVINJSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",350.79
-2023,"SAVINJSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)",514.488
-2023,"SAVINJSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",1103.443
-2023,"SAVINJSKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)",0.874
-2023,"ZASAVSKA","CENTER ZA RAVNANJE Z ODPADKI ZASAVJE d.o.o","20 03 07","Bulky Municipal Waste (20 03 07)",288.06
-2023,"ZASAVSKA","DINOS, družba za pripravo sekundarnih surovin d.o.o.","15 01 01","Paper and Cardboard Packaging (15 01 01)",32.687
-2023,"ZASAVSKA","KOMTEKS, ZBIRANJE IN ODKUP SEKUNDARNIH SUROVIN, D.O.O","15 01 01","Paper and Cardboard Packaging (15 01 01)",13.78
-2023,"ZASAVSKA","Kostak, komunalno in gradbeno podjetje, d.d.","15 01 01","Paper and Cardboard Packaging (15 01 01)",18.974
-2023,"ZASAVSKA","Kostak, komunalno in gradbeno podjetje, d.d.","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",12.014
-2023,"ZASAVSKA","SALOMON, D.O.O.","15 01 01","Paper and Cardboard Packaging (15 01 01)",57.47
-2023,"ZASAVSKA","SUROVINA, družba za predelavo odpadkov d.o.o.","15 01 01","Paper and Cardboard Packaging (15 01 01)",42.34
-2023,"ZASAVSKA","ZC Neža, Trbovlje","15 01 01","Paper and Cardboard Packaging (15 01 01)",114.398
-2023,"ZASAVSKA","ZC Neža, Trbovlje","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",46.187
-2023,"ZASAVSKA","ZC Neža, Trbovlje","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",638.58
-2023,"ZASAVSKA","ZC Neža, Trbovlje","20 03 07","Bulky Municipal Waste (20 03 07)",221.72
-2023,"ZASAVSKA","Zagorje ob Savi","15 01 01","Paper and Cardboard Packaging (15 01 01)",184.617
-2023,"ZASAVSKA","Zagorje ob Savi","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",147.991
-2023,"ZASAVSKA","Zagorje ob Savi","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",358.8
-2023,"ZASAVSKA","Zagorje ob Savi","20 03 07","Bulky Municipal Waste (20 03 07)",108.62
-2023,"ZASAVSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)",559.219
-2023,"ZASAVSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)",258.327
-2023,"ZASAVSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)",241.754
-2023,"ZASAVSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)",1.63
+﻿"year","statistical_region","collection_centre","waste_code","type_of_waste","waste_category","waste_collected_by_centre"
+2023,"GORENJSKA","DRAGA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",378.264
+2023,"GORENJSKA","DRAGA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",330.441
+2023,"GORENJSKA","DRAGA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",36.34
+2023,"GORENJSKA","DRAGA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",976.41
+2023,"GORENJSKA","Gorenja vas","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",30.412
+2023,"GORENJSKA","Gorenja vas","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",115.201
+2023,"GORENJSKA","Gorenja vas","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",184.11
+2023,"GORENJSKA","Gorenja vas","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",254.9
+2023,"GORENJSKA","JEZERSKO","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",15.5
+2023,"GORENJSKA","JEZERSKO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",8.64
+2023,"GORENJSKA","JEZERSKO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",25.12
+2023,"GORENJSKA","JEZERSKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",41.7
+2023,"GORENJSKA","KRANJ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",648.505
+2023,"GORENJSKA","KRANJ","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",17.55
+2023,"GORENJSKA","KRANJ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",334.621
+2023,"GORENJSKA","KRANJ","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1280.53
+2023,"GORENJSKA","KRANJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",659.718
+2023,"GORENJSKA","NAKLO","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",50.57
+2023,"GORENJSKA","NAKLO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",41.9
+2023,"GORENJSKA","NAKLO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",90.08
+2023,"GORENJSKA","NAKLO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",30.141
+2023,"GORENJSKA","Rečiška cesta 2, 4260 Bled","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",126.548
+2023,"GORENJSKA","Rečiška cesta 2, 4260 Bled","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",402.03
+2023,"GORENJSKA","Rečiška cesta 2, 4260 Bled","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",560.2
+2023,"GORENJSKA","Rečiška cesta 2, 4260 Bled","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",243.27
+2023,"GORENJSKA","Režijski obrat Občine Bohinj, Bohinjska Bistrica","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",94.318
+2023,"GORENJSKA","Režijski obrat Občine Bohinj, Bohinjska Bistrica","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",58.194
+2023,"GORENJSKA","Režijski obrat Občine Bohinj, Bohinjska Bistrica","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",197.93
+2023,"GORENJSKA","Režijski obrat Občine Bohinj, Bohinjska Bistrica","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",239.57
+2023,"GORENJSKA","STUDENO","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",49.182
+2023,"GORENJSKA","STUDENO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",42.953
+2023,"GORENJSKA","STUDENO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",100.2
+2023,"GORENJSKA","TRŽIČ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",198.307
+2023,"GORENJSKA","TRŽIČ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",21.63
+2023,"GORENJSKA","TRŽIČ","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",281.06
+2023,"GORENJSKA","TRŽIČ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",356.64
+2023,"GORENJSKA","Tabre","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",153.675
+2023,"GORENJSKA","Tabre","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",7.775
+2023,"GORENJSKA","Tabre","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",148.46
+2023,"GORENJSKA","Tabre","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",294.32
+2023,"GORENJSKA","ZBIRNI CENTER JESENICE, ŽIROVNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",161.322
+2023,"GORENJSKA","ZBIRNI CENTER JESENICE, ŽIROVNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",339.93
+2023,"GORENJSKA","ZBIRNI CENTER JESENICE, ŽIROVNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1186
+2023,"GORENJSKA","ZBIRNI CENTER JESENICE, ŽIROVNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",956.79
+2023,"GORENJSKA","ZC DRAGA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",63.12
+2023,"GORENJSKA","ZC Žiri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",13.195
+2023,"GORENJSKA","ZC Žiri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",83.856
+2023,"GORENJSKA","ZC Žiri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",136.12
+2023,"GORENJSKA","ZC Žiri","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",55.76
+2023,"GORENJSKA","Zbirni center Radovljica; SAVSKA CESTA 28, 4240 RADOVLJICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",285.33
+2023,"GORENJSKA","Zbirni center Radovljica; SAVSKA CESTA 28, 4240 RADOVLJICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",324.436
+2023,"GORENJSKA","Zbirni center Radovljica; SAVSKA CESTA 28, 4240 RADOVLJICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",670.57
+2023,"GORENJSKA","Zbirni center Radovljica; SAVSKA CESTA 28, 4240 RADOVLJICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",900.57
+2023,"GORENJSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",39.3
+2023,"GORENJSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",1274.21
+2023,"GORENJSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1194.682
+2023,"GORENJSKA","ŠENČUR","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",102.212
+2023,"GORENJSKA","ŠENČUR","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1.9
+2023,"GORENJSKA","ŠENČUR","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",73.138
+2023,"GORENJSKA","ŠENČUR","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",185.2
+2023,"GORENJSKA","ŠENČUR","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",52.68
+2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",271.52
+2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",24.98
+2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",518.253
+2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",744.61
+2023,"GORIŠKA","CERO Ajdovščina; DOLGA POLJANA 1I, 5271 VIPAVA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",120.89
+2023,"GORIŠKA","Ljubevč","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",188.308
+2023,"GORIŠKA","Ljubevč","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",290.005
+2023,"GORIŠKA","Ljubevč","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",368.29
+2023,"GORIŠKA","Ljubevč","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",556.02
+2023,"GORIŠKA","ZBIRNI CENTER VOLČE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",190.051
+2023,"GORIŠKA","ZBIRNI CENTER VOLČE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",347.996
+2023,"GORIŠKA","ZBIRNI CENTER VOLČE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",523.45
+2023,"GORIŠKA","ZBIRNI CENTER VOLČE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",262.77
+2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1360.061
+2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",152.213
+2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1167.903
+2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1668.2
+2023,"GORIŠKA","ZC CERO Nova Gorica; ULICA PARTIZANSKE TEHNIKE 6, 5000 NOVA GORICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1751.33
+2023,"GORIŠKA","ZC Vrtojba","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",90.655
+2023,"GORIŠKA","ZC Vrtojba","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",94.065
+2023,"GORIŠKA","ZC Vrtojba","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",179.55
+2023,"GORIŠKA","ZC Vrtojba","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",69.66
+2023,"GORIŠKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",30.83
+2023,"GORIŠKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",9.1
+2023,"GORIŠKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",116.895
+2023,"GORIŠKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",159.543
+2023,"GORIŠKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",9.25
+2023,"JUGOVZHODNA SLOVENIJA","32372, PCRO Vranoviči","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",157.68
+2023,"JUGOVZHODNA SLOVENIJA","32372, PCRO Vranoviči","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",94.616
+2023,"JUGOVZHODNA SLOVENIJA","32372, PCRO Vranoviči","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",309.5
+2023,"JUGOVZHODNA SLOVENIJA","32372, PCRO Vranoviči","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",615.7
+2023,"JUGOVZHODNA SLOVENIJA","Goriča vas","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",144.428
+2023,"JUGOVZHODNA SLOVENIJA","Goriča vas","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",41.095
+2023,"JUGOVZHODNA SLOVENIJA","Goriča vas","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",315.29
+2023,"JUGOVZHODNA SLOVENIJA","Goriča vas","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",384.657
+2023,"JUGOVZHODNA SLOVENIJA","Mali Log","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",46.283
+2023,"JUGOVZHODNA SLOVENIJA","Mozelj","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",238.27
+2023,"JUGOVZHODNA SLOVENIJA","Mozelj","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",112.353
+2023,"JUGOVZHODNA SLOVENIJA","Mozelj","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",395.24
+2023,"JUGOVZHODNA SLOVENIJA","Mozelj","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",760.79
+2023,"JUGOVZHODNA SLOVENIJA","Novo mesto","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",865.813
+2023,"JUGOVZHODNA SLOVENIJA","Novo mesto","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",241.04
+2023,"JUGOVZHODNA SLOVENIJA","Novo mesto","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",846.9
+2023,"JUGOVZHODNA SLOVENIJA","Novo mesto","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1590.32
+2023,"JUGOVZHODNA SLOVENIJA","Osilnica","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5.32
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni center Globoko in odlagališče Globoko; Hudeje 40, 8210 Trebnje","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",285.3
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni center Globoko in odlagališče Globoko; Hudeje 40, 8210 Trebnje","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",27.98
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni center Globoko in odlagališče Globoko; Hudeje 40, 8210 Trebnje","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",437.74
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni center Globoko in odlagališče Globoko; Hudeje 40, 8210 Trebnje","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",226.88
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",1937.221
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",34.499
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",9.52
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",63.135
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","19 12 07","Wood Waste from Treatment (not 19 12 06) (19 12 07)","Waste Treatment Residues",1737.99
+2023,"JUGOVZHODNA SLOVENIJA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",487.306
+2023,"JUGOVZHODNA SLOVENIJA","bočka","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",179.599
+2023,"JUGOVZHODNA SLOVENIJA","bočka","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",7.064
+2023,"JUGOVZHODNA SLOVENIJA","bočka","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",344.14
+2023,"JUGOVZHODNA SLOVENIJA","bočka","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",287.6
+2023,"JUGOVZHODNA SLOVENIJA","Šentjernej","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",204.74
+2023,"JUGOVZHODNA SLOVENIJA","Žužemberk","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",219.71
+2023,"KOROŠKA","Dobja vas","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",174.93
+2023,"KOROŠKA","Dobja vas","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",280.673
+2023,"KOROŠKA","Dobja vas","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",785.26
+2023,"KOROŠKA","MO Slovenj Gradec (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",122.22
+2023,"KOROŠKA","Otiški Vrh","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",76.68
+2023,"KOROŠKA","Otiški Vrh","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",238.78
+2023,"KOROŠKA","Pameče","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",106.52
+2023,"KOROŠKA","Pameče","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",165.94
+2023,"KOROŠKA","Pameče","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",936.78
+2023,"KOROŠKA","Radlje ob Dravi","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",115.42
+2023,"KOROŠKA","Radlje ob Dravi","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",17.04
+2023,"KOROŠKA","Radlje ob Dravi","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",311.5
+2023,"KOROŠKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",2.54
+2023,"KOROŠKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",944.686
+2023,"KOROŠKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",543.436
+2023,"KOROŠKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",65.84
+2023,"KOROŠKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",328.975
+2023,"KOROŠKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",46.1
+2023,"KOROŠKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.36
+2023,"KOROŠKA","občina Dravograd (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",205.7
+2023,"KOROŠKA","občina Mežica (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",168.26
+2023,"KOROŠKA","občina Mislinja (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1.76
+2023,"KOROŠKA","občina Prevalje (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",938.8
+2023,"KOROŠKA","občina Radlje (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",9.14
+2023,"KOROŠKA","občina Ravne (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",439.02
+2023,"KOROŠKA","občina Vuzenica (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2.64
+2023,"KOROŠKA","občina Črna (odpadki od poplav)","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",492.9
+2023,"OBALNO-KRAŠKA","CERO SEĹ˝ANA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",331.569
+2023,"OBALNO-KRAŠKA","CERO SEĹ˝ANA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",730.721
+2023,"OBALNO-KRAŠKA","CERO SeĹľana","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",547.9
+2023,"OBALNO-KRAŠKA","CERO SeĹľana","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",122.74
+2023,"OBALNO-KRAŠKA","DVORI","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",154.19
+2023,"OBALNO-KRAŠKA","Dragonja","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",493.335
+2023,"OBALNO-KRAŠKA","Dragonja","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",202.835
+2023,"OBALNO-KRAŠKA","Dragonja","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",962.45
+2023,"OBALNO-KRAŠKA","Dragonja","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1252.2
+2023,"OBALNO-KRAŠKA","SERMIN","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",581.179
+2023,"OBALNO-KRAŠKA","SERMIN","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1052.339
+2023,"OBALNO-KRAŠKA","SERMIN","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1613.87
+2023,"OBALNO-KRAŠKA","SERMIN","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",427.13
+2023,"OBALNO-KRAŠKA","Zbirni center Izola","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",232.715
+2023,"OBALNO-KRAŠKA","Zbirni center Izola","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",351.716
+2023,"OBALNO-KRAŠKA","Zbirni center Izola","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",629.72
+2023,"OBALNO-KRAŠKA","Zbirni center Izola","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",288.12
+2023,"OBALNO-KRAŠKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",63.58
+2023,"OBALNO-KRAŠKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",105
+2023,"OBALNO-KRAŠKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",1521.28
+2023,"OBALNO-KRAŠKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",89.573
+2023,"OBALNO-KRAŠKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",150.86
+2023,"OSREDNJESLOVENSKA","CERO Špaja dolina, Spodnje Blato 1, 1290 Grosuplje","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",337.577
+2023,"OSREDNJESLOVENSKA","CERO Špaja dolina, Spodnje Blato 1, 1290 Grosuplje","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",71.11
+2023,"OSREDNJESLOVENSKA","CERO Špaja dolina, Spodnje Blato 1, 1290 Grosuplje","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",855.567
+2023,"OSREDNJESLOVENSKA","CERO Špaja dolina, Spodnje Blato 1, 1290 Grosuplje","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",624.16
+2023,"OSREDNJESLOVENSKA","CERO Špaja dolina; SPODNJE BLATO 1, 1290 GROSUPLJE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",727.92
+2023,"OSREDNJESLOVENSKA","CRO Dob","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",918.25
+2023,"OSREDNJESLOVENSKA","CRO Dob","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",863.844
+2023,"OSREDNJESLOVENSKA","CRO Dob","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2579.35
+2023,"OSREDNJESLOVENSKA","CRO Dob","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",5864.76
+2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",241.21
+2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",14.28
+2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",2127.56
+2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",949.19
+2023,"OSREDNJESLOVENSKA","Center za ravnanje z odpadki Suhadole; SUHADOLE 101, 1218 KOMENDA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",3756.3
+2023,"OSREDNJESLOVENSKA","JP KPV, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",171.172
+2023,"OSREDNJESLOVENSKA","JP KPV, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",669.14
+2023,"OSREDNJESLOVENSKA","JP KPV, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",601.23
+2023,"OSREDNJESLOVENSKA","JP KPV, d.o.o.; POT NA TOJNICE 40, 1360 VRHNIKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",280.24
+2023,"OSREDNJESLOVENSKA","Ostri vrh","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",170.728
+2023,"OSREDNJESLOVENSKA","Ostri vrh","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",168.063
+2023,"OSREDNJESLOVENSKA","Ostri vrh","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",376.97
+2023,"OSREDNJESLOVENSKA","Ostri vrh","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",129.77
+2023,"OSREDNJESLOVENSKA","RazĹˇirjena zbiralnica Kamnica; Dol pri Ljubljani","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",62.057
+2023,"OSREDNJESLOVENSKA","RazĹˇirjena zbiralnica Kamnica; Dol pri Ljubljani","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",82.6
+2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2193.485
+2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",257.64
+2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",8536.226
+2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",8179.79
+2023,"OSREDNJESLOVENSKA","ZC Barje; Cesta dveh cesarjev; Ljubljana","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",8348.45
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Brezovica; Kamnik po Krimom 6, 1352 Preserje","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",181.17
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Brezovica; Kamnik po Krimom 6, 1352 Preserje","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",100.78
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Brezovica; Kamnik po Krimom 6, 1352 Preserje","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",215.14
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ig; Matena","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",154.021
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ig; Matena","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",94.42
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ig; Matena","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",196.52
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Medvode; Cesta komandanta Staneta, Medvode","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",247.821
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Medvode; Cesta komandanta Staneta, Medvode","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",286.6
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Medvode; Cesta komandanta Staneta, Medvode","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",341.9
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Velike LaĹˇÄŤe; Turjak","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",193.475
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Velike LaĹˇÄŤe; Turjak","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",247.42
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Velike LaĹˇÄŤe; Turjak","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",107.72
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Vodice; KamniĹˇka cesta, Vodice","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",79.329
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Vodice; KamniĹˇka cesta, Vodice","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",128.26
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Vodice; KamniĹˇka cesta, Vodice","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",196.96
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ĺ kofljica; Reber","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",195.237
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ĺ kofljica; Reber","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",174.48
+2023,"OSREDNJESLOVENSKA","ZaÄŤasni ZC Ĺ kofljica; Reber","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",288.56
+2023,"OSREDNJESLOVENSKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",18.34
+2023,"OSREDNJESLOVENSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",5579.414
+2023,"OSREDNJESLOVENSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",3348.982
+2023,"OSREDNJESLOVENSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",1965.226
+2023,"OSREDNJESLOVENSKA","Zbirni centri","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",625.217
+2023,"OSREDNJESLOVENSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",29646.02
+2023,"OSREDNJESLOVENSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1457.325
+2023,"OSREDNJESLOVENSKA","Šmartno pri Litiji","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",294.197
+2023,"OSREDNJESLOVENSKA","Šmartno pri Litiji","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",246.844
+2023,"OSREDNJESLOVENSKA","Šmartno pri Litiji","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",436.12
+2023,"OSREDNJESLOVENSKA","Šmartno pri Litiji","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1340.08
+2023,"PODRAVSKA","CERO","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",346.55
+2023,"PODRAVSKA","CERO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",614.041
+2023,"PODRAVSKA","CERO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",65.68
+2023,"PODRAVSKA","CERO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",111.4
+2023,"PODRAVSKA","CERO GAJKE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",19.947
+2023,"PODRAVSKA","CERO GAJKE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",45.6
+2023,"PODRAVSKA","CERO GAJKE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",10.378
+2023,"PODRAVSKA","CERO GAJKE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",28.097
+2023,"PODRAVSKA","CERO Gajke, DORNAVSKA CESTA 26, 2250 PTUJ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",259.77
+2023,"PODRAVSKA","CERO Gajke, DORNAVSKA CESTA 26, 2250 PTUJ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",730.526
+2023,"PODRAVSKA","CERO Gajke, DORNAVSKA CESTA 26, 2250 PTUJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",22.9
+2023,"PODRAVSKA","CERO Gajke; DORNAVSKA CESTA 26, 2250 PTUJ","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",445.912
+2023,"PODRAVSKA","CERO Gajke; DORNAVSKA CESTA 26, 2250 PTUJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",558.337
+2023,"PODRAVSKA","GORIŠNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",33.771
+2023,"PODRAVSKA","GORIŠNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",77.201
+2023,"PODRAVSKA","GORIŠNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",69.3
+2023,"PODRAVSKA","GORIŠNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",170.46
+2023,"PODRAVSKA","HAJDINA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",37.474
+2023,"PODRAVSKA","HAJDINA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",85.666
+2023,"PODRAVSKA","HAJDINA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",90.84
+2023,"PODRAVSKA","HAJDINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",193.68
+2023,"PODRAVSKA","MARKOVCI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",35.222
+2023,"PODRAVSKA","MARKOVCI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",80.519
+2023,"PODRAVSKA","MARKOVCI","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",70.58
+2023,"PODRAVSKA","MARKOVCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",190.414
+2023,"PODRAVSKA","SEDEŽ; NASIPNA ULICA 64, 2000 MARIBOR","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",0
+2023,"PODRAVSKA","SEDEŽ; NASIPNA ULICA 64, 2000 MARIBOR","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0
+2023,"PODRAVSKA","ZBIRNI CENTER OPLOTNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",22.97
+2023,"PODRAVSKA","ZBIRNI CENTER OPLOTNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",154.618
+2023,"PODRAVSKA","ZBIRNI CENTER OPLOTNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",65.29
+2023,"PODRAVSKA","ZBIRNI CENTER POLJČANE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",26.58
+2023,"PODRAVSKA","ZBIRNI CENTER POLJČANE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",167.038
+2023,"PODRAVSKA","ZBIRNI CENTER POLJČANE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",52.8
+2023,"PODRAVSKA","ZBIRNI CENTER PRAGERSKO","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",107.91
+2023,"PODRAVSKA","ZBIRNI CENTER PRAGERSKO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1139.427
+2023,"PODRAVSKA","ZBIRNI CENTER PRAGERSKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",214.4
+2023,"PODRAVSKA","ZBIRNI CENTER RAČE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",47.24
+2023,"PODRAVSKA","ZBIRNI CENTER RAČE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",398.307
+2023,"PODRAVSKA","ZBIRNI CENTER RAČE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",94.89
+2023,"PODRAVSKA","Zbirni center 1; ROGOZNIŠKA CESTA 33, 2250 PTUJ","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",245.757
+2023,"PODRAVSKA","Zbirni center 1; ROGOZNIŠKA CESTA 33, 2250 PTUJ","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",597.056
+2023,"PODRAVSKA","Zbirni center 1; ROGOZNIŠKA CESTA 33, 2250 PTUJ","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",452.12
+2023,"PODRAVSKA","Zbirni center 1; ROGOZNIŠKA CESTA 33, 2250 PTUJ","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1061.11
+2023,"PODRAVSKA","Zbirni center Dobrava","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",150.46
+2023,"PODRAVSKA","Zbirni center Dobrava","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",17.42
+2023,"PODRAVSKA","Zbirni center Dobrava","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",65.777
+2023,"PODRAVSKA","Zbirni center Dobrava","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",15.02
+2023,"PODRAVSKA","Zbirni center Dobrava","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",510.08
+2023,"PODRAVSKA","Zbirni center Hoče - Slivnica","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",22.76
+2023,"PODRAVSKA","Zbirni center Hoče - Slivnica","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",349.76
+2023,"PODRAVSKA","Zbirni center Hoče - Slivnica","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",394.85
+2023,"PODRAVSKA","Zbirni center Hoče - Slivnica","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",182.836
+2023,"PODRAVSKA","Zbirni center Kungota","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",23.9
+2023,"PODRAVSKA","Zbirni center Kungota","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",57.268
+2023,"PODRAVSKA","Zbirni center Kungota","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",91.58
+2023,"PODRAVSKA","Zbirni center Kungota","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",242.436
+2023,"PODRAVSKA","Zbirni center Lahova","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",286.097
+2023,"PODRAVSKA","Zbirni center Lahova","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",14.31
+2023,"PODRAVSKA","Zbirni center Lahova","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1630.803
+2023,"PODRAVSKA","Zbirni center Lahova","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2763.931
+2023,"PODRAVSKA","Zbirni center Lahova","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1104.652
+2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",227.653
+2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",622.883
+2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",143.18
+2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",338.763
+2023,"PODRAVSKA","Zbirni center Lenart; SPODNJI PORČIČ 4A, 2230 LENART V SLOV. GORICAH","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",910.785
+2023,"PODRAVSKA","Zbirni center Lovrenc na Pohorju","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",16.72
+2023,"PODRAVSKA","Zbirni center Lovrenc na Pohorju","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",42.056
+2023,"PODRAVSKA","Zbirni center Lovrenc na Pohorju","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",154.46
+2023,"PODRAVSKA","Zbirni center Lovrenc na Pohorju","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",73.12
+2023,"PODRAVSKA","Zbirni center Melje","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",243.713
+2023,"PODRAVSKA","Zbirni center Melje","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",12.19
+2023,"PODRAVSKA","Zbirni center Melje","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1389.203
+2023,"PODRAVSKA","Zbirni center Melje","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2354.459
+2023,"PODRAVSKA","Zbirni center Melje","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",940.999
+2023,"PODRAVSKA","Zbirni center Miklavž na Dravskem polju","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",39.4
+2023,"PODRAVSKA","Zbirni center Miklavž na Dravskem polju","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",137.787
+2023,"PODRAVSKA","Zbirni center Miklavž na Dravskem polju","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",209.76
+2023,"PODRAVSKA","Zbirni center Miklavž na Dravskem polju","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",159.6
+2023,"PODRAVSKA","Zbirni center Pesnica","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",31.3
+2023,"PODRAVSKA","Zbirni center Pesnica","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",121.71
+2023,"PODRAVSKA","Zbirni center Pesnica","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",252.5
+2023,"PODRAVSKA","Zbirni center Pesnica","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",199.17
+2023,"PODRAVSKA","Zbirni center Ruše","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",37.08
+2023,"PODRAVSKA","Zbirni center Ruše","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",253.544
+2023,"PODRAVSKA","Zbirni center Ruše","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",570.56
+2023,"PODRAVSKA","Zbirni center Ruše","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",239.238
+2023,"PODRAVSKA","Zbirni center Starše","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",19.5
+2023,"PODRAVSKA","Zbirni center Starše","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",78.529
+2023,"PODRAVSKA","Zbirni center Starše","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",354.88
+2023,"PODRAVSKA","Zbirni center Starše","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",96.22
+2023,"PODRAVSKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",11.74
+2023,"PODRAVSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",231.008
+2023,"PODRAVSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",60.86
+2023,"PODRAVSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",153.75
+2023,"PODRAVSKA","Zbirni centri","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",1.12
+2023,"PODRAVSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1006.486
+2023,"PODRAVSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",2.84
+2023,"PODRAVSKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",94.729
+2023,"POMURSKA","CEROP -Dolga Vas","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",111.1
+2023,"POMURSKA","CEROP -Dolga Vas","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",97.649
+2023,"POMURSKA","CEROP -Dolga Vas","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",33.52
+2023,"POMURSKA","CEROP -Dolga Vas","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",188.84
+2023,"POMURSKA","Center za ravnanje z odpadki Puconci, sedež; VANEČA 81B, 9201 PUCONCI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",31.74
+2023,"POMURSKA","Center za ravnanje z odpadki Puconci, sedež; VANEČA 81B, 9201 PUCONCI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",43.64
+2023,"POMURSKA","Center za ravnanje z odpadki Puconci, sedež; VANEČA 81B, 9201 PUCONCI","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",76.32
+2023,"POMURSKA","Center za ravnanje z odpadki Puconci, sedež; VANEČA 81B, 9201 PUCONCI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",264.585
+2023,"POMURSKA","Gornja Radgona","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",45.75
+2023,"POMURSKA","Gornja Radgona","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",183.21
+2023,"POMURSKA","Gornja Radgona","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",57.94
+2023,"POMURSKA","Gornja Radgona","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",250
+2023,"POMURSKA","Velika Polana","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",11.34
+2023,"POMURSKA","Velika Polana","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",4.78
+2023,"POMURSKA","Velika Polana","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",33.1
+2023,"POMURSKA","ZBIRNI CENTER NORĹ INSKA MURSKA SOBOTA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",302.82
+2023,"POMURSKA","ZBIRNI CENTER NORĹ INSKA MURSKA SOBOTA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1235.544
+2023,"POMURSKA","ZBIRNI CENTER NORĹ INSKA MURSKA SOBOTA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",791.42
+2023,"POMURSKA","ZBIRNI CENTER NORĹ INSKA MURSKA SOBOTA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",2007.54
+2023,"POMURSKA","Zbirni center komunalnih odpadkov Radenci; Boračeva, 9252 Radenci","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",56.7
+2023,"POMURSKA","Zbirni center komunalnih odpadkov Sveti Jurij ob Ščavnici","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",22
+2023,"POMURSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",490.378
+2023,"POMURSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",168.557
+2023,"POMURSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",93.96
+2023,"POMURSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",352.004
+2023,"POMURSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",0.2
+2023,"POMURSKA","zbirni center Apače","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",66.6
+2023,"POMURSKA","zbirni center Apače","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",13.52
+2023,"POMURSKA","zbirni center Apače","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",6.8
+2023,"POMURSKA","zbirni center Apače","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",318.17
+2023,"POMURSKA","zbirni center Ljutomer","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",32.04
+2023,"POMURSKA","zbirni center Ljutomer","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",177.48
+2023,"POMURSKA","zbirni center Ljutomer","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",865.24
+2023,"POSAVSKA","Boršt","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",303.42
+2023,"POSAVSKA","Boršt","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",95.609
+2023,"POSAVSKA","Boršt","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",917.75
+2023,"POSAVSKA","Boršt","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1199.54
+2023,"POSAVSKA","Center za ravnanje z odpadki Spodnji Stari Grad, Vrbina, 8270 Krško","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",319.177
+2023,"POSAVSKA","Center za ravnanje z odpadki Spodnji Stari Grad, Vrbina, 8270 Krško","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",795.47
+2023,"POSAVSKA","Center za ravnanje z odpadki Spodnji Stari Grad, Vrbina, 8270 Krško","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",853.34
+2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",226.824
+2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",6.599
+2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",134.056
+2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",239.1
+2023,"POSAVSKA","ZBIRNI CENTER ZA ODPADKE SEVNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",134.11
+2023,"POSAVSKA","ZC Hotemaž","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",66.872
+2023,"POSAVSKA","ZC Hotemaž","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",7.953
+2023,"POSAVSKA","ZC Hotemaž","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",82.08
+2023,"POSAVSKA","ZC Hotemaž","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",55.62
+2023,"POSAVSKA","Zbirni center Kostak 1","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",2059.958
+2023,"POSAVSKA","Zbirni center Kostak 1","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",2294.62
+2023,"POSAVSKA","Zbirni center Kostak 1","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",3482.29
+2023,"POSAVSKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",48.14
+2023,"POSAVSKA","Zbirni centri","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste",7.62
+2023,"POSAVSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1051.763
+2023,"POSAVSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",196.055
+2023,"POSAVSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",12.75
+2023,"POSAVSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",559.703
+2023,"POSAVSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",91.32
+2023,"POSAVSKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",9.68
+2023,"PRIMORSKO-NOTRANJSKA","540532","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",5.62
+2023,"PRIMORSKO-NOTRANJSKA","540532","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",25.85
+2023,"PRIMORSKO-NOTRANJSKA","540532","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",85.98
+2023,"PRIMORSKO-NOTRANJSKA","562279","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",60.602
+2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",154.1
+2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",2.32
+2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",461.05
+2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",641.02
+2023,"PRIMORSKO-NOTRANJSKA","Odlagališče in zbirni center Postojna","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",855.07
+2023,"PRIMORSKO-NOTRANJSKA","Zbirni center Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",121.908
+2023,"PRIMORSKO-NOTRANJSKA","Zbirni center Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",210.718
+2023,"PRIMORSKO-NOTRANJSKA","Zbirni center Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",427.44
+2023,"PRIMORSKO-NOTRANJSKA","Zbirni center Cerknica; NOTRANJSKA CESTA 44, 1380 CERKNICA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",732.47
+2023,"PRIMORSKO-NOTRANJSKA","Zbirni center za ločene frakcije odpadkov Ilirska Bistrica","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",120.788
+2023,"PRIMORSKO-NOTRANJSKA","Zbirni center za ločene frakcije odpadkov Ilirska Bistrica","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",149.596
+2023,"PRIMORSKO-NOTRANJSKA","Zbirni center za ločene frakcije odpadkov Ilirska Bistrica","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",295.17
+2023,"PRIMORSKO-NOTRANJSKA","Zbirni center za ločene frakcije odpadkov Ilirska Bistrica2","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",477.21
+2023,"SAVINJSKA","35540","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",157.058
+2023,"SAVINJSKA","35540","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",355.05
+2023,"SAVINJSKA","35540","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",666.97
+2023,"SAVINJSKA","35540","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",248.75
+2023,"SAVINJSKA","STRENSKO","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",191.285
+2023,"SAVINJSKA","STRENSKO","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",117.097
+2023,"SAVINJSKA","STRENSKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",897.32
+2023,"SAVINJSKA","ZC BISTRICA OB SOTLI","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",5.84
+2023,"SAVINJSKA","ZC BISTRICA OB SOTLI","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",6.66
+2023,"SAVINJSKA","ZC BISTRICA OB SOTLI","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",4.29
+2023,"SAVINJSKA","ZC BISTRICA OB SOTLI","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",46
+2023,"SAVINJSKA","ZC KOZJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",16.84
+2023,"SAVINJSKA","ZC KOZJE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",17.36
+2023,"SAVINJSKA","ZC KOZJE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",23.24
+2023,"SAVINJSKA","ZC KOZJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",130.87
+2023,"SAVINJSKA","ZC LOKE PRI MOZIRJU","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",61.937
+2023,"SAVINJSKA","ZC LOKE PRI MOZIRJU","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",57.403
+2023,"SAVINJSKA","ZC LOKE PRI MOZIRJU","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",100.46
+2023,"SAVINJSKA","ZC LOKE PRI MOZIRJU","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",4194.2
+2023,"SAVINJSKA","ZC PODČETRTEK","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",21.91
+2023,"SAVINJSKA","ZC PODČETRTEK","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",10.39
+2023,"SAVINJSKA","ZC PODČETRTEK","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",19.44
+2023,"SAVINJSKA","ZC PODČETRTEK","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",112.77
+2023,"SAVINJSKA","ZC TUNCOVEC; TUNCOVEC 10H,3250 ROGAŠKA SLATINA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",150.99
+2023,"SAVINJSKA","ZC TUNCOVEC; TUNCOVEC 10H,3250 ROGAŠKA SLATINA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",75.508
+2023,"SAVINJSKA","ZC TUNCOVEC; TUNCOVEC 10H,3250 ROGAŠKA SLATINA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",17.39
+2023,"SAVINJSKA","ZC TUNCOVEC; TUNCOVEC 10H,3250 ROGAŠKA SLATINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",861.13
+2023,"SAVINJSKA","ZC ŠMARJE PRI  JELŠAH","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",61.98
+2023,"SAVINJSKA","ZC ŠMARJE PRI  JELŠAH","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",32.79
+2023,"SAVINJSKA","ZC ŠMARJE PRI  JELŠAH","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",28.11
+2023,"SAVINJSKA","ZC ŠMARJE PRI  JELŠAH","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",198.99
+2023,"SAVINJSKA","ZC:RCERO Celje - Zbirni center","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",817.4
+2023,"SAVINJSKA","ZC:RCERO Celje - Zbirni center","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",2078.34
+2023,"SAVINJSKA","ZC:RCERO Celje - Zbirni center","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",3619.44
+2023,"SAVINJSKA","ZC:RCERO Celje - Zbirni center","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",13559.23
+2023,"SAVINJSKA","Zbirni center Podhom","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",63.343
+2023,"SAVINJSKA","Zbirni center Podhom","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",138.461
+2023,"SAVINJSKA","Zbirni center Podhom","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",426.045
+2023,"SAVINJSKA","Zbirni center Podhom","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",8858.24
+2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",386.657
+2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",222.96
+2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",785.352
+2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1224.155
+2023,"SAVINJSKA","Zbirni center Velenje I; DEBERCA 7, 3320 VELENJE","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",1196.18
+2023,"SAVINJSKA","Zbirni centri","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",125.76
+2023,"SAVINJSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",1012.885
+2023,"SAVINJSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",350.79
+2023,"SAVINJSKA","Zbirni centri","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",514.488
+2023,"SAVINJSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1103.443
+2023,"SAVINJSKA","Zbirni centri","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0.874
+2023,"ZASAVSKA","CENTER ZA RAVNANJE Z ODPADKI ZASAVJE d.o.o","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",288.06
+2023,"ZASAVSKA","DINOS, družba za pripravo sekundarnih surovin d.o.o.","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",32.687
+2023,"ZASAVSKA","KOMTEKS, ZBIRANJE IN ODKUP SEKUNDARNIH SUROVIN, D.O.O","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",13.78
+2023,"ZASAVSKA","Kostak, komunalno in gradbeno podjetje, d.d.","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",18.974
+2023,"ZASAVSKA","Kostak, komunalno in gradbeno podjetje, d.d.","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",12.014
+2023,"ZASAVSKA","SALOMON, D.O.O.","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",57.47
+2023,"ZASAVSKA","SUROVINA, družba za predelavo odpadkov d.o.o.","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",42.34
+2023,"ZASAVSKA","ZC Neža, Trbovlje","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",114.398
+2023,"ZASAVSKA","ZC Neža, Trbovlje","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",46.187
+2023,"ZASAVSKA","ZC Neža, Trbovlje","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",638.58
+2023,"ZASAVSKA","ZC Neža, Trbovlje","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",221.72
+2023,"ZASAVSKA","Zagorje ob Savi","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",184.617
+2023,"ZASAVSKA","Zagorje ob Savi","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",147.991
+2023,"ZASAVSKA","Zagorje ob Savi","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",358.8
+2023,"ZASAVSKA","Zagorje ob Savi","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",108.62
+2023,"ZASAVSKA","Zbirni centri","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",559.219
+2023,"ZASAVSKA","Zbirni centri","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste",258.327
+2023,"ZASAVSKA","Zbirni centri","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",241.754
+2023,"ZASAVSKA","Zbirni centri","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",1.63

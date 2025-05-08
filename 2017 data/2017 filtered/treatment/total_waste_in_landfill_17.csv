@@ -1,3 +1,9 @@
-﻿"name_of_company","landfill","type_of_waste","total_non_hazardous_waste_received","total_deposited"
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","RCERO CELJE (Bukovžlak)","Sawdust/Chips/Wood, not specified in 03 01 04",0.58,0.58
-"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","RCERO CELJE (Bukovžlak)","Wood",33.46,33.46
+﻿"year","name_of_company","landfill","waste_code","type_of_waste","waste_category","total_inert_waste_received","total_non_hazardous_waste_received","total_hazardous_waste_received","total_waste_received_no_estimate","total_waste_received_EU","total_waste_received_outside_EU","total_deposited","for_construction","for_daily_covering","stored_on_landfill","rejected"
+2017,"CEROD, center za ravnanje z odpadki, d.o.o., javno podjetje; KETTEJEV DREVORED 3, 8000 NOVO MESTO","LESKOVEC - novo","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0,308.5,0,0,0,0,308.5,0,0,0,0
+2017,"JAVNO KOMUNALNO PODJETJE GROSUPLJE d.o.o.; CESTA NA KRKO 7, 1290 GROSUPLJE","ŠPAJA DOLINA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0,0,0,356.877,0,0,356.877,0,0,0,0
+2017,"JEKO, javno komunalno podjetje, d.o.o., Jesenice; CESTA MARŠALA TITA 51, 4270 JESENICE","MALA MEŽAKLA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0,4238.07,0,0,0,0,4238.07,0,0,0,0
+2017,"Javno podjetje center za ravnanje z odpadki Puconci d.o.o.; VANEČA 81B, 9201 PUCONCI","PUCONCI - novo","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0,1589.53,0,0,0,0,1589.53,0,0,0,0
+2017,"KOMUNALA SLOVENSKA BISTRICA podjetje za komunalne in druge storitve d.o.o.; ULICA POHORSKEGA BATALJONA 12, 2310 SLOVENSKA BISTRICA","PRAGERSKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0,12.9,0,0,0,0,12.9,0,0,0,0
+2017,"KOMUNALA TREBNJE d.o.o.; GOLIEV TRG 9, 8210 TREBNJE","GLOBOKO","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste",0,595.76,0,0,0,0,595.76,0,0,0,0
+2017,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","RCERO CELJE (Bukovžlak)","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste",0,0.58,0,0,0,0,0.58,0,0,0,0
+2017,"SIMBIO, družba za ravnanje z odpadki d.o.o.; TEHARSKA CESTA 49, 3000 CELJE","RCERO CELJE (Bukovžlak)","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",0,33.46,0,0,0,0,33.46,0,0,0,0
