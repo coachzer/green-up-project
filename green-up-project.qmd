@@ -17,10 +17,9 @@ The structure of various years seems to be very different in some cases, so the 
 There are data-sets for each year: [generated waste]{.underline}, [collected waste]{.underline} and for [how waste is used]{.underline}. Moreover, in some data-sets, this is actually broken down by companies in other its by regions (of Slovenia).
 
 ## Navigation
- - Ctrl + f
+ - Ctrl + f 
   - TO-DO
   - TO-CHECK
-  - STOPPED FOR NOW
 
 ## Setup
 
@@ -43,8 +42,7 @@ if (file.exists(desired_dir)) {
 # List of required packages
 packages <- c(
   "tidyverse", "gt", "gtExtras", "readxl", "ggplot2",
-  "purrr", "openxlsx", "scales", "rlang", "scales"
-)
+  "purrr", "openxlsx", "scales", "rlang")
 
 # Function to check if a package is installed, and install it if not
 install_and_load <- function(pkg) {
@@ -97,12 +95,12 @@ codes <- c(
   "03 01 05",
   "03 01 99",
   "03 03 01",
-  # "03 03 08",
+  "03 03 08",
   "15 01 01",
   "15 01 03",
   "17 02 01",
   "19 12 01",
-  "19 12 07",
+  "19 12 07", 
   "20 01 01",
   "20 01 37*",
   "20 01 38",
@@ -569,8 +567,36 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
   data |>
     mutate(
       type_of_waste = case_when(
+        # 01 - Wastes from prospecting, mining, quarrying, physical and chemical processing of minerals
+        # 01 04 - Wastes from physical and chemical processing of non-metallic minerals
+        .data[[waste_code_col]] == "01 04 13" ~ "Waste from Cutting and Sawing of Stone (01 04 13)",
+        
         # 02 - Agricultural, horticultural, aquacultural, forestry, hunting, and fishing waste
+        # 02 01 - Waste from agriculture, horticulture, aquaculture, forestry, hunting and fishing
+        .data[[waste_code_col]] == "02 01 03" ~ "Waste Plant Tissues (02 01 03)",
+        .data[[waste_code_col]] == "02 01 06" ~ "Animal Excreta and Manure (02 01 06)",
         .data[[waste_code_col]] == "02 01 07" ~ "Forestry Waste (02 01 07)",
+        
+        # 02 02 - Waste from the preparation and processing of meat, fish and other foodstuffs of animal origin
+        .data[[waste_code_col]] == "02 02 01" ~ "Washing and Cleaning Sludges (02 02 01)",
+        .data[[waste_code_col]] == "02 02 04" ~ "Sludges from On-site Wastewater Treatment (02 02 04)",
+        
+        # 02 03 - Wastes from the preparation and processing of fruit, vegetables, cereals, edible oils, cocoa, coffee, tea and tobacco; from preserving; from the production of yeast and yeast extract, from the preparation and fermentation of molasses
+        .data[[waste_code_col]] == "02 03 01" ~ "Peelings, Pulp and Other Residues from Fruit and Vegetable Processing (02 03 01)",
+        .data[[waste_code_col]] == "02 03 04" ~ "Materials Unsuitable for Use or Processing (02 03 04)",
+        .data[[waste_code_col]] == "02 03 05" ~ "Sludges from On-site Wastewater Treatment (02 03 05)",
+        
+        # 02 05 - Waste from the dairy industry
+        .data[[waste_code_col]] == "02 05 01" ~ "Substances and Products Unfit for Consumption or Processing (02 05 01)",
+        .data[[waste_code_col]] == "02 05 02" ~ "Sludges from On-site Wastewater Treatment (02 05 02)",
+        .data[[waste_code_col]] == "02 05 99" ~ "Other Waste from Dairy Industry (02 05 99)",
+        
+        # 02 06 - Waste from bakeries and confectioneries
+        .data[[waste_code_col]] == "02 06 01" ~ "Substances and Products Unfit for Consumption or Processing (02 06 01)",
+        
+        # 02 07 - Waste from the production of alcoholic and non-alcoholic beverages (except coffee, tea and cocoa)
+        .data[[waste_code_col]] == "02 07 04" ~ "Materials Unsuitable for Use or Processing (02 07 04)",
+        .data[[waste_code_col]] == "02 07 05" ~ "Sludges from On-site Wastewater Treatment (02 07 05)",
         
         # 03 - Wood processing, panel & furniture production, paper & cardboard waste
         # 03 01 - Wood processing & panel production waste
@@ -583,11 +609,14 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         .data[[waste_code_col]] == "03 03 07" ~ "Mechanically Separated Rejects from Pulping (03 03 07)",
         .data[[waste_code_col]] == "03 03 08" ~ "Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)",
         .data[[waste_code_col]] == "03 03 10" ~ "Fiber Rejects and Sludge from Mechanical Separation (03 03 10)",
+        .data[[waste_code_col]] == "03 03 11" ~ "On-site Pulp, Paper and Cardboard Recycling Sludges (03 03 11)",
         .data[[waste_code_col]] == "03 03 99" ~ "Other Unspecified Paper Waste (03 03 99)",
         
         # 07 - Wastes from organic chemical processes
         # 07 02 - Waste from the production, formulation, supply and use of plastics, synthetic rubber and man-made fibres
         .data[[waste_code_col]] == "07 02 13" ~ "Waste Plastics (07 02 13)",
+        .data[[waste_code_col]] == "07 02 99" ~ "Other Plastics, Synthetic Rubber & Fibres Waste (07 02 99)",
+        
         
         # 07 03 - Wastes from the production, formulation, supply and use of organic dyes and pigments (except 06 11)
         .data[[waste_code_col]] == "07 03 03*" ~ "Organic Halogenated Solvents, Washing Liquids and Mother Liquors",
@@ -607,9 +636,15 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         # 10 01 - Wastes from power stations and other combustion plants (except 19)
         .data[[waste_code_col]] == "10 01 01" ~ "Ash, slag and boiler dust (excluding boiler dust listed under 10 01 04) (10 01 01)",
         .data[[waste_code_col]] == "10 01 15" ~ "Ash, slag and boiler dust from co-incineration plants other than those mentioned in 10 01 14 (10 01 15)",
+        .data[[waste_code_col]] == "10 01 24" ~ "Suspension Grates from Boilers (10 01 24)",
+        
+        # 10 09 - Waste from iron foundries
+        .data[[waste_code_col]] == "10 09 08" ~ "Used Foundry Moulds and Cores, Non-Hazardous (10 09 08)",
         
         # 10 10 - Waste from non-ferrous foundries
         .data[[waste_code_col]] == "10 10 08" ~ "Waste used Foundry Moulds and Cores other than those mentioned in 10 10 07 (10 10 01)",
+        # 10 12 - Waste from the manufacture of ceramic products, bricks, tiles and construction products
+        .data[[waste_code_col]] == "10 12 08" ~ "Ceramic, Brick, Tile and Construction Waste (10 12 08)",
         
         # 12 - Shaping and surface treatment of metals and plastics
         
@@ -657,15 +692,29 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         # 16 08 - Spent catalysts
         .data[[waste_code_col]] == "16 08 03" ~ "Spent Catalysts Containing Transition Metals (16 08 03)",
         
+        # 16 11 - Waste linings and fire-resistant materials
+        .data[[waste_code_col]] == "16 11 04" ~ "Fireproof Linings and Materials (16 11 04)",
+        .data[[waste_code_col]] == "16 11 06" ~ "Non-Fireproof Linings and Materials (16 11 06)",
+        
         # 17 - Construction & demolition waste
         # 17 01 - Concrete, bricks, tiles and ceramics
         .data[[waste_code_col]] == "17 01 01" ~ "Concrete Waste (17 01 01)",
+        .data[[waste_code_col]] == "17 01 02" ~ "Brick Waste (17 01 02)",
+        .data[[waste_code_col]] == "17 01 03" ~ "Tile and Ceramic Waste (17 01 03)",
+        .data[[waste_code_col]] == "17 01 07" ~ "Non-Hazardous Concrete/Brick/Ceramic Mixtures (17 01 07)",
         
         # 17 02 - Wood, glass, and plastic
         .data[[waste_code_col]] == "17 02 01" ~ "Construction Wood Waste (17 02 01)",
         
+        # 17 03 - Bituminous mixtures, coal tar and tar products
+        .data[[waste_code_col]] == "17 03 02" ~ "Non-Hazardous Bituminous Mixtures (17 03 02)",
+        
         # 17 04 - Metals (including alloys)
         .data[[waste_code_col]] == "17 04 05" ~ "Iron and Steel Waste (17 04 05)",
+        
+        # 17 05 - Soil (including excavated spoil from contaminated sites), stones and dredged material
+        .data[[waste_code_col]] == "17 05 04" ~ "Gypsum-Based Waste (17 05 04)",
+        .data[[waste_code_col]] == "17 05 06" ~ "Other Insulation Materials (17 05 06)",
         
         # 17 06 - Insulating materials and building materials containing asbestos
         .data[[waste_code_col]] == "17 06 04" ~ "Other Insulation Materials (17 06 04)",
@@ -673,6 +722,9 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         
         # 17 08 - Gypsum-based building materials
         .data[[waste_code_col]] == "17 08 02" ~ "Gypsum-Based Construction Materials (17 08 02)",
+        
+        # 17 09 - Mixed construction and demolition wastes other than those mentioned in 17 09 01, 17 09 02 and 17 09 03
+        .data[[waste_code_col]] == "17 09 04" ~ "Gypsum-Based Building Materials (17 09 04)",
         
         # 19 - Waste from waste treatment facilities
         # 19 01 - Waste from incineration or pyrolysis of waste
@@ -687,6 +739,12 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         
         # 19 06 - Waste from anaerobic treatment of solid waste
         .data[[waste_code_col]] == "19 06 06" ~ "Digestate sludge from anaerobic treatment of animal and vegetable waste (19 06 06)",
+        
+        # 19 08 - Wastes from waste water treatment plants not otherwise specified
+        .data[[waste_code_col]] == "19 08 02" ~ "Citotoxic and Cytostatic Medicinal Wastes (19 08 02)",
+        .data[[waste_code_col]] == "19 08 05" ~ "Chemicals Requiring Infectious Hazard Precautions (19 08 05)",
+        .data[[waste_code_col]] == "19 08 09" ~ "Other Healthcare Wastes (19 08 09)",
+        .data[[waste_code_col]] == "19 08 12" ~ "Medicinal Products (19 08 12)",
         
         # 19 09 - Waste from the preparation of waste for disposal
         .data[[waste_code_col]] == "19 09 01" ~ "Solid Wastes from Primary Sieves and Filters (19 09 01)",
@@ -719,12 +777,14 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         .data[[waste_code_col]] == "20 01 11" ~ "Textiles (20 01 11)",
         .data[[waste_code_col]] == "20 01 21*" ~ "Mercury-Containing Waste (20 01 21*)",
         .data[[waste_code_col]] == "20 01 23*" ~ "Discarded Equipment Containing CFCs (20 01 23*)",
+        .data[[waste_code_col]] == "20 01 25" ~ "Coal Tar Preparations for Roof Waterproofing (20 01 25)",
         .data[[waste_code_col]] == "20 01 26*" ~ "Non-Edible Oils and Fats (20 01 26*)",
         .data[[waste_code_col]] == "20 01 27*" ~ "Hazardous Paints, Inks, Adhesives (20 01 27*)",
         .data[[waste_code_col]] == "20 01 28" ~ "Non-Hazardous Paints, Inks, Adhesives (20 01 28)",
         .data[[waste_code_col]] == "20 01 33*" ~ "Batteries and accumulators listed under 16 06 01, 16 06 02 or 16 06 03 and unsorted batteries and accumulators containing these batteries and accumulators (20 01 33*)",
         .data[[waste_code_col]] == "20 01 35*" ~ "Hazardous Waste Electrical Equipment (20 01 35*)",
         .data[[waste_code_col]] == "20 01 36" ~ "Non-Hazardous Waste Electrical Equipment (20 01 36)",
+        .data[[waste_code_col]] == "20 01 37*" ~ "Wood Containing Hazardous Substances (20 01 37*)",
         .data[[waste_code_col]] == "20 01 38" ~ "Non-hazardous Wood from Municipal Waste (20 01 38)",
         .data[[waste_code_col]] == "20 01 39" ~ "Plastics from Municipal Waste (20 01 39)",
         .data[[waste_code_col]] == "20 01 40" ~ "Metals from Municipal Waste (20 01 40)",
@@ -1040,9 +1100,14 @@ processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 generation.23 <- processed_sheets[[1]]
 
 english_colnames <- c(
-  "year", "report", "statistical_region",
-  "waste_code", "type_of_waste", "total_waste_generated_stored",
-  "temporarily_stored_start_year", "generated_in_the_year",
+  "year", 
+  "report", 
+  "statistical_region",
+  "waste_code", 
+  "type_of_waste", 
+  "waste_generated", # total_waste_generated_stored waste_stored_start_year
+  "temporarily_stored_start_year", # waste_stored_end_year
+  "generated_in_the_year", # waste_generated
   "temporarily_stored_end_year",
   "waste_treated_by_original_generator",
   "waste_transferred_for_treatment_in_RS", # this are waste collectors, waste treatment operators
@@ -1055,12 +1120,18 @@ colnames(generation.23) <- english_colnames
 generation.23 <- generation.23 |> 
   select(-report) |> 
   process_waste_data() |> 
-  group_by(year, statistical_region, waste_code, type_of_waste) |>
+  mutate(
+    total_waste_given_away = waste_transferred_for_treatment_in_RS + waste_sent_for_treatment_EU + waste_sent_for_treatment_outside_EU
+  ) |> 
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
-    total_waste_generated_stored = sum(total_waste_generated_stored) / 1000, # convert to tons
+    # total_waste_generated_stored = temporarily_stored_start_year + generated_in_the_year
+    total_waste_generated_stored = sum(waste_generated) / 1000, # convert to tons
     temporarily_stored_start_year = sum(temporarily_stored_start_year) / 1000,
     generated_in_the_year = sum(generated_in_the_year) / 1000,
     temporarily_stored_end_year = sum(temporarily_stored_end_year) / 1000,
+    # total_waste_given_away = total_waste_generated_stored - waste_treated_by_original_generator
+    total_waste_given_away = sum(total_waste_given_away) / 1000,
     waste_treated_by_original_generator = sum(waste_treated_by_original_generator) / 1000,
     waste_transferred_for_treatment_in_RS = sum(waste_transferred_for_treatment_in_RS) / 1000,
     waste_sent_for_treatment_EU = sum(waste_sent_for_treatment_EU) / 1000,
@@ -1158,7 +1229,7 @@ ggplot(waste_plot_data,
 
 waste_plot_data <- generation.23 |>
   group_by(waste_code) |> # can be changed to type_of_waste or statistical_region
-  summarise(total_generated = sum(total_waste_generated_stored, na.rm = TRUE)) |>
+  summarise(total_generated = sum(waste_generated, na.rm = TRUE)) |>
   mutate(
     percentage = total_generated/sum(total_generated),
     display_label = paste0(comma(total_generated), " (", percent(percentage, accuracy = 0.01), ")")
@@ -1792,9 +1863,14 @@ processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 generation.22 <- processed_sheets[[1]]
 
 english_colnames <- c(
-  "year", "report", "statistical_region",
-  "waste_code", "type_of_waste", "total_waste_generated_stored",
-  "temporarily_stored_start_year", "generated_in_the_year",
+  "year", 
+  "report", 
+  "statistical_region",
+  "waste_code", 
+  "type_of_waste", 
+  "waste_generated",
+  "temporarily_stored_start_year",
+  "generated_in_the_year",
   "temporarily_stored_end_year",
   "waste_treated_by_original_generator",
   "waste_transferred_for_treatment_in_RS",
@@ -1808,12 +1884,16 @@ colnames(generation.22) <- english_colnames
 generation.22 <- generation.22 |> 
   select(-report) |> 
   process_waste_column(waste_code, type_of_waste) |> 
+  mutate(
+    total_waste_given_away = waste_transferred_for_treatment_in_RS + waste_sent_for_treatment_EU + waste_sent_for_treatment_outside_EU
+  ) |> 
   group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
-    total_waste_generated_stored = sum(total_waste_generated_stored) / 1000,
+    waste_generated = sum(waste_generated) / 1000,
     temporarily_stored_start_year = sum(temporarily_stored_start_year) / 1000,
     generated_in_the_year = sum(generated_in_the_year) / 1000,
     temporarily_stored_end_year = sum(temporarily_stored_end_year) / 1000,
+    total_waste_given_away = sum(total_waste_given_away) / 1000,
     waste_treated_by_original_generator = sum(waste_treated_by_original_generator) / 1000,
     waste_transferred_for_treatment_in_RS = sum(waste_transferred_for_treatment_in_RS) / 1000,
     waste_sent_for_treatment_EU = sum(waste_sent_for_treatment_EU) / 1000,
@@ -2474,9 +2554,14 @@ generation.21 <- processed_sheets[[1]]
 original_colnames <- colnames(generation.21)
 
 english_colnames <- c(
-  "year", "report", "statistical_region",
-  "waste_code", "type_of_waste", "total_waste_generated_stored",
-  "temporarily_stored_start_year", "generated_in_the_year",
+  "year", 
+  "report", 
+  "statistical_region",
+  "waste_code", 
+  "type_of_waste", 
+  "waste_generated",
+  "temporarily_stored_start_year",
+  "generated_in_the_year",
   "temporarily_stored_end_year",
   "waste_treated_by_original_generator",
   "waste_transferred_for_treatment_in_RS",
@@ -2499,18 +2584,22 @@ generation.21 <- process_waste_column(generation.21, waste_code, type_of_waste)
 
 # change to tons
 generation.21 <- generation.21 |>
+  mutate(
+    total_waste_given_away = waste_transferred_for_treatment_in_RS + waste_sent_for_treatment_EU + waste_sent_for_treatment_outside_EU
+  ) |> 
   group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
-    total_waste_generated_stored = sum(total_waste_generated_stored) / 1000,
+    waste_generated = sum(waste_generated) / 1000,
     temporarily_stored_start_year = sum(temporarily_stored_start_year) / 1000,
     generated_in_the_year = sum(generated_in_the_year) / 1000,
     temporarily_stored_end_year = sum(temporarily_stored_end_year) / 1000,
+    total_waste_given_away = sum(total_waste_given_away) / 1000,
     waste_treated_by_original_generator = sum(waste_treated_by_original_generator) / 1000,
     waste_transferred_for_treatment_in_RS = sum(waste_transferred_for_treatment_in_RS) / 1000,
     waste_sent_for_treatment_EU = sum(waste_sent_for_treatment_EU) / 1000,
-    waste_sent_for_treatment_outside_EU = sum(waste_sent_for_treatment_outside_EU) / 1000
-  ) |>
-  ungroup()
+    waste_sent_for_treatment_outside_EU = sum(waste_sent_for_treatment_outside_EU) / 1000,
+    .groups = "drop"
+  ) 
 
 # create a csv
 write_excel_csv(generation.21, "2021 data\\2021 filtered\\generation\\generation_21.csv")
@@ -3363,27 +3452,29 @@ generation.20 <- processed_sheets[[1]] |>
     temporary_stored_end_year = `Začasno skladiščeni odpadki na dan 31.12.2020 kg`,
     waste_treated_by_producer = `Odpadki, ki jih je izvirni povzročitelj obdelal sam kg`,
     waste_handed_to_others_RS = `Odpadki oddani v nadaljnje ravnanje drugim osebam v RS kg`,
-    waste_sent_to_EU = `Odpadki poslani v obdelavo v druge države članice EU kg`,
-    waste_sent_to_non_EU = `Odpadki poslani v obdelavo v države izven EU kg`
+    waste_sent_for_treatment_EU = `Odpadki poslani v obdelavo v druge države članice EU kg`,
+    waste_sent_for_treatment_outside_EU = `Odpadki poslani v obdelavo v države izven EU kg`
   ) |> 
   process_waste_column(waste_code, type_of_waste) |> 
+  mutate(
+    total_waste_given_away = waste_handed_to_others_RS + waste_sent_for_treatment_EU + waste_sent_for_treatment_outside_EU
+  ) |>
   group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_waste_generated = sum(total_waste_generated) / 1000,
     temporary_stored_start_year = sum(temporary_stored_start_year) / 1000,
     waste_generated_2020 = sum(waste_generated_2020) / 1000,
     temporary_stored_end_year = sum(temporary_stored_end_year) / 1000,
+    total_waste_given_away = sum(total_waste_given_away) / 1000,
     waste_treated_by_producer = sum(waste_treated_by_producer) / 1000,
     waste_handed_to_others_RS = sum(waste_handed_to_others_RS) / 1000,
-    waste_sent_to_EU = sum(waste_sent_to_EU) / 1000,
-    waste_sent_to_non_EU = sum(waste_sent_to_non_EU) / 1000,
+    waste_sent_for_treatment_EU = sum(waste_sent_for_treatment_EU) / 1000,
+    waste_sent_for_treatment_outside_EU = sum(waste_sent_for_treatment_outside_EU) / 1000,
     .groups = "drop"
   ) 
 
-processed_sheets[[1]] <- generation.20
-
 # to csv
-write_excel_csv(processed_sheets[[1]], "2020 data\\2020 filtered\\generation\\generation_20.csv")
+write_excel_csv(generation.20, "2020 data\\2020 filtered\\generation\\generation_20.csv")
 ```
 
 ## 2020 - Data from waste collectors' annual reports
@@ -3978,27 +4069,31 @@ generation.19 <- processed_sheets[[1]] |>
     temporary_stored_end_year = `Začasno skladiščeni odpadki na dan 31.12.2019 kg`,
     waste_treated_by_producer = `Odpadki, ki jih je izvirni povzročitelj obdelal sam kg`,
     waste_handed_to_others_RS = `Odpadki oddani v nadaljnje ravnanje drugim osebam v RS kg`,
-    waste_sent_to_EU = `Odpadki poslani v obdelavo v druge države članice EU kg`,
-    waste_sent_to_non_EU = `Odpadki poslani v obdelavo v države izven EU kg`
+    waste_sent_for_treatment_EU = `Odpadki poslani v obdelavo v druge države članice EU kg`,
+    waste_sent_for_treatment_outside_EU = `Odpadki poslani v obdelavo v države izven EU kg`
   ) |> 
   process_waste_column(waste_code, type_of_waste) |> 
+  mutate(
+    total_waste_given_away = waste_handed_to_others_RS + 
+      waste_sent_for_treatment_EU + 
+      waste_sent_for_treatment_outside_EU
+  ) |> 
   group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     total_waste_generated = sum(total_waste_generated) / 1000,
     temporary_stored_start_year = sum(temporary_stored_start_year) / 1000,
     waste_generated_2019 = sum(waste_generated_2019) / 1000,
     temporary_stored_end_year = sum(temporary_stored_end_year) / 1000,
+    total_waste_given_away = sum(total_waste_given_away) / 1000,
     waste_treated_by_producer = sum(waste_treated_by_producer) / 1000,
     waste_handed_to_others_RS = sum(waste_handed_to_others_RS) / 1000,
-    waste_sent_to_EU = sum(waste_sent_to_EU) / 1000,
-    waste_sent_to_non_EU = sum(waste_sent_to_non_EU) / 1000,
+    waste_sent_for_treatment_EU = sum(waste_sent_for_treatment_EU) / 1000,
+    waste_sent_for_treatment_outside_EU = sum(waste_sent_for_treatment_outside_EU) / 1000,
     .groups = "drop"
   )
 
-processed_sheets[[1]] <- generation.19
-
 # to csv
-write_excel_csv(processed_sheets[[1]], "2019 data\\2019 filtered\\generation\\generation_19.csv")
+write_excel_csv(generation.19, "2019 data\\2019 filtered\\generation\\generation_19.csv")
 ```
 
 ## 2019 - Data from the annual reports on waste collection from manufacturing and service activities
@@ -4617,10 +4712,10 @@ data18.sheet2 <- data18.sheet2 |>
   ) |>
   rename_region() |>
   mutate(
-    waste_self_processed            = if_else(delivered_to == "self_processed",             total_waste_given_away, 0),
-    waste_to_operator_RS            = if_else(delivered_to == "processing_operator_RS",    total_waste_given_away, 0),
-    waste_to_other_EU_country       = if_else(delivered_to == "other_EU_country",          total_waste_given_away, 0),
-    waste_to_other_country_outside_EU = if_else(delivered_to == "other_country_outside_EU", total_waste_given_away, 0)
+    waste_treated_by_producer            = if_else(delivered_to == "self_processed",             total_waste_given_away, 0),
+    waste_handed_to_others_RS            = if_else(delivered_to == "processing_operator_RS",    total_waste_given_away, 0),
+    waste_sent_to_EU       = if_else(delivered_to == "other_EU_country",          total_waste_given_away, 0),
+    waste_sent_for_treatment_outside_EU = if_else(delivered_to == "other_country_outside_EU", total_waste_given_away, 0)
   ) |>
   group_by(
     year, name_of_company, statistical_region,
@@ -4628,10 +4723,10 @@ data18.sheet2 <- data18.sheet2 |>
   ) |>
   summarise(
     total_waste_given_away           = sum(total_waste_given_away)           / 1000,
-    waste_self_processed             = sum(waste_self_processed)             / 1000,
-    waste_to_operator_RS             = sum(waste_to_operator_RS)             / 1000,
-    waste_to_other_EU_country        = sum(waste_to_other_EU_country)        / 1000,
-    waste_to_other_country_outside_EU = sum(waste_to_other_country_outside_EU)/ 1000,
+    waste_handed_to_others_RS             = sum(waste_handed_to_others_RS)             / 1000,
+    waste_sent_to_EU        = sum(waste_sent_to_EU)        / 1000,
+    waste_treated_by_producer             = sum(waste_treated_by_producer)             / 1000,
+    waste_sent_for_treatment_outside_EU = sum(waste_sent_for_treatment_outside_EU)/ 1000,
     .groups = "drop"
   )
 ```
@@ -5211,7 +5306,7 @@ waste_generation_17.by_codes1 <- waste_generation_17.sheet1 |>
       ~ coalesce(.x, 0) / 1000
     ),
     total_waste_2017 = total_waste_2017_kg,
-    total_waste_generated = total_waste_generated_kg
+    waste_generated = total_waste_generated_kg
   ) |> 
   group_by(
     year = 2017,
@@ -5224,9 +5319,8 @@ waste_generation_17.by_codes1 <- waste_generation_17.sheet1 |>
   summarise(
     total_waste_2017         = sum(total_waste_2017, na.rm = TRUE),
     waste_stored_start_year  = sum(waste_stored_start_year, na.rm = TRUE),
-    total_waste_generated    = sum(total_waste_generated, na.rm = TRUE),
+    waste_generated    = sum(waste_generated, na.rm = TRUE),
     waste_stored_end_year    = sum(waste_stored_end_year, na.rm = TRUE),
-    waste_inventory_change   = waste_stored_end_year - waste_stored_start_year,
     .groups = "drop"
   )
 ```
@@ -5234,49 +5328,65 @@ waste_generation_17.by_codes1 <- waste_generation_17.sheet1 |>
 ```{r table_2_waste_management_2017}
 waste_generation_17.sheet2 <- read_xlsx(waste_generation_17.path, skip = 2, sheet = 2)
 
-waste_generation_17.by_codes2 <- waste_generation_17.sheet2 |> 
+waste_generation_17.by_codes2 <- 
+  waste_generation_17.sheet2 |> 
   rename(
-    name_of_company       = `NAZIV IN NASLOV`,
-    statistical_region    = `STATISTIČNA REGIJA`,
-    waste_code            = `ŠT. ODPADKA`,
+    name_of_company        = `NAZIV IN NASLOV`,
+    statistical_region     = `STATISTIČNA REGIJA`,
+    waste_code             = `ŠT. ODPADKA`,
     total_waste_given_away = `KOLIČINA ODPADKOV ODDANA ALI POSLANA DRUGEMU PREVZEMNIKU (kg)`,
-    management            = `RAVNANJE`
-  ) |>
+    management             = `RAVNANJE`
+  ) |> 
   filter(
     waste_code %in% codes |
     (str_detect(waste_code, "^03 01 [0-9]") & !str_detect(waste_code, "03 01 04"))
-  ) |>
-  categorize_waste() |>
+  ) |> 
+  categorize_waste() |> 
   mutate(
     management = recode(
       management,
-      "1-lastna obdelava (OVD za obdelavo lastnih odpadkov)" = "own_processing",
-      "2-oddano drugemu prevzemniku v RS"               = "to_collector_RS",
-      "3-poslano v drugo državo članico EU"             = "to_EU_country"
+      "1-lastna obdelava (OVD za obdelavo lastnih odpadkov)" = "waste_treated_by_producer",
+      "2-oddano drugemu prevzemniku v RS"               = "waste_handed_to_others_RS",
+      "3-poslano v drugo državo članico EU"             = "waste_sent_to_EU"
     ),
-    total_tonnes = total_waste_given_away / 1000,
+    total_waste_given_away = total_waste_given_away / 1000,
     year = 2017
-  ) |>
-  group_by(year, name_of_company, statistical_region, waste_code, type_of_waste, waste_category, management) |>
+  ) |> 
+  group_by(
+    year, name_of_company, statistical_region,
+    waste_code, type_of_waste, waste_category, management
+  ) |> 
   summarise(
-    total_tonnes = sum(total_tonnes, na.rm = TRUE),
+    total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE),
     .groups = "drop"
-  ) |>
+  ) |> 
+  # pivot so that the management values become column names verbatim
   pivot_wider(
     names_from   = management,
-    values_from  = total_tonnes,
-    names_prefix = "waste_given_to_",
+    values_from  = total_waste_given_away,
     values_fill  = 0
-  ) |>
-  group_by(year, name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
+  ) |> 
+  # roll back up to category-level totals
+  group_by(
+    year, name_of_company, statistical_region,
+    waste_code, type_of_waste, waste_category
+  ) |> 
   summarise(
-    total_waste_given_away    = sum(waste_given_to_own_processing, na.rm = TRUE)
-                              + sum(waste_given_to_to_collector_RS, na.rm = TRUE)
-                              + sum(waste_given_to_to_EU_country, na.rm = TRUE),
-    waste_given_to_own_processing  = sum(waste_given_to_own_processing, na.rm = TRUE),
-    waste_given_to_to_collector_RS = sum(waste_given_to_to_collector_RS, na.rm = TRUE),
-    waste_given_to_to_EU_country   = sum(waste_given_to_to_EU_country, na.rm = TRUE),
+    waste_treated_by_producer    = sum(waste_treated_by_producer,    na.rm = TRUE),
+    waste_handed_to_others_RS    = sum(waste_handed_to_others_RS,    na.rm = TRUE),
+    waste_sent_to_EU             = sum(waste_sent_to_EU,             na.rm = TRUE),
+    total_waste_given_away       = (waste_treated_by_producer
+                                  + waste_handed_to_others_RS
+                                  + waste_sent_to_EU),
     .groups = "drop"
+  ) |> 
+  select(
+    year, name_of_company, statistical_region,
+    waste_code, type_of_waste, waste_category,
+    total_waste_given_away,
+    waste_handed_to_others_RS,
+    waste_sent_to_EU,
+    waste_treated_by_producer
   )
 ```
 
@@ -5768,14 +5878,13 @@ waste_generation_16.by_codes1 <- waste_generation_16.sheet1 |>
       (\(x) gsub("[0-9]", "", x))() |> 
       (\(x) gsub(" ", "", x, fixed = TRUE))()
   ) |>
-  group_by(name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
+  group_by(year = 2016, name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
     across(c(total_waste_generated, waste_stored_start_year, 
             waste_generated, waste_stored_end_year),
            ~sum(.) / 1000),
     .groups = "drop"
   ) |>
-  mutate(year = 2016) |>
   select(year, name_of_company, statistical_region, waste_code, type_of_waste, waste_category, total_waste_generated, waste_stored_start_year, waste_generated, waste_stored_end_year)
 ```
 
@@ -5950,20 +6059,33 @@ waste_generation_16.by_codes2 <- waste_generation_16.sheet2 |>
       management == "3 - odpadke so poslali v drugo državo članico EU" ~ "sent to another EU country"
     )
   ) |>
+  mutate(
+    waste_handed_to_others_RS = ifelse(
+      management == "given to another collector in RS",
+      total_waste_given_away,
+      0
+    ),
+    waste_sent_to_EU =
+      ifelse(management == "sent to another EU country", total_waste_given_away, 0),
+    waste_treated_by_producer =
+      ifelse(
+        management == "own processing (OVD for processing own waste)",
+        total_waste_given_away,
+        0
+      )
+  ) |> 
   # Clean statistical region names
   mutate(
     statistical_region = statistical_region |> 
       (\(x) gsub("[0-9]", "", x))() |> 
       (\(x) gsub(" ", "", x, fixed = TRUE))()
   ) |>
-  group_by(name_of_company, statistical_region, waste_code, type_of_waste, waste_category, management) |>
+  group_by(year = 2016, name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
-    across(c(total_waste_given_away),
+    across(c(total_waste_given_away, waste_handed_to_others_RS, waste_sent_to_EU, waste_treated_by_producer),
            ~sum(.) / 1000),
     .groups = "drop"
-  ) |>
-  mutate(year = 2016) |> 
-  select(year, name_of_company, statistical_region, waste_code, type_of_waste, waste_category, total_waste_given_away, management)
+  )
 ```
 
 ```{r generatio_to_CSV_2016}
@@ -6026,10 +6148,7 @@ waste_collection_16.by_codes1 <- waste_collection_16.sheet1 |>
     waste_stored_start_year = sum(waste_stored_start_year, na.rm = TRUE),
     waste_stored_end_year   = sum(waste_stored_end_year,   na.rm = TRUE),
     .groups = "drop"
-  ) |> 
-  mutate(
-    waste_stored_change = waste_stored_end_year - waste_stored_start_year
-  )
+  ) 
 ```
 
 ```{r waste_collected}
@@ -6244,7 +6363,7 @@ waste_recovery_disposal_16.by_codes4 <-
     total_waste_generated_untreated     = `PO OBDELAVI NASTALI ODPADKI IN ODPADKI ODDANI DRUGIM BREZ OBDELAVE  (kg)`,
     given_to                            = `ODDANO KOMU`,
     treatment_process                   = `POSTOPEK OBDELAVE, ČE SO ODPADKI POSLANI V OBDELAVO V TUJINO`
-  ) %>% 
+  ) |> 
   filter_codes() |>  
   categorize_waste() |> 
   mutate(

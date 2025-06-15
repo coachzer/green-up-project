@@ -27,7 +27,7 @@ color_palette <- c("waste_from_producers_no_record" = "#E69F00",  # Orange
 # data ----
 ## import from the data folder
 
-### Generation ----
+### ------------ Generation Data ------------
 gnr_data <- read_csv("data/gnr_combined.csv")
 
 #### data for gnr_data infoBox ----
@@ -72,7 +72,7 @@ total_sent_outside_EU <- gnr_data |>
 
 total_sent_outside_EU <- round(total_sent_outside_EU$total_sent_outside_EU, 2)
 
-### Collection ----
+### ------------ Collection Data ------------
 #### coll_storage_data ----
 coll_storage_data <- read_csv("data/coll_storage_combined.csv")
 #### coll_received_data ----
@@ -369,7 +369,7 @@ df_long_management <- melt(
   value.name = "total_waste_given_away"
 )
 
-### Treatment ----
+### ------------ Treatment Data ------------
 #### trt_storage_data ----
 trt_storage_data <- read_csv("data/trt_storage_combined.csv")
 #### trt_collected_data ----
@@ -404,11 +404,10 @@ shinyServer(function(input, output, session) {
   
   # Analysis tab -----
   
-  ## Generation ----
+  ## ------------ GENERATION ------------ ----
   
   
   # TO-DO: Add overlay of the three "per year basis" plots
-  #       
   
   
   # Load data for generation
@@ -751,7 +750,8 @@ shinyServer(function(input, output, session) {
       )
   })
   
-  ## Collection ----
+  
+  ## ------------ COLLECTION ------------
   
   ### Storage ----
   
@@ -1270,7 +1270,8 @@ shinyServer(function(input, output, session) {
              legend = list(title = "Waste Source"))
   })
   
-  ## Treatment ----
+  
+  ## ------------ TREATMENT ------------
   
   ### Storage ----
   

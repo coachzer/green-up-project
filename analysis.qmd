@@ -471,167 +471,57 @@ g.2017.data.2 <- read_csv("2017 data/2017 filtered/generation/waste_management_1
 g.2016.data.1 <- read_csv("2016 data/2016 filtered/generation/waste_generation_16.csv")
 g.2016.data.2 <- read_csv("2016 data/2016 filtered/generation/waste_management_16.csv")
 
-g.2018.data.2 <- g.2018.data.2 |>
-  mutate(
-    waste_handed_to_others_RS = ifelse(
-      delivered_to == "processing operator in RS",
-      total_waste_given_away,
-      0
-    ),
-    waste_sent_to_EU =
-      ifelse(delivered_to == "other EU country", total_waste_given_away, 0),
-    waste_treated_by_producer =
-      ifelse(
-        delivered_to == "processed the waste themselves",
-        total_waste_given_away,
-        0
-      )
-  )
-
-g.2018.data.2 <- g.2018.data.2 |>
-  dplyr::select(-delivered_to, -total_waste_given_away)
-
-g.2018.data.2 <- g.2018.data.2 |>
-  group_by(statistical_region, type_of_waste) |>
-  summarize(
-    waste_handed_to_others_RS = sum(waste_handed_to_others_RS, na.rm = TRUE),
-    waste_sent_to_EU = sum(waste_sent_to_EU, na.rm = TRUE),
-    waste_treated_by_producer = sum(waste_treated_by_producer)
-  ) |>
-  ungroup()
 
 # combine g.2018.data.1 and g.2018.data.2 based on the region and company
 g.2018.data <- g.2018.data.1 |>
   left_join(
     g.2018.data.2,
     by = c(
+      "year" = "year",
       "statistical_region" = "statistical_region",
-      # "name_of_company" = "name_of_company",
-      "type_of_waste" = "type_of_waste"
+      "name_of_company" = "name_of_company",
+      "waste_code" = "waste_code",
+      "type_of_waste" = "type_of_waste",
+      "waste_category" = "waste_category"
     )
   )
-
-# add year column to 2018 data
-g.2018.data <- g.2018.data |>
-  mutate(year = 2018)
-
-# create a total waste stored column for 2018 data
-g.2018.data <- g.2018.data |>
-  mutate(total_waste_stored = waste_stored_start_year + waste_generated) |>
-  select(
-    year,
-    statistical_region,
-    type_of_waste,
-    total_waste_stored,
-    waste_stored_start_year,
-    waste_generated,
-    waste_stored_end_year,
-    waste_treated_by_producer,
-    waste_handed_to_others_RS,
-    waste_sent_to_EU
-  )
-
-skim(g.2018.data)
-
-g.2017.data.2$management |> unique()
-
-g.2017.data.2 <- g.2017.data.2 |>
-  mutate(
-    waste_handed_to_others_RS = ifelse(
-      management == "given to another collector in RS",
-      total_waste_given_away,
-      0
-    ),
-    waste_sent_to_EU =
-      ifelse(management == "sent to another EU country", total_waste_given_away, 0),
-    waste_treated_by_producer =
-      ifelse(
-        management == "own processing (OVD for processing own waste)",
-        total_waste_given_away,
-        0
-      )
-  )
-
-g.2017.data.2 <- g.2017.data.2 |>
-  select(-management, -total_waste_given_away)
-
-g.2017.data.2 <- g.2017.data.2 |>
-  group_by(statistical_region, type_of_waste) |>
-  summarize(
-    waste_handed_to_others_RS = sum(waste_handed_to_others_RS, na.rm = TRUE),
-    waste_sent_to_EU = sum(waste_sent_to_EU, na.rm = TRUE),
-    waste_treated_by_producer = sum(waste_treated_by_producer)
-  ) |>
-  ungroup()
 
 g.2017.data <- g.2017.data.1 |>
   left_join(
     g.2017.data.2,
     by = c(
+      "year" = "year",
+      "name_of_company" = "name_of_company",
       "statistical_region" = "statistical_region",
-      "type_of_waste" = "type_of_waste"
+      "waste_code" = "waste_code",
+      "type_of_waste" = "type_of_waste",
+      "waste_category" = "waste_category"
     )
-  )
-
-g.2017.data <- g.2017.data |>
-  mutate(year = 2017)
-
-g.2017.data <- g.2017.data |>
-  select(
-    year,
-    statistical_region,
-    type_of_waste,
-    total_waste_2017,
-    waste_stored_start_year,
-    total_waste_generated,
-    waste_stored_end_year,
-    waste_treated_by_producer,
-    waste_handed_to_others_RS,
-    waste_sent_to_EU
-  )
-
-g.2016.data.2 <- g.2016.data.2 |>
-  mutate(
-    waste_handed_to_others_RS = ifelse(
-      management == "given to another collector in RS",
-      total_waste_given_away,
-      0
-    ),
-    waste_sent_to_EU =
-      ifelse(management == "sent to another EU country", total_waste_given_away, 0),
-    waste_treated_by_producer =
-      ifelse(
-        management == "own processing (OVD for processing own waste)",
-        total_waste_given_away,
-        0
-      )
-  )
-
-g.2016.data.2 <- g.2016.data.2 |>
-  select(-management, -total_waste_given_away)
-
-g.2016.data.2 <- g.2016.data.2 |>
-  group_by(statistical_region, type_of_waste) |>
-  summarize(
-    waste_handed_to_others_RS = sum(waste_handed_to_others_RS, na.rm = TRUE),
-    waste_sent_to_EU = sum(waste_sent_to_EU, na.rm = TRUE),
-    waste_treated_by_producer = sum(waste_treated_by_producer)
-  ) |>
-  ungroup()
+  ) 
 
 g.2016.data <- g.2016.data.1 |>
   left_join(
     g.2016.data.2,
     by = c(
+      "year" = "year",
+      "name_of_company" = "name_of_company",
       "statistical_region" = "statistical_region",
-      "type_of_waste" = "type_of_waste"
+      "waste_code" = "waste_code",
+      "type_of_waste" = "type_of_waste",
+      "waste_category" = "waste_category"
     )
-  )
+  ) 
+
+g.2018.data <- g.2018.data |>
+  mutate(across(where(is.numeric), ~ replace_na(.x, 0)))
+
+g.2017.data <- g.2017.data |>
+  select(-total_waste_2017) |> 
+  mutate(across(where(is.numeric), ~ replace_na(.x, 0)))
 
 g.2016.data <- g.2016.data |>
-  mutate(year = 2016)
-
-g.2016.data[is.na(g.2016.data)] <- 0
+  select(-total_waste_generated) |>
+  mutate(across(where(is.numeric), ~ replace_na(.x, 0)))
 
 g.2016.data <- g.2016.data |>
   mutate(waste_sent_for_treatment_outside_EU = 0)
@@ -639,22 +529,116 @@ g.2016.data <- g.2016.data |>
 g.2017.data <- g.2017.data |>
   mutate(waste_sent_for_treatment_outside_EU = 0)
 
-g.2018.data <- g.2018.data |>
-  mutate(waste_sent_for_treatment_outside_EU = 0)
+# bind rows only for years with company data for generation, so: 2016, 2017 and 2018
+company_data_gen <- bind_rows(
+  g.2016.data,
+  g.2017.data,
+  g.2018.data
+)
 
-names(g.2016.data) <- colnames(g.2022.data)
-names(g.2017.data) <- colnames(g.2022.data)
-names(g.2018.data) <- colnames(g.2022.data)
-names(g.2019.data) <- colnames(g.2022.data)
-names(g.2020.data) <- colnames(g.2022.data)
-names(g.2021.data) <- colnames(g.2022.data)
-names(g.2023.data) <- colnames(g.2022.data)
+# filter by 20 01 37*
+company_data_gen |>
+  filter(
+    waste_code == "20 01 37*",
+  ) |> 
+  select(
+    year,
+    name_of_company,
+    type_of_waste,
+    waste_stored_start_year,
+    waste_generated,
+    waste_stored_end_year,
+    total_waste_given_away,
+    waste_handed_to_others_RS
+  )
 
-combined_data <- bind_rows(g.2016.data, g.2017.data, g.2018.data, g.2019.data, g.2020.data, g.2021.data, g.2022.data, g.2023.data)
+# filter by 03 03 08
+company_data_gen |>
+  filter(
+    waste_code == "03 03 08",
+  ) |> 
+  select(
+    year,
+    name_of_company,
+    type_of_waste,
+    waste_stored_start_year,
+    waste_generated,
+    waste_stored_end_year,
+    total_waste_given_away,
+    waste_handed_to_others_RS
+  )
+
+# alright now drop the name_of_company from company_data_gen, so we can focus on aggregating the rest of the years
+without_company_data <- company_data_gen |>
+  select(-name_of_company) |> 
+  group_by(
+    year,
+    statistical_region,
+    waste_code,
+    type_of_waste,
+    waste_category
+  ) |> 
+  summarise(
+    waste_stored_start_year = sum(waste_stored_start_year, na.rm = TRUE),
+    waste_generated = sum(waste_generated, na.rm = TRUE),
+    waste_stored_end_year = sum(waste_stored_end_year, na.rm = TRUE),
+    total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE),
+    waste_handed_to_others_RS = sum(waste_handed_to_others_RS, na.rm = TRUE),
+    waste_sent_for_treatment_EU = sum(waste_sent_to_EU, na.rm = TRUE),
+    waste_treated_by_producer = sum(waste_treated_by_producer, na.rm = TRUE),
+    waste_sent_for_treatment_outside_EU = sum(waste_sent_for_treatment_outside_EU, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+
+without_company_data <- without_company_data |> 
+  mutate(
+    total_waste_generated_stored = waste_stored_start_year + waste_generated,
+  )
+
+without_company_data <- without_company_data |> 
+  select(
+    year,
+    statistical_region,
+    waste_code,
+    type_of_waste,
+    waste_category,
+    total_waste_generated_stored,
+    waste_stored_start_year,
+    waste_generated,
+    waste_stored_end_year,
+    total_waste_given_away,
+    waste_treated_by_producer,
+    waste_handed_to_others_RS,
+    waste_sent_for_treatment_EU,
+    waste_sent_for_treatment_outside_EU
+  ) |> 
+  # subtract waste_treated_by_producer from total_waste_given_away
+  mutate(
+    total_waste_given_away = total_waste_given_away - waste_treated_by_producer
+  ) 
+
+colnames(without_company_data)
+colnames(g.2019.data)
+colnames(g.2020.data)
+colnames(g.2021.data)
+colnames(g.2022.data)
+colnames(g.2023.data)
+
+```
+
+```{r}
+names(without_company_data) <- colnames(g.2023.data)
+names(g.2019.data) <- colnames(g.2023.data)
+names(g.2020.data) <- colnames(g.2023.data)
+names(g.2021.data) <- colnames(g.2023.data)
+names(g.2022.data) <- colnames(g.2023.data)
+
+combined_data <- bind_rows(without_company_data, g.2019.data, g.2020.data, g.2021.data, g.2022.data, g.2023.data)
 
 # apply clear_waste_name
-combined_data <- combined_data |>
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+# combined_data <- combined_data |>
+  # mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 # export the combined generation data to the data folder
 write_csv(combined_data, "Interface/Visualization/data/gnr_combined.csv")
@@ -750,17 +734,39 @@ t5 <- ggplot(waste_stored_at_the_end_year, aes(x = year, y = total_stored)) +
   my_theme +
   scale_x_continuous(breaks = unique(waste_stored_at_the_end_year$year))
 
+# Plot 6: Waste treated by the original generator
+waste_treated_by_generator <- combined_data |>
+  group_by(type_of_waste, year) |>
+  summarize(total_treated = sum(waste_treated_by_original_generator, na.rm = TRUE)) |>
+  ungroup()
+
+t6 <- ggplot(
+  waste_treated_by_generator, 
+  aes(x = year, y = total_treated, color = type_of_waste)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Total Wood Waste Treated by the Original Generator by Year",
+    x = "Year",
+    y = "Total Waste Treated (tons)"
+  ) +
+  my_theme +
+  scale_x_continuous(breaks = unique(waste_treated_by_generator$year))
+
 # Convert to plotly (width and height parameters remain the same)
 ggplotly(t, width = 1000, height = 500)
 ggplotly(t2, width = 1000, height = 500)
 ggplotly(t3, width = 1000, height = 500)
 ggplotly(t4, width = 1000, height = 500)
 ggplotly(t5, width = 1000, height = 500)
+ggplotly(t6, width = 1000, height = 500)
 ```
 
 # Collection Data Analysis Process
 
 ## Waste Storage
+
+### Description
 
 1. **Data Loading**:
    - The code starts by reading in waste storage data from multiple years (2016-2022) into separate dataframes.
@@ -792,7 +798,7 @@ ggplotly(t5, width = 1000, height = 500)
 ### Code
 
 ```{r collection_combined_data_waste_storage}
-# waste.storage.2023.data <- read_csv("2023 data/2023 filtered/collection/waste_received_23.csv")
+# waste.storage.2023.data <- read_csv("2023 data/2023 filtered/collection/waste_received_23.csv") - nothing comparable...
 waste.storage.2022.data <- read_csv("2022 data/2022 filtered/collection/waste_storage_22.csv")
 waste.storage.2021.data <- read_csv("2021 data/2021 filtered/collection/waste_storage_21.csv")
 waste.storage.2020.data <- read_csv("2020 data/2020 filtered/collection/waste_storage_20.csv")
@@ -801,14 +807,52 @@ waste.storage.2018.data <- read_csv("2018 data/2018 filtered/collection/waste_st
 waste.storage.2017.data <- read_csv("2017 data/2017 filtered/collection/waste_storage_17.csv")
 waste.storage.2016.data <- read_csv("2016 data/2016 filtered/collection/waste_storage_16.csv")
 
-names(waste.storage.2021.data) <- colnames(waste.storage.2016.data)
-names(waste.storage.2022.data) <- colnames(waste.storage.2016.data)
+waste.storage.2017.data <- waste.storage.2017.data |>
+  mutate(waste_stored_change = waste_stored_end_year - waste_stored_start_year)
 
-combined_storage_data <- bind_rows(waste.storage.2016.data, waste.storage.2017.data, waste.storage.2018.data, waste.storage.2019.data, waste.storage.2020.data, waste.storage.2021.data, waste.storage.2022.data)
+waste.storage.2018.data <- waste.storage.2018.data |>
+  mutate(waste_stored_change = waste_stored_end_year - waste_stored_start_year)
 
-# clear waste names
-combined_storage_data <- combined_storage_data |>
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
+waste.storage.2019.data <- waste.storage.2019.data |>
+  mutate(waste_stored_change = waste_stored_end_year - waste_stored_start_year)
+
+# bind rows only for years with company data for generation, so: 2016, 2017 and 2018
+company_data_col <- bind_rows(
+  waste.storage.2016.data,
+  waste.storage.2017.data,
+  waste.storage.2018.data,
+  waste.storage.2019.data
+)
+
+without_company_data <- company_data_col |>
+  dplyr::select(-name_of_company) |> 
+  group_by(
+    year,
+    statistical_region,
+    waste_code,
+    type_of_waste,
+    waste_category
+  ) |> 
+  summarise(
+    waste_stored_start_year = sum(waste_stored_start_year, na.rm = TRUE),
+    waste_stored_end_year = sum(waste_stored_end_year, na.rm = TRUE),
+    waste_stored_change = sum(waste_stored_change, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+names(waste.storage.2021.data) <- colnames(without_company_data)
+names(waste.storage.2022.data) <- colnames(without_company_data)
+
+waste.storage.2020.data <- waste.storage.2020.data |>
+  mutate(waste_stored_change = waste_stored_end_year - waste_stored_start_year)
+
+waste.storage.2021.data <- waste.storage.2021.data |>
+  mutate(waste_stored_change = waste_stored_end_year - waste_stored_start_year)
+
+waste.storage.2022.data <- waste.storage.2022.data |>
+  mutate(waste_stored_change = waste_stored_end_year - waste_stored_start_year)
+
+combined_storage_data <- bind_rows(without_company_data, waste.storage.2020.data, waste.storage.2021.data, waste.storage.2022.data)
 
 # export the combined storage data to the data folder
 write_csv(combined_storage_data, "Interface/Visualization/data/coll_storage_combined.csv")
@@ -858,22 +902,23 @@ t7 <- ggplot(yearly_data, aes(x = year)) +
 ggplotly(t7, width = 1000, height = 500)
 
 type_data <- combined_storage_data |>
-  group_by(type_of_waste, year) |>
+  group_by(waste_category, year) |>
   summarize(
     total_start = sum(waste_stored_start_year, na.rm = TRUE),
     total_end = sum(waste_stored_end_year, na.rm = TRUE)
   ) |>
   ungroup()
 
-t8 <- ggplot(type_data, aes(x = year, y = total_start, color = type_of_waste)) +
-  geom_point(aes(y = total_start, color = "Start of Year")) +
-  geom_point(aes(y = total_end, color = "End of Year")) +
-  geom_line(aes(y = total_start, color = "Start of Year")) +
-  geom_line(aes(y = total_end, color = "End of Year")) +
+t8 <- ggplot(type_data, aes(x = year, color = waste_category)) +
+  geom_point(aes(y = total_start), shape = 16, size = 2) +
+  geom_point(aes(y = total_end), shape = 17, size = 2) +
+  geom_line(aes(y = total_start), linetype = "solid") +
+  geom_line(aes(y = total_end), linetype = "dashed") +
   labs(
-    title = "Total Stored Waste by Type Over Time",
+    title = "Total Stored Waste by Category Over Time",
     y = "Total Stored Waste",
-    color = "Time of Year"
+    color = "Waste Category",
+    caption = "Circles = Start of Year, Triangles = End of Year\nSolid lines = Start of Year, Dashed lines = End of Year"
   ) +
   theme_minimal()
 
@@ -882,6 +927,8 @@ ggplotly(t8, width = 1000, height = 500)
 ```
 
 ## Waste Received
+
+### Description
 
 1. **Data Loading**:
    - Waste collection data from the years 2016 to 2022 is loaded into separate dataframes.
@@ -1491,6 +1538,8 @@ ggplotly(t11, width = 1000, height = 1000)
 
 ## Municipal Waste Collected by Municipality of Origin
 
+### Description
+
 This section of the analysis focuses on the municipal waste collected by the municipality of origin from 2018 to 2022. The steps involved in the code are summarized as follows:
 
 1. **Data Loading**: 
@@ -1603,6 +1652,8 @@ ggplotly(t12, width = 1000, height = 1000)
 ```
 
 ## Municipal Waste Management
+
+### Description
 
 This section analyzes municipal waste management from 2016 to 2022, focusing on various sources of waste management across different regions and waste types. The steps involved in the code are summarized below:
 
@@ -1815,6 +1866,8 @@ ggplotly(t19, width = 1000, height = 1000)
 # Treatment Data Analysis Process
 
 ## Waste Storage
+
+### Description
 
 1. **Load Waste Storage Data**
 - Read CSV files for waste storage data from 2016 to 2022.
