@@ -188,6 +188,17 @@ shinyUI(dashboardPage(
           box(
             collapsible = TRUE,
             collapsed = FALSE,
+            width = 12,
+            title = "Total Wood Waste Generation by Waste Category",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("wasteByCategoryYear")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
             title = "Total Wood Waste Generation by Region and Year",
             solidHeader = TRUE,
             status = "primary",
@@ -461,27 +472,20 @@ shinyUI(dashboardPage(
                    ),
                    fluidRow(
                      box(
-                       width = 6,
-                       title = "Select a Year:",
+                       width = 4,
+                       title = "Controls",
                        solidHeader = TRUE,
                        status = "primary",
-                       selectInput("selected_year", "Select Year:", choices = NULL)
+                       selectInput("selected_year", "Select Year:", choices = NULL),
+                       br(),
+                       numericInput("top_n", "Number of Municipalities to Display:", value = 10, min = 1, max = 50)
                      ),
                      box(
-                       width = 6,
-                       title = "Select Number of Municipalities:",
-                       solidHeader = TRUE,
-                       status = "primary",
-                       numericInput("top_n", "Number of Municipalities to Display:", value = 10, min = 1, max = 50)
-                     )
-                   ),
-                   fluidRow(
-                     box(
-                       collapsible = TRUE,
-                       width = 12,
+                       width = 8,
                        title = paste("Waste Collected by Top Municipality per Year"),
                        solidHeader = TRUE,
                        status = "primary",
+                       collapsible = TRUE,
                        plotlyOutput("plot2")
                      )
                    ),
@@ -650,55 +654,79 @@ shinyUI(dashboardPage(
           
           # Treatment Treatment ----
           tabPanel("Treatment Treatment", 
-                   style = "margin-top: 20px;", fluidRow(
-            box(
-              collapsible = TRUE,
-              title = "Filter Data:",
-              solidHeader = TRUE,
-              status = "primary",
-              width = 3,
-              sliderInput(
-                "year_range_trt_treatment",
-                "Select Year Range:",
-                min = 2016,
-                max = 2023,
-                value = c(2016, 2023)
-              ),
-              selectizeInput(
-                "waste_type_trt_treatment",
-                "Select Waste Type",
-                choices = NULL,
-                multiple = TRUE
-              ),
-              selectizeInput(
-                "region_trt_treatment",
-                "Select Region",
-                choices = NULL,
-                multiple = TRUE
-              ),
-              selectizeInput(
-                "category_trt_treatment",
-                "Select Waste Category",
-                choices = NULL,
-                multiple = TRUE
-              ),
-              selectizeInput(
-                "trt_process_trt_treatment",
-                "Select Treatment Process",
-                choices = NULL,
-                multiple = TRUE
-              )
-            ),
-            
-            box(
-              collapsible = TRUE,
-              title = "Waste Treatment Over Time by Waste Type (in tons)",
-              solidHeader = TRUE,
-              status = "primary",
-              width = 9,
-              plotlyOutput("plot_waste_treatment", height = "500px")
-            )
-          )), 
+                   style = "margin-top: 20px;", 
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       title = "Filter Data:",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 12,
+                       fluidRow(
+                         column(6,
+                                sliderInput(
+                                  "year_range_trt_treatment",
+                                  "Select Year Range:",
+                                  min = 2016,
+                                  max = 2023,
+                                  value = c(2016, 2023)
+                                )
+                         ),
+                         column(6,
+                                selectizeInput(
+                                  "category_trt_treatment",
+                                  "Select Waste Category",
+                                  choices = NULL,
+                                  multiple = TRUE
+                                )
+                         )
+                       ),
+                       fluidRow(
+                         column(6,
+                                selectizeInput(
+                                  "region_trt_treatment",
+                                  "Select Region",
+                                  choices = NULL,
+                                  multiple = TRUE
+                                )
+                         ),
+                         column(6,
+                                selectizeInput(
+                                  "trt_process_trt_treatment",
+                                  "Select Treatment Process",
+                                  choices = NULL,
+                                  multiple = TRUE
+                                )
+                         )
+                       )
+                     )
+                   ),
+                   
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       title = "Waste Type Filter:",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 3,
+                       selectizeInput(
+                         "waste_type_trt_treatment",
+                         "Select Waste Type",
+                         choices = NULL,
+                         multiple = TRUE
+                       )
+                     ),
+                     
+                     box(
+                       collapsible = TRUE,
+                       title = "Waste Treatment Over Time by Waste Type (in tons)",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 9,
+                       plotlyOutput("plot_waste_treatment", height = "500px")
+                     )
+                   )
+          ), 
           
           
           

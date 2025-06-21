@@ -24,6 +24,60 @@ color_palette <- c("waste_from_producers_no_record" = "#E69F00",  # Orange
                    "waste_from_collectors_RS" = "#009E73",  # Green
                    "waste_from_processors_RS" = "#F0E442")  # Yellow
 
+# Palette for types of waste
+waste_colors <- c(
+  "Forestry Waste (02 01 07)" = "#2D5016",                                         
+  "Bark and Cork Waste (03 01 01)" = "#8B4513",                                    
+  "Sawdust/Shavings/Cuttings (03 01 05)" = "#DEB887",                              
+  "Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)" = "#4682B4",
+  "Paper and Cardboard Packaging (15 01 01)" = "#87CEEB",                          
+  "Wooden Packaging (15 01 03)" = "#D2691E",                                       
+  "Construction Wood Waste (17 02 01)" = "#A0522D",                                
+  "Paper and Cardboard from Waste Treatment (19 12 01)" = "#6495ED",               
+  "Wood Waste from Treatment (not 19 12 06) (19 12 07)" = "#CD853F",               
+  "Paper and Cardboard from Municipal Waste (20 01 01)" = "#B0C4DE",               
+  "Non-hazardous Wood from Municipal Waste (20 01 38)" = "#F4A460",                
+  "Bulky Municipal Waste (20 03 07)" = "#696969",                                  
+  "Other Unspecified Wood Waste (03 01 99)" = "#BC8F8F",                           
+  "Bark and Wood Waste from Pulp/Paper Production (03 03 01)" = "#5F8A5F",         
+  "Wood Containing Hazardous Substances (20 01 37*)" = "#DC143C"
+)
+
+# Palette for waste categories
+waste_category_colors <- c(
+  "Agricultural/Forestry Waste" = "#228B22",      # Forest Green
+  "Wood/Paper Production Waste" = "#8B4513",      # Saddle Brown  
+  "Packaging Waste" = "#4682B4",                  # Steel Blue
+  "Construction/Demolition Waste" = "#708090",    # Slate Gray
+  "Waste Treatment Residues" = "#FF8C00",         # Dark Orange
+  "Municipal Waste" = "#9932CC"                   # Dark Orchid
+)
+
+# Palette for statistical regions
+region_colors <- c(
+  "GORENJSKA" = "#1f77b4",              # Blue
+  "GORIŠKA" = "#ff7f0e",                # Orange
+  "JUGOVZHODNASLOVENIJA" = "#2ca02c",   # Green
+  "JUGOVZHODNA SLOVENIJA" = "#2ca02c",  
+  "KOROŠKA" = "#d62728",                # Red
+  "OBALNO-KRAŠKA" = "#9467bd",          # Purple
+  "OSREDNJESLOVENSKA" = "#8c564b",      # Brown
+  "PODRAVSKA" = "#e377c2",              # Pink
+  "POMURSKA" = "#7f7f7f",               # Gray
+  "POSAVSKA" = "#bcbd22",               # Olive
+  "PRIMORSKO-NOTRANJSKA" = "#17becf",   # Cyan
+  "SAVINJSKA" = "#ffbb78",              # Light Orange
+  "ZASAVSKA" = "#98df8a",               # Light Green
+  "NEOPREDELJENO" = "#c7c7c7"           # Light Gray (unspecified)
+)
+
+# alternative
+colors_only <- c("#2D5016", "#8B4513", "#DEB887", "#4682B4", "#87CEEB", 
+                 "#D2691E", "#A0522D", "#6495ED", "#CD853F", "#B0C4DE", 
+                 "#F4A460", "#696969", "#BC8F8F", "#5F8A5F", "#DC143C")
+
+# Pallete for statistical regions
+
 # data ----
 ## import from the data folder
 
@@ -305,10 +359,17 @@ plot_waste_types_by_year <- function(data) {
     x = ~as.factor(year),
     y = ~total_collected,
     color = ~type_of_waste,
+    colors = waste_colors,
     type = 'bar',
     text = ~paste("Year:", year, "<br>Total Collected:", total_collected),
     hoverinfo = 'text',
-    textposition = 'inside'
+    textposition = 'inside',
+    marker = list(
+      line = list(
+        width = 0.6,    # Adjust this value for border thickness
+        color = 'black' # Border color (you can change this)
+      )
+    )
   ) |>
     layout(
       title = "Waste Types Collected by Year",
@@ -323,26 +384,30 @@ plot_waste_types_by_year <- function(data) {
 
 # 4. Heatmap of waste collection by statistical region and year
 plot_heatmap_by_region <- function(data) {
-  # Summarize data by year and statistical region
   summarized_data <- data |>
     group_by(year, statistical_region) |>
     summarize(total_collected = sum(total_collected, na.rm = TRUE)) |>
     ungroup()
   
-  # Create the heatmap using Plotly
   p <- plot_ly(
     data = summarized_data,
     x = ~as.factor(year),
     y = ~statistical_region,
     z = ~total_collected,
     type = "heatmap",
-    colors = colorRamp(c("blue", "yellow", "red")), # You can customize colors here
-    colorbar = list(title = "Total Collected")
+    colors = colorRamp(c("#e7f2fe", "#94c1d9", "#1c6baf")),
+    hovertemplate = "Year: %{x}<br>Region: %{y}<br>Total: %{z}<extra></extra>",
+    showscale = TRUE,
+    colorbar = list(title = "Total Collected"),
+    # Add gaps between cells
+    xgap = 0.6,  # Gap between columns
+    ygap = 0.6   # Gap between rows
   ) |>
     layout(
       title = "Heatmap of Waste Collection by Region and Year",
       xaxis = list(title = "Year"),
-      yaxis = list(title = "Statistical Region")
+      yaxis = list(title = "Statistical Region"),
+      plot_bgcolor = "black"  # Background color shows through gaps
     )
   
   return(p)
@@ -506,6 +571,7 @@ shinyServer(function(input, output, session) {
         x = ~year,
         y = ~total_generated_waste,
         color = ~statistical_region,
+        colors = region_colors,
         type = 'scatter',
         mode = 'lines+markers'
       ) |>
@@ -530,6 +596,32 @@ shinyServer(function(input, output, session) {
         x = ~year,
         y = ~total_generated_waste,
         color = ~type_of_waste,
+        colors = waste_colors,
+        type = 'scatter',
+        mode = 'lines+markers'
+      ) |>
+      layout(
+        xaxis = list(title = "Year", autorange = TRUE),
+        yaxis = list(title = "Total Generated Waste (tons)", autorange = TRUE),
+        hovermode = "x"
+      )
+  })
+  
+  # Waste by category and year plot
+  output$wasteByCategoryYear <- renderPlotly({
+    # Summarize the total generated waste by type and year
+    waste_by_type_year <- gnr_data |>
+      group_by(waste_category, year) |>
+      summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE)) |>
+      ungroup()
+    
+    plot_ly() |>
+      add_trace(
+        data = waste_by_type_year,
+        x = ~year,
+        y = ~total_generated_waste,
+        color = ~waste_category,
+        colors = waste_category_colors,
         type = 'scatter',
         mode = 'lines+markers'
       ) |>
@@ -575,9 +667,10 @@ shinyServer(function(input, output, session) {
     
     plot_ly(
       waste_transferred_by_region_year,
-      x = ~ year,
-      y = ~ total_sent,
-      color = ~ statistical_region,
+      x = ~year,
+      y = ~total_sent,
+      color = ~statistical_region,
+      colors = region_colors,
       type = 'scatter',
       mode = 'lines+markers'
     ) |>
@@ -598,9 +691,10 @@ shinyServer(function(input, output, session) {
     
     plot_ly(
       waste_transferred_by_type_year,
-      x = ~ year,
-      y = ~ total_sent,
-      color = ~ type_of_waste,
+      x = ~year,
+      y = ~total_sent,
+      color = ~type_of_waste,
+      colors = waste_colors,
       type = 'scatter',
       mode = 'lines+markers'
     ) |>
@@ -652,6 +746,7 @@ shinyServer(function(input, output, session) {
       x = ~ year,
       y = ~ total_stored,
       color = ~ statistical_region,
+      colors = region_colors,
       type = 'scatter',
       mode = 'lines+markers'
     ) |>
@@ -682,6 +777,7 @@ shinyServer(function(input, output, session) {
       x = ~ year,
       y = ~ total_stored,
       color = ~ type_of_waste,
+      colors = waste_colors,
       type = 'scatter',
       mode = 'lines+markers'
     ) |>
@@ -1050,7 +1146,7 @@ shinyServer(function(input, output, session) {
     # Summarize the total collected waste by region
     data_summarized <- data |>
       group_by(statistical_region, source) |>
-      summarize(total_collected = sum(total_collected, na.rm = TRUE)) |>
+      summarize(total_collected = sum(total_collected, na.rm = TRUE), .groups = F) |>
       ungroup()
     
     # Create the base plot
@@ -1717,6 +1813,8 @@ shinyServer(function(input, output, session) {
           data = type_data,
           x = ~year, 
           y = ~waste_for_processing,
+          color = ~type_of_waste,
+          colors = waste_colors, 
           type = 'scatter', 
           mode = 'lines+markers',
           name = waste_type,

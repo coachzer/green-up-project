@@ -637,6 +637,18 @@ names(g.2022.data) <- colnames(g.2023.data)
 
 combined_data <- bind_rows(without_company_data, g.2019.data, g.2020.data, g.2021.data, g.2022.data, g.2023.data)
 
+# get unique waste types
+unique_waste_types <- unique(combined_data$type_of_waste)
+print(unique_waste_types)
+
+# get unique waste categories
+unique_waste_categories <- unique(combined_data$waste_category)
+print(unique_waste_categories)
+
+# get unique statistical regions
+unique_statistical_regions <- unique(combined_data$statistical_region)
+print(unique_statistical_regions)
+
 # apply clear_waste_name
 # combined_data <- combined_data |>
   # mutate(type_of_waste = clear_waste_name(type_of_waste))
