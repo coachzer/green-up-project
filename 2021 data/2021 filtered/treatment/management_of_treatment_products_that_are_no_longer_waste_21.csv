@@ -1,6 +1,8 @@
 ﻿"year","input_waste_code","input_waste_name","waste_category","output_waste_name","delivered_to_storage_or_other_persons_RS","shipped_to_EU","shipped_to_non_EU"
 2021,"03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","compost",9.36,0,0
 2021,"03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","wood",50.02,0,0
+2021,"03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","paper and cardboard",8622.067,0,0
+2021,"03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","textiles and leather",5590.885,2236.354,0
 2021,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","paper and cardboard",0,4986.528,0
 2021,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","textiles and leather",594.2,237.68,0
 2021,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","compost",34.32,0,0

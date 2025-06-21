@@ -11,6 +11,7 @@
 2023,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","R_12, R_13",233.205
 2023,"OSREDNJESLOVENSKA","02 01 07","Forestry Waste (02 01 07)","Agricultural/Forestry Waste","R_03",5.047
 2023,"OSREDNJESLOVENSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_01",583.24
+2023,"OSREDNJESLOVENSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_03",-98617.577
 2023,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_03",499.839
 2023,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13",0.18
 2023,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_13",-11.659
@@ -35,6 +36,7 @@
 2023,"POSAVSKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","R_01",1937.103
 2023,"PRIMORSKO-NOTRANJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13",0.72
 2023,"SAVINJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_01",0.7
+2023,"SAVINJSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_03",-56.103
 2023,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_03",-14.548
 2023,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13",91.201
 2023,"SAVINJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_01",573.62

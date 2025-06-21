@@ -675,6 +675,18 @@ shinyUI(dashboardPage(
                 "Select Region",
                 choices = NULL,
                 multiple = TRUE
+              ),
+              selectizeInput(
+                "category_trt_treatment",
+                "Select Waste Category",
+                choices = NULL,
+                multiple = TRUE
+              ),
+              selectizeInput(
+                "trt_process_trt_treatment",
+                "Select Treatment Process",
+                choices = NULL,
+                multiple = TRUE
               )
             ),
             

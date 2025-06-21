@@ -22,21 +22,21 @@
 2020,"GORENJSKA",NA,NA,"Other Waste","16 01 18","Non-ferrous Metals (16 01 18)","Miscellaneous Waste",20.381,1.059,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","16 02 16","Components Removed from Discarded Equipment (16 02 16)","Miscellaneous Waste",1.441,0,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","16 10 01*",NA,"Miscellaneous Waste",0,750.13,0,0
-2020,"GORENJSKA",NA,NA,"Other Waste","17 01 07",NA,"Construction/Demolition Waste",0,20.64,0,0
+2020,"GORENJSKA",NA,NA,"Other Waste","17 01 07","Non-Hazardous Concrete/Brick/Ceramic Mixtures (17 01 07)","Construction/Demolition Waste",0,20.64,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","17 04 01",NA,"Construction/Demolition Waste",6.386,0.124,319.62,0
 2020,"GORENJSKA",NA,NA,"Other Waste","17 04 02",NA,"Construction/Demolition Waste",118.16,35.107,23.86,0
 2020,"GORENJSKA",NA,NA,"Other Waste","17 04 03",NA,"Construction/Demolition Waste",0.858,18.152,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","17 04 04",NA,"Construction/Demolition Waste",0.778,0,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","17 04 05","Iron and Steel Waste (17 04 05)","Construction/Demolition Waste",13.483,2.71,4596.2,0
 2020,"GORENJSKA",NA,NA,"Other Waste","17 04 11",NA,"Construction/Demolition Waste",10.275,0.634,0,0
-2020,"GORENJSKA",NA,NA,"Other Waste","17 09 04",NA,"Construction/Demolition Waste",0,6.42,0,0
+2020,"GORENJSKA",NA,NA,"Other Waste","17 09 04","Gypsum-Based Building Materials (17 09 04)","Construction/Demolition Waste",0,6.42,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","19 02 04*","Mixed Waste Containing Hazardous Substances (19 02 04*)","Waste Treatment Residues",0,0,2086.23,0
 2020,"GORENJSKA",NA,NA,"Other Waste","19 02 05*",NA,"Waste Treatment Residues",3.457,484.597,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","19 02 08*",NA,"Waste Treatment Residues",13.92,0,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","19 02 11*",NA,"Waste Treatment Residues",0,2.79,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","19 08 01",NA,"Waste Treatment Residues",44.438,0,0,0
-2020,"GORENJSKA",NA,NA,"Other Waste","19 08 02",NA,"Waste Treatment Residues",0,121.44,0,0
-2020,"GORENJSKA",NA,NA,"Other Waste","19 08 05",NA,"Waste Treatment Residues",2805.49,0,0,0
+2020,"GORENJSKA",NA,NA,"Other Waste","19 08 02","Citotoxic and Cytostatic Medicinal Wastes (19 08 02)","Waste Treatment Residues",0,121.44,0,0
+2020,"GORENJSKA",NA,NA,"Other Waste","19 08 05","Chemicals Requiring Infectious Hazard Precautions (19 08 05)","Waste Treatment Residues",2805.49,0,0,0
 2020,"GORENJSKA",NA,NA,"Other Waste","19 10 01","Ferrous Metal Waste from Shredding (19 10 01)","Waste Treatment Residues",0,10492.25,25413.82,0
 2020,"GORENJSKA",NA,NA,"Other Waste","19 10 04",NA,"Waste Treatment Residues",0,0,2135,0
 2020,"GORENJSKA",NA,NA,"Other Waste","19 10 06","Other Fractions from Shredding (19 10 06)","Waste Treatment Residues",0,0,5284.66,0
@@ -88,19 +88,19 @@
 2020,"GORIŠKA",NA,NA,"Other Waste","16 06 01*","Lead-Acid Batteries (16 06 01*)","Miscellaneous Waste",49.557,5.606,0,0
 2020,"GORIŠKA",NA,NA,"Other Waste","16 06 05",NA,"Miscellaneous Waste",0,0,7.255,0
 2020,"GORIŠKA",NA,NA,"Other Waste","16 08 01",NA,"Miscellaneous Waste",0,2.5,9.645,0
-2020,"GORIŠKA",NA,NA,"Other Waste","17 01 07",NA,"Construction/Demolition Waste",2805.76,0,0,0
+2020,"GORIŠKA",NA,NA,"Other Waste","17 01 07","Non-Hazardous Concrete/Brick/Ceramic Mixtures (17 01 07)","Construction/Demolition Waste",2805.76,0,0,0
 2020,"GORIŠKA",NA,NA,"Other Waste","17 02 02",NA,"Construction/Demolition Waste",0,0,70.18,0
-2020,"GORIŠKA",NA,NA,"Other Waste","17 03 02",NA,"Construction/Demolition Waste",3834.22,0,0,0
+2020,"GORIŠKA",NA,NA,"Other Waste","17 03 02","Non-Hazardous Bituminous Mixtures (17 03 02)","Construction/Demolition Waste",3834.22,0,0,0
 2020,"GORIŠKA",NA,NA,"Other Waste","17 04 01",NA,"Construction/Demolition Waste",0,8.941,768.897,0
 2020,"GORIŠKA",NA,NA,"Other Waste","17 04 02",NA,"Construction/Demolition Waste",0,15.433,969.427,0
 2020,"GORIŠKA",NA,NA,"Other Waste","17 04 03",NA,"Construction/Demolition Waste",0,54.41,0,0
 2020,"GORIŠKA",NA,NA,"Other Waste","17 04 04",NA,"Construction/Demolition Waste",0,0,7.773,0
 2020,"GORIŠKA",NA,NA,"Other Waste","17 04 05","Iron and Steel Waste (17 04 05)","Construction/Demolition Waste",0,0,1537.682,0
 2020,"GORIŠKA",NA,NA,"Other Waste","17 04 11",NA,"Construction/Demolition Waste",0,0,59.114,0
-2020,"GORIŠKA",NA,NA,"Other Waste","17 05 04",NA,"Construction/Demolition Waste",8890.29,0,0,0
+2020,"GORIŠKA",NA,NA,"Other Waste","17 05 04","Gypsum-Based Waste (17 05 04)","Construction/Demolition Waste",8890.29,0,0,0
 2020,"GORIŠKA",NA,NA,"Other Waste","17 08 02","Gypsum-Based Construction Materials (17 08 02)","Construction/Demolition Waste",55.97,0,0,0
-2020,"GORIŠKA",NA,NA,"Other Waste","17 09 04",NA,"Construction/Demolition Waste",5.96,0,0,0
-2020,"GORIŠKA",NA,NA,"Other Waste","19 08 02",NA,"Waste Treatment Residues",97.621,0,0,0
+2020,"GORIŠKA",NA,NA,"Other Waste","17 09 04","Gypsum-Based Building Materials (17 09 04)","Construction/Demolition Waste",5.96,0,0,0
+2020,"GORIŠKA",NA,NA,"Other Waste","19 08 02","Citotoxic and Cytostatic Medicinal Wastes (19 08 02)","Waste Treatment Residues",97.621,0,0,0
 2020,"GORIŠKA",NA,NA,"Other Waste","19 10 01","Ferrous Metal Waste from Shredding (19 10 01)","Waste Treatment Residues",115.103,13.823,0,0
 2020,"GORIŠKA",NA,NA,"Other Waste","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",0,84.603,189.02,0
 2020,"GORIŠKA",NA,NA,"Other Waste","19 12 02","Ferrous Metals from Mechanical Treatment (19 12 02)","Waste Treatment Residues",823.005,5227.691,4193.819,136.98
@@ -155,15 +155,15 @@
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","16 01 19",NA,"Miscellaneous Waste",0,119.88,0,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","16 01 20",NA,"Miscellaneous Waste",0,5.42,0,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","16 06 01*","Lead-Acid Batteries (16 06 01*)","Miscellaneous Waste",2.67,0,0,0
-2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 01 07",NA,"Construction/Demolition Waste",3.46,4.32,0,0
+2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 01 07","Non-Hazardous Concrete/Brick/Ceramic Mixtures (17 01 07)","Construction/Demolition Waste",3.46,4.32,0,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste",0,10.44,0,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 04 01",NA,"Construction/Demolition Waste",10.701,0,0,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 04 02",NA,"Construction/Demolition Waste",42.84,0,0,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 04 03",NA,"Construction/Demolition Waste",0,3.508,0,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 04 05","Iron and Steel Waste (17 04 05)","Construction/Demolition Waste",0,162.04,605.22,0
-2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 05 04",NA,"Construction/Demolition Waste",988.44,0,0,0
-2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 05 06",NA,"Construction/Demolition Waste",16.78,0,0,0
-2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 09 04",NA,"Construction/Demolition Waste",157.4,0,0,0
+2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 05 04","Gypsum-Based Waste (17 05 04)","Construction/Demolition Waste",988.44,0,0,0
+2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 05 06","Other Insulation Materials (17 05 06)","Construction/Demolition Waste",16.78,0,0,0
+2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","17 09 04","Gypsum-Based Building Materials (17 09 04)","Construction/Demolition Waste",157.4,0,0,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","19 05 03","Compost Not Meeting Specifications (19 05 03)","Waste Treatment Residues",0,74.32,0,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",0,1640.264,3244.421,0
 2020,"JUGOVZHODNA SLOVENIJA",NA,NA,"Other Waste","19 12 02","Ferrous Metals from Mechanical Treatment (19 12 02)","Waste Treatment Residues",39.85,40808.672,6718.013,0
@@ -191,9 +191,9 @@
 2020,"KOROŠKA",NA,NA,"Other Waste","15 02 02*",NA,"Packaging Waste",1.34,11.768,0,0
 2020,"KOROŠKA",NA,NA,"Other Waste","16 01 17",NA,"Miscellaneous Waste",45.289,11.3,0,0
 2020,"KOROŠKA",NA,NA,"Other Waste","16 01 19",NA,"Miscellaneous Waste",1.73,42.09,0,0
-2020,"KOROŠKA",NA,NA,"Other Waste","16 11 04",NA,"Miscellaneous Waste",2,0,0,0
+2020,"KOROŠKA",NA,NA,"Other Waste","16 11 04","Fireproof Linings and Materials (16 11 04)","Miscellaneous Waste",2,0,0,0
 2020,"KOROŠKA",NA,NA,"Other Waste","17 04 01",NA,"Construction/Demolition Waste",17.196,1.994,0,0
-2020,"KOROŠKA",NA,NA,"Other Waste","17 09 04",NA,"Construction/Demolition Waste",0,134.24,0,0
+2020,"KOROŠKA",NA,NA,"Other Waste","17 09 04","Gypsum-Based Building Materials (17 09 04)","Construction/Demolition Waste",0,134.24,0,0
 2020,"KOROŠKA",NA,NA,"Other Waste","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",0,2031.777,393.75,0
 2020,"KOROŠKA",NA,NA,"Other Waste","19 12 02","Ferrous Metals from Mechanical Treatment (19 12 02)","Waste Treatment Residues",2.56,19081.638,686.24,0
 2020,"KOROŠKA",NA,NA,"Other Waste","19 12 03","Non-Ferrous Metals from Mechanical Treatment (19 12 03)","Waste Treatment Residues",92.884,63.954,0,0
@@ -260,13 +260,13 @@
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 01 02",NA,"Agricultural/Forestry Waste",0,146.95,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 02 02",NA,"Agricultural/Forestry Waste",0,371.71,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 02 03",NA,"Agricultural/Forestry Waste",0,1803.41,236.96,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 02 04",NA,"Agricultural/Forestry Waste",0,372.068,0,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 03 04",NA,"Agricultural/Forestry Waste",0,232.24,0,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 05 01",NA,"Agricultural/Forestry Waste",0,1980.4,0,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 05 02",NA,"Agricultural/Forestry Waste",0,987.64,0,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 06 01",NA,"Agricultural/Forestry Waste",0,1096.11,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 02 04","Sludges from On-site Wastewater Treatment (02 02 04)","Agricultural/Forestry Waste",0,372.068,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 03 04","Materials Unsuitable for Use or Processing (02 03 04)","Agricultural/Forestry Waste",0,232.24,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 05 01","Substances and Products Unfit for Consumption or Processing (02 05 01)","Agricultural/Forestry Waste",0,1980.4,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 05 02","Sludges from On-site Wastewater Treatment (02 05 02)","Agricultural/Forestry Waste",0,987.64,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 06 01","Substances and Products Unfit for Consumption or Processing (02 06 01)","Agricultural/Forestry Waste",0,1096.11,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 07 02",NA,"Agricultural/Forestry Waste",0,25.02,0,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 07 04",NA,"Agricultural/Forestry Waste",0,40.79,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","02 07 04","Materials Unsuitable for Use or Processing (02 07 04)","Agricultural/Forestry Waste",0,40.79,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","04 02 09",NA,"Other Waste",0,0,74.1,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","07 02 13","Waste Plastics (07 02 13)","Organic Chemical Waste",0,0,37.78,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","08 03 18",NA,"Surface Treatment Waste",3.248,0,0,0
@@ -313,14 +313,14 @@
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","17 04 05","Iron and Steel Waste (17 04 05)","Construction/Demolition Waste",2.39,0.1,19600.046,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","17 04 07",NA,"Construction/Demolition Waste",0,0,4.888,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","17 04 11",NA,"Construction/Demolition Waste",1.289,1.53,577.652,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","17 05 04",NA,"Construction/Demolition Waste",0,3891.58,0,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","17 09 04",NA,"Construction/Demolition Waste",118.38,2483.38,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","17 05 04","Gypsum-Based Waste (17 05 04)","Construction/Demolition Waste",0,3891.58,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","17 09 04","Gypsum-Based Building Materials (17 09 04)","Construction/Demolition Waste",118.38,2483.38,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","18 01 04",NA,"Other Waste",0,940.736,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 05 03","Compost Not Meeting Specifications (19 05 03)","Waste Treatment Residues",0,45.46,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 08 01",NA,"Waste Treatment Residues",0,5.78,1791.93,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 08 05",NA,"Waste Treatment Residues",2134,2350.58,4637.86,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 08 09",NA,"Waste Treatment Residues",0,196.73,0,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 08 12",NA,"Waste Treatment Residues",586.98,0,4517.28,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 08 05","Chemicals Requiring Infectious Hazard Precautions (19 08 05)","Waste Treatment Residues",2134,2350.58,4637.86,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 08 09","Other Healthcare Wastes (19 08 09)","Waste Treatment Residues",0,196.73,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 08 12","Medicinal Products (19 08 12)","Waste Treatment Residues",586.98,0,4517.28,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 08 14",NA,"Waste Treatment Residues",0,30.3,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 10 02","Non-Ferrous Metal Waste from Shredding (19 10 02)","Waste Treatment Residues",0,0,141.045,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","19 10 04",NA,"Waste Treatment Residues",0,9.04,0,0
@@ -335,7 +335,7 @@
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",33.997,14686.294,35024.301,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","20 01 02","Glass from Municipal Waste (20 01 02)","Municipal Waste",0,196.58,327.32,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","20 01 08","Biodegradable kitchen waste (20 01 08)","Municipal Waste",40.6,11907.684,0,0
-2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","20 01 25",NA,"Municipal Waste",0,119.86,0,0
+2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","20 01 25","Coal Tar Preparations for Roof Waterproofing (20 01 25)","Municipal Waste",0,119.86,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","20 01 33*","Batteries and accumulators listed under 16 06 01, 16 06 02 or 16 06 03 and unsorted batteries and accumulators containing these batteries and accumulators (20 01 33*)","Municipal Waste",0.978,4.517,0,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste",0,37.19,8.5,0
 2020,"OSREDNJESLOVENSKA",NA,NA,"Other Waste","20 01 39","Plastics from Municipal Waste (20 01 39)","Municipal Waste",0,36.3,0,0
@@ -398,7 +398,7 @@
 2020,"PODRAVSKA",NA,NA,"Other Waste","16 06 05",NA,"Miscellaneous Waste",0,0.156,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","16 10 02",NA,"Miscellaneous Waste",0,3158.9,1091.97,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 01 01","Concrete Waste (17 01 01)","Construction/Demolition Waste",0,218.4,0,0
-2020,"PODRAVSKA",NA,NA,"Other Waste","17 01 07",NA,"Construction/Demolition Waste",0,1519.28,0,0
+2020,"PODRAVSKA",NA,NA,"Other Waste","17 01 07","Non-Hazardous Concrete/Brick/Ceramic Mixtures (17 01 07)","Construction/Demolition Waste",0,1519.28,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 04 01",NA,"Construction/Demolition Waste",0.303,1.54,309.47,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 04 02",NA,"Construction/Demolition Waste",0,1.54,2125.615,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 04 03",NA,"Construction/Demolition Waste",0,16.366,24.02,0
@@ -406,11 +406,11 @@
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 04 05","Iron and Steel Waste (17 04 05)","Construction/Demolition Waste",0,2.06,2575.963,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 04 07",NA,"Construction/Demolition Waste",0,0,18.58,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 04 11",NA,"Construction/Demolition Waste",3.06,0,0,0
-2020,"PODRAVSKA",NA,NA,"Other Waste","17 05 04",NA,"Construction/Demolition Waste",0,70.55,0,0
+2020,"PODRAVSKA",NA,NA,"Other Waste","17 05 04","Gypsum-Based Waste (17 05 04)","Construction/Demolition Waste",0,70.55,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 06 04","Other Insulation Materials (17 06 04)","Construction/Demolition Waste",0,32.8,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 06 05*","Construction Materials Containing Asbestos (17 06 05*)","Construction/Demolition Waste",0,140.96,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","17 08 02","Gypsum-Based Construction Materials (17 08 02)","Construction/Demolition Waste",0,63.8,0,0
-2020,"PODRAVSKA",NA,NA,"Other Waste","17 09 04",NA,"Construction/Demolition Waste",0,5505.252,0,0
+2020,"PODRAVSKA",NA,NA,"Other Waste","17 09 04","Gypsum-Based Building Materials (17 09 04)","Construction/Demolition Waste",0,5505.252,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","19 01 07*",NA,"Waste Treatment Residues",0,31.34,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","19 01 12","Bottom Ash and Slag (19 01 12)","Waste Treatment Residues",0,429.3,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","19 02 07*",NA,"Waste Treatment Residues",0,0,3172.37,0
@@ -429,7 +429,7 @@
 2020,"PODRAVSKA",NA,NA,"Other Waste","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",615.707,1863.245,1461.822,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","20 01 21*","Mercury-Containing Waste (20 01 21*)","Municipal Waste",4.52,0,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","20 01 23*","Discarded Equipment Containing CFCs (20 01 23*)","Municipal Waste",3.28,5.676,87.72,0
-2020,"PODRAVSKA",NA,NA,"Other Waste","20 01 25",NA,"Municipal Waste",0.118,0,0,0
+2020,"PODRAVSKA",NA,NA,"Other Waste","20 01 25","Coal Tar Preparations for Roof Waterproofing (20 01 25)","Municipal Waste",0.118,0,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","20 01 26*","Non-Edible Oils and Fats (20 01 26*)","Municipal Waste",0.477,0,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","20 01 27*","Hazardous Paints, Inks, Adhesives (20 01 27*)","Municipal Waste",0,4.444,0,0
 2020,"PODRAVSKA",NA,NA,"Other Waste","20 01 32",NA,"Municipal Waste",0.014,0,0,0
@@ -462,7 +462,7 @@
 2020,"POMURSKA",NA,NA,"Other Waste","16 06 01*","Lead-Acid Batteries (16 06 01*)","Miscellaneous Waste",1.1,0,0,0
 2020,"POMURSKA",NA,NA,"Other Waste","17 04 03",NA,"Construction/Demolition Waste",0,5.194,0,0
 2020,"POMURSKA",NA,NA,"Other Waste","17 04 05","Iron and Steel Waste (17 04 05)","Construction/Demolition Waste",0,0,45.56,0
-2020,"POMURSKA",NA,NA,"Other Waste","17 09 04",NA,"Construction/Demolition Waste",0.88,26.82,0,0
+2020,"POMURSKA",NA,NA,"Other Waste","17 09 04","Gypsum-Based Building Materials (17 09 04)","Construction/Demolition Waste",0.88,26.82,0,0
 2020,"POMURSKA",NA,NA,"Other Waste","19 01 12","Bottom Ash and Slag (19 01 12)","Waste Treatment Residues",149.71,0,0,0
 2020,"POMURSKA",NA,NA,"Other Waste","19 01 13*",NA,"Waste Treatment Residues",24.56,0,0,0
 2020,"POMURSKA",NA,NA,"Other Waste","19 12 01","Paper and Cardboard from Waste Treatment (19 12 01)","Waste Treatment Residues",34.1,1122.927,1491.313,0
@@ -473,7 +473,7 @@
 2020,"POMURSKA",NA,NA,"Other Waste","19 12 12","Other Mechanically Treated Waste (19 12 12)","Waste Treatment Residues",216.844,4630.714,996.03,0
 2020,"POMURSKA",NA,NA,"Other Waste","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",95.94,542.46,599.48,0
 2020,"POMURSKA",NA,NA,"Other Waste","20 01 23*","Discarded Equipment Containing CFCs (20 01 23*)","Municipal Waste",31.92,13.42,6.24,0
-2020,"POMURSKA",NA,NA,"Other Waste","20 01 25",NA,"Municipal Waste",0.42,0,0,0
+2020,"POMURSKA",NA,NA,"Other Waste","20 01 25","Coal Tar Preparations for Roof Waterproofing (20 01 25)","Municipal Waste",0.42,0,0,0
 2020,"POMURSKA",NA,NA,"Other Waste","20 01 26*","Non-Edible Oils and Fats (20 01 26*)","Municipal Waste",0.207,0,0,0
 2020,"POMURSKA",NA,NA,"Other Waste","20 01 27*","Hazardous Paints, Inks, Adhesives (20 01 27*)","Municipal Waste",0.767,0,0,0
 2020,"POMURSKA",NA,NA,"Other Waste","20 01 29*",NA,"Municipal Waste",0.08,0,0,0
@@ -578,8 +578,8 @@
 2020,"SAVINJSKA",NA,NA,"Other Waste","16 06 05",NA,"Miscellaneous Waste",0,0.58,0,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","16 08 01",NA,"Miscellaneous Waste",0,0.062,0,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","17 01 01","Concrete Waste (17 01 01)","Construction/Demolition Waste",0,19.54,0,0
-2020,"SAVINJSKA",NA,NA,"Other Waste","17 01 02",NA,"Construction/Demolition Waste",0,15.34,0,0
-2020,"SAVINJSKA",NA,NA,"Other Waste","17 01 07",NA,"Construction/Demolition Waste",0,13.22,0,0
+2020,"SAVINJSKA",NA,NA,"Other Waste","17 01 02","Brick Waste (17 01 02)","Construction/Demolition Waste",0,15.34,0,0
+2020,"SAVINJSKA",NA,NA,"Other Waste","17 01 07","Non-Hazardous Concrete/Brick/Ceramic Mixtures (17 01 07)","Construction/Demolition Waste",0,13.22,0,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","17 02 02",NA,"Construction/Demolition Waste",12.42,0,0,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","17 02 03",NA,"Construction/Demolition Waste",1.79,0,0,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","17 04 01",NA,"Construction/Demolition Waste",0,0,2.039,0
@@ -590,7 +590,7 @@
 2020,"SAVINJSKA",NA,NA,"Other Waste","17 06 04","Other Insulation Materials (17 06 04)","Construction/Demolition Waste",1.52,0,0,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","17 06 05*","Construction Materials Containing Asbestos (17 06 05*)","Construction/Demolition Waste",0.36,0,0,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","17 08 02","Gypsum-Based Construction Materials (17 08 02)","Construction/Demolition Waste",45.68,0,0,0
-2020,"SAVINJSKA",NA,NA,"Other Waste","17 09 04",NA,"Construction/Demolition Waste",8.54,15.42,0,0
+2020,"SAVINJSKA",NA,NA,"Other Waste","17 09 04","Gypsum-Based Building Materials (17 09 04)","Construction/Demolition Waste",8.54,15.42,0,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","19 01 02",NA,"Waste Treatment Residues",0,320.64,0,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","19 01 07*",NA,"Waste Treatment Residues",0,0,1135.06,0
 2020,"SAVINJSKA",NA,NA,"Other Waste","19 01 12","Bottom Ash and Slag (19 01 12)","Waste Treatment Residues",0,2915.18,0,0

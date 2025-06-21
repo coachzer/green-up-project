@@ -1622,7 +1622,54 @@ shinyServer(function(input, output, session) {
       selected = unique(data$statistical_region),
       options = list(plugins = list('remove_button'))
     )
+    updateSelectizeInput(
+      session,
+      "category_trt_treatment",
+      choices = unique(data$waste_category),
+      selected = unique(data$waste_category),
+      options = list(plugins = list('remove_button'))
+    )
+    updateSelectizeInput(
+      session,
+      "trt_process_trt_treatment",
+      choices = unique(data$treatment_process),
+      selected = unique(data$treatment_process),
+      options = list(plugins = list('remove_button'))
+    )
   })
+  
+  observeEvent(input$category_trt_treatment, {
+    # Filter available waste types based on selected categories
+    if (length(input$category_trt_treatment) > 0) {
+      available_types <- trt_treatment_data |>
+        filter(waste_category %in% input$category_trt_treatment) |>
+        pull(type_of_waste) |>
+        unique()
+      
+      # Get currently selected waste types that are still valid
+      current_selection <- input$waste_type_trt_treatment
+      valid_selection <- current_selection[current_selection %in% available_types]
+      
+      # Update the waste type selectize input
+      updateSelectizeInput(
+        session,
+        "waste_type_trt_treatment",
+        choices = available_types,
+        selected = valid_selection,
+        options = list(plugins = list('remove_button'))
+      )
+    } else {
+      # If no categories selected, show all waste types
+      all_types <- unique(trt_treatment_data$type_of_waste)
+      updateSelectizeInput(
+        session,
+        "waste_type_trt_treatment",
+        choices = all_types,
+        selected = character(0), # Clear selection when no categories
+        options = list(plugins = list('remove_button'))
+      )
+    }
+  }, ignoreInit = TRUE)
   
   # Filter the data based on user inputs
   filtered_treatment_data <- reactive({
@@ -1634,15 +1681,19 @@ shinyServer(function(input, output, session) {
         type_of_waste %in% input$waste_type_trt_treatment,
         # Filter by selected waste types
         statistical_region %in% input$region_trt_treatment,
+        # Filter by selected waste categories
+        waste_category %in% input$category_trt_treatment,
+        # Filter by selected treatment processes
+        treatment_process %in% input$trt_process_trt_treatment,
         # Filter by selected regions
         statistical_region != "NEOPREDELJENO"  # Exclude the "NEOPREDELJENO" region
       )
     
     # Summarize the data by year and waste type
     aggregated_data <- data |>
-      group_by(year, type_of_waste) |>
+      group_by(year, type_of_waste, waste_category) |>
       summarize(
-        total_waste = sum(waste_entering_treatment_process, na.rm = TRUE),
+        waste_for_processing = sum(waste_for_processing, na.rm = TRUE),
         .groups = 'drop'
       )
     
@@ -1653,14 +1704,39 @@ shinyServer(function(input, output, session) {
   output$plot_waste_treatment <- renderPlotly({
     data <- filtered_treatment_data()
     
-    # Create a Plotly plot
-    p <- plot_ly(data, x = ~year, y = ~total_waste, color = ~type_of_waste, type = 'scatter', mode = 'lines+markers') |>
-      layout(
-        title = "Waste Treatment Over Time by Waste Type (in tons)",
-        xaxis = list(title = "Year", autorange = TRUE),
-        yaxis = list(title = "Total Waste Entering Treatment Process", autorange = TRUE),
-        legend = list(position = "bottom")
+    p <- plot_ly()
+    
+    # Add traces for each waste type, grouped by category
+    for(category in unique(data$waste_category)) {
+      category_data <- data |> filter(waste_category == category)
+      
+      for(waste_type in unique(category_data$type_of_waste)) {
+        type_data <- category_data |> filter(type_of_waste == waste_type)
+        
+        p <- p |> add_trace(
+          data = type_data,
+          x = ~year, 
+          y = ~waste_for_processing,
+          type = 'scatter', 
+          mode = 'lines+markers',
+          name = waste_type,
+          legendgroup = category,
+          legendgrouptitle = list(text = category)
+        )
+      }
+    }
+    
+    p <- p |> layout(
+      title = "Waste Treatment Over Time by Waste Type (in tons)",
+      xaxis = list(title = "Year", autorange = TRUE),
+      yaxis = list(title = "Total Waste Entering Treatment Process", autorange = TRUE),
+      legend = list(
+        orientation = "v",
+        x = 1.05,
+        y = 1,
+        groupclick = "toggleitem"
       )
+    )
     
     return(p)
   })

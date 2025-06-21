@@ -1,5 +1,6 @@
 ﻿"year","input_waste_code","type_of_waste","waste_category","treatment_operation","reduction_or_increase_of_mass_during_treatment"
 2022,"02 01 07","Forestry Waste (02 01 07)","Agricultural/Forestry Waste","R_03",5.58
+2022,"03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_03",6373.816
 2022,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_03",-36.898
 2022,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13",58.352
 2022,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_12, R_13",0.132

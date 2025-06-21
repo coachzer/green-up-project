@@ -1627,12 +1627,12 @@ waste_treated.23 <- waste_treated.23 |>
     treatment_inlet_waste_code,
     type_of_waste = `Naziv odpadka na vhodu v postopek obdelave`,
     quantity_treated = `Količina odpadkov, na vhod v postopek obdelave (kg)`,
-    treatment_code = `Postopek obdelave (R, D)`,
+    treatment_process = `Postopek obdelave (R, D)`,
     description_of_treatment = `Opis postopka obdelave`
   ) |> 
   process_waste_column(treatment_inlet_waste_code, type_of_waste) |> 
   rename_treatment_description() |> 
-  group_by(year, statistical_region, treatment_inlet_waste_code, type_of_waste, waste_category,  treatment_code, description_of_treatment) |>
+  group_by(year, statistical_region, treatment_inlet_waste_code, type_of_waste, waste_category,  treatment_process, description_of_treatment) |>
   summarise(
     quantity_treated = sum(quantity_treated) / 1000,
     .groups = "drop")
@@ -2142,7 +2142,7 @@ processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 # Treatment in previous years, as of 1.1.2022
 treatment.22 <- processed_sheets[[1]] |> 
-  select(
+  dplyr::select(
     year = `Leto`,
     statistical_region = `Statistična regija`,
     waste_code,
@@ -2163,7 +2163,7 @@ processed_sheets[[1]] <- treatment.22
 
 # Waste received
 waste_received.22 <- processed_sheets[[2]] |> 
-  select(
+  dplyr::select(
     year = `Leto`,
     statistical_region = `Statistična regija`,
     waste_code,
@@ -2194,20 +2194,19 @@ waste_received.22 <- processed_sheets[[2]] |>
 processed_sheets[[2]] <- waste_received.22
 
 # Treatment of waste received
-waste_treated.22 <- processed_sheets[[3]] |> select(-Poročilo, -`Postopek obdelave (R, D)`, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
-
-waste_treated.22 <- waste_treated.22 |>
-  select(
+waste_treated.22 <- processed_sheets[[3]] |>
+  dplyr::select(
     year = `Leto`,
     statistical_region = `Statistična regija`,
     waste_code,
     type_of_waste = `Naziv odpadka`,
-    waste_quantity_per_treatment = `Količina odpadkov, na vhod v postopek obdelave (kg)`,
+    treatment_process = `Postopek obdelave (R, D)`,
     description_of_treatment = `Opis postopka obdelave`,
+    waste_quantity_per_treatment = `Količina odpadkov, na vhod v postopek obdelave (kg)`
   ) |> 
   process_waste_column(waste_code, type_of_waste) |> 
   rename_treatment_description() |>
-  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category, treatment_process, description_of_treatment) |>
   summarize(
     waste_quantity_per_treatment = sum(waste_quantity_per_treatment) / 1000,
     .groups = "drop"
@@ -2219,7 +2218,7 @@ processed_sheets[[3]] <- waste_treated.22
 management.22 <- processed_sheets[[4]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
 
 management.22 <- management.22 |>
-  select(
+  dplyr::select(
     year = `Leto`,
     statistical_region = `Statistična regija`,
     treatment_inlet_delivered_waste_code,
@@ -2254,7 +2253,7 @@ processed_sheets[[4]] <- management.22
 management_no_waste.22 <- processed_sheets[[5]] |> select(-Poročilo)
 
 management_no_waste.22 <- management_no_waste.22 |>
-  select(
+  dplyr::select(
     year = `Leto`,
     input_waste_code,
     type_of_waste = `Odpadki na vhodu v obdelavo naziv`,
@@ -2286,7 +2285,7 @@ processed_sheets[[5]] <- management_no_waste.22
 
 # Mechanical-biological treatment of mixed municipal waste, separated by municipality of origin
 mech_bio_treatment.22 <- processed_sheets[[6]] |> 
-  select(
+  dplyr::select(
     year = `Leto`,
     name_of_municipality = `Naziv občine`,
     mixed_waste_mech_bio_treatment = `V mehansko-biološko obdelavo prevzeti mešani komunalni odpadki (kg)`
@@ -2301,10 +2300,10 @@ mech_bio_treatment.22 <- processed_sheets[[6]] |>
 processed_sheets[[6]] <- mech_bio_treatment.22
 
 # Mass difference between waste input and treatment product volumes
-mass_difference.22 <- processed_sheets[[7]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
+mass_difference.22 <- processed_sheets[[7]] |> dplyr::select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
 
 mass_difference.22 <- mass_difference.22 |>
-  select(
+  dplyr::select(
     year = `Leto`,
     input_waste_code,
     type_of_waste = `Odpadek na vhodu v postopek obdelave naziv`,
@@ -2320,7 +2319,7 @@ processed_sheets[[7]] <- mass_difference.22
 
 # Landfill capacity and status
 landfill_capacity.22 <- processed_sheets[[8]] |> 
-  select(
+  dplyr::select(
     year = `Leto`,
     landfill_site = `Odlagališče`,
     volume_filled_start_year_m3 = `Zapolnjen volumen na odlagalnem polju na začetku leta m3`,
@@ -2354,10 +2353,8 @@ landfill_capacity.22 <- processed_sheets[[8]] |>
 processed_sheets[[8]] <- landfill_capacity.22
 
 # Waste management in landfill
-landfill_management.22 <- processed_sheets[[9]] |> select(-Poročilo)
-
-landfill_management.22 <- landfill_management.22 |>
-  select(
+landfill_management.22 <- processed_sheets[[9]] |>
+  dplyr::select(
     year = `Leto`,
     waste_code,
     type_of_waste = `Naziv odpadka`,
@@ -2394,7 +2391,7 @@ disposed_waste.22 <- processed_sheets[[10]]
 
 # Production of compost or digestate
 compost_digestate.22 <- processed_sheets[[11]] |> 
-  select(
+  dplyr::select(
     year = `Leto`,
     produced_compost_digestate = `Proizveden kompost/digestat`,
     quality_class = `Kakovostni razred`,
@@ -2441,7 +2438,7 @@ processed_sheets[[11]] <- compost_digestate.22
 
 # Production of compost or digestate, that are waste
 compost_digestate_waste.22 <- processed_sheets[[12]] |> 
-  select(
+  dplyr::select(
     year = `Leto`,
     compost_digestate = `Kompost/digestat`,
     quality_class = `Kakovostni razred`,
@@ -3185,7 +3182,7 @@ treating_waste.21 <- treating_waste.21 |>
     treatment_process = `Postopek obdelave (R, D)`
   ) |> 
   process_waste_column(waste_code, type_of_waste) |>
-  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category, treatment_process) |>
   summarise(waste_entering_treatment_process = sum(waste_entering_treatment_process) / 1000, .groups = "drop") 
 
 processed_sheets[[3]] <- treating_waste.21
@@ -3743,7 +3740,7 @@ processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
 # Table 1: Waste storage in 2020
 waste_storage.20 <- processed_sheets[[1]] |>
-  select(
+  dplyr::select(
     year                    = Leto,
     statistical_region      = `Statistična regija`,
     waste_code,
@@ -3766,7 +3763,7 @@ processed_sheets[[1]] <- waste_storage.20
 
 # Table 2: Waste received in 2020
 waste_received.20 <- processed_sheets[[2]] |>
-  select(
+  dplyr::select(
     year                             = Leto,
     waste_code,
     statistical_region               = `Statistična regija`,
@@ -3802,7 +3799,7 @@ processed_sheets[[2]] <- waste_received.20
 
 # Table 3: Treatment of waste received in 2020
 treating_waste.20 <- processed_sheets[[3]] |>
-  select(
+  dplyr::select(
     year                             = Leto,
     waste_code,
     statistical_region               = `Statistična regija`,
@@ -3811,7 +3808,7 @@ treating_waste.20 <- processed_sheets[[3]] |>
     treatment_process                = `Postopek obdelave (R, D)`
   ) |>
   process_waste_column(waste_code, type_of_waste) |>
-  group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
+  group_by(year, statistical_region, waste_code, type_of_waste, waste_category, treatment_process) |>
   summarise(
     across(
       waste_entering_treatment_process,
@@ -3825,7 +3822,7 @@ processed_sheets[[3]] <- treating_waste.20
 
 # Table 4: Waste at the exit of the treatment process and untreated waste delivered for further management in 2020
 management_waste.20 <- processed_sheets[[4]] |>
-  select(
+  dplyr::select(
     year                              = Leto,
     statistical_region                = `Statistična regija`,
     treatment_inlet_delivered_waste_code  = treatment_inlet_delivered_waste_code,
@@ -3858,7 +3855,7 @@ processed_sheets[[4]] <- management_waste.20
 
 # Table 4a: Recovered substances or objects that lost their waste status and were delivered for further use in 2020
 management_waste.20a <- processed_sheets[[5]] |>
-  select(
+  dplyr::select(
     year                                   = Leto,
     input_waste_code,
     input_waste_name                       = `Odpadki na vhodu v obdelavo naziv`,
@@ -3890,7 +3887,7 @@ processed_sheets[[5]] <- management_waste.20a
 
 # Table 5: Municipal waste received for treatment, separated by municipality of origin in 2020
 waste_treatment.20 <- processed_sheets[[6]] |>
-  select(
+  dplyr::select(
     year                                 = Leto,
     waste_code,
     type_of_waste                        = `Naziv odpadka`,
@@ -3909,7 +3906,7 @@ processed_sheets[[6]] <- waste_treatment.20
 
 # Table 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
 mass_difference.20 <- processed_sheets[[7]] |>
-  select(
+  dplyr::select(
     year = `Leto`,
     input_waste_code,
     input_waste_name = `Odpadek na vhodu v postopek obdelave naziv`,
@@ -3927,8 +3924,7 @@ processed_sheets[[7]] <- mass_difference.20
 # Table 7: Capacity and status of landfills (for inert, hazardous, and non-hazardous waste, including municipal waste) in 2021
 landfill_capacity.20 <- processed_sheets[[8]] |>
   # 1) drop the report column & rename
-  select(-Poročilo) |>
-  select(
+  dplyr::select(
     year                        = Leto,
     landfill_site               = Odlagališče,
     volume_filled_start_year    = `Zapolnjen volumen na odlagalnem polju na začetku leta m3`,
@@ -3971,7 +3967,7 @@ processed_sheets[[8]] <- landfill_capacity.20
 # Table 8: Waste management at landfills in 2020
 landfill_waste.20 <- processed_sheets[[9]] |>
   # 1) drop the report column and rename everything in one step
-  select(
+  dplyr::select(
     year                           = Leto,
     waste_code,
     type_of_waste                  = `Naziv odpadka`,
@@ -4337,7 +4333,7 @@ waste_recovery_19.path <- "2019 data\\ODP_P_2019_objava_21122020.xlsx"
 waste_recovery_19.sheet1 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 1)
 
 waste_storage.19 <- waste_recovery_19.sheet1 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -4364,7 +4360,7 @@ waste_recovery_19.sheet1 <- waste_storage.19
 waste_recovery_19.sheet2 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 2)
 
 waste_collected.19 <- waste_recovery_19.sheet2 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -4390,6 +4386,10 @@ waste_collected.19 <- waste_recovery_19.sheet2 |>
       received_from == "own waste" ~ total_waste_received,
       TRUE ~ 0
     ),
+    waste_received_from_other_producer = case_when(
+      received_from == "other producer in RS" ~ total_waste_received,
+      TRUE ~ 0
+    ),
     waste_received_from_collector = case_when(
       received_from == "other collector in RS" ~ total_waste_received,
       TRUE ~ 0
@@ -4411,6 +4411,7 @@ waste_collected.19 <- waste_recovery_19.sheet2 |>
   summarise(
     total_waste_received = sum(total_waste_received) / 1000,
     waste_received_from_producer = sum(waste_received_from_producer) / 1000,
+    waste_received_from_other_producer = sum(waste_received_from_other_producer) / 1000,
     waste_received_from_collector = sum(waste_received_from_collector) / 1000,
     waste_received_from_processing_operator = sum(waste_received_from_processing_operator) / 1000,
     waste_received_from_other_EU_country = sum(waste_received_from_other_EU_country) / 1000,
@@ -4427,24 +4428,24 @@ waste_recovery_19.sheet2 <- waste_collected.19
 waste_recovery_19.sheet3 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 3)
 
 waste_treatment.19 <- waste_recovery_19.sheet3 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
     total_waste_for_processing = `KOLIČINA ODPADKOV, DANIH V OBDELAVO (kg)`,
     treatment_process = `POSTOPEK OBDELAVE (R in D postopki obdelave, PU-ponovna uporaba, BO-brez obdelave)`,
-    treatment_after_8 = `OBDELAVA PO 8.ČLENU UREDBE O ODPADKIH`
+    treatment_according_to_8th_article = `OBDELAVA PO 8.ČLENU UREDBE O ODPADKIH`
   ) |> 
   filter_codes() |>
   categorize_waste() |> 
   mutate(across(everything(), ~ replace_na(.x, 0))) |>
   mutate(
-    treatment_after_8 = case_when(
-      treatment_after_8 == "DA" ~ "YES",
-      treatment_after_8 == "NE" ~ "NO"
+    treatment_according_to_8th_article = case_when(
+      treatment_according_to_8th_article == "DA" ~ "YES",
+      treatment_according_to_8th_article == "NE" ~ "NO"
     )
   ) |> 
-  group_by(year = 2019, name_of_company, statistical_region, type_of_waste, treatment_process, treatment_after_8) |>
+  group_by(year = 2019, name_of_company, statistical_region, type_of_waste, waste_category, treatment_process, treatment_according_to_8th_article) |>
   summarise(
     total_waste_for_processing = sum(total_waste_for_processing) / 1000,
     .groups = "drop"
@@ -4459,7 +4460,7 @@ waste_recovery_19.sheet3 <- waste_treatment.19
 waste_recovery_19.sheet4 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 4)
 
 waste_treatment_process.19 <- waste_recovery_19.sheet4 |> 
-  select(
+  dplyr::select(
     name_of_company = `NAZIV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -4513,7 +4514,7 @@ waste_treatment_process.19 <- waste_recovery_19.sheet4 |>
 waste_recovery_19.sheet5 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 5)
 
 municipal_waste_treatment.19 <- waste_recovery_19.sheet5 |>
-  select(
+  dplyr::select(
     waste_code = `ŠT. ODPADKA`, 
     name_of_company = `NAZIV`,
     total_waste_received = `SKUPNA KOLIČINA v kg`,
@@ -4540,7 +4541,7 @@ waste_recovery_19.sheet5 <- municipal_waste_treatment.19
 waste_recovery_19.sheet6 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 6)
 
 waste_difference.19 <- waste_recovery_19.sheet6 |>
-  select(-`MATIČNA ŠTEVILKA`, -SKD) |>
+  dplyr::select(-`MATIČNA ŠTEVILKA`, -SKD) |>
   rename(
     name_of_company = `NAZIV`,
     waste_code = `ŠT. ODPADKA`,
@@ -4553,7 +4554,7 @@ waste_difference.19 <- waste_recovery_19.sheet6 |>
     lost_mass = lost_mass / 1000)
 
 waste_recovery_19.sheet6 <- waste_difference.19 |>
-  select(year, name_of_company, waste_code, type_of_waste, waste_category, lost_mass)
+  dplyr::select(year, name_of_company, waste_code, type_of_waste, waste_category, lost_mass)
 ```
 
 ```{r landfill_capacity_EXCLUDED}
@@ -4568,7 +4569,7 @@ waste_recovery_19.sheet7 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 
 waste_recovery_19.sheet8 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 8)
 
 waste_volumes_landfill.19 <- waste_recovery_19.sheet8 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV`,
     landfill = `ODLAGALIŠČE`,
     waste_code = `ŠT. ODPADKA`,
@@ -4602,7 +4603,7 @@ waste_volumes_landfill.19 <- waste_recovery_19.sheet8 |>
     .groups = "drop"
   ) 
 
-waste_recovery_19.sheet8 <- waste_volumes_landfill.19 |> select(year, landfill, waste_code, type_of_waste, waste_category, non_hazardous_waste_received, disposed)
+waste_recovery_19.sheet8 <- waste_volumes_landfill.19 |> dplyr::select(year, landfill, waste_code, type_of_waste, waste_category, non_hazardous_waste_received, disposed)
 ```
 
 ```{r municipal_waste_disposed_EXCLUDED}
@@ -4960,7 +4961,7 @@ waste_recovery_18.path <- "2018 data\\ODP_P_2018_objava21122020.xlsx"
 waste_recovery_18.sheet1 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 1)
 
 waste_recovery_18.by_codes1 <- waste_recovery_18.sheet1 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -4982,7 +4983,7 @@ waste_recovery_18.by_codes1 <- waste_recovery_18.sheet1 |>
 waste_recovery_18.sheet2 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 2)
 
 waste_recovery_18.by_codes2 <- waste_recovery_18.sheet2 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -5045,16 +5046,24 @@ waste_recovery_18.by_codes2 <- waste_recovery_18.sheet2 |>
 waste_recovery_18.sheet3 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 3)
 
 waste_recovery_18.by_codes3 <- waste_recovery_18.sheet3 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
     type_of_waste = `NAZIV ODPADKA`,
-    total_waste_given_away = `KOLIČINA ODPADKOV, DANIH V OBDELAVO (kg)`
-  ) |> 
+    total_waste_given_away = `KOLIČINA ODPADKOV, DANIH V OBDELAVO (kg)`,
+    treatment_process = `POSTOPEK OBDELAVE (R in D postopki obdelave, PU-ponovna uporaba, BO-brez obdelave)`,
+    treatment_according_to_8th_article = `OBDELAVA PO 8.ČLENU UREDBE O ODPADKIH`
+  ) |>
   filter_codes() |> 
   process_waste_column(waste_code, type_of_waste) |>
-  group_by(year = 2018, name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
+  mutate(
+    treatment_according_to_8th_article = case_when(
+      treatment_according_to_8th_article == "DA" ~ "YES",
+      treatment_according_to_8th_article == "NE" ~ "NO"
+    )
+  ) |>
+  group_by(year = 2018, name_of_company, statistical_region, waste_code, type_of_waste, waste_category, treatment_process, treatment_according_to_8th_article) |>
   summarise(
     total_waste_given_away = sum(total_waste_given_away) / 1000,
     .groups = "drop"
@@ -5067,7 +5076,7 @@ waste_recovery_18.by_codes3 <- waste_recovery_18.sheet3 |>
 waste_recovery_18.sheet4 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 4)
 
 waste_recovery_18.by_codes4 <- waste_recovery_18.sheet4 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -5120,7 +5129,7 @@ waste_recovery_18.by_codes4 <- waste_recovery_18.sheet4 |>
 waste_recovery_18.sheet5 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 5)
 
 waste_recovery_18.by_codes5 <- waste_recovery_18.sheet5 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     waste_code = `ŠT. ODPADKA`,
     type_of_waste = `NAZIV ODPADKA`,
@@ -5145,7 +5154,7 @@ waste_recovery_18.by_codes5 <- waste_recovery_18.sheet5 |>
 waste_recovery_18.sheet6 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 6)
 
 waste_recovery_18.by_codes6 <- waste_recovery_18.sheet6 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     waste_code = `ŠT. ODPADKA`,
     type_of_waste = `NAZIV ODPADKA`,
@@ -5169,7 +5178,7 @@ waste_recovery_18.sheet7 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 
 # should try by company names?
 
 waste_recovery_18.sheet7 <- waste_recovery_18.sheet7 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     landfill = `ODLAGALIŠČE`,
     filled_volume_start_year = `ZAPOLNJEN VOLUMEN NA DAN 1.1. (m3)`,
@@ -5193,7 +5202,7 @@ waste_recovery_18.sheet7 <- waste_recovery_18.sheet7 |>
 waste_recovery_18.sheet8 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 8)
 
 waste_recovery_18.by_codes8 <- waste_recovery_18.sheet8 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     landfill = `ODLAGALIŠČE`,
     waste_code = `ŠT. ODPADKA`,
@@ -5229,7 +5238,7 @@ waste_recovery_18.sheet9 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 
 # no code to filter by for wood
 
 waste_recovery_18.sheet9 <- waste_recovery_18.sheet9 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     landfill = `ODLAGALIŠČE`,
     name_of_municipality = `NAZIV OBČINE`,
@@ -5591,7 +5600,7 @@ waste_recovery_disposal_17.path <- "2017 data\\2017_recovery_disposal.xlsx"
 waste_recovery_disposal_17.sheet1 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 1)
 
 waste_recovery_disposal_17.by_codes1 <- waste_recovery_disposal_17.sheet1 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -5621,7 +5630,7 @@ waste_recovery_disposal_17.by_codes1 <- waste_recovery_disposal_17.sheet1 |>
 waste_recovery_disposal_17.sheet2 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 2)
 
 waste_recovery_disposal_17.by_codes2 <- waste_recovery_disposal_17.sheet2 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -5636,34 +5645,35 @@ waste_recovery_disposal_17.by_codes2 <- waste_recovery_disposal_17.sheet2 |>
     year = 2017,
     received_from = recode(
       received_from,
-      "1-lastni odpadki, samo v primeru OVD za obdelavo lastnih odpadkov"  = "own waste, OVD case",
-      "2-drug izvirni povzročitelj v RS"                                    = "other original producer in RS",
-      "3-drug zbiralec v RS"                                                = "other collector in RS",
-      "4-drug izvajalec obdelave v RS"                                      = "other processing operator in RS",
-      "5-druga država članica EU"                                           = "other EU country",
-      "6-tretja država (izven EU)"                                          = "other country (outside EU)"
+      "1-lastni odpadki, samo v primeru OVD za obdelavo lastnih odpadkov"  = "own_waste_OVD_case",
+      "2-drug izvirni povzročitelj v RS"                                    = "other_original_producer_RS",
+      "3-drug zbiralec v RS"                                                = "other_collector_RS",
+      "4-drug izvajalec obdelave v RS"                                      = "other_processing_operator_RS",
+      "5-druga država članica EU"                                           = "other_EU_country",
+      "6-tretja država (izven EU)"                                          = "other_country_outside_EU"
     ),
     total_waste_received = total_waste_received / 1000
   ) |>
-  # group once & compute totals + buckets
-  group_by(year, name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
-  summarise(
-    total_waste_received                   = sum(total_waste_received),
-    waste_received_own_waste               = sum(if_else(received_from == "own waste, OVD case",               total_waste_received, 0)),
-    waste_received_other_producer_RS       = sum(if_else(received_from == "other original producer in RS", total_waste_received, 0)),
-    waste_received_collector_RS            = sum(if_else(received_from == "other collector in RS",       total_waste_received, 0)),
-    waste_received_processing_operator_RS  = sum(if_else(received_from == "other processing operator in RS", total_waste_received, 0)),
-    waste_received_other_EU_country        = sum(if_else(received_from == "other EU country",           total_waste_received, 0)),
-    waste_received_other_country_outside_EU = sum(if_else(received_from == "other country (outside EU)", total_waste_received, 0)),
-    .groups = "drop"
-  )
+  group_by(year, name_of_company, statistical_region, waste_code, type_of_waste, waste_category, received_from) |>
+  summarise(total_waste_received = sum(total_waste_received), .groups = "drop") |>
+  pivot_wider(
+    names_from = received_from, 
+    values_from = total_waste_received, 
+    values_fill = 0,
+    names_prefix = "waste_received_"
+  ) |>
+  rowwise() |>
+  mutate(
+    total_waste_received = sum(c_across(starts_with("waste_received_")), na.rm = TRUE)
+  ) |>
+  ungroup()
 ```
 
 ```{r treatment_of_waste}
 waste_recovery_disposal_17.sheet3 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 3)
 
 waste_recovery_disposal_17.by_codes3 <- waste_recovery_disposal_17.sheet3 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -5675,6 +5685,12 @@ waste_recovery_disposal_17.by_codes3 <- waste_recovery_disposal_17.sheet3 |>
   filter_codes() |>
   process_waste_column(waste_code, type_of_waste) |>
   mutate(year = 2017) |> 
+  mutate(
+    treatment_according_to_8th_article = case_when(
+      treatment_according_to_8th_article == "DA" ~ "YES",
+      treatment_according_to_8th_article == "NE" ~ "NO"
+    )
+  ) |>
   group_by(year, name_of_company, statistical_region, waste_code, type_of_waste, waste_category, treatment_process, treatment_according_to_8th_article) |>
   summarise(
     total_waste_given_away = sum(total_waste_given_away) / 1000, # for tons
@@ -5688,7 +5704,7 @@ Waste Generated in the Treatment Process and Waste Untreated and Handed Over to 
 waste_recovery_disposal_17.sheet4 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 4)
 
 waste_recovery_disposal_17.by_codes4 <- waste_recovery_disposal_17.sheet4 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -5727,7 +5743,7 @@ The Difference in Mass Between the Waste Input and the Treatment Product Volumes
 waste_recovery_disposal_17.sheet5 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 5)
 
 waste_recovery_disposal_17.by_codes5 <- waste_recovery_disposal_17.sheet5 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     waste_code = `ŠT. ODPADKA`,
     type_of_waste = `NAZIV ODPADKA`,
@@ -5749,7 +5765,7 @@ The Capacity and Condition of the Landfill in 2017
 waste_recovery_disposal_17.sheet6 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 6)
 
 waste_recovery_disposal_17 <- waste_recovery_disposal_17.sheet6 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     landfill = ODLAGALIŠČE,
     volume_filled_start_year = `ZAPOLNJEN VOLUMEN NA DAN 1.1. (m3)`,
@@ -5769,7 +5785,7 @@ Total Quantities and Management of Waste in Landfill in 2017
 waste_recovery_disposal_17.sheet7 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 7)
 
 waste_recovery_disposal_17.by_codes7 <- waste_recovery_disposal_17.sheet7 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     landfill = `ODLAGALIŠČE`,
     waste_code = `ŠT. ODPADKA`,
@@ -6334,7 +6350,7 @@ waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.sheet2 |>
 waste_recovery_disposal_16.sheet3 <- read_xls(waste_recovery_disposal_16.path, skip = 1, sheet = 3)
 
 waste_recovery_disposal_16.by_codes3 <- waste_recovery_disposal_16.sheet3 |>
-  select(
+  dplyr::select(
     name_of_company = `NAZIV IN NASLOV`,
     statistical_region = `STATISTIČNA REGIJA`,
     waste_code = `ŠT. ODPADKA`,
@@ -6343,8 +6359,14 @@ waste_recovery_disposal_16.by_codes3 <- waste_recovery_disposal_16.sheet3 |>
     treatment_according_to_8th_article = `OBDELAVA PO 8.ČLENU UREDBE O ODPADKIH`
   ) |> 
   filter_codes() |> 
-  categorize_waste() |> 
-  group_by(year = 2016, name_of_company, statistical_region, waste_code, type_of_waste, waste_category, treatment_process) |>
+  categorize_waste() |>
+  mutate(
+    treatment_according_to_8th_article = case_when(
+      treatment_according_to_8th_article == "DA" ~ "YES",
+      treatment_according_to_8th_article == "NE" ~ "NO"
+    )
+  ) |>
+  group_by(year = 2016, name_of_company, statistical_region, waste_code, type_of_waste, waste_category, treatment_process, treatment_according_to_8th_article) |>
   summarise(
     total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE) / 1000,
     .groups = "drop"

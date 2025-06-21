@@ -1,8 +1,9 @@
-﻿"year","statistical_region","treatment_inlet_waste_code","type_of_waste","waste_category","treatment_code","description_of_treatment","quantity_treated"
+﻿"year","statistical_region","treatment_inlet_waste_code","type_of_waste","waste_category","treatment_process","description_of_treatment","quantity_treated"
 2023,"GORENJSKA","03 01 01","Bark and Cork Waste (03 01 01)","Wood/Paper Production Waste","R_03","processing into wood chips",0.85
 2023,"GORENJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_01","use of biomass as fuel",525.642
 2023,"GORENJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_03","processing into wood chips",257.521
 2023,"GORENJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",133.82
+2023,"GORENJSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",32.54
 2023,"GORENJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13","pre-treatment",4864.692
 2023,"GORENJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_01","use of biomass as fuel",34
 2023,"GORENJSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_03","processing into wood chips",3637.282
@@ -25,6 +26,7 @@
 2023,"GORIŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","BO","no treatment",5.06
 2023,"GORIŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_03","aerobic treatment (composting plants)",1.41
 2023,"GORIŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",77.12
+2023,"GORIŠKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",18.16
 2023,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_0101","co-incineration - production of material products",12.02
 2023,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12","pre-treatment",1067.789
 2023,"GORIŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13","pre-treatment",1650.085
@@ -40,6 +42,7 @@
 2023,"GORIŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","R_12, R_13","pre-treatment",32.672
 2023,"GORIŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","R_12, R_13","pre-treatment",11.009
 2023,"JUGOVZHODNA SLOVENIJA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",3446.609
+2023,"JUGOVZHODNA SLOVENIJA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",1918.509
 2023,"JUGOVZHODNA SLOVENIJA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13","pre-treatment",7230.326
 2023,"JUGOVZHODNA SLOVENIJA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_12, R_13","pre-treatment",2360.254
 2023,"JUGOVZHODNA SLOVENIJA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste","R_12, R_13","pre-treatment",313.538
@@ -52,6 +55,7 @@
 2023,"JUGOVZHODNA SLOVENIJA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","R_12, R_13","pre-treatment",1722.434
 2023,"KOROŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_01","use of biomass as fuel",439
 2023,"KOROŠKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",4.24
+2023,"KOROŠKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",78.44
 2023,"KOROŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13","pre-treatment",1187.785
 2023,"KOROŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_12, R_13","pre-treatment",273.24
 2023,"KOROŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste","R_05","recycling",41.21
@@ -59,6 +63,7 @@
 2023,"KOROŠKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste","R_12, R_13","pre-treatment",997.535
 2023,"KOROŠKA","20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","R_12, R_13","pre-treatment",33.94
 2023,"KOROŠKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","R_12, R_13","pre-treatment",5458.262
+2023,"OBALNO-KRAŠKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",92.02
 2023,"OBALNO-KRAŠKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13","pre-treatment",2822.851
 2023,"OBALNO-KRAŠKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_12, R_13","pre-treatment",675.522
 2023,"OBALNO-KRAŠKA","17 02 01","Construction Wood Waste (17 02 01)","Construction/Demolition Waste","BO","no treatment",8.4
@@ -78,6 +83,9 @@
 2023,"OSREDNJESLOVENSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste","R_0302","aerobic treatment (composting plants)",9.28
 2023,"OSREDNJESLOVENSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste","R_12","conversion to solid fuel",21.78
 2023,"OSREDNJESLOVENSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",20.718
+2023,"OSREDNJESLOVENSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","BO","no treatment",2144.83
+2023,"OSREDNJESLOVENSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_03","recycling",9676.02
+2023,"OSREDNJESLOVENSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",8630.322
 2023,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_03","recycling",4158.119
 2023,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13","pre-treatment",47464.914
 2023,"OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_13","pre-treatment",413.278
@@ -114,6 +122,8 @@
 2023,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","R_12","pre-treatment",22504.63
 2023,"OSREDNJESLOVENSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","R_12, R_13","pre-treatment",15480.305
 2023,"PODRAVSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",79.18
+2023,"PODRAVSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12","conversion to solid fuel",622.544
+2023,"PODRAVSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",672.66
 2023,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12","conversion to solid fuel",18.356
 2023,"PODRAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13","pre-treatment",12691.961
 2023,"PODRAVSKA","15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","R_12, R_13","pre-treatment",4838.255
@@ -147,6 +157,7 @@
 2023,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","D_01","disposal",366.72
 2023,"POMURSKA","20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","R_12, R_13","pre-treatment",5207.16
 2023,"POSAVSKA","03 03 01","Bark and Wood Waste from Pulp/Paper Production (03 03 01)","Wood/Paper Production Waste","R_01","use of biomass as fuel",172.545
+2023,"POSAVSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",390.823
 2023,"POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","BO","no treatment",2459.52
 2023,"POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12","pre-treatment",2305.626
 2023,"POSAVSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13","pre-treatment",866.559
@@ -166,6 +177,8 @@
 2023,"SAVINJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_01","co-incineration - energy production",1
 2023,"SAVINJSKA","03 01 05","Sawdust/Shavings/Cuttings (03 01 05)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",299.96
 2023,"SAVINJSKA","03 01 99","Other Unspecified Wood Waste (03 01 99)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",1180.78
+2023,"SAVINJSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_03","recycling",97.197
+2023,"SAVINJSKA","03 03 08","Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)","Wood/Paper Production Waste","R_12, R_13","pre-treatment",2062.804
 2023,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","BO","no treatment",17.74
 2023,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_03","recycling",24.16
 2023,"SAVINJSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","R_12, R_13","pre-treatment",21403.4
