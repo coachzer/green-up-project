@@ -199,20 +199,23 @@ shinyUI(dashboardPage(
           box(
             collapsible = TRUE,
             collapsed = FALSE,
+            width = 12,
             title = "Total Wood Waste Generation by Region and Year",
             solidHeader = TRUE,
             status = "primary",
             plotlyOutput("wasteByRegionYear")
-          ),
+          )
+        ),
+        fluidRow(
           box(
             collapsible = TRUE,
             collapsed = FALSE,
+            width = 12,
             title = "Total Wood Waste Generation by Type and Year",
             solidHeader = TRUE,
             status = "primary",
             plotlyOutput("wasteByTypeYear")
           )
-          
         ),
         fluidRow(
           box(
@@ -229,20 +232,23 @@ shinyUI(dashboardPage(
           box(
             collapsible = TRUE,
             collapsed = FALSE,
+            width = 12,
             title = "Total Wood Waste Transferred for Treatment by Region and Year",
             solidHeader = TRUE,
             status = "primary",
             plotlyOutput("wasteTransferredByRegionYear")
-          ),
+          )
+        ),
+        fluidRow(
           box(
             collapsible = TRUE,
             collapsed = FALSE,
+            width = 12,
             title = "Total Wood Waste Transferred for Treatment by Type and Year",
             solidHeader = TRUE,
             status = "primary",
             plotlyOutput("wasteTransferredByTypeYear")
           )
-          
         ),
         fluidRow(
           box(
@@ -259,20 +265,23 @@ shinyUI(dashboardPage(
           box(
             collapsible = TRUE,
             collapsed = FALSE,
+            width = 12,
             title = "Total Wood Waste Stored at the End of the Year by Region and Year",
             solidHeader = TRUE,
             status = "primary",
             plotlyOutput("wasteStoredEndYearByRegionYear")
-          ),
+          )
+        ),
+        fluidRow(
           box(
             collapsible = TRUE,
             collapsed = FALSE,
+            width = 12,
             title = "Total Wood Waste Stored at the End of the Year by Type and Year",
             solidHeader = TRUE,
             status = "primary",
             plotlyOutput("wasteStoredEndYearByTypeYear")
           )
-          
         ),
       ),
       # Collection ----
@@ -285,37 +294,72 @@ shinyUI(dashboardPage(
           id = "collection_tabs",
           
           # Collection Storage ----
-          tabPanel("Collection Storage",
-                   style = "margin-top: 20px;",
-                   fluidRow(
-                     box(
-                       width = 3,
-                       solidHeader = TRUE,
-                       status = "primary",
-                       # Select input for choosing the plot
-                       selectInput("plot_selection_coll_storage", "Choose a Plot:",
-                                   choices = c("Total Wood Waste Over Time", "Total Wood Waste Over Time - Variant"),
-                                   selected = "Total Wood Waste Over Time"),  # Default selection
-                       # Select input for filtering by region
-                       selectizeInput("region_selection_coll_storage", "Select Region:",
-                                   choices = NULL,  
-                                   selected = NULL, 
-                                   multiple = TRUE)
-                     )
-                   ),
-                   fluidRow(
-                     box(
-                       collapsible = TRUE,
-                       width = 12,
-                       title = "Comparison of Waste Stored at Year's End and Next Year's Start",
-                       solidHeader = TRUE,
-                       status = "primary",
-                       plotlyOutput("selectedPlot1", height = "500px")
-                     )
-                   )
+          tabPanel(
+            "Collection Storage",
+            style = "margin-top: 20px;",
+            
+            # filters box (originally width=3)
+            fluidRow(
+              box(
+                width = 3,
+                solidHeader = TRUE, status = "primary",
+                title = "Waste Storage Plot Selection",
+                # inner container styling
+                tags$div(
+                  style = "background-color: #f8f9fa; padding: 20px; border-radius: 10px;
+                 margin: 10px 0;",
+                  
+                  # Plot selection
+                  tags$div(
+                    style = "margin-bottom: 25px;",
+                    tags$label(
+                      tags$span(icon("chart-area", style = "margin-right: 8px;"),
+                                style = "color: #3498db;"),
+                      "Choose a Plot:",
+                      style = "font-weight: bold; color: #2c3e50;
+                     display: block; margin-bottom: 10px; font-size: 14px;"
+                    ),
+                    selectInput(
+                      "plot_selection_coll_storage", label = NULL,
+                      choices = c("Total Wood Waste Over Time",
+                                  "Total Wood Waste Over Time - Variant"),
+                      selected = "Total Wood Waste Over Time",
+                      width = "100%"
+                    )
+                  ),
+                  
+                  # Region selection
+                  tags$div(
+                    style = "margin-bottom: 10px;",
+                    tags$label(
+                      tags$span(icon("map-marker-alt", style = "margin-right: 8px;"),
+                                style = "color: #27ae60;"),
+                      "Select Region:",
+                      style = "font-weight: bold; color: #2c3e50;
+                     display: block; margin-bottom: 10px; font-size: 14px;"
+                    ),
+                    selectizeInput(
+                      "region_selection_coll_storage", label = NULL,
+                      choices = NULL, selected = NULL, multiple = TRUE,
+                      options = list(
+                        plugins = list("remove_button"),
+                        placeholder = "Select regions to compare"
+                      ),
+                      width = "100%"
+                    )
+                  )
+                )
+              ),
+              box(
+                collapsible = TRUE, 
+                width = 9,
+                solidHeader = TRUE, 
+                status = "primary",
+                title = "Comparison of Waste Stored at Year's End and Next Year's Start",
+                plotlyOutput("selectedPlot1", height = "600px")
+              )
+            )
           ),
-          
-          
           # Collection Received ----
           tabPanel("Collection Received",
                    # Info Boxes ----
@@ -368,38 +412,92 @@ shinyUI(dashboardPage(
                      # Add a dropdown menu for plot selection
                      box(
                        collapsible = TRUE,
-                       width = 3,
                        title = "Waste Data Plot Selection",
                        solidHeader = TRUE,
                        status = "primary",
-                       # Plot selection input
-                       selectInput(inputId = "plot_type_coll_received", 
-                                   label = "Choose a Plot Type", 
-                                   choices = c("Stacked Bar Plot" = "stacked", 
-                                               "Faceted Bar Plot" = "faceted", 
-                                               "Grouped Bar Plot" = "grouped"),
-                                   selected = "stacked"),  # Default is stacked plot
+                       width = 3,
                        
-                       # Selectize input for statistical regions
-                       selectizeInput(inputId = "region_filter", 
-                                      label = "Select Statistical Regions", 
-                                      choices = NULL,  # Will be populated from server
-                                      multiple = TRUE,
-                                      options = list(plugins = list("remove_button"), placeholder = "Select Statistical Regions")),
+                       # Background
+                       tags$div(
+                         style = "background-color: #f8f9fa; padding: 20px; border-radius: 10px; margin: 10px 0;",
+                         
+                         # Plot type selection section
+                         tags$div(
+                           style = "margin-bottom: 25px;",
+                           tags$label(
+                             tags$span(icon("chart-line"), style = "color: #3498db; margin-right: 8px;"),
+                             "Choose a Plot Type:",
+                             style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 10px; font-size: 14px;"
+                           ),
+                           selectInput(
+                             inputId = "plot_type_coll_received", 
+                             label = NULL,
+                             choices = c("Stacked Bar Plot" = "stacked", 
+                                         "Faceted Bar Plot" = "faceted", 
+                                         "Grouped Bar Plot" = "grouped"),
+                             selected = "stacked",
+                             width = "100%"
+                           ),
+                           tags$small(
+                             icon("info-circle"), 
+                             "Select visualization style",
+                             style = "color: #6c757d; font-style: italic;"
+                           )
+                         ),
                        
-                       # Selectize input for sources
-                       selectizeInput(inputId = "source_filter", 
-                                      label = "Select Sources", 
-                                      choices = c("From Producers (No Record)", 
-                                                  "From Producers (With Record)", 
-                                                  "From Collectors (RS)", 
-                                                  "From Processors (RS)"),
-                                      selected = c("From Producers (No Record)", 
-                                                   "From Producers (With Record)", 
-                                                   "From Collectors (RS)", 
-                                                   "From Processors (RS)"), 
-                                      multiple = TRUE,
-                                      options = list(plugins = list("remove_button"), placeholder = "Select Statistical Regions"))
+                         # Statistical regions selection section
+                         tags$div(
+                           style = "margin-bottom: 25px;",
+                           tags$label(
+                             tags$span(icon("map-marked-alt"), style = "color: #27ae60; margin-right: 8px;"),
+                             "Select Statistical Regions:",
+                             style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 10px; font-size: 14px;"
+                           ),
+                           selectizeInput(
+                             inputId = "region_filter", 
+                             label = NULL,
+                             choices = NULL,  
+                             multiple = TRUE,
+                             options = list(plugins = list("remove_button"), placeholder = "Select Statistical Regions"),
+                             width = "100%"
+                           ),
+                           tags$small(
+                             icon("info-circle"), 
+                             "Choose one or more regions to analyze",
+                             style = "color: #6c757d; font-style: italic;"
+                           )
+                         ),
+                       
+                         # Sources selection section
+                         tags$div(
+                           style = "margin-bottom: 10px;",
+                           tags$label(
+                             tags$span(icon("list"), style = "color: #e74c3c; margin-right: 8px;"),
+                             "Select Sources:",
+                             style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 10px; font-size: 14px;"
+                           ),
+                           selectizeInput(
+                             inputId = "source_filter", 
+                             label = NULL,
+                             choices = c("From Producers (No Record)", 
+                                         "From Producers (With Record)", 
+                                         "From Collectors (RS)", 
+                                         "From Processors (RS)"),
+                             selected = c("From Producers (No Record)", 
+                                          "From Producers (With Record)", 
+                                          "From Collectors (RS)", 
+                                          "From Processors (RS)"), 
+                             multiple = TRUE,
+                             options = list(plugins = list("remove_button"), placeholder = "Select Sources"),
+                             width = "100%"
+                           ),
+                           tags$small(
+                             icon("info-circle"), 
+                             "Filter by waste source categories",
+                             style = "color: #6c757d; font-style: italic;"
+                           )
+                         )
+                       )
                      ),
                      box(
                        collapsible = TRUE,
@@ -407,7 +505,7 @@ shinyUI(dashboardPage(
                        solidHeader = TRUE,
                        status = "primary",
                        width = 9,
-                       plotlyOutput("selectedPlot2", height = "500px")
+                       plotlyOutput("selectedPlot2", height = "700px")
                      )
                    )
           ),
@@ -416,20 +514,67 @@ shinyUI(dashboardPage(
                    style = "margin-top: 20px;",
                    fluidRow(
                      column(
-                       width = 4,  # Left column: Filter options first, then the InfoBox
+                       width = 3,  # Left column: Filter options first, then the InfoBox
                        fluidRow(
                          box(
                            collapsible = TRUE,
                            width = 12,
-                           title = "Select a Region:",
+                           title = "Filter Options",
                            solidHeader = TRUE,
                            status = "primary",
-                           # Select inputs for choosing a region
-                           selectInput("region1", "Select Region:", choices = NULL),
-                           # Select input for choosing the waste type
-                           selectInput("waste_type", "Select Type of Waste:", choices = NULL),
-                           # Select the number of municipalities to display
-                           numericInput("top_n_municipal", "Number of Municipalities to Display:", value = 10, min = 1, max = 50)
+                           
+                           # Background
+                           tags$div(
+                             style = "background-color: #f8f9fa; padding: 20px; border-radius: 10px; margin: 10px 0;",
+                           
+                           # Region selection section
+                           tags$div(
+                             style = "margin-bottom: 25px;",
+                             tags$label(
+                               tags$span(icon("map-marker-alt"), style = "color: #3498db; margin-right: 8px;"),
+                               "Statistical Region:",
+                               style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 10px; font-size: 14px;"
+                             ),
+                             selectInput("region1", label = NULL, choices = NULL, width = "100%"),
+                             tags$small(
+                               icon("info-circle"), 
+                               "Filter data by geographic area",
+                               style = "color: #6c757d; font-style: italic;"
+                             )
+                           ),
+                           
+                           # Waste type selection section
+                           tags$div(
+                             style = "margin-bottom: 25px;",
+                             tags$label(
+                               tags$span(icon("recycle"), style = "color: #27ae60; margin-right: 8px;"),
+                               "Select Type of Waste:",
+                               style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 10px; font-size: 14px;"
+                             ),
+                             selectInput("waste_type", label = NULL, choices = NULL, width = "100%"),
+                             tags$small(
+                               icon("info-circle"), 
+                               "Choose specific waste type",
+                               style = "color: #6c757d; font-style: italic;"
+                             )
+                           ),
+                           
+                           # Municipality count section
+                           tags$div(
+                             style = "margin-bottom: 10px;",
+                             tags$label(
+                               tags$span(icon("list-ol"), style = "color: #e74c3c; margin-right: 8px;"),
+                               "Number of Municipalities to Display:",
+                               style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 10px; font-size: 14px;"
+                             ),
+                             numericInput("top_n_municipal", label = NULL, value = 10, min = 1, max = 50, width = "100%"),
+                             tags$small(
+                               icon("info-circle"), 
+                               "Limit results to top performers (Max: 10)",
+                               style = "color: #6c757d; font-style: italic;"
+                             )
+                           )
+                           )
                          )
                        ),
                        fluidRow(
@@ -443,15 +588,15 @@ shinyUI(dashboardPage(
                        )
                      ),
                      column(
-                       width = 8,  # Right column: Plot output
+                       width = 9,  # Right column: Plot output
                        fluidRow(
                          box(
                            collapsible = TRUE,
                            width = 12,
-                           title = "Waste Collected by Municipality (2018-2022)",
+                           title = "Waste Collected by Municipality (2018-2023)",
                            solidHeader = TRUE,
                            status = "primary",
-                           plotlyOutput("municipalComparison")
+                           plotlyOutput("municipalComparison", height = "600px")
                          )
                        )
                      )
@@ -472,16 +617,60 @@ shinyUI(dashboardPage(
                    ),
                    fluidRow(
                      box(
-                       width = 4,
-                       title = "Controls",
+                       width = 3,
+                       title = "Filter Options",
                        solidHeader = TRUE,
                        status = "primary",
-                       selectInput("selected_year", "Select Year:", choices = NULL),
-                       br(),
-                       numericInput("top_n", "Number of Municipalities to Display:", value = 10, min = 1, max = 50)
+                       tags$div(
+                         style = "background-color: #f8f9fa; padding: 20px; border-radius: 10px; margin: 10px 0;",
+                         
+                         # Year selection section
+                         tags$div(
+                           style = "margin-bottom: 25px;",
+                           tags$label(
+                             tags$span(icon("calendar-alt"), style = "margin-right: 8px;"),
+                             "Select Year:",
+                             style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 10px; font-size: 14px;"
+                           ),
+                           selectInput(
+                             "selected_year", 
+                             label = NULL,
+                             choices = NULL,
+                             width = "100%"
+                           ),
+                           tags$small(
+                             icon("info-circle"), 
+                             "Choose the year for analysis",
+                             style = "color: #6c757d; font-style: italic;"
+                           )
+                         ),
+                         
+                         # Top N municipalities section
+                         tags$div(
+                           style = "margin-bottom: 20px;",
+                           tags$label(
+                             tags$span(icon("list-ol"), style = "color: #27ae60; margin-right: 8px;"),
+                             "Display Limit:",
+                             style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 10px; font-size: 14px;"
+                           ),
+                           numericInput(
+                             "top_n", 
+                             label = NULL,
+                             value = 10, 
+                             min = 1, 
+                             max = 50,
+                             width = "100%"
+                           ),
+                           tags$small(
+                             icon("info-circle"), 
+                             "Number of top municipalities to show",
+                             style = "color: #6c757d; font-style: italic;"
+                           )
+                         )
+                       )
                      ),
                      box(
-                       width = 8,
+                       width = 9,
                        title = paste("Waste Collected by Top Municipality per Year"),
                        solidHeader = TRUE,
                        status = "primary",
@@ -493,10 +682,21 @@ shinyUI(dashboardPage(
                      box(
                        collapsible = TRUE,
                        width = 12,
+                       height      = "600px",
+                       title = "Waste Collected by Municipalities (2018-2023)",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       plotlyOutput("plot3", height = "550px")
+                     )
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 12,
                        title = "Waste Types Collected by Year",
                        solidHeader = TRUE,
                        status = "primary",
-                       plotlyOutput("plot3")
+                       plotlyOutput("plot4")
                      )
                    ),
                    fluidRow(
@@ -506,7 +706,7 @@ shinyUI(dashboardPage(
                        title = "Heatmap of Waste Collection by Region and Year",
                        solidHeader = TRUE,
                        status = "primary",
-                       plotlyOutput("plot4")
+                       plotlyOutput("plot5")
                      )
                    )
           ),
@@ -520,7 +720,7 @@ shinyUI(dashboardPage(
                 collapsible = TRUE,
                 solidHeader = TRUE,
                 status = "primary",
-                title = "Total Waste Trend (2016-2022)",
+                title = "Total Waste Management Trend (2016-2022)",
                 plotlyOutput("totalWasteTrend"),
                 width = 12
               )
@@ -530,45 +730,160 @@ shinyUI(dashboardPage(
                 collapsible = TRUE,
                 solidHeader = TRUE,
                 status = "primary",
-                title = "Total Waste by Region",
+                title = "Total Waste Management by Region",
                 plotlyOutput("wasteByRegion"),
-                width = 6
-              ),
-              box(
-                collapsible = TRUE,
-                solidHeader = TRUE,
-                status = "primary",
-                title = "Total Waste by Type",
-                plotlyOutput("wasteByType"),
-                width = 6
+                width = 12
               )
             ),
-            fluidRow(column(
-              3,
+            # fluidRow(
+            #   box(
+            #     collapsible = TRUE,
+            #     solidHeader = TRUE,
+            #     status = "primary",
+            #     title = "Total Waste Management by Type",
+            #     plotlyOutput("wasteByType"),
+            #     width = 12
+            #   )
+            # ),
+            fluidRow(
               box(
                 collapsible = TRUE,
-                width = 12,
                 solidHeader = TRUE,
                 status = "primary",
-                title = "Select Filters:",
-                selectInput("region", "Select Region:", choices = NULL),
-                selectInput("wasteType", "Select Waste Type:", choices = NULL),
-                sliderInput(
-                  "yearRange",
-                  "Select Year Range:",
-                  min = 2016,
-                  max = 2022,
-                  value = c(2016, 2022),
-                  step = 1
+                title = "Total Waste Management by Type and Year",
+                fluidRow(
+                  column(12,
+                         tags$div(
+                           style = "background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;",
+                           tags$h5(
+                             icon("filter", style = "margin-right: 8px;"), 
+                             "Filter Options",
+                             style = "margin-top: 0; color: #2c3e50; font-weight: bold;"
+                           ),
+                           fluidRow(
+                             column(6,
+                                    selectInput("yearFilter", 
+                                                label = tagList(
+                                                  icon("calendar-alt", style = "margin-right: 8px;"),  # ← only the icon gets the right-margin
+                                                  "Select Year:"
+                                                ),
+                                                choices = c("All Years", sort(unique(df_long_management$year))),
+                                                selected = "All Years")
+                             ),
+                             column(6,
+                                    tags$div(
+                                      style = "margin-top: 25px;",
+                                      tags$small(
+                                        icon("info-circle"), 
+                                        "Choose 'All Years' to see combined totals",
+                                        style = "color: #6c757d;"
+                                      )
+                                    )
+                             )
+                           )
+                         )
+                  )
+                ),
+                tags$div(
+                  style = "background-color: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);",
+                  plotlyOutput("wasteByTypeAndYear")
+                ),
+                width = 12
+              )
+            ),
+            fluidRow(
+              column(
+                3,
+                box(
+                  collapsible = TRUE,
+                  width = 12,
+                  solidHeader = TRUE,
+                  status = "primary",
+                  title = "Filter Options",
+                  tags$div(
+                    style = "background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0;",
+                    
+                    # Region filter
+                    tags$div(
+                      style = "margin-bottom: 20px;",
+                      tags$label(
+                        tags$span(icon("map-marker-alt"), style = "color: #3498db; margin-right: 8px;"),
+                        "Statistical Region:",
+                        style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 8px;"
+                      ),
+                      selectInput(
+                        "region", 
+                        label = NULL,
+                        choices = NULL,
+                        width = "100%"
+                      ),
+                      tags$small(
+                        icon("info-circle"), 
+                        "Filter data by geographic area",
+                        style = "color: #6c757d; font-style: italic;"
+                      )
+                    ),
+                    
+                    # Waste type filter
+                    tags$div(
+                      style = "margin-bottom: 20px;",
+                      tags$label(
+                        tags$span(icon("recycle"), style = "color: #27ae60; margin-right: 8px;"),
+                        "Waste Category:",
+                        style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 8px;"
+                      ),
+                      selectInput(
+                        "wasteType", 
+                        label = NULL,
+                        choices = NULL,
+                        width = "100%"
+                      ),
+                      tags$small(
+                        icon("info-circle"), 
+                        "Choose specific waste type",
+                        style = "color: #6c757d; font-style: italic;"
+                      )
+                    ),
+                    
+                    # Year range slider
+                    tags$div(
+                      style = "margin-bottom: 10px;",
+                      tags$label(
+                        tags$span(icon("calendar-alt"), style = "color: #e74c3c; margin-right: 8px;"),
+                        "Time Period:",
+                        style = "font-weight: bold; color: #2c3e50; display: block; margin-bottom: 12px;"
+                      ),
+                      sliderInput(
+                        "yearRange",
+                        label = NULL,
+                        min = 2016,
+                        max = 2023,
+                        value = c(2016, 2023),
+                        step = 1,
+                        sep = ""
+                      ),
+                      tags$small(
+                        icon("info-circle"), 
+                        "Adjust the analysis timeframe",
+                        style = "color: #6c757d; font-style: italic;"
+                      )
+                    )
+                  )
+                )
+              ),
+              
+              column(
+                9,
+                box(
+                  collapsible = TRUE,
+                  solidHeader = TRUE,
+                  status = "primary",
+                  title = "Management of Waste Over Time by Region and Type",
+                  width = 12,
+                  plotlyOutput("detailedPlot", height = "600px")
                 )
               )
-            ), column(9, box(
-              collapsible = TRUE,
-              solidHeader = TRUE,
-              status = "primary",
-              title = "Management of Waste Over Time by Region and Type",
-              width = 12, plotlyOutput("detailedPlot", height = "600px")
-            )))
+            )
           )
         )
       ),
@@ -698,31 +1013,26 @@ shinyUI(dashboardPage(
                                   multiple = TRUE
                                 )
                          )
+                       ),
+                       fluidRow(
+                         column(12,
+                                selectizeInput(
+                                  "waste_type_trt_treatment",
+                                  "Select Waste Type",
+                                  choices = NULL,
+                                  multiple = TRUE
+                                )
+                         )
                        )
                      )
                    ),
-                   
                    fluidRow(
-                     box(
-                       collapsible = TRUE,
-                       title = "Waste Type Filter:",
-                       solidHeader = TRUE,
-                       status = "primary",
-                       width = 3,
-                       selectizeInput(
-                         "waste_type_trt_treatment",
-                         "Select Waste Type",
-                         choices = NULL,
-                         multiple = TRUE
-                       )
-                     ),
-                     
                      box(
                        collapsible = TRUE,
                        title = "Waste Treatment Over Time by Waste Type (in tons)",
                        solidHeader = TRUE,
                        status = "primary",
-                       width = 9,
+                       width = 12,
                        plotlyOutput("plot_waste_treatment", height = "500px")
                      )
                    )

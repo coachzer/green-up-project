@@ -3114,7 +3114,7 @@ processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 waste_storage.21 <- processed_sheets[[1]]
 
 waste_storage.21 <- waste_storage.21 |>
-  select(
+  dplyr::select(
     year = `Leto`,
     statistical_region = `Statistična regija`,
     waste_code,
@@ -3140,7 +3140,7 @@ processed_sheets[[1]] <- waste_storage.21
 waste_received.21 <- processed_sheets[[2]]
 
 waste_received.21 <- waste_received.21 |>
-  select(
+  dplyr::select(
     year = `Leto`,
     statistical_region = `Statistična regija`,
     waste_code,
@@ -3173,7 +3173,7 @@ processed_sheets[[2]] <- waste_received.21
 treating_waste.21 <- processed_sheets[[3]]
 
 treating_waste.21 <- treating_waste.21 |>
-  select(
+  dplyr::select(
     year = `Leto`,
     statistical_region = `Statistična regija`,
     waste_code,
@@ -3191,7 +3191,7 @@ processed_sheets[[3]] <- treating_waste.21
 management_waste.21 <- processed_sheets[[4]]
 
 management_waste.21 <- management_waste.21 |>
-  select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`) |>
+  dplyr::select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`) |>
   rename(
     year = `Leto`,
     statistical_region = `Statistična regija`,
@@ -3223,7 +3223,7 @@ processed_sheets[[4]] <- management_waste.21
 management_waste.21a <- processed_sheets[[5]]
 
 management_waste.21a <- management_waste.21a |>
-  select(-Poročilo) |>
+  dplyr::select(-Poročilo) |>
   rename(
     year = `Leto`,
     input_waste_name = `Odpadki na vhodu v obdelavo naziv`,
@@ -3259,7 +3259,7 @@ processed_sheets[[5]] <- management_waste.21a
 waste_treatment.21 <- processed_sheets[[6]]
 
 waste_treatment.21 <- waste_treatment.21 |>
-  select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`, -`Šifra občine 1`) |>
+  dplyr::select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`, -`Šifra občine 1`) |>
   rename(
     year = `Leto`,
     waste_code = `waste_code`,
@@ -3284,7 +3284,7 @@ processed_sheets[[6]] <- waste_treatment.21
 mass_difference.21 <- processed_sheets[[7]]
 
 mass_difference.21 <- mass_difference.21 |>
-  select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`) |>
+  dplyr::select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`) |>
   rename(
     year = `Leto`,
     input_waste_name = `Odpadek na vhodu v postopek obdelave naziv`,
@@ -3296,7 +3296,8 @@ mass_difference.21 <- mass_difference.21 |>
 
 mass_difference.21 <- mass_difference.21 |>
   group_by(year, input_waste_code, input_waste_name, waste_category) |>
-  summarise(mass_change = sum(mass_change) / 1000) |>
+  summarise(mass_change = sum(mass_change) / 1000,
+            .groups = "drop") |>
   ungroup()
 
 processed_sheets[[7]] <- mass_difference.21
@@ -3305,7 +3306,7 @@ processed_sheets[[7]] <- mass_difference.21
 landfill_capacity.21 <- processed_sheets[[8]]
 
 landfill_capacity.21 <- landfill_capacity.21 |>
-  select(-Poročilo) |>
+  dplyr::select(-Poročilo) |>
   rename(
     year = `Leto`,
     landfill_site = `Odlagališče`,
@@ -3348,7 +3349,7 @@ landfill_waste.21 <- processed_sheets[[9]]
 
 
 landfill_waste.21 <- landfill_waste.21 |>
-  select(-Poročilo) |>
+  dplyr::select(-Poročilo) |>
   rename(
     year = `Leto`,
     type_of_waste = `Naziv odpadka`,
@@ -3380,7 +3381,7 @@ landfill_waste.21 <- landfill_waste.21 |>
 
 # if the column has a 0, remove that column
 landfill_waste.21 <- landfill_waste.21 |>
-  select(where(~ !all(. == 0)))
+  dplyr::select(where(~ !all(. == 0)))
 
 processed_sheets[[9]] <- landfill_waste.21
 

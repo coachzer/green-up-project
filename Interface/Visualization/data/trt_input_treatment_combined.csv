@@ -1,41 +1,81 @@
-year,type_of_waste,mass_change,treatment_operation
-2018,Other Wood Waste,88.925,NA
-2018,Paper/Cardboard Packaging,12.692,NA
-2018,Paper/Cardboard Packaging,13,NA
-2018,Other Wood Waste,7,NA
-2018,Paper/Cardboard Packaging,2.508,NA
-2019,Other Wood Waste,10.66,NA
-2019,Paper/Cardboard Packaging,18.359,NA
-2019,Paper/Cardboard Packaging,5.86,NA
-2019,Other Wood Waste,7,NA
-2019,Sawdust and Wood Cuttings,3.294,NA
-2019,Paper/Cardboard Packaging,138.913,NA
-2020,Paper/Cardboard Packaging,109.148,NA
-2020,Wood,63.025,NA
-2020,Other Wood Waste,18.392,NA
-2020,Wooden Packaging,0,NA
-2021,Paper/Cardboard Packaging,68.755,NA
-2021,Sawdust and Wood Cuttings,0.04,NA
-2021,Other Wood Waste,57.032,NA
-2022,Paper/Cardboard Packaging,-36.898,R_03
-2022,Paper/Cardboard Packaging,58.352,"R_12, R_13"
-2022,Wooden Packaging,0.132,"R_12, R_13"
-2022,Wood,0,R_12
-2022,Other Wood Waste,-494.74,R_03
-2022,Other Wood Waste,18.67,R_0302
-2022,Other Wood Waste,880.146,"R_12, R_13"
-2023,Bark and Cork Waste,0,R_03
-2023,Paper/Cardboard Packaging,485.291,R_03
-2023,Paper/Cardboard Packaging,122.085,"R_12, R_13"
-2023,Paper/Cardboard Packaging,-11.659,R_13
-2023,Sawdust and Wood Cuttings,1014.82,R_01
-2023,Sawdust and Wood Cuttings,0.634,R_03
-2023,Bark and Wood,167.435,R_01
-2023,Wood,8.158,R_03
-2023,Other Wood Waste,3162.2430000000004,R_01
-2023,Other Wood Waste,244.354,R_0302
-2023,Other Wood Waste,42.9,R_12
-2023,Other Wood Waste,2076.45,"R_12, R_13"
-2023,Wooden Packaging,0,PU
-2023,Wooden Packaging,617.931,R_01
-2023,Wooden Packaging,0.309,"R_12, R_13"
+year,waste_code,type_of_waste,waste_category,mass_change,input_waste_code,treatment_operation
+2018,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,88.925,NA,NA
+2018,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1.35,NA,NA
+2018,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,2.5,NA,NA
+2018,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,12.692,NA,NA
+2018,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1358.218,NA,NA
+2018,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,13,NA,NA
+2018,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,50.64,NA,NA
+2018,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,7,NA,NA
+2018,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1.5,NA,NA
+2018,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,2.508,NA,NA
+2018,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,17.571,NA,NA
+2018,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,361,NA,NA
+2019,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,10.66,NA,NA
+2019,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,18.4,NA,NA
+2019,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,18.359,NA,NA
+2019,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1701.15,NA,NA
+2019,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,5.86,NA,NA
+2019,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,14.92,NA,NA
+2019,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,7,NA,NA
+2019,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1.5,NA,NA
+2019,03 01 05,Sawdust/Shavings/Cuttings (03 01 05),Wood/Paper Production Waste,3.294,NA,NA
+2019,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,138.913,NA,NA
+2019,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,352.587,NA,NA
+2020,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,109.148,NA,NA
+2020,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,0,NA,NA
+2020,17 02 01,Construction Wood Waste (17 02 01),Construction/Demolition Waste,63.025,NA,NA
+2020,19 12 01,Paper and Cardboard from Waste Treatment (19 12 01),Waste Treatment Residues,-26.745,NA,NA
+2020,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,121.473,NA,NA
+2020,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,18.392,NA,NA
+2020,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1158.338,NA,NA
+2021,02 01 07,Forestry Waste (02 01 07),Agricultural/Forestry Waste,2.92,NA,NA
+2021,03 01 05,Sawdust/Shavings/Cuttings (03 01 05),Wood/Paper Production Waste,0.04,NA,NA
+2021,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,68.755,NA,NA
+2021,19 12 07,Wood Waste from Treatment (not 19 12 06) (19 12 07),Waste Treatment Residues,1931.62,NA,NA
+2021,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,193.144,NA,NA
+2021,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,57.032,NA,NA
+2021,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1203.892,NA,NA
+2022,NA,Forestry Waste (02 01 07),Agricultural/Forestry Waste,5.58,02 01 07,R_03
+2022,NA,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,6373.816,03 03 08,R_03
+2022,NA,Paper and Cardboard Packaging (15 01 01),Packaging Waste,-36.898,15 01 01,R_03
+2022,NA,Paper and Cardboard Packaging (15 01 01),Packaging Waste,58.352,15 01 01,"R_12, R_13"
+2022,NA,Wooden Packaging (15 01 03),Packaging Waste,0.132,15 01 03,"R_12, R_13"
+2022,NA,Construction Wood Waste (17 02 01),Construction/Demolition Waste,0,17 02 01,R_12
+2022,NA,Paper and Cardboard from Waste Treatment (19 12 01),Waste Treatment Residues,-1085.302,19 12 01,R_03
+2022,NA,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,-594.572,20 01 01,R_03
+2022,NA,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,76.48,20 01 01,R_12
+2022,NA,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,111.303,20 01 01,"R_12, R_13"
+2022,NA,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,-494.74,20 01 38,R_03
+2022,NA,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,18.67,20 01 38,R_0302
+2022,NA,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,880.146,20 01 38,"R_12, R_13"
+2022,NA,Bulky Municipal Waste (20 03 07),Municipal Waste,3.96,20 03 07,R_0302
+2022,NA,Bulky Municipal Waste (20 03 07),Municipal Waste,30.599,20 03 07,R_12
+2022,NA,Bulky Municipal Waste (20 03 07),Municipal Waste,488.768,20 03 07,"R_12, R_13"
+2022,NA,Bulky Municipal Waste (20 03 07),Municipal Waste,16.364,20 03 07,NA
+2023,NA,Bark and Cork Waste (03 01 01),Wood/Paper Production Waste,0,NA,R_03
+2023,NA,Bark and Wood Waste from Pulp/Paper Production (03 03 01),Wood/Paper Production Waste,167.435,NA,R_01
+2023,NA,Bulky Municipal Waste (20 03 07),Municipal Waste,4.91,NA,R_0302
+2023,NA,Bulky Municipal Waste (20 03 07),Municipal Waste,1037.411,NA,R_12
+2023,NA,Bulky Municipal Waste (20 03 07),Municipal Waste,756.912,NA,"R_12, R_13"
+2023,NA,Construction Wood Waste (17 02 01),Construction/Demolition Waste,8.158,NA,R_03
+2023,NA,Forestry Waste (02 01 07),Agricultural/Forestry Waste,5.047,NA,R_03
+2023,NA,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,3162.2430000000004,NA,R_01
+2023,NA,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,244.354,NA,R_0302
+2023,NA,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,42.9,NA,R_12
+2023,NA,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,2076.45,NA,"R_12, R_13"
+2023,NA,Paper and Cardboard Packaging (15 01 01),Packaging Waste,485.291,NA,R_03
+2023,NA,Paper and Cardboard Packaging (15 01 01),Packaging Waste,122.085,NA,"R_12, R_13"
+2023,NA,Paper and Cardboard Packaging (15 01 01),Packaging Waste,-11.659,NA,R_13
+2023,NA,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,-1330.439,NA,R_03
+2023,NA,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,59.803,NA,R_12
+2023,NA,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,123.16799999999999,NA,"R_12, R_13"
+2023,NA,Paper and Cardboard from Waste Treatment (19 12 01),Waste Treatment Residues,0.938,NA,D_10
+2023,NA,Paper and Cardboard from Waste Treatment (19 12 01),Waste Treatment Residues,1002.3090000000001,NA,R_03
+2023,NA,Sawdust/Shavings/Cuttings (03 01 05),Wood/Paper Production Waste,1014.82,NA,R_01
+2023,NA,Sawdust/Shavings/Cuttings (03 01 05),Wood/Paper Production Waste,0.634,NA,R_03
+2023,NA,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,-98673.68000000001,NA,R_03
+2023,NA,Wood Waste from Treatment (not 19 12 06) (19 12 07),Waste Treatment Residues,151.4,NA,R_01
+2023,NA,Wooden Packaging (15 01 03),Packaging Waste,0,NA,PU
+2023,NA,Wooden Packaging (15 01 03),Packaging Waste,617.931,NA,R_01
+2023,NA,Wooden Packaging (15 01 03),Packaging Waste,0.309,NA,"R_12, R_13"

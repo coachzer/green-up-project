@@ -3117,19 +3117,22 @@ municipal.waste.received.2021.data <- read_csv("2021 data/2021 filtered/treatmen
 # exclude 2022 data, as we cannot compare it with the previous years, because the data is missing type_of_waste column
 municipal.waste.received.2022.data <- read_csv("2022 data/2022 filtered/treatment/mbt_municipal_origin_22.csv")
 
-
 municipal.waste.received.2018.data <- municipal.waste.received.2018.data |>
-  group_by(year, statistical_region, name_of_municipality, type_of_waste) |>
-  summarize(total_waste_received = sum(total_waste_received, na.rm = TRUE)) |>
+  group_by(year, statistical_region, name_of_municipality, waste_code, type_of_waste, waste_category) |>
+  summarize(total_waste_received = sum(total_waste_received, na.rm = TRUE),
+            .groups = "drop") |>
+  ungroup()
+
+municipal.waste.received.2019.data <- municipal.waste.received.2019.data |>
+  group_by(year, statistical_region, name_of_municipality, waste_code,  type_of_waste, waste_category) |>
+  summarize(total_waste_received = sum(total_waste_received, na.rm = TRUE),
+            .groups = "drop") |>
   ungroup()
 
 names(municipal.waste.received.2018.data) <- colnames(municipal.waste.received.2021.data)
 names(municipal.waste.received.2019.data) <- colnames(municipal.waste.received.2021.data)
 
 combined_municipal_waste_received_data <- bind_rows(municipal.waste.received.2018.data, municipal.waste.received.2019.data, municipal.waste.received.2020.data, municipal.waste.received.2021.data)
-
-combined_municipal_waste_received_data <- combined_municipal_waste_received_data |>
-  mutate(type_of_waste = clear_waste_name(type_of_waste))
 
 # export
 write_csv(combined_municipal_waste_received_data, "Interface/Visualization/data/trt_municipal_waste_received_combined.csv")
@@ -3282,30 +3285,35 @@ waste.input.treatment.2022.data <- read_csv("2022 data/2022 filtered/treatment/m
 waste.input.treatment.2023.data <- read_csv("2023 data/2023 filtered/treatment/mass_diff_23.csv")
 
 waste.input.treatment.2018.data <- waste.input.treatment.2018.data |>
-  select(year, type_of_waste, lost_mass) |> 
+  dplyr::select(year, waste_code, type_of_waste, waste_category, lost_mass) |> 
   rename(mass_change = lost_mass)
 
 waste.input.treatment.2019.data <- waste.input.treatment.2019.data |>
-  select(year, type_of_waste, lost_mass) |> 
+  dplyr::select(year, waste_code, type_of_waste, waste_category,  lost_mass) |> 
   rename(mass_change = lost_mass)
 
 waste.input.treatment.2020.data <- waste.input.treatment.2020.data |>
-  rename(type_of_waste = input_waste_name) |> 
+  rename(type_of_waste = input_waste_name,
+         waste_code = input_waste_code) |> 
   filter(year != 0)
 
 waste.input.treatment.2021.data <- waste.input.treatment.2021.data |>
-  rename(type_of_waste = input_waste_name)
+  rename(type_of_waste = input_waste_name,
+         waste_code = input_waste_code)
 
 waste.input.treatment.2022.data <- waste.input.treatment.2022.data |>
-  rename(mass_change = reduction_or_increase_of_mass_during_treatment)
+  rename(mass_change = reduction_or_increase_of_mass_during_treatment,
+         waste_code = input_waste_code)
 
 waste.input.treatment.2023.data <- waste.input.treatment.2023.data |>
-  rename(mass_change = mass_difference) |> 
-  rename(type_of_waste = input_waste_name)
+  rename(mass_change = mass_difference,
+         type_of_waste = input_waste_name,
+         waste_code = input_waste_code)
 
 waste.input.treatment.2023.data <- waste.input.treatment.2023.data |>
-  group_by(year, type_of_waste, treatment_operation) |>
-  summarize(mass_change = sum(mass_change, na.rm = TRUE)) |>
+  group_by(year, waste_code, type_of_waste, waste_category, treatment_operation) |>
+  summarize(mass_change = sum(mass_change, na.rm = TRUE),
+            .groups = "drop") |>
   ungroup()
 
 
