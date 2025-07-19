@@ -1,0 +1,33 @@
+
+@media (min-width: 769px) {
+  .info-boxes-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .info-boxes-row-collection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .info-boxes-row,
+  .info-boxes-row-center {
+    flex-direction: column !important;
+  }
+  
+  .info-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}

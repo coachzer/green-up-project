@@ -53,7 +53,8 @@ create_numeric_input_row <- function(input_id1,
   )
 }
 
-shinyUI(dashboardPage(
+shinyUI(
+  dashboardPage(
   dashboardHeader(title = "Wood Waste Management"),
   # Dashboard Sidebar -----
   dashboardSidebar(sidebarMenu(
@@ -140,6 +141,7 @@ shinyUI(dashboardPage(
   )), 
   # Dashboard Body -----
   dashboardBody(
+    includeCSS("data/styles.css"),
     useShinyFeedback(),
     useShinyjs(),
     tabItems(
@@ -152,16 +154,19 @@ shinyUI(dashboardPage(
       tabItem(
         tabName = "generation",
         h2("Generation of Wood Waste"),
+        # Info Boxes ----
         fluidRow(
-          infoBoxOutput("totalWasteGenerated"),
-          infoBoxOutput("totalTreatedByProducer"),
-          infoBoxOutput("totalTransferredRS")
+           class = "info-boxes-row",
+           infoBoxOutput("totalWasteGenerated"),
+           infoBoxOutput("totalTreatedByProducer"),
+           infoBoxOutput("totalTransferredRS")
         ),
         fluidRow(
-          style = "display: flex; justify-content: center; align-items: center;",
+          class = "info-boxes-row-center",
           infoBoxOutput("totalSentEU"),
           infoBoxOutput("totalSentOutsideEU")
         ),
+        # Plots ----
         fluidRow(
           box(
             collapsible = TRUE,
@@ -186,13 +191,42 @@ shinyUI(dashboardPage(
         ),
         fluidRow(
           box(
+            width = 3,
+            solidHeader = TRUE, status = "primary",
+            title = "Waste Category Plot Selection",
+            # inner container styling
+            tags$div(
+              style = "background-color: #f8f9fa; padding: 20px; border-radius: 10px;
+           margin: 10px 0;",
+              
+              # Plot selection
+              tags$div(
+                style = "margin-bottom: 25px;",
+                tags$label(
+                  tags$span(icon("chart-area", style = "margin-right: 8px;"),
+                            style = "color: #3498db;"),
+                  "Choose a Plot:",
+                  style = "font-weight: bold; color: #2c3e50;
+               display: block; margin-bottom: 10px; font-size: 14px;"
+                ),
+                selectInput(
+                  "plot_selection_waste_category", label = NULL,
+                  choices = c("Waste by Category Over Time (Line Chart)" = "line",
+                              "Total Waste by Category (Pie Chart)" = "pie"),
+                  selected = "line",
+                  width = "100%"
+                )
+              )
+            )
+          ),
+          box(
             collapsible = TRUE,
             collapsed = FALSE,
-            width = 12,
+            width = 9,
             title = "Total Wood Waste Generation by Waste Category",
             solidHeader = TRUE,
             status = "primary",
-            plotlyOutput("wasteByCategoryYear")
+            plotlyOutput("wasteCategoryPlot", height = "600px")
           )
         ),
         fluidRow(
@@ -365,12 +399,12 @@ shinyUI(dashboardPage(
                    # Info Boxes ----
                    # add space between
                    fluidRow(
-                     style = "display: flex; justify-content: center; align-items: center; margin-top: 20px;",
+                     class = "info-boxes-row-collection",
                      infoBoxOutput("totalReceivedWaste"),
                      infoBoxOutput("highestWasteProducingRegion")
                    ),
                    fluidRow(
-                     style = "display: flex; justify-content: center; align-items: center;",
+                     class = "info-boxes-row-center",
                      infoBoxOutput("totalWasteFromProducersNoRecord"),
                      infoBoxOutput("totalWasteFromProducers"),
                      infoBoxOutput("totalWasteFromCollectors"),
@@ -764,11 +798,11 @@ shinyUI(dashboardPage(
                              column(6,
                                     selectInput("yearFilter", 
                                                 label = tagList(
-                                                  icon("calendar-alt", style = "margin-right: 8px;"),  # ← only the icon gets the right-margin
+                                                  icon("calendar-alt", style = "margin-right: 8px;"),
                                                   "Select Year:"
                                                 ),
-                                                choices = c("All Years", sort(unique(df_long_management$year))),
-                                                selected = "All Years")
+                                                choices = NULL,  # Will be populated from server
+                                                selected = NULL)
                              ),
                              column(6,
                                     tags$div(

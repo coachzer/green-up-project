@@ -56,36 +56,44 @@ install_and_load <- function(pkg) {
 lapply(packages, install_and_load)
 
 # 02 - Agricultural, horticultural, aqua cultural, forestry, hunting, and fishing waste
+
+# 02 01 - Waste from agriculture, horticulture, aquaculture, forestry, hunting and fishing
 # 02 01 07 - Forestry waste
 
 # 03 - Wood processing, panel & furniture production, paper & cardboard waste
+
 # 03 01 - Wood processing & panel production waste
 # 03 01 01 - Bark & cork waste
 # 03 01 05 - Sawdust, shavings, cuttings, wood, particle board, veneer (excluding 03 01 04)
 # 03 01 99 - Other unspecified wood waste (unregistered in data)
+
 # 03 03 - Pulp, paper & cardboard production waste
 # 03 03 01 - Bark & wood waste
 # 03 03 08 - Waste from sorting of paper and cardboard for recycling
 
 # 15 - Waste packaging; absorbents, wipes, filter materials, protective clothing
+
 # 15 01 - Packaging (including separately collected municipal packaging waste)
 # 15 01 01 - Paper packaging
 # 15 01 03 - Wooden packaging
 
 # 17 - Construction & demolition waste (including excavated soil from contaminated sites)
+
 # 17 02 - Wood, glass, and plastic
 # 17 02 01 - Construction wood
 
 # 19 - Waste from waste treatment, water treatment, and water preparation
+
 # 19 12 - Mechanically processed waste (e.g., sorting, crushing, compacting, pelleting)
 # 19 12 01 - Paper & cardboard
 # 19 12 07 - Wood (not listed under 19 12 06)
 
 # 20 - Municipal waste (household & similar commercial/industrial/institutional waste)
+
 # 20 01 - Separately collected fractions (excluding 15 01)
 # 20 01 01 - Paper & cardboard
-# 20 01 37* - Hazardous-substance-containing wood
 # 20 01 38 - Non-hazardous wood (unspecified)
+
 # 20 03 - Other municipal waste
 # 20 03 07 - Bulky waste
 
@@ -103,6 +111,7 @@ codes <- c(
   "19 12 07", 
   "20 01 01",
   "20 01 37*",
+# 20 01 37* - Hazardous-substance-containing wood
   "20 01 38",
   "20 03 07"
 )
@@ -988,6 +997,83 @@ rename_substances <- function(df, column = "substance_or_object") {
 
   return(df)
 }
+```
+
+## Mappings
+
+```{r}
+library(jsonlite)
+library(igraph)
+library(visNetwork)
+
+json_path <- "C:/Users/kovac/Desktop/Personal/Work/Green UP Project/green-up-project/mappings.json"
+data <- fromJSON(json_path, flatten = TRUE)
+
+# 2. Build nodes
+nodes <- bind_rows(
+  data$residues |>   transmute(id = index, label = name, group = "Residues"),
+  data$roundwood |>  transmute(id = index, label = name, group = "Roundwood"),
+  data$primary_processing_products |> 
+    transmute(id = index, label = name, group = "Primary Processing"),
+  data$intermediate_products |>
+    transmute(id = index, label = name, group = "Intermediate Products")
+)
+
+edges_pp <- data$primary_processing_products |> 
+  select(index, applicable_resources) |>
+  unnest_longer(applicable_resources) |>
+  transmute(from = index, to = applicable_resources)
+
+edges_ip <- data$intermediate_products |> 
+  select(index, applicable_resources) |>
+  unnest_longer(applicable_resources) |>
+  transmute(from = index, to = applicable_resources)
+
+edges <- bind_rows(edges_pp, edges_ip)
+
+groups <- unique(nodes$group)
+palette <- c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728")
+colors <- c(
+  Residues               = "#1f77b4",
+  Roundwood              = "#ff7f0e",
+  `Primary Processing`   = "#2ca02c",
+  `Intermediate Products`= "#d62728"
+)
+
+nodes <- nodes |>
+  mutate(color = colors[group])
+
+network <- visNetwork(nodes, edges, width = "100%", height = "1000px") |>
+  visOptions(
+    highlightNearest = list(enabled = TRUE, hover = TRUE),
+    nodesIdSelection = TRUE
+  ) |>
+  visLayout(randomSeed = 123) |>
+  visPhysics(
+    solver = "forceAtlas2Based",
+    forceAtlas2Based = list(gravitationalConstant = -50)
+  ) |>
+  visEdges(arrows = "to") |>
+  visLegend(
+    useGroups = FALSE,           
+    addNodes = data.frame(
+      label = c("Residues",
+                "Roundwood",
+                "Primary Processing",
+                "Intermediate Products"),
+      shape = "square",
+      color = c("#1f77b4",
+                "#ff7f0e",
+                "#2ca02c",
+                "#d62728"),
+      stringsAsFactors = FALSE
+    )
+  )
+
+network |> 
+  visSave(file = "network.html", 
+          selfcontained = TRUE, 
+          background = "white")
 ```
 
 ## Initial Requirements

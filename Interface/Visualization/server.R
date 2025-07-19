@@ -506,30 +506,6 @@ plot_heatmap_by_region <- function(data) {
 
 #### coll_management_data ----
 coll_management_data <- read_csv("data/coll_management_combined.csv")
-
-# Reshape data for plotting
-df_long_management <- melt(
-  coll_management_data,
-  id.vars = c(
-    "statistical_region",
-    "type_of_waste",
-    "year"
-  ),
-  measure.vars = c(
-    "waste_handed_to_collectors_RS",
-    "waste_delivered_to_operators_RS",
-    "waste_sent_to_EU",
-    "waste_sent_to_non_EU"
-  ),
-  variable.name = "source",
-  value.name = "total_waste_given_away"
-)
-
-df_long_management <- df_long_management |> 
-  group_by(year, statistical_region, type_of_waste, source) |>
-  summarise(total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE), .groups = "drop") |>
-  ungroup()
-
 ### ------------ Treatment Data ------------
 #### trt_storage_data ----
 trt_storage_data <- read_csv("data/trt_storage_combined.csv")
@@ -706,30 +682,87 @@ shinyServer(function(input, output, session) {
       )
   })
   
-  # Waste by category and year plot
-  output$wasteByCategoryYear <- renderPlotly({
-    # Summarize the total generated waste by type and year
-    waste_by_type_year <- gnr_data |>
-      group_by(waste_category, year) |>
-      summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE),
-                .groups = "drop") |>
-      ungroup()
-    
-    plot_ly() |>
-      add_trace(
-        data = waste_by_type_year,
-        x = ~year,
-        y = ~total_generated_waste,
-        color = ~waste_category,
-        colors = waste_category_colors,
-        type = 'scatter',
-        mode = 'lines+markers'
+  output$wasteCategoryPlot <- renderPlotly({
+    if (input$plot_selection_waste_category == "line") {
+      waste_by_type_year <- gnr_data |>
+        group_by(waste_category, year) |>
+        summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE),
+                  .groups = "drop") |>
+        ungroup()
+      
+      plot_ly() |>
+        add_trace(
+          data = waste_by_type_year,
+          x = ~year,
+          y = ~total_generated_waste,
+          color = ~waste_category,
+          colors = waste_category_colors,
+          type = 'scatter',
+          mode = 'lines+markers'
+        ) |>
+        config(
+          toImageButtonOptions = list(
+            format = 'png', # one of png, svg, jpeg, webp
+            filename = 'gnr_waste_by_category_total_line',
+            # height = 1920,
+            width = 1080,
+            scale = 1)
+        ) |> 
+        layout(
+          xaxis = list(title = "Year", autorange = TRUE),
+          yaxis = list(title = "Total Generated Waste (tons)", autorange = TRUE),
+          hovermode = "x"
+        )
+    } else {
+      waste_by_category_total <- gnr_data |>
+        group_by(waste_category) |>
+        summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE),
+                  .groups = "drop") |>
+        arrange(total_generated_waste)
+      
+      plot_ly(
+        data = waste_by_category_total,
+        labels = ~waste_category,
+        values = ~total_generated_waste,
+        type = 'pie',
+        sort = FALSE,
+        direction = "clockwise",
+        marker = list(
+          colors = waste_category_colors[waste_by_category_total$waste_category],
+          line = list(color = 'black', width = 0.6)  
+        ),
+        textinfo = 'label+percent',
+        textposition = 'auto',
+        hovertemplate = paste0(
+          '<b>%{label}</b><br>',
+          'Total Waste: %{value:,.0f} tons<br>',
+          'Percentage: %{percent}<br>',
+          '<extra></extra>'
+        )
       ) |>
-      layout(
-        xaxis = list(title = "Year", autorange = TRUE),
-        yaxis = list(title = "Total Generated Waste (tons)", autorange = TRUE),
-        hovermode = "x"
-      )
+        config(
+          toImageButtonOptions = list(
+            format = 'png', # one of png, svg, jpeg, webp
+            filename = 'gnr_waste_by_category_total_pie',
+            # height = 1920,
+            width = 1080,
+            scale = 1)
+        ) |> 
+        layout(
+          title = list(
+            # text = "Total Waste Generation by Category",
+            font = list(size = 16)
+          ),
+          showlegend = TRUE,
+          legend = list(
+            orientation = "v",
+            x = 1,
+            y = 0.6,
+            font = list(size = 18) 
+          ),
+          margin = list(l = 20, r = 120, t = 100)
+        )
+    }
   })
   
   # Waste transferred by year plot
@@ -747,6 +780,14 @@ shinyServer(function(input, output, session) {
       type = 'scatter',
       mode = 'lines+markers'
     ) |>
+      config(
+        toImageButtonOptions = list(
+          format = 'png', # one of png, svg, jpeg, webp
+          filename = 'gnr_total_waste_transferred_by_year',
+          # height = 1920,
+          width = 1080,
+          scale = 1)
+      ) |> 
       layout(
         xaxis = list(title = "Year", autorange = TRUE),
         yaxis = list(title = "Total Waste Transferred (tons)", autorange = TRUE),
@@ -1415,6 +1456,30 @@ shinyServer(function(input, output, session) {
   
   ### Management ----
   
+  # Reshape data for plotting
+  df_long_management <- melt(
+    coll_management_data,
+    id.vars = c(
+      "statistical_region",
+      "type_of_waste",
+      "year"
+    ),
+    measure.vars = c(
+      "waste_handed_to_collectors_RS",
+      "waste_delivered_to_operators_RS",
+      "waste_sent_to_EU",
+      "waste_sent_to_non_EU"
+    ),
+    variable.name = "source",
+    value.name = "total_waste_given_away"
+  )
+  
+  df_long_management <- df_long_management |> 
+    group_by(year, statistical_region, type_of_waste, source) |>
+    summarise(total_waste_given_away = sum(total_waste_given_away, na.rm = TRUE), .groups = "drop") |>
+    ungroup()
+  
+  
   # Reactive data
   filtered_management_data <- reactive({
     df_long_management |>
@@ -1491,6 +1556,13 @@ shinyServer(function(input, output, session) {
         xaxis = list(title = "Total Waste"),
         yaxis = list(title = "Waste Type")
       )
+  })
+  
+  observe({
+    year_choices <- c("All Years", sort(unique(df_long_management$year)))
+    updateSelectInput(session, "yearFilter", 
+                      choices = year_choices,
+                      selected = "All Years")
   })
   
   # Waste by Type and Year

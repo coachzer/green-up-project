@@ -1,0 +1,276 @@
+{
+  "residues": [
+    {
+      "index": 29,
+      "name": "WOOD CHIPS AND PARTICLES, RESIDUES AND RECOVERABLE WOOD PRODUCTS"
+    },
+    {
+      "index": 30,
+      "name": "Wood residues (including wood for agglomerates)"
+    },
+    {
+      "index": 31,
+      "name": "Solid wood processing residues"
+    },
+    {
+      "index": 32,
+      "name": "Solid wood processing residues, coniferous"
+    },
+    {
+      "index": 33,
+      "name": "Other solid wood processing residues"
+    },
+    {
+      "index": 34,
+      "name": "Sawdust"
+    },
+    {
+      "index": 35,
+      "name": "Sawdust, coniferous"
+    },
+    {
+      "index": 36,
+      "name": "Other sawdust"
+    },
+    {
+      "index": 37,
+      "name": "Shavings"
+    },
+    {
+      "index": 38,
+      "name": "Shavings, coniferous"
+    },
+    {
+      "index": 39,
+      "name": "Other shavings"
+    },
+    {
+      "index": 40,
+      "name": "Bark removed during processing"
+    },
+    {
+      "index": 41,
+      "name": "Bark removed during processing, coniferous"
+    },
+    {
+      "index": 42,
+      "name": "Other bark removed during processing"
+    },
+    {
+      "index": 43,
+      "name": "Other residues of wood processing, not of solid wood"
+    },
+    {
+      "index": 44,
+      "name": "Wood chips and particles"
+    }
+  ],
+  "roundwood": [
+    {
+      "index": 1,
+      "name": "Wood in the rough other than wood fuel"
+    },
+    {
+      "index": 2,
+      "name": "Sawlogs and veneer logs"
+    },
+    {
+      "index": 3,
+      "name": "Sawlogs and veneer logs, coniferous"
+    },
+    {
+      "index": 4,
+      "name": "Sawlogs and veneer logs, coniferous, for veneer sheets"
+    },
+    {
+      "index": 5,
+      "name": "Other sawlogs and veneer logs"
+    },
+    {
+      "index": 6,
+      "name": "Other sawlogs and veneer logs, for veneer sheets"
+    },
+    {
+      "index": 7,
+      "name": "Pulpwood, round and split and wood for wood-based panels"
+    },
+    {
+      "index": 8,
+      "name": "Pulpwood and wood for wood-based panels, coniferous"
+    },
+    {
+      "index": 9,
+      "name": "Other pulpwood and wood for wood-based panels"
+    },
+    {
+      "index": 10,
+      "name": "Other industrial roundwood"
+    },
+    {
+      "index": 11,
+      "name": "Other industrial roundwood, coniferous"
+    },
+    {
+      "index": 12,
+      "name": "Other industrial roundwood n.e.c."
+    },
+    {
+      "index": 13,
+      "name": "Wood in the rough other than from the main stem and branches"
+    }
+  ],
+  "primary_processing_products": [
+    {
+      "index": 20,
+      "name": "Wood wool, coniferous",
+      "applicable_resources": [32, 35, 38, 44]
+    },
+    {
+      "index": 22,
+      "name": "Other wood wool",
+      "applicable_resources": [33, 36, 39, 44]
+    },
+    {
+      "index": 24,
+      "name": "Wood flour",
+      "applicable_resources": [35, 36, 43]
+    },
+    {
+      "index": 51,
+      "name": "Wood pellets, coniferous",
+      "applicable_resources": [8, 11, 32, 35, 38]
+    },
+    {
+      "index": 52,
+      "name": "Other wood pellets",
+      "applicable_resources": [9, 12, 33, 36, 39]
+    },
+    {
+      "index": 54,
+      "name": "Wood briquettes, coniferous",
+      "applicable_resources": [8, 11, 32, 35, 38]
+    },
+    {
+      "index": 55,
+      "name": "Other wood briquettes",
+      "applicable_resources": [9, 12, 33, 36, 39]
+    },
+    {
+      "index": 59,
+      "name": "Coniferous, sleepers, treated or impregnated",
+      "applicable_resources": [3]
+    },
+    {
+      "index": 60,
+      "name": "Coniferous, sleepers, n.e.c.",
+      "applicable_resources": [3]
+    },
+    {
+      "index": 61,
+      "name": "Coniferous, sawnwood rough",
+      "applicable_resources": [3]
+    },
+    {
+      "index": 69,
+      "name": "Coniferous, sawnwood planed",
+      "applicable_resources": [61]
+    },
+    {
+      "index": 72,
+      "name": "Other non-coniferous, sleepers, treated or impregnated",
+      "applicable_resources": [5]
+    },
+    {
+      "index": 73,
+      "name": "Other non-coniferous, sleepers, n.e.c.",
+      "applicable_resources": [5]
+    },
+    {
+      "index": 75,
+      "name": "Other non-coniferous, sawnwood rough",
+      "applicable_resources": [5]
+    },
+    {
+      "index": 76,
+      "name": "Other non-coniferous, sawnwood planed",
+      "applicable_resources": [75]
+    },
+    {
+      "index": 79,
+      "name": "Decorative veneer sheets, coniferous",
+      "applicable_resources": [4]
+    },
+    {
+      "index": 80,
+      "name": "Other decorative veneer sheets",
+      "applicable_resources": [6]
+    },
+    {
+      "index": 82,
+      "name": "Non-decorative veneer sheets, coniferous",
+      "applicable_resources": [4]
+    },
+    {
+      "index": 84,
+      "name": "Other non-decorative veneer sheets",
+      "applicable_resources": [6]
+    }
+  ],
+  "intermediate_products": [
+    {
+      "index": 90,
+      "name": "Veneer plywood, coniferous",
+      "applicable_resources": [82]
+    },
+    {
+      "index": 92,
+      "name": "Other veneer plywood",
+      "applicable_resources": [84]
+    },
+    {
+      "index": 104,
+      "name": "Laminated veneered lumber (LVL)",
+      "applicable_resources": [82, 84]
+    },
+    {
+      "index": 107,
+      "name": "Wood particle board, waferboard",
+      "applicable_resources": [8, 9, 11, 12, 32, 33, 35, 36, 38, 39, 44]
+    },
+    {
+      "index": 110,
+      "name": "Oriented strand board (OSB)",
+      "applicable_resources": [8, 9, 11, 12, 32, 33, 38, 39, 44]
+    },
+    {
+      "index": 111,
+      "name": "Fibreboard",
+      "applicable_resources": [8, 9, 11, 12, 20, 22, 32, 33, 44]
+    },
+    {
+      "index": 125,
+      "name": "Mechanical wood pulp",
+      "applicable_resources": [8, 9, 32, 33, 44]
+    },
+    {
+      "index": 126,
+      "name": "Semi-chemical wood pulp",
+      "applicable_resources": [8, 9, 32, 33, 44]
+    },
+    {
+      "index": 128,
+      "name": "Soda or sulphate chemical wood pulp",
+      "applicable_resources": [8, 9, 32, 33, 44]
+    },
+    {
+      "index": 129,
+      "name": "Sulphite chemical wood pulp",
+      "applicable_resources": [8, 9, 32, 33, 44]
+    },
+    {
+      "index": 130,
+      "name": "Dissolving wood pulp",
+      "applicable_resources": [8, 9, 32, 33, 44]
+    }
+  ]
+}

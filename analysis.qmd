@@ -55,7 +55,7 @@ if (file.exists(desired_dir)) {
 # List of required packages
 packages <- c(
   "tidyverse", "scales", "viridis", "ggplot2", "gganimate",
-  "ggridges", "plotly", "htmlwidgets", "reshape2", "skimr", "echarts4r"
+  "ggridges", "plotly", "htmlwidgets", "reshape2", "skimr", "echarts4r", "networkD3"
 )
 
 # Function to check if a package is installed, and install it if not
@@ -619,13 +619,6 @@ without_company_data <- without_company_data |>
     total_waste_given_away = total_waste_given_away - waste_treated_by_producer
   ) 
 
-colnames(without_company_data)
-colnames(g.2019.data)
-colnames(g.2020.data)
-colnames(g.2021.data)
-colnames(g.2022.data)
-colnames(g.2023.data)
-
 ```
 
 ```{r generation_combined_data_2}
@@ -637,21 +630,156 @@ names(g.2022.data) <- colnames(g.2023.data)
 
 combined_data <- bind_rows(without_company_data, g.2019.data, g.2020.data, g.2021.data, g.2022.data, g.2023.data)
 
-# get unique waste types
-unique_waste_types <- unique(combined_data$type_of_waste)
-print(unique_waste_types)
+combined_data$statistical_region <- gsub("JUGOVZHODNA SLOVENIJA", "JUGOVZHODNASLOVENIJA", combined_data$statistical_region)
 
-# get unique waste categories
-unique_waste_categories <- unique(combined_data$waste_category)
-print(unique_waste_categories)
+region_colors <- c(
+  "GORENJSKA" = "#1f77b4",              # Blue
+  "GORIŠKA" = "#ff7f0e",                # Orange
+  "JUGOVZHODNASLOVENIJA" = "#2ca02c",   # Green
+  "JUGOVZHODNA SLOVENIJA" = "#2ca02c",  
+  "KOROŠKA" = "#d62728",                # Red
+  "OBALNO-KRAŠKA" = "#9467bd",          # Purple
+  "OBALNOKRAŠKA" = "#9467bd",           
+  "OSREDNJESLOVENSKA" = "#8c564b",      # Brown
+  "PODRAVSKA" = "#e377c2",              # Pink
+  "POMURSKA" = "#7f7f7f",               # Gray
+  "POSAVSKA" = "#bcbd22",               # Olive
+  "PRIMORSKO-NOTRANJSKA" = "#17becf",   # Cyan
+  "PRIMORSKONOTRANJSKA" = "#17becf",    
+  "SAVINJSKA" = "#ffbb78",              # Light Orange
+  "ZASAVSKA" = "#98df8a",               # Light Green
+  "NEOPREDELJENO" = "#c7c7c7"           # Light Gray (unspecified)
+)
 
-# get unique statistical regions
-unique_statistical_regions <- unique(combined_data$statistical_region)
-print(unique_statistical_regions)
+initial_stock <- combined_data  |> 
+  filter(year == max(year))  |> 
+  group_by(statistical_region, waste_code)  |> 
+  summarise(
+    initial_stock_tonnes = sum(temporarily_stored_start_year),
+    .groups="drop"
+  ) |> 
+  mutate(
+    initial_stock_kg = initial_stock_tonnes * 1e3
+  )
 
-# apply clear_waste_name
-# combined_data <- combined_data |>
-  # mutate(type_of_waste = clear_waste_name(type_of_waste))
+rates_daily <- combined_data |> 
+  group_by(statistical_region, waste_code) |> 
+  summarise(
+    annual_tonnes = sum(generated_in_the_year, na.rm = TRUE),
+    .groups="drop"
+  ) |> 
+  mutate(
+    daily_tonnes = round(annual_tonnes / 365, 3),
+    daily_kg     = daily_tonnes * 1e3
+  )
+
+p1 <- rates_daily |>
+  group_by(statistical_region) |>
+  summarise(total_annual = sum(annual_tonnes)) |>
+  plot_ly(x = ~statistical_region, 
+          y = ~total_annual, 
+          type = 'bar',
+          color = ~statistical_region,
+          colors = region_colors) |>
+  layout(title = "Total Annual Waste by Region",
+         xaxis = list(title = "Region"),
+         yaxis = list(title = "Annual Tonnes"))
+
+# Waste by code (top 10)
+p2 <- rates_daily |>
+  group_by(waste_code) |>
+  summarise(total_annual = sum(annual_tonnes)) |>
+  top_n(10, total_annual) |>
+  plot_ly(x = ~reorder(waste_code, total_annual), y = ~total_annual, type = 'bar') |>
+  layout(title = "Top 10 Waste Codes by Total Annual Tonnes",
+         xaxis = list(title = "Waste Code"),
+         yaxis = list(title = "Annual Tonnes"))
+
+p3 <- rates_daily |>
+  group_by(statistical_region, waste_code) |>
+  summarise(total_annual = sum(annual_tonnes)) |>
+  group_by(statistical_region) |>
+  top_n(5, total_annual) |>
+  plot_ly(x = ~statistical_region, 
+          y = ~total_annual, 
+          color = ~waste_code, 
+          type = 'bar') |>
+  layout(title = "Top 5 Waste Codes by Region",
+         xaxis = list(title = "Region"),
+         yaxis = list(title = "Annual Tonnes"),
+         barmode = 'stack')
+
+heatmap_data <- rates_daily |>
+  select(statistical_region, waste_code, annual_tonnes) |>
+  pivot_wider(names_from = waste_code, values_from = annual_tonnes, values_fill = 0)
+
+p4 <- rates_daily |>
+  plot_ly(x = ~daily_tonnes, y = ~annual_tonnes,
+          color = ~statistical_region,
+          colors = region_colors,
+          size = ~annual_tonnes,
+          text = ~paste("Region:", statistical_region, "<br>Code:", waste_code),
+          hovertemplate = "%{text}<br>Daily: %{x}<br>Annual: %{y}<extra></extra>") |>
+  add_markers() |>
+  layout(title = "Daily vs Annual Waste Generation",
+         xaxis = list(title = "Daily Tonnes"),
+         yaxis = list(title = "Annual Tonnes"))
+
+treemap_data <- rates_daily |>
+  # First add region totals as parent nodes
+  group_by(statistical_region) |>
+  summarise(total_annual = sum(annual_tonnes)) |>
+  mutate(
+    ids = statistical_region,
+    labels = statistical_region,
+    parents = "",
+    values = total_annual
+  ) |>
+  select(ids, labels, parents, values) |>
+  # Then add individual waste codes as children
+  bind_rows(
+    rates_daily |>
+      mutate(
+        ids = paste(statistical_region, waste_code, sep = " - "),
+        labels = waste_code,
+        parents = statistical_region,
+        values = annual_tonnes
+      ) |>
+      select(ids, labels, parents, values)
+  )
+
+# Create treemap
+p5 <- plot_ly(
+  treemap_data,
+  type = "treemap",
+  ids = ~ids,
+  labels = ~labels,
+  parents = ~parents,
+  values = ~values,
+  textinfo = "label+value",
+          width = 1000,
+          height = 800
+) |>
+  layout(title = "Hierarchical Waste Generation Treemap")
+
+p6 <- rates_daily |>
+  plot_ly(y = ~annual_tonnes, 
+          x = ~statistical_region,
+          color = ~statistical_region,
+          colors = region_colors, 
+          type = "box",
+          width = 1000,
+          height = 800) |>
+  layout(title = "Distribution of Annual Waste by Region",
+         xaxis = list(title = "Region"),
+         yaxis = list(title = "Annual Tonnes"))
+
+p1
+p2
+p3
+p4
+p5
+p6
 
 # export the combined generation data to the data folder
 write_csv(combined_data, "Interface/Visualization/data/gnr_combined.csv")
@@ -1909,8 +2037,8 @@ t12 <- ggplot(df_long_collected, aes(x = year, y = total_collected, fill = name_
 ggplotly(t12, width = 1000, height = 1000)
 
 # Aggregate data by statistical region and year
-regional_trends <- combined_collected_data %>%
-  group_by(year, statistical_region, waste_category) %>%
+regional_trends <- combined_collected_data |>
+  group_by(year, statistical_region, waste_category) |>
   summarise(total_waste = sum(waste_by_municipality, na.rm = TRUE), .groups = 'drop')
 
 regional_trends_plot <- ggplot(regional_trends, aes(x = year, y = total_waste, color = waste_category)) +
