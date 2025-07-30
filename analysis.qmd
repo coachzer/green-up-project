@@ -448,7 +448,7 @@ my_theme <- theme_minimal() +
 
 - **Grouping**: Data was frequently grouped by year, region, or waste type to allow for aggregate analysis.
 - **Sum and Summarize**: Within groups, waste quantities were summed to get total amounts.
-- **Unit Conversion**: Waste amounts were often divided by 1000 to convert from kilograms to tons.
+- **Unit Conversion**: Waste amounts werea divided by 1000 to convert from kilograms to tons.
 
 ## Visualization Techniques
 
@@ -661,6 +661,9 @@ initial_stock <- combined_data  |>
   mutate(
     initial_stock_kg = initial_stock_tonnes * 1e3
   )
+
+# initial stock to csv
+write_csv(initial_stock, "Interface/Visualization/data/initial_stock.csv")
 
 rates_daily <- combined_data |> 
   group_by(statistical_region, waste_code) |> 
@@ -999,6 +1002,17 @@ combined_storage_data <- bind_rows(without_company_data, waste.storage.2020.data
 # export the combined storage data to the data folder
 write_csv(combined_storage_data, "Interface/Visualization/data/coll_storage_combined.csv")
 
+storage_data <- combined_storage_data  |> 
+  filter(year == max(year))  |> 
+  group_by(statistical_region, waste_code)  |> 
+  summarise(
+    waste_stored_start_year = sum(waste_stored_start_year),
+    .groups="drop"
+  ) |> 
+  mutate(
+    waste_stored_start_year_kg = waste_stored_start_year * 1e3,
+  )
+
 # Reshape data for plotting
 df_long <- melt(combined_storage_data,
   id.vars = c("statistical_region", "type_of_waste", "year"),
@@ -1194,6 +1208,17 @@ combined_received_data <- bind_rows(waste.received.2016.data, waste.received.201
 
 # export the combined received data to the data folder
 write_csv(combined_received_data, "Interface/Visualization/data/coll_received_combined.csv")
+
+received_data <- combined_received_data  |> 
+  filter(year == max(year))  |> 
+  group_by(statistical_region, waste_code)  |> 
+  summarise(
+    received_collection = sum(total_waste_collected),
+    .groups="drop"
+  ) |> 
+  mutate(
+    received_collection_kg = received_collection * 1e3,
+  )
 
 # Reshape data for plotting
 df_long_received <- melt(combined_received_data,

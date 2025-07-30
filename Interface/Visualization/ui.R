@@ -85,61 +85,68 @@ shinyUI(
       tabName = "analysis",
       expandedName = "ANALYSIS",
       icon = icon("chart-simple"),
+      startExpanded = TRUE,
       ### Sub-items -----
+      #### Overview -----
+      menuSubItem(
+        HTML("&nbsp;&nbsp;Overview"),
+        tabName = "overview",
+        icon = icon("eye")
+      ),
       #### Generation -----
       menuSubItem(
-        "Generation",
+        HTML("&nbsp;&nbsp;Generation"),
         tabName = "generation",
         icon = icon("trash-arrow-up")
       ),
       #### Collection -----
       menuSubItem(
-        "Collection",
+        HTML("&nbsp;&nbsp;Collection"),
         tabName = "collection",
         icon = icon("truck-arrow-right")
       ),
       #### Treatment -----
       menuSubItem(
-        "Treatment",
+        HTML("&nbsp;&nbsp;Treatment"),
         tabName = "treatment",
         icon = icon("hand-holding-heart")
       )
-    ),
+    ) #,
     ## Simulation -----
-    menuItem(
-      "Simulation",
-      id = "simulationID",
-      expandedName = "SIMULATION",
-      tabName = "simulation",
-      icon = icon("play"),
-      ### Sub-items -----
-      #### Define Simulation -----
-      menuSubItem(
-        "Define Simulation",
-        tabName = "define_simulation",
-        icon = icon("pen-to-square")
-      ),
-      #### Outputs -----
-      menuSubItem("Outputs", tabName = "outputs", icon = icon("file-alt")),
-      #### Plots of Data -----
-      menuSubItem(
-        "Plots of Data",
-        tabName = "plots",
-        icon = icon("chart-line")
-      ),
-      #### Tables of Data -----
-      menuSubItem("Tables of Data", tabName = "tables", icon = icon("table")),
-      #### Costs -----
-      menuSubItem(
-        "Costs of Management",
-        tabName = "costs",
-        icon = icon("dollar-sign")
-      ),
-      #### Distance Matrix -----
-      menuSubItem("Distance Matrix", tabName = "distance_matrix", icon = icon("th"))
-    )
+  #   menuItem(
+  #     "Simulation",
+  #     id = "simulationID",
+  #     expandedName = "SIMULATION",
+  #     tabName = "simulation",
+  #     icon = icon("play"),
+  #     ### Sub-items -----
+  #     #### Define Simulation -----
+  #     menuSubItem(
+  #       "Define Simulation",
+  #       tabName = "define_simulation",
+  #       icon = icon("pen-to-square")
+  #     ),
+  #     #### Outputs -----
+  #     menuSubItem("Outputs", tabName = "outputs", icon = icon("file-alt")),
+  #     #### Plots of Data -----
+  #     menuSubItem(
+  #       "Plots of Data",
+  #       tabName = "plots",
+  #       icon = icon("chart-line")
+  #     ),
+  #     #### Tables of Data -----
+  #     menuSubItem("Tables of Data", tabName = "tables", icon = icon("table")),
+  #     #### Costs -----
+  #     menuSubItem(
+  #       "Costs of Management",
+  #       tabName = "costs",
+  #       icon = icon("dollar-sign")
+  #     ),
+  #     #### Distance Matrix -----
+  #     menuSubItem("Distance Matrix", tabName = "distance_matrix", icon = icon("th"))
+  #   )
   )), 
-  # Dashboard Body -----
+  # # Dashboard Body -----
   dashboardBody(
     includeCSS("data/styles.css"),
     useShinyFeedback(),
@@ -150,10 +157,89 @@ shinyUI(
         tabName = "hiddenAnalysis",
         h1("Analysis of Wood Waste Management")
       ),
+      # Overview ----
+      tabItem(
+        tabName = "overview",
+        h1("Overview of Wood Waste Management in Slovenia"),
+        # Info Boxes ----
+        fluidRow(
+          class = "info-boxes-row",
+          infoBoxOutput("totalWasteGeneration"),
+          infoBoxOutput("totalWasteCollected"),
+          infoBoxOutput("totalWasteForProcessing")
+        ),
+        # Combined plot of generation, collection and treatment ----
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Combined Waste Management Metrics",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("overviewPlot", height = "600px")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Waste Flow Overview by Category",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("overviewPlotSankeyCategory", height = "600px")
+          )
+        ),
+        # fluidRow(
+        #   box(
+        #     collapsible = TRUE,
+        #     collapsed = FALSE,
+        #     width = 12,
+        #     title = "Waste Flow Overview by Type",
+        #     solidHeader = TRUE,
+        #     status = "primary",
+        #     plotlyOutput("overviewPlotSankeyType", height = "600px")
+        #   )
+        # ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Comparison based on the Statistical Region",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("overviewPlotRegion", height = "600px")
+          )
+        ),
+        # fluidRow(
+        #   box(
+        #     collapsible = TRUE,
+        #     collapsed = FALSE,
+        #     width = 12,
+        #     title = "Waste Category vs. Year",
+        #     solidHeader = TRUE,
+        #     status = "primary",
+        #     plotlyOutput("overviewPlotCategory", height = "600px")
+        #   )
+        # ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Comparison based on the Type of Waste",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("overviewPlotType", height = "600px")
+          )
+        )
+      ),
       # Generation ----
       tabItem(
         tabName = "generation",
-        h2("Generation of Wood Waste"),
+        h1("Generation of Wood Waste"),
         # Info Boxes ----
         fluidRow(
            class = "info-boxes-row",
@@ -178,17 +264,17 @@ shinyUI(
             plotlyOutput("combinedWastePlot")
           )
         ),
-        fluidRow(
-          box(
-            collapsible = TRUE,
-            collapsed = FALSE,
-            width = 12,
-            title = "Total Wood Waste Generation by Year",
-            solidHeader = TRUE,
-            status = "primary",
-            plotlyOutput("totalWasteByYear")
-          )
-        ),
+        # fluidRow(
+        #   box(
+        #     collapsible = TRUE,
+        #     collapsed = FALSE,
+        #     width = 12,
+        #     title = "Total Wood Waste Generation by Year",
+        #     solidHeader = TRUE,
+        #     status = "primary",
+        #     plotlyOutput("totalWasteByYear")
+        #   )
+        # ),
         fluidRow(
           box(
             width = 3,
@@ -321,7 +407,7 @@ shinyUI(
       # Collection ----
       tabItem(
         tabName = "collection",
-        h2("Collection of Wood Waste"),
+        h1("Collection of Wood Waste"),
         
         # Tabset for different collection views
         tabsetPanel(
@@ -329,10 +415,20 @@ shinyUI(
           
           # Collection Storage ----
           tabPanel(
-            "Collection Storage",
+            "Storage",
             style = "margin-top: 20px;",
-            
-            # filters box (originally width=3)
+            # Data Table of Waste Collection Storage ----
+            fluidRow(
+              box(
+                collapsible = TRUE,
+                width = 12,
+                title = "Storage Data",
+                solidHeader = TRUE,
+                status = "primary",
+                DT::dataTableOutput("storageData")
+              )
+            ),
+            # Waste Storage Plot Selection ----
             fluidRow(
               box(
                 width = 3,
@@ -395,7 +491,7 @@ shinyUI(
             )
           ),
           # Collection Received ----
-          tabPanel("Collection Received",
+          tabPanel("Received",
                    # Info Boxes ----
                    # add space between
                    fluidRow(
@@ -544,7 +640,7 @@ shinyUI(
                    )
           ),
           # Collection Municipal ----
-          tabPanel("Collection Municipal",
+          tabPanel("Municipal",
                    style = "margin-top: 20px;",
                    fluidRow(
                      column(
@@ -637,7 +733,7 @@ shinyUI(
                    )
           ),
           # Collection Municipal Collected ----
-          tabPanel("Collection Municipal Collected",
+          tabPanel("Municipal Collected",
                    style = "margin-top: 20px;",
                    fluidRow(
                      box(
@@ -747,7 +843,7 @@ shinyUI(
           
           # Collection Management ----
           tabPanel(
-            "Collection Management",
+            "Management",
             style = "margin-top: 20px;",
             fluidRow(
               box(
@@ -924,14 +1020,14 @@ shinyUI(
       # Treatment ----
       tabItem(
         tabName = "treatment",
-        h2("Treatment of Wood Waste"),
+        h1("Treatment of Wood Waste"),
         
         # Tabset for different treatment views
         tabsetPanel(
           id = "treatment_tabs",
           
           # Treatment Storage ----
-          tabPanel("Treatment Storage", 
+          tabPanel("Storage", 
                    style = "margin-top: 20px;", fluidRow(
             box(
               collapsible = TRUE,
@@ -967,7 +1063,7 @@ shinyUI(
           )), 
           
           # Treatment Collected ----
-          tabPanel("Treatment Collected",
+          tabPanel("Collected",
                    style = "margin-top: 20px;",
                    fluidRow(
                      box(
@@ -981,12 +1077,42 @@ shinyUI(
                    ),
                    fluidRow(
                      box(
+                       width = 3,
+                       solidHeader = TRUE, status = "primary",
+                       title = "Regional Waste Plot Selection",
+                       # inner container styling
+                       tags$div(
+                         style = "background-color: #f8f9fa; padding: 20px; border-radius: 10px;
+       margin: 10px 0;",
+                         
+                         # Plot selection
+                         tags$div(
+                           style = "margin-bottom: 25px;",
+                           tags$label(
+                             tags$span(icon("chart-area", style = "margin-right: 8px;"),
+                                       style = "color: #3498db;"),
+                             "Choose a Plot:",
+                             style = "font-weight: bold; color: #2c3e50;
+           display: block; margin-bottom: 10px; font-size: 14px;"
+                           ),
+                           selectInput(
+                             "plot_selection_region", label = NULL,
+                             choices = c("Total Waste by Region (Bar Chart)" = "bar",
+                                         "Total Waste by Region (Pie Chart)" = "pie"),
+                             selected = "bar",
+                             width = "100%"
+                           )
+                         )
+                       )
+                     ),
+                     box(
                        collapsible = TRUE,
-                       title = "Total Waste Received by Statistical Region (in tons)", 
+                       collapsed = FALSE,
+                       width = 9,
+                       title = "Total Waste Received by Statistical Region (in tons)",
                        solidHeader = TRUE,
                        status = "primary",
-                       width = 12, 
-                       plotlyOutput("plot_region")
+                       plotlyOutput("regionalPlot", height = "600px")
                      )
                    ),
                    fluidRow(
@@ -1002,7 +1128,7 @@ shinyUI(
           ),
           
           # Treatment Treatment ----
-          tabPanel("Treatment Treatment", 
+          tabPanel("Treatment", 
                    style = "margin-top: 20px;", 
                    fluidRow(
                      box(
@@ -1075,8 +1201,18 @@ shinyUI(
           
           
           # Treatment Municipal Waste Received ----
-          tabPanel("Treatment Municipal Waste Received",
+          tabPanel("Municipal Waste Received",
                    style = "margin-top: 20px;",
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       title = "Total Waste Collected by Region (in tons)",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 12,
+                       plotlyOutput("regionPlot", height = "600px")
+                     )
+                   ),
                    fluidRow(
                      box(
                        collapsible = TRUE,
@@ -1103,7 +1239,7 @@ shinyUI(
                                    ticks = FALSE
                                    ),
                        sliderInput("year_range_trt_municipal", "Select Year Range:",
-                                   min = 2018, max = 2021, value = c(2018, 2023), step = 1, sep = "")
+                                   min = 2018, max = 2021, value = c(2018, 2021), step = 1, sep = "")
                      ),
                      box(
                        collapsible = TRUE,
@@ -1114,21 +1250,10 @@ shinyUI(
                        plotlyOutput("trendPlot", height = "600px")
                      )
                    )
-                   ,
-                   fluidRow(
-                     box(
-                       collapsible = TRUE,
-                       title = "Total Waste Collected by Region (in tons)",
-                       solidHeader = TRUE,
-                       status = "primary",
-                       width = 12,
-                       plotlyOutput("regionPlot", height = "600px")
-                     )
-                   )
           ),
           
           # Treatment Input Treatment ----
-          tabPanel("Treatment Input Treatment", 
+          tabPanel("Input Treatment", 
                    style = "margin-top: 20px;", fluidRow(
             box(
               collapsible = TRUE,
