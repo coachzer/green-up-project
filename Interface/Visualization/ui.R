@@ -418,16 +418,16 @@ shinyUI(
             "Storage",
             style = "margin-top: 20px;",
             # Data Table of Waste Collection Storage ----
-            fluidRow(
-              box(
-                collapsible = TRUE,
-                width = 12,
-                title = "Storage Data",
-                solidHeader = TRUE,
-                status = "primary",
-                DT::dataTableOutput("storageData")
-              )
-            ),
+            # fluidRow(
+            #   box(
+            #     collapsible = TRUE,
+            #     width = 12,
+            #     title = "Storage Data",
+            #     solidHeader = TRUE,
+            #     status = "primary",
+            #     DT::dataTableOutput("storageData")
+            #   )
+            # ),
             # Waste Storage Plot Selection ----
             fluidRow(
               box(
@@ -1045,11 +1045,11 @@ shinyUI(
               selectizeInput("waste_type_trt_storage", 
                              "Select Waste Type", 
                              choices = NULL,
-                             selected = "Other Wood Waste"),
+                             selected = NULL),
               selectizeInput("region_trt_storage", 
                              "Select Region", 
                              choices = NULL,
-                             selected = "OSREDNJESLOVENSKA")
+                             selected = NULL)
             ),
             
             box(
@@ -1062,8 +1062,8 @@ shinyUI(
             )
           )), 
           
-          # Treatment Collected ----
-          tabPanel("Collected",
+          # Treatment Received ----
+          tabPanel("Received",
                    style = "margin-top: 20px;",
                    fluidRow(
                      box(
@@ -1082,9 +1082,10 @@ shinyUI(
                        title = "Regional Waste Plot Selection",
                        # inner container styling
                        tags$div(
-                         style = "background-color: #f8f9fa; padding: 20px; border-radius: 10px;
-       margin: 10px 0;",
-                         
+                         style = "background-color: #f8f9fa; 
+                         padding: 20px; 
+                         border-radius: 10px;
+                         margin: 10px 0;",
                          # Plot selection
                          tags$div(
                            style = "margin-bottom: 25px;",
@@ -1097,8 +1098,8 @@ shinyUI(
                            ),
                            selectInput(
                              "plot_selection_region", label = NULL,
-                             choices = c("Total Waste by Region (Bar Chart)" = "bar",
-                                         "Total Waste by Region (Pie Chart)" = "pie"),
+                             choices = c("Bar Chart" = "bar",
+                                         "Pie Chart" = "pie"),
                              selected = "bar",
                              width = "100%"
                            )
@@ -1200,8 +1201,8 @@ shinyUI(
           
           
           
-          # Treatment Municipal Waste Received ----
-          tabPanel("Municipal Waste Received",
+          # Treatment Municipal Waste Collected ----
+          tabPanel("Municipal Waste Collected",
                    style = "margin-top: 20px;",
                    fluidRow(
                      box(

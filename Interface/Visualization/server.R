@@ -45,6 +45,20 @@ color_palette <- c("waste_from_producers_no_record" = "#E69F00",  # Orange
                    "waste_from_collectors_RS" = "#009E73",  # Green
                    "waste_from_processors_RS" = "#F0E442")  # Yellow
 
+source_labels <- c(
+  "waste_handed_to_collectors_RS" = "Waste Handed to Collectors (RS)",
+  "waste_delivered_to_operators_RS" = "Waste Delivered to Operators (RS)", 
+  "waste_sent_to_EU" = "Waste Sent to EU",
+  "waste_sent_to_non_EU" = "Waste Sent to Non-EU"
+)
+
+source_colors <- c(
+  "Waste Handed to Collectors (RS)" = "#2E86AB",   
+  "Waste Delivered to Operators (RS)" = "#A23B72",  
+  "Waste Sent to EU"= "#F18F01",                 
+  "Waste Sent to Non-EU" = "#C73E1D"         
+)
+
 # Palette for types of waste
 waste_colors <- c(
   "Forestry Waste (02 01 07)" = "#2D5016",                                         
@@ -579,6 +593,7 @@ total_waste_for_processing <- sum(trt_treatment_data$waste_for_processing, na.rm
 #### combined_waste_data ----
 combined_waste_data <- gnr_data |> 
   select(year, statistical_region, type_of_waste, waste_category, generated_in_the_year) |>
+  filter(statistical_region != "NEOPREDELJENO") |>
   mutate(metric = "Generated") |> 
   rename(value = generated_in_the_year) |> 
   bind_rows(
@@ -593,6 +608,13 @@ combined_waste_data <- gnr_data |>
       mutate(metric = "For Processing") |> 
       rename(value = waste_for_processing)
   )
+
+combined_waste_data <- combined_waste_data |>
+  mutate(statistical_region = case_when(
+    statistical_region == "JUGOVZHODNASLOVENIJA" ~ "JUGOVZHODNA SLOVENIJA",
+    TRUE ~ statistical_region
+  )) |> 
+  filter(statistical_region != "NEOPREDELJENO")
 
 
 
@@ -622,11 +644,11 @@ metrics <- c("Generated", "Collected", "For Processing")
 
 # Node labels
 node_labels <- c(
-  regions,                                    # Level 1: Regions
-  categories,                                 # Level 2: Categories  
-  paste(categories, "(Gen)"),                # Level 3: Category-Generated
-  paste(categories, "(Coll)"),               # Level 4: Category-Collected
-  paste(categories, "(Proc)")                # Level 5: Category-Processing
+  regions,                              
+  categories,                                  
+  paste(categories, "(Gen)"),                
+  paste(categories, "(Coll)"),             
+  paste(categories, "(Proc)")               
 )
 
 # Create connections
@@ -636,6 +658,38 @@ value <- c()
 
 n_regions <- length(regions)
 n_categories <- length(categories)
+
+layer_x <- c(
+  regions     = 0.0,
+  categories  = 0.2,
+  generated   = 0.4,
+  collected   = 0.6,
+  processing  = 0.8
+)
+
+layer_y <- function(n) {
+  if (n == 1) return(0.5)
+  seq(0.01, 0.99, length.out = n)
+}
+
+region_y <- if (n_regions == 1) 0.5 else seq(0.01, 0.99, length.out = n_regions)
+category_base_y <- if (n_categories == 1) 0.5 else seq(0, 1, length.out = n_categories)
+
+x_coords <- c(
+  rep(layer_x["regions"], n_regions),
+  rep(layer_x["categories"], n_categories),
+  rep(layer_x["generated"], n_categories),
+  rep(layer_x["collected"], n_categories),
+  rep(layer_x["processing"], n_categories)
+)
+
+y_coords <- c(
+  region_y,
+  category_base_y,  
+  category_base_y, 
+  category_base_y, 
+  category_base_y   
+)
 
 # Region -> Category connections
 for(i in 1:n_regions) {
@@ -718,6 +772,8 @@ p_sankey_category <- plot_ly(
   type = "sankey",
   node = list(
     label = node_labels,
+    x = x_coords,
+    y = y_coords,
     color = c(
       rep("#708090", n_regions),           # Gray for regions
       unname(waste_category_colors[categories]), # Category colors
@@ -725,9 +781,10 @@ p_sankey_category <- plot_ly(
       rep("#DE8F05", n_categories),        # Orange for Collected  
       rep("#029E73", n_categories)         # Green for Processing
     ),
-    pad = 15,
-    thickness = 20,
-    line = list(color = "black", width = 0.5)
+    pad = 5,
+    thickness = 12,
+    line = list(color = "black", width = 0.5),
+    textposition = "middle right"
   ),
   link = list(
     source = source,
@@ -1554,60 +1611,102 @@ shinyServer(function(input, output, session) {
       ) |>
       arrange(year)
     
-    variant_data <- yearly_data |>
-      arrange(year) |>
-      mutate(
-        end_year = paste0(year, " End"),
-        start_next_year = paste0(year + 1, " Start"),
-        end_amount = total_end,
-        start_amount = lead(total_start),
-        difference = lead(total_start) - total_end
-      ) |>
-      dplyr::select(end_year, start_next_year, end_amount, start_amount, difference) |>
-      pivot_longer(
-        cols = c(end_year, start_next_year),
-        names_to = "type",
-        values_to = "year"
-      ) |>
-      mutate(
-        amount = ifelse(type == "end_year", end_amount, start_amount),
-        difference = ifelse(type == "start_next_year", difference, 0),
-        cumulative = cumsum(amount),
-        color_category = case_when(
-          type == "end_year" ~ "End Year",
-          difference > 0 ~ "Increase",
-          difference < 0 ~ "Decrease",
-          TRUE ~ "No Change"
-        )
-      ) |>
-      filter(!is.na(start_amount))
-    
-    variant_data$year <- with(variant_data, 
-                              paste(year, ifelse(type == "end_year", "", ""), sep = " "))
-    variant_data$year <- factor(variant_data$year, 
-                                levels = unique(variant_data$year))
-    
-    variant_data_long <- variant_data |>
-      pivot_longer(
-        cols = c(amount, difference),
-        names_to = "bar_type",
-        values_to = "value"
-      ) |>
-      mutate(
-        bar_category = case_when(
-          bar_type == "amount" & type == "end_year" ~ "End Year",
-          bar_type == "amount" & type != "end_year" ~ "Start Amount",
-          bar_type == "difference" & color_category == "Increase" ~ "Increase",
-          bar_type == "difference" & color_category == "Decrease" ~ "Decrease",
-          TRUE ~ "No Change"
-        )
-      )
-    
     desired_order <- c("Start Amount", "Increase", "End Year", "Decrease", "No Change")
     
-    variant_data_long <- variant_data_long |> 
-      mutate(bar_category = factor(bar_category, levels = desired_order)) |> 
-      arrange(bar_category)
+    years <- sort(yearly_data$year)
+    level_sequence <- c(
+      paste0(years[1], " End"),
+      unlist(lapply(years[-1], function(y) c(paste0(y, " Start"), paste0(y, " End"))))
+    )
+    
+    segments <- list()
+    
+    # first year end
+    first_end <- yearly_data$total_end[yearly_data$year == years[1]]
+    segments[[1]] <- tibble(
+      label = paste0(years[1], " End"),
+      bar_category = "End Year",
+      ymin = 0,
+      ymax = first_end
+    )
+    
+    # subsequent years
+    for (i in seq_along(years)[-1]) {
+      y <- years[i]
+      prev_end <- yearly_data$total_end[yearly_data$year == years[i - 1]]
+      start_val <- yearly_data$total_start[yearly_data$year == y]
+      end_val <- yearly_data$total_end[yearly_data$year == y]
+      change <- start_val - prev_end
+      
+      if (change > 0) { 
+        # Increase: show increase at bottom, then previous end on top
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Increase",
+          ymin = 0,
+          ymax = change
+        )
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Start Amount",
+          ymin = change,
+          ymax = change + prev_end  # equals total_start
+        )
+      } else if (change < 0) {
+        # Decrease: base is previous end, overlay decrease on top
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Start Amount",
+          ymin = 0,
+          ymax = prev_end
+        )
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Decrease",
+          ymin = start_val,
+          ymax = prev_end
+        )
+      } else {
+        # No change: just previous end
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Start Amount",
+          ymin = 0,
+          ymax = prev_end
+        )
+      }
+      
+      # End of year
+      segments[[length(segments) + 1]] <- tibble(
+        label = paste0(y, " End"),
+        bar_category = "End Year",
+        ymin = 0,
+        ymax = end_val
+      )
+    }
+    
+    fill_vals <- c(
+      "End Year"     = "#1f77b4",  
+      "Increase"     = "#2ca02c",  
+      "Start Amount" = "#7f7f7f", 
+      "Decrease"     = "#d62728",  
+      "No Change"    = "#c7c7c7" 
+    )
+    
+    start_lookup <- setNames(yearly_data$total_start, paste0(yearly_data$year, " Start"))
+    end_lookup   <- setNames(yearly_data$total_end,   paste0(yearly_data$year, " End"))
+    
+    variant_segments <- bind_rows(segments) |>
+      mutate(
+        label = factor(label, levels = level_sequence),
+        bar_category = factor(bar_category, levels = names(fill_vals)),
+        tooltip_amount = case_when(
+          bar_category == "Start Amount" ~ as.numeric(start_lookup[as.character(label)]),
+          bar_category == "End Year"     ~ as.numeric(end_lookup[as.character(label)]),
+          bar_category %in% c("Increase", "Decrease") ~ abs(ymax - ymin),
+          TRUE ~ abs(ymax - ymin)
+        )
+      )
     
     if (input$plot_selection_coll_storage == "Total Wood Waste Over Time") {
       t <- ggplot(yearly_data, aes(x = year)) +
@@ -1636,34 +1735,23 @@ shinyServer(function(input, output, session) {
     } else {
       # Create the variant waterfall plot with stacked bars
       suppressWarnings({
-        variant_plot <- ggplot(variant_data_long, aes(x = year, y = value, fill = bar_category)) +
-          geom_col(color = "black", aes(
-            text = paste0(
-              "Year: ", year, "<br>",
-              "Type: ", bar_type, "<br>",
-              "Value: ", round(value, 2), " tons"
-            )
-          )) +
-          geom_text(
+        variant_plot <- ggplot(variant_segments, aes(x = label, fill = bar_category)) +
+          geom_rect(
             aes(
-              label = ifelse(value > 0, round(value, 1), ifelse(value == 0, NA, round(value, 1))),
-              y = ifelse(value >= 0, value, value) + 0.05 * max(value, na.rm = TRUE)
+              xmin = as.numeric(label) - 0.4,
+              xmax = as.numeric(label) + 0.4,
+              ymin = ymin,
+              ymax = ymax,
+              text = paste0(
+                bar_category, "<br>",
+                "Value: ", scales::comma(round(tooltip_amount, 2)), " tons"
+              )
             ),
-            position = position_dodge(width = 0.7),
-            vjust = -0.5,
-            size = 3
+            color = "black"
           ) +
-          scale_fill_manual(
-            values = c(
-              "End Year" = "#4169E1",
-              "Increase" = "#006400",
-              "Start Amount" = "#808080",
-              "Decrease" = "#8B0000",
-              "No Change" = "#D3D3D3"
-            ),
-            name = "Type"
-          ) +
-          labs(x = "Year", y = "Waste Amount (tons)") +
+          scale_fill_manual(values = fill_vals, name = "Type") +
+          scale_x_discrete(drop = FALSE) +
+          labs(x = NULL, y = "Waste Amount (tons)") +
           theme_minimal() +
           theme(axis.text.x = element_text(angle = 45, hjust = 1))
         
@@ -1677,7 +1765,10 @@ shinyServer(function(input, output, session) {
               width = 1080,
               scale = 1)
           ) |> 
-          layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
+          layout(
+            showlegend = F,
+            xaxis = list(autorange = TRUE), 
+            yaxis = list(autorange = TRUE))
       })
     }
   })
@@ -2057,6 +2148,16 @@ shinyServer(function(input, output, session) {
   
   # Total Waste Trend
   output$totalWasteTrend <- renderPlotly({
+    
+    # Define colors for each category including total
+    trend_colors <- c(
+      "Total Amount" = "#1f1f1f",         
+      "Waste Handed to Collectors (RS)" = "#2E86AB",      
+      "Waste Delivered to Operators (RS)" = "#A23B72",     
+      "Waste Sent to EU" = "#F18F01",              
+      "Waste Sent to Non-EU" = "#C73E1D"          
+    )
+    
     total_by_year <- df_long_management |>
       group_by(year) |>
       summarise(total_waste = sum(total_waste_given_away, na.rm = TRUE), .groups = "drop") |>
@@ -2065,33 +2166,26 @@ shinyServer(function(input, output, session) {
     by_category <- df_long_management |>
       group_by(year, source) |>
       summarise(total_waste = sum(total_waste_given_away, na.rm = TRUE), .groups = "drop") |>
-      mutate(
-        source_label = case_when(
-          source == "waste_handed_to_collectors_RS" ~ "Waste Handed to Collectors (RS)",
-          source == "waste_delivered_to_operators_RS" ~ "Waste Delivered to Operators (RS)",
-          source == "waste_sent_to_EU" ~ "Waste Sent to EU",
-          source == "waste_sent_to_non_EU" ~ "Waste Sent to Non-EU",
-          TRUE ~ source
-        )
-      )
+      mutate(source_label = source_labels[source])  # Use the clean labels
     
     combined_data <- bind_rows(total_by_year, by_category)
     
     combined_data |>
-      config(
-      toImageButtonOptions = list(
-        format = 'png', # one of png, svg, jpeg, webp
-        filename = 'coll_waste_management_trend_year',
-        # height = 1920,
-        width = 1080,
-        scale = 2)
-    ) |>
       plot_ly(x = ~year, y = ~total_waste, color = ~source_label, 
+              colors = trend_colors,  # Apply custom colors
               type = 'scatter', mode = 'lines+markers') |>
       layout(
         xaxis = list(title = "Year"),
         yaxis = list(title = "Amount"),
         legend = list(title = list(text = "Waste Management Type"))
+      ) |>
+      config(
+        toImageButtonOptions = list(
+          format = 'png',
+          filename = 'coll_waste_management_trend_year',
+          width = 1080,
+          scale = 2
+        )
       )
   })
   
@@ -2169,26 +2263,29 @@ shinyServer(function(input, output, session) {
         colors = waste_colors
       ) |> 
       layout(
+        showlegend = FALSE,
         xaxis = list(title = "Amount"),
         yaxis = list(title = "Waste Type"),
         title = if(input$yearFilter == "All Years") {
-          "Total Waste Management by Type (All Years Combined)"
+          "Waste Management by Type (All Years Combined)"
         } else {
-          paste("Total Waste Management by Type -", input$yearFilter)
+          paste("Waste Management by Type -", input$yearFilter)
         }
       )
   })
   
-  # Detailed Plot
   output$detailedPlot <- renderPlotly({
     req(input$region, input$wasteType)
     
     filtered_management_data() |>
-      plot_ly(x = ~year, y = ~total_waste_given_away, color = ~source, type = 'scatter', mode = 'lines+markers') |>
+      mutate(source_clean = source_labels[source]) |>
+      plot_ly(x = ~year, y = ~total_waste_given_away, color = ~source_clean, 
+              colors = source_colors,  
+              type = 'scatter', mode = 'lines+markers') |>
       layout(title = paste("Waste Analysis", input$region, "-", input$wasteType),
              xaxis = list(title = "Year"),
              yaxis = list(title = "Amount"),
-             legend = list(title = "Waste Source"))
+             legend = list(title = "Waste Destination"))
   })
   
   
@@ -2196,32 +2293,22 @@ shinyServer(function(input, output, session) {
   
   ### Storage ----
   
-  # Observe waste type input and update region based on the selected waste type
   observeEvent(input$waste_type_trt_storage, {
     data_filtered <- trt_storage_data
-    
-    # Filter data based on selected waste type
     if (!is.null(input$waste_type_trt_storage) && length(input$waste_type_trt_storage) > 0) {
       data_filtered <- data_filtered[data_filtered$type_of_waste %in% input$waste_type_trt_storage, ]
       
-      # Check if current region exists for selected waste type
       available_regions <- unique(data_filtered$statistical_region)
       if (!input$region_trt_storage %in% available_regions) {
-        # If current region is not available, select the first available region
-        showNotification(
-          paste("No data available for the selected combination. Changed region to:", available_regions[1]),
-          type = "warning"
-        )
         
-        updateSelectInput(
+        updateSelectizeInput(
           session,
           "region_trt_storage",
           choices = available_regions,
           selected = available_regions[1]
         )
       } else {
-        # Update available regions while keeping current selection
-        updateSelectInput(
+        updateSelectizeInput(
           session,
           "region_trt_storage",
           choices = available_regions,
@@ -2231,32 +2318,23 @@ shinyServer(function(input, output, session) {
     }
   })
   
-  # Observe region input and update waste type based on the selected region
   observeEvent(input$region_trt_storage, {
     data_filtered <- trt_storage_data
     
-    # Filter data based on selected region
     if (!is.null(input$region_trt_storage) && length(input$region_trt_storage) > 0) {
       data_filtered <- data_filtered[data_filtered$statistical_region %in% input$region_trt_storage, ]
       
-      # Check if current waste type exists for selected region
       available_waste_types <- unique(data_filtered$type_of_waste)
       if (!input$waste_type_trt_storage %in% available_waste_types) {
-        # If current waste type is not available, select the first available type
-        showNotification(
-          paste("No data available for the selected combination. Changed waste type to:", available_waste_types[1]),
-          type = "warning"
-        )
         
-        updateSelectInput(
+        updateSelectizeInput(
           session,
           "waste_type_trt_storage",
           choices = available_waste_types,
           selected = available_waste_types[1]
         )
       } else {
-        # Update available waste types while keeping current selection
-        updateSelectInput(
+        updateSelectizeInput(
           session,
           "waste_type_trt_storage",
           choices = available_waste_types,
@@ -2307,7 +2385,6 @@ shinyServer(function(input, output, session) {
     filtered
   })
   
-  # Process data for plotting
   processed_data <- reactive({
     req(filtered_storage_data())
     req(nrow(filtered_storage_data()) > 0)
@@ -2326,7 +2403,6 @@ shinyServer(function(input, output, session) {
       mutate(previous_end_year = lag(waste_stored_end_year, 1)) |>
       ungroup()
     
-    # Check if we have enough data points for a meaningful plot
     if (n_distinct(complete_data$year) < 2) {
       showNotification(
         "Not enough data points for plotting. Please select a wider year range.",
@@ -2358,112 +2434,168 @@ shinyServer(function(input, output, session) {
   })
   
   output$waterfall_plot <- renderPlotly({
-    # Add multiple requirements checks
     req(processed_data())
     req(nrow(processed_data()) > 0)
     
     data <- processed_data()
     
-    # Additional check for data after processing
     if (is.null(data) || nrow(data) == 0) {
       return(NULL)
     }
     
-    variant_data <- tryCatch({
+    yearly_data <- tryCatch({
       data |>
         arrange(year) |>
-        mutate(
-          end_year = paste0(as.numeric(year), " End"),
-          start_next_year = paste0(as.numeric(year) + 1, " Start"),
-          end_amount = waste_stored_end_year,
-          start_amount = lead(waste_stored_start_year),
-          difference = lead(waste_stored_start_year) - waste_stored_end_year
+        group_by(year) |>
+        summarize(
+          total_start = sum(waste_stored_start_year, na.rm = TRUE),
+          total_end = sum(waste_stored_end_year, na.rm = TRUE),
+          .groups = "drop"
         ) |>
-        dplyr::select(end_year, start_next_year, end_amount, start_amount, difference) |>
-        pivot_longer(
-          cols = c(end_year, start_next_year),
-          names_to = "type",
-          values_to = "year"
-        ) |>
-        mutate(
-          amount = ifelse(type == "end_year", end_amount, start_amount),
-          difference = ifelse(type == "start_next_year", difference, 0),
-          cumulative = cumsum(amount),
-          color_category = case_when(
-            type == "end_year" ~ "End Year",
-            difference > 0 ~ "Increase",
-            difference < 0 ~ "Decrease",
-            TRUE ~ "No Change"
-          )
-        ) |>
-        filter(!is.na(start_amount))
+        arrange(year)
     }, error = function(e) {
       showNotification(
-        "Error processing data for plot. Please try different selections.",
+        "Error summarizing data for waterfall plot.",
         type = "error"
       )
       return(NULL)
     })
     
-    if (is.null(variant_data) || nrow(variant_data) == 0) {
+    if (is.null(yearly_data) || nrow(yearly_data) == 0) {
       return(NULL)
     }
     
-    variant_data$year <- with(variant_data, 
-                              paste(year, ifelse(type == "end_year", "", ""), sep = " "))
-    variant_data$year <- factor(variant_data$year, 
-                                levels = unique(variant_data$year))
+    years <- sort(yearly_data$year)
+    level_sequence <- c(
+      paste0(years[1], " End"),
+      unlist(lapply(years[-1], function(y) c(paste0(y, " Start"), paste0(y, " End"))))
+    )
     
-    variant_data_long <- variant_data |>
-      pivot_longer(
-        cols = c(amount, difference),
-        names_to = "bar_type",
-        values_to = "value"
-      ) |>
+    segments <- list()
+    
+    first_end_val <- yearly_data$total_end[yearly_data$year == years[1]]
+    segments[[1]] <- tibble(
+      label = paste0(years[1], " End"),
+      bar_category = "End Year",
+      ymin = 0,
+      ymax = first_end_val
+    )
+    
+    for (i in seq_along(years)[-1]) {
+      y <- years[i]
+      prev_end <- yearly_data$total_end[yearly_data$year == years[i - 1]]
+      start_val <- yearly_data$total_start[yearly_data$year == y]
+      end_val <- yearly_data$total_end[yearly_data$year == y]
+      change <- start_val - prev_end  # positive = increase, negative = decrease
+      
+      if (change > 0) {
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Increase",
+          ymin = 0,
+          ymax = change
+        )
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Start Amount",
+          ymin = change,
+          ymax = change + prev_end 
+        )
+      } else if (change < 0) {
+        # Start Amount is previous end
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Start Amount",
+          ymin = 0,
+          ymax = prev_end
+        )
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Decrease",
+          ymin = start_val,
+          ymax = prev_end
+        )
+      } else {
+        segments[[length(segments) + 1]] <- tibble(
+          label = paste0(y, " Start"),
+          bar_category = "Start Amount",
+          ymin = 0,
+          ymax = prev_end
+        )
+      }
+      
+      segments[[length(segments) + 1]] <- tibble(
+        label = paste0(y, " End"),
+        bar_category = "End Year",
+        ymin = 0,
+        ymax = end_val
+      )
+    }
+    
+    variant_segments <- bind_rows(segments) |>
       mutate(
-        bar_category = case_when(
-          bar_type == "amount" & type == "end_year" ~ "End Year",
-          bar_type == "amount" & type != "end_year" ~ "Start Amount",
-          bar_type == "difference" & color_category == "Increase" ~ "Increase",
-          bar_type == "difference" & color_category == "Decrease" ~ "Decrease",
-          TRUE ~ "No Change"
+        label = factor(label, levels = level_sequence),
+        bar_category = factor(bar_category, levels = c("Start Amount", "Increase", "End Year", "Decrease", "No Change"))
+      )
+    
+    start_lookup <- setNames(yearly_data$total_start, paste0(yearly_data$year, " Start"))
+    end_lookup <- setNames(yearly_data$total_end, paste0(yearly_data$year, " End"))
+    
+    variant_segments <- variant_segments |>
+      mutate(
+        tooltip_amount = case_when(
+          bar_category == "Start Amount" ~ as.numeric(start_lookup[as.character(label)]),
+          bar_category == "End Year" ~ as.numeric(end_lookup[as.character(label)]),
+          bar_category == "Increase" ~ ymax - ymin,
+          bar_category == "Decrease" ~ ymax - ymin,
+          TRUE ~ ymax - ymin
         )
       )
     
-    desired_order <- c("Start Amount", "Increase", "End Year", "Decrease", "No Change")
-    variant_data_long <- variant_data_long |> 
-      mutate(bar_category = factor(bar_category, levels = desired_order)) |> 
-      arrange(bar_category)
+    fill_vals <- c(
+      "End Year"     = "#4169E1",
+      "Increase"     = "#006400",
+      "Start Amount" = "#808080",
+      "Decrease"     = "#8B0000",
+      "No Change"    = "#D3D3D3"
+    )
     
-    p <- ggplot(variant_data_long, aes(x = year, y = value, fill = bar_category)) +
-      geom_col(position = position_identity(), color = "black") +
-      geom_text(
+    p <- ggplot(variant_segments, aes(x = label, fill = bar_category)) +
+      geom_rect(
         aes(
-          label = ifelse(value > 0, round(value, 1), ifelse(value == 0, NA, round(value, 1))),
-          y = ifelse(value >= 0, value, value) + 0.05 * max(value)
+          xmin = as.numeric(label) - 0.4,
+          xmax = as.numeric(label) + 0.4,
+          ymin = ymin,
+          ymax = ymax,
+          text = paste0(
+            bar_category, "<br>",
+            "Value: ", scales::comma(round(tooltip_amount, 2)), " tons<br>"
+          )
         ),
-        position = position_dodge(width = 0.9),
-        vjust = -0.5,
-        size = 3
+        color = "black"
       ) +
-      scale_fill_manual(
-        values = c(
-          "End Year" = "#4169E1",
-          "Increase" = "#006400",
-          "Start Amount" = "#808080",
-          "Decrease" = "#8B0000",
-          "No Change" = "#D3D3D3"
-        ),
-        name = "Type"
-      ) +
+      scale_fill_manual(values = fill_vals, name = "Type") +
+      scale_x_discrete(drop = FALSE) +
       labs(x = "Year", y = "Waste Amount (tons)") +
       theme_minimal() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
     
-    ggplotly(p, tooltip = c("x", "y", "fill")) |>
-      layout(xaxis = list(autorange = TRUE),
-             yaxis = list(autorange = TRUE))
-  }) 
+    ggplotly(p, tooltip = "text") |>
+      config(
+        toImageButtonOptions = list(
+          format = 'png',
+          filename = 'coll_storage_waterfall_variant',
+          width = 1080,
+          scale = 1
+        )
+      ) |>
+      layout(
+        showlegend = F,
+        xaxis = list(autorange = TRUE),
+        yaxis = list(autorange = TRUE)
+      )
+  })
+  
   
   ### Collected ----
   
