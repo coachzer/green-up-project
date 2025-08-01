@@ -337,6 +337,15 @@ shinyUI(
             plotlyOutput("wasteByTypeYear")
           )
         ),
+        # Section Treatment -----
+        fluidRow(
+          column(12,
+                 h3("Waste Treatment Analysis", style = "color: #3c8dbc; margin-bottom: 5px;"),
+                 p("This section is focused on wood waste that has been transferred for treatment, 
+      distinct from the previous charts showing overall waste generation patterns.", 
+                   style = "margin-bottom: 20px; color: #666;")
+          )
+        ),
         fluidRow(
           box(
             collapsible = TRUE,
@@ -368,6 +377,34 @@ shinyUI(
             solidHeader = TRUE,
             status = "primary",
             plotlyOutput("wasteTransferredByTypeYear")
+          )
+        ),
+        # Section Storage -----
+        fluidRow(
+          column(12,
+                 h3("Waste Storage Analysis", style = "color: #3c8dbc; margin-bottom: 5px;"),
+                 p("This section comapares wood waste inventory levelsat the start and the end of the year.", 
+                   style = "margin-bottom: 20px; color: #666;")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Wood Waste Storage Comparison",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("wasteStorage")
+          )
+        ),
+        # Section End of Year -----
+        fluidRow(
+          column(12,
+                 h3("Waste End of Year Storage Analysis", style = "color: #3c8dbc; margin-bottom: 5px;"),
+                 p("This section examines wood waste inventory levels - the amount of waste stored at facilities 
+      at the end of each year.", 
+                   style = "margin-bottom: 20px; color: #666;")
           )
         ),
         fluidRow(
@@ -403,6 +440,48 @@ shinyUI(
             plotlyOutput("wasteStoredEndYearByTypeYear")
           )
         ),
+        # Section Start of Year -----
+        fluidRow(
+          column(12,
+                 h3("Waste Start of Year Storage Analysis", style = "color: #3c8dbc; margin-bottom: 5px;"),
+                 p("This section examines wood waste inventory levels - the amount of waste stored at facilities 
+      at the start of each year.", 
+                   style = "margin-bottom: 20px; color: #666;")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Total Wood Waste Stored at the Start of the Year",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("wasteStoredStartYear")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Total Wood Waste Stored at the Start of the Year by Region and Year",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("wasteStoredStartYearByRegionYear")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            width = 12,
+            title = "Total Wood Waste Stored at the Start of the Year by Type and Year",
+            solidHeader = TRUE,
+            status = "primary",
+            plotlyOutput("wasteStoredStartYearByTypeYear")
+          )
+        ),
       ),
       # Collection ----
       tabItem(
@@ -431,29 +510,52 @@ shinyUI(
             # Waste Storage Plot Selection ----
             fluidRow(
               box(
+                collapsible = TRUE,
                 width = 3,
-                solidHeader = TRUE, status = "primary",
-                title = "Waste Storage Plot Selection",
+                solidHeader = TRUE, 
+                status = "primary",
+                title = "Select Filters:",
                 # inner container styling
                 tags$div(
                   style = "background-color: #f8f9fa; padding: 20px; border-radius: 10px;
                  margin: 10px 0;",
                   
-                  # Plot selection
+                  # Year selection
                   tags$div(
                     style = "margin-bottom: 25px;",
                     tags$label(
-                      tags$span(icon("chart-area", style = "margin-right: 8px;"),
+                      tags$span(icon("calendar-alt", style = "margin-right: 8px;"),
+                                style = "color: #2c3e50;"),
+                      "Select a Period:",
+                      style = "font-weight: bold; color: #2c3e50;
+           display: block; margin-bottom: 10px; font-size: 14px;"
+                    ),
+                    sliderInput(
+                      "year_selection_coll_storage",
+                      label = NULL,
+                      min = 2016,
+                      max = 2022,
+                      value = c(2016, 2022)
+                    )
+                  ),
+                  
+                  # Waste Type selection
+                  tags$div(
+                    style = "margin-bottom: 25px;",
+                    tags$label(
+                      tags$span(icon("recycle", style = "margin-right: 8px;"),
                                 style = "color: #3498db;"),
-                      "Choose a Plot:",
+                      "Select Waste Type:",
                       style = "font-weight: bold; color: #2c3e50;
                      display: block; margin-bottom: 10px; font-size: 14px;"
                     ),
-                    selectInput(
-                      "plot_selection_coll_storage", label = NULL,
-                      choices = c("Total Wood Waste Over Time",
-                                  "Total Wood Waste Over Time - Variant"),
-                      selected = "Total Wood Waste Over Time",
+                    selectizeInput(
+                      "type_of_waste_selection_coll_storage", label = NULL,
+                      choices = NULL, selected = NULL, multiple = TRUE,
+                      options = list(
+                        plugins = list("remove_button"),
+                        placeholder = "Select types of waste to compare"
+                      ),
                       width = "100%"
                     )
                   ),
@@ -1028,39 +1130,91 @@ shinyUI(
           
           # Treatment Storage ----
           tabPanel("Storage", 
-                   style = "margin-top: 20px;", fluidRow(
-            box(
-              collapsible = TRUE,
-              width = 3,
-              title = "Select Filters:",
-              solidHeader = TRUE,
-              status = "primary",
-              sliderInput(
-                "year_range_trt_storage",
-                "Select Year Range:",
-                min = 2016,
-                max = 2022,
-                value = c(2016, 2022)
-              ),
-              selectizeInput("waste_type_trt_storage", 
-                             "Select Waste Type", 
-                             choices = NULL,
-                             selected = NULL),
-              selectizeInput("region_trt_storage", 
-                             "Select Region", 
-                             choices = NULL,
-                             selected = NULL)
-            ),
-            
-            box(
-              collapsible = TRUE,
-              width = 9,
-              title = "Changes in Stored Wood Waste by Year",
-              solidHeader = TRUE,
-              status = "primary",
-              plotlyOutput("waterfall_plot")
-            )
-          )), 
+                   style = "margin-top: 20px;", 
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       width = 3,
+                       title = "Select Filters:",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       tags$div(
+                         style = "background-color: #f8f9fa; padding: 20px; border-radius: 10px;
+       margin: 10px 0;",
+                         
+                         # Year selection
+                         tags$div(
+                           style = "margin-bottom: 25px;",
+                           tags$label(
+                             tags$span(icon("calendar-alt", style = "margin-right: 8px;"),
+                                       style = "color: #2c3e50;"),
+                             "Select a Period:",
+                             style = "font-weight: bold; color: #2c3e50;
+           display: block; margin-bottom: 10px; font-size: 14px;"
+                           ),
+                           sliderInput(
+                             "year_range_trt_storage",
+                             label = NULL,
+                             min = 2016,
+                             max = 2022,
+                             value = c(2016, 2022)
+                           )
+                         ),
+                         
+                         # Waste Type selection
+                         tags$div(
+                           style = "margin-bottom: 25px;",
+                           tags$label(
+                             tags$span(icon("recycle", style = "margin-right: 8px;"),
+                                       style = "color: #3498db;"),
+                             "Select Waste Type:",
+                             style = "font-weight: bold; color: #2c3e50;
+           display: block; margin-bottom: 10px; font-size: 14px;"
+                           ),
+                           selectizeInput(
+                             "waste_type_trt_storage", label = NULL,
+                             choices = NULL, selected = NULL, multiple = TRUE,
+                             options = list(
+                               plugins = list("remove_button"),
+                               placeholder = "Select types of waste to compare"
+                             ),
+                             width = "100%"
+                           )
+                         ),
+                         
+                         # Region selection
+                         tags$div(
+                           style = "margin-bottom: 10px;",
+                           tags$label(
+                             tags$span(icon("map-marker-alt", style = "margin-right: 8px;"),
+                                       style = "color: #27ae60;"),
+                             "Select Region:",
+                             style = "font-weight: bold; color: #2c3e50;
+           display: block; margin-bottom: 10px; font-size: 14px;"
+                           ),
+                           selectizeInput(
+                             "region_trt_storage", label = NULL,
+                             choices = NULL, selected = NULL, multiple = TRUE,
+                             options = list(
+                               plugins = list("remove_button"),
+                               placeholder = "Select regions to compare"
+                             ),
+                             width = "100%"
+                           )
+                         )
+                       )
+                     ), 
+                     
+                     box(
+                       collapsible = TRUE,
+                       width = 9,
+                       title = "Wood Waste Storage Trends: Start vs End of Year",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       plotlyOutput("storageTrendsStartEnd", height = "600px")
+                     )
+                   )
+          ), 
           
           # Treatment Received ----
           tabPanel("Received",
