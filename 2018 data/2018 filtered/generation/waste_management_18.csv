@@ -1,4 +1,4 @@
-﻿"year","name_of_company","statistical_region","waste_code","type_of_waste","waste_category","total_waste_given_away","waste_handed_to_others_RS","waste_sent_to_EU","waste_treated_by_producer","waste_to_other_country_outside_EU"
+﻿"year","name_of_company","statistical_region","waste_code","type_of_waste","waste_category","total_waste_given_away","waste_handed_to_others_RS","waste_sent_to_EU","waste_treated_by_producer","waste_sent_for_treatment_outside_EU"
 2018,""" CEMENTNI IZDELKI JARC "" FRANC JARC S.P.","OSREDNJESLOVENSKA","15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste",0.903,0.903,0,0,0
 2018,""" CEMENTNI IZDELKI JARC "" FRANC JARC S.P.","OSREDNJESLOVENSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",0.66,0.66,0,0,0
 2018,"""BIROSERVIS SLUGA"" ALEŠ SLUGA S.P.","SAVINJSKA","20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste",1.04,1.04,0,0,0

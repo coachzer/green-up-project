@@ -1315,7 +1315,7 @@ ggplot(waste_plot_data,
 
 waste_plot_data <- generation.23 |>
   group_by(waste_code) |> # can be changed to type_of_waste or statistical_region
-  summarise(total_generated = sum(waste_generated, na.rm = TRUE)) |>
+  summarise(total_generated = sum(generated_in_the_year, na.rm = TRUE)) |>
   mutate(
     percentage = total_generated/sum(total_generated),
     display_label = paste0(comma(total_generated), " (", percent(percentage, accuracy = 0.01), ")")
@@ -1684,19 +1684,25 @@ treatment_received.23 <- treatment_received.23 |>
     waste_received_from_EU = `Prevzeti odpadki iz drugih držav članic EU kg`,
     waste_received_from_non_EU = `Prevzeti odpadki iz držav izven EU kg`
   ) |> 
-  process_waste_data() |>
+  mutate(across(c(total_waste_received:waste_received_from_non_EU), as.numeric)) |>
+  process_waste_column(waste_code, type_of_waste) |> 
   group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
-  summarize(
-    total_waste_received = sum(as.numeric(total_waste_received)) / 1000,
-    untreated_waste_from_storage_start_year = sum(as.numeric(untreated_waste_from_storage_start_year)) / 1000,
-    waste_received_own_waste = sum(as.numeric(waste_received_own_waste)) / 1000,
-    waste_received_from_generators = sum(as.numeric(waste_received_from_generators)) / 1000,
-    waste_received_from_collectors = sum(as.numeric(waste_received_from_collectors)) / 1000,
-    waste_received_from_treatment = sum(as.numeric(waste_received_from_treatment)) / 1000,
-    waste_received_from_EU = sum(as.numeric(waste_received_from_EU)) / 1000,
-    waste_received_from_non_EU = sum(as.numeric(waste_received_from_non_EU)) / 1000,
+  summarise(
+    across(
+      c(
+        total_waste_received,
+        untreated_waste_from_storage_start_year,
+        waste_received_own_waste,
+        waste_received_from_generators,
+        waste_received_from_collectors,
+        waste_received_from_treatment,
+        waste_received_from_EU,
+        waste_received_from_non_EU
+      ),
+      ~ sum(.x, na.rm = TRUE) / 1000
+    ),
     .groups = "drop"
-  ) 
+  )
 
 processed_sheets[[2]] <- treatment_received.23
 
@@ -2263,17 +2269,23 @@ waste_received.22 <- processed_sheets[[2]] |>
     waste_received_from_non_EU = `Prevzeti odpadki iz držav izven EU kg`,
     total_waste_received = `Prevzeti odpadki SKUPAJ kg`,
   ) |> 
+  mutate(across(c(total_waste_received:waste_received_from_non_EU), as.numeric)) |>
   process_waste_column(waste_code, type_of_waste) |> 
   group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
-  summarize(
-    total_waste_received = sum(as.numeric(total_waste_received)) / 1000,
-    untreated_waste_from_storage_start_year = sum(as.numeric(untreated_waste_from_storage_start_year)) / 1000,
-    waste_received_own_waste = sum(as.numeric(waste_received_own_waste)) / 1000,
-    waste_received_from_generators = sum(as.numeric(waste_received_from_generators)) / 1000,
-    waste_received_from_collectors = sum(as.numeric(waste_received_from_collectors)) / 1000,
-    waste_received_from_treatment = sum(as.numeric(waste_received_from_treatment)) / 1000,
-    waste_received_from_EU = sum(as.numeric(waste_received_from_EU)) / 1000,
-    waste_received_from_non_EU = sum(as.numeric(waste_received_from_non_EU)) / 1000,
+  summarise(
+    across(
+      c(
+        total_waste_received,
+        untreated_waste_from_storage_start_year,
+        waste_received_own_waste,
+        waste_received_from_generators,
+        waste_received_from_collectors,
+        waste_received_from_treatment,
+        waste_received_from_EU,
+        waste_received_from_non_EU
+      ),
+      ~ sum(.x, na.rm = TRUE) / 1000
+    ),
     .groups = "drop"
   )
 
@@ -3243,13 +3255,18 @@ waste_received.21 <- waste_received.21 |>
   process_waste_column(waste_code, type_of_waste) |>
   group_by(year, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
-    total_waste_received = sum(total_waste_received) / 1000,
-    waste_received_own_waste = sum(waste_received_own_waste) / 1000,
-    waste_received_from_producers_RS = sum(waste_received_from_producers_RS) / 1000,
-    waste_received_from_collectors_RS = sum(waste_received_from_collectors_RS) / 1000,
-    waste_received_from_processors_RS = sum(waste_received_from_processors_RS) / 1000,
-    waste_received_from_EU = sum(waste_received_from_EU) / 1000,
-    waste_received_from_non_EU = sum(waste_received_from_non_EU) / 1000,
+    across(
+      c(
+        total_waste_received,
+        waste_received_own_waste,
+        waste_received_from_producers_RS,
+        waste_received_from_collectors_RS,
+        waste_received_from_processors_RS,
+        waste_received_from_EU,
+        waste_received_from_non_EU
+      ),
+      ~ sum(.x, na.rm = TRUE) / 1000
+    ),
     .groups = "drop"
   )
 
@@ -4457,54 +4474,33 @@ waste_collected.19 <- waste_recovery_19.sheet2 |>
   filter_codes() |> 
   categorize_waste() |> 
   # solve NA for numeric values
-  mutate(across(everything(), ~ replace_na(.x, 0))) |>
+  mutate(total_waste_received = replace_na(total_waste_received, 0)) |>
   mutate(
+    year = 2019,  
     received_from = case_when(
       received_from == "1-lastni odpadki" ~ "own waste",
       received_from == "2-drug izvirni povzrocitelj v RS" ~ "other producer in RS",
       received_from == "3-(drug) zbiralec v RS" ~ "other collector in RS",
       received_from == "4-drug izvajalec obdelave v RS" ~ "other processing operator in RS",
       received_from == "5-druga država članica EU" ~ "other EU country",
-      received_from == "6-tretja država (izven EU)" ~ "other country outside EU"
+      received_from == "6-tretja država (izven EU)" ~ "other country outside EU",
+      TRUE ~ "unknown" 
     )
   ) |> 
   mutate(
-    waste_received_from_producer = case_when(
-      received_from == "own waste" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    waste_received_from_other_producer = case_when(
-      received_from == "other producer in RS" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    waste_received_from_collector = case_when(
-      received_from == "other collector in RS" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    waste_received_from_processing_operator = case_when(
-      received_from == "other processing operator in RS" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    waste_received_from_other_EU_country = case_when(
-      received_from == "other EU country" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    waste_received_from_other_country_outside_EU = case_when(
-      received_from == "other country outside EU" ~ total_waste_received,
-      TRUE ~ 0
-    )
+    waste_received_from_producer = ifelse(received_from == "own waste", total_waste_received, 0),
+    waste_received_from_other_producer = ifelse(received_from == "other producer in RS", total_waste_received, 0),
+    waste_received_from_collector = ifelse(received_from == "other collector in RS", total_waste_received, 0),
+    waste_received_from_processing_operator = ifelse(received_from == "other processing operator in RS", total_waste_received, 0),
+    waste_received_from_other_EU_country = ifelse(received_from == "other EU country", total_waste_received, 0),
+    waste_received_from_other_country_outside_EU = ifelse(received_from == "other country outside EU", total_waste_received, 0)
   ) |> 
-  group_by(year = 2019, name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
+  group_by(year, name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
-    total_waste_received = sum(total_waste_received) / 1000,
-    waste_received_from_producer = sum(waste_received_from_producer) / 1000,
-    waste_received_from_other_producer = sum(waste_received_from_other_producer) / 1000,
-    waste_received_from_collector = sum(waste_received_from_collector) / 1000,
-    waste_received_from_processing_operator = sum(waste_received_from_processing_operator) / 1000,
-    waste_received_from_other_EU_country = sum(waste_received_from_other_EU_country) / 1000,
-    waste_received_from_other_country_outside_EU = sum(waste_received_from_other_country_outside_EU) / 1000,
+    across(c(total_waste_received, starts_with("waste_received_from_")), 
+           ~ sum(.x, na.rm = TRUE) / 1000),
     .groups = "drop"
-  ) 
+  )
 
 waste_recovery_19.sheet2 <- waste_collected.19
 ```
@@ -4592,6 +4588,8 @@ waste_treatment_process.19 <- waste_recovery_19.sheet4 |>
     waste_recovered_and_given_away_to_other_country_outside_EU = sum(waste_recovered_and_given_away_to_other_country_outside_EU) / 1000,
     .groups = "drop"
   ) 
+
+waste_recovery_19.sheet4 <- waste_treatment_process.19
 ```
 
 ```{r municipal_waste_treatment}
@@ -4617,6 +4615,7 @@ municipal_waste_treatment.19 <- municipal_waste_treatment.19 |>
     total_waste_received = sum(total_waste_received) / 1000,
     .groups = "drop"
     ) 
+
 waste_recovery_19.sheet5 <- municipal_waste_treatment.19
 ```
 
@@ -5081,52 +5080,31 @@ waste_recovery_18.by_codes2 <- waste_recovery_18.sheet2 |>
   filter_codes() |>
   process_waste_column(waste_code, type_of_waste) |>
   mutate(
+    year = 2018,
     received_from = case_when(
       received_from == "1-lastni odpadki, samo v primeru OVD za obdelavo lastnih odpadkov" ~ "own waste, 'OVD' case",
       received_from == "2-drug izvirni povzročitelj v RS" ~ "other original producer in RS",
       received_from == "3-drug zbiralec v RS" ~ "other collector in RS",
       received_from == "4-drug izvajalec obdelave v RS" ~ "other processing operator in RS",
       received_from == "5-druga država članica EU" ~ "other EU country",
-      received_from == "6-tretja država (izven EU)" ~ "other country (outside EU)"
+      received_from == "6-tretja država (izven EU)" ~ "other country (outside EU)",
+      TRUE ~ "unknown" 
     )
   ) |> 
   mutate(
-    received_from_own_waste_OVD = case_when(
-      received_from == "own waste, 'OVD' case" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    received_from_other_producer_RS = case_when(
-      received_from == "other original producer in RS" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    received_from_other_collector_RS = case_when(
-      received_from == "other collector in RS" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    received_from_other_processing_operator_RS = case_when(
-      received_from == "other processing operator in RS" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    received_from_other_EU_country = case_when(
-      received_from == "other EU country" ~ total_waste_received,
-      TRUE ~ 0
-    ),
-    received_from_other_country_outside_EU = case_when(
-      received_from == "other country (outside EU)" ~ total_waste_received,
-      TRUE ~ 0
-    )
+    received_from_own_waste_OVD = ifelse(received_from == "own waste, 'OVD' case", total_waste_received, 0),
+    received_from_other_producer_RS = ifelse(received_from == "other original producer in RS", total_waste_received, 0),
+    received_from_other_collector_RS = ifelse(received_from == "other collector in RS", total_waste_received, 0),
+    received_from_other_processing_operator_RS = ifelse(received_from == "other processing operator in RS", total_waste_received, 0),
+    received_from_other_EU_country = ifelse(received_from == "other EU country", total_waste_received, 0),
+    received_from_other_country_outside_EU = ifelse(received_from == "other country (outside EU)", total_waste_received, 0)
   ) |> 
-  group_by(year = 2018, name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
+  group_by(year, name_of_company, statistical_region, waste_code, type_of_waste, waste_category) |>
   summarise(
-    total_waste_received = sum(total_waste_received) / 1000,
-    received_from_own_waste_OVD = sum(received_from_own_waste_OVD) / 1000,
-    received_from_other_producer_RS = sum(received_from_other_producer_RS) / 1000,
-    received_from_other_collector_RS = sum(received_from_other_collector_RS) / 1000,
-    received_from_other_processing_operator_RS = sum(received_from_other_processing_operator_RS) / 1000,
-    received_from_other_EU_country = sum(received_from_other_EU_country) / 1000,
-    received_from_other_country_outside_EU = sum(received_from_other_country_outside_EU) / 1000,
+    across(c(total_waste_received, starts_with("received_from_")), 
+           ~ sum(.x, na.rm = TRUE) / 1000),
     .groups = "drop"
-  ) 
+  )
 ```
 
 ```{r treatment_of_waste}

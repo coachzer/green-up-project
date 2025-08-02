@@ -175,6 +175,7 @@ year,statistical_region,waste_code,type_of_waste,waste_category,waste_stored_sta
 2019,OSREDNJESLOVENSKA,03 01 05,Sawdust/Shavings/Cuttings (03 01 05),Wood/Paper Production Waste,16.19,34.31,34.31
 2020,OSREDNJESLOVENSKA,03 01 05,Sawdust/Shavings/Cuttings (03 01 05),Wood/Paper Production Waste,34.31,0,25.7
 2023,OSREDNJESLOVENSKA,NA,Sawdust/Shavings/Cuttings (03 01 05),NA,25.7,0,NA
+2016,OSREDNJESLOVENSKA,03 03 08,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,1.416,0,493.35
 2018,OSREDNJESLOVENSKA,03 03 08,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,493.35,786.6,786.6
 2019,OSREDNJESLOVENSKA,03 03 08,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,786.6,540.483,540.483
 2020,OSREDNJESLOVENSKA,03 03 08,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,540.483,2066.56,2066.56
@@ -221,6 +222,8 @@ year,statistical_region,waste_code,type_of_waste,waste_category,waste_stored_sta
 2016,PODRAVSKA,19 12 01,Paper and Cardboard from Waste Treatment (19 12 01),Waste Treatment Residues,0,0,0
 2020,PODRAVSKA,19 12 01,Paper and Cardboard from Waste Treatment (19 12 01),Waste Treatment Residues,0,8.217,8.217
 2021,PODRAVSKA,NA,Paper and Cardboard from Waste Treatment (19 12 01),NA,8.217,34.293,NA
+2016,PODRAVSKA,03 03 08,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,0,0,NA
+2016,PODRAVSKA,20 01 37*,Wood Containing Hazardous Substances (20 01 37*),Municipal Waste,0.038,0,NA
 2023,PODRAVSKA,NA,Wood Waste from Treatment (not 19 12 06) (19 12 07),NA,5.622,0,NA
 2016,PODRAVSKA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,0,237.15,237.15
 2017,PODRAVSKA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,237.15,0,0.66
@@ -228,7 +231,6 @@ year,statistical_region,waste_code,type_of_waste,waste_category,waste_stored_sta
 2020,PODRAVSKA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,0,11.82,11.82
 2021,PODRAVSKA,NA,Wooden Packaging (15 01 03),NA,11.82,35.884,23.218
 2023,PODRAVSKA,NA,Wooden Packaging (15 01 03),NA,23.218,0,NA
-2016,PODRAVSKA,20 01 37*,NA,Municipal Waste,0.038,0,NA
 2017,POMURSKA,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,255.82,26.04,26.04
 2018,POMURSKA,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,26.04,0,0
 2019,POMURSKA,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,0,22.96,22.96
@@ -331,6 +333,7 @@ year,statistical_region,waste_code,type_of_waste,waste_category,waste_stored_sta
 2023,SAVINJSKA,NA,Paper and Cardboard from Waste Treatment (19 12 01),NA,98.401,0,NA
 2016,SAVINJSKA,03 01 05,Sawdust/Shavings/Cuttings (03 01 05),Wood/Paper Production Waste,270.435,215.097,11.674
 2017,SAVINJSKA,03 01 05,Sawdust/Shavings/Cuttings (03 01 05),Wood/Paper Production Waste,11.674,0,NA
+2016,SAVINJSKA,03 03 08,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,44.34,62,62
 2017,SAVINJSKA,03 03 08,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,62,83.92,40
 2018,SAVINJSKA,03 03 08,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,40,51.257,51.257
 2019,SAVINJSKA,03 03 08,Waste from Sorting of Paper and Cardboard for Recycling (03 03 08),Wood/Paper Production Waste,51.257,90.435,90.435

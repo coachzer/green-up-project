@@ -1371,6 +1371,16 @@ shinyUI(
                    fluidRow(
                      box(
                        collapsible = TRUE,
+                       title = "Total Waste Collected by Type (in tons)",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 12,
+                       plotlyOutput("wasteTypePlot", height = "600px")
+                     )
+                   ),
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
                        title = "Average Municipal Waste Collected for Treatment in Slovenia (2018-2021)",
                        solidHeader = TRUE,
                        status = "primary",
