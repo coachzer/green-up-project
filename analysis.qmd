@@ -637,6 +637,9 @@ combined_data <- combined_data |>
   filter(statistical_region != "NEOPREDELJENO") |>
   filter(statistical_region != "UNDEFINED")
 
+# export the combined generation data to the data folder
+write_csv(combined_data, "Interface/Visualization/data/gnr_combined.csv")
+
 region_colors <- c(
   "GORENJSKA" = "#1f77b4",              # Blue
   "GORIŠKA" = "#ff7f0e",                # Orange
@@ -739,9 +742,6 @@ p2 <- rates_daily |>
 
 p1
 p2
-
-# export the combined generation data to the data folder
-write_csv(combined_data, "Interface/Visualization/data/gnr_combined.csv")
 ```
 
 # Collection Data Analysis Process
