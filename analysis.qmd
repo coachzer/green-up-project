@@ -667,9 +667,6 @@ initial_stock <- combined_data  |>
     initial_stock_kg = initial_stock_tonnes * 1e3
   )
 
-# initial stock to csv
-write_csv(initial_stock, "Interface/Visualization/data/initial_stock.csv")
-
 rates_daily <- combined_data |> 
   group_by(statistical_region, waste_code) |> 
   summarise(
@@ -680,6 +677,18 @@ rates_daily <- combined_data |>
     daily_tonnes = round(annual_tonnes / 365, 3),
     daily_kg     = daily_tonnes * 1e3
   )
+
+rates_by_region <- rates_daily |>
+  select(statistical_region, waste_code, daily_tonnes) |>
+  group_split(statistical_region, .keep = FALSE) |>
+  setNames(unique(rates_daily$statistical_region))
+
+# Convert each region to named list (not vector)
+rates_named <- map(rates_by_region, ~as.list(setNames(.$daily_tonnes, .$waste_code)))
+
+# Convert to JSON
+complete_json <- jsonlite::toJSON(rates_named, pretty = TRUE, auto_unbox = TRUE)
+print(complete_json)
 
 treemap_data <- rates_daily |>
   group_by(statistical_region) |>

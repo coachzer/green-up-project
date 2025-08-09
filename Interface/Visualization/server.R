@@ -793,6 +793,15 @@ p_sankey_category <- plot_ly(
     color = "rgba(128, 128, 128, 0.3)"
   )
 ) |>
+  config(
+    toImageButtonOptions = list(
+      format = 'svg', # one of png, svg, jpeg, webp
+      filename = 'sankey_category',
+      # height = 1920,
+      width = 1080,
+      scale = 2
+    )
+  ) |>
   layout(
     title = "Waste Flow: Region → Category → Generation → Collection → Processing",
     font = list(size = 10)
