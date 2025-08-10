@@ -1446,7 +1446,7 @@ shinyUI(
               solidHeader = TRUE,
               status = "primary",
               width = 9,
-              plotlyOutput("inputTreatmentByYear"),
+              plotlyOutput("inputTreatmentByYear", height = "600px"),
             )
           ))
         )

@@ -952,7 +952,7 @@ p_region <- combined_waste_data |>
   plot_ly(x = ~statistical_region, y = ~total_value, color = ~metric,
           colors = waste_colors_comb,
           type = 'bar', orientation = 'v') |>
-  layout(title = "Waste by Region (All Years Combined)",
+  layout(# title = "Waste by Region (All Years Combined)",
          xaxis = list(title = "Statistical Region"),
          yaxis = list(title = "Amount (tons)"),
          barmode = 'stack')
@@ -2003,11 +2003,13 @@ shinyServer(function(input, output, session) {
     
     plot <- switch(
       input$plot_type_coll_received,
-      "stacked" = base_plot + geom_col(),
-      "faceted" = base_plot + geom_bar(stat = "identity", position = "dodge") +
-        facet_wrap( ~ source, ncol = 1, scales = "free_y"),
-      "grouped" = base_plot + geom_bar(stat = "identity", position = "dodge"),
-      base_plot + geom_col()  # Default to stacked plot
+      "stacked" = base_plot + geom_col(color = "black", size = 0.2),
+      "faceted" = base_plot + geom_bar(stat = "identity", position = "dodge", 
+                                       color = "black", size = 0.2) +
+        facet_wrap(~ source, ncol = 1, scales = "free_y"),
+      "grouped" = base_plot + geom_bar(stat = "identity", position = "dodge", 
+                                       color = "black", size = 0.2),
+      base_plot + geom_col(color = "black", size = 0.2) 
     )
     
     filename <- paste0("coll_waste_received_", input$plot_type_coll_received)
@@ -2352,6 +2354,13 @@ shinyServer(function(input, output, session) {
       plot_ly(x = ~year, y = ~total_waste_given_away, color = ~source_clean, 
               colors = source_colors,  
               type = 'scatter', mode = 'lines+markers') |>
+      config(
+        toImageButtonOptions = list(
+          format = 'svg', # one of png, svg, jpeg, webp
+          filename = paste0('coll_waste_management_', input$region, '_', input$wasteType),
+          width = 1080,
+          scale = 2)
+      ) |>
       layout(title = paste("Waste Analysis", input$region, "-", input$wasteType),
              xaxis = list(title = "Year"),
              yaxis = list(title = "Amount"),
@@ -3087,10 +3096,10 @@ shinyServer(function(input, output, session) {
         )
       ) |> 
       layout(
-        title = list(
-          text = "Municipal Waste by Type",
-          font = list(size = 16)
-        ),
+        # title = list(
+        #   text = "Municipal Waste by Type",
+        #   font = list(size = 16)
+        # ),
         showlegend = TRUE,
         legend = list(
           orientation = "v",
@@ -3181,7 +3190,7 @@ shinyServer(function(input, output, session) {
   # Mass Change by Operation - NOT USED
   output$inputTreatmentByOperation <- renderPlotly({
     plot_ly(filtered_input_data(), x = ~year, y = ~mass_change, color = ~treatment_operation, type = 'bar') |>
-      layout(title = "Mass Change During Treatment by Operation",
+      layout(# title = "Mass Change During Treatment by Operation",
              xaxis = list(title = "Year"),
              yaxis = list(title = "Total Mass Change"))
   })
