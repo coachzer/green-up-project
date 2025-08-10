@@ -358,7 +358,7 @@ plot_total_waste_by_year <- function(data) {
   ) |>
     config(
       toImageButtonOptions = list(
-        format = 'png', # one of png, svg, jpeg, webp
+        format = 'svg', # one of png, svg, jpeg, webp
         filename = 'coll_total_waste_by_year',
         # height = 1920,
         width = 1080,
@@ -393,7 +393,7 @@ plot_waste_by_municipality <- function(data, selected_year, top_n) {
   ) |>
     config(
       toImageButtonOptions = list(
-        format = 'png', # one of png, svg, jpeg, webp
+        format = 'svg', # one of png, svg, jpeg, webp
         filename = 'coll_waste_by_municipality',
         # height = 1920,
         width = 1080,
@@ -468,7 +468,7 @@ plot_waste_map <- function(df_long,
   ggplotly(p, tooltip = "text") |>
     config(
       toImageButtonOptions = list(
-        format = 'png', # one of png, svg, jpeg, webp
+        format = 'svg', # one of png, svg, jpeg, webp
         filename = 'coll_waste_map',
         # height = 1920,
         width = 1080,
@@ -508,7 +508,7 @@ plot_waste_types_by_year <- function(data) {
   ) |>
     config(
       toImageButtonOptions = list(
-        format = 'png', # one of png, svg, jpeg, webp
+        format = 'svg', # one of png, svg, jpeg, webp
         filename = 'coll_waste_types_by_year',
         # height = 1920,
         width = 1080,
@@ -548,7 +548,7 @@ plot_heatmap_by_region <- function(data) {
   ) |>
     config(
       toImageButtonOptions = list(
-        format = 'png', # one of png, svg, jpeg, webp
+        format = 'svg', # one of png, svg, jpeg, webp
         filename = 'coll_heatmap_region_by_year',
         # height = 1920,
         width = 1080,
@@ -625,8 +625,17 @@ p_combined <- combined_waste_data |>
   plot_ly(x = ~year, y = ~total_value, color = ~metric, 
           colors = waste_colors_comb,
           type = 'scatter', mode = 'lines+markers') |>
+  config(
+    toImageButtonOptions = list(
+      format = 'svg', # one of png, svg, jpeg, webp
+      filename = 'combined_overview',
+      # height = 1920,
+      width = 1080,
+      scale = 2
+    )
+  ) |> 
   layout(
-    title = "Waste Management Overview",
+    # title = "Waste Management Overview",
     xaxis = list(title = "Year"),
     yaxis = list(title = "Amount (tons)"),
     hovermode = 'x unified'
@@ -803,7 +812,7 @@ p_sankey_category <- plot_ly(
     )
   ) |>
   layout(
-    title = "Waste Flow: Region → Category → Generation → Collection → Processing",
+    # title = "Waste Flow: Region → Category → Generation → Collection → Processing",
     font = list(size = 10)
   )
 
@@ -932,7 +941,7 @@ p_sankey_type <- plot_ly(
   )
 ) |>
   layout(
-    title = "Waste Flow: Region → Type → Generation → Collection → Processing",
+    # title = "Waste Flow: Region → Type → Generation → Collection → Processing",
     font = list(size = 10)
   )
 #### p_region ----
@@ -960,7 +969,7 @@ p_type <- combined_waste_data |>
   plot_ly(y = ~type_of_waste, x = ~total_value, color = ~metric,
           colors = c("Generated" = "#0173B2", "Collected" = "#DE8F05", "For Processing" = "#029E73"),
           type = 'bar', orientation = 'h') |>
-  layout(title = "Waste by Type",
+  layout(# title = "Waste by Type",
          yaxis = list(title = "Type of Waste"),
          xaxis = list(title = "Amount (tons)"),
          barmode = 'stack')
@@ -1137,43 +1146,48 @@ shinyServer(function(input, output, session) {
         name = "Total Generated Waste",
         type = 'scatter',
         mode = 'lines+markers',
-        line = list(color = '#E69F00')
+        line = list(color = '#009E73')
       ) |>
       add_trace(
         y = ~total_waste_transferred,
         name = "Waste Transferred",
         type = 'scatter',
         mode = 'lines+markers',
-        line = list(color = '#56B4E9')
+        line = list(color = '#F0E442')
       ) |>
       add_trace(
         y = ~total_waste_stored_start,
         name = "Waste Stored at Start of Year",
         type = 'scatter',
         mode = 'lines+markers',
-        line = list(color = '#009E73')
+        line = list(color = '#1f77b4')
       ) |>
       add_trace(
         y = ~total_waste_stored_end,
         name = "Waste Stored at End of Year",
         type = 'scatter',
         mode = 'lines+markers',
-        line = list(color = '#F0E442')
+        line = list(color = '#ff7f0e')
       ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_total_waste_combined_year',
           # height = 1920,
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(
         # title = "Combined Waste Management Metrics Over Time",
         xaxis = list(title = "Year", autorange = TRUE),
-        yaxis = list(title = "Waste Amount (tons)", autorange = TRUE),
+        yaxis = list(title = "Amount (tons)", autorange = TRUE),
         hovermode = "x unified",
-        legend = list(orientation = 'h', y = -0.2)
+        legend = list(
+          orientation = "h",
+          x = 0.5,
+          xanchor = 'center',
+          y = 1.02
+        )
       )
   })
   
@@ -1195,7 +1209,7 @@ shinyServer(function(input, output, session) {
       ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_total_waste_by_year',
           # height = 1920,
           width = 1080,
@@ -1270,7 +1284,7 @@ shinyServer(function(input, output, session) {
       ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_waste_by_type_year',
           # height = 1920,
           width = 1080,
@@ -1304,9 +1318,8 @@ shinyServer(function(input, output, session) {
         ) |>
         config(
           toImageButtonOptions = list(
-            format = 'png', # one of png, svg, jpeg, webp
+            format = 'svg', # one of png, svg, jpeg, webp
             filename = 'gnr_waste_by_category_total_line',
-            # height = 1920,
             width = 1080,
             scale = 2)
         ) |> 
@@ -1344,9 +1357,8 @@ shinyServer(function(input, output, session) {
       ) |>
         config(
           toImageButtonOptions = list(
-            format = 'png', # one of png, svg, jpeg, webp
+            format = 'svg', # one of png, svg, jpeg, webp
             filename = 'gnr_waste_by_category_total_pie',
-            # height = 1920,
             width = 1080,
             scale = 2)
         ) |> 
@@ -1384,10 +1396,10 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_total_waste_transferred_by_year',
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(
         xaxis = list(title = "Year", autorange = TRUE),
@@ -1420,11 +1432,11 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_waste_transferred_by_region_year',
           # height = 1920,
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(
         xaxis = list(title = "Year", autorange = TRUE),
@@ -1452,7 +1464,7 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_waste_transferred_by_type_year',
           width = 1080,
           scale = 2)
@@ -1493,14 +1505,14 @@ shinyServer(function(input, output, session) {
       ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png',
+          format = 'svg',
           filename = 'gnr_waste_start_end_comparison',
           width = 1080,
-          scale = 1
+          scale = 2
         )
       ) |>
       layout(
-        title = "Temporarily Stored Waste: Start vs End of Year",
+        # title = "Temporarily Stored Waste: Start vs End of Year",
         xaxis = list(title = "Year", autorange = TRUE),
         yaxis = list(title = "Amount Stored (tons)", autorange = TRUE),
         hovermode = "x unified",
@@ -1529,11 +1541,11 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_waste_stored_end_year',
           # height = 1920,
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(
         xaxis = list(title = "Year", autorange = TRUE),
@@ -1569,11 +1581,11 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_waste_stored_end_by_region_year',
           # height = 1920,
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(
         xaxis = list(
@@ -1609,11 +1621,11 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_waste_stored_end_by_type_year',
           # height = 1920,
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(
         xaxis = list(
@@ -1646,11 +1658,11 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_waste_stored_start_year',
           # height = 1920,
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(
         xaxis = list(title = "Year", autorange = TRUE),
@@ -1686,11 +1698,11 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_waste_stored_start_by_region_year',
           # height = 1920,
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(
         xaxis = list(
@@ -1726,11 +1738,11 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'gnr_waste_stored_start_by_type_year',
           # height = 1920,
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(
         xaxis = list(
@@ -1818,10 +1830,10 @@ shinyServer(function(input, output, session) {
     ggplotly(t) |> 
       config(
         toImageButtonOptions = list(
-          format = 'png',
+          format = 'svg',
           filename = 'coll_storage_year_start_end',
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
   })
@@ -1923,9 +1935,8 @@ shinyServer(function(input, output, session) {
     ggplotly(t) |> 
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'coll_waste_received_by_year',
-          # height = 1920,
           width = 1080,
           scale = 2)
       ) |> 
@@ -2007,9 +2018,8 @@ shinyServer(function(input, output, session) {
         toImageButtonOptions = list(
           format = 'svg', # one of png, svg, jpeg, webp
           filename = filename,
-          height = 600,
-          width = NULL,
-          scale = 3)
+          width = 1080,
+          scale = 2)
       ) |> 
       layout(
         hovermode = "x",
@@ -2106,6 +2116,13 @@ shinyServer(function(input, output, session) {
       type  = 'scatter',
       mode  = 'lines+markers'
     ) |> 
+      config(
+        toImageButtonOptions = list(
+          format = 'svg', # one of png, svg, jpeg, webp
+          filename = 'coll_municipal_comparison',
+          width = 1080,
+          scale = 2)
+      ) |> 
       layout(
         title      = "Waste Collected by Municipality",
         xaxis      = list(title = "Year", tickvals = unique(filtered_data$year)),
@@ -2234,7 +2251,7 @@ shinyServer(function(input, output, session) {
       ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png',
+          format = 'svg',
           filename = 'coll_waste_management_trend_year',
           width = 1080,
           scale = 2
@@ -2318,12 +2335,12 @@ shinyServer(function(input, output, session) {
       layout(
         showlegend = FALSE,
         xaxis = list(title = "Amount"),
-        yaxis = list(title = "Waste Type"),
-        title = if(input$yearFilter == "All Years") {
-          "Waste Management by Type (All Years Combined)"
-        } else {
-          paste("Waste Management by Type -", input$yearFilter)
-        }
+        yaxis = list(title = "Waste Type")# ,
+        # title = if(input$yearFilter == "All Years") {
+        #   "Waste Management by Type (All Years Combined)"
+        # } else {
+        #   paste("Waste Management by Type -", input$yearFilter)
+        # }
       )
   })
   
@@ -2506,10 +2523,10 @@ shinyServer(function(input, output, session) {
     ggplotly(t) |> 
       config(
         toImageButtonOptions = list(
-          format = 'png',
+          format = 'svg',
           filename = 'trt_storage_year_start_end',
           width = 1080,
-          scale = 1)
+          scale = 2)
       ) |> 
       layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
   })
@@ -2566,6 +2583,13 @@ shinyServer(function(input, output, session) {
                 name = "From Non-EU", 
                 type = 'scatter', 
                 mode = 'lines+markers') |>
+      config(
+        toImageButtonOptions = list(
+          format = 'svg', # one of png, svg, jpeg, webp
+          filename = 'trt_waste_received_year',
+          width = 1080,
+          scale = 2)
+      ) |>
       layout(
         xaxis = list(title = "Year"),
         yaxis = list(title = "Amount Received"),
@@ -2599,10 +2623,10 @@ shinyServer(function(input, output, session) {
       ) |> 
         config(
           toImageButtonOptions = list(
-            format = 'png', # one of png, svg, jpeg, webp
+            format = 'svg', # one of png, svg, jpeg, webp
             filename = 'trt_waste_received_region_year_bar',
             width = 1080,
-            scale = 4)
+            scale = 2)
         ) |> 
         layout(
           xaxis = list(title = "Statistical Region"),
@@ -2637,7 +2661,7 @@ shinyServer(function(input, output, session) {
       ) |> 
         config(
           toImageButtonOptions = list(
-            format = 'png',
+            format = 'svg',
             filename = 'regional_waste_total_pie',
             width = 1080,
             scale = 2
@@ -2812,9 +2836,8 @@ shinyServer(function(input, output, session) {
     p <- p |>
       config(
         toImageButtonOptions = list(
-          format = 'png', # one of png, svg, jpeg, webp
+          format = 'svg', # one of png, svg, jpeg, webp
           filename = 'trt_waste_treatment_over_time_by_waste_type',
-          # height = 1920,
           width = 1080,
           scale = 2)
       ) |> 
@@ -2894,6 +2917,14 @@ shinyServer(function(input, output, session) {
         )
       
       ggplotly(p, tooltip = "text") |>
+        config(
+          toImageButtonOptions = list(
+            format = 'svg', # one of png, svg, jpeg, webp
+            filename = 'trt_municipal_waste_received_map',
+            width = 1080,
+            scale = 2
+          )
+        ) |> 
         layout(
           hoverlabel = list(
             bgcolor = "white",
@@ -2967,6 +2998,14 @@ shinyServer(function(input, output, session) {
            color = "Municipality")
     
     ggplotly(trend_plot) |>
+      config(
+        toImageButtonOptions = list(
+          format = 'svg', # one of png, svg, jpeg, webp
+          filename = 'trt_municipal_waste_received_trend',
+          width = 1080,
+          scale = 2
+        )
+      ) |> 
       layout(xaxis = list(autorange = TRUE),
              yaxis = list(autorange = TRUE))
   })
@@ -2991,6 +3030,14 @@ shinyServer(function(input, output, session) {
         "<extra></extra>"
       )
     ) |>
+      config(
+        toImageButtonOptions = list(
+          format = 'svg', # one of png, svg, jpeg, webp
+          filename = 'trt_municipal_waste_received_by_region',
+          width = 1080,
+          scale = 2
+        )
+      ) |> 
       layout(
         xaxis = list(
           title = "Statistical Region",
@@ -3033,7 +3080,7 @@ shinyServer(function(input, output, session) {
     ) |>
       config(
         toImageButtonOptions = list(
-          format = 'png',
+          format = 'svg',
           filename = 'trt_waste_type_total_pie',
           width = 1080,
           scale = 2
@@ -3114,6 +3161,14 @@ shinyServer(function(input, output, session) {
         )
       )
     ) |>
+      config(
+        toImageButtonOptions = list(
+          format = 'svg', # one of png, svg, jpeg, webp
+          filename = 'trt_input_treatment_by_year',
+          width = 1080,
+          scale = 2
+        )
+      ) |> 
       layout(
         #title = "Mass Change During Treatment Over the Years by Waste Type",
         barmode = 'stack',
