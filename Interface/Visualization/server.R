@@ -400,7 +400,7 @@ plot_waste_by_municipality <- function(data, selected_year, top_n) {
         scale = 2)
     ) |> 
     layout(
-      title = paste("Top", top_n, "Municipalities by Waste Collected in", selected_year),
+      #title = paste("Top", top_n, "Municipalities by Waste Collected in", selected_year),
       xaxis = list(title = "Municipality", tickangle = -45),
       yaxis = list(title = "Amount Collected"),
       showlegend = FALSE
@@ -515,11 +515,17 @@ plot_waste_types_by_year <- function(data) {
         scale = 2)
     ) |> 
     layout(
-      title = "Waste Types Collected by Year",
+      # title = "Waste Types Collected by Year",
       xaxis = list(title = "Year"),
       yaxis = list(title = "Amount Collected"),
       barmode = 'stack', # This creates the stacked bar effect
-      legend = list(title=list(text='Type of Waste'))
+      legend = list(
+        title=list(text='Type of Waste'),
+        orientation = "h",
+        x = 0.5,
+        xanchor = 'center',
+        y = -0.22
+      )
     )
   
   return(p)
@@ -638,7 +644,13 @@ p_combined <- combined_waste_data |>
     # title = "Waste Management Overview",
     xaxis = list(title = "Year"),
     yaxis = list(title = "Amount (tons)"),
-    hovermode = 'x unified'
+    hovermode = 'x unified',
+    legend = list(
+      orientation = "h",
+      x = 0.5,
+      xanchor = 'center',
+      y = 1.02
+    )
   )
 
 #### p_sankey_category ----
@@ -2014,11 +2026,16 @@ shinyServer(function(input, output, session) {
     
     filename <- paste0("coll_waste_received_", input$plot_type_coll_received)
     
+    legend_config <- if(input$plot_type_coll_received == "faceted") {
+      list(orientation = "v", x = 1.02, xanchor = 'left', y = 0.5, yanchor = 'middle')
+    } else {
+      list(orientation = "h", x = 0.5, xanchor = 'center', y = 1.02)
+    }
     
     ggplotly(plot, tooltip = c("x", "y", "fill")) |>
       config(
         toImageButtonOptions = list(
-          format = 'svg', # one of png, svg, jpeg, webp
+          format = 'svg',
           filename = filename,
           width = 1080,
           scale = 2)
@@ -2026,7 +2043,8 @@ shinyServer(function(input, output, session) {
       layout(
         hovermode = "x",
         xaxis = list(autorange = TRUE),
-        yaxis = list(autorange = TRUE)
+        yaxis = list(autorange = TRUE),
+        legend = legend_config
       )
   })
   
@@ -2709,6 +2727,14 @@ shinyServer(function(input, output, session) {
       colors = waste_colors,
       type = 'bar'
     ) |>
+      config(
+        toImageButtonOptions = list(
+          format = 'svg', # one of png, svg, jpeg, webp
+          filename = 'trt_waste_received_type_year',
+          width = 1080,
+          scale = 2
+        )
+      ) |> 
       layout(
         # title = "Total Waste Received by Type of Waste",
         xaxis = list(title = "Amount Received"),
