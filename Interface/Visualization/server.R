@@ -589,6 +589,8 @@ trt_input_treatment_data <- trt_input_treatment_data |>
   summarise(mass_change = sum(mass_change, na.rm = TRUE), .groups = "drop") |>
   ungroup()
 
+#### trt_management_data ----
+trt_management_data <- read_csv("data/trt_management_combined.csv", show_col_types = FALSE)
 ### ------------ Overview (Combined) ------------
 
 # Calculate totals for info boxes
@@ -3220,6 +3222,299 @@ shinyServer(function(input, output, session) {
              xaxis = list(title = "Year"),
              yaxis = list(title = "Total Mass Change"))
   })
+  
+  ### Management ----
+  
+  # Update filters
+  observe({
+    updateSliderInput(
+      session,
+      "year_filter_mgmt",
+      min = min(trt_management_data$year, na.rm = TRUE),
+      max = max(trt_management_data$year, na.rm = TRUE),
+      value = c(min(trt_management_data$year, na.rm = TRUE), 
+                max(trt_management_data$year, na.rm = TRUE))
+    )
+    
+    # Filter data by current year range
+    year_filtered <- trt_management_data %>%
+      filter(year >= min(trt_management_data$year, na.rm = TRUE) & 
+               year <= max(trt_management_data$year, na.rm = TRUE))
+    
+    # Get waste types sorted by total volume (descending)
+    waste_types_ranked <- year_filtered %>%
+      group_by(input_waste_name) %>%
+      summarise(total = sum(waste_handed_to_collectors_RS + waste_delivered_to_operators_RS + 
+                              waste_sent_to_EU + waste_sent_to_non_EU, na.rm = TRUE),
+                .groups = 'drop') %>%
+      arrange(desc(total)) %>%
+      pull(input_waste_name)
+    
+    # Select the waste type with most volume as default
+    default_waste <- waste_types_ranked[1]
+    
+    # Update waste type filter
+    updateSelectizeInput(
+      session,
+      "waste_type_filter_mgmt",
+      choices = waste_types_ranked,
+      selected = default_waste,
+      options = list(plugins = list('remove_button'))
+    )
+    
+    # Find regions that have this waste type
+    regions_with_waste <- year_filtered %>%
+      filter(input_waste_name == default_waste) %>%
+      group_by(statistical_region) %>%
+      summarise(total = sum(waste_handed_to_collectors_RS + waste_delivered_to_operators_RS + 
+                              waste_sent_to_EU + waste_sent_to_non_EU, na.rm = TRUE),
+                .groups = 'drop') %>%
+      arrange(desc(total)) %>%
+      pull(statistical_region)
+    
+    # Select the region with most volume for this waste type
+    default_region <- regions_with_waste[1]
+    
+    # Update region filter
+    updateSelectizeInput(
+      session,
+      "region_filter_mgmt",
+      choices = sort(unique(trt_management_data$statistical_region)),
+      selected = default_region,
+      options = list(plugins = list('remove_button'))
+    )
+  })
+  
+  # Reactive update: when waste type changes, suggest compatible regions
+  observeEvent(input$waste_type_filter_mgmt, {
+    if (length(input$waste_type_filter_mgmt) > 0) {
+      # Find regions that have the selected waste types
+      compatible_regions <- trt_management_data %>%
+        filter(
+          year >= input$year_filter_mgmt[1] & year <= input$year_filter_mgmt[2],
+          input_waste_name %in% input$waste_type_filter_mgmt
+        ) %>%
+        pull(statistical_region) %>%
+        unique() %>%
+        sort()
+      
+      # Update region choices to show only compatible regions
+      updateSelectizeInput(
+        session,
+        "region_filter_mgmt",
+        choices = compatible_regions,
+        selected = intersect(input$region_filter_mgmt, compatible_regions)
+      )
+    }
+  }, ignoreInit = TRUE)
+  
+  # Reactive update: when region changes, suggest compatible waste types
+  observeEvent(input$region_filter_mgmt, {
+    if (length(input$region_filter_mgmt) > 0) {
+      # Find waste types that exist in the selected regions
+      compatible_wastes <- trt_management_data %>%
+        filter(
+          year >= input$year_filter_mgmt[1] & year <= input$year_filter_mgmt[2],
+          statistical_region %in% input$region_filter_mgmt
+        ) %>%
+        pull(input_waste_name) %>%
+        unique() %>%
+        sort()
+      
+      # Update waste type choices to show only compatible types
+      updateSelectizeInput(
+        session,
+        "waste_type_filter_mgmt",
+        choices = compatible_wastes,
+        selected = intersect(input$waste_type_filter_mgmt, compatible_wastes)
+      )
+    }
+  }, ignoreInit = TRUE)
+  
+  # Reactive update: when year changes, update both filters
+  observeEvent(input$year_filter_mgmt, {
+    year_filtered <- trt_management_data %>%
+      filter(year >= input$year_filter_mgmt[1] & year <= input$year_filter_mgmt[2])
+    
+    available_wastes <- sort(unique(year_filtered$input_waste_name))
+    available_regions <- sort(unique(year_filtered$statistical_region))
+    
+    # Update choices and maintain selection if still valid
+    updateSelectizeInput(
+      session,
+      "waste_type_filter_mgmt",
+      choices = available_wastes,
+      selected = intersect(input$waste_type_filter_mgmt, available_wastes)
+    )
+    
+    updateSelectizeInput(
+      session,
+      "region_filter_mgmt",
+      choices = available_regions,
+      selected = intersect(input$region_filter_mgmt, available_regions)
+    )
+  }, ignoreInit = TRUE)
+  # Filter data based on user input
+  filtered_management_data <- reactive({
+    trt_management_data |> 
+      filter(
+        year >= input$year_filter_mgmt[1] & year <= input$year_filter_mgmt[2],
+        input_waste_name %in% input$waste_type_filter_mgmt,
+        statistical_region %in% input$region_filter_mgmt
+      )
+  })
+  
+  # Prepare data for Sankey diagram
+  sankey_data <- reactive({
+    data <- filtered_management_data()
+    
+    # Create flows from input to output waste
+    # Add prefix to distinguish input and output nodes
+    input_to_output <- data %>%
+      group_by(input_waste_name, output_waste_name) %>%
+      summarise(
+        total_mass = sum(waste_handed_to_collectors_RS + waste_delivered_to_operators_RS + 
+                           waste_sent_to_EU + waste_sent_to_non_EU, na.rm = TRUE),
+        .groups = 'drop'
+      ) %>%
+      filter(total_mass > 0) %>%
+      mutate(
+        source = paste0(input_waste_name, " (Input)"),
+        target = paste0(output_waste_name, " (Output)")
+      ) %>%
+      select(source, target, value = total_mass)
+    
+    # Create flows from output waste to destinations
+    output_to_destination <- data %>%
+      select(output_waste_name, waste_handed_to_collectors_RS, 
+             waste_delivered_to_operators_RS, waste_sent_to_EU, waste_sent_to_non_EU) %>%
+      pivot_longer(
+        cols = c(waste_handed_to_collectors_RS, waste_delivered_to_operators_RS, 
+                 waste_sent_to_EU, waste_sent_to_non_EU),
+        names_to = "destination",
+        values_to = "value"
+      ) %>%
+      mutate(
+        destination = case_when(
+          destination == "waste_handed_to_collectors_RS" ~ "Collectors (Slovenia)",
+          destination == "waste_delivered_to_operators_RS" ~ "Treatment Operators (Slovenia)",
+          destination == "waste_sent_to_EU" ~ "EU Member States",
+          destination == "waste_sent_to_non_EU" ~ "Non-EU Countries",
+          TRUE ~ destination
+        ),
+        source = paste0(output_waste_name, " (Output)")
+      ) %>%
+      group_by(source, destination) %>%
+      summarise(value = sum(value, na.rm = TRUE), .groups = 'drop') %>%
+      filter(value > 0) %>%
+      rename(target = destination)
+    
+    # Combine both flow levels
+    all_flows <- bind_rows(input_to_output, output_to_destination)
+    
+    return(all_flows)
+  })
+  
+  # Create Sankey diagram
+  output$sankeyManagement <- renderPlotly({
+    req(nrow(sankey_data()) > 0)
+    
+    sankey_df <- sankey_data()
+    
+    # Create unique nodes from all sources and targets
+    all_nodes <- unique(c(sankey_df$source, sankey_df$target))
+    
+    # Create links with node indices
+    links <- sankey_df %>%
+      mutate(
+        source_idx = match(source, all_nodes) - 1,  # 0-indexed for plotly
+        target_idx = match(target, all_nodes) - 1
+      )
+    
+    # Assign colors based on node type
+    node_colors <- sapply(all_nodes, function(node) {
+      # Destinations
+      destinations <- c("Collectors (Slovenia)", "Treatment Operators (Slovenia)", 
+                        "EU Member States", "Non-EU Countries")
+      
+      if (grepl("\\(Input\\)$", node)) {
+        return("#3498db")  # Blue for input waste
+      } else if (grepl("\\(Output\\)$", node)) {
+        return("#2ecc71")  # Green for output waste
+      } else if (node %in% destinations) {
+        return("#e74c3c")  # Red for destinations
+      } else {
+        return("#95a5a6")  # Gray for unknown
+      }
+    })
+    
+    # Create Sankey plot
+    plot_ly(
+      type = "sankey",
+      orientation = "h",
+      node = list(
+        label = all_nodes,
+        color = node_colors,
+        pad = 15,
+        thickness = 20,
+        line = list(color = "black", width = 0.5)
+      ),
+      link = list(
+        source = links$source_idx,
+        target = links$target_idx,
+        value = links$value,
+        label = paste0(round(links$value, 2), " tons")
+      )
+    ) %>%
+      layout(
+        title = list(
+          text = paste0("Waste Transformation Flow (", 
+                        input$year_filter_mgmt[1], "-", 
+                        input$year_filter_mgmt[2], ")<br>",
+                        "<sup style='font-size: 10px;'>Blue: Input Waste | Green: Output Waste | Red: Destinations</sup>"),
+          font = list(size = 16)
+        ),
+        font = list(size = 11),
+        margin = list(l = 20, r = 20, t = 80, b = 20)
+      )
+  })
+  
+  
+  # Summary table
+  output$wasteSummaryTable <- renderTable({
+    data <- filtered_management_data()
+    
+    summary <- data %>%
+      group_by(input_waste_name) %>%
+      summarise(
+        `Collectors (Slovenia)` = round(sum(waste_handed_to_collectors_RS, na.rm = TRUE), 2),
+        `Treatment Operators (Slovenia)` = round(sum(waste_delivered_to_operators_RS, na.rm = TRUE), 2),
+        `EU Member States` = round(sum(waste_sent_to_EU, na.rm = TRUE), 2),
+        `Non-EU Countries` = round(sum(waste_sent_to_non_EU, na.rm = TRUE), 2),
+        `Total (tons)` = round(sum(waste_handed_to_collectors_RS + waste_delivered_to_operators_RS + 
+                                     waste_sent_to_EU + waste_sent_to_non_EU, na.rm = TRUE), 2),
+        .groups = 'drop'
+      ) %>%
+      rename(`Input Waste Type` = input_waste_name) %>%
+      arrange(desc(`Total (tons)`))
+    
+    # Add a totals row at the bottom
+    totals_row <- data.frame(
+      `Input Waste Type` = "TOTAL",
+      `Collectors (Slovenia)` = round(sum(data$waste_handed_to_collectors_RS, na.rm = TRUE), 2),
+      `Treatment Operators (Slovenia)` = round(sum(data$waste_delivered_to_operators_RS, na.rm = TRUE), 2),
+      `EU Member States` = round(sum(data$waste_sent_to_EU, na.rm = TRUE), 2),
+      `Non-EU Countries` = round(sum(data$waste_sent_to_non_EU, na.rm = TRUE), 2),
+      `Total (tons)` = round(sum(data$waste_handed_to_collectors_RS + data$waste_delivered_to_operators_RS + 
+                                   data$waste_sent_to_EU + data$waste_sent_to_non_EU, na.rm = TRUE), 2),
+      check.names = FALSE
+    )
+    
+    # Combine summary with totals
+    final_summary <- bind_rows(summary, totals_row)
+    
+    return(final_summary)
+  }, striped = TRUE, hover = TRUE, bordered = TRUE, spacing = 'xs')
   
   # Simulation tab -----
   

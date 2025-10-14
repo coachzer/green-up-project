@@ -1448,7 +1448,52 @@ shinyUI(
               width = 9,
               plotlyOutput("inputTreatmentByYear", height = "600px"),
             )
-          ))
+          )),
+          # Treatment Management ----
+          tabPanel("Management", 
+                   style = "margin-top: 20px;", 
+                   fluidRow(
+                     box(
+                       collapsible = TRUE,
+                       title = "Filter Data:",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 3,
+                       sliderInput(
+                         "year_filter_mgmt",
+                         "Select Year Range:",
+                         min = 2020,
+                         max = 2023,
+                         value = c(2020, 2023)
+                       ),
+                       selectizeInput(
+                         "waste_type_filter_mgmt",
+                         "Select Input Waste Type:",
+                         choices = NULL,
+                         multiple = TRUE
+                       ),
+                       selectizeInput(
+                         "region_filter_mgmt",
+                         "Select Statistical Region:",
+                         choices = NULL,
+                         multiple = TRUE
+                       )
+                     ),
+                     box(
+                       collapsible = TRUE,
+                       title = "Waste Management Flow (Sankey Diagram)",
+                       solidHeader = TRUE,
+                       status = "primary",
+                       width = 9,
+                       plotlyOutput("sankeyManagement", height = "600px"),
+                       br(),
+                       div(
+                         style = "padding: 10px;",
+                         h5("Total Waste by Destination (tons):"),
+                         tableOutput("wasteSummaryTable")
+                       )
+                     )
+                   ))
         )
       ),
       # Simulation -----

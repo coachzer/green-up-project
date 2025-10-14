@@ -615,6 +615,7 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         
         # 03 03 - Pulp, paper & cardboard production waste
         .data[[waste_code_col]] == "03 03 01" ~ "Bark and Wood Waste from Pulp/Paper Production (03 03 01)",
+        .data[[waste_code_col]] == "03 03 05" ~ "Sludges from On-site Wastewater Treatment (03 03 05)",
         .data[[waste_code_col]] == "03 03 07" ~ "Mechanically Separated Rejects from Pulping (03 03 07)",
         .data[[waste_code_col]] == "03 03 08" ~ "Waste from Sorting of Paper and Cardboard for Recycling (03 03 08)",
         .data[[waste_code_col]] == "03 03 10" ~ "Fiber Rejects and Sludge from Mechanical Separation (03 03 10)",
@@ -692,6 +693,7 @@ categorize_waste <- function(data, waste_code_col = "waste_code") {
         .data[[waste_code_col]] == "16 02 16" ~ "Components Removed from Discarded Equipment (16 02 16)",
         
         # 16 03 - Batches not as described and unused products
+        .data[[waste_code_col]] == "16 03 03*" ~ "Hazardous Inorganic Wastes (16 03 03*)",
         .data[[waste_code_col]] == "16 03 04" ~ "Non-Hazardous Inorganic Wastes (16 03 04)",
         .data[[waste_code_col]] == "16 03 06" ~ "Non-Hazardous Organic Wastes (16 03 06)",
         
@@ -1584,6 +1586,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_treatment_2023}
+# Initial functions ----
 waste_treatment_23.path <- "2023 data\\podatki LP ODP-obdelava 2023.xlsx"
 
 sheet_names <- excel_sheets(waste_treatment_23.path)
@@ -1605,7 +1608,7 @@ processed_sheets <- lapply(sheet_names, function(sheet_name) {
 
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
-# Table 1: Storage of waste/materials or objects generated in the treatment process in previous years, as at 1.1., 2023
+# Table 1: Storage of waste/materials or objects generated in the treatment process in previous years, as at 1.1., 2023 ----
 treatment.23 <- processed_sheets[[1]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
 
 treatment.23 <- treatment.23 |>
@@ -1662,7 +1665,7 @@ treatment.23 <- treatment.23 |>
 
 processed_sheets[[1]] <- treatment.23
 
-# Table 2: Waste received, 2023
+# Table 2: Waste received, 2023 ----
 treatment_received.23 <- processed_sheets[[2]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
 
 treatment_received.23 <- treatment_received.23 |>
@@ -1706,7 +1709,7 @@ treatment_received.23 <- treatment_received.23 |>
 
 processed_sheets[[2]] <- treatment_received.23
 
-# EXCLUDED - Table 2a: Recovered end-of-life vehicles (ELV) of categories M1, N1 and three-wheel motor vehicles (L2e), 2023
+# EXCLUDED - Table 2a: Recovered end-of-life vehicles (ELV) of categories M1, N1 and three-wheel motor vehicles (L2e), 2023 ----
 treatment_ELVs.23 <- processed_sheets[[3]] |> select(-Poročilo)
 
 # Table 3: Treatment of waste received, 2023
@@ -1731,7 +1734,7 @@ waste_treated.23 <- waste_treated.23 |>
 
 processed_sheets[[4]] <- waste_treated.23
 
-# Table 4: Management of waste from the treatment process and management of untreated waste, 2023
+# Table 4: Management of waste from the treatment process and management of untreated waste, 2023 ----
 management.23 <- processed_sheets[[5]] |> 
   select(
     year = `Leto`,
@@ -1756,7 +1759,7 @@ management.23 <- processed_sheets[[5]] |>
 management.23 <- management.23 |>
   process_waste_column(treatment_inlet_delivered_waste_code, input_waste_name) |>
   process_waste_column(treatment_outlet_delivered_waste_code, output_waste_name) |> 
-  group_by(year, statistical_region, treatment_inlet_delivered_waste_code, input_waste_name, treatment_operation, treatment_outlet_delivered_waste_code, output_waste_name, further_treatment_envisaged) |>
+  group_by(year, statistical_region, treatment_inlet_delivered_waste_code, input_waste_name, waste_category, treatment_operation, treatment_outlet_delivered_waste_code, output_waste_name, waste_category_1, further_treatment_envisaged) |>
   summarise(
     waste_sent_to_self_storage_end_year = sum(waste_sent_to_self_storage_end_year) / 1000,
     waste_sent_to_collector_SI = sum(waste_sent_to_collector_SI) / 1000,
@@ -1787,7 +1790,7 @@ print(missing_output_codes)
 
 processed_sheets[[5]] <- management.23
 
-# Table 4a: Management of treatment products that are no longer waste, 2023
+# Table 4a: Management of treatment products that are no longer waste, 2023 ----
 management_products.23 <- processed_sheets[[6]] |> 
   select(
     year = `Leto`,
@@ -1822,13 +1825,13 @@ management_products.23 <- processed_sheets[[6]] |>
 
 processed_sheets[[6]] <- management_products.23
 
-# EXCLUDED - Table 4b: Materials resulting from the shredding of dismantled end-of-life vehicles (ELVs) of categories M1, N1 and three-wheel motor vehicles (L2e), 2023
+# EXCLUDED - Table 4b: Materials resulting from the shredding of dismantled end-of-life vehicles (ELVs) of categories M1, N1 and three-wheel motor vehicles (L2e), 2023 ----
 ELV_materials.23 <- processed_sheets[[7]] |> select(-Poročilo)
 
-# EXCLUDED - Table 5: Mechanical-biological treatment of mixed municipal waste, separated by municipality of origin, 2023
+# EXCLUDED - Table 5: Mechanical-biological treatment of mixed municipal waste, separated by municipality of origin, 2023 ----
 MBT_municipality.23 <- processed_sheets[[8]] |> select(-Poročilo)
 
-# Table 6: Mass difference between waste input and treatment product volumes, 2023
+# Table 6: Mass difference between waste input and treatment product volumes, 2023 ----
 mass_difference.23 <- processed_sheets[[9]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
 
 mass_difference.23 <- mass_difference.23 |>
@@ -1848,10 +1851,10 @@ mass_difference.23 <- mass_difference.23 |>
 
 processed_sheets[[9]] <- mass_difference.23
 
-# EXCLUDED - Table 7: Landfill capacity and status, 2023
+# EXCLUDED - Table 7: Landfill capacity and status, 2023 ----
 landfill_capacity.23 <- processed_sheets[[10]] |> select(-Poročilo)
 
-# Table 8: Waste management in landfill, 2023
+# Table 8: Waste management in landfill, 2023 ----
 landfill_management.23 <- processed_sheets[[11]] |> 
   select(
     year = `Leto`,
@@ -1883,18 +1886,19 @@ landfill_management.23 <- processed_sheets[[11]] |>
 
 processed_sheets[[11]] <- landfill_management.23
 
-# EXCLUDED - Table 9: Disposed waste resulting from municipal waste treatment (from mechanical-biological treatment of mixed municipal waste and from treatment operations of separated fractions of municipal waste), by municipality of origin, 2023
+# EXCLUDED - Table 9: Disposed waste resulting from municipal waste treatment (from mechanical-biological treatment of mixed municipal waste and from treatment operations of separated fractions of municipal waste), by municipality of origin, 2023 ----
 disposed_municipality.23 <- processed_sheets[[12]] |> select(-Poročilo)
 
-# EXCLUDED - Table 10: Compost or digestate production, 2023
+# EXCLUDED - Table 10: Compost or digestate production, 2023 ----
 compost_digestate.23 <- processed_sheets[[13]] |> select(-Poročilo)
 
-# EXCLUDED - Table 11: Use of compost or digestate as waste, 2023
+# EXCLUDED - Table 11: Use of compost or digestate as waste, 2023 ----
 compost_digestate_use.23 <- processed_sheets[[14]] |> select(-Poročilo)
 
-# # EXCLUDED - Table 12: Additional data on waste oils, 2023
+# EXCLUDED - Table 12: Additional data on waste oils, 2023 ----
 waste_oils.23 <- processed_sheets[[15]] |> select(-Poročilo)
 
+# Construct sheet names ----
 sheet_names <- c(
   "Prev Treatment", # Sheet 1
   "Waste Received", # Sheet 2
@@ -1916,6 +1920,7 @@ sheet_names <- c(
 # add the new names
 names(processed_sheets) <- sheet_names
 
+# Write files ----
 for (sheet_name in sheet_names) {
   write_excel_csv(processed_sheets[[sheet_name]], paste0("2023 data\\2023 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_23.csv"))
 }
@@ -2206,6 +2211,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_treatment_2022}
+# Initial functions ----
 # Specify the path to the Excel file
 waste_treatment_22.path <- "2022 data\\podatki LP ODP-obdelava 2022.xlsx"
 
@@ -2232,7 +2238,7 @@ processed_sheets <- lapply(sheet_names, function(sheet_name) {
 
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
-# Treatment in previous years, as of 1.1.2022
+# Treatment in previous years, as of 1.1.2022 ----
 treatment.22 <- processed_sheets[[1]] |> 
   dplyr::select(
     year = `Leto`,
@@ -2253,7 +2259,7 @@ treatment.22[] <- lapply(treatment.22, function(x) ifelse(is.na(x), "undefined",
 
 processed_sheets[[1]] <- treatment.22 
 
-# Waste received
+# Waste received ----
 waste_received.22 <- processed_sheets[[2]] |> 
   dplyr::select(
     year = `Leto`,
@@ -2291,7 +2297,7 @@ waste_received.22 <- processed_sheets[[2]] |>
 
 processed_sheets[[2]] <- waste_received.22
 
-# Treatment of waste received
+# Treatment of waste received ----
 waste_treated.22 <- processed_sheets[[3]] |>
   dplyr::select(
     year = `Leto`,
@@ -2312,7 +2318,7 @@ waste_treated.22 <- processed_sheets[[3]] |>
 
 processed_sheets[[3]] <- waste_treated.22
 
-# Management of waste from the treatment process and untreated waste
+# Management of waste from the treatment process and untreated waste ----
 management.22 <- processed_sheets[[4]] |> select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
 
 management.22 <- management.22 |>
@@ -2334,7 +2340,7 @@ management.22 <- management.22 |>
   ) |>
   process_waste_column(treatment_inlet_delivered_waste_code, input_waste_name) |>
   process_waste_column(treatment_outlet_delivered_waste_code, output_waste_name) |>
-  group_by(year, statistical_region, treatment_inlet_delivered_waste_code, input_waste_name, waste_category, treatment_operation, treatment_outlet_delivered_waste_code, output_waste_name, waste_category_1) |>
+  group_by(year, statistical_region, treatment_inlet_delivered_waste_code, input_waste_name, waste_category, treatment_operation, treatment_outlet_delivered_waste_code, output_waste_name, waste_category_1, further_treatment_envisaged) |>
   summarize(
     waste_sent_to_self_storage_end_year = sum(waste_sent_to_self_storage_end_year) / 1000,
     waste_sent_to_collector_SI = sum(waste_sent_to_collector_SI) / 1000,
@@ -2347,7 +2353,7 @@ management.22 <- management.22 |>
 
 processed_sheets[[4]] <- management.22
 
-# Management of treatment products that are no longer waste
+# Management of treatment products that are no longer waste ----
 management_no_waste.22 <- processed_sheets[[5]] |> select(-Poročilo)
 
 management_no_waste.22 <- management_no_waste.22 |>
@@ -2381,7 +2387,7 @@ management_no_waste.22 <- management_no_waste.22 |>
 
 processed_sheets[[5]] <- management_no_waste.22
 
-# Mechanical-biological treatment of mixed municipal waste, separated by municipality of origin
+# Mechanical-biological treatment of mixed municipal waste, separated by municipality of origin ----
 mech_bio_treatment.22 <- processed_sheets[[6]] |> 
   dplyr::select(
     year = `Leto`,
@@ -2397,7 +2403,7 @@ mech_bio_treatment.22 <- processed_sheets[[6]] |>
 
 processed_sheets[[6]] <- mech_bio_treatment.22
 
-# Mass difference between waste input and treatment product volumes
+# Mass difference between waste input and treatment product volumes ----
 mass_difference.22 <- processed_sheets[[7]] |> dplyr::select(-Poročilo, -`Odpadne sveče pri odpadku 20 02 03 (da/ne)`)
 
 mass_difference.22 <- mass_difference.22 |>
@@ -2415,7 +2421,7 @@ mass_difference.22 <- mass_difference.22 |>
 
 processed_sheets[[7]] <- mass_difference.22
 
-# Landfill capacity and status
+# Landfill capacity and status ----
 landfill_capacity.22 <- processed_sheets[[8]] |> 
   dplyr::select(
     year = `Leto`,
@@ -2450,7 +2456,7 @@ landfill_capacity.22 <- processed_sheets[[8]] |>
 
 processed_sheets[[8]] <- landfill_capacity.22
 
-# Waste management in landfill
+# Waste management in landfill ----
 landfill_management.22 <- processed_sheets[[9]] |>
   dplyr::select(
     year = `Leto`,
@@ -2483,11 +2489,11 @@ landfill_management.22 <- processed_sheets[[9]] |>
 
 processed_sheets[[9]] <- landfill_management.22
 
-# Disposed waste resulting from municipal waste treatment (from mechanical-biological treatment of mixed municipal waste and from treatment operations of separated fractions of municipal waste), by municipality of origin
+# Disposed waste resulting from municipal waste treatment (from mechanical-biological treatment of mixed municipal waste and from treatment operations of separated fractions of municipal waste), by municipality of origin ----
 # no data
 disposed_waste.22 <- processed_sheets[[10]]
 
-# Production of compost or digestate
+# Production of compost or digestate ----
 compost_digestate.22 <- processed_sheets[[11]] |> 
   dplyr::select(
     year = `Leto`,
@@ -2534,7 +2540,7 @@ compost_digestate.22 <- compost_digestate.22 |>
 
 processed_sheets[[11]] <- compost_digestate.22
 
-# Production of compost or digestate, that are waste
+# Production of compost or digestate, that are waste ----
 compost_digestate_waste.22 <- processed_sheets[[12]] |> 
   dplyr::select(
     year = `Leto`,
@@ -2560,6 +2566,7 @@ compost_digestate_waste.22 <- processed_sheets[[12]] |>
 
 processed_sheets[[12]] <- compost_digestate_waste.22
 
+# Construct sheet names ----
 sheet_names <- c(
   "Prev Treatment",
   "Waste Received",
@@ -2578,6 +2585,7 @@ sheet_names <- c(
 # add the new names
 names(processed_sheets) <- sheet_names
 
+# Write files ----
 for (sheet_name in sheet_names) {
   write_excel_csv(processed_sheets[[sheet_name]], paste0("2022 data\\2022 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_22.csv"))
 }
@@ -3175,6 +3183,7 @@ Contains 9 sheets (translated to English):
 ### Code
 
 ```{r waste_treatment_2021}
+# Initial functions ----
 # how waste is used
 
 # reports of waste treatment operators (ODP-Treatment) - poročil izvajalcev obdelave odpadkov
@@ -3208,7 +3217,7 @@ for (sheet_name in sheet_names) {
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
-# Sheet 1: Waste storage
+# Sheet 1: Waste storage ----
 waste_storage.21 <- processed_sheets[[1]]
 
 waste_storage.21 <- waste_storage.21 |>
@@ -3234,7 +3243,7 @@ waste_storage.21 <- waste_storage.21 |>
 
 processed_sheets[[1]] <- waste_storage.21
 
-# Sheet 2: Waste received
+# Sheet 2: Waste received ----
 waste_received.21 <- processed_sheets[[2]]
 
 waste_received.21 <- waste_received.21 |>
@@ -3272,7 +3281,7 @@ waste_received.21 <- waste_received.21 |>
 
 processed_sheets[[2]] <- waste_received.21
 
-# Sheet 3: Treatment of waste received
+# Sheet 3: Treatment of waste received ----
 treating_waste.21 <- processed_sheets[[3]]
 
 treating_waste.21 <- treating_waste.21 |>
@@ -3290,15 +3299,16 @@ treating_waste.21 <- treating_waste.21 |>
 
 processed_sheets[[3]] <- treating_waste.21
 
-# Sheet 4: Management of waste from treatment operations and untreated waste
+# Sheet 4: Management of waste from treatment operations and untreated waste ----
 management_waste.21 <- processed_sheets[[4]]
 
 management_waste.21 <- management_waste.21 |>
-  dplyr::select(-Poročilo, -`Odpadne nagrobne sveče (da/ne)`) |>
-  rename(
+  dplyr::select(
     year = `Leto`,
     statistical_region = `Statistična regija`,
+    treatment_inlet_delivered_waste_code,
     input_waste_name = `Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki naziv`,
+    treatment_outlet_delivered_waste_code,
     output_waste_name = `Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki naziv`,
     waste_handed_to_collectors_RS = `Odpadki, oddani v nadaljnje ravnanje zbiralcu odpadkov v SI kg`,
     waste_delivered_to_operators_RS = `Odpadki, oddani v nadaljnje ravnanje izvajalcu obdelave v SI kg`,
@@ -3322,7 +3332,7 @@ management_waste.21 <- management_waste.21 |>
 
 processed_sheets[[4]] <- management_waste.21
 
-# Sheet 4a: Management of treatment products that are no longer waste
+# Sheet 4a: Management of treatment products that are no longer waste ----
 management_waste.21a <- processed_sheets[[5]]
 
 management_waste.21a <- management_waste.21a |>
@@ -3358,7 +3368,7 @@ management_waste.21a <- management_waste.21a |>
 
 processed_sheets[[5]] <- management_waste.21a
 
-# Sheet 5: Municipal waste received for treatment, separated by municipality of origin
+# Sheet 5: Municipal waste received for treatment, separated by municipality of origin ----
 waste_treatment.21 <- processed_sheets[[6]]
 
 waste_treatment.21 <- waste_treatment.21 |>
@@ -3383,7 +3393,7 @@ waste_treatment.21 <- waste_treatment.21 |>
 
 processed_sheets[[6]] <- waste_treatment.21
 
-# Sheet 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
+# Sheet 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process ----
 mass_difference.21 <- processed_sheets[[7]]
 
 mass_difference.21 <- mass_difference.21 |>
@@ -3405,7 +3415,7 @@ mass_difference.21 <- mass_difference.21 |>
 
 processed_sheets[[7]] <- mass_difference.21
 
-# Sheet 7: Landfill capacity and status (for inert, hazardous and non-hazardous waste, including municipal waste)
+# Sheet 7: Landfill capacity and status (for inert, hazardous and non-hazardous waste, including municipal waste) ----
 landfill_capacity.21 <- processed_sheets[[8]]
 
 landfill_capacity.21 <- landfill_capacity.21 |>
@@ -3447,7 +3457,7 @@ landfill_capacity.21 <- landfill_capacity.21 |>
 
 processed_sheets[[8]] <- landfill_capacity.21
 
-# Sheet 8: Landfill waste management
+# Sheet 8: Landfill waste management ----
 landfill_waste.21 <- processed_sheets[[9]]
 
 
@@ -3488,14 +3498,15 @@ landfill_waste.21 <- landfill_waste.21 |>
 
 processed_sheets[[9]] <- landfill_waste.21
 
-# Sheet 9: Municipal waste disposed by municipality of origin - EXCLUDED
+# EXCLUDED - Sheet 9: Municipal waste disposed by municipality of origin ----
 municipal_waste_disposed.21 <- processed_sheets[[10]]
 
+# Construct sheet names ----
 sheet_names <- c(
   "Waste storage",
   "Waste received",
   "Treatment of waste received",
-  "Management of waste from treatment operations and untreated waste",
+  "Waste management",
   "Management of treatment products that are no longer waste",
   "Municipal waste received for treatment, separated by municipality of origin",
   "Mass difference between waste input and treatment product volumes due to mass change during the treatment process",
@@ -3505,6 +3516,7 @@ sheet_names <- c(
 
 names(processed_sheets) <- sheet_names
 
+# Write files ----
 for (sheet_name in sheet_names) {
   write_excel_csv(processed_sheets[[sheet_name]], paste0("2021 data\\2021 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_21.csv"))
 }
@@ -3811,6 +3823,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_treatment_2020}
+# Initial functions ----
 # Specify the path to the Excel file
 treatment_20.path <- "2020 data\\podatki LP ODP-obdelava 2020.xlsx"
 
@@ -3828,21 +3841,17 @@ sheets_with_n_max_4 <- 9
 # Loop through each sheet
 for (sheet_name in sheet_names) {
   sheet_index <- match(sheet_name, sheet_names)
-
-  n_max <- case_when(
-    sheet_index %in% sheets_with_n_max_3 ~ 3,
-    sheet_index %in% sheets_with_n_max_4 ~ 4,
-    TRUE                                 ~ 2
-  )
-
-  processed_sheets[[sheet_name]] <- 
-    process_sheet(treatment_20.path, sheet_index, n_max)
+  n_max <- if (sheet_index %in% sheets_with_n_max_3) 3 else if (sheet_index == sheets_with_n_max_4) 4 else 2
+  processed_sheet <- process_sheet(treatment_20.path, sheet_index, n_max)
+  # print(sheet_name)
+  # print(n_max)
+  processed_sheets[[sheet_name]] <- processed_sheet
 }
 
 # Applying the function to each data frame in processed_sheets
 processed_sheets <- lapply(processed_sheets, filter_df_by_codes)
 
-# Table 1: Waste storage in 2020
+# Table 1: Waste storage in 2020 ----
 waste_storage.20 <- processed_sheets[[1]] |>
   dplyr::select(
     year                    = Leto,
@@ -3865,7 +3874,7 @@ waste_storage.20 <- processed_sheets[[1]] |>
 processed_sheets[[1]] <- waste_storage.20
 
 
-# Table 2: Waste received in 2020
+# Table 2: Waste received in 2020 ----
 waste_received.20 <- processed_sheets[[2]] |>
   dplyr::select(
     year                             = Leto,
@@ -3901,7 +3910,7 @@ waste_received.20 <- processed_sheets[[2]] |>
 
 processed_sheets[[2]] <- waste_received.20
 
-# Table 3: Treatment of waste received in 2020
+# Table 3: Treatment of waste received in 2020 ----
 treating_waste.20 <- processed_sheets[[3]] |>
   dplyr::select(
     year                             = Leto,
@@ -3924,22 +3933,26 @@ treating_waste.20 <- processed_sheets[[3]] |>
 processed_sheets[[3]] <- treating_waste.20
 
 
-# Table 4: Waste at the exit of the treatment process and untreated waste delivered for further management in 2020
+# Table 4: Waste at the exit of the treatment process and untreated waste delivered for further management in 2020 ----
 management_waste.20 <- processed_sheets[[4]] |>
   dplyr::select(
     year                              = Leto,
     statistical_region                = `Statistična regija`,
-    treatment_inlet_delivered_waste_code  = treatment_inlet_delivered_waste_code,
+    treatment_inlet_delivered_waste_code,
     input_waste_name                  = `Odpadki na vhodu v obdelavo in prevzeti neobdelani odpadki naziv`,
-    treatment_outlet_delivered_waste_code = treatment_outlet_delivered_waste_code,
+    treatment_outlet_delivered_waste_code,
     output_waste_name                 = `Odpadki na izhodu iz postopka obdelave in oddani neobdelani odpadki naziv`,
     waste_handed_to_collectors_RS     = `Odpadki, oddani v nadaljnje ravnanje zbiralcu odpadkov v SI kg`,
     waste_delivered_to_operators_RS   = `Odpadki, oddani v nadaljnje ravnanje izvajalcu obdelave v SI kg`,
     waste_sent_to_EU                  = `Odpadki, oddani v nadaljnje ravnanje v druge države članice EU kg`,
     waste_sent_to_non_EU              = `Odpadki, oddani v nadaljnje ravnanje v države izven EU kg`
-  ) |>
+  )
+
+management_waste.20 <- management_waste.20 |>
   process_waste_column(treatment_inlet_delivered_waste_code, input_waste_name) |>
-  process_waste_column(treatment_outlet_delivered_waste_code, output_waste_name) |>
+  process_waste_column(treatment_outlet_delivered_waste_code, output_waste_name)
+
+management_waste.20 <- management_waste.20 |>
   group_by(year, statistical_region, treatment_inlet_delivered_waste_code, input_waste_name, waste_category, treatment_outlet_delivered_waste_code, output_waste_name, waste_category_1) |>
   summarise(
     across(
@@ -3957,7 +3970,7 @@ management_waste.20 <- processed_sheets[[4]] |>
 processed_sheets[[4]] <- management_waste.20
 
 
-# Table 4a: Recovered substances or objects that lost their waste status and were delivered for further use in 2020
+# Table 4a: Recovered substances or objects that lost their waste status and were delivered for further use in 2020 ----
 management_waste.20a <- processed_sheets[[5]] |>
   dplyr::select(
     year                                   = Leto,
@@ -3989,7 +4002,7 @@ management_waste.20a <- processed_sheets[[5]] |>
 
 processed_sheets[[5]] <- management_waste.20a
 
-# Table 5: Municipal waste received for treatment, separated by municipality of origin in 2020
+# Table 5: Municipal waste received for treatment, separated by municipality of origin in 2020 ----
 waste_treatment.20 <- processed_sheets[[6]] |>
   dplyr::select(
     year                                 = Leto,
@@ -4008,7 +4021,7 @@ waste_treatment.20 <- processed_sheets[[6]] |>
 
 processed_sheets[[6]] <- waste_treatment.20
 
-# Table 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process
+# Table 6: Mass difference between waste input and treatment product volumes due to mass change during the treatment process ----
 mass_difference.20 <- processed_sheets[[7]] |>
   dplyr::select(
     year = `Leto`,
@@ -4025,7 +4038,7 @@ mass_difference.20 <- processed_sheets[[7]] |>
 
 processed_sheets[[7]] <- mass_difference.20
 
-# Table 7: Capacity and status of landfills (for inert, hazardous, and non-hazardous waste, including municipal waste) in 2021
+# Table 7: Capacity and status of landfills (for inert, hazardous, and non-hazardous waste, including municipal waste) in 2021 ----
 landfill_capacity.20 <- processed_sheets[[8]] |>
   # 1) drop the report column & rename
   dplyr::select(
@@ -4068,7 +4081,7 @@ landfill_capacity.20 <- processed_sheets[[8]] |>
 
 processed_sheets[[8]] <- landfill_capacity.20
 
-# Table 8: Waste management at landfills in 2020
+# Table 8: Waste management at landfills in 2020 ----
 landfill_waste.20 <- processed_sheets[[9]] |>
   # 1) drop the report column and rename everything in one step
   dplyr::select(
@@ -4110,14 +4123,15 @@ landfill_waste.20 <- processed_sheets[[9]] |>
 processed_sheets[[9]] <- landfill_waste.20
 
 
-# Table 9: Municipal waste disposed of by municipality of origin in 2020 - EXCLUDED
+# EXCLUDED - Table 9: Municipal waste disposed of by municipality of origin in 2020 ----
 municipal_waste_disposed.20 <- processed_sheets[[10]]
 
+# Construct sheet names ----
 sheet_names <- c(
   "Waste storage",
   "Waste received",
   "Treatment of waste received",
-  "Management of waste from treatment operations and untreated waste",
+  "Waste management",
   "Management of treatment products that are no longer waste",
   "Municipal waste received for treatment, separated by municipality of origin",
   "Mass difference between waste input and treatment product volumes due to mass change during the treatment process",
@@ -4127,6 +4141,7 @@ sheet_names <- c(
 
 names(processed_sheets) <- sheet_names
 
+# Write files ----
 for (sheet_name in sheet_names) {
   write_excel_csv(processed_sheets[[sheet_name]], paste0("2020 data\\2020 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_20.csv"))
 }
