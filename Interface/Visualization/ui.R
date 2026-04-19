@@ -1,15 +1,3 @@
-# install.packages("shiny", "plotly", "DT", "shinyFeedback", "shinydashboard", "shinyjs", "shinyBS", "bslib", "igraph")
-
-library(shiny)
-library(plotly)
-library(DT)
-library(shinyFeedback)
-library(shinydashboard)
-library(shinyjs)
-library(shinyBS)
-library(bslib)
-library(igraph)
-
 # Helper function to create a row with two numeric inputs
 create_numeric_input_row <- function(input_id1,
                                      label1,
@@ -1134,7 +1122,7 @@ shinyUI(
                    fluidRow(
                      box(
                        collapsible = TRUE,
-                       width = 3,
+                       width = 2,
                        title = "Select Filters:",
                        solidHeader = TRUE,
                        status = "primary",
@@ -1207,7 +1195,7 @@ shinyUI(
                      
                      box(
                        collapsible = TRUE,
-                       width = 9,
+                       width = 10,
                        title = "Wood Waste Storage Trends: Start vs End of Year",
                        solidHeader = TRUE,
                        status = "primary",
@@ -1231,7 +1219,7 @@ shinyUI(
                    ),
                    fluidRow(
                      box(
-                       width = 3,
+                       width = 2,
                        solidHeader = TRUE, status = "primary",
                        title = "Regional Waste Plot Selection",
                        # inner container styling
@@ -1263,7 +1251,7 @@ shinyUI(
                      box(
                        collapsible = TRUE,
                        collapsed = FALSE,
-                       width = 9,
+                       width = 10,
                        title = "Total Waste Received by Statistical Region (in tons)",
                        solidHeader = TRUE,
                        status = "primary",
@@ -1425,7 +1413,7 @@ shinyUI(
               title = "Filter Data:",
               solidHeader = TRUE,
               status = "primary",
-              width = 3,
+              width = 2,
               sliderInput(
                 "year_filter",
                 "Select Year Range:",
@@ -1445,55 +1433,67 @@ shinyUI(
               title = "Mass Change During Treatment Over the Years by Waste Type (in tons)",
               solidHeader = TRUE,
               status = "primary",
-              width = 9,
+              width = 10,
               plotlyOutput("inputTreatmentByYear", height = "600px"),
             )
           )),
           # Treatment Management ----
-          tabPanel("Management", 
-                   style = "margin-top: 20px;", 
+          tabPanel("Management",
+                   style = "margin-top: 20px;",
                    fluidRow(
-                     box(
-                       collapsible = TRUE,
-                       title = "Filter Data:",
-                       solidHeader = TRUE,
-                       status = "primary",
-                       width = 3,
-                       sliderInput(
-                         "year_filter_mgmt",
-                         "Select Year Range:",
-                         min = 2020,
-                         max = 2023,
-                         value = c(2020, 2023)
-                       ),
-                       selectizeInput(
-                         "waste_type_filter_mgmt",
-                         "Select Input Waste Type:",
-                         choices = NULL,
-                         multiple = TRUE
-                       ),
-                       selectizeInput(
-                         "region_filter_mgmt",
-                         "Select Statistical Region:",
-                         choices = NULL,
-                         multiple = TRUE
-                       )
+                     column(2,
+                            # --- Sidebar filter box ---
+                            box(
+                              title = "Filters", collapsible = TRUE, solidHeader = TRUE,
+                              status = "primary", width = NULL,
+                              
+                              radioButtons("dataset_selector", "Dataset:",
+                                           choices = c("2020–2024 Data"              = "data_2020_2024",
+                                                       "2022–2024 with Operations"   = "data_2022_2024"),
+                                           selected = "data_2020_2024"
+                              ),
+                              hr(),
+                              sliderInput("year_filter_mgmt", "Year range:",
+                                          min = 2020, max = 2024, value = c(2022, 2024), sep = ""
+                              ),
+                              hr(),
+                              selectizeInput("waste_type_filter_mgmt", "Input waste type:",
+                                             choices = NULL, multiple = TRUE
+                              ),
+                              selectizeInput("region_filter_mgmt", "Statistical region:",
+                                             choices = NULL, multiple = TRUE
+                              ),
+                              hr(),
+                              conditionalPanel(
+                                condition = "input.dataset_selector == 'data_2022_2024'",
+                                selectizeInput("treatment_operation_filter", "Treatment operation:",
+                                               choices = NULL, multiple = TRUE
+                                ),
+                                selectizeInput("further_treatment_filter", "Further treatment:",
+                                               choices = NULL, multiple = TRUE
+                                )
+                              )
+                            )
                      ),
-                     box(
-                       collapsible = TRUE,
-                       title = "Waste Management Flow (Sankey Diagram)",
-                       solidHeader = TRUE,
-                       status = "primary",
-                       width = 9,
-                       plotlyOutput("sankeyManagement", height = "600px"),
-                       br(),
-                       div(
-                         style = "padding: 10px;",
-                         h5("Total Waste by Destination (tons):"),
-                         tableOutput("wasteSummaryTable")
-                       )
+                     
+                     column(10,
+                            # --- Sankey ---
+                            box(
+                              title = "Waste management flow (Sankey diagram)",
+                              collapsible = TRUE, solidHeader = TRUE,
+                              status = "primary", width = NULL,
+                              plotlyOutput("sankeyManagement", height = "600px")
+                            ),
+                            # --- Table ---
+                            box(
+                              title = "Total waste by destination (tons)",
+                              collapsible = TRUE, solidHeader = TRUE,
+                              status = "info", width = NULL,
+                              tableOutput("wasteSummaryTable")
+                            )
                      )
-                   ))
+                   )
+          )
         )
       ),
       # Simulation -----

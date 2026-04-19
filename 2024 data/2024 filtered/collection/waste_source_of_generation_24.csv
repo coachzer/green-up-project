@@ -1,0 +1,11 @@
+﻿"year","waste_code","type_of_waste","waste_category","waste_collected_public_service","total_waste_collected","waste_collected_from_households","waste_collected_from_activities"
+2024,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","no",11153.023,0,11153.023
+2024,"15 01 01","Paper and Cardboard Packaging (15 01 01)","Packaging Waste","yes",28649.442,26207.232,2442.21
+2024,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","no",9515.032,2.74,9512.292
+2024,"15 01 03","Wooden Packaging (15 01 03)","Packaging Waste","yes",600.497,583.221,17.276
+2024,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste","no",20136.034,2934.759,17201.275
+2024,"20 01 01","Paper and Cardboard from Municipal Waste (20 01 01)","Municipal Waste","yes",31901.268,25924.052,5977.216
+2024,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","no",1953.923,745.9,1208.023
+2024,"20 01 38","Non-hazardous Wood from Municipal Waste (20 01 38)","Municipal Waste","yes",51168.74,49260.774,1907.966
+2024,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","no",7628.855,217.78,7411.075
+2024,"20 03 07","Bulky Municipal Waste (20 03 07)","Municipal Waste","yes",74096.307,63662.193,10434.114
