@@ -25,20 +25,6 @@ There are data-sets for each year: [generated waste]{.underline}, [collected was
 
 ```{r setup, message = FALSE, warning = FALSE}
 
-# Get the current working directory
-current_dir <- getwd()
-
-# Define the desired working directory
-desired_dir <- "C:/Users/kovac/Desktop/Work/Green UP Project/green-up-project"
-
-# Check if the current working directory is different from the desired one
-if (file.exists(desired_dir)) {
-  setwd(desired_dir)
-  cat("Working directory has been changed to:", desired_dir, "\n")
-} else {
-  cat("The directory does not exist:", desired_dir, "\n")
-}
-
 # List of required packages
 packages <- c(
   "tidyverse", "gt", "gtExtras", "readxl", "ggplot2",
@@ -999,83 +985,6 @@ rename_substances <- function(df, column = "substance_or_object") {
 
   return(df)
 }
-```
-
-## Mappings
-
-```{r}
-library(jsonlite)
-library(igraph)
-library(visNetwork)
-
-json_path <- "C:/Users/kovac/Desktop/Personal/Work/Green UP Project/green-up-project/mappings.json"
-data <- fromJSON(json_path, flatten = TRUE)
-
-# 2. Build nodes
-nodes <- bind_rows(
-  data$residues |>   transmute(id = index, label = name, group = "Residues"),
-  data$roundwood |>  transmute(id = index, label = name, group = "Roundwood"),
-  data$primary_processing_products |> 
-    transmute(id = index, label = name, group = "Primary Processing"),
-  data$intermediate_products |>
-    transmute(id = index, label = name, group = "Intermediate Products")
-)
-
-edges_pp <- data$primary_processing_products |> 
-  select(index, applicable_resources) |>
-  unnest_longer(applicable_resources) |>
-  transmute(from = index, to = applicable_resources)
-
-edges_ip <- data$intermediate_products |> 
-  select(index, applicable_resources) |>
-  unnest_longer(applicable_resources) |>
-  transmute(from = index, to = applicable_resources)
-
-edges <- bind_rows(edges_pp, edges_ip)
-
-groups <- unique(nodes$group)
-palette <- c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728")
-colors <- c(
-  Residues               = "#1f77b4",
-  Roundwood              = "#ff7f0e",
-  `Primary Processing`   = "#2ca02c",
-  `Intermediate Products`= "#d62728"
-)
-
-nodes <- nodes |>
-  mutate(color = colors[group])
-
-network <- visNetwork(nodes, edges, width = "100%", height = "1000px") |>
-  visOptions(
-    highlightNearest = list(enabled = TRUE, hover = TRUE),
-    nodesIdSelection = TRUE
-  ) |>
-  visLayout(randomSeed = 123) |>
-  visPhysics(
-    solver = "forceAtlas2Based",
-    forceAtlas2Based = list(gravitationalConstant = -50)
-  ) |>
-  visEdges(arrows = "to") |>
-  visLegend(
-    useGroups = FALSE,           
-    addNodes = data.frame(
-      label = c("Residues",
-                "Roundwood",
-                "Primary Processing",
-                "Intermediate Products"),
-      shape = "square",
-      color = c("#1f77b4",
-                "#ff7f0e",
-                "#2ca02c",
-                "#d62728"),
-      stringsAsFactors = FALSE
-    )
-  )
-
-network |> 
-  visSave(file = "network.html", 
-          selfcontained = TRUE, 
-          background = "white")
 ```
 
 ## Initial Requirements
