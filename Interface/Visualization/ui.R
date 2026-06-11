@@ -522,8 +522,9 @@ shinyUI(
                       "year_selection_coll_storage",
                       label = NULL,
                       min = 2016,
-                      max = 2022,
-                      value = c(2016, 2022)
+                      max = 2030,
+                      value = c(2016, 2030),
+                      sep = ""
                     )
                   ),
                   
@@ -813,7 +814,7 @@ shinyUI(
                          box(
                            collapsible = TRUE,
                            width = 12,
-                           title = "Waste Collected by Municipality (2018-2023)",
+                           title = "Waste Collected by Municipality (2018-2024)",
                            solidHeader = TRUE,
                            status = "primary",
                            plotlyOutput("municipalComparison", height = "600px")
@@ -903,7 +904,7 @@ shinyUI(
                        collapsible = TRUE,
                        width = 12,
                        height      = "600px",
-                       title = "Waste Collected by Municipalities (2018-2023)",
+                       title = "Waste Collected by Municipalities (2018-2024)",
                        solidHeader = TRUE,
                        status = "primary",
                        plotlyOutput("plot3", height = "550px")
@@ -940,7 +941,7 @@ shinyUI(
                 collapsible = TRUE,
                 solidHeader = TRUE,
                 status = "primary",
-                title = "Total Waste Management Trend (2016-2022)",
+                title = "Total Waste Management Trend (2016-2024)",
                 plotlyOutput("totalWasteTrend"),
                 width = 12
               )
@@ -1077,8 +1078,8 @@ shinyUI(
                         "yearRange",
                         label = NULL,
                         min = 2016,
-                        max = 2023,
-                        value = c(2016, 2023),
+                        max = 2030,
+                        value = c(2016, 2030),
                         step = 1,
                         sep = ""
                       ),
@@ -1144,8 +1145,9 @@ shinyUI(
                              "year_range_trt_storage",
                              label = NULL,
                              min = 2016,
-                             max = 2022,
-                             value = c(2016, 2022)
+                             max = 2030,
+                             value = c(2016, 2030),
+                             sep = ""
                            )
                          ),
                          
@@ -1286,8 +1288,9 @@ shinyUI(
                                   "year_range_trt_treatment",
                                   "Select Year Range:",
                                   min = 2016,
-                                  max = 2023,
-                                  value = c(2016, 2023)
+                                  max = 2030,
+                                  value = c(2016, 2030),
+                                  sep = ""
                                 )
                          ),
                          column(6,
@@ -1392,7 +1395,7 @@ shinyUI(
                                    ticks = FALSE
                                    ),
                        sliderInput("year_range_trt_municipal", "Select Year Range:",
-                                   min = 2018, max = 2021, value = c(2018, 2021), step = 1, sep = "")
+                                   min = 2016, max = 2030, value = c(2016, 2030), step = 1, sep = "")
                      ),
                      box(
                        collapsible = TRUE,
@@ -1417,9 +1420,10 @@ shinyUI(
               sliderInput(
                 "year_filter",
                 "Select Year Range:",
-                min = 2018,
-                max = 2022,
-                value = c(2018, 2022)
+                min = 2016,
+                max = 2030,
+                value = c(2016, 2030),
+                sep = ""
               ),
               selectizeInput(
                 "waste_type_filter",
@@ -1454,7 +1458,7 @@ shinyUI(
                               ),
                               hr(),
                               sliderInput("year_filter_mgmt", "Year range:",
-                                          min = 2020, max = 2024, value = c(2022, 2024), sep = ""
+                                          min = 2016, max = 2030, value = c(2016, 2030), sep = ""
                               ),
                               hr(),
                               selectizeInput("waste_type_filter_mgmt", "Input waste type:",

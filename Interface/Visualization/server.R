@@ -390,7 +390,7 @@ plot_waste_by_municipality <- function(data, selected_year, top_n) {
 plot_waste_map <- function(df_long,
                            map_geojson  = "data/map.geojson",
                            palette_cols = c("#e7f2fe", "#94c1d9", "#1c6baf"),
-                           title        = "Average Waste Collected\n(2018–2023)") {
+                           title        = "Average Waste Collected\n(2018–2024)") {
   
   slovenia_map <- st_read(map_geojson, quiet = TRUE) |>
     mutate(
@@ -1808,6 +1808,13 @@ shinyServer(function(input, output, session) {
       ),
     )
   })
+
+  # Dynamic year range: collection storage -----
+  observe({
+    yrs <- range(coll_storage_data$year, na.rm = TRUE)
+    updateSliderInput(session, "year_selection_coll_storage",
+                      min = yrs[1], max = yrs[2], value = yrs)
+  })
   
   # Render the selected plot based on user input
   output$selectedPlot1 <- renderPlotly({
@@ -2402,7 +2409,14 @@ shinyServer(function(input, output, session) {
   ## ------------ TREATMENT ------------
   
   ### Storage ----
-  
+
+  # Dynamic year range: treatment storage -----
+  observe({
+    yrs <- range(trt_storage_data$year, na.rm = TRUE)
+    updateSliderInput(session, "year_range_trt_storage",
+                      min = yrs[1], max = yrs[2], value = yrs)
+  })
+
   observeEvent(input$waste_type_trt_storage, {
     # Add input validation
     if (is.null(input$waste_type_trt_storage) || length(input$waste_type_trt_storage) == 0) {
@@ -2757,7 +2771,14 @@ shinyServer(function(input, output, session) {
   })
   
   ### Treatment ----
-  
+
+  # Dynamic year range: treatment treatment -----
+  observe({
+    yrs <- range(trt_treatment_data$year, na.rm = TRUE)
+    updateSliderInput(session, "year_range_trt_treatment",
+                      min = yrs[1], max = yrs[2], value = yrs)
+  })
+
   # Update the choices for waste types and regions based on available data
   observe({
     data <- trt_treatment_data
@@ -2906,7 +2927,14 @@ shinyServer(function(input, output, session) {
   })
   
   ### Municipal Waste Received ----
-  
+
+  # Dynamic year range: treatment municipal -----
+  observe({
+    yrs <- range(trt_municipal_waste_received_data$year, na.rm = TRUE)
+    updateSliderInput(session, "year_range_trt_municipal",
+                      min = yrs[1], max = yrs[2], value = yrs)
+  })
+
   slovenia_map_clean <- st_read("data/map.geojson", quiet = TRUE) |>
     mutate(
       NAME_2_CLEAN = normalize_name(NAME_2)
