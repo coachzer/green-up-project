@@ -67,17 +67,14 @@ waste_category_colors <- c(
 region_colors <- c(
   "GORENJSKA" = "#1f77b4",              # Blue
   "GORIŠKA" = "#ff7f0e",                # Orange
-  "JUGOVZHODNASLOVENIJA" = "#2ca02c",   # Green
-  "JUGOVZHODNA SLOVENIJA" = "#2ca02c",  
+  "JUGOVZHODNA SLOVENIJA" = "#2ca02c",  # Green
   "KOROŠKA" = "#d62728",                # Red
   "OBALNO-KRAŠKA" = "#9467bd",          # Purple
-  "OBALNOKRAŠKA" = "#9467bd",           
   "OSREDNJESLOVENSKA" = "#8c564b",      # Brown
   "PODRAVSKA" = "#e377c2",              # Pink
   "POMURSKA" = "#7f7f7f",               # Gray
   "POSAVSKA" = "#bcbd22",               # Olive
   "PRIMORSKO-NOTRANJSKA" = "#17becf",   # Cyan
-  "PRIMORSKONOTRANJSKA" = "#17becf",    
   "SAVINJSKA" = "#ffbb78",              # Light Orange
   "ZASAVSKA" = "#98df8a",               # Light Green
   "NEOPREDELJENO" = "#c7c7c7"           # Light Gray (unspecified)
@@ -689,10 +686,6 @@ combined_waste_data <- gnr_data |>
   )
 
 combined_waste_data <- combined_waste_data |>
-  mutate(statistical_region = case_when(
-    statistical_region == "JUGOVZHODNASLOVENIJA" ~ "JUGOVZHODNA SLOVENIJA",
-    TRUE ~ statistical_region
-  )) |> 
   filter(statistical_region != "NEOPREDELJENO")
 
 
@@ -1311,10 +1304,6 @@ shinyServer(function(input, output, session) {
   output$wasteByRegionYear <- renderPlotly({
     # Summarize the total generated waste by region and year
     waste_by_region_year <- gnr_data |>
-      # Combine the two region name variations
-      mutate(statistical_region = ifelse(statistical_region %in% c("JUGOVZHODNA SLOVENIJA", "JUGOVZHODNASLOVENIJA"), 
-                                         "JUGOVZHODNA SLOVENIJA", 
-                                         statistical_region)) |>
       group_by(statistical_region, year) |>
       summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE),
                 .groups = "drop") |>
@@ -1497,10 +1486,6 @@ shinyServer(function(input, output, session) {
   output$wasteTransferredByRegionYear <- renderPlotly({
     # Summarize the total waste transferred by region and year
     waste_transferred_by_region_year <- gnr_data |>
-      # Combine the two region name variations
-      mutate(statistical_region = ifelse(statistical_region %in% c("JUGOVZHODNA SLOVENIJA", "JUGOVZHODNASLOVENIJA"), 
-                                         "JUGOVZHODNA SLOVENIJA", 
-                                         statistical_region)) |>
       group_by(statistical_region, year) |>
       summarize(total_sent = sum(waste_transferred_for_treatment_in_RS, na.rm = TRUE),
                 .groups = "drop") |>
@@ -1644,11 +1629,6 @@ shinyServer(function(input, output, session) {
   output$wasteStoredEndYearByRegionYear <- renderPlotly({
     # Summarize the total waste stored by region and year
     waste_stored_at_the_end_year_by_region <- gnr_data |>
-      # Combine the two region name variations
-      mutate(statistical_region = ifelse(statistical_region %in% c("JUGOVZHODNA SLOVENIJA", "JUGOVZHODNASLOVENIJA"), 
-                                         "JUGOVZHODNA SLOVENIJA", 
-                                         statistical_region)) |>
-      # Group by the modified region and year
       group_by(statistical_region, year) |>
       summarize(total_stored = sum(temporarily_stored_end_year, na.rm = TRUE),
                 .groups = "drop") |>
@@ -1761,11 +1741,6 @@ shinyServer(function(input, output, session) {
   output$wasteStoredStartYearByRegionYear <- renderPlotly({
     # Summarize the total waste stored by region and year
     waste_stored_at_the_start_year_by_region <- gnr_data |>
-      # Combine the two region name variations
-      mutate(statistical_region = ifelse(statistical_region %in% c("JUGOVZHODNA SLOVENIJA", "JUGOVZHODNASLOVENIJA"), 
-                                         "JUGOVZHODNA SLOVENIJA", 
-                                         statistical_region)) |>
-      # Group by the modified region and year
       group_by(statistical_region, year) |>
       summarize(total_stored = sum(temporarily_stored_start_year, na.rm = TRUE),
                 .groups = "drop") |>
@@ -2605,7 +2580,7 @@ shinyServer(function(input, output, session) {
         group_by(year) |>
         summarize(
           total_start = sum(waste_stored_start_year, na.rm = TRUE),
-          total_end = sum(waste_stored_end_year, na.rm = TRUE),
+          total_end = ifelse(all(is.na(waste_stored_end_year)), NA_real_, sum(waste_stored_end_year, na.rm = TRUE)),
           .groups = "drop"
         ) |>
         arrange(year)

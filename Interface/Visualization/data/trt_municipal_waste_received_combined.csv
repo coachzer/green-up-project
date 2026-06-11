@@ -86,19 +86,19 @@ year,statistical_region,name_of_municipality,waste_code,type_of_waste,waste_cate
 2018,KOROŠKA,VUZENICA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,43.807
 2018,KOROŠKA,ČRNA NA KOROŠKEM,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.054
 2018,KOROŠKA,ČRNA NA KOROŠKEM,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,104.918
-2018,OBALNOKRAŠKA,HRPELJE-KOZINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.827
-2018,OBALNOKRAŠKA,IZOLA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,9.96
-2018,OBALNOKRAŠKA,IZOLA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,8.06
-2018,OBALNOKRAŠKA,IZOLA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,0.18
-2018,OBALNOKRAŠKA,IZOLA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,261.94
-2018,OBALNOKRAŠKA,KOPER,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,110.832
-2018,OBALNOKRAŠKA,KOPER,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,46.2
-2018,OBALNOKRAŠKA,KOPER,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,2.88
-2018,OBALNOKRAŠKA,KOPER,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,39.685
-2018,OBALNOKRAŠKA,PIRAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,15.94
-2018,OBALNOKRAŠKA,PIRAN,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,2.18
-2018,OBALNOKRAŠKA,PIRAN,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,278.56
-2018,OBALNOKRAŠKA,SEŽANA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,13.055
+2018,OBALNO-KRAŠKA,HRPELJE-KOZINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.827
+2018,OBALNO-KRAŠKA,IZOLA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,9.96
+2018,OBALNO-KRAŠKA,IZOLA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,8.06
+2018,OBALNO-KRAŠKA,IZOLA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,0.18
+2018,OBALNO-KRAŠKA,IZOLA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,261.94
+2018,OBALNO-KRAŠKA,KOPER,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,110.832
+2018,OBALNO-KRAŠKA,KOPER,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,46.2
+2018,OBALNO-KRAŠKA,KOPER,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,2.88
+2018,OBALNO-KRAŠKA,KOPER,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,39.685
+2018,OBALNO-KRAŠKA,PIRAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,15.94
+2018,OBALNO-KRAŠKA,PIRAN,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,2.18
+2018,OBALNO-KRAŠKA,PIRAN,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,278.56
+2018,OBALNO-KRAŠKA,SEŽANA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,13.055
 2018,OSREDNJESLOVENSKA,BOROVNICA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,49.518
 2018,OSREDNJESLOVENSKA,BREZOVICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,8.272
 2018,OSREDNJESLOVENSKA,BREZOVICA,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,100.5
@@ -234,14 +234,14 @@ year,statistical_region,name_of_municipality,waste_code,type_of_waste,waste_cate
 2018,POSAVSKA,KRŠKO,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,198.695
 2018,POSAVSKA,RADEČE,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,62.8
 2018,POSAVSKA,RADEČE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,64.62
-2018,PRIMORSKONOTRANJSKA,BLOKE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1.12
-2018,PRIMORSKONOTRANJSKA,CERKNICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,12.08
-2018,PRIMORSKONOTRANJSKA,CERKNICA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,0.1
-2018,PRIMORSKONOTRANJSKA,CERKNICA,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,67.99
-2018,PRIMORSKONOTRANJSKA,ILIRSKA BISTRICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,8.838
-2018,PRIMORSKONOTRANJSKA,PIVKA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,105.34
-2018,PRIMORSKONOTRANJSKA,POSTOJNA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,18.969
-2018,PRIMORSKONOTRANJSKA,POSTOJNA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,0.4
+2018,PRIMORSKO-NOTRANJSKA,BLOKE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1.12
+2018,PRIMORSKO-NOTRANJSKA,CERKNICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,12.08
+2018,PRIMORSKO-NOTRANJSKA,CERKNICA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,0.1
+2018,PRIMORSKO-NOTRANJSKA,CERKNICA,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,67.99
+2018,PRIMORSKO-NOTRANJSKA,ILIRSKA BISTRICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,8.838
+2018,PRIMORSKO-NOTRANJSKA,PIVKA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,105.34
+2018,PRIMORSKO-NOTRANJSKA,POSTOJNA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,18.969
+2018,PRIMORSKO-NOTRANJSKA,POSTOJNA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,0.4
 2018,SAVINJSKA,BRASLOVČE,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.484
 2018,SAVINJSKA,CELJE,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,57.927
 2018,SAVINJSKA,CELJE,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,1.56
@@ -354,15 +354,15 @@ year,statistical_region,name_of_municipality,waste_code,type_of_waste,waste_cate
 2019,KOROŠKA,VUZENICA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,52.009
 2019,KOROŠKA,ČRNA NA KOROŠKEM,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.645
 2019,KOROŠKA,ČRNA NA KOROŠKEM,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,122.01
-2019,OBALNOKRAŠKA,ANKARAN,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,6.58
-2019,OBALNOKRAŠKA,IZOLA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.28
-2019,OBALNOKRAŠKA,IZOLA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,379.76
-2019,OBALNOKRAŠKA,KOPER,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.02
-2019,OBALNOKRAŠKA,KOPER,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,7.86
-2019,OBALNOKRAŠKA,PIRAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.76
-2019,OBALNOKRAŠKA,PIRAN,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,1.42
-2019,OBALNOKRAŠKA,PIRAN,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,197.7
-2019,OBALNOKRAŠKA,SEŽANA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,0.66
+2019,OBALNO-KRAŠKA,ANKARAN,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,6.58
+2019,OBALNO-KRAŠKA,IZOLA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.28
+2019,OBALNO-KRAŠKA,IZOLA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,379.76
+2019,OBALNO-KRAŠKA,KOPER,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.02
+2019,OBALNO-KRAŠKA,KOPER,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,7.86
+2019,OBALNO-KRAŠKA,PIRAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.76
+2019,OBALNO-KRAŠKA,PIRAN,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,1.42
+2019,OBALNO-KRAŠKA,PIRAN,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,197.7
+2019,OBALNO-KRAŠKA,SEŽANA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,0.66
 2019,OSREDNJESLOVENSKA,BOROVNICA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,13.975
 2019,OSREDNJESLOVENSKA,BREZOVICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,6.945
 2019,OSREDNJESLOVENSKA,BREZOVICA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,4.56
@@ -508,9 +508,9 @@ year,statistical_region,name_of_municipality,waste_code,type_of_waste,waste_cate
 2019,POSAVSKA,KRŠKO,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,339.46
 2019,POSAVSKA,RADEČE,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,67.3
 2019,POSAVSKA,RADEČE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,57.76
-2019,PRIMORSKONOTRANJSKA,CERKNICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,7.09
-2019,PRIMORSKONOTRANJSKA,ILIRSKA BISTRICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,15.334
-2019,PRIMORSKONOTRANJSKA,PIVKA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,187.19
+2019,PRIMORSKO-NOTRANJSKA,CERKNICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,7.09
+2019,PRIMORSKO-NOTRANJSKA,ILIRSKA BISTRICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,15.334
+2019,PRIMORSKO-NOTRANJSKA,PIVKA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,187.19
 2019,SAVINJSKA,CELJE,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,11.633
 2019,SAVINJSKA,KOZJE,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,6.328
 2019,SAVINJSKA,KOZJE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1.356
@@ -629,20 +629,20 @@ year,statistical_region,name_of_municipality,waste_code,type_of_waste,waste_cate
 2020,KOROŠKA,VUZENICA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,47.986
 2020,KOROŠKA,ČRNA NA KOROŠKEM,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.824
 2020,KOROŠKA,ČRNA NA KOROŠKEM,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,88.913
-2020,OBALNOKRAŠKA,ANKARAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.364
-2020,OBALNOKRAŠKA,DIVAČA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.188
-2020,OBALNOKRAŠKA,HRPELJE-KOZINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,3.172
-2020,OBALNOKRAŠKA,HRPELJE-KOZINA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,0.055
-2020,OBALNOKRAŠKA,IZOLA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,85.604
-2020,OBALNOKRAŠKA,IZOLA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,8.7
-2020,OBALNOKRAŠKA,KOMEN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.459
-2020,OBALNOKRAŠKA,KOPER,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,126.628
-2020,OBALNOKRAŠKA,KOPER,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,7.73
-2020,OBALNOKRAŠKA,KOPER,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,774.45
-2020,OBALNOKRAŠKA,PIRAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,168.063
-2020,OBALNOKRAŠKA,PIRAN,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,220.46
-2020,OBALNOKRAŠKA,SEŽANA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,77.555
-2020,OBALNOKRAŠKA,SEŽANA,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,562.36
+2020,OBALNO-KRAŠKA,ANKARAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.364
+2020,OBALNO-KRAŠKA,DIVAČA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.188
+2020,OBALNO-KRAŠKA,HRPELJE-KOZINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,3.172
+2020,OBALNO-KRAŠKA,HRPELJE-KOZINA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,0.055
+2020,OBALNO-KRAŠKA,IZOLA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,85.604
+2020,OBALNO-KRAŠKA,IZOLA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,8.7
+2020,OBALNO-KRAŠKA,KOMEN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.459
+2020,OBALNO-KRAŠKA,KOPER,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,126.628
+2020,OBALNO-KRAŠKA,KOPER,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,7.73
+2020,OBALNO-KRAŠKA,KOPER,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,774.45
+2020,OBALNO-KRAŠKA,PIRAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,168.063
+2020,OBALNO-KRAŠKA,PIRAN,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,220.46
+2020,OBALNO-KRAŠKA,SEŽANA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,77.555
+2020,OBALNO-KRAŠKA,SEŽANA,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,562.36
 2020,OSREDNJESLOVENSKA,BOROVNICA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,61.605
 2020,OSREDNJESLOVENSKA,BREZOVICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,5.688
 2020,OSREDNJESLOVENSKA,BREZOVICA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,0.32
@@ -809,14 +809,14 @@ year,statistical_region,name_of_municipality,waste_code,type_of_waste,waste_cate
 2020,POSAVSKA,RADEČE,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,81.5
 2020,POSAVSKA,RADEČE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,93.4
 2020,POSAVSKA,SEVNICA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,3.16
-2020,PRIMORSKONOTRANJSKA,BLOKE,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.53
-2020,PRIMORSKONOTRANJSKA,BLOKE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,24.98
-2020,PRIMORSKONOTRANJSKA,CERKNICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,21.162
-2020,PRIMORSKONOTRANJSKA,ILIRSKA BISTRICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,42.627
-2020,PRIMORSKONOTRANJSKA,LOŠKA DOLINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.256
-2020,PRIMORSKONOTRANJSKA,PIVKA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,63.32
-2020,PRIMORSKONOTRANJSKA,POSTOJNA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,15.459
-2020,PRIMORSKONOTRANJSKA,POSTOJNA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,0.84
+2020,PRIMORSKO-NOTRANJSKA,BLOKE,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.53
+2020,PRIMORSKO-NOTRANJSKA,BLOKE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,24.98
+2020,PRIMORSKO-NOTRANJSKA,CERKNICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,21.162
+2020,PRIMORSKO-NOTRANJSKA,ILIRSKA BISTRICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,42.627
+2020,PRIMORSKO-NOTRANJSKA,LOŠKA DOLINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.256
+2020,PRIMORSKO-NOTRANJSKA,PIVKA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,63.32
+2020,PRIMORSKO-NOTRANJSKA,POSTOJNA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,15.459
+2020,PRIMORSKO-NOTRANJSKA,POSTOJNA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,0.84
 2020,SAVINJSKA,CELJE,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,251.052
 2020,SAVINJSKA,GORNJI GRAD,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,3.22
 2020,SAVINJSKA,KOZJE,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,6.216
@@ -966,21 +966,21 @@ year,statistical_region,name_of_municipality,waste_code,type_of_waste,waste_cate
 2021,KOROŠKA,ČRNA NA KOROŠKEM,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,6.955
 2021,KOROŠKA,ČRNA NA KOROŠKEM,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,18.297
 2021,KOROŠKA,ČRNA NA KOROŠKEM,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,106.331
-2021,OBALNOKRAŠKA,ANKARAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.391
-2021,OBALNOKRAŠKA,DIVAČA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.008
-2021,OBALNOKRAŠKA,HRPELJE-KOZINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,2.802
-2021,OBALNOKRAŠKA,IZOLA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.014
-2021,OBALNOKRAŠKA,KOMEN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.39
-2021,OBALNOKRAŠKA,KOPER,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1742.033
-2021,OBALNOKRAŠKA,KOPER,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,333.803
-2021,OBALNOKRAŠKA,KOPER,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,793.3
-2021,OBALNOKRAŠKA,KOPER,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,1.532
-2021,OBALNOKRAŠKA,KOPER,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,42.248
-2021,OBALNOKRAŠKA,PIRAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,6.044
-2021,OBALNOKRAŠKA,PIRAN,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,1.28
-2021,OBALNOKRAŠKA,SEŽANA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,11.316
-2021,OBALNOKRAŠKA,SEŽANA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,0.08
-2021,OBALNOKRAŠKA,SEŽANA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1.48
+2021,OBALNO-KRAŠKA,ANKARAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.391
+2021,OBALNO-KRAŠKA,DIVAČA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.008
+2021,OBALNO-KRAŠKA,HRPELJE-KOZINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,2.802
+2021,OBALNO-KRAŠKA,IZOLA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.014
+2021,OBALNO-KRAŠKA,KOMEN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1.39
+2021,OBALNO-KRAŠKA,KOPER,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,1742.033
+2021,OBALNO-KRAŠKA,KOPER,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,333.803
+2021,OBALNO-KRAŠKA,KOPER,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,793.3
+2021,OBALNO-KRAŠKA,KOPER,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,1.532
+2021,OBALNO-KRAŠKA,KOPER,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,42.248
+2021,OBALNO-KRAŠKA,PIRAN,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,6.044
+2021,OBALNO-KRAŠKA,PIRAN,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,1.28
+2021,OBALNO-KRAŠKA,SEŽANA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,11.316
+2021,OBALNO-KRAŠKA,SEŽANA,20 01 01,Paper and Cardboard from Municipal Waste (20 01 01),Municipal Waste,0.08
+2021,OBALNO-KRAŠKA,SEŽANA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1.48
 2021,OSREDNJESLOVENSKA,BOROVNICA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,75.637
 2021,OSREDNJESLOVENSKA,BREZOVICA,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,99.658
 2021,OSREDNJESLOVENSKA,BREZOVICA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,250.42
@@ -1146,16 +1146,16 @@ year,statistical_region,name_of_municipality,waste_code,type_of_waste,waste_cate
 2021,POSAVSKA,KRŠKO,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,341.98
 2021,POSAVSKA,RADEČE,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,93.16
 2021,POSAVSKA,RADEČE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,53.84
-2021,PRIMORSKONOTRANJSKA,BLOKE,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.47
-2021,PRIMORSKONOTRANJSKA,CERKNICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.558
-2021,PRIMORSKONOTRANJSKA,ILIRSKA BISTRICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,5.877
-2021,PRIMORSKONOTRANJSKA,LOŠKA DOLINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.236
-2021,PRIMORSKONOTRANJSKA,PIVKA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,36.34
-2021,PRIMORSKONOTRANJSKA,PIVKA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,12.99
-2021,PRIMORSKONOTRANJSKA,PIVKA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,350.625
-2021,PRIMORSKONOTRANJSKA,POSTOJNA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,15.665
-2021,PRIMORSKONOTRANJSKA,POSTOJNA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,2.51
-2021,PRIMORSKONOTRANJSKA,POSTOJNA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1537.762
+2021,PRIMORSKO-NOTRANJSKA,BLOKE,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.47
+2021,PRIMORSKO-NOTRANJSKA,CERKNICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.558
+2021,PRIMORSKO-NOTRANJSKA,ILIRSKA BISTRICA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,5.877
+2021,PRIMORSKO-NOTRANJSKA,LOŠKA DOLINA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,0.236
+2021,PRIMORSKO-NOTRANJSKA,PIVKA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,36.34
+2021,PRIMORSKO-NOTRANJSKA,PIVKA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,12.99
+2021,PRIMORSKO-NOTRANJSKA,PIVKA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,350.625
+2021,PRIMORSKO-NOTRANJSKA,POSTOJNA,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,15.665
+2021,PRIMORSKO-NOTRANJSKA,POSTOJNA,15 01 03,Wooden Packaging (15 01 03),Packaging Waste,2.51
+2021,PRIMORSKO-NOTRANJSKA,POSTOJNA,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1537.762
 2021,SAVINJSKA,CELJE,15 01 01,Paper and Cardboard Packaging (15 01 01),Packaging Waste,24.47
 2021,SAVINJSKA,KOZJE,20 01 38,Non-hazardous Wood from Municipal Waste (20 01 38),Municipal Waste,5.81
 2021,SAVINJSKA,KOZJE,20 03 07,Bulky Municipal Waste (20 03 07),Municipal Waste,1.24

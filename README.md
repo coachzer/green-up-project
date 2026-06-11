@@ -122,6 +122,18 @@ These files are part of a Shiny app designed for Wood Waste Management Simulatio
 - **igraph**: For network graph computations.
 - **bslib**: For theming and Bootstrap-based UI customization.
 
+## Data Notes
+
+### Unattributed-region rows (NEOPREDELJENO / NA region)
+
+Some combined CSVs include rows where the statistical region is unattributed (`NEOPREDELJENO` or an empty/`NA` region value); others have these rows excluded at source:
+
+- **Excluded at source:** `gnr_combined.csv` and the 2016 rows of `trt_treatment_combined.csv` (the 2016 treatment-of-waste source file omits 3,759.2 t of unattributed waste — roughly 0.58% of that year's treatment total).
+- **Included in CSV, present at runtime:** `coll_received_combined.csv` carries 6 rows (2016) whose region is the literal string `NA`; `readr::read_csv` parses these as missing values and no filter removes them, so they are included in the collection tab's totals (~0.6% of 2016).
+- **Included in CSV, dropped by `drop_na()`:** `trt_collected_combined.csv` carries 5 rows with the literal string `NA` as region for 2016; `readr::read_csv` parses these as `NA` and the `drop_na()` at the end of the read block silently removes them.
+
+The asymmetry is a source-level artefact (some yearly SURS tables include an unattributed-region row, others do not). National totals on the Treatment tab undercount 2016 by ~0.58% relative to the raw SURS export (rows excluded at source); the Collection tab's 2016 totals include the 6 unattributed rows from `coll_received_combined.csv` (~0.6%). No code change has been made to enforce uniform inclusion; the data files retain the rows as delivered by the source.
+
 ## Conclusion
 
 This project aims to provide a comprehensive understanding of waste production and management in Slovenia, focusing on specific waste types and how they are handled by various companies and regions over the years. The insights gained from this analysis will help in identifying trends, inefficiencies, and potential areas for improvement in waste management practices.
