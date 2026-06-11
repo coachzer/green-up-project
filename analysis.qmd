@@ -37,20 +37,6 @@ descriptive statistics for all years
 
 ```{r setup, message = FALSE, warning = FALSE}
 
-# Get the current working directory
-current_dir <- getwd()
-
-# Define the desired working directory
-desired_dir <- "C:/Users/kovac/Desktop/Work/Green UP Project/green-up-project"
-
-# Check if the current working directory is different from the desired one
-if (file.exists(desired_dir)) {
-  setwd(desired_dir)
-  cat("Working directory has been changed to:", desired_dir, "\n")
-} else {
-  cat("The directory does not exist:", desired_dir, "\n")
-}
-
 # Load required libraries
 # List of required packages
 packages <- c(

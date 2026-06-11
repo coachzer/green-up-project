@@ -4,6 +4,29 @@
 
 This project focuses on analyzing statistical data available in Slovenia regarding companies producing specific types of waste and those responsible for the uptake and processing of this waste. The datasets span several years and include information on generated waste, collected waste, and how the waste is utilized. This data is broken down by companies (up to 2019) or regions (from 2019 onwards) within Slovenia.
 
+## How to Run
+
+### Dashboard (Shiny app)
+
+From the repo root in R:
+
+```r
+shiny::runApp("Interface/Visualization")
+```
+
+or open `Interface/Visualization/server.R` in RStudio and click **Run App**. Required packages are listed in `Interface/Visualization/global.R`.
+
+### Rebuilding the data
+
+1. Place the raw SURS Excel files for the new year in a `<year> data/` directory (follow the structure of `2024 data/`).
+2. Render `green-up-project.qmd` (cleans raw data into per-year filtered CSVs).
+3. Render `analysis.qmd` (builds combined datasets and analysis outputs).
+4. The dashboard reads the combined CSVs from `Interface/Visualization/data/`.
+
+### Deployment
+
+The app is deployed to shinyapps.io via `rsconnect` (app: `WoodWasteVisualization`).
+
 ## Project Structure
 
 The data is organized into datasets for each year, categorized as follows:
@@ -90,6 +113,14 @@ These files are part of a Shiny app designed for Wood Waste Management Simulatio
 - **openxlsx**: For writing Excel files.
 - **scales**: For scaling and formatting data in visualizations.
 - **rlang**: For enhanced programming capabilities in R.
+- **shiny**: For building the interactive web dashboard.
+- **shinydashboard**: For the dashboard layout and UI components.
+- **plotly**: For interactive plots and charts.
+- **DT**: For interactive data tables.
+- **sf**: For spatial data handling and map visualizations.
+- **simmer**: For discrete-event simulation of waste flows.
+- **igraph**: For network graph computations.
+- **bslib**: For theming and Bootstrap-based UI customization.
 
 ## Conclusion
 

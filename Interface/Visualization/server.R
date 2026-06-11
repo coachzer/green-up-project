@@ -1,6 +1,3 @@
-# Do not forget to set your working directory to the Visualization folder
-# setwd("C:/Users/kovac/Desktop/Work/Green UP Project/green-up-project/Interface/Visualization")
-
 normalize_name <- function(x) {
   x |>
     stri_trans_general("Latin-ASCII") |>      # č→c, ž→z, etc
