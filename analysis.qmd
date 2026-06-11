@@ -2222,7 +2222,7 @@ write_csv(combined_management_data, "Interface/Visualization/data/coll_managemen
 1. **Load Waste Storage Data**
 - Read CSV files for waste storage data from 2016 to 2022.
 - Aggregate 2021 data by `year`, `statistical_region`, and `type_of_waste`.
-- For 2022, set `waste_stored_end_year` to 0.
+- From 2022, SURS no longer reports end-of-year stock; `waste_stored_end_year` is backfilled with the next year's start-of-year value (NA when no successor row exists).
 
 2. **Combine Data**
 - Combine all years of waste storage data into a single dataframe.
@@ -2478,7 +2478,7 @@ waste.storage.2021.data <- waste.storage.2021.data |>
 waste.storage.2022.data <- waste.storage.2022.data |>
   dplyr::select(year, statistical_region, type_of_waste, quantity_stored_start_year) |>
   rename(waste_stored_start_year = quantity_stored_start_year) |>
-  mutate(waste_stored_end_year = 0)
+  mutate(waste_stored_end_year = NA_real_)
 
 filtered_2023 <- waste.storage.2023.data |>
   group_by(year, statistical_region, type_of_waste_inlet) |>
@@ -2487,7 +2487,7 @@ filtered_2023 <- waste.storage.2023.data |>
   filter(waste_stored_start_year != 0) |>
   filter(str_detect(type_of_waste_inlet, "(?i)wood|bark|sawdust|cork|paper|cardboard")) |>
   rename(type_of_waste = type_of_waste_inlet) |>
-  mutate(waste_stored_end_year = 0)
+  mutate(waste_stored_end_year = NA_real_)
 
 waste.storage.2023.data <- filtered_2023
 
@@ -2498,7 +2498,7 @@ filtered_2024 <- waste.storage.2024.data |>
   filter(waste_stored_start_year != 0) |>
   filter(str_detect(type_of_waste_inlet, "(?i)wood|bark|sawdust|cork|paper|cardboard")) |>
   rename(type_of_waste = type_of_waste_inlet) |>
-  mutate(waste_stored_end_year = 0)
+  mutate(waste_stored_end_year = NA_real_)
 
 waste.storage.2024.data <- filtered_2024
 ```
@@ -2547,7 +2547,13 @@ combined_storage_data <- combined_storage_data |>
   arrange(statistical_region, type_of_waste, year) |>
   group_by(statistical_region, type_of_waste) |>
   mutate(next_year_start = lead(waste_stored_start_year, 1)) |>
-  ungroup()
+  ungroup() |>
+  # from 2022 SURS no longer reports end-of-year stock; use next year's start
+  mutate(waste_stored_end_year = ifelse(
+    as.integer(as.character(year)) >= 2022,
+    next_year_start,
+    waste_stored_end_year
+  ))
 
 # export
 write_csv(combined_storage_data, "Interface/Visualization/data/trt_storage_combined.csv")
