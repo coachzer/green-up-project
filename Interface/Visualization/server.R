@@ -100,8 +100,26 @@ waste_colors_comb <- c(
 # data ----
 ## import from the data folder
 
+# Fail fast at startup if a regenerated CSV is missing columns the app uses -----
+validate_columns <- function(df, expected, file) {
+  missing <- setdiff(expected, names(df))
+  if (length(missing) > 0) {
+    stop("Data file '", file, "' is missing expected column(s): ",
+         paste(missing, collapse = ", "),
+         ". Was the data pipeline re-run with a changed schema?",
+         call. = FALSE)
+  }
+  df
+}
+
 ### ------------ Generation Data ------------
-gnr_data <- read_csv("data/gnr_combined.csv", show_col_types = FALSE)
+gnr_data <- read_csv("data/gnr_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "type_of_waste", "waste_category",
+                     "generated_in_the_year", "waste_treated_by_original_generator",
+                     "waste_transferred_for_treatment_in_RS", "waste_sent_for_treatment_EU",
+                     "waste_sent_for_treatment_outside_EU", "temporarily_stored_start_year",
+                     "temporarily_stored_end_year"),
+                   "gnr_combined.csv")
 
 #### data for gnr_data infoBox ----
 
@@ -152,9 +170,17 @@ total_sent_outside_EU <- round(total_sent_outside_EU$total_sent_outside_EU, 2)
 
 ### ------------ Collection Data ------------
 #### coll_storage_data ----
-coll_storage_data <- read_csv("data/coll_storage_combined.csv", show_col_types = FALSE)
+coll_storage_data <- read_csv("data/coll_storage_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "type_of_waste",
+                     "waste_stored_start_year", "waste_stored_end_year"),
+                   "coll_storage_combined.csv")
 #### coll_received_data ----
-coll_received_data <- read_csv("data/coll_received_combined.csv", show_col_types = FALSE)
+coll_received_data <- read_csv("data/coll_received_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "type_of_waste", "waste_category",
+                     "total_waste_collected", "waste_from_producers_no_record",
+                     "waste_from_producers_with_record", "waste_from_collectors_RS",
+                     "waste_from_processors_RS"),
+                   "coll_received_combined.csv")
 ##### data for coll_received_data infoBox 
 total_waste_collected <- round(sum(coll_received_data$total_waste_collected, na.rm = TRUE), 2)
 
@@ -249,7 +275,10 @@ t_grouped <- ggplot(df_long_received, aes(x = statistical_region, y = total_coll
 
 
 #### coll_municipal_data ----
-coll_municipal_data <- read_csv("data/coll_municipal_combined.csv", show_col_types = FALSE)
+coll_municipal_data <- read_csv("data/coll_municipal_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "name_of_municipality",
+                     "type_of_waste", "total_waste_collected"),
+                   "coll_municipal_combined.csv")
 
 # Reshape data for plotting
 df_long_municipal <- melt(
@@ -299,7 +328,10 @@ t11 <- ggplot(df_top_municipal, aes(x = year, y = total_collected, color = name_
   theme(legend.position = "bottom")
 
 #### coll_municipal_collected_data ----
-coll_municipal_collected_data <- read_csv("data/coll_municipal_collected_combined.csv", show_col_types = FALSE)
+coll_municipal_collected_data <- read_csv("data/coll_municipal_collected_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "name_of_municipality",
+                     "type_of_waste", "waste_by_municipality"),
+                   "coll_municipal_collected_combined.csv")
 
 df_long_collected <- melt(
   coll_municipal_collected_data,
@@ -546,7 +578,11 @@ plot_heatmap_by_region <- function(data) {
 }
 
 #### coll_management_data ----
-coll_management_data <- read_csv("data/coll_management_combined.csv", show_col_types = FALSE)
+coll_management_data <- read_csv("data/coll_management_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "type_of_waste",
+                     "waste_handed_to_collectors_RS", "waste_delivered_to_operators_RS",
+                     "waste_sent_to_EU", "waste_sent_to_non_EU"),
+                   "coll_management_combined.csv")
 
 # Reshape data for plotting
 df_long_management <- melt(
@@ -572,15 +608,32 @@ df_long_management <- df_long_management |>
   ungroup()
 ### ------------ Treatment Data ------------
 #### trt_storage_data ----
-trt_storage_data <- read_csv("data/trt_storage_combined.csv", show_col_types = FALSE)
+trt_storage_data <- read_csv("data/trt_storage_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "type_of_waste",
+                     "waste_stored_start_year", "waste_stored_end_year"),
+                   "trt_storage_combined.csv")
 #### trt_collected_data ----
-trt_collected_data <- read_csv("data/trt_collected_combined.csv", show_col_types = FALSE) |> drop_na()
+trt_collected_data <- read_csv("data/trt_collected_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "type_of_waste",
+                     "total_waste_received", "untreated_waste_from_storage_start_year",
+                     "waste_received_own_waste", "waste_received_from_generators",
+                     "waste_received_from_collectors", "waste_received_from_treatment",
+                     "waste_received_from_EU", "waste_received_from_non_EU"),
+                   "trt_collected_combined.csv") |> drop_na()
 #### trt_treatment_data ----
-trt_treatment_data <- read_csv("data/trt_treatment_combined.csv", show_col_types = FALSE)
+trt_treatment_data <- read_csv("data/trt_treatment_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "type_of_waste", "waste_category",
+                     "treatment_process", "waste_for_processing"),
+                   "trt_treatment_combined.csv")
 #### trt_municipal_waste_received_data ----
-trt_municipal_waste_received_data <- read_csv("data/trt_municipal_waste_received_combined.csv", show_col_types = FALSE)
+trt_municipal_waste_received_data <- read_csv("data/trt_municipal_waste_received_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "name_of_municipality",
+                     "type_of_waste", "waste_collected_by_municipality"),
+                   "trt_municipal_waste_received_combined.csv")
 #### trt_input_treatment_data ----
-trt_input_treatment_data <- read_csv("data/trt_input_treatment_combined.csv", show_col_types = FALSE)
+trt_input_treatment_data <- read_csv("data/trt_input_treatment_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "type_of_waste", "mass_change"),
+                   "trt_input_treatment_combined.csv")
 
 trt_input_treatment_data <- trt_input_treatment_data |> 
   group_by(year, type_of_waste) |>
@@ -588,11 +641,27 @@ trt_input_treatment_data <- trt_input_treatment_data |>
   ungroup()
 
 #### trt_management_data ----
-trt_management_data <- read_csv("data/trt_management_combined.csv", show_col_types = FALSE)
+trt_management_data <- read_csv("data/trt_management_combined.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "input_waste_name",
+                     "waste_handed_to_collectors_RS", "waste_delivered_to_operators_RS",
+                     "waste_sent_to_EU", "waste_sent_to_non_EU"),
+                   "trt_management_combined.csv")
 #### trt_magnagement_22_23_data ----
-trt_management_22_23 <- read_csv("data/trt_management_22_23.csv", show_col_types = FALSE)
+trt_management_22_23 <- read_csv("data/trt_management_22_23.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "input_waste_name",
+                     "treatment_operation", "further_treatment_envisaged",
+                     "waste_sent_to_self_storage_end_year", "waste_sent_to_collector_SI",
+                     "waste_sent_to_treatment_operator", "waste_sent_to_EU_member_states",
+                     "waste_sent_to_non_EU_countries", "waste_sent_to_no_further_management"),
+                   "trt_management_22_23.csv")
 #### trt_magnagement_22_23_24_data ----
-trt_management_22_23_24 <- read_csv("data/trt_management_22_23_24.csv", show_col_types = FALSE)
+trt_management_22_23_24 <- read_csv("data/trt_management_22_23_24.csv", show_col_types = FALSE) |>
+  validate_columns(c("year", "statistical_region", "input_waste_name",
+                     "treatment_operation", "further_treatment_envisaged",
+                     "waste_sent_to_self_storage_end_year", "waste_sent_to_collector_SI",
+                     "waste_sent_to_treatment_operator", "waste_sent_to_EU_member_states",
+                     "waste_sent_to_non_EU_countries", "waste_sent_to_no_further_management"),
+                   "trt_management_22_23_24.csv")
 ### ------------ Overview (Combined) ------------
 
 # Calculate totals for info boxes
