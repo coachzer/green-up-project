@@ -18,10 +18,27 @@ or open `Interface/Visualization/server.R` in RStudio and click **Run App**. Req
 
 ### Rebuilding the data
 
+Only the **raw SURS source files** (the `.xls`/`.xlsx` workbooks under each `<year> data/` directory) and the `.qmd` pipeline are tracked in git. Every CSV, plot, and widget below is **generated** and is **not** committed — regenerate it locally by rendering the pipeline.
+
 1. Place the raw SURS Excel files for the new year in a `<year> data/` directory (follow the structure of `2024 data/`).
-2. Render `green-up-project.qmd` (cleans raw data into per-year filtered CSVs).
-3. Render `analysis.qmd` (builds combined datasets and analysis outputs).
-4. The dashboard reads the combined CSVs from `Interface/Visualization/data/`.
+2. Render `green-up-project.qmd` → writes per-year filtered CSVs into each `<year> data/<year> filtered/...`.
+3. Render `analysis.qmd` → writes the combined CSVs the dashboard reads, plus analysis plots/widgets.
+4. Run the dashboard: `shiny::runApp("Interface/Visualization")`.
+
+> The pipeline creates any output directories it needs (`output/`, `Interface/Visualization/data/`, `Interface/Visualization/images/`), so a fresh clone can render from raw source without manual setup.
+
+### Generated outputs (not tracked in git)
+
+The following are produced by rendering and are git-ignored — clone + render to recreate them:
+
+| Output | Produced by | Location |
+| --- | --- | --- |
+| Per-year filtered CSVs | `green-up-project.qmd` | `<year> data/<year> filtered/**/*.csv` |
+| Combined CSVs (read by the app at runtime) | `analysis.qmd` | `Interface/Visualization/data/*.csv` |
+| Analysis plots | `analysis.qmd` | `output/*.png` |
+| Interactive sankey widgets | `analysis.qmd` | `Interface/Visualization/images/` |
+
+Hand-authored report figures/screenshots under `Interface/Visualization/figures/` are **not** generated and are kept as project assets.
 
 ### Deployment
 

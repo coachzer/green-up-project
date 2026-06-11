@@ -1752,8 +1752,10 @@ p1 <- ggplot(waste_long_2023, aes(x = Region, y = Count, fill = Service_Type)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("waste_analysis_2023_stacked.png", p1, width = 10, height = 6, dpi = 300)
-print("Saved: waste_analysis_2023_stacked.png")
+# write generated plots to output/ 
+dir.create("output", recursive = TRUE, showWarnings = FALSE)
+ggsave("output/waste_analysis_2023_stacked.png", p1, width = 10, height = 6, dpi = 300)
+print("Saved: output/waste_analysis_2023_stacked.png")
 
 # Percentage stacked bar chart - 2023
 p2 <- ggplot(waste_long_2023, aes(x = Region, y = Percentage, fill = Service_Type)) +
@@ -1768,8 +1770,8 @@ p2 <- ggplot(waste_long_2023, aes(x = Region, y = Percentage, fill = Service_Typ
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("waste_analysis_2023_percentage.png", p2, width = 10, height = 6, dpi = 300)
-print("Saved: waste_analysis_2023_percentage.png")
+ggsave("output/waste_analysis_2023_percentage.png", p2, width = 10, height = 6, dpi = 300)
+print("Saved: output/waste_analysis_2023_percentage.png")
 
 # Faceted bar chart - 2023
 p3 <- ggplot(waste_long_2023, aes(x = Service_Type, y = Count, fill = Service_Type)) +
@@ -1785,8 +1787,8 @@ p3 <- ggplot(waste_long_2023, aes(x = Service_Type, y = Count, fill = Service_Ty
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("waste_analysis_2023_faceted.png", p3, width = 12, height = 8, dpi = 300)
-print("Saved: waste_analysis_2023_faceted.png")
+ggsave("output/waste_analysis_2023_faceted.png", p3, width = 12, height = 8, dpi = 300)
+print("Saved: output/waste_analysis_2023_faceted.png")
 
 # ============================================================================
 # VISUALIZATIONS - 2024
@@ -1807,8 +1809,8 @@ p4 <- ggplot(waste_long_2024, aes(x = Region, y = Count, fill = Service_Type)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("waste_analysis_2024_stacked.png", p4, width = 10, height = 6, dpi = 300)
-print("Saved: waste_analysis_2024_stacked.png")
+ggsave("output/waste_analysis_2024_stacked.png", p4, width = 10, height = 6, dpi = 300)
+print("Saved: output/waste_analysis_2024_stacked.png")
 
 # Percentage stacked bar chart - 2024
 p5 <- ggplot(waste_long_2024, aes(x = Region, y = Percentage, fill = Service_Type)) +
@@ -1823,8 +1825,8 @@ p5 <- ggplot(waste_long_2024, aes(x = Region, y = Percentage, fill = Service_Typ
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("waste_analysis_2024_percentage.png", p5, width = 10, height = 6, dpi = 300)
-print("Saved: waste_analysis_2024_percentage.png")
+ggsave("output/waste_analysis_2024_percentage.png", p5, width = 10, height = 6, dpi = 300)
+print("Saved: output/waste_analysis_2024_percentage.png")
 
 # Faceted bar chart - 2024
 p6 <- ggplot(waste_long_2024, aes(x = Service_Type, y = Count, fill = Service_Type)) +
@@ -1840,8 +1842,8 @@ p6 <- ggplot(waste_long_2024, aes(x = Service_Type, y = Count, fill = Service_Ty
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("waste_analysis_2024_faceted.png", p6, width = 12, height = 8, dpi = 300)
-print("Saved: waste_analysis_2024_faceted.png")
+ggsave("output/waste_analysis_2024_faceted.png", p6, width = 12, height = 8, dpi = 300)
+print("Saved: output/waste_analysis_2024_faceted.png")
 
 # ============================================================================
 # COMPARISON VISUALIZATIONS
@@ -1862,8 +1864,8 @@ p7 <- ggplot(total_counts_combined, aes(x = Service_Type, y = Total_Count, fill 
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("waste_analysis_comparison_totals.png", p7, width = 10, height = 6, dpi = 300)
-print("Saved: waste_analysis_comparison_totals.png")
+ggsave("output/waste_analysis_comparison_totals.png", p7, width = 10, height = 6, dpi = 300)
+print("Saved: output/waste_analysis_comparison_totals.png")
 
 # Percentage comparison
 p8 <- ggplot(total_counts_combined, aes(x = Service_Type, y = Percentage, fill = factor(Year))) +
@@ -1878,8 +1880,8 @@ p8 <- ggplot(total_counts_combined, aes(x = Service_Type, y = Percentage, fill =
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("waste_analysis_comparison_percentages.png", p8, width = 10, height = 6, dpi = 300)
-print("Saved: waste_analysis_comparison_percentages.png")
+ggsave("output/waste_analysis_comparison_percentages.png", p8, width = 10, height = 6, dpi = 300)
+print("Saved: output/waste_analysis_comparison_percentages.png")
 
 # Regional comparison - Public Service
 p9 <- waste_long_combined |>
@@ -1896,8 +1898,8 @@ p9 <- waste_long_combined |>
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggsave("waste_analysis_comparison_public_service.png", p9, width = 10, height = 6, dpi = 300)
-print("Saved: waste_analysis_comparison_public_service.png")
+ggsave("output/waste_analysis_comparison_public_service.png", p9, width = 10, height = 6, dpi = 300)
+print("Saved: output/waste_analysis_comparison_public_service.png")
 
 # Regional comparison - Private Service
 p10 <- waste_long_combined |>
@@ -2374,7 +2376,7 @@ fig <- fig |> layout(
 # Display the plot
 fig
   
-# ensure the output dir exists (not tracked in git)
+# ensure the output dir exists 
 dir.create("Interface/Visualization/images", recursive = TRUE, showWarnings = FALSE)
 htmlwidgets::saveWidget(
   fig,
@@ -2461,7 +2463,7 @@ fig <- fig |> layout(
 # Display the plot
 fig
   
-# ensure the output dir exists (not tracked in git)
+# ensure the output dir exists 
 dir.create("Interface/Visualization/images", recursive = TRUE, showWarnings = FALSE)
 htmlwidgets::saveWidget(
   fig,
