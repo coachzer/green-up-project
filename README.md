@@ -122,6 +122,18 @@ These files are part of a Shiny app designed for Wood Waste Management Simulatio
 - **igraph**: For network graph computations.
 - **bslib**: For theming and Bootstrap-based UI customization.
 
+## Data Notes
+
+### Unattributed-region rows (NEOPREDELJENO / NA region)
+
+Some combined CSVs include rows where the statistical region is unattributed (`NEOPREDELJENO` or an empty/`NA` region value); others have these rows excluded at source:
+
+- **Excluded at source:** `gnr_combined.csv` and the 2016 rows of `trt_treatment_combined.csv` (the 2016 treatment-of-waste source file omits 3,759.2 t of unattributed waste — roughly 0.58% of that year's treatment total).
+- **Included in CSV, filtered at runtime:** `coll_received_combined.csv` carries 6 rows with a missing region for 2016; `server.R` filters `NEOPREDELJENO` at load time so these do not appear in the app.
+- **Included in CSV, dropped by `drop_na()`:** `trt_collected_combined.csv` carries 5 rows with the literal string `NA` as region for 2016; `readr::read_csv` parses these as `NA` and the `drop_na()` at the end of the read block silently removes them.
+
+The asymmetry is a source-level artefact (some yearly SURS tables include an unattributed-region row, others do not). National totals on the Treatment tab therefore undercount 2016 by ~0.58% relative to the raw SURS export. No code change has been made to enforce uniform inclusion; the data files retain the rows as delivered by the source.
+
 ## Conclusion
 
 This project aims to provide a comprehensive understanding of waste production and management in Slovenia, focusing on specific waste types and how they are handled by various companies and regions over the years. The insights gained from this analysis will help in identifying trends, inefficiencies, and potential areas for improvement in waste management practices.
