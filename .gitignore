@@ -40,3 +40,10 @@ gadm41_SVN_2.json
 green-up-project - Copy (2).qmd
 green-up-project - Copy.qmd
 map_test.r
+
+# Legacy course snapshot — kept on disk, not tracked
+InfoVis Project/
+# Generated render outputs
+REPORT.html
+analysis.html
+network.html
