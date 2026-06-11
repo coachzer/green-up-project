@@ -350,13 +350,22 @@ municipality_region_mapping <- data.frame(
     rep("JUGOVZHODNA SLOVENIJA", length(JUGOVZHODNA.SLOVENIJA)),
     rep("OSREDNJESLOVENSKA", length(OSREDNJESLOVENSKA)),
     rep("GORENJSKA", length(GORENJSKA)),
-    rep("PRIMORSKONOTRANJSKA", length(PRIMORSKONOTRANJSKA)),
+    rep("PRIMORSKO-NOTRANJSKA", length(PRIMORSKONOTRANJSKA)),
     rep("GORIŠKA", length(GORIŠKA)),
-    rep("OBALNOKRAŠKA", length(OBALNOKRAŠKA)),
+    rep("OBALNO-KRAŠKA", length(OBALNOKRAŠKA)),
     rep("NEOPREDELJENO", 1),
     rep("UNDEFINED", 1)
   )
 )
+
+# normalize legacy region-name spelling variants to the canonical SURS forms
+normalize_region <- function(x) {
+  dplyr::recode(x,
+    "JUGOVZHODNASLOVENIJA" = "JUGOVZHODNA SLOVENIJA",
+    "OBALNOKRAŠKA" = "OBALNO-KRAŠKA",
+    "PRIMORSKONOTRANJSKA" = "PRIMORSKO-NOTRANJSKA"
+  )
+}
 
 # Function to assign clear names to waste types
 clear_waste_name <- function(name) {
@@ -618,7 +627,7 @@ names(g.2022.data) <- colnames(g.2023.data)
 
 combined_data <- bind_rows(without_company_data, g.2019.data, g.2020.data, g.2021.data, g.2022.data, g.2023.data, g.2024.data)
 
-combined_data$statistical_region <- gsub("JUGOVZHODNA SLOVENIJA", "JUGOVZHODNASLOVENIJA", combined_data$statistical_region)
+combined_data$statistical_region <- normalize_region(combined_data$statistical_region)
 
 # filter out NEOPREDELJENO
 combined_data <- combined_data |>
@@ -631,17 +640,14 @@ write_csv(combined_data, "Interface/Visualization/data/gnr_combined.csv")
 region_colors <- c(
   "GORENJSKA" = "#1f77b4",              # Blue
   "GORIŠKA" = "#ff7f0e",                # Orange
-  "JUGOVZHODNASLOVENIJA" = "#2ca02c",   # Green
-  "JUGOVZHODNA SLOVENIJA" = "#2ca02c",  
+  "JUGOVZHODNA SLOVENIJA" = "#2ca02c",  # Green
   "KOROŠKA" = "#d62728",                # Red
   "OBALNO-KRAŠKA" = "#9467bd",          # Purple
-  "OBALNOKRAŠKA" = "#9467bd",           
   "OSREDNJESLOVENSKA" = "#8c564b",      # Brown
   "PODRAVSKA" = "#e377c2",              # Pink
   "POMURSKA" = "#7f7f7f",               # Gray
   "POSAVSKA" = "#bcbd22",               # Olive
   "PRIMORSKO-NOTRANJSKA" = "#17becf",   # Cyan
-  "PRIMORSKONOTRANJSKA" = "#17becf",    
   "SAVINJSKA" = "#ffbb78",              # Light Orange
   "ZASAVSKA" = "#98df8a",               # Light Green
   "NEOPREDELJENO" = "#c7c7c7"           # Light Gray (unspecified)
@@ -2024,6 +2030,8 @@ waste.management.2024.data <- waste.management.2024.data |>
 
 combined_municipal_data <- bind_rows(waste.management.2018.data, waste.management.2019.data, waste.management.2020.data, waste.management.2021.data, waste.management.2022.data, waste.management.2023.data, waste.management.2024.data)
 
+combined_municipal_data$statistical_region <- normalize_region(combined_municipal_data$statistical_region)
+
 # export the combined municipal data to the data folder
 write_csv(combined_municipal_data, "Interface/Visualization/data/coll_municipal_combined.csv")
 ```
@@ -2104,6 +2112,8 @@ waste.collected.2024.data <- waste.collected.2024.data |>
 
 # combine data
 combined_collected_data <- bind_rows(waste.collected.2018.data, waste.collected.2019.data, waste.collected.2020.data, waste.collected.2021.data, waste.collected.2022.data, waste.collected.2023.data, waste.collected.2024.data) |> dplyr::select(year, statistical_region, name_of_municipality, type_of_waste, waste_category, waste_by_municipality)
+
+combined_collected_data$statistical_region <- normalize_region(combined_collected_data$statistical_region)
 
 # export the combined collected data to the data folder
 write_csv(combined_collected_data, "Interface/Visualization/data/coll_municipal_collected_combined.csv")
@@ -2222,7 +2232,7 @@ write_csv(combined_management_data, "Interface/Visualization/data/coll_managemen
 1. **Load Waste Storage Data**
 - Read CSV files for waste storage data from 2016 to 2022.
 - Aggregate 2021 data by `year`, `statistical_region`, and `type_of_waste`.
-- For 2022, set `waste_stored_end_year` to 0.
+- From 2022, SURS no longer reports end-of-year stock; `waste_stored_end_year` is backfilled with the next year's start-of-year value (NA when no successor row exists).
 
 2. **Combine Data**
 - Combine all years of waste storage data into a single dataframe.
@@ -2364,8 +2374,10 @@ fig <- fig |> layout(
 # Display the plot
 fig
   
+# ensure the output dir exists (not tracked in git)
+dir.create("Interface/Visualization/images", recursive = TRUE, showWarnings = FALSE)
 htmlwidgets::saveWidget(
-  fig, 
+  fig,
   "Interface/Visualization/images/waste_storage_sankey_2023.html",
   selfcontained = TRUE  # embeds all dependencies into one file
 )
@@ -2449,8 +2461,10 @@ fig <- fig |> layout(
 # Display the plot
 fig
   
+# ensure the output dir exists (not tracked in git)
+dir.create("Interface/Visualization/images", recursive = TRUE, showWarnings = FALSE)
 htmlwidgets::saveWidget(
-  fig, 
+  fig,
   "Interface/Visualization/images/waste_storage_sankey_2024.html",
   selfcontained = TRUE  # embeds all dependencies into one file
 )
@@ -2478,7 +2492,7 @@ waste.storage.2021.data <- waste.storage.2021.data |>
 waste.storage.2022.data <- waste.storage.2022.data |>
   dplyr::select(year, statistical_region, type_of_waste, quantity_stored_start_year) |>
   rename(waste_stored_start_year = quantity_stored_start_year) |>
-  mutate(waste_stored_end_year = 0)
+  mutate(waste_stored_end_year = NA_real_)
 
 filtered_2023 <- waste.storage.2023.data |>
   group_by(year, statistical_region, type_of_waste_inlet) |>
@@ -2487,7 +2501,7 @@ filtered_2023 <- waste.storage.2023.data |>
   filter(waste_stored_start_year != 0) |>
   filter(str_detect(type_of_waste_inlet, "(?i)wood|bark|sawdust|cork|paper|cardboard")) |>
   rename(type_of_waste = type_of_waste_inlet) |>
-  mutate(waste_stored_end_year = 0)
+  mutate(waste_stored_end_year = NA_real_)
 
 waste.storage.2023.data <- filtered_2023
 
@@ -2498,7 +2512,7 @@ filtered_2024 <- waste.storage.2024.data |>
   filter(waste_stored_start_year != 0) |>
   filter(str_detect(type_of_waste_inlet, "(?i)wood|bark|sawdust|cork|paper|cardboard")) |>
   rename(type_of_waste = type_of_waste_inlet) |>
-  mutate(waste_stored_end_year = 0)
+  mutate(waste_stored_end_year = NA_real_)
 
 waste.storage.2024.data <- filtered_2024
 ```
@@ -2547,7 +2561,13 @@ combined_storage_data <- combined_storage_data |>
   arrange(statistical_region, type_of_waste, year) |>
   group_by(statistical_region, type_of_waste) |>
   mutate(next_year_start = lead(waste_stored_start_year, 1)) |>
-  ungroup()
+  ungroup() |>
+  # from 2022 SURS no longer reports end-of-year stock; use next year's start
+  mutate(waste_stored_end_year = ifelse(
+    as.integer(as.character(year)) >= 2022,
+    next_year_start,
+    waste_stored_end_year
+  ))
 
 # export
 write_csv(combined_storage_data, "Interface/Visualization/data/trt_storage_combined.csv")
@@ -2890,9 +2910,10 @@ codes <- c(
   "20 03 07"
 )
 
-# Filter to keep only rows with these waste codes
-management.all.data <- management.all.data |> 
-  filter(treatment_inlet_delivered_waste_code %in% codes)
+# Filter to keep only rows with these waste codes; source files carry exact-duplicate rows
+management.all.data <- management.all.data |>
+  filter(treatment_inlet_delivered_waste_code %in% codes) |>
+  distinct()
 
 # Export
 write_csv(management.all.data, "Interface/Visualization/data/trt_management_combined.csv")
@@ -2926,6 +2947,8 @@ names(municipal.waste.received.2018.data) <- colnames(municipal.waste.received.2
 names(municipal.waste.received.2019.data) <- colnames(municipal.waste.received.2021.data)
 
 combined_municipal_waste_received_data <- bind_rows(municipal.waste.received.2018.data, municipal.waste.received.2019.data, municipal.waste.received.2020.data, municipal.waste.received.2021.data)
+
+combined_municipal_waste_received_data$statistical_region <- normalize_region(combined_municipal_waste_received_data$statistical_region)
 
 # export
 write_csv(combined_municipal_waste_received_data, "Interface/Visualization/data/trt_municipal_waste_received_combined.csv")
