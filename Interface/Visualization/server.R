@@ -2090,6 +2090,7 @@ shinyServer(function(input, output, session) {
   
   # Reactive expression to filter data based on selected regions and top n municipalities
   filtered_municipal_data <- reactive({
+    req(input$region1, input$top_n_municipal)
     top_municipalities <- df_long_municipal |>
       filter(statistical_region %in% c(input$region1, input$region2) &
                type_of_waste == input$waste_type) |>
@@ -2139,7 +2140,7 @@ shinyServer(function(input, output, session) {
     filtered_data = filtered_municipal_data()
     muni_names = unique(filtered_data$name_of_municipality)
     n_munis = length(muni_names)
-    cols = municipal_colors[1:n_munis]
+    cols <- municipal_colors[pmin(seq_len(n_munis), length(municipal_colors))]
     
     plot_ly(
       data  = filtered_data,
@@ -2366,11 +2367,6 @@ shinyServer(function(input, output, session) {
   
   output$detailedPlot <- renderPlotly({
     req(input$region, input$wasteType)
-    
-    print("source labels are: ")
-    print(source_labels)
-    print("source colors are: ")
-    print(source_colors)
     
     plot_data <- filtered_collection_management_data() |>
       mutate(source_clean = dplyr::recode(as.character(source),
@@ -3812,15 +3808,15 @@ shinyServer(function(input, output, session) {
       # Add totals row
       totals_row <- data.frame(
         `Input Waste Type` = "TOTAL",
-        `Collectors (SI)` = round(sum(data$waste_handed_to_collectors_RS, na.rm = TRUE), 2),
-        `Treatment Operators (SI)` = round(sum(data$waste_delivered_to_operators_RS, na.rm = TRUE), 2),
+        `Collectors (Slovenia)` = round(sum(data$waste_handed_to_collectors_RS, na.rm = TRUE), 2),
+        `Treatment Operators (Slovenia)` = round(sum(data$waste_delivered_to_operators_RS, na.rm = TRUE), 2),
         `EU Member States` = round(sum(data$waste_sent_to_EU, na.rm = TRUE), 2),
         `Non-EU Countries` = round(sum(data$waste_sent_to_non_EU, na.rm = TRUE), 2),
-        `Total (tons)` = round(sum(data$waste_handed_to_collectors_RS + data$waste_delivered_to_operators_RS + 
+        `Total (tons)` = round(sum(data$waste_handed_to_collectors_RS + data$waste_delivered_to_operators_RS +
                                      data$waste_sent_to_EU + data$waste_sent_to_non_EU, na.rm = TRUE), 2),
         check.names = FALSE
       )
-      
+
     } else {
       # 2022-2023 summary
       summary <- data |>
