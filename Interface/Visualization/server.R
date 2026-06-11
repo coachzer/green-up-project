@@ -2536,7 +2536,7 @@ shinyServer(function(input, output, session) {
         group_by(year) |>
         summarize(
           total_start = sum(waste_stored_start_year, na.rm = TRUE),
-          total_end = sum(waste_stored_end_year, na.rm = TRUE),
+          total_end = ifelse(all(is.na(waste_stored_end_year)), NA_real_, sum(waste_stored_end_year, na.rm = TRUE)),
           .groups = "drop"
         ) |>
         arrange(year)
