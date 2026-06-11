@@ -2374,8 +2374,10 @@ fig <- fig |> layout(
 # Display the plot
 fig
   
+# ensure the output dir exists (not tracked in git)
+dir.create("Interface/Visualization/images", recursive = TRUE, showWarnings = FALSE)
 htmlwidgets::saveWidget(
-  fig, 
+  fig,
   "Interface/Visualization/images/waste_storage_sankey_2023.html",
   selfcontained = TRUE  # embeds all dependencies into one file
 )
@@ -2459,8 +2461,10 @@ fig <- fig |> layout(
 # Display the plot
 fig
   
+# ensure the output dir exists (not tracked in git)
+dir.create("Interface/Visualization/images", recursive = TRUE, showWarnings = FALSE)
 htmlwidgets::saveWidget(
-  fig, 
+  fig,
   "Interface/Visualization/images/waste_storage_sankey_2024.html",
   selfcontained = TRUE  # embeds all dependencies into one file
 )
