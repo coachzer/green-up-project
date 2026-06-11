@@ -2906,9 +2906,10 @@ codes <- c(
   "20 03 07"
 )
 
-# Filter to keep only rows with these waste codes
-management.all.data <- management.all.data |> 
-  filter(treatment_inlet_delivered_waste_code %in% codes)
+# Filter to keep only rows with these waste codes; source files carry exact-duplicate rows
+management.all.data <- management.all.data |>
+  filter(treatment_inlet_delivered_waste_code %in% codes) |>
+  distinct()
 
 # Export
 write_csv(management.all.data, "Interface/Visualization/data/trt_management_combined.csv")
