@@ -4013,7 +4013,7 @@ shinyServer(function(input, output, session) {
           changes,
           paste(
             "Seasonal variations set to",
-            params$seasonal_multipler,
+            params$seasonal_multiplier,
             "for",
             input$season
           )
@@ -4093,7 +4093,11 @@ shinyServer(function(input, output, session) {
       stringsAsFactors = FALSE
     )
   )
-  
+
+  # Server-scope list accumulators for log_event (avoid O(n^2) rbind-in-a-loop)
+  sim_event_rows <- list()
+  sim_cost_rows  <- list()
+
   # Logging events and costs -----
   log_event <- function(env,
                         region,
@@ -4139,9 +4143,9 @@ shinyServer(function(input, output, session) {
       stringsAsFactors = FALSE
     )
     
-    # Append data to results and costs
-    results(rbind(results(), event_data))
-    costs(rbind(costs(), cost_data))
+    # Append data to server-scope accumulators (flushed to reactiveVals after run)
+    sim_event_rows[[length(sim_event_rows) + 1L]] <<- event_data
+    sim_cost_rows[[length(sim_cost_rows) + 1L]]   <<- cost_data
   }
   
   
@@ -4803,8 +4807,12 @@ shinyServer(function(input, output, session) {
         stringsAsFactors = FALSE
       )
     )
-    
-    
+
+    # Reset list accumulators for this run
+    sim_event_rows <<- list()
+    sim_cost_rows  <<- list()
+
+
     withProgress(message = 'Running simulation...', value = 0, {
       user_params <- load_parameters()
       result <- load_scenario_parameters(input$scenario, user_params)
@@ -4924,9 +4932,12 @@ shinyServer(function(input, output, session) {
       incProgress(0.5)
       
       env |>
-        run(until = default_values$runtime)
-      # env |> run(until = 365) # Imitating a year-long simulation
-      
+        run(until = params$runtime)
+
+      # Flush accumulators into reactiveVals once (O(n) instead of O(n^2))
+      if (length(sim_event_rows)) results(dplyr::bind_rows(sim_event_rows))
+      if (length(sim_cost_rows))  costs(dplyr::bind_rows(sim_cost_rows))
+
       incProgress(0.8)
       
       distance_matrix <- generate_distance_matrix(params$regions)
@@ -5073,7 +5084,19 @@ shinyServer(function(input, output, session) {
           input$selected_metric
         )
       })
-      
+
+      # Synthetic-data disclosure notice (plan 009 step 5).
+      # NOTE: a matching uiOutput("simulation_notice") must be added in ui.R
+      # (out of scope here; tracked for plan 010).
+      output$simulation_notice <- renderUI({
+        tags$div(
+          class = "alert alert-warning",
+          tags$strong("Synthetic demonstration data — "),
+          "values are randomly generated placeholders (runif draws), not real measurements."
+        )
+      })
+
+
       # Cumulative Totals -----
       
       output$cumulative_totals <- renderDT({
@@ -5426,9 +5449,25 @@ shinyServer(function(input, output, session) {
           "simulation_report.html"
         },
         content = function(file) {
-          # Generate report content
-          report_content <- rmarkdown::render("report_template.Rmd", params = list(data = results()))
-          file.copy(report_content, file)
+          # Self-contained report: write a temp Rmd, knit it, copy out.
+          # NOTE: the simulation figures are synthetic placeholders (see plan 009 step 5).
+          tmp <- tempfile(fileext = ".Rmd")
+          writeLines(c(
+            "---",
+            "title: 'Wood Waste Simulation Report (synthetic data)'",
+            "output: html_document",
+            "params:",
+            "  data: NULL",
+            "---",
+            "",
+            "> **Note:** simulation outputs are synthetic placeholder draws, not real measurements.",
+            "",
+            "```{r echo=FALSE}",
+            "knitr::kable(params$data)",
+            "```"
+          ), tmp)
+          out <- rmarkdown::render(tmp, params = list(data = results()), quiet = TRUE)
+          file.copy(out, file)
         }
       )
       
