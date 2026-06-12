@@ -5106,7 +5106,7 @@ for (sheet_name in sheet_names) {
 waste_recovery_19.path <- "2019 data\\ODP_P_2019_objava_21122020.xlsx"
 ```
 
-```{r waste_storage}
+```{r waste_storage_2019}
 # WASTE STORAGE IN 2019
 
 waste_recovery_19.sheet1 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 1)
@@ -5133,7 +5133,7 @@ waste_storage.19 <- waste_recovery_19.sheet1 |>
 waste_recovery_19.sheet1 <- waste_storage.19
 ```
 
-```{r waste_collected}
+```{r waste_collected_2019}
 # WASTE COLLECTED IN 2019
 
 waste_recovery_19.sheet2 <- read_xlsx(waste_recovery_19.path, skip = 2, sheet = 2)
@@ -5294,7 +5294,7 @@ municipal_waste_treatment.19 <- municipal_waste_treatment.19 |>
 waste_recovery_19.sheet5 <- municipal_waste_treatment.19
 ```
 
-```{r difference_waste_input_treatment_process}
+```{r difference_waste_input_treatment_process_2019}
 # THE DIFFERENCE IN MASS BETWEEN THE WASTE INPUT AND
 # THE TREATMENT PRODUCT VOLUMES DUE TO LOSSES DURING
 # THE TREATMENT PROCESS IN 2019
@@ -5521,7 +5521,7 @@ for (sheet_name in sheet_names) {
 waste_collection_18.path <- "2018 data\\ODP_Z_2018_objava21122020.xlsx"
 ```
 
-```{r waste_storage}
+```{r waste_storage_2018}
 waste_collection_18.sheet1 <- read_xlsx(waste_collection_18.path, skip = 2, sheet = 1)
 
 waste_collection_18.by_codes1 <- waste_collection_18.sheet1 |>
@@ -5550,7 +5550,7 @@ waste_collection_18.by_codes1 <- waste_collection_18.sheet1 |>
   )
 ```
 
-```{r waste_collected}
+```{r waste_collected_2018}
 waste_collection_18.sheet2 <- read_xlsx(waste_collection_18.path, skip = 2, sheet = 2)
 
 waste_collection_18.by_codes2 <- waste_collection_18.sheet2 |>
@@ -5638,7 +5638,7 @@ waste_collection_18.by_codes4 <- waste_collection_18.sheet4 |>
   ) 
 ```
 
-```{r management_waste_collected}
+```{r management_waste_collected_2018}
 waste_collection_18.sheet5 <- read_xlsx(waste_collection_18.path, skip = 2, sheet = 5)
 
 waste_collection_18.by_codes5 <- waste_collection_18.sheet5 |>
@@ -5718,7 +5718,7 @@ for (sheet_name in sheet_names) {
 waste_recovery_18.path <- "2018 data\\ODP_P_2018_objava21122020.xlsx"
 ```
 
-```{r waste_recovery_disposal_storage}
+```{r waste_recovery_disposal_storage_2018}
 waste_recovery_18.sheet1 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 1)
 
 waste_recovery_18.by_codes1 <- waste_recovery_18.sheet1 |>
@@ -5740,7 +5740,7 @@ waste_recovery_18.by_codes1 <- waste_recovery_18.sheet1 |>
   ) 
 ```
 
-```{r waste_recovery_disposal_collected}
+```{r waste_recovery_disposal_collected_2018}
 waste_recovery_18.sheet2 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 2)
 
 waste_recovery_18.by_codes2 <- waste_recovery_18.sheet2 |>
@@ -5782,7 +5782,7 @@ waste_recovery_18.by_codes2 <- waste_recovery_18.sheet2 |>
   )
 ```
 
-```{r treatment_of_waste}
+```{r treatment_of_waste_2018}
 waste_recovery_18.sheet3 <- read_xlsx(waste_recovery_18.path, skip = 2, sheet = 3)
 
 waste_recovery_18.by_codes3 <- waste_recovery_18.sheet3 |>
@@ -5886,7 +5886,7 @@ waste_recovery_18.by_codes5 <- waste_recovery_18.sheet5 |>
   ) 
 ```
 
-```{r difference_waste_input_treatment_process}
+```{r difference_waste_input_treatment_process_2018}
 # MASS DIFFERENCE BETWEEN WASTE INPUT AND
 # TREATMENT PRODUCT VOLUMES DUE TO LOSSES
 # DURING THE TREATMENT PROCESS IN 2018
@@ -6167,7 +6167,7 @@ for (sheet_name in sheet_names) {
 waste_collection_17.path <- "2017 data\\2017_collection.xlsx"
 ```
 
-```{r waste_storage}
+```{r waste_storage_2017}
 # Waste storage in 2017
 waste_collection_17.sheet1 <- read_xlsx(waste_collection_17.path, skip = 1, sheet = 1)
 
@@ -6191,7 +6191,7 @@ waste_collection_17.by_codes1 <- waste_collection_17.sheet1 |>
   ) 
 ```
 
-```{r waste_collected}
+```{r waste_collected_2017}
 # Waste collected in 2017
 waste_collection_17.sheet2 <- read_xlsx(waste_collection_17.path, skip = 1, sheet = 2)
 
@@ -6248,7 +6248,7 @@ waste_collection_17.by_codes2 <- waste_collection_17.sheet2 |>
   ) 
 ```
 
-```{r management_waste_collected}
+```{r management_waste_collected_2017}
 # Management of waste collected in 2017
 waste_collection_17.sheet3 <- read_xlsx(waste_collection_17.path, skip = 1, sheet = 3)
 
@@ -6336,7 +6336,7 @@ for (sheet_name in sheet_names) {
 waste_recovery_disposal_17.path <- "2017 data\\2017_recovery_disposal.xlsx"
 ```
 
-```{r waste_recovery_disposal_storage}
+```{r waste_recovery_disposal_storage_2017}
 waste_recovery_disposal_17.sheet1 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 1)
 
 waste_recovery_disposal_17.by_codes1 <- waste_recovery_disposal_17.sheet1 |>
@@ -6366,7 +6366,7 @@ waste_recovery_disposal_17.by_codes1 <- waste_recovery_disposal_17.sheet1 |>
   )
 ```
 
-```{r waste_recovery_disposal_collected}
+```{r waste_recovery_disposal_collected_2017}
 waste_recovery_disposal_17.sheet2 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 2)
 
 waste_recovery_disposal_17.by_codes2 <- waste_recovery_disposal_17.sheet2 |>
@@ -6409,7 +6409,7 @@ waste_recovery_disposal_17.by_codes2 <- waste_recovery_disposal_17.sheet2 |>
   ungroup()
 ```
 
-```{r treatment_of_waste}
+```{r treatment_of_waste_2017}
 waste_recovery_disposal_17.sheet3 <- read_xlsx(waste_recovery_disposal_17.path, skip = 1, sheet = 3)
 
 waste_recovery_disposal_17.by_codes3 <- waste_recovery_disposal_17.sheet3 |>
@@ -6872,7 +6872,7 @@ for (sheet_name in sheet_names) {
 waste_collection_16.path <- "2016 data\\2016_collection.xls"
 ```
 
-```{r waste_storage}
+```{r waste_storage_2016_collection}
 waste_collection_16.sheet1 <- read_xls(waste_collection_16.path, skip = 1, sheet = 1)
 
 waste_collection_16.by_codes1 <- waste_collection_16.sheet1 |>
@@ -6907,7 +6907,7 @@ waste_collection_16.by_codes1 <- waste_collection_16.sheet1 |>
   ) 
 ```
 
-```{r waste_collected}
+```{r waste_collected_2016_collection}
 waste_collection_16.sheet2 <- read_xls(waste_collection_16.path, skip = 1, sheet = 2)
 
 waste_collection_16.by_codes2 <- waste_collection_16.sheet2 |>
@@ -6942,7 +6942,7 @@ waste_collection_16.by_codes2 <- waste_collection_16.sheet2 |>
   )
 ```
 
-```{r management_waste_collected}
+```{r management_waste_collected_2016}
 waste_collection_16.sheet3 <- read_xls(waste_collection_16.path, skip = 1, sheet = 3)
 
 waste_collection_16.by_codes3 <- waste_collection_16.sheet3 |>
@@ -7007,7 +7007,7 @@ for (sheet_name in sheet_names) {
 waste_recovery_disposal_16.path <- "2016 data\\2016_recovery_disposal.xls"
 ```
 
-```{r waste_storage}
+```{r waste_storage_2016_recovery}
 waste_recovery_disposal_16.sheet1 <- read_xls(waste_recovery_disposal_16.path, skip = 1, sheet = 1)
 
 waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.sheet1 |>
@@ -7047,7 +7047,7 @@ waste_recovery_disposal_16.by_codes1 <- waste_recovery_disposal_16.sheet1 |>
 
 ```
 
-```{r waste_collected}
+```{r waste_collected_2016_recovery}
 waste_recovery_disposal_16.sheet2 <- read_xls(waste_recovery_disposal_16.path, skip = 1, sheet = 2)
 
 waste_recovery_disposal_16.by_codes2 <- waste_recovery_disposal_16.sheet2 |>
