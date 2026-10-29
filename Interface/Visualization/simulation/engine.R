@@ -87,9 +87,8 @@ sim_params <- function(scenario = "baseline", season = NULL, overrides = list())
   } else if (scenario == "seasonal_variations") {
     if (has_season && season == "Year-long") {
       params$seasonal_variations <- TRUE
-      params$seasonal_multiplier <- 1.1
-      changes <- c(changes, paste("Seasonal variations set to",
-                                  params$seasonal_multiplier, "for", season))
+      changes <- c(changes, paste("Seasonal multiplier drawn per event from",
+                                  paste(unique(unlist(sim_seasons)), collapse = ", ")))
     } else if (has_season) {
       params$seasonal_variations <- FALSE
       params$seasonal_multiplier <- sim_seasons[[tolower(season)]]
