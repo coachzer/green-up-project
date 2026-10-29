@@ -368,6 +368,8 @@ register_simulation_server <- function(input, output, session) {
       # arrange(Time) |>
       group_by(Region, WasteType) |>
       mutate(CumulativeAmount = cumsum(Amount))
+    # e.g. recycling starts at t = 20, so shorter runs have no recycling events
+    validate(need(nrow(data) > 0, paste("No", tolower(event_type), "events for this selection.")))
     data
   }
   
