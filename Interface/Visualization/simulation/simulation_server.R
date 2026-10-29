@@ -313,8 +313,7 @@ register_simulation_server <- function(input, output, session) {
       filter(
         Event == event_type,
         Region %in% input$regions_selected,
-        WasteType %in% input$waste_types_selected,
-        Scenario %in% input$scenario
+        WasteType %in% input$waste_types_selected
       ) |>
       group_by(Region, WasteType) |>
       mutate(CumulativeAmount = cumsum(Amount))
