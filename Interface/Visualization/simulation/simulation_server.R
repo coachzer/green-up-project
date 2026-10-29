@@ -139,64 +139,26 @@ register_simulation_server <- function(input, output, session) {
   })
   
   # Inputs for scenario selection -----
-  observe({
-    user_params <- load_parameters()
-    params_loaded <- sim_params(input$scenario, input$season, user_params)
-    params <- params_loaded$params
-    
-    output$seasonal_multiplier_display <- renderText({
-      paste("Current Seasonal Generation Multiplier: ",
-            params$seasonal_multiplier)
-    })
-    
-    updateNumericInput(session,
-                       "generation_rate_increase",
-                       value = params$generation_rate_increase)
-    updateNumericInput(session,
-                       "collection_rate_increase",
-                       value = params$collection_rate_increase)
-    updateNumericInput(session,
-                       "handling_rate_increase",
-                       value = params$handling_rate_increase)
-    updateNumericInput(session,
-                       "recycling_rate_increase",
-                       value = params$recycling_rate_increase)
-    updateNumericInput(session,
-                       "storage_cost_per_unit",
-                       value = params$storage_cost_per_unit)
-    updateNumericInput(session,
-                       "collection_cost_per_unit",
-                       value = params$collection_cost_per_unit)
-    updateNumericInput(session,
-                       "processing_cost_per_unit",
-                       value = params$processing_cost_per_unit)
-    updateNumericInput(session,
-                       "transportation_cost_per_unit",
-                       value = params$transportation_cost_per_unit)
-    updateNumericInput(session,
-                       "overflow_penalty_per_unit",
-                       value = params$overflow_penalty_per_unit)
-    updateNumericInput(session,
-                       "recycling_revenue_per_unit",
-                       value = params$recycling_revenue_per_unit)
-    updateNumericInput(
-      session,
-      "avoided_disposal_cost_per_unit",
-      value = params$avoided_disposal_cost_per_unit
-    )
-    updateNumericInput(session, "storage_capacity", value = params$storage_capacity)
-    updateNumericInput(session, "runtime", value = params$runtime)
+  output$seasonal_multiplier_display <- renderText({
+    req(input$scenario)
+    multiplier <- sim_scenario_presets(input$scenario, input$season)$values$seasonal_multiplier
+    paste("Current Seasonal Generation Multiplier: ",
+          if (is.null(multiplier)) "drawn per event" else multiplier)
   })
-  
-  # Scenario change
-  observeEvent(input$scenario, {
-    user_params <- load_parameters()
-    params_loaded <- sim_params(input$scenario, input$season, user_params)
-    params <- params_loaded$params
-    changes <- params_loaded$changes
-    
-    # Show notifications for changes
-    for (change in changes) {
+
+  # Scenario change: push the new preset, and put back the defaults the
+  # previous preset changed
+  previous_preset <- list()
+  observeEvent(list(input$scenario, input$season), {
+    req(input$scenario)
+    presets <- sim_scenario_presets(input$scenario, input$season)
+    values <- utils::modifyList(default_values[names(previous_preset)], presets$values)
+    for (name in intersect(names(values), names(max_values))) {
+      updateNumericInput(session, name, value = values[[name]])
+    }
+    previous_preset <<- presets$values
+
+    for (change in presets$changes) {
       showNotification(
         change,
         duration = 5,
@@ -204,7 +166,6 @@ register_simulation_server <- function(input, output, session) {
         type = "message"
       )
     }
-    
   })
   
   # Reset parameters -----

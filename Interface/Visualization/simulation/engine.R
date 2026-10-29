@@ -49,26 +49,25 @@ sim_metrics <- c(
 )
 
 
-sim_params <- function(scenario = "baseline", season = NULL, overrides = list()) {
-  params <- utils::modifyList(sim_defaults(), overrides)
-  params$scenario <- scenario
+sim_scenario_presets <- function(scenario = "baseline", season = NULL) {
+  preset <- list()
   changes <- list()
 
   has_season <- length(season) == 1 && !is.na(season) && nzchar(trimws(season))
 
   if (scenario == "increased_waste_generation") {
-    params$generation_rate_increase <- 2
+    preset$generation_rate_increase <- 2
     changes <- c(changes, "Generation rate increase set to 2")
   } else if (scenario == "improved_collection_efficiency") {
-    params$collection_rate_increase <- 1.5
+    preset$collection_rate_increase <- 1.5
     changes <- c(changes, "Collection rate increase set to 1.5")
   } else if (scenario == "improved_handling_efficiency") {
-    params$handling_rate_increase <- 1.5
+    preset$handling_rate_increase <- 1.5
     changes <- c(changes, "Handling rate increase set to 1.5")
   } else if (scenario == "enhanced_recycling_programs") {
-    params$recycling_rate_increase <- 2
-    params$recycling_revenue_per_unit <- 5
-    params$avoided_disposal_cost_per_unit <- 2
+    preset$recycling_rate_increase <- 2
+    preset$recycling_revenue_per_unit <- 5
+    preset$avoided_disposal_cost_per_unit <- 2
     changes <- c(
       changes,
       "Recycling rate increase set to 2",
@@ -76,32 +75,39 @@ sim_params <- function(scenario = "baseline", season = NULL, overrides = list())
       "Avoided disposal cost per unit set to 2"
     )
   } else if (scenario == "storage_capacity_expansion") {
-    params$storage_capacity <- 1000
+    preset$storage_capacity <- 1000
     changes <- c(changes, "Storage capacity set to 1000")
   } else if (scenario == "penalties_for_overflow") {
-    params$overflow_penalty_per_unit <- 5
+    preset$overflow_penalty_per_unit <- 5
     changes <- c(changes, "Overflow penalty per unit set to 5")
   } else if (scenario == "different_transportation_costs") {
-    params$transportation_cost_per_unit <- 0.5
+    preset$transportation_cost_per_unit <- 0.5
     changes <- c(changes, "Transportation cost per unit set to 0.5")
   } else if (scenario == "seasonal_variations") {
     if (has_season && season == "Year-long") {
-      params$seasonal_variations <- TRUE
+      preset$seasonal_variations <- TRUE
       changes <- c(changes, paste("Seasonal multiplier drawn per event from",
                                   paste(unique(unlist(sim_seasons)), collapse = ", ")))
     } else if (has_season) {
-      params$seasonal_variations <- FALSE
-      params$seasonal_multiplier <- sim_seasons[[tolower(season)]]
+      preset$seasonal_variations <- FALSE
+      preset$seasonal_multiplier <- sim_seasons[[tolower(season)]]
       changes <- c(changes, paste("Seasonal multiplier set to",
-                                  params$seasonal_multiplier, "for", season))
+                                  preset$seasonal_multiplier, "for", season))
     } else {
-      params$seasonal_variations <- FALSE
-      params$seasonal_multiplier <- 1
+      preset$seasonal_variations <- FALSE
+      preset$seasonal_multiplier <- 1
       changes <- c(changes, "Seasonal variations disabled")
     }
   }
 
-  list(params = params, changes = changes)
+  list(values = preset, changes = changes)
+}
+
+sim_params <- function(scenario = "baseline", season = NULL, overrides = list()) {
+  presets <- sim_scenario_presets(scenario, season)
+  params <- utils::modifyList(utils::modifyList(sim_defaults(), presets$values), overrides)
+  params$scenario <- scenario
+  list(params = params, changes = presets$changes)
 }
 
 
