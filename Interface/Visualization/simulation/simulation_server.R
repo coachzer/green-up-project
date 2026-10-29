@@ -882,6 +882,11 @@ register_simulation_server <- function(input, output, session) {
     updateNumericInput(session, "runtime", value = default_values$runtime)
   })
   
+  # Latest simulation run (params, env, transportation costs) and distance matrix.
+  # Set by the handlers below; observers and outputs are registered once at top level.
+  sim_run <- reactiveVal(NULL)
+  distance_matrix_rv <- reactiveVal(NULL)
+
   # Generate distance matrix -----
   observeEvent(input$generate_matrix, {
     regions <- unlist(strsplit(input$regions, ","))
@@ -890,10 +895,7 @@ register_simulation_server <- function(input, output, session) {
                          "Number of regions does not match the input number of regions.")
     } else {
       hideFeedback("regions")
-      distance_matrix <- generate_distance_matrix(regions)
-      output$distance_matrix <- renderTable({
-        distance_matrix
-      }, rownames = TRUE, colnames = TRUE)
+      distance_matrix_rv(generate_distance_matrix(regions))
     }
     
     updateTabItems(session, "tabs", "distance_matrix")
@@ -1063,534 +1065,552 @@ register_simulation_server <- function(input, output, session) {
       incProgress(0.9)
       transportation_costs <- balance_storage_across_regions(env, params, distance_matrix)
       incProgress(1)
-      
-      updateTabItems(session, "tabs", "outputs")
-      
-      # Simulation Output -----
-      
-      generate_waste_type_table <- function(region, waste_type, env, params) {
-        data.frame(
-          Metric = c(
-            "Total waste generated (kg)",
-            "Total waste collected (kg)",
-            "Total waste handled (kg)",
-            "Total waste stored (kg)",
-            "Total waste recycled (kg)",
-            "Overflow penalty",
-            "Total storage cost",
-            "Total collection cost",
-            "Total processing cost",
-            "Total transportation cost",
-            "Transportation cost after balancing",
-            "Total recycling revenue",
-            "Total avoided disposal cost"
-          ),
-          Value = c(
-            get_global(
-              env,
-              paste0("total_waste_generated_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0("total_waste_collected_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0("total_waste_handled_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0("total_waste_stored_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0("total_waste_recycled_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0("overflow_penalty_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0("total_storage_cost_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0("total_collection_cost_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0("total_processing_cost_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0("total_transportation_cost_", region, "_", waste_type)
-            ),
-            transportation_costs[region, waste_type],
-            get_global(
-              env,
-              paste0("total_recycling_revenue_", region, "_", waste_type)
-            ),
-            get_global(
-              env,
-              paste0(
-                "total_avoided_disposal_cost_",
-                region,
-                "_",
-                waste_type
-              )
-            )
-          )
-        )
-      }
-      
-      # Update region and waste type selections based on the parameters
-      observeEvent(params, {
-        updateSelectInput(
-          session,
-          "selected_region",
-          choices = params$regions,
-          selected = params$regions
-        )
-        updateSelectInput(
-          session,
-          "selected_waste_type",
-          choices = params$wood_waste_types,
-          selected = params$wood_waste_types
-        )
-        updateSelectInput(session,
-                          "selected_metric",
-                          choices = selected_choices,
-                          selected = selected_choices)
-      }, ignoreNULL = FALSE)
-      
-      # Generate the simulation output tables
-      generate_simulation_output <- function(params,
-                                             env,
-                                             selected_regions,
-                                             selected_waste_types,
-                                             selected_metrics) {
-        simulation_data <- data.frame(
-          Region = character(),
-          WasteType = character(),
-          Metric = character(),
-          Value = numeric(),
-          stringsAsFactors = FALSE
-        )
-        
-        for (region in selected_regions) {
-          for (waste_type in selected_waste_types) {
-            waste_data <- generate_waste_type_table(region, waste_type, env, params)
-            waste_data <- waste_data[waste_data$Metric %in% selected_metrics, ]
-            waste_data <- cbind(Region = region,
-                                WasteType = waste_type,
-                                waste_data)
-            simulation_data <- rbind(simulation_data, waste_data)
-          }
-        }
-        
-        datatable(simulation_data,
-                  options = list(pageLength = 13, autoWidth = TRUE)) |>
-          formatRound(columns = c("Value"), digits = 2)
-      }
-      
-      output$simulation_output <- renderDT({
-        generate_simulation_output(
-          params,
-          env,
-          input$selected_region,
-          input$selected_waste_type,
-          input$selected_metric
-        )
-      })
-
-      # Synthetic-data disclosure notice (plan 009 step 5).
-      # NOTE: a matching uiOutput("simulation_notice") is in simulation_ui.R (top of the main simulation tab)
-      # (out of scope here; tracked for plan 010).
-      output$simulation_notice <- renderUI({
-        tags$div(
-          class = "alert alert-warning",
-          tags$strong("Synthetic demonstration data — "),
-          "values are randomly generated placeholders (runif draws), not real measurements."
-        )
-      })
-
-
-      # Cumulative Totals -----
-      
-      output$cumulative_totals <- renderDT({
-        data <- results()
-        total_generation <- sum(data |> filter(Event == "Generation") |> pull(Amount))
-        total_collection <- sum(data |> filter(Event == "Collection") |> pull(Amount))
-        total_handling <- sum(data |> filter(Event == "Handling") |> pull(Amount))
-        total_recycling <- sum(data |> filter(Event == "Recycling") |> pull(Amount))
-        
-        cumulative_data <- data.frame(
-          Metric = c(
-            "Total waste generated (kg)",
-            "Total waste collected (kg)",
-            "Total waste handled (kg)",
-            "Total waste recycled (kg)"
-          ),
-          Value = c(
-            total_generation,
-            total_collection,
-            total_handling,
-            total_recycling
-          )
-        )
-        
-        datatable(cumulative_data, options = list(pageLength = 10)) |>
-          formatRound(columns = c("Value"), digits = 2)
-      })
-      
-      # Data Plots -----
-      
-      generate_plot_data <- function(event_type) {
-        data <- results()
-        data <- data |>
-          filter(
-            Event == event_type,
-            Region %in% input$regions_selected,
-            WasteType %in% input$waste_types_selected,
-            Scenario %in% input$scenario# ,
-            # Time >= input$time_start,
-            # Time <= input$time_end
-          ) |>
-          # arrange(Time) |>
-          group_by(Region, WasteType) |>
-          mutate(CumulativeAmount = cumsum(Amount))
-        data
-      }
-      
-      get_plot_parameters <- function(plot_type) {
-        y_label <- ifelse(plot_type == "cumulative",
-                          "Cumulative Amount",
-                          "Amount")
-        y_column <- ifelse(plot_type == "cumulative",
-                           "CumulativeAmount",
-                           "Amount")
-        list(y_label = y_label, y_column = y_column)
-      }
-      
-      # Observer to update select inputs based on the results
-      
-      observeEvent(results(), {
-        updateSelectInput(
-          session,
-          "regions_selected",
-          choices = unique(results()$Region),
-          selected = unique(results()$Region)
-        )
-        
-        updateSelectInput(
-          session,
-          "waste_types_selected",
-          choices = unique(results()$WasteType),
-          selected = unique(results()$WasteType)
-        )
-        
-        updateNumericInput(
-          session,
-          "time_start",
-          value = min(results()$Time),
-          min = min(results()$Time)
-        )
-        
-        updateNumericInput(
-          session,
-          "time_end",
-          value = max(results()$Time),
-          min = min(results()$Time)
-        )
-      })
-      
-      output$generation_plot <- renderPlotly({
-        plot_data <- generate_plot_data("Generation")
-        plot_params <- get_plot_parameters(input$plot_type)
-        p <- ggplot(plot_data, aes(
-          x = Time,
-          y = !!sym(plot_params$y_column),
-          color = interaction(Region, WasteType)
-        )) +
-          geom_line() +
-          labs(title = "Waste Generation Over Time",
-               x = "Time",
-               y = plot_params$y_label) +
-          theme_bw()
-        ggplotly(p) |>
-          layout(xaxis = list(autorange = TRUE),
-                 yaxis = list(autorange = TRUE))
-      })
-      
-      output$collection_plot <- renderPlotly({
-        plot_data <- generate_plot_data("Collection")
-        plot_params <- get_plot_parameters(input$plot_type)
-        p <- ggplot(plot_data, aes(
-          x = Time,
-          y = !!sym(plot_params$y_column),
-          color = interaction(Region, WasteType)
-        )) +
-          geom_line() +
-          labs(title = "Waste Collection Over Time",
-               x = "Time",
-               y = plot_params$y_label) +
-          theme_bw()
-        ggplotly(p) |>
-          layout(xaxis = list(autorange = TRUE),
-                 yaxis = list(autorange = TRUE))
-      })
-      
-      output$handling_plot <- renderPlotly({
-        plot_data <- generate_plot_data("Handling")
-        plot_params <- get_plot_parameters(input$plot_type)
-        p <- ggplot(plot_data, aes(
-          x = Time,
-          y = !!sym(plot_params$y_column),
-          color = interaction(Region, WasteType)
-        )) +
-          geom_line() +
-          labs(title = "Waste Handling Over Time",
-               x = "Time",
-               y = plot_params$y_label) +
-          theme_bw()
-        ggplotly(p) |>
-          layout(xaxis = list(autorange = TRUE),
-                 yaxis = list(autorange = TRUE))
-      })
-      
-      output$recycling_plot <- renderPlotly({
-        plot_data <- generate_plot_data("Recycling")
-        plot_params <- get_plot_parameters(input$plot_type)
-        p <- ggplot(plot_data, aes(
-          x = Time,
-          y = !!sym(plot_params$y_column),
-          color = interaction(Region, WasteType)
-        )) +
-          geom_line() +
-          labs(title = "Waste Recycling Over Time",
-               x = "Time",
-               y = plot_params$y_label) +
-          theme_bw()
-        ggplotly(p) |>
-          layout(xaxis = list(autorange = TRUE),
-                 yaxis = list(autorange = TRUE))
-      })
-      
-      # Results Table -----
-      
-      output$results_table <- renderDT({
-        datatable(results(), options = list(pageLength = 10, autoWidth = TRUE))
-      })
-      
-      # Cost Plots -----
-      
-      generate_cost_plot_data <- function(cost_type) {
-        data <- costs()
-        data <- data |>
-          dplyr::select(Time, Region, WasteType, !!sym(cost_type)) |>
-          arrange(Time)
-        return(data)
-      }
-      
-      output$collection_cost_plot <- renderPlotly({
-        plot_data <- generate_cost_plot_data("CollectionCost")
-        p <- ggplot(plot_data, aes(
-          x = Time,
-          y = !!sym("CollectionCost"),
-          color = interaction(Region, WasteType)
-        )) +
-          geom_line() +
-          labs(title = "Collection Cost Over Time", x = "Time", y = "Collection Cost") +
-          theme_bw()
-        ggplotly(p) |>
-          layout(xaxis = list(autorange = TRUE),
-                 yaxis = list(autorange = TRUE))
-      })
-      
-      output$processing_cost_plot <- renderPlotly({
-        plot_data <- generate_cost_plot_data("ProcessingCost")
-        p <- ggplot(plot_data, aes(
-          x = Time,
-          y = !!sym("ProcessingCost"),
-          color = interaction(Region, WasteType)
-        )) +
-          geom_line() +
-          labs(title = "Processing Cost Over Time", x = "Time", y = "Processing Cost") +
-          theme_bw()
-        ggplotly(p) |>
-          layout(xaxis = list(autorange = TRUE),
-                 yaxis = list(autorange = TRUE))
-      })
-      
-      output$transportation_cost_plot <- renderPlotly({
-        plot_data <- generate_cost_plot_data("TransportationCost")
-        p <- ggplot(plot_data, aes(
-          x = Time,
-          y = !!sym("TransportationCost"),
-          color = interaction(Region, WasteType)
-        )) +
-          geom_line() +
-          labs(title = "Transportation Cost Over Time", x = "Time", y = "Transportation Cost") +
-          theme_bw()
-        ggplotly(p) |>
-          layout(xaxis = list(autorange = TRUE),
-                 yaxis = list(autorange = TRUE))
-      })
-      
-      output$recycling_revenue_plot <- renderPlotly({
-        plot_data <- generate_cost_plot_data("RecyclingRevenue")
-        p <- ggplot(plot_data, aes(
-          x = Time,
-          y = !!sym("RecyclingRevenue"),
-          color = interaction(Region, WasteType)
-        )) +
-          geom_line() +
-          labs(title = "Recycling Revenue Over Time", x = "Time", y = "Recycling Revenue") +
-          theme_bw()
-        ggplotly(p) |>
-          layout(xaxis = list(autorange = TRUE),
-                 yaxis = list(autorange = TRUE))
-      })
-      
-      # Costs Table -----
-      
-      output$costs_table <- renderDT({
-        datatable(costs(), options = list(pageLength = 10, autoWidth = FALSE))
-      })
-      
-      # Distance Matrix -----
-      
-      output$distance_matrix <- renderTable({
-        distance_matrix
-      }, rownames = TRUE, colnames = TRUE)
-      
-      output$distance_matrix_plot <- renderPlotly({
-        regions <- unlist(strsplit(input$regions, ","))
-        melted_matrix <- melt(distance_matrix)
-        colnames(melted_matrix) <- c("Region1", "Region2", "Distance")
-        
-        plot_ly(
-          data = melted_matrix,
-          x = ~ Region2,
-          y = ~ Region1,
-          z = ~ Distance,
-          type = "heatmap",
-          colorscale = "Reds",
-          colorbar = list(title = "Distance")
-        ) |>
-          layout(
-            xaxis = list(title = "Region", side = "top"),
-            yaxis = list(title = "Region", autorange = "reversed") 
-          )
-        
-      })
-      
-      # Force Directed Plot -----
-      
-      output$force_directed_plot <- renderPlotly({
-        regions <- unlist(strsplit(input$regions, ","))
-        distance_matrix
-        colnames(distance_matrix) <- regions
-        rownames(distance_matrix) <- regions
-        
-        # Create an igraph object from the distance matrix
-        graph <- graph_from_adjacency_matrix(
-          as.matrix(distance_matrix),
-          mode = "max",
-          weighted = TRUE,
-          diag = FALSE
-        )
-        
-        # Get the layout for the graph
-        layout <- layout_with_fr(graph)
-        
-        # Create a data frame for the nodes
-        nodes <- data.frame(id = V(graph)$name,
-                            x = layout[, 1],
-                            y = layout[, 2])
-        
-        # Create a data frame for the edges
-        edges <- as.data.frame(as_edgelist(graph))
-        colnames(edges) <- c("from", "to")
-        edges$weight <- E(graph)$weight
-        
-        # Plot the graph with plotly
-        plot_ly() |>
-          add_markers(
-            data = nodes,
-            x = ~ x,
-            y = ~ y,
-            text = ~ id,
-            mode = 'markers+text',
-            textposition = 'top center',
-            hoverinfo = 'text'
-          ) |>
-          add_segments(
-            data = edges,
-            x = ~ nodes$x[match(edges$from, nodes$id)],
-            xend = ~ nodes$x[match(edges$to, nodes$id)],
-            y = ~ nodes$y[match(edges$from, nodes$id)],
-            yend = ~ nodes$y[match(edges$to, nodes$id)],
-            line = list(color = 'black', width = ~ weight / 5)
-          ) |>
-          layout(
-            title = "Force-Directed Layout of Regions",
-            xaxis = list(
-              title = "",
-              showgrid = FALSE,
-              zeroline = FALSE
-            ),
-            yaxis = list(
-              title = "",
-              showgrid = FALSE,
-              zeroline = FALSE
-            )
-          )
-      })
-      
-      
-      # Export Data -----
-      
-      output$download_data <- downloadHandler(
-        filename = function() {
-          "simulation_data.csv"
-        },
-        content = function(file) {
-          write.csv(results(), file)
-        }
-      )
-      
-      # Generate Reports ----- WIP
-      
-      output$download_report <- downloadHandler(
-        filename = function() {
-          "simulation_report.html"
-        },
-        content = function(file) {
-          # Self-contained report: write a temp Rmd, knit it, copy out.
-          # NOTE: the simulation figures are synthetic placeholders (see plan 009 step 5).
-          tmp <- tempfile(fileext = ".Rmd")
-          writeLines(c(
-            "---",
-            "title: 'Wood Waste Simulation Report (synthetic data)'",
-            "output: html_document",
-            "params:",
-            "  data: NULL",
-            "---",
-            "",
-            "> **Note:** simulation outputs are synthetic placeholder draws, not real measurements.",
-            "",
-            "```{r echo=FALSE}",
-            "knitr::kable(params$data)",
-            "```"
-          ), tmp)
-          out <- rmarkdown::render(tmp, params = list(data = results()), quiet = TRUE)
-          file.copy(out, file)
-        }
-      )
-      
     })
+
+    distance_matrix_rv(distance_matrix)
+    sim_run(list(params = params, env = env,
+                 transportation_costs = transportation_costs))
+    updateTabItems(session, "tabs", "outputs")
   })
+
+  # Simulation Output -----
+  
+  generate_waste_type_table <- function(region, waste_type, env, params, transportation_costs) {
+    data.frame(
+      Metric = c(
+        "Total waste generated (kg)",
+        "Total waste collected (kg)",
+        "Total waste handled (kg)",
+        "Total waste stored (kg)",
+        "Total waste recycled (kg)",
+        "Overflow penalty",
+        "Total storage cost",
+        "Total collection cost",
+        "Total processing cost",
+        "Total transportation cost",
+        "Transportation cost after balancing",
+        "Total recycling revenue",
+        "Total avoided disposal cost"
+      ),
+      Value = c(
+        get_global(
+          env,
+          paste0("total_waste_generated_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0("total_waste_collected_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0("total_waste_handled_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0("total_waste_stored_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0("total_waste_recycled_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0("overflow_penalty_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0("total_storage_cost_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0("total_collection_cost_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0("total_processing_cost_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0("total_transportation_cost_", region, "_", waste_type)
+        ),
+        transportation_costs[region, waste_type],
+        get_global(
+          env,
+          paste0("total_recycling_revenue_", region, "_", waste_type)
+        ),
+        get_global(
+          env,
+          paste0(
+            "total_avoided_disposal_cost_",
+            region,
+            "_",
+            waste_type
+          )
+        )
+      )
+    )
+  }
+  
+  # Update region and waste type selections based on the parameters
+  observeEvent(sim_run(), {
+    params <- sim_run()$params
+    updateSelectInput(
+      session,
+      "selected_region",
+      choices = params$regions,
+      selected = params$regions
+    )
+    updateSelectInput(
+      session,
+      "selected_waste_type",
+      choices = params$wood_waste_types,
+      selected = params$wood_waste_types
+    )
+    updateSelectInput(session,
+                      "selected_metric",
+                      choices = selected_choices,
+                      selected = selected_choices)
+  })
+  
+  # Generate the simulation output tables
+  generate_simulation_output <- function(params,
+                                         env,
+                                         transportation_costs,
+                                         selected_regions,
+                                         selected_waste_types,
+                                         selected_metrics) {
+    simulation_data <- data.frame(
+      Region = character(),
+      WasteType = character(),
+      Metric = character(),
+      Value = numeric(),
+      stringsAsFactors = FALSE
+    )
+    
+    for (region in selected_regions) {
+      for (waste_type in selected_waste_types) {
+        waste_data <- generate_waste_type_table(region, waste_type, env, params, transportation_costs)
+        waste_data <- waste_data[waste_data$Metric %in% selected_metrics, ]
+        waste_data <- cbind(Region = region,
+                            WasteType = waste_type,
+                            waste_data)
+        simulation_data <- rbind(simulation_data, waste_data)
+      }
+    }
+    
+    datatable(simulation_data,
+              options = list(pageLength = 13, autoWidth = TRUE)) |>
+      formatRound(columns = c("Value"), digits = 2)
+  }
+  
+  output$simulation_output <- renderDT({
+    run <- sim_run()
+    req(run)
+    generate_simulation_output(
+      run$params,
+      run$env,
+      run$transportation_costs,
+      input$selected_region,
+      input$selected_waste_type,
+      input$selected_metric
+    )
+  })
+
+  # Synthetic-data disclosure notice (plan 009 step 5).
+  # NOTE: a matching uiOutput("simulation_notice") is in simulation_ui.R (top of the main simulation tab)
+  # (out of scope here; tracked for plan 010).
+  output$simulation_notice <- renderUI({
+    req(sim_run())
+    tags$div(
+      class = "alert alert-warning",
+      tags$strong("Synthetic demonstration data — "),
+      "values are randomly generated placeholders (runif draws), not real measurements."
+    )
+  })
+
+
+  # Cumulative Totals -----
+  
+  output$cumulative_totals <- renderDT({
+    req(sim_run())
+    data <- results()
+    total_generation <- sum(data |> filter(Event == "Generation") |> pull(Amount))
+    total_collection <- sum(data |> filter(Event == "Collection") |> pull(Amount))
+    total_handling <- sum(data |> filter(Event == "Handling") |> pull(Amount))
+    total_recycling <- sum(data |> filter(Event == "Recycling") |> pull(Amount))
+    
+    cumulative_data <- data.frame(
+      Metric = c(
+        "Total waste generated (kg)",
+        "Total waste collected (kg)",
+        "Total waste handled (kg)",
+        "Total waste recycled (kg)"
+      ),
+      Value = c(
+        total_generation,
+        total_collection,
+        total_handling,
+        total_recycling
+      )
+    )
+    
+    datatable(cumulative_data, options = list(pageLength = 10)) |>
+      formatRound(columns = c("Value"), digits = 2)
+  })
+  
+  # Data Plots -----
+  
+  generate_plot_data <- function(event_type) {
+    req(sim_run())
+    data <- results()
+    data <- data |>
+      filter(
+        Event == event_type,
+        Region %in% input$regions_selected,
+        WasteType %in% input$waste_types_selected,
+        Scenario %in% input$scenario# ,
+        # Time >= input$time_start,
+        # Time <= input$time_end
+      ) |>
+      # arrange(Time) |>
+      group_by(Region, WasteType) |>
+      mutate(CumulativeAmount = cumsum(Amount))
+    data
+  }
+  
+  get_plot_parameters <- function(plot_type) {
+    y_label <- ifelse(plot_type == "cumulative",
+                      "Cumulative Amount",
+                      "Amount")
+    y_column <- ifelse(plot_type == "cumulative",
+                       "CumulativeAmount",
+                       "Amount")
+    list(y_label = y_label, y_column = y_column)
+  }
+  
+  # Observer to update select inputs based on the results
+  
+  observeEvent(results(), {
+    req(nrow(results()) > 0)
+    updateSelectInput(
+      session,
+      "regions_selected",
+      choices = unique(results()$Region),
+      selected = unique(results()$Region)
+    )
+    
+    updateSelectInput(
+      session,
+      "waste_types_selected",
+      choices = unique(results()$WasteType),
+      selected = unique(results()$WasteType)
+    )
+    
+    updateNumericInput(
+      session,
+      "time_start",
+      value = min(results()$Time),
+      min = min(results()$Time)
+    )
+    
+    updateNumericInput(
+      session,
+      "time_end",
+      value = max(results()$Time),
+      min = min(results()$Time)
+    )
+  })
+  
+  output$generation_plot <- renderPlotly({
+    plot_data <- generate_plot_data("Generation")
+    plot_params <- get_plot_parameters(input$plot_type)
+    p <- ggplot(plot_data, aes(
+      x = Time,
+      y = !!sym(plot_params$y_column),
+      color = interaction(Region, WasteType)
+    )) +
+      geom_line() +
+      labs(title = "Waste Generation Over Time",
+           x = "Time",
+           y = plot_params$y_label) +
+      theme_bw()
+    ggplotly(p) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
+  })
+  
+  output$collection_plot <- renderPlotly({
+    plot_data <- generate_plot_data("Collection")
+    plot_params <- get_plot_parameters(input$plot_type)
+    p <- ggplot(plot_data, aes(
+      x = Time,
+      y = !!sym(plot_params$y_column),
+      color = interaction(Region, WasteType)
+    )) +
+      geom_line() +
+      labs(title = "Waste Collection Over Time",
+           x = "Time",
+           y = plot_params$y_label) +
+      theme_bw()
+    ggplotly(p) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
+  })
+  
+  output$handling_plot <- renderPlotly({
+    plot_data <- generate_plot_data("Handling")
+    plot_params <- get_plot_parameters(input$plot_type)
+    p <- ggplot(plot_data, aes(
+      x = Time,
+      y = !!sym(plot_params$y_column),
+      color = interaction(Region, WasteType)
+    )) +
+      geom_line() +
+      labs(title = "Waste Handling Over Time",
+           x = "Time",
+           y = plot_params$y_label) +
+      theme_bw()
+    ggplotly(p) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
+  })
+  
+  output$recycling_plot <- renderPlotly({
+    plot_data <- generate_plot_data("Recycling")
+    plot_params <- get_plot_parameters(input$plot_type)
+    p <- ggplot(plot_data, aes(
+      x = Time,
+      y = !!sym(plot_params$y_column),
+      color = interaction(Region, WasteType)
+    )) +
+      geom_line() +
+      labs(title = "Waste Recycling Over Time",
+           x = "Time",
+           y = plot_params$y_label) +
+      theme_bw()
+    ggplotly(p) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
+  })
+  
+  # Results Table -----
+  
+  output$results_table <- renderDT({
+    req(sim_run())
+    datatable(results(), options = list(pageLength = 10, autoWidth = TRUE))
+  })
+  
+  # Cost Plots -----
+  
+  generate_cost_plot_data <- function(cost_type) {
+    req(sim_run())
+    data <- costs()
+    data <- data |>
+      dplyr::select(Time, Region, WasteType, !!sym(cost_type)) |>
+      arrange(Time)
+    return(data)
+  }
+  
+  output$collection_cost_plot <- renderPlotly({
+    plot_data <- generate_cost_plot_data("CollectionCost")
+    p <- ggplot(plot_data, aes(
+      x = Time,
+      y = !!sym("CollectionCost"),
+      color = interaction(Region, WasteType)
+    )) +
+      geom_line() +
+      labs(title = "Collection Cost Over Time", x = "Time", y = "Collection Cost") +
+      theme_bw()
+    ggplotly(p) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
+  })
+  
+  output$processing_cost_plot <- renderPlotly({
+    plot_data <- generate_cost_plot_data("ProcessingCost")
+    p <- ggplot(plot_data, aes(
+      x = Time,
+      y = !!sym("ProcessingCost"),
+      color = interaction(Region, WasteType)
+    )) +
+      geom_line() +
+      labs(title = "Processing Cost Over Time", x = "Time", y = "Processing Cost") +
+      theme_bw()
+    ggplotly(p) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
+  })
+  
+  output$transportation_cost_plot <- renderPlotly({
+    plot_data <- generate_cost_plot_data("TransportationCost")
+    p <- ggplot(plot_data, aes(
+      x = Time,
+      y = !!sym("TransportationCost"),
+      color = interaction(Region, WasteType)
+    )) +
+      geom_line() +
+      labs(title = "Transportation Cost Over Time", x = "Time", y = "Transportation Cost") +
+      theme_bw()
+    ggplotly(p) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
+  })
+  
+  output$recycling_revenue_plot <- renderPlotly({
+    plot_data <- generate_cost_plot_data("RecyclingRevenue")
+    p <- ggplot(plot_data, aes(
+      x = Time,
+      y = !!sym("RecyclingRevenue"),
+      color = interaction(Region, WasteType)
+    )) +
+      geom_line() +
+      labs(title = "Recycling Revenue Over Time", x = "Time", y = "Recycling Revenue") +
+      theme_bw()
+    ggplotly(p) |>
+      layout(xaxis = list(autorange = TRUE),
+             yaxis = list(autorange = TRUE))
+  })
+  
+  # Costs Table -----
+  
+  output$costs_table <- renderDT({
+    req(sim_run())
+    datatable(costs(), options = list(pageLength = 10, autoWidth = FALSE))
+  })
+  
+  # Distance Matrix -----
+  
+  output$distance_matrix <- renderTable({
+    req(distance_matrix_rv())
+  }, rownames = TRUE, colnames = TRUE)
+  
+  output$distance_matrix_plot <- renderPlotly({
+    distance_matrix <- distance_matrix_rv()
+    req(distance_matrix)
+    regions <- unlist(strsplit(input$regions, ","))
+    melted_matrix <- melt(distance_matrix)
+    colnames(melted_matrix) <- c("Region1", "Region2", "Distance")
+    
+    plot_ly(
+      data = melted_matrix,
+      x = ~ Region2,
+      y = ~ Region1,
+      z = ~ Distance,
+      type = "heatmap",
+      colorscale = "Reds",
+      colorbar = list(title = "Distance")
+    ) |>
+      layout(
+        xaxis = list(title = "Region", side = "top"),
+        yaxis = list(title = "Region", autorange = "reversed") 
+      )
+    
+  })
+  
+  # Force Directed Plot -----
+  
+  output$force_directed_plot <- renderPlotly({
+    distance_matrix <- distance_matrix_rv()
+    req(distance_matrix)
+    regions <- unlist(strsplit(input$regions, ","))
+    distance_matrix
+    colnames(distance_matrix) <- regions
+    rownames(distance_matrix) <- regions
+    
+    # Create an igraph object from the distance matrix
+    graph <- graph_from_adjacency_matrix(
+      as.matrix(distance_matrix),
+      mode = "max",
+      weighted = TRUE,
+      diag = FALSE
+    )
+    
+    # Get the layout for the graph
+    layout <- layout_with_fr(graph)
+    
+    # Create a data frame for the nodes
+    nodes <- data.frame(id = V(graph)$name,
+                        x = layout[, 1],
+                        y = layout[, 2])
+    
+    # Create a data frame for the edges
+    edges <- as.data.frame(as_edgelist(graph))
+    colnames(edges) <- c("from", "to")
+    edges$weight <- E(graph)$weight
+    
+    # Plot the graph with plotly
+    plot_ly() |>
+      add_markers(
+        data = nodes,
+        x = ~ x,
+        y = ~ y,
+        text = ~ id,
+        mode = 'markers+text',
+        textposition = 'top center',
+        hoverinfo = 'text'
+      ) |>
+      add_segments(
+        data = edges,
+        x = ~ nodes$x[match(edges$from, nodes$id)],
+        xend = ~ nodes$x[match(edges$to, nodes$id)],
+        y = ~ nodes$y[match(edges$from, nodes$id)],
+        yend = ~ nodes$y[match(edges$to, nodes$id)],
+        line = list(color = 'black', width = ~ weight / 5)
+      ) |>
+      layout(
+        title = "Force-Directed Layout of Regions",
+        xaxis = list(
+          title = "",
+          showgrid = FALSE,
+          zeroline = FALSE
+        ),
+        yaxis = list(
+          title = "",
+          showgrid = FALSE,
+          zeroline = FALSE
+        )
+      )
+  })
+  
+  
+  # Export Data -----
+  
+  output$download_data <- downloadHandler(
+    filename = function() {
+      "simulation_data.csv"
+    },
+    content = function(file) {
+      write.csv(results(), file)
+    }
+  )
+  
+  # Generate Reports ----- WIP
+  
+  output$download_report <- downloadHandler(
+    filename = function() {
+      "simulation_report.html"
+    },
+    content = function(file) {
+      # Self-contained report: write a temp Rmd, knit it, copy out.
+      # NOTE: the simulation figures are synthetic placeholders (see plan 009 step 5).
+      tmp <- tempfile(fileext = ".Rmd")
+      writeLines(c(
+        "---",
+        "title: 'Wood Waste Simulation Report (synthetic data)'",
+        "output: html_document",
+        "params:",
+        "  data: NULL",
+        "---",
+        "",
+        "> **Note:** simulation outputs are synthetic placeholder draws, not real measurements.",
+        "",
+        "```{r echo=FALSE}",
+        "knitr::kable(params$data)",
+        "```"
+      ), tmp)
+      out <- rmarkdown::render(tmp, params = list(data = results()), quiet = TRUE)
+      file.copy(out, file)
+    }
+  )
 
 }
