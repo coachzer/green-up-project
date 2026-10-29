@@ -258,16 +258,12 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
       }
     }) |>
     set_global(key("total_waste_collected_"), function() add_to("total_waste_collected_", amount())) |>
-    set_global(key("total_waste_stored_"), function() {
-      new_storage <- amount() + get_global(env, key("total_waste_stored_"))
-      min(new_storage, params$storage_capacity)
-    }) |>
+    set_global(key("overflow_penalty_"), function()
+      add_to("overflow_penalty_", sim_handle_overflow(env, params, key("total_waste_stored_"), amount())$overflow_penalty)) |>
+    set_global(key("total_waste_stored_"), function()
+      sim_handle_overflow(env, params, key("total_waste_stored_"), amount())$new_storage) |>
     set_global(key("total_collection_cost_"), function()
       add_to("total_collection_cost_", amount() * params$collection_cost_per_unit)) |>
-    set_global(key("overflow_penalty_"), function() {
-      result <- sim_handle_overflow(env, params, key("total_waste_stored_"), amount())
-      add_to("overflow_penalty_", result$overflow_penalty)
-    }) |>
     set_global(key("total_storage_cost_"), function()
       add_to("total_storage_cost_", amount() * params$storage_cost_per_unit)) |>
     set_global(key("total_transportation_cost_"), function()

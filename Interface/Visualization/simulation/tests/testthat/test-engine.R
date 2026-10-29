@@ -79,3 +79,13 @@ test_that("overflow uses the scenario's capacity and penalty, not the raw inputs
 test_that("a run prints nothing to the console", {
   expect_silent(run_wood_waste_sim(small_params(), seed = 1))
 })
+
+test_that("overflow penalty charges each collection's excess over capacity once", {
+  p <- small_params(storage_capacity = 40, overflow_penalty_per_unit = 2, runtime = 60)
+  t <- run_quiet(p, seed = 5)$totals
+  metric <- function(m) t$Value[t$Metric == m]
+  collected <- metric("Total waste collected (kg)")
+  stored <- metric("Total waste stored (kg)")
+  expect_true(any(collected > stored))
+  expect_equal(metric("Overflow penalty"), (collected - stored) * p$overflow_penalty_per_unit)
+})
