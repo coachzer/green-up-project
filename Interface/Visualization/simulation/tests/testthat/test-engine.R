@@ -78,3 +78,7 @@ test_that("overflow uses the scenario's capacity and penalty, not the raw inputs
   expect_gt(sum(metric(base, "Overflow penalty")), 0)
   expect_equal(metric(pen, "Overflow penalty"), metric(base, "Overflow penalty") * 2.5)
 })
+
+test_that("a run prints nothing to the console", {
+  expect_silent(run_wood_waste_sim(small_params(), seed = 1))
+})

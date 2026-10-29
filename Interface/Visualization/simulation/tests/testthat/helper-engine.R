@@ -6,8 +6,4 @@ small_params <- function(scenario = "baseline", season = NULL, ...) {
     list(...)))$params
 }
 
-# The engine prints progress; keep test output readable
-run_quiet <- function(params, seed = 1) {
-  utils::capture.output(res <- run_wood_waste_sim(params, seed = seed))
-  res
-}
+run_quiet <- function(params, seed = 1) run_wood_waste_sim(params, seed = seed)

@@ -294,16 +294,12 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     set_global(key("total_waste_collected_"), function() add_to("total_waste_collected_", amount())) |>
     set_global(key("total_waste_stored_"), function() {
       new_storage <- amount() + get_global(env, key("total_waste_stored_"))
-      print("------")
-      print(paste("Amount stored: ", new_storage))
-      print(paste("Storage capacity: ", params$storage_capacity))
       min(new_storage, params$storage_capacity)
     }) |>
     set_global(key("total_collection_cost_"), function()
       add_to("total_collection_cost_", amount() * params$collection_cost_per_unit)) |>
     set_global(key("overflow_penalty_"), function() {
       result <- sim_handle_overflow(env, params, key("total_waste_stored_"), amount())
-      print(paste("Storage after handle_overflow: ", result$new_storage))
       add_to("overflow_penalty_", result$overflow_penalty)
     }) |>
     set_global(key("total_storage_cost_"), function()
@@ -377,10 +373,6 @@ sim_balance_storage <- function(env, params, distance_matrix) {
 
   for (waste_type in params$wood_waste_types) {
     avg_storage <- sum(sapply(regions, stored, waste_type = waste_type)) / length(regions)
-    cat("Initial storage for waste type:", waste_type, "\n")
-    for (region in regions) {
-      cat("  Region:", region, "Initial storage (kg):", stored(region, waste_type), "\n")
-    }
     for (region in regions) {
       current_storage <- stored(region, waste_type)
       transfer_amount <- avg_storage - current_storage
@@ -417,7 +409,6 @@ sim_balance_storage <- function(env, params, distance_matrix) {
           }
         }
       }
-      cat("Final storage in region", region, "for waste type", waste_type, ":", current_storage, "kg\n")
     }
   }
   transportation_costs
