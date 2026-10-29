@@ -69,9 +69,6 @@ sim_metrics <- c(
 sim_params <- function(scenario = "baseline", season = NULL, overrides = list()) {
   params <- utils::modifyList(sim_defaults(), overrides)
   params$scenario <- scenario
-  # Pre-scenario values; handle_overflow read these straight from input$
-  params$input_storage_capacity <- params$storage_capacity
-  params$input_overflow_penalty_per_unit <- params$overflow_penalty_per_unit
   changes <- list()
 
   has_season <- length(season) == 1 && !is.na(season) && nzchar(trimws(season))
@@ -351,10 +348,10 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
 }
 
 sim_handle_overflow <- function(env, params, stored_key, waste_amount) {
-  capacity <- params$input_storage_capacity
+  capacity <- params$storage_capacity
   new_storage <- get_global(env, stored_key) + waste_amount
   if (new_storage >= capacity) {
-    overflow_penalty <- (new_storage - capacity) * params$input_overflow_penalty_per_unit
+    overflow_penalty <- (new_storage - capacity) * params$overflow_penalty_per_unit
     new_storage <- capacity
   } else {
     overflow_penalty <- 0
