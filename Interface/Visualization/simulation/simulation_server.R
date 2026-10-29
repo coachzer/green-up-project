@@ -751,7 +751,7 @@ register_simulation_server <- function(input, output, session) {
       input_name <- names(max_values)[i]
       update_feedback(input[[input_name]], max_values[[input_name]], input_name)
     })
-    # validation_status(status)
+    validation_status(status)
   })
   
   # Set up observers for each input
