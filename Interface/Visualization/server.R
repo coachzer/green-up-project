@@ -3308,23 +3308,9 @@ shinyServer(function(input, output, session) {
     data <- current_dataset()
     
     # Update year slider based on dataset
-    if (input$dataset_selector == "data_2020_2024") {
-      updateSliderInput(
-        session,
-        "year_filter_mgmt",
-        min = 2020,
-        max = 2024,
-        value = c(2020, 2024)
-      )
-    } else {
-      updateSliderInput(
-        session,
-        "year_filter_mgmt",
-        min = 2022,
-        max = 2024,          
-        value = c(2022, 2024) 
-      )
-    }
+    yrs <- range(data$year, na.rm = TRUE)
+    updateSliderInput(session, "year_filter_mgmt",
+                      min = yrs[1], max = yrs[2], value = yrs)
     
     # Filter data by current year range
     year_filtered <- data |>
