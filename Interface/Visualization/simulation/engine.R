@@ -192,7 +192,7 @@ sim_logger <- function(scenario) {
       processing[n] <<- g(env, "total_processing_cost_", r, w)
       transportation[n] <<- g(env, "total_transportation_cost_", r, w)
       revenue[n] <<- g(env, "total_recycling_revenue_", r, w)
-      0
+      n
     },
     events = function() data.frame(
       Time = time, Region = region, WasteType = waste_type, Event = event,
@@ -238,7 +238,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     set_attribute("waste_amount", function() sim_waste_amount(env, params)) |>
     set_global(key("total_waste_generated_"), function() add_to("total_waste_generated_", amount())) |>
     set_global(key("waste_to_collect_"), function() amount()) |>
-    set_attribute("log_event", function() log_event(env, region, waste_type, "Generation")) |>
+    set_attribute("log_row", function() log_event(env, region, waste_type, "Generation")) |>
     timeout(function() rexp(1, rate = 0.5)) |>
     release(storage)
 
@@ -269,7 +269,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     set_global(key("total_transportation_cost_"), function()
       add_to("total_transportation_cost_", amount() * params$transportation_cost_per_unit)) |>
     set_global(key("waste_to_handle_"), function() amount()) |>
-    set_attribute("log_event", function() log_event(env, region, waste_type, "Collection")) |>
+    set_attribute("log_row", function() log_event(env, region, waste_type, "Collection")) |>
     timeout(function() rexp(1, rate = 1.5)) |>
     release(storage) |>
     release("collection_truck")
@@ -283,7 +283,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     set_global(key("total_processing_cost_"), function()
       add_to("total_processing_cost_", amount() * params$processing_cost_per_unit)) |>
     set_global(key("waste_to_recycle_"), function() amount()) |>
-    set_attribute("log_event", function() log_event(env, region, waste_type, "Handling")) |>
+    set_attribute("log_row", function() log_event(env, region, waste_type, "Handling")) |>
     timeout(function() rexp(1, rate = 1)) |>
     release("waste_processor") |>
     release("collection_truck")
@@ -297,7 +297,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
       add_to("total_recycling_revenue_", amount() * params$recycling_revenue_per_unit)) |>
     set_global(key("total_avoided_disposal_cost_"), function()
       add_to("total_avoided_disposal_cost_", amount() * params$avoided_disposal_cost_per_unit)) |>
-    set_attribute("log_event", function() log_event(env, region, waste_type, "Recycling")) |>
+    set_attribute("log_row", function() log_event(env, region, waste_type, "Recycling")) |>
     timeout(function() rexp(1, rate = 0.5)) |>
     release("recycling_facility")
 
