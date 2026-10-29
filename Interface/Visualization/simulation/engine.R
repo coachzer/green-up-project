@@ -315,6 +315,7 @@ sim_handle_overflow <- function(env, params, stored_key, waste_amount) {
 sim_distance_matrix <- function(regions) {
   n <- length(regions)
   m <- matrix(runif(n * n, min = 1, max = 100), nrow = n, ncol = n)
+  m[lower.tri(m)] <- t(m)[lower.tri(m)]
   diag(m) <- 0
   dimnames(m) <- list(regions, regions)
   m
