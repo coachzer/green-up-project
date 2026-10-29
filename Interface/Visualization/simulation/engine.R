@@ -174,35 +174,34 @@ run_wood_waste_sim <- function(params, seed = NULL) {
 
 
 sim_logger <- function(scenario) {
-  event_rows <- list()
-  cost_rows <- list()
-  empty_events <- data.frame(Time = numeric(), Region = character(), WasteType = character(),
-                             Event = character(), Amount = numeric(), Scenario = character(),
-                             stringsAsFactors = FALSE)
-  empty_costs <- data.frame(Time = numeric(), Region = character(), WasteType = character(),
-                            CollectionCost = numeric(), ProcessingCost = numeric(),
-                            TransportationCost = numeric(), RecyclingRevenue = numeric(),
-                            Scenario = character(), stringsAsFactors = FALSE)
-  g <- function(env, name, region, waste_type) get_global(env, paste0(name, region, "_", waste_type))
+  n <- 0L
+  time <- numeric(); region <- character(); waste_type <- character(); event <- character()
+  amount <- numeric(); collection <- numeric(); processing <- numeric()
+  transportation <- numeric(); revenue <- numeric()
+  g <- function(env, name, r, w) get_global(env, paste0(name, r, "_", w))
 
   list(
-    log_event = function(env, region, waste_type, event) {
-      time <- simmer::now(env)
-      event_rows[[length(event_rows) + 1L]] <<- data.frame(
-        Time = time, Region = region, WasteType = waste_type, Event = event,
-        Amount = get_attribute(env, "waste_amount"), Scenario = scenario,
-        stringsAsFactors = FALSE)
-      cost_rows[[length(cost_rows) + 1L]] <<- data.frame(
-        Time = time, Region = region, WasteType = waste_type,
-        CollectionCost = g(env, "total_collection_cost_", region, waste_type),
-        ProcessingCost = g(env, "total_processing_cost_", region, waste_type),
-        TransportationCost = g(env, "total_transportation_cost_", region, waste_type),
-        RecyclingRevenue = g(env, "total_recycling_revenue_", region, waste_type),
-        Scenario = scenario, stringsAsFactors = FALSE)
+    log_event = function(env, r, w, e) {
+      n <<- n + 1L
+      time[n] <<- simmer::now(env)
+      region[n] <<- r
+      waste_type[n] <<- w
+      event[n] <<- e
+      amount[n] <<- get_attribute(env, "waste_amount")
+      collection[n] <<- g(env, "total_collection_cost_", r, w)
+      processing[n] <<- g(env, "total_processing_cost_", r, w)
+      transportation[n] <<- g(env, "total_transportation_cost_", r, w)
+      revenue[n] <<- g(env, "total_recycling_revenue_", r, w)
       0
     },
-    events = function() if (length(event_rows)) dplyr::bind_rows(event_rows) else empty_events,
-    costs = function() if (length(cost_rows)) dplyr::bind_rows(cost_rows) else empty_costs
+    events = function() data.frame(
+      Time = time, Region = region, WasteType = waste_type, Event = event,
+      Amount = amount, Scenario = rep(scenario, n), stringsAsFactors = FALSE),
+    costs = function() data.frame(
+      Time = time, Region = region, WasteType = waste_type,
+      CollectionCost = collection, ProcessingCost = processing,
+      TransportationCost = transportation, RecyclingRevenue = revenue,
+      Scenario = rep(scenario, n), stringsAsFactors = FALSE)
   )
 }
 
