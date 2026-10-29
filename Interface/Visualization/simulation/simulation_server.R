@@ -264,6 +264,7 @@ register_simulation_server <- function(input, output, session) {
     # Append data to server-scope accumulators (flushed to reactiveVals after run)
     sim_event_rows[[length(sim_event_rows) + 1L]] <<- event_data
     sim_cost_rows[[length(sim_cost_rows) + 1L]]   <<- cost_data
+    0  # set_attribute("log_event", ...) needs a numeric return value
   }
   
   
