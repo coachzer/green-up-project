@@ -312,45 +312,22 @@ sim_balancing_cost <- function(env, params, distance_matrix) {
   regions <- params$regions
   transportation_costs <- matrix(0, nrow = length(regions), ncol = length(params$wood_waste_types),
                                  dimnames = list(regions, params$wood_waste_types))
-  stored <- function(region, waste_type) get_global(env, paste0("total_waste_stored_", region, "_", waste_type))
 
   for (waste_type in params$wood_waste_types) {
-    avg_storage <- sum(sapply(regions, stored, waste_type = waste_type)) / length(regions)
+    level <- vapply(regions, function(region)
+      get_global(env, paste0("total_waste_stored_", region, "_", waste_type)), numeric(1))
+    avg_storage <- mean(level)
     for (region in regions) {
-      current_storage <- stored(region, waste_type)
-      transfer_amount <- avg_storage - current_storage
-      if (transfer_amount > 0) {
-        for (source_region in regions) {
-          if (source_region == region) next
-          source_storage <- stored(source_region, waste_type)
-          if (source_storage > avg_storage) {
-            moved <- min(transfer_amount, source_storage - avg_storage)
-            if (moved > 0) {
-              cost <- moved * params$transportation_cost_per_unit * distance_matrix[source_region, region]
-              current_storage <- current_storage + moved
-              transfer_amount <- transfer_amount - moved
-              transportation_costs[source_region, waste_type] <- transportation_costs[source_region, waste_type] + cost
-              transportation_costs[region, waste_type] <- transportation_costs[region, waste_type] + cost
-              if (transfer_amount <= 0) break
-            }
-          }
-        }
-      } else if (transfer_amount < 0) {
-        for (target_region in regions) {
-          if (target_region == region) next
-          target_storage <- stored(target_region, waste_type)
-          if (target_storage < avg_storage) {
-            moved <- min(-transfer_amount, avg_storage - target_storage)
-            if (moved > 0) {
-              cost <- moved * params$transportation_cost_per_unit * distance_matrix[region, target_region]
-              current_storage <- current_storage - moved
-              transfer_amount <- transfer_amount + moved
-              transportation_costs[region, waste_type] <- transportation_costs[region, waste_type] + cost
-              transportation_costs[target_region, waste_type] <- transportation_costs[target_region, waste_type] + cost
-              if (transfer_amount >= 0) break
-            }
-          }
-        }
+      for (source_region in regions) {
+        need <- avg_storage - level[[region]]
+        if (need <= 0) break
+        moved <- min(need, level[[source_region]] - avg_storage)
+        if (source_region == region || moved <= 0) next
+        cost <- moved * params$transportation_cost_per_unit * distance_matrix[source_region, region]
+        level[[region]] <- level[[region]] + moved
+        level[[source_region]] <- level[[source_region]] - moved
+        transportation_costs[source_region, waste_type] <- transportation_costs[source_region, waste_type] + cost
+        transportation_costs[region, waste_type] <- transportation_costs[region, waste_type] + cost
       }
     }
   }
