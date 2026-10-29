@@ -111,7 +111,7 @@ sim_params <- function(scenario = "baseline", season = NULL, overrides = list())
 }
 
 
-run_wood_waste_sim <- function(params, seed = NULL) {
+run_wood_waste_sim <- function(params, seed = NULL, distance_matrix = NULL) {
   if (!is.null(seed)) set.seed(seed)
 
   log <- sim_logger(params$scenario)
@@ -157,7 +157,7 @@ run_wood_waste_sim <- function(params, seed = NULL) {
 
   simmer::run(env, until = params$runtime)
 
-  distance_matrix <- sim_distance_matrix(params$regions)
+  if (is.null(distance_matrix)) distance_matrix <- sim_distance_matrix(params$regions)
   transportation_costs <- sim_balancing_cost(env, params, distance_matrix)
 
   list(

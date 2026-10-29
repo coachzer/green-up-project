@@ -212,9 +212,8 @@ register_simulation_server <- function(input, output, session) {
   # Generate distance matrix -----
   observeEvent(input$generate_matrix, {
     regions <- unlist(strsplit(input$regions, ","))
-    if (length(regions) != input$num_regions) {
-      showFeedbackDanger("regions",
-                         "Number of regions does not match the input number of regions.")
+    if (length(regions) == 0) {
+      showFeedbackDanger("regions", "Enter at least one region.")
     } else {
       hideFeedback("regions")
       distance_matrix_rv(sim_distance_matrix(regions))
@@ -227,7 +226,9 @@ register_simulation_server <- function(input, output, session) {
   observeEvent(input$run_simulation, {
     withProgress(message = 'Running simulation...', value = 0, {
       params <- sim_params(input$scenario, input$season, load_parameters())$params
-      run <- run_wood_waste_sim(params)
+      distance_matrix <- distance_matrix_rv()
+      if (!identical(rownames(distance_matrix), params$regions)) distance_matrix <- NULL
+      run <- run_wood_waste_sim(params, distance_matrix = distance_matrix)
       incProgress(1)
     })
 
