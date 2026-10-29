@@ -259,6 +259,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     seize("waste_processor") |>
     set_attribute("waste_amount", function() sim_draw_80_to_100_pct(get_global(env, key("waste_to_handle_")))) |>
     set_global(key("waste_to_handle_"), function() add_to("waste_to_handle_", -amount())) |>
+    set_global(key("total_waste_stored_"), function() max(0, add_to("total_waste_stored_", -amount()))) |>
     set_global(key("total_waste_handled_"), function() add_to("total_waste_handled_", amount())) |>
     set_global(key("total_processing_cost_"), function()
       add_to("total_processing_cost_", amount() * params$processing_cost_per_unit)) |>
