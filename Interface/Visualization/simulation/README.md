@@ -30,6 +30,14 @@ Three wiring steps are needed:
    simulation_menu_item()
    ```
 
+## Layout
+
+- `engine.R` — the model, with no Shiny dependency:
+  `sim_params(scenario, season, overrides)` builds parameters and
+  `run_wood_waste_sim(params, seed)` returns `events`, `costs`, `totals`,
+  `distance_matrix` and `params`.
+- `simulation_server.R` — reads inputs, calls the engine once per Run, renders.
+
 ## Dependencies
 
 Reviving requires installing:

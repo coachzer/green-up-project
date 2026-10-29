@@ -1078,7 +1078,7 @@ rename_substances <- function(df, column = "substance_or_object") {
 ### Code
 
 ```{r waste_generation_2024}
-waste_generation_24.path <- "2024 data\\podatki ODP-nastajanje 2024.xlsx"
+waste_generation_24.path <- "2024 data/podatki ODP-nastajanje 2024.xlsx"
 
 sheet_names <- excel_sheets(waste_generation_24.path)
 
@@ -1138,7 +1138,7 @@ generation.24 <- generation.24 |>
     .groups = "drop"
   ) 
 
-write.csv(generation.24, "2024 data\\2024 filtered\\generation\\generation_24.csv", row.names = FALSE)
+write.csv(generation.24, "2024 data/2024 filtered/generation/generation_24.csv", row.names = FALSE)
 ```
 
 #### Plotting the composition of waste generated in the year by types
@@ -1146,7 +1146,7 @@ write.csv(generation.24, "2024 data\\2024 filtered\\generation\\generation_24.cs
 ```{r new_waste_codes_2024}
 
 # Read the data
-generation.24 <- read_csv("2024 data\\2024 filtered\\generation\\generation_24.csv")
+generation.24 <- read_csv("2024 data/2024 filtered/generation/generation_24.csv")
 
 # Create a named color vector for each waste code
 code_colors <- setNames(
@@ -1285,7 +1285,7 @@ ggplot(waste_plot_data,
 ### Code
 
 ```{r waste_collection_2024}
-waste_collection_24.path <- "2024 data\\podatki ODP-zbiranje 2024.xlsx"
+waste_collection_24.path <- "2024 data/podatki ODP-zbiranje 2024.xlsx"
 
 sheet_names <- excel_sheets(waste_collection_24.path)
 
@@ -1476,7 +1476,7 @@ names(processed_sheets) <- sheet_names
 
 # For each sheet in processed_sheets, write the data to a .csv file
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2024 data\\2024 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_24.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2024 data/2024 filtered/collection/", tolower(gsub(" ", "_", sheet_name)), "_24.csv"))
 }
 ```
 
@@ -1486,7 +1486,7 @@ for (sheet_name in sheet_names) {
 
 ```{r waste_treatment_2024}
 # Initial functions ----
-waste_treatment_24.path <- "2024 data\\podatki ODP-obdelava 2024.xlsx"
+waste_treatment_24.path <- "2024 data/podatki ODP-obdelava 2024.xlsx"
 
 sheet_names <- excel_sheets(waste_treatment_24.path)
 
@@ -1816,7 +1816,7 @@ names(processed_sheets) <- sheet_names
 
 # Write files ----
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2024 data\\2024 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_24.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2024 data/2024 filtered/treatment/", tolower(gsub(" ", "_", sheet_name)), "_24.csv"))
 }
 ```
 
@@ -1827,7 +1827,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_generation_2023}
-waste_generation_23.path <- "2023 data\\podatki LP ODP-nastajanje 2023.xlsx"
+waste_generation_23.path <- "2023 data/podatki LP ODP-nastajanje 2023.xlsx"
 
 sheet_names <- excel_sheets(waste_generation_23.path)
 
@@ -1889,7 +1889,7 @@ generation.23 <- generation.23 |>
     .groups = "drop"
   ) 
 
-write.csv(generation.23, "2023 data\\2023 filtered\\generation\\generation_23.csv", row.names = FALSE)
+write.csv(generation.23, "2023 data/2023 filtered/generation/generation_23.csv", row.names = FALSE)
 ```
 
 #### Plotting the composition of waste generated in the year by types
@@ -1897,7 +1897,7 @@ write.csv(generation.23, "2023 data\\2023 filtered\\generation\\generation_23.cs
 ```{r new_waste_codes}
 
 # Read the data
-generation.23 <- read_csv("2023 data\\2023 filtered\\generation\\generation_23.csv")
+generation.23 <- read_csv("2023 data/2023 filtered/generation/generation_23.csv")
 
 # Create a named color vector for each waste code
 code_colors <- setNames(
@@ -2046,7 +2046,7 @@ ggplot(waste_plot_data,
 ### Code
 
 ```{r waste_collection_2023}
-waste_collection_23.path <- "2023 data\\podatki LP ODP-zbiranje 2023.xlsx"
+waste_collection_23.path <- "2023 data/podatki LP ODP-zbiranje 2023.xlsx"
 
 sheet_names <- excel_sheets(waste_collection_23.path)
 
@@ -2239,7 +2239,7 @@ names(processed_sheets) <- sheet_names
 
 # For each sheet in processed_sheets, write the data to a .csv file
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2023 data\\2023 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_23.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2023 data/2023 filtered/collection/", tolower(gsub(" ", "_", sheet_name)), "_23.csv"))
 }
 ```
 
@@ -2249,7 +2249,7 @@ for (sheet_name in sheet_names) {
 
 ```{r waste_treatment_2023}
 # Initial functions ----
-waste_treatment_23.path <- "2023 data\\podatki LP ODP-obdelava 2023.xlsx"
+waste_treatment_23.path <- "2023 data/podatki LP ODP-obdelava 2023.xlsx"
 
 sheet_names <- excel_sheets(waste_treatment_23.path)
 
@@ -2584,7 +2584,7 @@ names(processed_sheets) <- sheet_names
 
 # Write files ----
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2023 data\\2023 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_23.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2023 data/2023 filtered/treatment/", tolower(gsub(" ", "_", sheet_name)), "_23.csv"))
 }
 ```
 
@@ -2596,7 +2596,7 @@ for (sheet_name in sheet_names) {
 
 ```{r waste_generation_2022}
 # Specify the path to the Excel file
-waste_generation_22.path <- "2022 data\\podatki LP ODP-nastajanje 2022.xlsx"
+waste_generation_22.path <- "2022 data/podatki LP ODP-nastajanje 2022.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(waste_generation_22.path)
@@ -2661,7 +2661,7 @@ generation.22 <- generation.22 |>
   ) 
 
 # Save as .csv to the generation folder
-write.csv(generation.22, "2022 data\\2022 filtered\\generation\\generation_22.csv", row.names = FALSE)
+write.csv(generation.22, "2022 data/2022 filtered/generation/generation_22.csv", row.names = FALSE)
 ```
 
 ## 2022 - Data on waste collected and its subsequent management from waste collectors' reports
@@ -2670,7 +2670,7 @@ write.csv(generation.22, "2022 data\\2022 filtered\\generation\\generation_22.cs
 
 ```{r waste_collection_2022}
 # Specify the path to the Excel file
-waste_collection_22.path <- "2022 data\\podatki LP ODP-zbiranje 2022.xlsx"
+waste_collection_22.path <- "2022 data/podatki LP ODP-zbiranje 2022.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(waste_collection_22.path)
@@ -2864,7 +2864,7 @@ names(processed_sheets) <- sheet_names
 
 # For each sheet in processed_sheets, write the data to a .csv file
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2022 data\\2022 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_22.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2022 data/2022 filtered/collection/", tolower(gsub(" ", "_", sheet_name)), "_22.csv"))
 }
 ```
 
@@ -2875,7 +2875,7 @@ for (sheet_name in sheet_names) {
 ```{r waste_treatment_2022}
 # Initial functions ----
 # Specify the path to the Excel file
-waste_treatment_22.path <- "2022 data\\podatki LP ODP-obdelava 2022.xlsx"
+waste_treatment_22.path <- "2022 data/podatki LP ODP-obdelava 2022.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(waste_treatment_22.path)
@@ -3247,7 +3247,7 @@ names(processed_sheets) <- sheet_names
 
 # Write files ----
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2022 data\\2022 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_22.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2022 data/2022 filtered/treatment/", tolower(gsub(" ", "_", sheet_name)), "_22.csv"))
 }
 ```
 
@@ -3288,7 +3288,7 @@ Columns (translated to English):
 # original emitters (ODP-sequestration) - poročil izvirnih povzročiteljev
 
 # Specify the path to the Excel file
-waste_generation_21.path <- "2021 data\\podatki LP ODP-nastajanje 2021.xlsx"
+waste_generation_21.path <- "2021 data/podatki LP ODP-nastajanje 2021.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(waste_generation_21.path)
@@ -3365,10 +3365,7 @@ generation.21 <- generation.21 |>
   ) 
 
 # create a csv
-write_excel_csv(generation.21, "2021 data\\2021 filtered\\generation\\generation_21.csv")
-
-# create a .xlsx
-# write.xlsx(generation.21, "2021 data\\2021 filtered\\generation_21.xlsx")
+write_excel_csv(generation.21, "2021 data/2021 filtered/generation/generation_21.csv")
 ```
 
 ## 2021 - Data on waste collected and its subsequent management from waste collectors' reports
@@ -3454,7 +3451,7 @@ Contains 6 sheets (translated to English):
 # c2021 - collectors'
 
 # Specify the path to the Excel file
-waste_collectors_21.path <- "2021 data\\podatki LP ODP-zbiranje 2021.xlsx"
+waste_collectors_21.path <- "2021 data/podatki LP ODP-zbiranje 2021.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(waste_collectors_21.path)
@@ -3704,11 +3701,8 @@ names(processed_sheets) <- sheet_names
 
 # For each sheet in processed_sheets, write the data to a .csv file
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2021 data\\2021 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_21.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2021 data/2021 filtered/collection/", tolower(gsub(" ", "_", sheet_name)), "_21.csv"))
 }
-
-# export to .xlsx
-# write.xlsx(processed_sheets, "2021 data\\2021 filtered\\collection_21.xlsx")
 ```
 
 ## 2021 - Data from waste treatment operators' reports
@@ -3850,7 +3844,7 @@ Contains 9 sheets (translated to English):
 # wto2021 - waste treatment operators
 
 # Specify the path to the Excel file
-treatment_21.path <- "2021 data\\podatki LP ODP-obdelava 2021.xlsx"
+treatment_21.path <- "2021 data/podatki LP ODP-obdelava 2021.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(treatment_21.path)
@@ -4178,7 +4172,7 @@ names(processed_sheets) <- sheet_names
 
 # Write files ----
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2021 data\\2021 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_21.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2021 data/2021 filtered/treatment/", tolower(gsub(" ", "_", sheet_name)), "_21.csv"))
 }
 ```
 
@@ -4190,7 +4184,7 @@ for (sheet_name in sheet_names) {
 
 ```{r waste_generation_2020}
 # Specify the path to the Excel file
-waste_generation_20.path <- "2020 data\\podatki LP ODP-nastajanje 2020.xlsx"
+waste_generation_20.path <- "2020 data/podatki LP ODP-nastajanje 2020.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(waste_generation_20.path)
@@ -4247,7 +4241,7 @@ generation.20 <- processed_sheets[[1]] |>
   ) 
 
 # to csv
-write_excel_csv(generation.20, "2020 data\\2020 filtered\\generation\\generation_20.csv")
+write_excel_csv(generation.20, "2020 data/2020 filtered/generation/generation_20.csv")
 ```
 
 ## 2020 - Data from waste collectors' annual reports
@@ -4256,7 +4250,7 @@ write_excel_csv(generation.20, "2020 data\\2020 filtered\\generation\\generation
 
 ```{r waste_collection_2020}
 # Specify the path to the Excel file
-collection_20.path <- "2020 data\\podatki LP ODP-zbiranje 2020.xlsx"
+collection_20.path <- "2020 data/podatki LP ODP-zbiranje 2020.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(collection_20.path)
@@ -4474,7 +4468,7 @@ sheet_names <- c(
 names(processed_sheets) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2020 data\\2020 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_20.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2020 data/2020 filtered/collection/", tolower(gsub(" ", "_", sheet_name)), "_20.csv"))
 }
 ```
 
@@ -4485,7 +4479,7 @@ for (sheet_name in sheet_names) {
 ```{r waste_treatment_2020}
 # Initial functions ----
 # Specify the path to the Excel file
-treatment_20.path <- "2020 data\\podatki LP ODP-obdelava 2020.xlsx"
+treatment_20.path <- "2020 data/podatki LP ODP-obdelava 2020.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(treatment_20.path)
@@ -4803,7 +4797,7 @@ names(processed_sheets) <- sheet_names
 
 # Write files ----
 for (sheet_name in sheet_names) {
-  write_excel_csv(processed_sheets[[sheet_name]], paste0("2020 data\\2020 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_20.csv"))
+  write_excel_csv(processed_sheets[[sheet_name]], paste0("2020 data/2020 filtered/treatment/", tolower(gsub(" ", "_", sheet_name)), "_20.csv"))
 }
 ```
 
@@ -4815,7 +4809,7 @@ for (sheet_name in sheet_names) {
 
 ```{r waste_generation_2019}
 # Specify the path to the Excel file
-waste_generation_19.path <- "2019 data\\podatki LP ODP-nastajanje 2019.xlsx"
+waste_generation_19.path <- "2019 data/podatki LP ODP-nastajanje 2019.xlsx"
 
 # Get the sheet names
 sheet_names <- excel_sheets(waste_generation_19.path)
@@ -4868,7 +4862,7 @@ generation.19 <- processed_sheets[[1]] |>
   )
 
 # to csv
-write_excel_csv(generation.19, "2019 data\\2019 filtered\\generation\\generation_19.csv")
+write_excel_csv(generation.19, "2019 data/2019 filtered/generation/generation_19.csv")
 ```
 
 ## 2019 - Data from the annual reports on waste collection from manufacturing and service activities
@@ -4876,7 +4870,7 @@ write_excel_csv(generation.19, "2019 data\\2019 filtered\\generation\\generation
 ### Code
 
 ```{r waste_collection_2019}
-waste_collection_19.path <- "2019 data\\ODP_Z_2019_objava_21122020.xlsx"
+waste_collection_19.path <- "2019 data/ODP_Z_2019_objava_21122020.xlsx"
 
 waste_collection_19.sheet1 <- read_xlsx(waste_collection_19.path, skip = 2, sheet = 1)
 
@@ -5094,7 +5088,7 @@ names(waste_collection.19) <- sheet_names
 
 # write to csv
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_collection.19[[sheet_name]], paste0("2019 data\\2019 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_19.csv"))
+  write_excel_csv(waste_collection.19[[sheet_name]], paste0("2019 data/2019 filtered/collection/", tolower(gsub(" ", "_", sheet_name)), "_19.csv"))
 }
 ```
 
@@ -5103,7 +5097,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_recovery_2019}
-waste_recovery_19.path <- "2019 data\\ODP_P_2019_objava_21122020.xlsx"
+waste_recovery_19.path <- "2019 data/ODP_P_2019_objava_21122020.xlsx"
 ```
 
 ```{r waste_storage_2019}
@@ -5400,7 +5394,7 @@ waste_recovery.19 <- list(
 names(waste_recovery.19) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_recovery.19[[sheet_name]], paste0("2019 data\\2019 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_19.csv"))
+  write_excel_csv(waste_recovery.19[[sheet_name]], paste0("2019 data/2019 filtered/treatment/", tolower(gsub(" ", "_", sheet_name)), "_19.csv"))
 }
 ```
 
@@ -5411,7 +5405,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_generation_2018}
-waste_generation_18.path <- "2018 data\\ODP_2018_objava21122020.xlsx"
+waste_generation_18.path <- "2018 data/ODP_2018_objava21122020.xlsx"
 ```
 
 ```{r table_1_waste_generated_2018}
@@ -5509,7 +5503,7 @@ waste_generation.18 <- list(
 names(waste_generation.18) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_generation.18[[sheet_name]], paste0("2018 data\\2018 filtered\\generation\\", tolower(gsub(" ", "_", sheet_name)), "_18.csv"))
+  write_excel_csv(waste_generation.18[[sheet_name]], paste0("2018 data/2018 filtered/generation/", tolower(gsub(" ", "_", sheet_name)), "_18.csv"))
 }
 ```
 
@@ -5518,7 +5512,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_collection_2018}
-waste_collection_18.path <- "2018 data\\ODP_Z_2018_objava21122020.xlsx"
+waste_collection_18.path <- "2018 data/ODP_Z_2018_objava21122020.xlsx"
 ```
 
 ```{r waste_storage_2018}
@@ -5706,7 +5700,7 @@ waste_collection.18 <- list(
 names(waste_collection.18) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_collection.18[[sheet_name]], paste0("2018 data\\2018 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_18.csv"))
+  write_excel_csv(waste_collection.18[[sheet_name]], paste0("2018 data/2018 filtered/collection/", tolower(gsub(" ", "_", sheet_name)), "_18.csv"))
 }
 ```
 
@@ -5715,7 +5709,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_recovery_disposal_2018}
-waste_recovery_18.path <- "2018 data\\ODP_P_2018_objava21122020.xlsx"
+waste_recovery_18.path <- "2018 data/ODP_P_2018_objava21122020.xlsx"
 ```
 
 ```{r waste_recovery_disposal_storage_2018}
@@ -6019,7 +6013,7 @@ waste_recovery.18 <- list(
 names(waste_recovery.18) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_recovery.18[[sheet_name]], paste0("2018 data\\2018 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_18.csv"))
+  write_excel_csv(waste_recovery.18[[sheet_name]], paste0("2018 data/2018 filtered/treatment/", tolower(gsub(" ", "_", sheet_name)), "_18.csv"))
 }
 ```
 
@@ -6030,7 +6024,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r table_1_waste_generated_2017}
-waste_generation_17.path <- "2017 data\\2017_generation.xlsx"
+waste_generation_17.path <- "2017 data/2017_generation.xlsx"
 
 waste_generation_17.sheet1 <- read_xlsx(waste_generation_17.path, skip = 2, sheet = 1)
 
@@ -6155,7 +6149,7 @@ waste_generation.17 <- list(
 names(waste_generation.17) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_generation.17[[sheet_name]], paste0("2017 data\\2017 filtered\\generation\\", tolower(gsub(" ", "_", sheet_name)), "_17.csv"))
+  write_excel_csv(waste_generation.17[[sheet_name]], paste0("2017 data/2017 filtered/generation/", tolower(gsub(" ", "_", sheet_name)), "_17.csv"))
 }
 ```
 
@@ -6164,7 +6158,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_collection_2017}
-waste_collection_17.path <- "2017 data\\2017_collection.xlsx"
+waste_collection_17.path <- "2017 data/2017_collection.xlsx"
 ```
 
 ```{r waste_storage_2017}
@@ -6324,7 +6318,7 @@ waste_collection.17 <- list(
 names(waste_collection.17) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_collection.17[[sheet_name]], paste0("2017 data\\2017 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_17.csv"))
+  write_excel_csv(waste_collection.17[[sheet_name]], paste0("2017 data/2017 filtered/collection/", tolower(gsub(" ", "_", sheet_name)), "_17.csv"))
 }
 ```
 
@@ -6333,7 +6327,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_recovery_disposal_2017}
-waste_recovery_disposal_17.path <- "2017 data\\2017_recovery_disposal.xlsx"
+waste_recovery_disposal_17.path <- "2017 data/2017_recovery_disposal.xlsx"
 ```
 
 ```{r waste_recovery_disposal_storage_2017}
@@ -6595,7 +6589,7 @@ waste_recovery_disposal.17 <- list(
 names(waste_recovery_disposal.17) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_recovery_disposal.17[[sheet_name]], paste0("2017 data\\2017 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_17.csv"))
+  write_excel_csv(waste_recovery_disposal.17[[sheet_name]], paste0("2017 data/2017 filtered/treatment/", tolower(gsub(" ", "_", sheet_name)), "_17.csv"))
 }
 ```
 
@@ -6606,7 +6600,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r table_1_waste_generated_2016}
-waste_generation_16.path <- "2016 data\\2016_generation.xls"
+waste_generation_16.path <- "2016 data/2016_generation.xls"
 
 waste_generation_16.sheet1 <- read_xls(waste_generation_16.path, skip = 2, sheet = 1)
 
@@ -6860,7 +6854,7 @@ waste_generation.16 <- list(
 names(waste_generation.16) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_generation.16[[sheet_name]], paste0("2016 data\\2016 filtered\\generation\\", tolower(gsub(" ", "_", sheet_name)), "_16.csv"))
+  write_excel_csv(waste_generation.16[[sheet_name]], paste0("2016 data/2016 filtered/generation/", tolower(gsub(" ", "_", sheet_name)), "_16.csv"))
 }
 ```
 
@@ -6869,7 +6863,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_collection_2016}
-waste_collection_16.path <- "2016 data\\2016_collection.xls"
+waste_collection_16.path <- "2016 data/2016_collection.xls"
 ```
 
 ```{r waste_storage_2016_collection}
@@ -6995,7 +6989,7 @@ waste_collection.16 <- list(
 names(waste_collection.16) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_collection.16[[sheet_name]], paste0("2016 data\\2016 filtered\\collection\\", tolower(gsub(" ", "_", sheet_name)), "_16.csv"))
+  write_excel_csv(waste_collection.16[[sheet_name]], paste0("2016 data/2016 filtered/collection/", tolower(gsub(" ", "_", sheet_name)), "_16.csv"))
 }
 ```
 
@@ -7004,7 +6998,7 @@ for (sheet_name in sheet_names) {
 ### Code
 
 ```{r waste_recovery_disposal_2016}
-waste_recovery_disposal_16.path <- "2016 data\\2016_recovery_disposal.xls"
+waste_recovery_disposal_16.path <- "2016 data/2016_recovery_disposal.xls"
 ```
 
 ```{r waste_storage_2016_recovery}
@@ -7179,6 +7173,6 @@ waste_recovery_disposal.16 <- list(
 names(waste_recovery_disposal.16) <- sheet_names
 
 for (sheet_name in sheet_names) {
-  write_excel_csv(waste_recovery_disposal.16[[sheet_name]], paste0("2016 data\\2016 filtered\\treatment\\", tolower(gsub(" ", "_", sheet_name)), "_16.csv"))
+  write_excel_csv(waste_recovery_disposal.16[[sheet_name]], paste0("2016 data/2016 filtered/treatment/", tolower(gsub(" ", "_", sheet_name)), "_16.csv"))
 }
 ```

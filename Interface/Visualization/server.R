@@ -80,11 +80,6 @@ region_colors <- c(
   "NEOPREDELJENO" = "#c7c7c7"           # Light Gray (unspecified)
 )
 
-# alternative
-colors_only <- c("#2D5016", "#8B4513", "#DEB887", "#4682B4", "#87CEEB", 
-                 "#D2691E", "#A0522D", "#6495ED", "#CD853F", "#B0C4DE", 
-                 "#F4A460", "#696969", "#BC8F8F", "#5F8A5F", "#DC143C")
-
 # for te combined overview plot
 waste_colors_comb <- c(
   "Generated" = "#0173B2",    # Blue
@@ -210,7 +205,6 @@ yearly_data_received <- coll_received_data |>
     .groups = "drop"
   )
 
-##### stacked, faceted, grouped plots
 # Reshape data for plotting
 df_long_received <- melt(coll_received_data,
                          id.vars = c("statistical_region", "type_of_waste", "year"),
@@ -225,51 +219,6 @@ total_collected_per_region <- df_long_received |>
 
 df_long_received$statistical_region <- factor(df_long_received$statistical_region, 
                                               levels = total_collected_per_region$statistical_region)
-
-# Stacked bar plot
-t_stacked <- ggplot(df_long_received, aes(x = statistical_region, y = total_collected, fill = source)) +
-  geom_col() + 
-  labs(
-    title = "Waste Received by Source",
-    x = "Statistical Region", y = "Total Collected Waste"
-  ) +
-  scale_fill_manual(
-    values = color_palette,
-    labels = c("From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")
-  ) +
-  # coord_flip() +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-# Faceted bar plot by source
-t_faceted <- ggplot(df_long_received, aes(x = statistical_region, y = total_collected, fill = source)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  facet_wrap(~ source, ncol = 1, scales = "free_y") +  # Create a facet for each source
-  labs(
-    title = "Waste Received by Source",
-    x = "Statistical Region", y = "Total Collected Waste"
-  ) +
-  scale_fill_manual(
-    values = color_palette,
-    labels = c("From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-# Grouped bar plot
-t_grouped <- ggplot(df_long_received, aes(x = statistical_region, y = total_collected, fill = source)) +
-  geom_bar(stat = "identity", position = "dodge") +  # Group the bars by source
-  labs(
-    title = "Waste Received by Source",
-    x = "Statistical Region", y = "Total Collected Waste"
-  ) +
-  scale_fill_manual(
-    values = color_palette,
-    labels = c("From Producers (No Record)", "From Producers (With Record)", "From Collectors (RS)", "From Processors (RS)")
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
 
 #### coll_municipal_data ----
 coll_municipal_data <- read_csv("data/coll_municipal_combined.csv", show_col_types = FALSE) |>
@@ -290,39 +239,6 @@ df_long_municipal <- melt(
   variable.name = "source",
   value.name = "total_collected"
 )
-
-t10 <- ggplot(df_long_municipal, aes(x = year, y = total_collected, color = name_of_municipality, group = type_of_waste)) +
-  geom_line() +
-  geom_point() +
-  facet_wrap(~statistical_region, scales = "free_y") +
-  labs(title = "Total Waste Collected by Municipality and Region (2018-2023)",
-       x = "Year",
-       y = "Amount Collected (in tons)",
-       color = "Municipality") +
-  theme_minimal()
-
-# Calculate total waste for each municipality
-top_municipalities <- df_long_municipal |>
-  group_by(name_of_municipality) |>
-  summarise(total_waste = sum(total_collected, na.rm = TRUE)) |>
-  top_n(5, total_waste) |>
-  pull(name_of_municipality)
-
-# Filter the original dataset
-df_top_municipal <- df_long_municipal |>
-  filter(name_of_municipality %in% top_municipalities)
-
-# Plot
-t11 <- ggplot(df_top_municipal, aes(x = year, y = total_collected, color = name_of_municipality, group = name_of_municipality)) +
-  geom_line() +
-  geom_point() +
-  labs(title = "Total Waste Collected by Top 5 Municipalities (2018-2023)",
-       x = "Year",
-       y = "Amount Collected (in tons)",
-       color = "Municipality") +
-  facet_wrap(~type_of_waste) +
-  theme_minimal() +
-  theme(legend.position = "bottom")
 
 #### coll_municipal_collected_data ----
 coll_municipal_collected_data <- read_csv("data/coll_municipal_collected_combined.csv", show_col_types = FALSE) |>
@@ -643,14 +559,6 @@ trt_management_data <- read_csv("data/trt_management_combined.csv", show_col_typ
                      "waste_handed_to_collectors_RS", "waste_delivered_to_operators_RS",
                      "waste_sent_to_EU", "waste_sent_to_non_EU"),
                    "trt_management_combined.csv")
-#### trt_magnagement_22_23_data ----
-trt_management_22_23 <- read_csv("data/trt_management_22_23.csv", show_col_types = FALSE) |>
-  validate_columns(c("year", "statistical_region", "input_waste_name",
-                     "treatment_operation", "further_treatment_envisaged",
-                     "waste_sent_to_self_storage_end_year", "waste_sent_to_collector_SI",
-                     "waste_sent_to_treatment_operator", "waste_sent_to_EU_member_states",
-                     "waste_sent_to_non_EU_countries", "waste_sent_to_no_further_management"),
-                   "trt_management_22_23.csv")
 #### trt_magnagement_22_23_24_data ----
 trt_management_22_23_24 <- read_csv("data/trt_management_22_23_24.csv", show_col_types = FALSE) |>
   validate_columns(c("year", "statistical_region", "input_waste_name",
@@ -3316,23 +3224,9 @@ shinyServer(function(input, output, session) {
     data <- current_dataset()
     
     # Update year slider based on dataset
-    if (input$dataset_selector == "data_2020_2024") {
-      updateSliderInput(
-        session,
-        "year_filter_mgmt",
-        min = 2020,
-        max = 2024,
-        value = c(2020, 2024)
-      )
-    } else {
-      updateSliderInput(
-        session,
-        "year_filter_mgmt",
-        min = 2022,
-        max = 2024,          
-        value = c(2022, 2024) 
-      )
-    }
+    yrs <- range(data$year, na.rm = TRUE)
+    updateSliderInput(session, "year_filter_mgmt",
+                      min = yrs[1], max = yrs[2], value = yrs)
     
     # Filter data by current year range
     year_filtered <- data |>
