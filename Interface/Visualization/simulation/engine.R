@@ -332,7 +332,6 @@ sim_balancing_cost <- function(env, params, distance_matrix) {
         level[[region]] <- level[[region]] + moved
         level[[source_region]] <- level[[source_region]] - moved
         transportation_costs[source_region, waste_type] <- transportation_costs[source_region, waste_type] + cost
-        transportation_costs[region, waste_type] <- transportation_costs[region, waste_type] + cost
       }
     }
   }
