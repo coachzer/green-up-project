@@ -643,14 +643,6 @@ trt_management_data <- read_csv("data/trt_management_combined.csv", show_col_typ
                      "waste_handed_to_collectors_RS", "waste_delivered_to_operators_RS",
                      "waste_sent_to_EU", "waste_sent_to_non_EU"),
                    "trt_management_combined.csv")
-#### trt_magnagement_22_23_data ----
-trt_management_22_23 <- read_csv("data/trt_management_22_23.csv", show_col_types = FALSE) |>
-  validate_columns(c("year", "statistical_region", "input_waste_name",
-                     "treatment_operation", "further_treatment_envisaged",
-                     "waste_sent_to_self_storage_end_year", "waste_sent_to_collector_SI",
-                     "waste_sent_to_treatment_operator", "waste_sent_to_EU_member_states",
-                     "waste_sent_to_non_EU_countries", "waste_sent_to_no_further_management"),
-                   "trt_management_22_23.csv")
 #### trt_magnagement_22_23_24_data ----
 trt_management_22_23_24 <- read_csv("data/trt_management_22_23_24.csv", show_col_types = FALSE) |>
   validate_columns(c("year", "statistical_region", "input_waste_name",
