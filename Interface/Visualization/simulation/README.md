@@ -37,8 +37,6 @@ Three wiring steps are needed:
   `run_wood_waste_sim(params, seed)` returns `events`, `costs`, `totals`,
   `distance_matrix` and `params`.
 - `simulation_server.R` — reads inputs, calls the engine once per Run, renders.
-- `tests/testthat/` — engine tests:
-  `testthat::test_dir("Interface/Visualization/simulation/tests/testthat")`
 
 ## Dependencies
 
