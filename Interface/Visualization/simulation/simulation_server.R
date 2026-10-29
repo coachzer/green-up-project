@@ -525,7 +525,6 @@ register_simulation_server <- function(input, output, session) {
   output$distance_matrix_plot <- renderPlotly({
     distance_matrix <- distance_matrix_rv()
     req(distance_matrix)
-    regions <- unlist(strsplit(input$regions, ","))
     melted_matrix <- melt(distance_matrix)
     colnames(melted_matrix) <- c("Region1", "Region2", "Distance")
     
@@ -549,11 +548,7 @@ register_simulation_server <- function(input, output, session) {
   output$force_directed_plot <- renderPlotly({
     distance_matrix <- distance_matrix_rv()
     req(distance_matrix)
-    regions <- unlist(strsplit(input$regions, ","))
-    distance_matrix
-    colnames(distance_matrix) <- regions
-    rownames(distance_matrix) <- regions
-    
+
     graph <- graph_from_adjacency_matrix(
       as.matrix(distance_matrix),
       mode = "max",
