@@ -89,3 +89,14 @@ test_that("overflow penalty charges each collection's excess over capacity once"
   expect_true(any(collected > stored))
   expect_equal(metric("Overflow penalty"), (collected - stored) * p$overflow_penalty_per_unit)
 })
+
+test_that("no stage passes on more waste than it received", {
+  for (scenario in c("baseline", "improved_collection_efficiency", "enhanced_recycling_programs")) {
+    t <- run_quiet(small_params(scenario, runtime = 80), seed = 2)$totals
+    metric <- function(m) t$Value[t$Metric == m]
+    tol <- 1e-9
+    expect_true(all(metric("Total waste collected (kg)") <= metric("Total waste generated (kg)") + tol), label = scenario)
+    expect_true(all(metric("Total waste handled (kg)") <= metric("Total waste collected (kg)") + tol), label = scenario)
+    expect_true(all(metric("Total waste recycled (kg)") <= metric("Total waste handled (kg)") + tol), label = scenario)
+  }
+})
