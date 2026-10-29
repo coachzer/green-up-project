@@ -127,17 +127,8 @@ run_wood_waste_sim <- function(params, seed = NULL) {
     }
   }
 
-  for (region in params$regions) {
-    for (waste_type in params$wood_waste_types) {
-      env <- add_resource(env, paste0("storage_", region, "_", waste_type),
-                          capacity = params$storage_capacity)
-    }
-  }
-
   n_regions <- length(params$regions)
   env <- env |>
-    add_resource("storage",
-                 capacity = params$storage_capacity * n_regions * length(params$wood_waste_types)) |>
     add_resource("collection_truck", capacity = n_regions) |>
     add_resource("waste_processor", capacity = n_regions) |>
     add_resource("recycling_facility", capacity = n_regions)
@@ -230,23 +221,19 @@ sim_draw_80_to_100_pct <- function(x) {
 
 sim_trajectories <- function(env, params, region, waste_type, log_event) {
   key <- function(name) paste0(name, region, "_", waste_type)
-  storage <- paste0("storage_", region, "_", waste_type)
   amount <- function() get_attribute(env, "waste_amount")
   add_to <- function(name, value) get_global(env, key(name)) + value
 
   generate_waste <- trajectory(paste("Generate Waste -", region, "-", waste_type)) |>
-    seize(storage, 1) |>
     set_attribute("waste_amount", function() sim_waste_amount(env, params)) |>
     set_global(key("total_waste_generated_"), function() add_to("total_waste_generated_", amount())) |>
     set_global(key("waste_to_collect_"), function() add_to("waste_to_collect_", amount())) |>
     set_attribute("log_row", function() log_event(env, region, waste_type, "Generation")) |>
-    timeout(function() rexp(1, rate = 0.5)) |>
-    release(storage)
+    timeout(function() rexp(1, rate = 0.5))
 
   collect_waste <- trajectory(paste("Collect Waste -", region, "-", waste_type)) |>
     timeout(sim_collection_interval) |>
     seize("collection_truck") |>
-    seize(storage, 1) |>
     set_attribute("waste_amount", function()
       sim_draw_80_to_100_pct(min(sim_max_collection_amount, get_global(env, key("waste_to_collect_"))))) |>
     set_global(key("waste_to_collect_"), function() add_to("waste_to_collect_", -amount())) |>
@@ -264,7 +251,6 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     set_global(key("waste_to_handle_"), function() add_to("waste_to_handle_", amount())) |>
     set_attribute("log_row", function() log_event(env, region, waste_type, "Collection")) |>
     timeout(function() rexp(1, rate = 1.5)) |>
-    release(storage) |>
     release("collection_truck")
 
   handle_waste <- trajectory(paste("Handle Waste -", region, "-", waste_type)) |>
