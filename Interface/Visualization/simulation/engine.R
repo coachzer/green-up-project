@@ -1,15 +1,4 @@
-# Wood-waste simulation engine — no Shiny dependency.
-#
-# Interface:
-#   sim_params(scenario, season, overrides)  -> list(params, changes)
-#   run_wood_waste_sim(params, seed = NULL)   -> list(events, costs, totals,
-#                                                    distance_matrix, params)
-#
-# Everything else here (simmer globals, trajectories, logging, balancing) is
-# internal. Outputs are synthetic runif/rexp draws, not real measurements.
 library(simmer)
-
-# Constants -----
 
 sim_defaults <- function() {
   list(
@@ -38,14 +27,10 @@ sim_seasons <- list(
   fall = 1.0
 )
 
-sim_intelligence <- list(
-  # Collect waste if more than 80% of storage capacity is reached
-  collection_threshold = 0.8,
-  # Adjust collection frequency based on waste accumulation
-  adaptive_collection_rate = FALSE,
-  # Maximum amount to collect in one go
-  max_collection_amount = 25
-)
+sim_max_collection_amount <- 25
+sim_collection_interval <- 10
+sim_handling_start <- 15
+sim_recycling_start <- 20
 
 sim_metrics <- c(
   "Total waste generated (kg)",
@@ -63,9 +48,7 @@ sim_metrics <- c(
   "Total avoided disposal cost"
 )
 
-# Parameters -----
 
-# Merge user overrides onto the defaults, then apply the scenario preset.
 sim_params <- function(scenario = "baseline", season = NULL, overrides = list()) {
   params <- utils::modifyList(sim_defaults(), overrides)
   params$scenario <- scenario
@@ -122,7 +105,6 @@ sim_params <- function(scenario = "baseline", season = NULL, overrides = list())
   list(params = params, changes = changes)
 }
 
-# Run -----
 
 run_wood_waste_sim <- function(params, seed = NULL) {
   if (!is.null(seed)) set.seed(seed)
@@ -179,7 +161,7 @@ run_wood_waste_sim <- function(params, seed = NULL) {
   simmer::run(env, until = params$runtime)
 
   distance_matrix <- sim_distance_matrix(params$regions)
-  transportation_costs <- sim_balance_storage(env, params, distance_matrix)
+  transportation_costs <- sim_balancing_cost(env, params, distance_matrix)
 
   list(
     events = log$events(),
@@ -190,7 +172,6 @@ run_wood_waste_sim <- function(params, seed = NULL) {
   )
 }
 
-# Internals -----
 
 sim_logger <- function(scenario) {
   event_rows <- list()
@@ -218,7 +199,7 @@ sim_logger <- function(scenario) {
         TransportationCost = g(env, "total_transportation_cost_", region, waste_type),
         RecyclingRevenue = g(env, "total_recycling_revenue_", region, waste_type),
         Scenario = scenario, stringsAsFactors = FALSE)
-      0  # set_attribute("log_event", ...) needs a numeric return value
+      0
     },
     events = function() if (length(event_rows)) dplyr::bind_rows(event_rows) else empty_events,
     costs = function() if (length(cost_rows)) dplyr::bind_rows(cost_rows) else empty_costs
@@ -238,8 +219,7 @@ sim_waste_amount <- function(env, params, min_val = 10, max_val = 30) {
   base_amount * multiplier * time_multiplier
 }
 
-# Draw between 80% and 100% of x, or 0 when there is nothing to take
-sim_draw_fraction <- function(x) {
+sim_draw_80_to_100_pct <- function(x) {
   if (!is.na(x) && x > 0) {
     amount <- runif(1, x * 0.8, x)
     if (is.na(amount)) 0 else amount
@@ -258,33 +238,20 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     seize(storage, 1) |>
     set_attribute("waste_amount", function() sim_waste_amount(env, params)) |>
     set_global(key("total_waste_generated_"), function() add_to("total_waste_generated_", amount())) |>
-    # collection trajectory decides how much of this is actually collected
     set_global(key("waste_to_collect_"), function() amount()) |>
     set_attribute("log_event", function() log_event(env, region, waste_type, "Generation")) |>
     timeout(function() rexp(1, rate = 0.5)) |>
     release(storage)
 
   collect_waste <- trajectory(paste("Collect Waste -", region, "-", waste_type)) |>
-    timeout(function() {
-      if (sim_intelligence$adaptive_collection_rate) {
-        to_collect <- get_global(env, key("waste_to_collect_"))
-        if (is.na(to_collect)) to_collect <- 0
-        if (to_collect > params$storage_capacity * sim_intelligence$collection_threshold) {
-          rexp(1, rate = 2)
-        } else {
-          rexp(1, rate = 1)
-        }
-      } else {
-        10
-      }
-    }) |>
+    timeout(sim_collection_interval) |>
     seize("collection_truck") |>
     seize(storage, 1) |>
     set_attribute("waste_amount", function() {
       to_collect <- get_global(env, key("waste_to_collect_"))
       if (is.na(to_collect)) to_collect <- 0
       if (to_collect > 0) {
-        cap <- min(sim_intelligence$max_collection_amount, to_collect)
+        cap <- min(sim_max_collection_amount, to_collect)
         a <- runif(1, cap * 0.8, cap)
         if (is.na(a)) 0 else a
       } else {
@@ -313,10 +280,10 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     release("collection_truck")
 
   handle_waste <- trajectory(paste("Handle Waste -", region, "-", waste_type)) |>
-    timeout(15) |>
+    timeout(sim_handling_start) |>
     seize("collection_truck") |>
     seize("waste_processor") |>
-    set_attribute("waste_amount", function() sim_draw_fraction(get_global(env, key("waste_to_handle_")))) |>
+    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(get_global(env, key("waste_to_handle_")))) |>
     set_global(key("total_waste_handled_"), function() add_to("total_waste_handled_", amount())) |>
     set_global(key("total_processing_cost_"), function()
       add_to("total_processing_cost_", amount() * params$processing_cost_per_unit)) |>
@@ -327,9 +294,9 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     release("collection_truck")
 
   recycle_waste <- trajectory(paste("Recycle Waste -", region, "-", waste_type)) |>
-    timeout(20) |>
+    timeout(sim_recycling_start) |>
     seize("recycling_facility") |>
-    set_attribute("waste_amount", function() sim_draw_fraction(get_global(env, key("waste_to_recycle_")))) |>
+    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(get_global(env, key("waste_to_recycle_")))) |>
     set_global(key("total_waste_recycled_"), function() add_to("total_waste_recycled_", amount())) |>
     set_global(key("total_recycling_revenue_"), function()
       add_to("total_recycling_revenue_", amount() * params$recycling_revenue_per_unit)) |>
@@ -363,9 +330,7 @@ sim_distance_matrix <- function(regions) {
   m
 }
 
-# Transport cost of evening out stored waste across regions. Costs only:
-# stored amounts in the simmer globals are not moved.
-sim_balance_storage <- function(env, params, distance_matrix) {
+sim_balancing_cost <- function(env, params, distance_matrix) {
   regions <- params$regions
   transportation_costs <- matrix(0, nrow = length(regions), ncol = length(params$wood_waste_types),
                                  dimnames = list(regions, params$wood_waste_types))

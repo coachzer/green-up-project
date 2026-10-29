@@ -205,7 +205,6 @@ yearly_data_received <- coll_received_data |>
     .groups = "drop"
   )
 
-##### received-by-source long format
 # Reshape data for plotting
 df_long_received <- melt(coll_received_data,
                          id.vars = c("statistical_region", "type_of_waste", "year"),

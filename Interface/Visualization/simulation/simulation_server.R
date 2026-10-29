@@ -3,7 +3,7 @@
 # Requires: library(simmer); library(igraph)  (removed from global.R in plan 010)
 library(simmer)
 library(igraph)
-source("simulation/engine.R")  # sim_params(), run_wood_waste_sim()
+source("simulation/engine.R")
 
 # Conflict preferences for igraph and simmer (moved from global.R in plan 010)
 conflict_prefer("as_data_frame",   "igraph")
@@ -71,7 +71,6 @@ register_simulation_server <- function(input, output, session) {
     )
   })
   
-  ## Latest run (engine result) and distance matrix
 
   sim_run <- reactiveVal(NULL)
   distance_matrix_rv <- reactiveVal(NULL)
@@ -276,9 +275,7 @@ register_simulation_server <- function(input, output, session) {
     updateTabItems(session, "tabs", "outputs")
   })
 
-  # Simulation Output -----
   
-  # Update region and waste type selections based on the parameters
   observeEvent(sim_run(), {
     params <- sim_run()$params
     updateSelectInput(
@@ -309,9 +306,6 @@ register_simulation_server <- function(input, output, session) {
       formatRound(columns = c("Value"), digits = 2)
   })
 
-  # Synthetic-data disclosure notice (plan 009 step 5).
-  # NOTE: a matching uiOutput("simulation_notice") is in simulation_ui.R (top of the main simulation tab)
-  # (out of scope here; tracked for plan 010).
   output$simulation_notice <- renderUI({
     req(sim_run())
     tags$div(
@@ -322,7 +316,6 @@ register_simulation_server <- function(input, output, session) {
   })
 
 
-  # Cumulative Totals -----
   
   output$cumulative_totals <- renderDT({
     req(sim_run())
@@ -351,7 +344,6 @@ register_simulation_server <- function(input, output, session) {
       formatRound(columns = c("Value"), digits = 2)
   })
   
-  # Data Plots -----
   
   generate_plot_data <- function(event_type) {
     req(sim_run())
@@ -361,14 +353,10 @@ register_simulation_server <- function(input, output, session) {
         Event == event_type,
         Region %in% input$regions_selected,
         WasteType %in% input$waste_types_selected,
-        Scenario %in% input$scenario# ,
-        # Time >= input$time_start,
-        # Time <= input$time_end
+        Scenario %in% input$scenario
       ) |>
-      # arrange(Time) |>
       group_by(Region, WasteType) |>
       mutate(CumulativeAmount = cumsum(Amount))
-    # e.g. recycling starts at t = 20, so shorter runs have no recycling events
     validate(need(nrow(data) > 0, paste("No", tolower(event_type), "events for this selection.")))
     data
   }
@@ -383,7 +371,6 @@ register_simulation_server <- function(input, output, session) {
     list(y_label = y_label, y_column = y_column)
   }
   
-  # Observer to update select inputs based on the results
   
   observeEvent(results(), {
     req(nrow(results()) > 0)
@@ -488,14 +475,12 @@ register_simulation_server <- function(input, output, session) {
              yaxis = list(autorange = TRUE))
   })
   
-  # Results Table -----
   
   output$results_table <- renderDT({
     req(sim_run())
     datatable(results(), options = list(pageLength = 10, autoWidth = TRUE))
   })
   
-  # Cost Plots -----
   
   generate_cost_plot_data <- function(cost_type) {
     req(sim_run())
@@ -566,14 +551,12 @@ register_simulation_server <- function(input, output, session) {
              yaxis = list(autorange = TRUE))
   })
   
-  # Costs Table -----
   
   output$costs_table <- renderDT({
     req(sim_run())
     datatable(costs(), options = list(pageLength = 10, autoWidth = FALSE))
   })
   
-  # Distance Matrix -----
   
   output$distance_matrix <- renderTable({
     req(distance_matrix_rv())
@@ -602,7 +585,6 @@ register_simulation_server <- function(input, output, session) {
     
   })
   
-  # Force Directed Plot -----
   
   output$force_directed_plot <- renderPlotly({
     distance_matrix <- distance_matrix_rv()
@@ -612,7 +594,6 @@ register_simulation_server <- function(input, output, session) {
     colnames(distance_matrix) <- regions
     rownames(distance_matrix) <- regions
     
-    # Create an igraph object from the distance matrix
     graph <- graph_from_adjacency_matrix(
       as.matrix(distance_matrix),
       mode = "max",
@@ -620,20 +601,16 @@ register_simulation_server <- function(input, output, session) {
       diag = FALSE
     )
     
-    # Get the layout for the graph
     layout <- layout_with_fr(graph)
     
-    # Create a data frame for the nodes
     nodes <- data.frame(id = V(graph)$name,
                         x = layout[, 1],
                         y = layout[, 2])
     
-    # Create a data frame for the edges
     edges <- as.data.frame(as_edgelist(graph))
     colnames(edges) <- c("from", "to")
     edges$weight <- E(graph)$weight
     
-    # Plot the graph with plotly
     plot_ly() |>
       add_markers(
         data = nodes,
@@ -668,7 +645,6 @@ register_simulation_server <- function(input, output, session) {
   })
   
   
-  # Export Data -----
   
   output$download_data <- downloadHandler(
     filename = function() {
@@ -679,15 +655,12 @@ register_simulation_server <- function(input, output, session) {
     }
   )
   
-  # Generate Reports ----- WIP
   
   output$download_report <- downloadHandler(
     filename = function() {
       "simulation_report.html"
     },
     content = function(file) {
-      # Self-contained report: write a temp Rmd, knit it, copy out.
-      # NOTE: the simulation figures are synthetic placeholders (see plan 009 step 5).
       tmp <- tempfile(fileext = ".Rmd")
       writeLines(c(
         "---",

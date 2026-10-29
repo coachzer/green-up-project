@@ -1,4 +1,3 @@
-# Run with: testthat::test_dir("Interface/Visualization/simulation/tests/testthat")
 
 test_that("same seed gives the same result, different seeds differ", {
   p <- small_params()
@@ -66,12 +65,10 @@ test_that("overflow uses the scenario's capacity and penalty, not the raw inputs
   totals <- function(p) run_quiet(p, seed = 5)$totals
   metric <- function(t, m) t$Value[t$Metric == m]
 
-  # Expansion raises capacity to 1000: a small user capacity must not trigger penalties
   t <- totals(small_params("storage_capacity_expansion", storage_capacity = 40, runtime = 60))
   expect_true(all(metric(t, "Total waste stored (kg)") < 1000))
   expect_true(all(metric(t, "Overflow penalty") == 0))
 
-  # Penalty preset (5) vs user penalty (2) on the same draws: penalties scale by 2.5
   base <- totals(small_params(storage_capacity = 40, overflow_penalty_per_unit = 2, runtime = 60))
   pen <- totals(small_params("penalties_for_overflow", storage_capacity = 40,
                              overflow_penalty_per_unit = 2, runtime = 60))

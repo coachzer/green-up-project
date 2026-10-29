@@ -619,7 +619,6 @@ without_company_data <- without_company_data |>
 ```
 
 ```{r generation_combined_data_2}
-# rename by name to the 2023 schema; rename() errors if a source column is missing
 without_company_data <- without_company_data |>
   rename(temporarily_stored_start_year = waste_stored_start_year,
          generated_in_the_year = waste_generated,
@@ -2224,7 +2223,6 @@ waste.management.2019.data <- waste.management.2019.data |>
             waste_sent_to_EU = sum(waste_delivered_to_other_EU_country, na.rm = TRUE),
             waste_sent_to_non_EU = sum(waste_sent_to_non_EU, na.rm = TRUE)) 
 
-# 2016 and 2019 already use the 2022 names; only 2018 differs
 waste.management.2018.data <- waste.management.2018.data |>
   rename(waste_handed_to_collectors_RS = delivered_to_collector,
          waste_delivered_to_operators_RS = delivered_to_processing_operator,
@@ -2689,16 +2687,15 @@ waste.collected.2019.data <- select_columns(waste.collected.2019.data)
 waste.collected.2020.data <- select_columns(waste.collected.2020.data)
 waste.collected.2021.data <- select_columns(waste.collected.2021.data)
 
-# 2016-2021 use the older *_RS names; 2022 already matches 2023
-received_from_renames <- c(waste_received_from_generators = "waste_received_from_producers_RS",
+received_from_renames_2016_2021 <- c(waste_received_from_generators = "waste_received_from_producers_RS",
                            waste_received_from_collectors = "waste_received_from_collectors_RS",
                            waste_received_from_treatment  = "waste_received_from_processors_RS")
-waste.collected.2016.data <- rename(waste.collected.2016.data, all_of(received_from_renames))
-waste.collected.2017.data <- rename(waste.collected.2017.data, all_of(received_from_renames))
-waste.collected.2018.data <- rename(waste.collected.2018.data, all_of(received_from_renames))
-waste.collected.2019.data <- rename(waste.collected.2019.data, all_of(received_from_renames))
-waste.collected.2020.data <- rename(waste.collected.2020.data, all_of(received_from_renames))
-waste.collected.2021.data <- rename(waste.collected.2021.data, all_of(received_from_renames))
+waste.collected.2016.data <- rename(waste.collected.2016.data, all_of(received_from_renames_2016_2021))
+waste.collected.2017.data <- rename(waste.collected.2017.data, all_of(received_from_renames_2016_2021))
+waste.collected.2018.data <- rename(waste.collected.2018.data, all_of(received_from_renames_2016_2021))
+waste.collected.2019.data <- rename(waste.collected.2019.data, all_of(received_from_renames_2016_2021))
+waste.collected.2020.data <- rename(waste.collected.2020.data, all_of(received_from_renames_2016_2021))
+waste.collected.2021.data <- rename(waste.collected.2021.data, all_of(received_from_renames_2016_2021))
 
 combined_collected_data <- bind_rows(waste.collected.2016.data, waste.collected.2017.data, waste.collected.2018.data, waste.collected.2019.data, waste.collected.2020.data, waste.collected.2021.data, waste.collected.2022.data, waste.collected.2023.data, waste.collected.2024.data)
 
