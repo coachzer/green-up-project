@@ -38,8 +38,6 @@ The following are produced by rendering and are git-ignored — clone + render t
 | Analysis plots | `analysis.qmd` | `output/*.png` |
 | Interactive sankey widgets | `analysis.qmd` | `Interface/Visualization/images/` |
 
-Hand-authored report figures/screenshots under `Interface/Visualization/figures/` are **not** generated and are kept as project assets.
-
 ### Deployment
 
 The app is deployed to shinyapps.io via `rsconnect` (app: `WoodWasteVisualization`).
