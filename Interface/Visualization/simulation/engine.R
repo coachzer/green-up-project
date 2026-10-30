@@ -34,6 +34,8 @@ sim_season_at <- function(time) {
   names(sim_seasons)[floor((time %% sim_weeks_per_year) / weeks_per_season) + 1]
 }
 
+rate_or_1 <- function(x) if (is.null(x) || is.na(x)) 1 else x
+
 sim_max_collection_amount <- 25
 sim_max_handling_amount <- 10
 sim_max_recycling_amount <- 10
@@ -147,8 +149,6 @@ run_wood_waste_sim <- function(params, seed = NULL, distance_matrix = NULL) {
     add_resource("collection_truck", capacity = n_regions) |>
     add_resource("waste_processor", capacity = n_regions) |>
     add_resource("recycling_facility", capacity = n_regions)
-
-  rate_or_1 <- function(x) if (is.null(x) || is.na(x)) 1 else x
 
   for (region in params$regions) {
     for (waste_type in params$wood_waste_types) {
@@ -265,7 +265,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     set_global(key("total_transportation_cost_"), function()
       add_to("total_transportation_cost_", amount() * params$transportation_cost_per_unit)) |>
     set_attribute("log_row", function() log_event(env, region, waste_type, "Collection")) |>
-    timeout(function() rexp(1, rate = 1.5)) |>
+    timeout(function() rexp(1, rate = 1.5 * rate_or_1(params$collection_rate_increase))) |>
     release("collection_truck")
 
   handle_waste <- trajectory(paste("Handle Waste -", region, "-", waste_type)) |>
@@ -278,7 +278,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
       add_to("total_processing_cost_", amount() * params$processing_cost_per_unit)) |>
     set_global(key("waste_to_recycle_"), function() add_to("waste_to_recycle_", amount())) |>
     set_attribute("log_row", function() log_event(env, region, waste_type, "Handling")) |>
-    timeout(function() rexp(1, rate = 1)) |>
+    timeout(function() rexp(1, rate = 1 * rate_or_1(params$handling_rate_increase))) |>
     release("waste_processor")
 
   recycle_waste <- trajectory(paste("Recycle Waste -", region, "-", waste_type)) |>
@@ -292,7 +292,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     set_global(key("total_avoided_disposal_cost_"), function()
       add_to("total_avoided_disposal_cost_", amount() * params$avoided_disposal_cost_per_unit)) |>
     set_attribute("log_row", function() log_event(env, region, waste_type, "Recycling")) |>
-    timeout(function() rexp(1, rate = 0.5)) |>
+    timeout(function() rexp(1, rate = 0.5 * rate_or_1(params$recycling_rate_increase))) |>
     release("recycling_facility")
 
   list(generate_waste = generate_waste, collect_waste = collect_waste,
