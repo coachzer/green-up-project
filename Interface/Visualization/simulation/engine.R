@@ -145,10 +145,13 @@ run_wood_waste_sim <- function(params, seed = NULL, distance_matrix = NULL) {
   }
 
   n_regions <- length(params$regions)
+  n_streams <- n_regions * length(params$wood_waste_types)
+  if (is.null(params$processor_capacity)) params$processor_capacity <- sample(n_regions:n_streams, 1)
+  if (is.null(params$recycling_capacity)) params$recycling_capacity <- sample(n_regions:n_streams, 1)
   env <- env |>
     add_resource("collection_truck", capacity = n_regions) |>
-    add_resource("waste_processor", capacity = n_regions) |>
-    add_resource("recycling_facility", capacity = n_regions)
+    add_resource("waste_processor", capacity = params$processor_capacity) |>
+    add_resource("recycling_facility", capacity = params$recycling_capacity)
 
   for (region in params$regions) {
     for (waste_type in params$wood_waste_types) {
