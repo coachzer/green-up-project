@@ -260,7 +260,6 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
 
   handle_waste <- trajectory(paste("Handle Waste -", region, "-", waste_type)) |>
     timeout(sim_handling_start) |>
-    seize("collection_truck") |>
     seize("waste_processor") |>
     set_attribute("waste_amount", function() sim_draw_80_to_100_pct(get_global(env, key("waste_to_handle_")))) |>
     set_global(key("waste_to_handle_"), function() add_to("waste_to_handle_", -amount())) |>
@@ -271,8 +270,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     set_global(key("waste_to_recycle_"), function() add_to("waste_to_recycle_", amount())) |>
     set_attribute("log_row", function() log_event(env, region, waste_type, "Handling")) |>
     timeout(function() rexp(1, rate = 1)) |>
-    release("waste_processor") |>
-    release("collection_truck")
+    release("waste_processor")
 
   recycle_waste <- trajectory(paste("Recycle Waste -", region, "-", waste_type)) |>
     timeout(sim_recycling_start) |>
