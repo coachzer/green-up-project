@@ -143,7 +143,7 @@ register_simulation_server <- function(input, output, session) {
     req(input$scenario)
     multiplier <- sim_scenario_presets(input$scenario, input$season)$values$seasonal_multiplier
     paste("Current Seasonal Generation Multiplier: ",
-          if (is.null(multiplier)) "drawn per event" else multiplier)
+          if (is.null(multiplier)) "follows the season" else multiplier)
   })
 
   # Scenario change: push the new preset, and put back the defaults the

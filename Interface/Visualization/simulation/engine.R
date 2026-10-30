@@ -27,7 +27,18 @@ sim_seasons <- list(
   fall = 1.0
 )
 
+sim_weeks_per_year <- 52
+
+sim_season_at <- function(time) {
+  weeks_per_season <- sim_weeks_per_year / length(sim_seasons)
+  names(sim_seasons)[floor((time %% sim_weeks_per_year) / weeks_per_season) + 1]
+}
+
+rate_or_1 <- function(x) if (is.null(x) || is.na(x)) 1 else x
+
 sim_max_collection_amount <- 25
+sim_max_handling_amount <- 10
+sim_max_recycling_amount <- 10
 sim_collection_interval <- 10
 sim_handling_start <- 15
 sim_recycling_start <- 20
@@ -86,8 +97,9 @@ sim_scenario_presets <- function(scenario = "baseline", season = NULL) {
   } else if (scenario == "seasonal_variations") {
     if (has_season && season == "Year-long") {
       preset$seasonal_variations <- TRUE
-      changes <- c(changes, paste("Seasonal multiplier drawn per event from",
-                                  paste(unique(unlist(sim_seasons)), collapse = ", ")))
+      changes <- c(changes, paste0("Seasonal multiplier follows the season, ",
+                                   sim_weeks_per_year / length(sim_seasons), " weeks each: ",
+                                   paste(names(sim_seasons), unlist(sim_seasons), collapse = ", ")))
     } else if (has_season) {
       preset$seasonal_variations <- FALSE
       preset$seasonal_multiplier <- sim_seasons[[tolower(season)]]
@@ -122,7 +134,7 @@ run_wood_waste_sim <- function(params, seed = NULL, distance_matrix = NULL) {
       for (g in c("total_waste_generated_", "total_waste_collected_",
                   "total_waste_handled_", "total_waste_stored_",
                   "total_waste_recycled_", "overflow_penalty_",
-                  "waste_to_collect_", "waste_to_handle_", "waste_to_recycle_",
+                  "waste_to_collect_", "waste_to_recycle_",
                   "total_storage_cost_",
                   "total_collection_cost_", "total_processing_cost_",
                   "total_transportation_cost_", "total_recycling_revenue_",
@@ -133,12 +145,13 @@ run_wood_waste_sim <- function(params, seed = NULL, distance_matrix = NULL) {
   }
 
   n_regions <- length(params$regions)
+  n_streams <- n_regions * length(params$wood_waste_types)
+  if (is.null(params$processor_capacity)) params$processor_capacity <- sample(n_regions:n_streams, 1)
+  if (is.null(params$recycling_capacity)) params$recycling_capacity <- sample(n_regions:n_streams, 1)
   env <- env |>
     add_resource("collection_truck", capacity = n_regions) |>
-    add_resource("waste_processor", capacity = n_regions) |>
-    add_resource("recycling_facility", capacity = n_regions)
-
-  rate_or_1 <- function(x) if (is.null(x) || is.na(x)) 1 else x
+    add_resource("waste_processor", capacity = params$processor_capacity) |>
+    add_resource("recycling_facility", capacity = params$recycling_capacity)
 
   for (region in params$regions) {
     for (waste_type in params$wood_waste_types) {
@@ -205,14 +218,13 @@ sim_logger <- function(scenario) {
 sim_waste_amount <- function(env, params, min_val = 10, max_val = 30) {
   base_amount <- runif(1, min_val, max_val)
   multiplier <- if (!is.null(params$seasonal_variations) && params$seasonal_variations) {
-    sim_seasons[[sample(names(sim_seasons), 1)]]
+    sim_seasons[[sim_season_at(simmer::now(env))]]
   } else if (!is.null(params$seasonal_multiplier)) {
     params$seasonal_multiplier
   } else {
     1
   }
-  time_multiplier <- if (simmer::now(env) > 50) 1.5 else 1
-  base_amount * multiplier * time_multiplier
+  base_amount * multiplier
 }
 
 sim_draw_80_to_100_pct <- function(x) {
@@ -227,6 +239,7 @@ sim_draw_80_to_100_pct <- function(x) {
 sim_trajectories <- function(env, params, region, waste_type, log_event) {
   key <- function(name) paste0(name, region, "_", waste_type)
   amount <- function() get_attribute(env, "waste_amount")
+  stored_amount <- function() get_attribute(env, "stored_amount")
   add_to <- function(name, value) get_global(env, key(name)) + value
 
   generate_waste <- trajectory(paste("Generate Waste -", region, "-", waste_type)) |>
@@ -243,41 +256,38 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
       sim_draw_80_to_100_pct(min(sim_max_collection_amount, get_global(env, key("waste_to_collect_"))))) |>
     set_global(key("waste_to_collect_"), function() add_to("waste_to_collect_", -amount())) |>
     set_global(key("total_waste_collected_"), function() add_to("total_waste_collected_", amount())) |>
+    set_attribute("stored_amount", function()
+      min(amount(), max(0, params$storage_capacity - get_global(env, key("total_waste_stored_"))))) |>
     set_global(key("overflow_penalty_"), function()
-      add_to("overflow_penalty_", sim_handle_overflow(env, params, key("total_waste_stored_"), amount())$overflow_penalty)) |>
-    set_global(key("total_waste_stored_"), function()
-      sim_handle_overflow(env, params, key("total_waste_stored_"), amount())$new_storage) |>
+      add_to("overflow_penalty_", (amount() - stored_amount()) * params$overflow_penalty_per_unit)) |>
+    set_global(key("total_waste_stored_"), function() add_to("total_waste_stored_", stored_amount())) |>
     set_global(key("total_collection_cost_"), function()
       add_to("total_collection_cost_", amount() * params$collection_cost_per_unit)) |>
     set_global(key("total_storage_cost_"), function()
-      add_to("total_storage_cost_", amount() * params$storage_cost_per_unit)) |>
+      add_to("total_storage_cost_", stored_amount() * params$storage_cost_per_unit)) |>
     set_global(key("total_transportation_cost_"), function()
       add_to("total_transportation_cost_", amount() * params$transportation_cost_per_unit)) |>
-    set_global(key("waste_to_handle_"), function() add_to("waste_to_handle_", amount())) |>
     set_attribute("log_row", function() log_event(env, region, waste_type, "Collection")) |>
-    timeout(function() rexp(1, rate = 1.5)) |>
+    timeout(function() rexp(1, rate = 1.5 * rate_or_1(params$collection_rate_increase))) |>
     release("collection_truck")
 
   handle_waste <- trajectory(paste("Handle Waste -", region, "-", waste_type)) |>
     timeout(sim_handling_start) |>
-    seize("collection_truck") |>
     seize("waste_processor") |>
-    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(get_global(env, key("waste_to_handle_")))) |>
-    set_global(key("waste_to_handle_"), function() add_to("waste_to_handle_", -amount())) |>
-    set_global(key("total_waste_stored_"), function() max(0, add_to("total_waste_stored_", -amount()))) |>
+    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(min(sim_max_handling_amount, get_global(env, key("total_waste_stored_"))))) |>
+    set_global(key("total_waste_stored_"), function() add_to("total_waste_stored_", -amount())) |>
     set_global(key("total_waste_handled_"), function() add_to("total_waste_handled_", amount())) |>
     set_global(key("total_processing_cost_"), function()
       add_to("total_processing_cost_", amount() * params$processing_cost_per_unit)) |>
     set_global(key("waste_to_recycle_"), function() add_to("waste_to_recycle_", amount())) |>
     set_attribute("log_row", function() log_event(env, region, waste_type, "Handling")) |>
-    timeout(function() rexp(1, rate = 1)) |>
-    release("waste_processor") |>
-    release("collection_truck")
+    timeout(function() rexp(1, rate = 1 * rate_or_1(params$handling_rate_increase))) |>
+    release("waste_processor")
 
   recycle_waste <- trajectory(paste("Recycle Waste -", region, "-", waste_type)) |>
     timeout(sim_recycling_start) |>
     seize("recycling_facility") |>
-    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(get_global(env, key("waste_to_recycle_")))) |>
+    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(min(sim_max_recycling_amount, get_global(env, key("waste_to_recycle_"))))) |>
     set_global(key("waste_to_recycle_"), function() add_to("waste_to_recycle_", -amount())) |>
     set_global(key("total_waste_recycled_"), function() add_to("total_waste_recycled_", amount())) |>
     set_global(key("total_recycling_revenue_"), function()
@@ -285,23 +295,11 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
     set_global(key("total_avoided_disposal_cost_"), function()
       add_to("total_avoided_disposal_cost_", amount() * params$avoided_disposal_cost_per_unit)) |>
     set_attribute("log_row", function() log_event(env, region, waste_type, "Recycling")) |>
-    timeout(function() rexp(1, rate = 0.5)) |>
+    timeout(function() rexp(1, rate = 0.5 * rate_or_1(params$recycling_rate_increase))) |>
     release("recycling_facility")
 
   list(generate_waste = generate_waste, collect_waste = collect_waste,
        handle_waste = handle_waste, recycle_waste = recycle_waste)
-}
-
-sim_handle_overflow <- function(env, params, stored_key, waste_amount) {
-  capacity <- params$storage_capacity
-  new_storage <- get_global(env, stored_key) + waste_amount
-  if (new_storage >= capacity) {
-    overflow_penalty <- (new_storage - capacity) * params$overflow_penalty_per_unit
-    new_storage <- capacity
-  } else {
-    overflow_penalty <- 0
-  }
-  list(new_storage = new_storage, overflow_penalty = overflow_penalty)
 }
 
 sim_distance_matrix <- function(regions) {
