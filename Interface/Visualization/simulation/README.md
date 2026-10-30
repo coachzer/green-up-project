@@ -35,7 +35,8 @@ Three wiring steps are needed:
 - `engine.R` — the model, with no Shiny dependency:
   `sim_params(scenario, season, overrides)` builds parameters and
   `run_wood_waste_sim(params, seed)` returns `events`, `costs`, `totals`,
-  `distance_matrix` and `params`.
+  `distance_matrix` and `params`. One time unit is one week; under
+  Year-long, the season changes every 13 weeks (winter, spring, summer, fall).
 - `simulation_server.R` — reads inputs, calls the engine once per Run, renders.
 
 ## Dependencies

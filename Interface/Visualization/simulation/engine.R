@@ -27,6 +27,13 @@ sim_seasons <- list(
   fall = 1.0
 )
 
+sim_weeks_per_year <- 52
+
+sim_season_at <- function(time) {
+  weeks_per_season <- sim_weeks_per_year / length(sim_seasons)
+  names(sim_seasons)[floor((time %% sim_weeks_per_year) / weeks_per_season) + 1]
+}
+
 sim_max_collection_amount <- 25
 sim_collection_interval <- 10
 sim_handling_start <- 15
@@ -86,8 +93,9 @@ sim_scenario_presets <- function(scenario = "baseline", season = NULL) {
   } else if (scenario == "seasonal_variations") {
     if (has_season && season == "Year-long") {
       preset$seasonal_variations <- TRUE
-      changes <- c(changes, paste("Seasonal multiplier drawn per event from",
-                                  paste(unique(unlist(sim_seasons)), collapse = ", ")))
+      changes <- c(changes, paste0("Seasonal multiplier follows the season, ",
+                                   sim_weeks_per_year / length(sim_seasons), " weeks each: ",
+                                   paste(names(sim_seasons), unlist(sim_seasons), collapse = ", ")))
     } else if (has_season) {
       preset$seasonal_variations <- FALSE
       preset$seasonal_multiplier <- sim_seasons[[tolower(season)]]
@@ -205,7 +213,7 @@ sim_logger <- function(scenario) {
 sim_waste_amount <- function(env, params, min_val = 10, max_val = 30) {
   base_amount <- runif(1, min_val, max_val)
   multiplier <- if (!is.null(params$seasonal_variations) && params$seasonal_variations) {
-    sim_seasons[[sample(names(sim_seasons), 1)]]
+    sim_seasons[[sim_season_at(simmer::now(env))]]
   } else if (!is.null(params$seasonal_multiplier)) {
     params$seasonal_multiplier
   } else {
