@@ -35,6 +35,8 @@ sim_season_at <- function(time) {
 }
 
 sim_max_collection_amount <- 25
+sim_max_handling_amount <- 10
+sim_max_recycling_amount <- 10
 sim_collection_interval <- 10
 sim_handling_start <- 15
 sim_recycling_start <- 20
@@ -269,7 +271,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
   handle_waste <- trajectory(paste("Handle Waste -", region, "-", waste_type)) |>
     timeout(sim_handling_start) |>
     seize("waste_processor") |>
-    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(get_global(env, key("total_waste_stored_")))) |>
+    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(min(sim_max_handling_amount, get_global(env, key("total_waste_stored_"))))) |>
     set_global(key("total_waste_stored_"), function() add_to("total_waste_stored_", -amount())) |>
     set_global(key("total_waste_handled_"), function() add_to("total_waste_handled_", amount())) |>
     set_global(key("total_processing_cost_"), function()
@@ -282,7 +284,7 @@ sim_trajectories <- function(env, params, region, waste_type, log_event) {
   recycle_waste <- trajectory(paste("Recycle Waste -", region, "-", waste_type)) |>
     timeout(sim_recycling_start) |>
     seize("recycling_facility") |>
-    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(get_global(env, key("waste_to_recycle_")))) |>
+    set_attribute("waste_amount", function() sim_draw_80_to_100_pct(min(sim_max_recycling_amount, get_global(env, key("waste_to_recycle_"))))) |>
     set_global(key("waste_to_recycle_"), function() add_to("waste_to_recycle_", -amount())) |>
     set_global(key("total_waste_recycled_"), function() add_to("total_waste_recycled_", amount())) |>
     set_global(key("total_recycling_revenue_"), function()
