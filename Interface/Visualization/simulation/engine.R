@@ -211,8 +211,7 @@ sim_waste_amount <- function(env, params, min_val = 10, max_val = 30) {
   } else {
     1
   }
-  time_multiplier <- if (simmer::now(env) > 50) 1.5 else 1
-  base_amount * multiplier * time_multiplier
+  base_amount * multiplier
 }
 
 sim_draw_80_to_100_pct <- function(x) {
