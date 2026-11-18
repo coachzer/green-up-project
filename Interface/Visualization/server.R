@@ -14,25 +14,47 @@ recode_map <- c(
   "SVETIJURIJVSLOVENSKIHGORICAH"      = "SVETIJURIJ"
 )
 
-# Colorblind-friendly palette
-color_palette <- c("waste_from_producers_no_record" = "#E69F00",  # Orange
-                   "waste_from_producers_with_record" = "#56B4E9",  # Sky blue
-                   "waste_from_collectors_RS" = "#009E73",  # Green
-                   "waste_from_processors_RS" = "#F0E442")  # Yellow
-
-source_labels <- c(
-  "waste_handed_to_collectors_RS" = "Waste Handed to Collectors (RS)",
-  "waste_delivered_to_operators_RS" = "Waste Delivered to Operators (RS)", 
-  "waste_sent_to_EU" = "Waste Sent to EU",
-  "waste_sent_to_non_EU" = "Waste Sent to Non-EU"
+received_source_spec <- data.frame(
+  raw = c(
+    "waste_from_producers_no_record",
+    "waste_from_producers_with_record",
+    "waste_from_collectors_RS",
+    "waste_from_processors_RS"
+  ),
+  label = c(
+    "From Producers (No Record)",
+    "From Producers (With Record)",
+    "From Collectors (RS)",
+    "From Processors (RS)"
+  ),
+  color = c("#E69F00", "#56B4E9", "#009E73", "#F0E442"),
+  stringsAsFactors = FALSE
 )
 
-source_colors <- c(
-  "Waste Handed to Collectors (RS)" = "#2E86AB",   
-  "Waste Delivered to Operators (RS)" = "#A23B72",  
-  "Waste Sent to EU"= "#F18F01",                 
-  "Waste Sent to Non-EU" = "#C73E1D"         
+source_mapping <- setNames(received_source_spec$raw, received_source_spec$label)
+received_color_mapping <- setNames(received_source_spec$color, received_source_spec$label)
+received_trend_colors <- c("Total Received" = "#1f1f1f", received_color_mapping)
+
+management_source_spec <- data.frame(
+  raw = c(
+    "waste_handed_to_collectors_RS",
+    "waste_delivered_to_operators_RS",
+    "waste_sent_to_EU",
+    "waste_sent_to_non_EU"
+  ),
+  label = c(
+    "Waste Handed to Collectors (RS)",
+    "Waste Delivered to Operators (RS)",
+    "Waste Sent to EU",
+    "Waste Sent to Non-EU"
+  ),
+  color = c("#2E86AB", "#A23B72", "#F18F01", "#C73E1D"),
+  stringsAsFactors = FALSE
 )
+
+source_labels <- setNames(management_source_spec$label, management_source_spec$raw)
+source_colors <- setNames(management_source_spec$color, management_source_spec$label)
+management_trend_colors <- c("Total Amount" = "#1f1f1f", source_colors)
 
 # Palette for types of waste
 waste_colors <- c(
@@ -205,10 +227,9 @@ yearly_data_received <- coll_received_data |>
     .groups = "drop"
   )
 
-# Reshape data for plotting
 df_long_received <- melt(coll_received_data,
                          id.vars = c("statistical_region", "type_of_waste", "year"),
-                         measure.vars = c("waste_from_producers_no_record", "waste_from_producers_with_record", "waste_from_collectors_RS", "waste_from_processors_RS"),
+                         measure.vars = received_source_spec$raw,
                          variable.name = "source", value.name = "total_collected"
 )
 
@@ -494,7 +515,6 @@ coll_management_data <- read_csv("data/coll_management_combined.csv", show_col_t
                      "waste_sent_to_EU", "waste_sent_to_non_EU"),
                    "coll_management_combined.csv")
 
-# Reshape data for plotting
 df_long_management <- melt(
   coll_management_data,
   id.vars = c(
@@ -502,12 +522,7 @@ df_long_management <- melt(
     "type_of_waste",
     "year"
   ),
-  measure.vars = c(
-    "waste_handed_to_collectors_RS",
-    "waste_delivered_to_operators_RS",
-    "waste_sent_to_EU",
-    "waste_sent_to_non_EU"
-  ),
+  measure.vars = management_source_spec$raw,
   variable.name = "source",
   value.name = "total_waste_given_away"
 )
@@ -1673,13 +1688,7 @@ shinyServer(function(input, output, session) {
     )
   })
   
-  #### plot yearly data received
   output$totalWasteReceivedByYear <- renderPlotly({
-    
-    # Create a named vector for color mapping using the new names
-    color_mapping <- setNames(color_palette, names(source_mapping))
-    
-    # Line and point
     t <- ggplot(yearly_data_received, aes(x = year)) +
       geom_point(aes(y = total_collected, color = "Total Received")) +
       geom_line(aes(y = total_collected, color = "Total Received")) +
@@ -1691,7 +1700,7 @@ shinyServer(function(input, output, session) {
       geom_line(aes(y = from_collectors_RS, color = "From Collectors (RS)")) +
       geom_point(aes(y = from_processors_RS, color = "From Processors (RS)")) +
       geom_line(aes(y = from_processors_RS, color = "From Processors (RS)")) +
-      scale_color_manual(values = color_mapping) +
+      scale_color_manual(values = received_trend_colors) +
       labs(
         y = "Waste Received",
         color = "Source"
@@ -1704,7 +1713,7 @@ shinyServer(function(input, output, session) {
     ggplotly(t) |> 
       config(
         toImageButtonOptions = list(
-          format = 'svg', # one of png, svg, jpeg, webp
+          format = 'svg',
           filename = 'coll_waste_received_by_year',
           width = 1080,
           scale = 2)
@@ -1712,14 +1721,6 @@ shinyServer(function(input, output, session) {
       layout(xaxis = list(autorange = TRUE), yaxis = list(autorange = TRUE))
   })
   
-  source_mapping <- c(
-    "From Producers (No Record)" = "waste_from_producers_no_record",
-    "From Producers (With Record)" = "waste_from_producers_with_record",
-    "From Collectors (RS)" = "waste_from_collectors_RS",
-    "From Processors (RS)" = "waste_from_processors_RS"
-  )
-  
-  # Update the choices for the region filter based on the data
   updateSelectizeInput(
     session, "region_filter", 
     choices = na.omit(unique(df_long_received$statistical_region)),
@@ -1734,7 +1735,6 @@ shinyServer(function(input, output, session) {
   filtered_data <- reactive({
     req(input$region_filter, input$source_filter)
     
-    # Map the user-friendly names back to the data values
     mapped_sources <- source_mapping[input$source_filter]
     
     data <- df_long_received |> 
@@ -1744,8 +1744,7 @@ shinyServer(function(input, output, session) {
     return(data)
   })
   
-  # Reactive plot selection based on user input and filtered data
-  datasetInput <- reactive({
+  received_waste_plot <- reactive({
     data <- filtered_data()
     
     if(nrow(data) == 0) {
@@ -1753,8 +1752,6 @@ shinyServer(function(input, output, session) {
                         annotate("text", x = 1, y = 1, label = "No data available for the selected filters") +
                         theme_void()))
     }
-    
-    color_mapping <- setNames(color_palette, names(source_mapping))
     
     data$source <- factor(data$source, levels = source_mapping, labels = names(source_mapping))
     
@@ -1765,7 +1762,7 @@ shinyServer(function(input, output, session) {
     
     base_plot <- ggplot(data_summarized, aes(x = statistical_region, y = total_collected, fill = source)) +
       labs(x = "Statistical Region", y = "Total Received Waste") +
-      scale_fill_manual(values = color_mapping, name = "Source") +
+      scale_fill_manual(values = received_color_mapping, name = "Source") +
       scale_y_continuous(labels = label_number(scale = 1e-3, suffix = "k", accuracy = 1)) +
       theme_minimal() +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
@@ -1805,9 +1802,8 @@ shinyServer(function(input, output, session) {
       )
   })
   
-  # Render the selected plot
   output$selectedPlot2 <- renderPlotly({
-    datasetInput()  # Call the reactive plot
+    received_waste_plot()
   })
   
   ### Municipal ----
@@ -1968,18 +1964,7 @@ shinyServer(function(input, output, session) {
     )
   })
   
-  # Total Waste Trend
   output$totalWasteTrend <- renderPlotly({
-    
-    # Define colors for each category including total
-    trend_colors <- c(
-      "Total Amount" = "#1f1f1f",         
-      "Waste Handed to Collectors (RS)" = "#2E86AB",      
-      "Waste Delivered to Operators (RS)" = "#A23B72",     
-      "Waste Sent to EU" = "#F18F01",              
-      "Waste Sent to Non-EU" = "#C73E1D"          
-    )
-    
     total_by_year <- df_long_management |>
       group_by(year) |>
       summarise(total_waste = sum(total_waste_given_away, na.rm = TRUE), .groups = "drop") |>
@@ -1988,18 +1973,13 @@ shinyServer(function(input, output, session) {
     by_category <- df_long_management |>
       group_by(year, source) |>
       summarise(total_waste = sum(total_waste_given_away, na.rm = TRUE), .groups = "drop") |>
-      mutate(source_label = dplyr::recode(as.character(source),
-                                          "waste_handed_to_collectors_RS"    = "Waste Handed to Collectors (RS)",
-                                          "waste_delivered_to_operators_RS"  = "Waste Delivered to Operators (RS)",
-                                          "waste_sent_to_EU"                 = "Waste Sent to EU",
-                                          "waste_sent_to_non_EU"             = "Waste Sent to Non-EU"
-      ))
+      mutate(source_label = dplyr::recode(as.character(source), !!!source_labels))
     
     combined_data <- bind_rows(total_by_year, by_category)
     
     combined_data |>
       plot_ly(x = ~year, y = ~total_waste, color = ~source_label, 
-              colors = trend_colors,  # Apply custom colors
+              colors = management_trend_colors,
               type = 'scatter', mode = 'lines+markers') |>
       layout(
         xaxis = list(title = "Year"),
@@ -2087,12 +2067,7 @@ shinyServer(function(input, output, session) {
     req(input$region, input$wasteType)
     
     plot_data <- filtered_collection_management_data() |>
-      mutate(source_clean = dplyr::recode(as.character(source),
-                                          "waste_handed_to_collectors_RS"    = "Waste Handed to Collectors (RS)",
-                                          "waste_delivered_to_operators_RS"  = "Waste Delivered to Operators (RS)",
-                                          "waste_sent_to_EU"                 = "Waste Sent to EU",
-                                          "waste_sent_to_non_EU"             = "Waste Sent to Non-EU"
-      ))
+      mutate(source_clean = dplyr::recode(as.character(source), !!!source_labels))
     
     plot_data |>
       plot_ly(
