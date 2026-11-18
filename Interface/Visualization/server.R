@@ -329,71 +329,68 @@ plot_waste_by_municipality <- function(data, selected_year, top_n) {
   return(p)
 }
 
-plot_waste_map <- function(df_long,
-                           map_geojson  = "data/map.geojson",
-                           palette_cols = c("#e7f2fe", "#94c1d9", "#1c6baf"),
-                           title        = "Average Waste Collected\n(2018–2024)") {
-  
-  slovenia_map <- st_read(map_geojson, quiet = TRUE) |>
-    mutate(
-      NAME_2_CLEAN = normalize_name(NAME_2)
-    )
-  
-  waste_by_muni <- df_long |>
-    group_by(statistical_region, name_of_municipality) |>
-    summarise(avg_collected = mean(total_collected, na.rm = TRUE),
+slovenia_map <- st_read("data/map.geojson", quiet = TRUE) |>
+  validate_columns("NAME_2", "data/map.geojson") |>
+  mutate(NAME_2_CLEAN = normalize_name(NAME_2))
+
+plot_waste_map <- function(data,
+                           value_col,
+                           tooltip_label,
+                           legend_title,
+                           export_filename,
+                           map_sf       = slovenia_map,
+                           palette_cols = c("#e7f2fe", "#94c1d9", "#1c6baf")) {
+  stopifnot(
+    is.character(value_col), length(value_col) == 1L,
+    all(c("name_of_municipality", value_col) %in% names(data))
+  )
+
+  waste_by_muni <- data |>
+    group_by(name_of_municipality) |>
+    summarise(avg_value = mean(.data[[value_col]], na.rm = TRUE),
               .groups = "drop") |>
     mutate(
-      NAME_2_CLEAN = normalize_name(name_of_municipality)
+      NAME_2_CLEAN = recode(normalize_name(name_of_municipality), !!!recode_map)
     )
-  
-  waste_by_muni <- waste_by_muni |> 
-    mutate(
-      NAME_2_CLEAN = recode(NAME_2_CLEAN, !!!recode_map)
-    )
-  
-  map_with_data <- slovenia_map |>
-    left_join(waste_by_muni, by = "NAME_2_CLEAN") |>
-    mutate(
-      statistical_region = ifelse(is.na(statistical_region), NAME_1, statistical_region)
-    )
-  
+
+  map_with_data <- map_sf |>
+    left_join(waste_by_muni, by = "NAME_2_CLEAN")
+
   my_palette <- colorRampPalette(palette_cols)(256)
-  
+
   p <- ggplot(map_with_data) +
-    geom_sf(aes(
-      fill = avg_collected,
+    # Silence ggplot2's unknown `text` aesthetic warning on geom_sf (consumed by ggplotly).
+    suppressWarnings(geom_sf(aes(
+      fill = avg_value,
       text = paste0(
         "Municipality: ", NAME_2, "<br>",
-        ifelse(is.na(avg_collected),
+        ifelse(is.na(avg_value),
                "No data available",
-               paste0("Avg Collected: ", round(avg_collected, 2)))
+               paste0(tooltip_label, ": ", round(avg_value, 2)))
       )
-    )) +
+    ))) +
     scale_fill_gradientn(
       colours  = my_palette,
-      name     = title,
+      name     = legend_title,
       labels   = scales::comma,
       na.value = "grey80"
     ) +
     theme_minimal() +
     theme(
-      plot.title      = element_text(size = 16, face = "bold"),
-      plot.subtitle   = element_text(size = 12),
       legend.position = "right",
       axis.text       = element_blank(),
       axis.ticks      = element_blank()
     )
-  
+
   ggplotly(p, tooltip = "text") |>
     config(
       toImageButtonOptions = list(
-        format = 'svg', # one of png, svg, jpeg, webp
-        filename = 'coll_waste_map',
-        # height = 1920,
-        width = 1080,
-        scale = 2)
-    ) |> 
+        format   = "svg",
+        filename = export_filename,
+        width    = 1080,
+        scale    = 2
+      )
+    ) |>
     layout(
       hoverlabel = list(bgcolor = "white", font = list(family = "Arial", size = 12)),
       xaxis      = list(autorange = TRUE),
@@ -1916,7 +1913,13 @@ shinyServer(function(input, output, session) {
   })
   
   output$plot3 <- renderPlotly({
-    plot_waste_map(df_long_collected)
+    plot_waste_map(
+      data            = df_long_collected,
+      value_col       = "total_collected",
+      tooltip_label   = "Avg Collected",
+      legend_title    = "Average Waste Collected\n(2018–2024)",
+      export_filename = "coll_waste_map"
+    )
   })
   
   output$plot4 <- renderPlotly({
@@ -2655,81 +2658,14 @@ shinyServer(function(input, output, session) {
                       min = yrs[1], max = yrs[2], value = yrs)
   })
 
-  slovenia_map_clean <- st_read("data/map.geojson", quiet = TRUE) |>
-    mutate(
-      NAME_2_CLEAN = normalize_name(NAME_2)
-    )
-  
-  waste_by_muni_clean <- trt_municipal_waste_received_data |>
-    group_by(statistical_region, name_of_municipality) |>
-    summarise(
-      avg_waste = mean(waste_collected_by_municipality, na.rm = TRUE),
-      .groups   = "drop"
-    ) |>
-    mutate(
-      NAME_2_CLEAN = normalize_name(name_of_municipality)
-    )
-  
-  waste_by_muni_clean <- waste_by_muni_clean |> 
-    mutate(
-      NAME_2_CLEAN = recode(NAME_2_CLEAN, !!!recode_map)
-    )
-  
-  slovenia_map_with_data <- slovenia_map_clean |>
-    left_join(waste_by_muni_clean, by = "NAME_2_CLEAN") |>
-    mutate(
-      statistical_region = ifelse(is.na(statistical_region), NAME_1, statistical_region)
-    )
-  
-  my_palette <- colorRampPalette(c("#e7f2fe", "#94c1d9", "#1c6baf"))(256)
-  
   output$wasteMap <- renderPlotly({
-    suppressWarnings({
-      p <- ggplot(slovenia_map_with_data) +
-        geom_sf(aes(
-          fill = avg_waste,
-          text = paste0(
-            "Municipality: ", NAME_2, "<br>",
-            ifelse(
-              is.na(avg_waste),
-              "No data available",
-              paste0("Average Waste: ", round(avg_waste, 2))
-            )
-          )
-        )) +
-        scale_fill_gradientn(
-          colours  = my_palette,
-          name     = "Average Waste\n(2018–2021)",
-          labels   = scales::comma,
-          na.value = "grey80"
-        ) +
-        theme_minimal() +
-        theme(
-          plot.title      = element_text(size = 16, face = "bold"),
-          plot.subtitle   = element_text(size = 12),
-          legend.position = "right",
-          axis.text       = element_blank(),
-          axis.ticks      = element_blank()
-        )
-      
-      ggplotly(p, tooltip = "text") |>
-        config(
-          toImageButtonOptions = list(
-            format = 'svg', # one of png, svg, jpeg, webp
-            filename = 'trt_municipal_waste_received_map',
-            width = 1080,
-            scale = 2
-          )
-        ) |> 
-        layout(
-          hoverlabel = list(
-            bgcolor = "white",
-            font    = list(family = "Arial", size = 12)
-          ),
-          xaxis = list(autorange = TRUE),
-          yaxis = list(autorange = TRUE)
-        )
-    })
+    plot_waste_map(
+      data            = trt_municipal_waste_received_data,
+      value_col       = "waste_collected_by_municipality",
+      tooltip_label   = "Average Waste",
+      legend_title    = "Average Waste\n(2018–2021)",
+      export_filename = "trt_municipal_waste_received_map"
+    )
   })
   
   trt_municipal_by_year <- reactive({
