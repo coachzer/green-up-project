@@ -1,5 +1,8 @@
 # Simulation tab bodies — DORMANT. Not included by the running app's ui.R.
 # To revive: see Interface/Visualization/simulation/README.md
+library(shinyjs)
+library(shinyFeedback)
+library(shinyBS)
 create_numeric_input_row <- function(input_id1,
                                      label1,
                                      value1,

@@ -25,7 +25,12 @@ conflict_prefer("runExample",      "shinyjs")
 
 register_simulation_server <- function(input, output, session) {
   # Simulation tab -----
-  
+  observeEvent(input$sidebarItemExpanded, {
+    if (identical(input$sidebarItemExpanded, "SIMULATION")) {
+      updateTabItems(session, "tabs", selected = "hiddenSimulation")
+    }
+  })
+
   # Selected choices for filtering tables -----
   selected_choices <- sim_metrics
   

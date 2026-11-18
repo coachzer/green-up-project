@@ -15,8 +15,9 @@ Three wiring steps are needed:
    register_simulation_server(input, output, session)
    ```
 
-2. **ui.R** — enable `useShinyFeedback()` and `useShinyjs()` inside `dashboardBody(...)`,
-   and splice the simulation tab bodies into the `tabItems(...)` call:
+2. **ui.R** — source `simulation/simulation_ui.R` before `useShinyFeedback()`, `useShinyjs()`,
+   and `simulation_tab_items()` so `simulation_ui.R` loads `shinyjs`, `shinyFeedback`, and `shinyBS` first,
+   then splice the simulation tab bodies into the `tabItems(...)` call:
    ```r
    source("simulation/simulation_ui.R", local = TRUE)
    # Inside dashboardBody(...), before tabItems(...):
@@ -54,7 +55,8 @@ Reviving requires installing:
 install.packages(c("simmer", "igraph", "shinyjs", "shinyFeedback", "shinyBS"))
 ```
 These packages were removed from `global.R` to speed up app startup.
-The conflict preferences for `igraph`, `simmer`, and `shinyjs` live in `simulation_server.R`.
+`simulation_ui.R` loads `shinyjs`, `shinyFeedback`, and `shinyBS` when sourced before `useShinyFeedback()`, `useShinyjs()`, and `simulation_tab_items()`.
+`simulation_server.R` holds the conflict preferences for `igraph`, `simmer`, and `shinyjs`, and `register_simulation_server()` handles `"SIMULATION"` sidebar expansion.
 
 ## Honesty caveat
 
