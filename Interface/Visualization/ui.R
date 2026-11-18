@@ -1,70 +1,9 @@
-# Helper function to create a row with two numeric inputs
-create_numeric_input_row <- function(input_id1,
-                                     label1,
-                                     value1,
-                                     min1,
-                                     max1 = 2.0,
-                                     tooltip1 = NULL,
-                                     input_id2,
-                                     label2,
-                                     value2,
-                                     min2,
-                                     max2 = 2.0,
-                                     tooltip2 = NULL,
-                                     step1 = 0.1,
-                                     step2 = 0.1) {
-  fluidRow(
-    column(
-      6,
-      numericInput(
-        input_id1,
-        label1,
-        value1,
-        min = min1,
-        max = max1,
-        step = step1
-      )
-    ),
-    bsTooltip(input_id1, tooltip1),
-    column(
-      6,
-      numericInput(
-        input_id2,
-        label2,
-        value2,
-        min = min2,
-        max = max2,
-        step = step2
-      )
-    ),
-    bsTooltip(input_id2, tooltip2)
-  )
-}
-
 shinyUI(
   dashboardPage(
   dashboardHeader(title = "Wood Waste Management"),
   # Dashboard Sidebar -----
   dashboardSidebar(sidebarMenu(
     id = "tabs",
-    # Hidden tabs -----
-    ## Analysis -----
-    # add information if needed for the hidden tabs, then remove the #'s from the lines below
-    # hidden(
-    #   menuItem(
-    #     "hiddenAnalysis",
-    #     tabName = "hiddenAnalysis",
-    #     icon = icon("chart-simple")
-    #   )
-    # ),
-    # ## Simulation -----
-    # hidden(
-    #   menuItem(
-    #     "hiddenSimulation",
-    #     tabName = "hiddenSimulation",
-    #     icon = icon("play")
-    #   )
-    # ),
     # Main tabs -----
     ## Analysis -----
     menuItem(
@@ -104,8 +43,6 @@ shinyUI(
   # # Dashboard Body -----
   dashboardBody(
     includeCSS("data/styles.css"),
-    useShinyFeedback(),
-    useShinyjs(),
     tabItems(
       # Analysis -----
       tabItem(
@@ -146,17 +83,6 @@ shinyUI(
             plotlyOutput("overviewPlotSankeyCategory", height = "600px")
           )
         ),
-        # fluidRow(
-        #   box(
-        #     collapsible = TRUE,
-        #     collapsed = FALSE,
-        #     width = 12,
-        #     title = "Waste Flow Overview by Type",
-        #     solidHeader = TRUE,
-        #     status = "primary",
-        #     plotlyOutput("overviewPlotSankeyType", height = "600px")
-        #   )
-        # ),
         fluidRow(
           box(
             collapsible = TRUE,
@@ -168,17 +94,6 @@ shinyUI(
             plotlyOutput("overviewPlotRegion", height = "600px")
           )
         ),
-        # fluidRow(
-        #   box(
-        #     collapsible = TRUE,
-        #     collapsed = FALSE,
-        #     width = 12,
-        #     title = "Waste Category vs. Year",
-        #     solidHeader = TRUE,
-        #     status = "primary",
-        #     plotlyOutput("overviewPlotCategory", height = "600px")
-        #   )
-        # ),
         fluidRow(
           box(
             collapsible = TRUE,
@@ -219,17 +134,6 @@ shinyUI(
             plotlyOutput("combinedWastePlot")
           )
         ),
-        # fluidRow(
-        #   box(
-        #     collapsible = TRUE,
-        #     collapsed = FALSE,
-        #     width = 12,
-        #     title = "Total Wood Waste Generation by Year",
-        #     solidHeader = TRUE,
-        #     status = "primary",
-        #     plotlyOutput("totalWasteByYear")
-        #   )
-        # ),
         fluidRow(
           box(
             width = 3,
@@ -451,17 +355,6 @@ shinyUI(
           tabPanel(
             "Storage",
             style = "margin-top: 20px;",
-            # Data Table of Waste Collection Storage ----
-            # fluidRow(
-            #   box(
-            #     collapsible = TRUE,
-            #     width = 12,
-            #     title = "Storage Data",
-            #     solidHeader = TRUE,
-            #     status = "primary",
-            #     DT::dataTableOutput("storageData")
-            #   )
-            # ),
             # Waste Storage Plot Selection ----
             fluidRow(
               box(
@@ -923,16 +816,6 @@ shinyUI(
                 width = 12
               )
             ),
-            # fluidRow(
-            #   box(
-            #     collapsible = TRUE,
-            #     solidHeader = TRUE,
-            #     status = "primary",
-            #     title = "Total Waste Management by Type",
-            #     plotlyOutput("wasteByType"),
-            #     width = 12
-            #   )
-            # ),
             fluidRow(
               box(
                 collapsible = TRUE,

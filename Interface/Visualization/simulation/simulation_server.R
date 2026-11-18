@@ -1,11 +1,12 @@
 # Simulation server logic — DORMANT. Not sourced by the running app.
 # To revive: see Interface/Visualization/simulation/README.md
-# Requires: library(simmer); library(igraph)  (removed from global.R in plan 010)
 library(simmer)
 library(igraph)
+library(shinyjs)
+library(shinyFeedback)
+library(shinyBS)
 source("simulation/engine.R")
 
-# Conflict preferences for igraph and simmer (moved from global.R in plan 010)
 conflict_prefer("as_data_frame",   "igraph")
 conflict_prefer("union",           "igraph")
 conflict_prefer("compose",         "igraph")
@@ -18,6 +19,9 @@ conflict_prefer("now",             "simmer")
 conflict_prefer("reset",           "simmer")
 conflict_prefer("rollback",        "simmer")
 conflict_prefer("separate",        "simmer")
+conflict_prefer("removeClass",     "shinyjs")
+conflict_prefer("show",            "shinyjs")
+conflict_prefer("runExample",      "shinyjs")
 
 register_simulation_server <- function(input, output, session) {
   # Simulation tab -----

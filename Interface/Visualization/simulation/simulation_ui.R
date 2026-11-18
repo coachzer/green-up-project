@@ -1,5 +1,47 @@
 # Simulation tab bodies — DORMANT. Not included by the running app's ui.R.
 # To revive: see Interface/Visualization/simulation/README.md
+create_numeric_input_row <- function(input_id1,
+                                     label1,
+                                     value1,
+                                     min1,
+                                     max1 = 2.0,
+                                     tooltip1 = NULL,
+                                     input_id2,
+                                     label2,
+                                     value2,
+                                     min2,
+                                     max2 = 2.0,
+                                     tooltip2 = NULL,
+                                     step1 = 0.1,
+                                     step2 = 0.1) {
+  fluidRow(
+    column(
+      6,
+      numericInput(
+        input_id1,
+        label1,
+        value1,
+        min = min1,
+        max = max1,
+        step = step1
+      )
+    ),
+    bsTooltip(input_id1, tooltip1),
+    column(
+      6,
+      numericInput(
+        input_id2,
+        label2,
+        value2,
+        min = min2,
+        max = max2,
+        step = step2
+      )
+    ),
+    bsTooltip(input_id2, tooltip2)
+  )
+}
+
 simulation_tab_items <- function() {
   list(
       # Simulation -----

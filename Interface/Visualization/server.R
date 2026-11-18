@@ -662,11 +662,6 @@ layer_x <- c(
   processing  = 0.8
 )
 
-layer_y <- function(n) {
-  if (n == 1) return(0.5)
-  seq(0.01, 0.99, length.out = n)
-}
-
 region_y <- if (n_regions == 1) 0.5 else seq(0.01, 0.99, length.out = n_regions)
 category_base_y <- if (n_categories == 1) 0.5 else seq(0, 1, length.out = n_categories)
 
@@ -802,134 +797,6 @@ p_sankey_category <- plot_ly(
     font = list(size = 10)
   )
 
-#### p_sankey_type ----
-sankey_data_type <- combined_waste_data |>
-  group_by(statistical_region, type_of_waste, metric) |>
-  summarise(total_value = sum(value, na.rm = TRUE), .groups = 'drop') |>
-  filter(total_value > 0)
-
-waste_types <- unique(sankey_data_type$type_of_waste)
-
-# Node labels
-node_labels <- c(
-  regions,                                   # Level 1: Regions
-  waste_types,                               # Level 2: Waste Types  
-  paste(waste_types, "(Gen)"),               # Level 3: Type-Generated
-  paste(waste_types, "(Coll)"),              # Level 4: Type-Collected
-  paste(waste_types, "(Proc)")               # Level 5: Type-Processing
-)
-
-# Create connections
-source <- c()
-target <- c()
-value <- c()
-
-n_regions <- length(regions)
-n_types <- length(waste_types)
-
-# Region -> Type connections
-for(i in 1:n_regions) {
-  region <- regions[i]
-  for(j in 1:n_types) {
-    waste_type <- waste_types[j]
-    
-    total_for_type <- sankey_data_type |>
-      filter(statistical_region == region, type_of_waste == waste_type) |>
-      summarise(total = sum(total_value)) |>
-      pull(total)
-    
-    if(length(total_for_type) > 0 && total_for_type > 0) {
-      source <- c(source, i - 1)  # Region node
-      target <- c(target, n_regions + j - 1)  # Type node
-      value <- c(value, total_for_type)
-    }
-  }
-}
-
-# Type -> Generated connections
-for(j in 1:n_types) {
-  waste_type <- waste_types[j]
-  
-  gen_value <- sankey_data_type |>
-    filter(type_of_waste == waste_type, metric == "Generated") |>
-    summarise(total = sum(total_value)) |>
-    pull(total)
-  
-  if(length(gen_value) > 0 && gen_value > 0) {
-    source <- c(source, n_regions + j - 1)  # Type node
-    target <- c(target, n_regions + n_types + j - 1)  # Generated node
-    value <- c(value, gen_value)
-  }
-}
-
-# Generated -> Collected connections
-for(j in 1:n_types) {
-  waste_type <- waste_types[j]
-  
-  gen_value <- sankey_data_type |>
-    filter(type_of_waste == waste_type, metric == "Generated") |>
-    summarise(total = sum(total_value)) |>
-    pull(total)
-  
-  coll_value <- sankey_data_type |>
-    filter(type_of_waste == waste_type, metric == "Collected") |>
-    summarise(total = sum(total_value)) |>
-    pull(total)
-  
-  if(length(gen_value) > 0 && length(coll_value) > 0 && gen_value > 0 && coll_value > 0) {
-    source <- c(source, n_regions + n_types + j - 1)  # Generated node
-    target <- c(target, n_regions + 2*n_types + j - 1)  # Collected node
-    value <- c(value, min(gen_value, coll_value))
-  }
-}
-
-# Collected -> Processing connections
-for(j in 1:n_types) {
-  waste_type <- waste_types[j]
-  
-  coll_value <- sankey_data_type |>
-    filter(type_of_waste == waste_type, metric == "Collected") |>
-    summarise(total = sum(total_value)) |>
-    pull(total)
-  
-  proc_value <- sankey_data_type |>
-    filter(type_of_waste == waste_type, metric == "For Processing") |>
-    summarise(total = sum(total_value)) |>
-    pull(total)
-  
-  if(length(coll_value) > 0 && length(proc_value) > 0 && coll_value > 0 && proc_value > 0) {
-    source <- c(source, n_regions + 2*n_types + j - 1)  # Collected node
-    target <- c(target, n_regions + 3*n_types + j - 1)  # Processing node
-    value <- c(value, min(coll_value, proc_value))
-  }
-}
-
-p_sankey_type <- plot_ly(
-  type = "sankey",
-  node = list(
-    label = node_labels,
-    color = c(
-      rep("#708090", n_regions),           # Gray for regions
-      unname(waste_colors[waste_types]),   # Type colors from your palette
-      rep("#0173B2", n_types),             # Blue for Generated
-      rep("#DE8F05", n_types),             # Orange for Collected  
-      rep("#029E73", n_types)              # Green for Processing
-    ),
-    pad = 15,
-    thickness = 20,
-    line = list(color = "black", width = 0.5)
-  ),
-  link = list(
-    source = source,
-    target = target,
-    value = value,
-    color = "rgba(128, 128, 128, 0.3)"
-  )
-) |>
-  layout(
-    # title = "Waste Flow: Region → Type → Generation → Collection → Processing",
-    font = list(size = 10)
-  )
 #### p_region ----
 p_region <- combined_waste_data |>
   group_by(statistical_region, metric) |>
@@ -960,20 +827,6 @@ p_type <- combined_waste_data |>
          xaxis = list(title = "Amount (tons)"),
          barmode = 'stack')
 
-#### p_category ----
-p_category <- combined_waste_data |>
-  group_by(year, waste_category, metric) |>
-  summarise(total_value = sum(value, na.rm = TRUE), .groups = 'drop') |>
-  mutate(category_metric = paste(waste_category, metric, sep = " - ")) |>
-  plot_ly(x = ~year, y = ~total_value, color = ~waste_category,
-          colors = waste_category_colors,
-          linetype = ~metric,
-          type = 'bar') |>
-  layout(title = "Waste by Category and Year",
-         xaxis = list(title = "Year"),
-         yaxis = list(title = "Amount (tons)"),
-         barmode = 'group')
-
 # shinyServer ----
 shinyServer(function(input, output, session) {
   
@@ -982,11 +835,6 @@ shinyServer(function(input, output, session) {
     if(input$sidebarItemExpanded == "ANALYSIS"){
       updateTabItems(session, "tabs", selected = "hiddenAnalysis")
     }
-    
-    if(input$sidebarItemExpanded == "SIMULATION"){
-      updateTabItems(session, "tabs", selected = "hiddenSimulation")
-    }
-    
   })
   
   # Analysis tab -----
@@ -1034,19 +882,9 @@ shinyServer(function(input, output, session) {
   })
   
   # Total waste by statistical_region and year plot
-  # output$overviewPlotSankeyType <- renderPlotly({
-  #   p_sankey_type
-  # })
-  # 
-  # Total waste by statistical_region and year plot
   output$overviewPlotRegion <- renderPlotly({
     p_region
   })
-  
-  # Total waste by waste_category and year plot
-  # output$overviewPlotCategory <- renderPlotly({
-  #   p_category
-  # })
   
   # Total waste by type_of_waste and year plot
   output$overviewPlotType <- renderPlotly({
@@ -1058,11 +896,6 @@ shinyServer(function(input, output, session) {
   
   # TO-DO: Add overlay of the three "per year basis" plots
   
-  
-  # Load data for generation
-  output$generationData <- DT::renderDataTable({
-    gnr_data
-  })
   
   # infoBox for total waste generated 
   output$totalWasteGenerated <- renderInfoBox({
@@ -1174,37 +1007,6 @@ shinyServer(function(input, output, session) {
           xanchor = 'center',
           y = 1.02
         )
-      )
-  })
-  
-  # Total waste by year plot
-  output$totalWasteByYear <- renderPlotly({
-    # Summarize total generated waste by year
-    total_waste_by_year <- gnr_data |>
-      group_by(year) |>
-      summarize(total_generated_waste = sum(generated_in_the_year, na.rm = TRUE),
-                .groups = "drop")
-    
-    plot_ly() |>
-      add_trace(
-        data = total_waste_by_year,
-        x = ~year,
-        y = ~total_generated_waste,
-        type = 'scatter',
-        mode = 'lines+markers'
-      ) |>
-      config(
-        toImageButtonOptions = list(
-          format = 'svg', # one of png, svg, jpeg, webp
-          filename = 'gnr_total_waste_by_year',
-          # height = 1920,
-          width = 1080,
-          scale = 2)
-      ) |> 
-      layout(
-        xaxis = list(title = "Year", autorange = TRUE),
-        yaxis = list(title = "Total Generated Waste (tons)", autorange = TRUE),
-        hovermode = "x"
       )
   })
   
@@ -1730,11 +1532,6 @@ shinyServer(function(input, output, session) {
   
   ### Storage ----
   
-  # Load data for storage
-  output$storageData <- DT::renderDataTable({
-    coll_storage_data
-  })
-  
   observe({
     updateSelectizeInput(
       session,
@@ -2054,17 +1851,6 @@ shinyServer(function(input, output, session) {
                type_of_waste == input$waste_type)
   })
   
-  # Calculate the municipality that collected the most waste
-  max_waste_municipality <- reactive({
-    filtered_municipal_data() |>
-      group_by(name_of_municipality) |>
-      summarize(total_collected = sum(total_collected, na.rm = TRUE),
-                .groups = "drop") |>
-      arrange(desc(total_collected)) |>
-      slice(1) |>
-      pull(name_of_municipality)
-  })
-  
   # Compute the municipality that collected the most waste
   output$maxWasteMunicipality <- renderInfoBox({
     max_municipality <- filtered_municipal_data() |>
@@ -2244,24 +2030,6 @@ shinyServer(function(input, output, session) {
       layout(
         xaxis = list(title = "Amount"),
         yaxis = list(title = "Statistical Region")
-      )
-  })
-  
-  # Waste by Type
-  output$wasteByType <- renderPlotly({
-    df_long_management |>
-      group_by(type_of_waste) |>
-      summarise(total_waste = sum(total_waste_given_away, na.rm = TRUE), .groups = "drop") |>
-      plot_ly(
-        x      = ~total_waste,
-        y      = ~reorder(type_of_waste, -total_waste),
-        type   = 'bar',
-        color  = ~type_of_waste,      
-        colors = waste_colors        
-      ) |>
-      layout(
-        xaxis = list(title = "Amount"),
-        yaxis = list(title = "Waste Type")
       )
   })
   
@@ -3197,14 +2965,6 @@ shinyServer(function(input, output, session) {
         yaxis = list(title = "Total Mass Change"),
         legend = list(title=list(text='Type of Waste'))
       )
-  })
-  
-  # Mass Change by Operation - NOT USED
-  output$inputTreatmentByOperation <- renderPlotly({
-    plot_ly(filtered_input_data(), x = ~year, y = ~mass_change, color = ~treatment_operation, type = 'bar') |>
-      layout(# title = "Mass Change During Treatment by Operation",
-             xaxis = list(title = "Year"),
-             yaxis = list(title = "Total Mass Change"))
   })
   
   ### Management ----

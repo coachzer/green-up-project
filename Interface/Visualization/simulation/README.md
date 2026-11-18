@@ -1,7 +1,7 @@
 # Simulation Feature (DORMANT)
 
 The simulation feature was relocated here in plan 010 to remove its dependencies
-(`simmer`, `igraph`) from the live app's startup. The feature is preserved intact,
+(`simmer`, `igraph`, `shinyjs`, `shinyFeedback`, `shinyBS`) from the live app's startup. The feature is preserved intact,
 including all bug fixes from plan 009.
 
 ## How to re-enable
@@ -15,10 +15,14 @@ Three wiring steps are needed:
    register_simulation_server(input, output, session)
    ```
 
-2. **ui.R** — splice the simulation tab bodies into the `tabItems(...)` call:
+2. **ui.R** — enable `useShinyFeedback()` and `useShinyjs()` inside `dashboardBody(...)`,
+   and splice the simulation tab bodies into the `tabItems(...)` call:
    ```r
    source("simulation/simulation_ui.R", local = TRUE)
-   # Then inside tabItems(...), add:
+   # Inside dashboardBody(...), before tabItems(...):
+   useShinyFeedback(),
+   useShinyjs(),
+   # Inside tabItems(...), add:
    do.call(tabItems, c(list(<existing tabItem calls>), simulation_tab_items()))
    ```
    Or simply add `simulation_tab_items()` items directly inside `tabItems(...)`.
@@ -47,10 +51,10 @@ Three wiring steps are needed:
 
 Reviving requires installing:
 ```r
-install.packages(c("simmer", "igraph"))
+install.packages(c("simmer", "igraph", "shinyjs", "shinyFeedback", "shinyBS"))
 ```
-These packages were removed from `global.R` in plan 010 to speed up app startup.
-The conflict preferences for igraph/simmer also moved into `simulation_server.R`.
+These packages were removed from `global.R` to speed up app startup.
+The conflict preferences for `igraph`, `simmer`, and `shinyjs` live in `simulation_server.R`.
 
 ## Honesty caveat
 
