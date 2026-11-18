@@ -1815,43 +1815,41 @@ shinyServer(function(input, output, session) {
   
   ### Municipal ----
   
-  # Create a reactive expression to hold unique regions
   unique_regions <- unique(df_long_municipal$statistical_region)
   
-  # Update the choices for both select inputs
   updateSelectInput(session, "region1", 
                     choices = unique_regions,
                     selected = unique_regions[1])
   
-  # Update the choice for the type of waste
   updateSelectInput(session, "waste_type", 
                     choices = unique(df_long_municipal$type_of_waste),
                     selected = unique(df_long_municipal$type_of_waste)[1])
   
-  # Update the number of top municipalities
   updateNumericInput(session, "top_n_municipal", 
                      min = 1, 
-                     max = 10, # max = unique(df_long_municipal$name_of_municipality), 
+                     max = 10,
                      value = 5)
   
-  # Reactive expression to filter data based on selected regions and top n municipalities
   filtered_municipal_data <- reactive({
-    req(input$region1, input$top_n_municipal)
-    top_municipalities <- df_long_municipal |>
-      filter(statistical_region %in% c(input$region1, input$region2) &
-               type_of_waste == input$waste_type) |>
+    req(input$region1, input$waste_type, input$top_n_municipal)
+    req(is.numeric(input$top_n_municipal), is.finite(input$top_n_municipal), input$top_n_municipal >= 1)
+    top_n <- floor(input$top_n_municipal)
+
+    region_waste_data <- df_long_municipal |>
+      filter(
+        statistical_region %in% input$region1,
+        type_of_waste == input$waste_type
+      )
+
+    top_municipalities <- region_waste_data |>
       group_by(name_of_municipality) |>
       summarize(total_collected = sum(total_collected, na.rm = TRUE), .groups = "drop") |>
-      arrange(desc(total_collected)) |>
-      slice_max(order_by = total_collected, n = input$top_n_municipal, with_ties = FALSE)  # Select top n municipalities
-    
-    df_long_municipal |>
-      filter(name_of_municipality %in% top_municipalities$name_of_municipality &
-               statistical_region %in% c(input$region1, input$region2) &
-               type_of_waste == input$waste_type)
+      slice_max(order_by = total_collected, n = top_n, with_ties = FALSE)
+
+    region_waste_data |>
+      filter(name_of_municipality %in% top_municipalities$name_of_municipality)
   })
   
-  # Compute the municipality that collected the most waste
   output$maxWasteMunicipality <- renderInfoBox({
     max_municipality <- filtered_municipal_data() |>
       group_by(name_of_municipality) |>
@@ -2194,20 +2192,30 @@ shinyServer(function(input, output, session) {
     }
   })
   
-  # Update input choices
   observe({
     data <- trt_storage_data
+    regions <- unique(na.omit(data$statistical_region))
+    default_region <- if ("OSREDNJESLOVENSKA" %in% regions) {
+      "OSREDNJESLOVENSKA"
+    } else if (length(regions) > 0L) {
+      regions[1]
+    } else {
+      NULL
+    }
+    region_waste_types <- unique(na.omit(data$type_of_waste[data$statistical_region %in% default_region]))
+    default_waste <- if (length(region_waste_types) > 0L) region_waste_types[1] else NULL
+
     updateSelectizeInput(
       session,
       "waste_type_trt_storage",
       choices = unique(data$type_of_waste),
-      selected = "Other Wood Waste"
+      selected = default_waste
     )
     updateSelectizeInput(
       session,
       "region_trt_storage",
-      choices = unique(data$statistical_region),
-      selected = "OSREDNJESLOVENSKA"
+      choices = regions,
+      selected = default_region
     )
   })
   
@@ -2262,7 +2270,7 @@ shinyServer(function(input, output, session) {
         arrange(year)
     }, error = function(e) {
       showNotification(
-        "Error summarizing data for plot.",
+        paste("Error summarizing data for plot:", conditionMessage(e)),
         type = "error"
       )
       return(NULL)
@@ -2272,7 +2280,6 @@ shinyServer(function(input, output, session) {
       return(NULL)
     }
     
-    # Create the line plot with start and end year data
     t <- ggplot(yearly_data, aes(x = year)) +
       geom_point(aes(y = total_start, color = "Start of Year")) +
       geom_point(aes(y = total_end, color = "End of Year")) +
@@ -2725,44 +2732,30 @@ shinyServer(function(input, output, session) {
     })
   })
   
-  # Observe and update the top_n_trt_municipal slider dynamically based on the selected year range
-  observe({
-    filtered_data <- trt_municipal_waste_received_data |>
-      filter(year >= input$year_range_trt_municipal[1] & year <= input$year_range_trt_municipal[2])
-    
-    # Summarize total waste by municipality for the selected year range
-    total_waste_by_municipality <- filtered_data |>
+  trt_municipal_by_year <- reactive({
+    yr <- input$year_range_trt_municipal
+    req(length(yr) == 2L, all(!is.na(yr)))
+
+    trt_municipal_waste_received_data |>
+      filter(year >= yr[1], year <= yr[2]) |>
       group_by(year, name_of_municipality) |>
-      summarise(total_waste = sum(waste_collected_by_municipality, na.rm = TRUE),
-                .groups = "drop") |>
-      ungroup()
-    
-    # Get the top municipalities by total waste for the selected year range
-    top_municipalities <- total_waste_by_municipality |>
-      group_by(name_of_municipality) |>
-      summarise(total_waste = sum(total_waste, na.rm = TRUE),
-                .groups = "drop") |>
-      arrange(desc(total_waste))
-    
-    # Update top_n_trt_municipal slider with the maximum number of municipalities in the filtered range
-    num_municipalities <- nrow(top_municipalities)
+      summarise(
+        total_waste = sum(waste_collected_by_municipality, na.rm = TRUE),
+        .groups = "drop"
+      )
+  })
+
+  observe({
+    num_municipalities <- n_distinct(trt_municipal_by_year()$name_of_municipality)
+    req(num_municipalities > 0L)
     updateSliderInput(session, "top_n_trt_municipal", max = num_municipalities)
   })
-  
-  # Render trend plot
+
   output$trendPlot <- renderPlotly({
-    # Filter data based on selected year range
-    filtered_data <- trt_municipal_waste_received_data |>
-      filter(year >= input$year_range_trt_municipal[1] & year <= input$year_range_trt_municipal[2])
-    
-    # Summarize total waste by municipality and year
-    total_waste_by_municipality <- filtered_data |>
-      group_by(year, name_of_municipality) |>
-      summarise(total_waste = sum(waste_collected_by_municipality, na.rm = TRUE),
-                .groups = "drop") |>
-      ungroup()
-    
-    # Get the top N municipalities for the selected range
+    req(input$top_n_trt_municipal, is.numeric(input$top_n_trt_municipal), input$top_n_trt_municipal >= 1)
+    total_waste_by_municipality <- trt_municipal_by_year()
+    req(nrow(total_waste_by_municipality) > 0L)
+
     top_municipalities <- total_waste_by_municipality |>
       group_by(name_of_municipality) |>
       summarise(total_waste = sum(total_waste),
@@ -2770,12 +2763,10 @@ shinyServer(function(input, output, session) {
       arrange(desc(total_waste)) |>
       head(input$top_n_trt_municipal) |>
       pull(name_of_municipality)
-    
-    # Filter the dataset for the top N municipalities
+
     filtered_data <- total_waste_by_municipality |>
       filter(name_of_municipality %in% top_municipalities)
-    
-    # Create plot
+
     trend_plot <- ggplot(filtered_data,
                          aes(x = year, y = total_waste, color = name_of_municipality)) +
       geom_point() +
@@ -2785,11 +2776,11 @@ shinyServer(function(input, output, session) {
       labs(x = "Year", 
            y = "Waste Collected (tons)", 
            color = "Municipality")
-    
+
     ggplotly(trend_plot) |>
       config(
         toImageButtonOptions = list(
-          format = 'svg', # one of png, svg, jpeg, webp
+          format = 'svg',
           filename = 'trt_municipal_waste_received_trend',
           width = 1080,
           scale = 2
