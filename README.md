@@ -68,7 +68,7 @@ The main objective is to understand the differences in data availability and str
 
 3. **Companies Collecting and Processing Waste**
    - Identify companies responsible for the collection and processing of the waste (up to 2019).
-   
+
 4. **Waste Processing and Usage**
    - Analyze how the waste is processed and utilized.
 
@@ -119,23 +119,48 @@ These files are part of a Shiny app designed for Wood Waste Management Simulatio
 
 - **R and RStudio**: For data analysis and visualization.
 
+Packages are grouped by the component that loads them. Each component installs and loads its own dependencies on first run (the `.qmd` files via an `install_and_load` helper; the dashboard via the `library()` calls in `global.R`).
+
+### Cleaning pipeline (`green-up-project.qmd`)
+
 - **tidyverse**: For data manipulation and analysis.
-- **gt**: For creating beautiful tables.
-- **gtExtras**: For enhancing gt tables.
-- **readxl**: For reading Excel files.
-- **ggplot2**: For data visualization.
-- **purrr**: For functional programming and iteration.
+- **readxl**: For reading the raw SURS Excel files.
 - **openxlsx**: For writing Excel files.
+- **gt** / **gtExtras**: For creating and enhancing tables.
+- **purrr**: For functional programming and iteration.
+- **ggplot2**: For data visualization.
 - **scales**: For scaling and formatting data in visualizations.
 - **rlang**: For enhanced programming capabilities in R.
+
+### Analysis pipeline (`analysis.qmd`)
+
+- **tidyverse**, **ggplot2**, **scales**, **reshape2**: For data manipulation and plotting.
+- **viridis**: For colour scales.
+- **gganimate** / **ggridges**: For animated and ridgeline plots.
+- **plotly** / **htmlwidgets**: For interactive charts and exporting widgets.
+- **echarts4r** / **echarts4r.maps** (GitHub: `JohnCoene/echarts4r.maps`): For interactive maps and charts.
+- **networkD3**: For interactive sankey diagrams.
+- **skimr**: For quick data summaries.
+- **webshot2**: For capturing static images of widgets.
+
+### Simulation prototype (`waste-simulation.qmd`)
+
+- **simmer** / **simmer.bricks** / **simmer.plot**: For discrete-event simulation of waste flows.
+- **lpSolve**: For linear-programming optimisation.
+- **dplyr**, **ggplot2**, **paletteer**, **parallel**: For wrangling, plotting, palettes, and parallel runs.
+
+### Dashboard (`Interface/Visualization/`)
+
 - **shiny**: For building the interactive web dashboard.
 - **shinydashboard**: For the dashboard layout and UI components.
+- **bslib**: For theming and Bootstrap-based UI customization.
+- **shinyjs** / **shinyFeedback** / **shinyBS**: For client-side behaviour, input validation feedback, and Bootstrap components (tooltips/popovers).
 - **plotly**: For interactive plots and charts.
 - **DT**: For interactive data tables.
 - **sf**: For spatial data handling and map visualizations.
-- **simmer**: For discrete-event simulation of waste flows.
-- **igraph**: For network graph computations.
-- **bslib**: For theming and Bootstrap-based UI customization.
+- **conflicted**: For explicit handling of function-name conflicts between packages.
+- **dplyr**, **tidyr**, **readr**, **stringr**, **stringi**, **forcats**, **ggplot2**, **scales**, **reshape2**: For data wrangling, reading the combined CSVs, and plotting.
+- **RColorBrewer**: For colour palettes.
 
 ## Data Notes
 
