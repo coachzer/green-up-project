@@ -153,8 +153,6 @@ Packages are grouped by the component that loads them. Each component installs a
 
 - **shiny**: For building the interactive web dashboard.
 - **shinydashboard**: For the dashboard layout and UI components.
-- **bslib**: For theming and Bootstrap-based UI customization.
-- **shinyjs** / **shinyFeedback** / **shinyBS**: For client-side behaviour, input validation feedback, and Bootstrap components (tooltips/popovers).
 - **plotly**: For interactive plots and charts.
 - **DT**: For interactive data tables.
 - **sf**: For spatial data handling and map visualizations.
